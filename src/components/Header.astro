@@ -1,0 +1,29 @@
+---
+const navItems = [
+  { label: "O mnie", href: "#o-mnie" },
+  { label: "Makijaż permanentny", href: "#makijaz-permanentny" },
+  { label: "Silky Hairstroke Brows", href: "#silky" },
+  { label: "Szkolenia", href: "#szkolenia" },
+  { label: "Efekty", href: "#efekty" },
+  { label: "Kontakt", href: "#kontakt" }
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label="Bogusława Herda - strona główna">
+      <span class="brand-name">Bogusława Herda</span>
+      <span class="brand-subtitle">Makijaż permanentny</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Główna nawigacja">
+      {navItems.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <a class="header-cta" href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala" target="_blank" rel="noopener noreferrer">
+      Umów wizytę
+    </a>
+  </div>
+</header>
