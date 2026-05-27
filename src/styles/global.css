@@ -793,7 +793,7 @@ img {
     position: absolute;
     z-index: 6;
     right: -286px;
-    bottom: -38px;
+    bottom: -20px;
     width: 1160px;
     min-height: 820px;
     overflow: visible;
@@ -802,7 +802,7 @@ img {
   .hero-portrait {
     position: absolute;
     right: 0;
-    bottom: -92px;
+    bottom: -74px;
     width: 860px;
     height: 930px;
     margin: 0;
@@ -934,19 +934,19 @@ img {
   .hero-visual {
     position: absolute;
     z-index: 6;
-    right: -235px;
-    bottom: -6px;
-    width: 860px;
-    min-height: 740px;
+    right: -250px;
+    bottom: -18px;
+    width: 820px;
+    min-height: 720px;
     overflow: visible;
   }
 
   .hero-portrait {
     position: absolute;
     right: 0;
-    bottom: -52px;
-    width: 710px;
-    height: 800px;
+    bottom: -66px;
+    width: 675px;
+    height: 765px;
     margin: 0;
     object-fit: contain;
     object-position: right bottom;
@@ -995,97 +995,32 @@ img {
   }
 }
 
-/* SMARTFON - bez zdjęcia w hero */
-
-@media (max-width: 560px) {
+@media (max-width: 430px) {
   .hero-section-home {
-    min-height: auto;
-    padding-top: 112px;
-  }
-
-  .hero-grid {
-    display: block;
-    min-height: auto;
-  }
-
-  .hero-copy {
-    max-width: 100%;
-    padding: 0 0 48px;
+    min-height: 822px;
   }
 
   .hero-copy h1 {
-    max-width: 100%;
-    font-size: clamp(3.1rem, 15vw, 4.6rem);
-    line-height: 0.92;
-    letter-spacing: -0.05em;
+    font-size: clamp(2.95rem, 15.8vw, 4.25rem);
   }
 
   .hero-person {
-    max-width: 100%;
-    margin-top: 22px;
-  }
-
-  .hero-person strong {
-    font-size: 1.02rem;
-  }
-
-  .hero-person p {
-    font-size: 0.9rem;
-    line-height: 1.45;
-  }
-
-  .signature {
-    margin: 18px 0 24px;
-    font-size: clamp(3rem, 13vw, 4.2rem);
-  }
-
-  .signature::after {
-    display: none;
+    max-width: 56%;
   }
 
   .hero-actions {
-    max-width: 100%;
-    gap: 12px;
-  }
-
-  .button-primary,
-  .button-secondary {
-    width: 100%;
-    min-height: 52px;
-    font-size: 0.74rem;
+    max-width: 56%;
   }
 
   .hero-visual {
-    display: none;
+    right: -266px;
+    bottom: -20px;
+    width: 790px;
   }
 
-  .hero-bg-glow-one {
-    right: -10rem;
-    top: 4rem;
-    width: 28rem;
-    height: 28rem;
-  }
-
-  .hero-bg-glow-two {
-    right: 2rem;
-    top: 12rem;
-    width: 16rem;
-    height: 16rem;
-  }
-
-  .hero-bg-curve-one {
-    right: -10rem;
-    bottom: -8rem;
-    width: 30rem;
-    height: 22rem;
-    border-width: 18px;
-  }
-
-  .hero-bg-curve-two {
-    right: 0;
-    top: 12rem;
-    width: 18rem;
-    height: 14rem;
-    border-width: 12px;
+  .hero-portrait {
+    width: 660px;
+    height: 745px;
+    bottom: -64px;
   }
 }
