@@ -629,33 +629,87 @@ img {
   gap: 34px;
   align-items: center;
   min-height: auto;
+  color: #ffffff;
   background:
-    linear-gradient(145deg, rgba(219, 246, 243, 0.88), rgba(255, 255, 255, 0.92)),
-    rgba(255, 255, 255, 0.88);
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+    radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+    linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+  background-size: 100% 100%, 100% 100%, 240% 240%;
+  animation: silky-surface-flow 12s ease-in-out infinite alternate;
   border-color: rgba(56, 187, 181, 0.34);
+  box-shadow: 0 28px 74px rgba(35, 156, 150, 0.24);
+}
+
+.service-tile-feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 4px solid rgba(255, 255, 255, 0.28);
+  pointer-events: none;
 }
 
 .service-tile-feature::after {
-  right: -84px;
-  top: -84px;
-  width: 220px;
-  height: 220px;
-  background: rgba(255, 255, 255, 0.58);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+  transform: translateX(-72%);
+  animation: silky-panel-shine 7.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.service-tile-feature > * {
+  position: relative;
+  z-index: 2;
 }
 
 .service-tile-feature span {
   margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .service-tile-feature h3 {
   font-size: clamp(2.25rem, 3.6vw, 4rem);
   font-weight: 740;
+  color: #ffffff;
+}
+
+.service-tile-feature p {
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .service-tile-small {
   min-height: 220px;
 }
 
+
+
+@keyframes silky-panel-shine {
+  0% {
+    transform: translateX(-72%);
+    opacity: 0.28;
+  }
+
+  45% {
+    opacity: 0.88;
+  }
+
+  100% {
+    transform: translateX(88%);
+    opacity: 0.28;
+  }
+}
+
+@keyframes silky-surface-flow {
+  0% {
+    background-position: 0% 50%, 0% 50%, 0% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%, 0% 50%, 100% 50%;
+  }
+}
 
 /* PROCESS */
 
@@ -1766,7 +1820,9 @@ img {
   .master-authority-panel,
   .master-authority-panel::before,
   .ltl-mentor-card,
-  .ltl-mentor-card::before {
+  .ltl-mentor-card::before,
+  .service-tile-feature,
+  .service-tile-feature::after {
     animation: none;
   }
 }
