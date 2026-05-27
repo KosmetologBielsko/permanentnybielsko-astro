@@ -460,6 +460,7 @@ img {
 .process-section,
 .master-authority-section,
 .longtime-section,
+.training-section,
 .international-section,
 .results-section,
 .mission-section,
@@ -1274,6 +1275,286 @@ img {
   100% {
     background-position: 0% 50%, 0% 50%, 0% 50%, 100% 50%;
   }
+}
+
+
+
+/* TRAINING PREMIUM */
+
+.training-premium-section {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.14), transparent 28rem),
+    radial-gradient(circle at 88% 78%, rgba(201, 127, 143, 0.1), transparent 27rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(240, 253, 251, 0.42), rgba(255, 247, 250, 0.64));
+}
+
+.training-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+  gap: 18px;
+  align-items: stretch;
+  margin-bottom: 18px;
+}
+
+.training-heading-card,
+.training-master-card,
+.training-path-card,
+.training-detail-card,
+.training-list-card,
+.training-cta-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 38px;
+  border: 1px solid rgba(56, 187, 181, 0.18);
+  box-shadow: 0 18px 54px rgba(35, 156, 150, 0.08);
+}
+
+.training-heading-card {
+  padding: clamp(36px, 5vw, 66px);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(56, 187, 181, 0.15), transparent 17rem),
+    rgba(255, 255, 255, 0.82);
+}
+
+.training-heading-card h2 {
+  max-width: 960px;
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(2.55rem, 4.8vw, 5rem);
+  font-weight: 740;
+  line-height: 0.94;
+  letter-spacing: -0.08em;
+  color: var(--color-text);
+}
+
+.training-heading-card p:not(.section-kicker) {
+  max-width: 800px;
+  margin: 24px 0 0;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.training-master-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 360px;
+  padding: clamp(32px, 4vw, 52px);
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 12rem),
+    radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+    linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+  background-size: 100% 100%, 100% 100%, 240% 240%;
+  animation: silky-surface-flow 13s ease-in-out infinite alternate;
+  box-shadow:
+    0 28px 76px rgba(35, 156, 150, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.16) inset;
+}
+
+.training-master-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+  transform: translateX(-72%);
+  animation: silky-panel-shine 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.training-master-label {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 auto;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: clamp(4.5rem, 7vw, 7.8rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.09em;
+}
+
+.training-master-card h3 {
+  position: relative;
+  z-index: 2;
+  margin: 38px 0 0;
+  font-size: clamp(2rem, 3vw, 3.1rem);
+  font-weight: 740;
+  line-height: 0.96;
+  letter-spacing: -0.075em;
+}
+
+.training-master-card p:not(.training-master-label) {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.training-path-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.training-path-card {
+  min-height: 285px;
+  padding: 30px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(240, 253, 251, 0.7));
+}
+
+.training-path-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 4px solid rgba(56, 187, 181, 0.34);
+  pointer-events: none;
+}
+
+.training-path-card::after {
+  content: "";
+  position: absolute;
+  right: -58px;
+  top: -58px;
+  width: 138px;
+  height: 138px;
+  border-radius: 999px;
+  background: rgba(219, 246, 243, 0.72);
+  pointer-events: none;
+}
+
+.training-path-card-turquoise {
+  background:
+    linear-gradient(145deg, rgba(219, 246, 243, 0.88), rgba(255, 255, 255, 0.92));
+  border-color: rgba(56, 187, 181, 0.3);
+}
+
+.training-path-card span {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  margin-bottom: 48px;
+  color: var(--color-turquoise-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.training-path-card h3 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: clamp(1.55rem, 2vw, 2.2rem);
+  font-weight: 740;
+  line-height: 1;
+  letter-spacing: -0.065em;
+}
+
+.training-path-card p {
+  position: relative;
+  z-index: 2;
+  margin: 14px 0 0;
+  color: var(--color-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.training-detail-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.78fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.training-detail-card {
+  padding: clamp(32px, 4vw, 52px);
+  background:
+    radial-gradient(circle at 92% 22%, rgba(56, 187, 181, 0.14), transparent 16rem),
+    rgba(255, 255, 255, 0.82);
+}
+
+.training-detail-card h3 {
+  margin: 0;
+  font-size: clamp(2.2rem, 3.4vw, 4rem);
+  font-weight: 740;
+  line-height: 0.96;
+  letter-spacing: -0.075em;
+}
+
+.training-detail-card p:not(.section-kicker) {
+  margin: 18px 0 0;
+  color: var(--color-muted);
+  font-size: 1.02rem;
+}
+
+.training-list-card {
+  display: grid;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.training-list-card div {
+  padding: 24px;
+  border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+}
+
+.training-list-card div:last-child {
+  border-bottom: 0;
+}
+
+.training-list-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 740;
+  letter-spacing: -0.04em;
+}
+
+.training-list-card span {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.training-cta-card {
+  margin-top: 18px;
+  padding: clamp(32px, 4vw, 54px);
+  background:
+    radial-gradient(circle at 92% 20%, rgba(218, 174, 88, 0.16), transparent 15rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(219, 246, 243, 0.55));
+  text-align: center;
+}
+
+.training-cta-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 4px solid rgba(218, 174, 88, 0.42);
+  pointer-events: none;
+}
+
+.training-cta-card h3 {
+  position: relative;
+  z-index: 2;
+  max-width: 920px;
+  margin: 0 auto;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  font-weight: 740;
+  line-height: 0.98;
+  letter-spacing: -0.075em;
+}
+
+.training-cta-card p {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 18px auto 0;
+  color: var(--color-muted);
+  font-size: 1rem;
 }
 
 
@@ -2337,6 +2618,8 @@ img {
   .longtime-grid,
   .master-authority-grid,
   .ltl-grid,
+  .training-hero-grid,
+  .training-detail-row,
   .international-hero-grid,
   .results-hero-grid,
   .results-feature-row,
@@ -2350,6 +2633,7 @@ img {
 
   .master-proof-grid,
   .ltl-values-grid,
+  .training-path-grid,
   .international-city-grid,
   .results-gallery-grid,
   .mission-support-grid {
@@ -2486,6 +2770,7 @@ img {
   .process-steps-grid,
   .master-proof-grid,
   .ltl-values-grid,
+  .training-path-grid,
   .international-city-grid,
   .results-gallery-grid,
   .mission-support-grid,
@@ -2619,6 +2904,28 @@ img {
     margin-bottom: 34px;
   }
 
+  .training-heading-card,
+  .training-master-card,
+  .training-path-card,
+  .training-detail-card,
+  .training-list-card,
+  .training-cta-card {
+    border-radius: 28px;
+  }
+
+  .training-master-card {
+    min-height: 320px;
+  }
+
+  .training-path-card {
+    min-height: auto;
+    padding: 26px;
+  }
+
+  .training-path-card span {
+    margin-bottom: 34px;
+  }
+
   .authority-grid div {
     border-right: 0;
     border-bottom: 1px solid rgba(183, 101, 118, 0.12);
@@ -2633,6 +2940,7 @@ img {
   .process-section,
   .master-authority-section,
   .longtime-section,
+  .training-section,
   .international-section,
   .results-section,
   .mission-section,
