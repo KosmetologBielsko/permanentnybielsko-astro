@@ -1342,13 +1342,14 @@ img {
   padding: clamp(32px, 4vw, 52px);
   color: #ffffff;
   background:
-    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 12rem),
-    radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-    linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
-  background-size: 100% 100%, 100% 100%, 240% 240%;
-  animation: silky-surface-flow 13s ease-in-out infinite alternate;
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+    radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
+    radial-gradient(circle at 24% 82%, rgba(56, 187, 181, 0.13), transparent 12rem),
+    linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 240% 240%;
+  animation: training-gold-surface-flow 14s ease-in-out infinite alternate;
   box-shadow:
-    0 28px 76px rgba(35, 156, 150, 0.24),
+    0 28px 76px rgba(125, 95, 45, 0.24),
     0 0 0 1px rgba(255, 255, 255, 0.16) inset;
 }
 
@@ -1357,9 +1358,9 @@ img {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.26) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
   transform: translateX(-72%);
-  animation: silky-panel-shine 8s ease-in-out infinite;
+  animation: training-gold-panel-shine 8.5s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -1557,6 +1558,33 @@ img {
   font-size: 1rem;
 }
 
+
+
+@keyframes training-gold-panel-shine {
+  0% {
+    transform: translateX(-72%);
+    opacity: 0.28;
+  }
+
+  45% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateX(88%);
+    opacity: 0.28;
+  }
+}
+
+@keyframes training-gold-surface-flow {
+  0% {
+    background-position: 0% 50%, 0% 50%, 0% 50%, 0% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%, 0% 50%, 0% 50%, 100% 50%;
+  }
+}
 
 /* INTERNATIONAL PREMIUM */
 
