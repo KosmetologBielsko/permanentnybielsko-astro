@@ -57,15 +57,21 @@ import Footer from "../components/Footer.astro";
           </div>
 
           <div class="hero-visual" aria-label="Bogusława Herda - makijaż permanentny Bielsko-Biała">
-            <img
-              class="hero-portrait"
-              src="/images/hero-boguslawa-herda-pmu-cutout.webp"
-              alt="Bogusława Herda - makijaż permanentny Bielsko-Biała, trenerka Long-Time-Liner"
-              width="1024"
-              height="1536"
-              loading="eager"
-              decoding="async"
-            />
+            <picture>
+              <source
+                srcset="/images/hero-boguslawa-herda-pmu-mobile-cutout.webp"
+                media="(max-width: 760px)"
+              />
+              <img
+                class="hero-portrait"
+                src="/images/hero-boguslawa-herda-pmu-cutout.webp"
+                alt="Bogusława Herda - makijaż permanentny Bielsko-Biała, trenerka Long-Time-Liner"
+                width="1024"
+                height="1536"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
       </section>
@@ -116,7 +122,6 @@ import Footer from "../components/Footer.astro";
               W mojej pracy nie chodzi o stworzenie nowej twarzy. Chodzi o wydobycie tej prawdziwej —
               spokojniejszej, bardziej harmonijnej i subtelnie podkreślonej.
             </p>
-
             <p>
               Makijaż permanentny powinien wyglądać naturalnie: jak miękka linia, właściwy odcień,
               lepsza proporcja i świeżość, która nie dominuje nad urodą.
@@ -256,7 +261,7 @@ import Footer from "../components/Footer.astro";
         </div>
       </section>
 
-      <section class="cta-section" id="kontakt">
+      <section class="cta-section">
         <div class="container cta-card">
           <p class="signature cta-signature">Powrót do natury</p>
           <h2>Chcesz sprawdzić, jaki makijaż permanentny będzie najlepszy dla Ciebie?</h2>
@@ -264,7 +269,6 @@ import Footer from "../components/Footer.astro";
             Umów konsultację i zobacz, jak może wyglądać naturalny efekt dopasowany do Twojej urody,
             skóry i codzienności.
           </p>
-
           <a
             class="button-primary"
             href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala"
