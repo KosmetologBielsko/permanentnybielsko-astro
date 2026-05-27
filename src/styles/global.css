@@ -802,9 +802,11 @@ img {
   min-height: 360px;
   color: #ffffff;
   background:
-    radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.28), transparent 13rem),
-    linear-gradient(145deg, #1f2327, #40454b 46%, #141619);
-  box-shadow: 0 26px 70px rgba(32, 35, 39, 0.18);
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+    radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
+    linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%);
+  background-size: 100% 100%, 100% 100%, 220% 220%;
+  box-shadow: 0 26px 70px rgba(125, 95, 45, 0.22);
 }
 
 .master-authority-panel::before {
@@ -812,9 +814,9 @@ img {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.14) 42%, transparent 58%);
+    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.24) 42%, transparent 58%);
   transform: translateX(-60%);
-  animation: panel-shine 8s linear infinite;
+  animation: gold-panel-shine 8s linear infinite;
 }
 
 .master-authority-panel::after {
@@ -825,14 +827,14 @@ img {
   width: 220px;
   height: 220px;
   border-radius: 999px;
-  background: rgba(56, 187, 181, 0.22);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .panel-number {
   position: relative;
   z-index: 2;
   margin: 0 0 auto;
-  color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 248, 230, 0.22);
   font-size: clamp(4.5rem, 7vw, 7.8rem);
   font-weight: 800;
   line-height: 0.8;
@@ -854,11 +856,11 @@ img {
   z-index: 2;
   max-width: 520px;
   margin: 18px 0 0;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 1rem;
 }
 
-@keyframes panel-shine {
+@keyframes gold-panel-shine {
   0% {
     transform: translateX(-70%);
   }
@@ -1474,7 +1476,8 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-person p {
+  .hero-person p,
+  .master-authority-panel::before {
     animation: none;
   }
 }
