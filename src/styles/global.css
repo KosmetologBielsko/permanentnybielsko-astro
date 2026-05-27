@@ -793,7 +793,7 @@ img {
     position: absolute;
     z-index: 6;
     right: -286px;
-    bottom: -38px;
+    bottom: -20px;
     width: 1160px;
     min-height: 820px;
     overflow: visible;
@@ -802,7 +802,7 @@ img {
   .hero-portrait {
     position: absolute;
     right: 0;
-    bottom: -92px;
+    bottom: -74px;
     width: 860px;
     height: 930px;
     margin: 0;
@@ -934,19 +934,19 @@ img {
   .hero-visual {
     position: absolute;
     z-index: 6;
-    right: -235px;
-    bottom: -6px;
-    width: 860px;
-    min-height: 740px;
+    right: -250px;
+    bottom: -18px;
+    width: 820px;
+    min-height: 720px;
     overflow: visible;
   }
 
   .hero-portrait {
     position: absolute;
     right: 0;
-    bottom: -52px;
-    width: 710px;
-    height: 800px;
+    bottom: -66px;
+    width: 675px;
+    height: 765px;
     margin: 0;
     object-fit: contain;
     object-position: right bottom;
@@ -997,31 +997,30 @@ img {
 
 @media (max-width: 430px) {
   .hero-section-home {
-    min-height: 826px;
+    min-height: 822px;
   }
 
   .hero-copy h1 {
-    max-width: 100%;
     font-size: clamp(2.95rem, 15.8vw, 4.25rem);
   }
 
   .hero-person {
-    max-width: 58%;
+    max-width: 56%;
   }
 
   .hero-actions {
-    max-width: 58%;
+    max-width: 56%;
   }
 
   .hero-visual {
-    right: -205px;
-    bottom: 18px;
-    width: 860px;
+    right: -266px;
+    bottom: -20px;
+    width: 790px;
   }
 
   .hero-portrait {
-    width: 720px;
-    height: 810px;
-    bottom: -10px;
+    width: 660px;
+    height: 745px;
+    bottom: -64px;
   }
 }
