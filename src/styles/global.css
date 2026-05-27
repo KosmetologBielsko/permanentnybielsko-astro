@@ -805,7 +805,8 @@ img {
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
     radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
     linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%);
-  background-size: 100% 100%, 100% 100%, 220% 220%;
+  background-size: 100% 100%, 100% 100%, 240% 240%;
+  animation: gold-surface-flow 16s ease-in-out infinite alternate;
   box-shadow: 0 26px 70px rgba(125, 95, 45, 0.22);
 }
 
@@ -814,9 +815,9 @@ img {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.24) 42%, transparent 58%);
-  transform: translateX(-60%);
-  animation: gold-panel-shine 8s linear infinite;
+    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.26) 46%, rgba(255, 255, 255, 0.06) 70%, transparent 100%);
+  transform: translateX(-72%);
+  animation: gold-panel-shine 9s ease-in-out infinite;
 }
 
 .master-authority-panel::after {
@@ -862,11 +863,27 @@ img {
 
 @keyframes gold-panel-shine {
   0% {
-    transform: translateX(-70%);
+    transform: translateX(-72%);
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.95;
   }
 
   100% {
-    transform: translateX(85%);
+    transform: translateX(88%);
+    opacity: 0.3;
+  }
+}
+
+@keyframes gold-surface-flow {
+  0% {
+    background-position: 0% 50%, 0% 50%, 0% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%, 0% 50%, 100% 50%;
   }
 }
 
@@ -1042,6 +1059,8 @@ img {
     radial-gradient(circle at 84% 20%, rgba(255, 219, 231, 0.42), transparent 13rem),
     radial-gradient(circle at 24% 82%, rgba(56, 187, 181, 0.18), transparent 12rem),
     linear-gradient(145deg, #a85772 0%, #d88fa5 38%, #b76580 62%, #7a344b 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 220% 220%;
+  animation: rose-surface-flow 15s ease-in-out infinite alternate;
   box-shadow:
     0 28px 76px rgba(183, 101, 118, 0.24),
     0 0 0 1px rgba(255, 255, 255, 0.16) inset;
@@ -1052,9 +1071,9 @@ img {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.18) 42%, transparent 58%);
-  transform: translateX(-65%);
-  animation: rose-panel-shine 9s linear infinite;
+    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.05) 22%, rgba(255, 255, 255, 0.22) 46%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
+  transform: translateX(-72%);
+  animation: rose-panel-shine 10s ease-in-out infinite;
 }
 
 .ltl-mentor-card h3,
@@ -1701,7 +1720,10 @@ img {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-person p,
-  .master-authority-panel::before {
+  .master-authority-panel,
+  .master-authority-panel::before,
+  .ltl-mentor-card,
+  .ltl-mentor-card::before {
     animation: none;
   }
 }
