@@ -458,6 +458,7 @@ img {
 .philosophy-section,
 .services-section,
 .process-section,
+.master-authority-section,
 .longtime-section,
 .international-section,
 .results-section,
@@ -741,6 +742,217 @@ img {
   color: var(--color-muted);
   font-size: 0.9rem;
   line-height: 1.58;
+}
+
+
+
+/* MASTER AUTHORITY */
+
+.master-authority-section {
+  background:
+    radial-gradient(circle at 15% 16%, rgba(56, 187, 181, 0.12), transparent 28rem),
+    radial-gradient(circle at 86% 76%, rgba(201, 127, 143, 0.12), transparent 27rem),
+    linear-gradient(180deg, rgba(255, 250, 252, 0.72), rgba(255, 255, 255, 0.86));
+}
+
+.master-authority-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.master-authority-heading,
+.master-authority-panel {
+  border-radius: 38px;
+}
+
+.master-authority-heading {
+  padding: clamp(34px, 5vw, 62px);
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(183, 101, 118, 0.16);
+}
+
+.master-authority-heading h2 {
+  max-width: 830px;
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(2.55rem, 4.8vw, 5rem);
+  font-weight: 740;
+  line-height: 0.94;
+  letter-spacing: -0.08em;
+  color: var(--color-text);
+}
+
+.master-authority-heading p:not(.section-kicker) {
+  max-width: 700px;
+  margin: 24px 0 0;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.master-authority-panel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(32px, 4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 360px;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.28), transparent 13rem),
+    linear-gradient(145deg, #1f2327, #40454b 46%, #141619);
+  box-shadow: 0 26px 70px rgba(32, 35, 39, 0.18);
+}
+
+.master-authority-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.14) 42%, transparent 58%);
+  transform: translateX(-60%);
+  animation: panel-shine 8s linear infinite;
+}
+
+.master-authority-panel::after {
+  content: "";
+  position: absolute;
+  right: -82px;
+  top: -82px;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  background: rgba(56, 187, 181, 0.22);
+}
+
+.panel-number {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 auto;
+  color: rgba(255, 255, 255, 0.18);
+  font-size: clamp(4.5rem, 7vw, 7.8rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.09em;
+}
+
+.master-authority-panel h3 {
+  position: relative;
+  z-index: 2;
+  margin: 38px 0 0;
+  font-size: clamp(2rem, 3vw, 3.1rem);
+  font-weight: 740;
+  line-height: 0.96;
+  letter-spacing: -0.075em;
+}
+
+.master-authority-panel p:not(.panel-number) {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
+}
+
+@keyframes panel-shine {
+  0% {
+    transform: translateX(-70%);
+  }
+
+  100% {
+    transform: translateX(85%);
+  }
+}
+
+.master-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+
+.master-proof-card {
+  position: relative;
+  grid-column: span 2;
+  min-height: 265px;
+  padding: 30px;
+  border-radius: 32px;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.93), rgba(255, 250, 252, 0.78));
+  border: 1px solid rgba(183, 101, 118, 0.16);
+  box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+}
+
+.master-proof-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 4px solid rgba(56, 187, 181, 0.34);
+  pointer-events: none;
+}
+
+.master-proof-card::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 145px;
+  height: 145px;
+  border-radius: 999px;
+  background: rgba(219, 246, 243, 0.68);
+}
+
+.master-proof-card-pink::before {
+  border-top-color: rgba(201, 127, 143, 0.34);
+}
+
+.master-proof-card-pink::after {
+  background: rgba(246, 220, 227, 0.76);
+}
+
+.master-proof-card-wide {
+  grid-column: span 3;
+}
+
+.master-proof-card-turquoise {
+  background:
+    linear-gradient(145deg, rgba(219, 246, 243, 0.86), rgba(255, 255, 255, 0.92));
+  border-color: rgba(56, 187, 181, 0.28);
+}
+
+.master-proof-card span {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  margin-bottom: 52px;
+  color: var(--color-turquoise-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.master-proof-card h3 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: clamp(1.6rem, 2vw, 2.25rem);
+  font-weight: 740;
+  line-height: 1;
+  letter-spacing: -0.065em;
+}
+
+.master-proof-card p {
+  position: relative;
+  z-index: 2;
+  margin: 14px 0 0;
+  color: var(--color-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
 
@@ -1039,12 +1251,22 @@ img {
   }
 
   .two-column,
-  .longtime-grid {
+  .longtime-grid,
+  .master-authority-grid {
     grid-template-columns: 1fr;
   }
 
   .process-steps-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .master-proof-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .master-proof-card,
+  .master-proof-card-wide {
+    grid-column: span 1;
   }
 
   .services-tile-grid,
@@ -1170,6 +1392,7 @@ img {
   .authority-grid,
   .services-tile-grid,
   .process-steps-grid,
+  .master-proof-grid,
   .gallery-placeholder,
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1201,6 +1424,25 @@ img {
     margin-bottom: 30px;
   }
 
+  .master-authority-heading,
+  .master-authority-panel,
+  .master-proof-card {
+    border-radius: 28px;
+  }
+
+  .master-authority-panel {
+    min-height: 320px;
+  }
+
+  .master-proof-card {
+    min-height: auto;
+    padding: 26px;
+  }
+
+  .master-proof-card span {
+    margin-bottom: 34px;
+  }
+
   .authority-grid div {
     border-right: 0;
     border-bottom: 1px solid rgba(183, 101, 118, 0.12);
@@ -1213,6 +1455,7 @@ img {
   .philosophy-section,
   .services-section,
   .process-section,
+  .master-authority-section,
   .longtime-section,
   .international-section,
   .results-section,
