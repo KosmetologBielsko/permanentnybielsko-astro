@@ -1038,9 +1038,13 @@ img {
   padding: clamp(32px, 4vw, 52px);
   color: #ffffff;
   background:
-    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.24), transparent 12rem),
-    radial-gradient(circle at 84% 20%, rgba(56, 187, 181, 0.22), transparent 11rem),
-    linear-gradient(145deg, #1e2125, #3a3f45 48%, #141619);
+    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 12rem),
+    radial-gradient(circle at 84% 20%, rgba(255, 219, 231, 0.42), transparent 13rem),
+    radial-gradient(circle at 24% 82%, rgba(56, 187, 181, 0.18), transparent 12rem),
+    linear-gradient(145deg, #a85772 0%, #d88fa5 38%, #b76580 62%, #7a344b 100%);
+  box-shadow:
+    0 28px 76px rgba(183, 101, 118, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.16) inset;
 }
 
 .ltl-mentor-card::before {
@@ -1048,9 +1052,9 @@ img {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.12) 42%, transparent 58%);
+    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.18) 42%, transparent 58%);
   transform: translateX(-65%);
-  animation: panel-shine 9s linear infinite;
+  animation: rose-panel-shine 9s linear infinite;
 }
 
 .ltl-mentor-card h3,
@@ -1061,7 +1065,7 @@ img {
 }
 
 .ltl-mentor-card .section-kicker {
-  color: rgba(219, 246, 243, 0.88);
+  color: rgba(255, 244, 248, 0.92);
 }
 
 .ltl-mentor-card h3 {
@@ -1074,7 +1078,7 @@ img {
 
 .ltl-mentor-card p:not(.section-kicker) {
   margin: 18px 0 0;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .ltl-values-grid {
