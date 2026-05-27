@@ -1858,9 +1858,10 @@ img {
     linear-gradient(145deg, #7f1018 0%, #c42631 26%, #ef6a72 44%, #b11520 62%, #dd4a53 78%, #731018 100%);
   background-size: 100% 100%, 100% 100%, 100% 100%, 220% 220%;
   animation:
-    mission-red-surface-flow 12s ease-in-out infinite alternate,
-    mission-heart-pulse 4.6s ease-in-out infinite;
+    mission-red-surface-flow 8s ease-in-out infinite alternate,
+    mission-heart-pulse 1.9s cubic-bezier(0.35, 0, 0.25, 1) infinite;
   transform-origin: center center;
+  will-change: transform, box-shadow;
   box-shadow:
     0 28px 76px rgba(174, 31, 45, 0.26),
     0 0 0 1px rgba(255, 255, 255, 0.16) inset;
@@ -1886,8 +1887,9 @@ img {
   font-weight: 800;
   line-height: 0.8;
   letter-spacing: -0.08em;
-  animation: mission-heart-symbol-pulse 4.6s ease-in-out infinite;
+  animation: mission-heart-symbol-pulse 1.9s cubic-bezier(0.35, 0, 0.25, 1) infinite;
   transform-origin: center center;
+  will-change: transform, opacity;
 }
 
 .mission-heart-card h3 {
@@ -2037,31 +2039,45 @@ img {
       0 0 0 1px rgba(255, 255, 255, 0.16) inset;
   }
 
-  20% {
+  8% {
+    transform: scale(1.01);
+    box-shadow:
+      0 30px 82px rgba(174, 31, 45, 0.31),
+      0 0 0 1px rgba(255, 255, 255, 0.16) inset;
+  }
+
+  16% {
+    transform: scale(1.022);
+    box-shadow:
+      0 34px 94px rgba(174, 31, 45, 0.38),
+      0 0 0 1px rgba(255, 255, 255, 0.16) inset;
+  }
+
+  24% {
     transform: scale(1.006);
     box-shadow:
-      0 30px 84px rgba(174, 31, 45, 0.30),
+      0 29px 80px rgba(174, 31, 45, 0.28),
       0 0 0 1px rgba(255, 255, 255, 0.16) inset;
   }
 
-  28% {
-    transform: scale(1.012);
+  34% {
+    transform: scale(1.016);
     box-shadow:
-      0 32px 92px rgba(174, 31, 45, 0.34),
+      0 32px 90px rgba(174, 31, 45, 0.34),
       0 0 0 1px rgba(255, 255, 255, 0.16) inset;
   }
 
-  36% {
+  42% {
     transform: scale(1.004);
     box-shadow:
-      0 29px 82px rgba(174, 31, 45, 0.28),
+      0 29px 79px rgba(174, 31, 45, 0.28),
       0 0 0 1px rgba(255, 255, 255, 0.16) inset;
   }
 
-  48% {
-    transform: scale(1.009);
+  60% {
+    transform: scale(1);
     box-shadow:
-      0 31px 88px rgba(174, 31, 45, 0.31),
+      0 28px 76px rgba(174, 31, 45, 0.26),
       0 0 0 1px rgba(255, 255, 255, 0.16) inset;
   }
 }
@@ -2073,24 +2089,34 @@ img {
     opacity: 0.22;
   }
 
-  20% {
-    transform: scale(1.04);
+  8% {
+    transform: scale(1.05);
     opacity: 0.28;
   }
 
-  28% {
-    transform: scale(1.08);
-    opacity: 0.34;
+  16% {
+    transform: scale(1.12);
+    opacity: 0.36;
   }
 
-  36% {
+  24% {
     transform: scale(1.03);
     opacity: 0.26;
   }
 
-  48% {
-    transform: scale(1.06);
-    opacity: 0.31;
+  34% {
+    transform: scale(1.08);
+    opacity: 0.33;
+  }
+
+  42% {
+    transform: scale(1.02);
+    opacity: 0.25;
+  }
+
+  60% {
+    transform: scale(1);
+    opacity: 0.22;
   }
 }
 
