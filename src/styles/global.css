@@ -312,7 +312,7 @@ img {
 
 .hero-person strong {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--color-pink-dark);
   font-size: 1.16rem;
   font-weight: 600;
@@ -320,10 +320,41 @@ img {
 
 .hero-person p {
   margin: 0;
-  color: #5f575b;
   font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.45;
+  font-weight: 700;
+  line-height: 1.42;
+  letter-spacing: -0.03em;
+  background: linear-gradient(
+    105deg,
+    #111214 0%,
+    #4b4e54 16%,
+    #0f1012 33%,
+    #787d84 48%,
+    #23262b 62%,
+    #9aa0a8 74%,
+    #1a1c20 88%,
+    #2f3338 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  animation: metallic-shine 7s linear infinite;
+}
+
+.hero-person p + p {
+  margin-top: 2px;
+}
+
+@keyframes metallic-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 .signature {
@@ -867,8 +898,7 @@ img {
   }
 
   .hero-person p {
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.92rem;
   }
 
   .signature {
@@ -956,18 +986,18 @@ img {
 
   .brand-name {
     font-size: 1.04rem;
-    letter-spacing: 0.1em;
+    letter-spacing: -0.03em;
   }
 
   .brand-subtitle {
     font-size: 0.58rem;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.16em;
   }
 
   .brand-monogram {
     width: 36px;
     min-width: 36px;
-    font-size: 1.72rem;
+    font-size: 1rem;
   }
 
   .header-cta {
@@ -1090,5 +1120,11 @@ img {
   .mission-card h2,
   .cta-card h2 {
     font-size: clamp(2.35rem, 11vw, 3.4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-person p {
+    animation: none;
   }
 }
