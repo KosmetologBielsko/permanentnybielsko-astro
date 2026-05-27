@@ -1055,12 +1055,12 @@ img {
   padding: clamp(32px, 4vw, 52px);
   color: #ffffff;
   background:
-    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 12rem),
-    radial-gradient(circle at 84% 20%, rgba(255, 219, 231, 0.42), transparent 13rem),
-    radial-gradient(circle at 24% 82%, rgba(56, 187, 181, 0.18), transparent 12rem),
-    linear-gradient(145deg, #a85772 0%, #d88fa5 38%, #b76580 62%, #7a344b 100%);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 220% 220%;
-  animation: rose-surface-flow 15s ease-in-out infinite alternate;
+    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.38), transparent 12rem),
+    radial-gradient(circle at 84% 20%, rgba(255, 219, 231, 0.48), transparent 13rem),
+    radial-gradient(circle at 24% 82%, rgba(56, 187, 181, 0.2), transparent 12rem),
+    linear-gradient(135deg, #8f3d58 0%, #cf7f9a 22%, #f1b3c4 42%, #ad5773 58%, #db8fa7 76%, #7a344b 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 260% 260%;
+  animation: rose-surface-flow 9s ease-in-out infinite alternate;
   box-shadow:
     0 28px 76px rgba(183, 101, 118, 0.24),
     0 0 0 1px rgba(255, 255, 255, 0.16) inset;
@@ -1070,10 +1070,26 @@ img {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background:
-    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.05) 22%, rgba(255, 255, 255, 0.22) 46%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
-  transform: translateX(-72%);
-  animation: rose-panel-shine 10s ease-in-out infinite;
+    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.07) 20%, rgba(255, 255, 255, 0.34) 47%, rgba(255, 255, 255, 0.08) 72%, transparent 100%);
+  transform: translateX(-76%);
+  animation: rose-panel-shine 6.5s ease-in-out infinite;
+}
+
+
+.ltl-mentor-card::after {
+  content: "";
+  position: absolute;
+  right: -72px;
+  top: -72px;
+  width: 210px;
+  height: 210px;
+  border-radius: 999px;
+  background: rgba(255, 236, 244, 0.2);
+  filter: blur(2px);
+  pointer-events: none;
 }
 
 .ltl-mentor-card h3,
@@ -1178,6 +1194,33 @@ img {
   line-height: 1.65;
 }
 
+
+
+@keyframes rose-panel-shine {
+  0% {
+    transform: translateX(-76%);
+    opacity: 0.22;
+  }
+
+  45% {
+    opacity: 0.92;
+  }
+
+  100% {
+    transform: translateX(92%);
+    opacity: 0.22;
+  }
+}
+
+@keyframes rose-surface-flow {
+  0% {
+    background-position: 0% 50%, 0% 50%, 0% 50%, 0% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%, 0% 50%, 0% 50%, 100% 50%;
+  }
+}
 
 /* REST */
 
