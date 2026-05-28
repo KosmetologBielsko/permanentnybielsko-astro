@@ -370,7 +370,7 @@ const relatedPages = [
         <div class="container training-remover-grid">
           <div class="training-remover-card">
             <p class="section-kicker">Bye-Bye Pigment Remover</p>
-            <h2>Szkolenie z usuwania niechcianego makijażu permanentnego.</h2>
+            <h2>Szkolenie z usuwania niechcianego PMU.</h2>
             <p>
               Bye-Bye Pigment Remover Long-Time-Liner® to szkolenie dla profesjonalistów PMU,
               którzy chcą pracować ze starym pigmentem odpowiedzialnie, bezpiecznie i zgodnie
@@ -3280,6 +3280,17 @@ const relatedPages = [
     .training-shine-card,
     .training-shine-card::after {
       animation: none !important;
+    }
+  }
+
+
+  /* V14 — mobile correction for Bye-Bye Pigment Remover heading */
+  @media (max-width: 520px) {
+    :global(.training-remover-card h2) {
+      font-size: clamp(1.92rem, 10vw, 2.65rem) !important;
+      line-height: 1.08 !important;
+      letter-spacing: -0.052em !important;
+      max-width: 100% !important;
     }
   }
 
