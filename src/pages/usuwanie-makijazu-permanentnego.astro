@@ -918,4 +918,324 @@ const booksyUrl =
       animation: none;
     }
   }
+
+  /* V2 — ujednolicenie podstrony usuwania PMU ze standardem strony */
+  .removal-page {
+    background:
+      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.11), transparent 28rem),
+      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.10), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%) !important;
+  }
+
+  .removal-hero-copy h1,
+  .removal-two-column h2,
+  .removal-section-heading h2,
+  .removal-safety-card h2,
+  .removal-final-card h2,
+  .removal-hero-card h2,
+  .removal-reason-card h3,
+  .removal-method-grid h3,
+  .removal-related-card h3,
+  .removal-faq-grid h3 {
+    color: var(--color-text) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+  }
+
+  .removal-hero-copy h1 {
+    max-width: 1080px !important;
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .removal-two-column h2,
+  .removal-section-heading h2,
+  .removal-safety-card h2,
+  .removal-final-card h2 {
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .removal-reason-card h3,
+  .removal-method-grid h3,
+  .removal-related-card h3,
+  .removal-faq-grid h3 {
+    line-height: 1.02 !important;
+    letter-spacing: -0.06em !important;
+  }
+
+  .section-kicker,
+  .removal-reason-card span,
+  .removal-method-grid span,
+  .removal-related-card span,
+  .removal-proof-grid span,
+  .removal-card-label {
+    color: var(--color-turquoise-dark) !important;
+    font-weight: 820 !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .removal-hero-lead,
+  .removal-text-card p,
+  .removal-section-heading p,
+  .removal-reason-card p,
+  .removal-method-grid p,
+  .removal-related-card p,
+  .removal-faq-grid p,
+  .removal-list-card span,
+  .removal-final-card p:not(.signature),
+  .removal-hero-card p:not(.removal-card-label) {
+    color: var(--color-muted) !important;
+    font-weight: 450 !important;
+  }
+
+  .removal-hero-card {
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%) !important;
+    background-size: 100% 100%, 100% 100%, 240% 240% !important;
+    animation: removal-turquoise-flow 13s ease-in-out infinite alternate !important;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22) !important;
+  }
+
+  .removal-hero-card h2 {
+    color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
+  }
+
+  .removal-hero-card p:not(.removal-card-label) {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  .removal-card-label {
+    color: rgba(255, 255, 255, 0.18) !important;
+  }
+
+  .removal-hero-copy,
+  .removal-text-card,
+  .removal-safety-card,
+  .removal-list-card,
+  .removal-reason-card,
+  .removal-method-grid article,
+  .removal-related-card,
+  .removal-faq-grid article,
+  .removal-final-card {
+    border-color: rgba(183, 101, 118, 0.14) !important;
+  }
+
+  .removal-text-card,
+  .removal-safety-card,
+  .removal-list-card,
+  .removal-reason-card,
+  .removal-method-grid article,
+  .removal-related-card,
+  .removal-faq-grid article {
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
+  }
+
+  .removal-reason-card::before,
+  .removal-method-grid article::before,
+  .removal-related-card::before {
+    border-top-color: rgba(56, 187, 181, 0.34) !important;
+  }
+
+  .removal-reason-card-rose::before {
+    border-top-color: rgba(201, 127, 143, 0.34) !important;
+  }
+
+  .removal-reason-card::after,
+  .removal-method-grid article::after,
+  .removal-related-card::after {
+    background: rgba(219, 246, 243, 0.68) !important;
+  }
+
+  .removal-reason-card-rose::after {
+    background: rgba(246, 220, 227, 0.76) !important;
+  }
+
+  .removal-related-card-turquoise {
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.16), transparent 14rem),
+      linear-gradient(145deg, rgba(219, 246, 243, 0.86), rgba(255, 255, 255, 0.92)) !important;
+  }
+
+  .removal-proof-section {
+    background: rgba(255, 255, 255, 0.72) !important;
+    border-top-color: rgba(183, 101, 118, 0.10) !important;
+    border-bottom-color: rgba(183, 101, 118, 0.10) !important;
+  }
+
+  .removal-proof-grid strong,
+  .removal-list-card strong {
+    color: var(--color-text) !important;
+    font-weight: 780 !important;
+  }
+
+  .removal-safety-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 24rem),
+      radial-gradient(circle at 90% 72%, rgba(201, 127, 143, 0.08), transparent 24rem),
+      rgba(255, 255, 255, 0.62) !important;
+  }
+
+  .removal-list-card div {
+    border-bottom-color: rgba(56, 187, 181, 0.14) !important;
+  }
+
+  .removal-faq-grid article::before {
+    border-top-color: rgba(201, 127, 143, 0.24) !important;
+  }
+
+  .removal-final-card {
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
+      rgba(255, 255, 255, 0.7) !important;
+  }
+
+  @keyframes removal-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .removal-hero {
+      padding: 112px 0 58px !important;
+    }
+
+    .removal-hero-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.068em !important;
+    }
+
+    .removal-two-column h2,
+    .removal-section-heading h2,
+    .removal-safety-card h2,
+    .removal-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+
+    .removal-hero-card h2 {
+      font-size: clamp(1.85rem, 8.6vw, 2.5rem) !important;
+      line-height: 1.06 !important;
+      letter-spacing: -0.058em !important;
+    }
+
+    .removal-hero-copy,
+    .removal-hero-card,
+    .removal-text-card,
+    .removal-reason-card,
+    .removal-method-grid article,
+    .removal-safety-card,
+    .removal-list-card,
+    .removal-related-card,
+    .removal-faq-grid article,
+    .removal-final-card {
+      border-radius: 28px !important;
+    }
+
+    .removal-reason-card h3,
+    .removal-method-grid h3,
+    .removal-related-card h3,
+    .removal-faq-grid h3 {
+      font-size: clamp(1.45rem, 7.4vw, 2rem) !important;
+      line-height: 1.05 !important;
+      letter-spacing: -0.055em !important;
+    }
+
+    .removal-reason-card span,
+    .removal-method-grid span,
+    .removal-related-card span {
+      margin-bottom: 30px !important;
+    }
+  }
+
+
+  /* V3 — naprawa małych nagłówków sekcji: Najczęstsze powody / Oferta PMU / Najczęstsze pytania */
+  .removal-section-heading > .section-kicker,
+  .removal-two-column > div > .section-kicker,
+  .removal-safety-card > .section-kicker,
+  .removal-final-card > .section-kicker {
+    display: inline-flex !important;
+    width: fit-content !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  .removal-section-heading h2,
+  .removal-two-column h2,
+  .removal-safety-card h2,
+  .removal-final-card h2 {
+    margin: 0 !important;
+    color: var(--color-text, #17151d) !important;
+    -webkit-text-fill-color: var(--color-text, #17151d) !important;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    font-weight: 760 !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .removal-section-heading > p:not(.section-kicker),
+  .removal-two-column p:not(.section-kicker),
+  .removal-safety-card p:not(.section-kicker),
+  .removal-final-card p:not(.section-kicker):not(.signature) {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+    font-weight: 450 !important;
+    line-height: 1.65 !important;
+  }
+
+  .removal-section-heading {
+    max-width: 980px !important;
+    margin-bottom: 38px !important;
+  }
+
+  @media (max-width: 760px) {
+    .removal-section-heading > .section-kicker,
+    .removal-two-column > div > .section-kicker,
+    .removal-safety-card > .section-kicker,
+    .removal-final-card > .section-kicker {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+    }
+
+    .removal-section-heading h2,
+    .removal-two-column h2,
+    .removal-safety-card h2,
+    .removal-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+  }
+
 </style>

@@ -1507,4 +1507,195 @@ const visitRules = [
       transform: none;
     }
   }
+
+  /* V5 — ujednolicenie kontaktu ze standardem strony PMU */
+  .contact-page {
+    background:
+      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.11), transparent 28rem),
+      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.10), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%) !important;
+  }
+
+  .contact-hero-copy h1,
+  .contact-section-heading h2,
+  .contact-location-card h2,
+  .contact-before-card h2,
+  .contact-final-card h2,
+  .contact-hero-card h2,
+  .contact-method-card h3,
+  .contact-offer-card h3,
+  .contact-faq-grid h3 {
+    color: var(--color-text) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .contact-hero-copy h1 {
+    max-width: 1080px !important;
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  .contact-section-heading h2,
+  .contact-location-card h2,
+  .contact-before-card h2,
+  .contact-final-card h2 {
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  .section-kicker,
+  .contact-section-heading .section-kicker,
+  .contact-location-card .section-kicker,
+  .contact-before-card .section-kicker,
+  .contact-final-card .section-kicker,
+  .contact-method-card span,
+  .contact-offer-card span,
+  .contact-proof-grid span {
+    color: var(--color-turquoise-dark) !important;
+    font-weight: 820 !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .contact-hero-lead,
+  .contact-section-heading p,
+  .contact-location-card p,
+  .contact-before-card p,
+  .contact-method-card p,
+  .contact-offer-card p,
+  .contact-faq-grid p,
+  .contact-hero-card p:not(.contact-card-label) {
+    color: var(--color-muted) !important;
+    font-weight: 450 !important;
+  }
+
+  .contact-hero-card {
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%) !important;
+    background-size: 100% 100%, 100% 100%, 240% 240% !important;
+    animation: contact-turquoise-flow 13s ease-in-out infinite alternate !important;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22) !important;
+  }
+
+  .contact-hero-card h2 {
+    color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
+  }
+
+  .contact-hero-card p:not(.contact-card-label) {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  .contact-card-label {
+    color: rgba(255, 255, 255, 0.18) !important;
+  }
+
+  .contact-proof-grid strong,
+  .contact-method-card h3,
+  .contact-offer-card h3,
+  .contact-faq-grid h3 {
+    color: var(--color-text) !important;
+  }
+
+  .contact-method-card,
+  .contact-offer-card,
+  .contact-faq-grid article,
+  .contact-location-card,
+  .contact-hours-card,
+  .contact-before-card,
+  .contact-rules-card {
+    border-color: rgba(183, 101, 118, 0.14) !important;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
+  }
+
+  .contact-method-card::before,
+  .contact-offer-card::before {
+    border-top-color: rgba(56, 187, 181, 0.34) !important;
+  }
+
+  .contact-offer-card-rose::before {
+    border-top-color: rgba(201, 127, 143, 0.34) !important;
+  }
+
+  .contact-social-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 24rem),
+      radial-gradient(circle at 90% 72%, rgba(201, 127, 143, 0.08), transparent 24rem),
+      rgba(255, 255, 255, 0.62) !important;
+  }
+
+  .contact-social-card h3 {
+    font-weight: 760 !important;
+    letter-spacing: -0.06em !important;
+  }
+
+  .contact-social-card span,
+  .contact-social-card strong {
+    letter-spacing: 0.15em !important;
+    font-weight: 780 !important;
+  }
+
+  .contact-final-card {
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
+      rgba(255, 255, 255, 0.7) !important;
+  }
+
+  @keyframes contact-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .contact-hero {
+      padding: 112px 0 58px !important;
+    }
+
+    .contact-hero-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.068em !important;
+    }
+
+    .contact-section-heading h2,
+    .contact-location-card h2,
+    .contact-before-card h2,
+    .contact-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+
+    .contact-hero-card h2 {
+      font-size: clamp(1.85rem, 8.6vw, 2.5rem) !important;
+      line-height: 1.06 !important;
+      letter-spacing: -0.058em !important;
+    }
+
+    .contact-hero-copy,
+    .contact-hero-card,
+    .contact-method-card,
+    .contact-social-card,
+    .contact-location-card,
+    .contact-hours-card,
+    .contact-before-card,
+    .contact-rules-card,
+    .contact-offer-card,
+    .contact-faq-grid article,
+    .contact-final-card {
+      border-radius: 28px !important;
+    }
+  }
+
 </style>
