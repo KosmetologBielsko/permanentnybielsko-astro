@@ -37,29 +37,35 @@ const formalLinks = [
   <div class="container footer-container">
     <section class="footer-top-card" aria-label="Stopka strony">
       <div class="footer-brand">
-        <a class="footer-logo" href="/" aria-label="Bogusława Herda Permanent Makeup — strona główna">
-          <span>BH</span>
+        <p class="footer-eyebrow">Bogusława Herda Makijaż Permanentny</p>
 
-          <strong>
-            Bogusława Herda
-            <em>Permanent Makeup</em>
-          </strong>
-        </a>
-
-        <p class="footer-signature">Powrót do natury</p>
+        <h2>
+          Naturalny PMU,
+          <span>spokojna decyzja</span>
+          i efekt dopasowany do twarzy.
+        </h2>
 
         <p class="footer-description">
-          Makijaż permanentny w centrum Bielska-Białej: naturalne brwi, usta, kreski,
-          usuwanie PMU oraz szkolenia prowadzone przez Bogusława Herda.
+          W gabinecie w centrum Bielska-Białej makijaż permanentny traktujemy jako
+          precyzyjną pracę z urodą, skórą i proporcjami. Brwi, usta, kreski,
+          korekty oraz szkolenia PMU prowadzone są w oparciu o doświadczenie,
+          estetykę i zasadę „Powrót do natury”.
         </p>
+
+        <div class="footer-proof-row" aria-label="Najważniejsze wyróżniki gabinetu">
+          <span>Naturalny efekt</span>
+          <span>Rysunek wstępny</span>
+          <span>Long-Time-Liner®</span>
+          <span>Szkolenia PMU</span>
+        </div>
 
         <div class="footer-actions">
           <a class="footer-primary-link" href={booksyUrl} target="_blank" rel="noopener noreferrer">
             Umów wizytę przez Booksy
           </a>
 
-          <a class="footer-secondary-link" href="/kontakt/">
-            Kontakt i dojazd
+          <a class="footer-secondary-link" href="/makijaz-permanentny-bielsko/">
+            Zobacz ofertę PMU
           </a>
         </div>
       </div>
@@ -67,15 +73,37 @@ const formalLinks = [
       <div class="footer-contact-card">
         <p>Kontakt i lokalizacja</p>
 
-        <a href="tel:+48730900125">+48 730 900 125</a>
-        <a href="mailto:bogusia@permanentnybielsko.com">bogusia@permanentnybielsko.com</a>
+        <h2>Gabinet w centrum Bielska-Białej</h2>
 
-        <address>
-          ul. Barlickiego 5/23<br />
-          43-300 Bielsko-Biała
-        </address>
+        <div class="footer-contact-list">
+          <a href="tel:+48730900125">
+            <span>Telefon</span>
+            +48 730 900 125
+          </a>
 
-        <span>Centrum Bielska-Białej, blisko Galerii Sfera i Ratusza</span>
+          <a href="mailto:bogusia@permanentnybielsko.com">
+            <span>E-mail</span>
+            bogusia@permanentnybielsko.com
+          </a>
+
+          <address>
+            <span>Adres gabinetu</span>
+            ul. Barlickiego 5/23<br />
+            43-300 Bielsko-Biała
+          </address>
+        </div>
+
+        <div class="footer-location-note">
+          <strong>Wygodna lokalizacja</strong>
+          <span>
+            Centrum Bielska-Białej, blisko Galerii Sfera i Ratusza.
+            To dobre miejsce na konsultację, zabieg i spokojny powrót po wizycie.
+          </span>
+        </div>
+
+        <a class="footer-map-link" href={googleUrl} target="_blank" rel="noopener noreferrer">
+          Otwórz mapę i opinie Google
+        </a>
       </div>
     </section>
 
@@ -197,7 +225,7 @@ const formalLinks = [
 
   .footer-top-card {
     display: grid;
-    grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
     gap: 18px;
     margin-bottom: 18px;
   }
@@ -219,7 +247,8 @@ const formalLinks = [
   .footer-brand {
     position: relative;
     overflow: hidden;
-    padding: clamp(30px, 4vw, 48px);
+    min-height: 390px;
+    padding: clamp(32px, 4vw, 54px);
   }
 
   .footer-brand::after {
@@ -235,68 +264,69 @@ const formalLinks = [
     pointer-events: none;
   }
 
-  .footer-logo {
+  .footer-eyebrow,
+  .footer-contact-card > p,
+  .footer-link-column h2,
+  .footer-sister-site p {
     position: relative;
     z-index: 2;
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    color: var(--color-text);
-    text-decoration: none;
-  }
-
-  .footer-logo span {
-    display: grid;
-    width: 58px;
-    height: 58px;
-    place-items: center;
-    border-radius: 20px;
-    color: #ffffff;
-    font-size: 1.22rem;
-    font-weight: 850;
-    letter-spacing: -0.08em;
-    background:
-      radial-gradient(circle at 24% 24%, rgba(255, 255, 255, 0.3), transparent 3rem),
-      linear-gradient(145deg, #9d4f68 0%, #d7899f 45%, #7f344d 100%);
-    box-shadow: 0 16px 38px rgba(157, 79, 104, 0.22);
-  }
-
-  .footer-logo strong {
-    display: grid;
-    gap: 3px;
-    font-size: clamp(1.15rem, 2vw, 1.6rem);
-    font-weight: 780;
-    line-height: 1;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .footer-logo em {
-    color: #b76576;
-    font-size: 0.66rem;
-    font-style: normal;
-    font-weight: 720;
-    letter-spacing: 0.32em;
-  }
-
-  .footer-signature {
-    position: relative;
-    z-index: 2;
-    margin: 34px 0 0;
+    margin: 0 0 18px;
     color: var(--color-turquoise-dark);
-    font-family: var(--font-signature, inherit);
-    font-size: clamp(2.1rem, 5vw, 4rem);
-    line-height: 0.92;
+    font-size: 0.74rem;
+    font-weight: 820;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .footer-brand h2,
+  .footer-contact-card h2 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(2.2rem, 4.5vw, 4.7rem);
+    font-weight: 820;
+    line-height: 0.95;
+    letter-spacing: -0.075em;
+  }
+
+  .footer-brand h2 span {
+    color: #b76576;
   }
 
   .footer-description {
     position: relative;
     z-index: 2;
-    max-width: 720px;
-    margin: 18px 0 0;
+    max-width: 760px;
+    margin: 22px 0 0;
     color: var(--color-muted);
     font-size: 1.02rem;
     line-height: 1.68;
+  }
+
+  .footer-proof-row {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 24px;
+  }
+
+  .footer-proof-row span {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0 14px;
+    color: var(--color-text);
+    font-size: 0.78rem;
+    font-weight: 760;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(219, 246, 243, 0.55), transparent 4rem),
+      rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.13);
   }
 
   .footer-actions {
@@ -309,7 +339,8 @@ const formalLinks = [
   }
 
   .footer-primary-link,
-  .footer-secondary-link {
+  .footer-secondary-link,
+  .footer-map-link {
     display: inline-flex;
     min-height: 48px;
     align-items: center;
@@ -327,55 +358,107 @@ const formalLinks = [
     box-shadow: 0 14px 36px rgba(183, 101, 118, 0.18);
   }
 
-  .footer-secondary-link {
+  .footer-secondary-link,
+  .footer-map-link {
     color: var(--color-text);
     background: rgba(255, 255, 255, 0.66);
     border: 1px solid rgba(183, 101, 118, 0.18);
   }
 
   .footer-contact-card {
-    padding: clamp(28px, 4vw, 42px);
+    position: relative;
+    overflow: hidden;
+    min-height: 390px;
+    padding: clamp(30px, 4vw, 46px);
   }
 
-  .footer-contact-card p,
-  .footer-link-column h2,
-  .footer-sister-site p {
-    margin: 0 0 18px;
-    color: var(--color-turquoise-dark);
-    font-size: 0.74rem;
-    font-weight: 820;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
+  .footer-contact-card::after {
+    content: "";
+    position: absolute;
+    right: -5rem;
+    top: -5rem;
+    width: 17rem;
+    height: 17rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(219, 246, 243, 0.9), transparent 68%);
+    pointer-events: none;
   }
 
-  .footer-contact-card a {
+  .footer-contact-card h2 {
+    max-width: 520px;
+    font-size: clamp(2rem, 3.4vw, 3.65rem);
+  }
+
+  .footer-contact-list {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 14px;
+    margin-top: 26px;
+  }
+
+  .footer-contact-list a,
+  .footer-contact-list address {
     display: block;
-    color: var(--color-text);
-    font-size: clamp(1.05rem, 2vw, 1.35rem);
-    font-weight: 760;
-    line-height: 1.18;
-    text-decoration: none;
-  }
-
-  .footer-contact-card a + a {
-    margin-top: 10px;
-  }
-
-  .footer-contact-card address {
-    margin: 24px 0 0;
+    margin: 0;
+    padding: 16px 18px;
+    border-radius: 22px;
     color: var(--color-text);
     font-style: normal;
-    font-weight: 700;
-    line-height: 1.55;
+    font-size: clamp(1rem, 1.55vw, 1.22rem);
+    font-weight: 780;
+    line-height: 1.35;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(56, 187, 181, 0.12);
   }
 
-  .footer-contact-card span {
+  .footer-contact-list span {
     display: block;
-    margin-top: 12px;
+    margin-bottom: 5px;
+    color: var(--color-muted);
+    font-size: 0.68rem;
+    font-weight: 820;
+    line-height: 1;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .footer-location-note {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 6px;
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at 92% 8%, rgba(219, 246, 243, 0.62), transparent 7rem),
+      rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(183, 101, 118, 0.12);
+  }
+
+  .footer-location-note strong {
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 820;
+  }
+
+  .footer-location-note span {
     color: var(--color-muted);
     font-size: 0.92rem;
     line-height: 1.55;
+  }
+
+  .footer-map-link {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin-top: 16px;
+    min-height: 52px;
+    color: var(--color-turquoise-dark);
+    background: rgba(219, 246, 243, 0.52);
+    border-color: rgba(56, 187, 181, 0.18);
   }
 
   .footer-links-grid {
@@ -482,6 +565,11 @@ const formalLinks = [
     .footer-top-card {
       grid-template-columns: 1fr;
     }
+
+    .footer-brand,
+    .footer-contact-card {
+      min-height: auto;
+    }
   }
 
   @media (max-width: 760px) {
@@ -514,28 +602,10 @@ const formalLinks = [
       font-size: clamp(3.5rem, 18vw, 5.2rem);
     }
 
-    .footer-logo {
-      align-items: flex-start;
-    }
-
-    .footer-logo span {
-      width: 50px;
-      height: 50px;
-      border-radius: 17px;
-    }
-
-    .footer-logo strong {
-      font-size: 1.06rem;
-      letter-spacing: 0.06em;
-    }
-
-    .footer-logo em {
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-    }
-
-    .footer-signature {
-      font-size: clamp(2rem, 12vw, 3.1rem);
+    .footer-brand h2,
+    .footer-contact-card h2 {
+      font-size: clamp(2rem, 12vw, 3.2rem);
+      letter-spacing: -0.075em;
     }
 
     .footer-actions {
@@ -549,6 +619,18 @@ const formalLinks = [
       min-height: 52px;
       white-space: normal;
       text-align: center;
+    }
+
+    .footer-proof-row span {
+      min-height: 34px;
+      font-size: 0.74rem;
+    }
+
+    .footer-contact-list a,
+    .footer-contact-list address {
+      padding: 15px 16px;
+      border-radius: 20px;
+      font-size: 0.98rem;
     }
 
     .footer-link-column {

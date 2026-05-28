@@ -33,13 +33,16 @@ const isActive = (href: string) => {
 
 <header class="site-header" data-site-header>
   <div class="header-shell">
-    <a class="header-logo" href="/" aria-label="Bogusława Herda Permanent Makeup — strona główna">
-      <span class="header-logo-mark">BH</span>
-
-      <span class="header-logo-copy">
-        <strong>Bogusława Herda</strong>
-        <em>Permanent Makeup</em>
-      </span>
+    <a class="header-logo header-logo-image-link" href="/" aria-label="Bogusława Herda Makijaż Permanentny — strona główna">
+      <img
+        src="/images/logo-boguslawa-herda-pmu-header.webp"
+        alt="Bogusława Herda Makijaż Permanentny"
+        width="2058"
+        height="247"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
     </a>
 
     <nav class="desktop-nav" aria-label="Menu główne">
@@ -1122,6 +1125,77 @@ const isActive = (href: string) => {
       font-weight: 780 !important;
       letter-spacing: 0.045em !important;
       text-transform: uppercase !important;
+    }
+  }
+
+
+  /* V11 — bezpieczna podmiana logo w headerze: tylko obraz, bez zmiany układu menu */
+  .header-logo-image-link {
+    display: flex !important;
+    width: clamp(210px, 20vw, 310px) !important;
+    max-width: 310px !important;
+    height: 52px !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-width: 0 !important;
+    gap: 0 !important;
+    text-decoration: none !important;
+  }
+
+  .header-logo-image-link img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 42px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+  }
+
+  @media (min-width: 1081px) and (max-width: 1280px) {
+    .header-logo-image-link {
+      width: 188px !important;
+      max-width: 188px !important;
+      height: 46px !important;
+    }
+
+    .header-logo-image-link img {
+      max-height: 34px !important;
+    }
+  }
+
+  @media (min-width: 1281px) and (max-width: 1480px) {
+    .header-logo-image-link {
+      width: 235px !important;
+      max-width: 235px !important;
+      height: 48px !important;
+    }
+
+    .header-logo-image-link img {
+      max-height: 36px !important;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .header-logo-image-link {
+      width: clamp(150px, 41vw, 198px) !important;
+      max-width: 198px !important;
+      height: 48px !important;
+    }
+
+    .header-logo-image-link img {
+      max-height: 34px !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .header-logo-image-link {
+      width: clamp(136px, 37vw, 162px) !important;
+      max-width: 162px !important;
+      height: 44px !important;
+    }
+
+    .header-logo-image-link img {
+      max-height: 30px !important;
     }
   }
 
