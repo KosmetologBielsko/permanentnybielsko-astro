@@ -2,6 +2,10 @@
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
+const instagramUrl = "https://www.instagram.com/permanentnybielsko";
+const facebookUrl = "https://www.facebook.com/PermanentnyBielsko";
+const googleUrl = "https://share.google/r1H8ZLwSZMdRIflO9";
+
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
@@ -47,6 +51,49 @@ const isActive = (href: string) => {
     </nav>
 
     <div class="header-actions">
+      <nav class="header-socials" aria-label="Profile online">
+        <a
+          class="header-social-orb header-orb-instagram"
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram PermanentnyBielsko"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect>
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <circle cx="17.25" cy="6.75" r="1.15"></circle>
+          </svg>
+        </a>
+
+        <a
+          class="header-social-orb header-orb-facebook"
+          href={facebookUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook PermanentnyBielsko"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.05 8.2V6.7c0-.72.24-1.2 1.31-1.2H17V2.7c-.8-.1-1.58-.16-2.38-.16-2.36 0-3.98 1.44-3.98 4.08V8.2H8v3.14h2.64v10.12h3.41V11.34h2.67l.42-3.14h-3.09Z"></path>
+          </svg>
+        </a>
+
+        <a
+          class="header-social-orb header-orb-google"
+          href={googleUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Google mapa i opinie"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path class="g-blue" d="M21.6 12.23c0-.72-.06-1.42-.18-2.08H12v3.94h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.32 2.98-7.39Z"></path>
+            <path class="g-green" d="M12 22c2.7 0 4.96-.9 6.62-2.38l-3.24-2.51c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.76-5.59-4.12H3.06v2.6A10 10 0 0 0 12 22Z"></path>
+            <path class="g-yellow" d="M6.41 13.95A6.02 6.02 0 0 1 6.1 12c0-.68.11-1.34.31-1.95v-2.6H3.06A10 10 0 0 0 2 12c0 1.61.39 3.13 1.06 4.55l3.35-2.6Z"></path>
+            <path class="g-red" d="M12 5.93c1.47 0 2.79.5 3.82 1.5l2.87-2.87C16.95 2.94 14.7 2 12 2a10 10 0 0 0-8.94 5.45l3.35 2.6C7.2 7.69 9.4 5.93 12 5.93Z"></path>
+          </svg>
+        </a>
+      </nav>
+
       <a class="header-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
         Umów wizytę
       </a>
@@ -75,18 +122,73 @@ const isActive = (href: string) => {
 
     <nav class="mobile-nav" aria-label="Menu mobilne">
       {navLinks.map((link, index) => (
-        <a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>
+        <a
+          href={link.href}
+          aria-current={isActive(link.href) ? "page" : undefined}
+          class:list={[index === navLinks.length - 1 && "mobile-nav-wide"]}
+        >
           <span>{String(index + 1).padStart(2, "0")}</span>
           {link.label}
         </a>
       ))}
     </nav>
 
-    <div class="mobile-menu-cta">
-      <a href={booksyUrl} target="_blank" rel="noopener noreferrer">
-        Umów wizytę przez Booksy
-      </a>
-    </div>
+    <section class="mobile-social-section" aria-label="Media społecznościowe i profile online">
+      <p>Online</p>
+
+      <div class="mobile-social-orbs" aria-label="Profile online">
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-orb mobile-orb-instagram"
+          aria-label="Instagram PermanentnyBielsko"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect>
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <circle cx="17.25" cy="6.75" r="1.15"></circle>
+          </svg>
+        </a>
+
+        <a
+          href={facebookUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-orb mobile-orb-facebook"
+          aria-label="Facebook PermanentnyBielsko"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.05 8.2V6.7c0-.72.24-1.2 1.31-1.2H17V2.7c-.8-.1-1.58-.16-2.38-.16-2.36 0-3.98 1.44-3.98 4.08V8.2H8v3.14h2.64v10.12h3.41V11.34h2.67l.42-3.14h-3.09Z"></path>
+          </svg>
+        </a>
+
+        <a
+          href={googleUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-orb mobile-orb-google"
+          aria-label="Google mapa i opinie"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path class="g-blue" d="M21.6 12.23c0-.72-.06-1.42-.18-2.08H12v3.94h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.32 2.98-7.39Z"></path>
+            <path class="g-green" d="M12 22c2.7 0 4.96-.9 6.62-2.38l-3.24-2.51c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.76-5.59-4.12H3.06v2.6A10 10 0 0 0 12 22Z"></path>
+            <path class="g-yellow" d="M6.41 13.95A6.02 6.02 0 0 1 6.1 12c0-.68.11-1.34.31-1.95v-2.6H3.06A10 10 0 0 0 2 12c0 1.61.39 3.13 1.06 4.55l3.35-2.6Z"></path>
+            <path class="g-red" d="M12 5.93c1.47 0 2.79.5 3.82 1.5l2.87-2.87C16.95 2.94 14.7 2 12 2a10 10 0 0 0-8.94 5.45l3.35 2.6C7.2 7.69 9.4 5.93 12 5.93Z"></path>
+          </svg>
+        </a>
+
+        <a
+          href={booksyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-orb mobile-orb-booksy"
+          aria-label="Booksy rezerwacja wizyty"
+        >
+          <span>B</span>
+        </a>
+      </div>
+    </section>
 
     <nav class="mobile-formal-links" aria-label="Linki formalne">
       {mobileQuickLinks.map((link) => (
@@ -150,29 +252,71 @@ const isActive = (href: string) => {
 <style>
   .site-header {
     position: fixed;
-    top: 18px;
+    top: 12px;
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 0 18px;
+    padding: 0 12px;
     pointer-events: none;
   }
 
   .header-shell {
     width: min(1480px, 100%);
-    min-height: 74px;
+    min-height: 76px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
-    gap: 18px;
+    gap: 12px;
     align-items: center;
-    padding: 10px 12px 10px 14px;
+    padding: 10px 12px 10px 16px;
     border: 1px solid rgba(183, 101, 118, 0.13);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 20px 60px rgba(72, 42, 55, 0.12);
     backdrop-filter: blur(22px);
     pointer-events: auto;
+  }
+
+  .header-logo,
+  .desktop-nav a,
+  .header-booksy,
+  .mobile-menu-button,
+  .mobile-nav a,
+  .mobile-formal-links a,
+  .header-social-orb,
+  .header-logo-mark {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
+
+  .header-logo:focus,
+  .header-logo:focus-visible,
+  .desktop-nav a:focus,
+  .desktop-nav a:focus-visible,
+  .header-booksy:focus,
+  .header-booksy:focus-visible,
+  .mobile-menu-button:focus,
+  .mobile-menu-button:focus-visible,
+  .mobile-nav a:focus,
+  .mobile-nav a:focus-visible,
+  .mobile-formal-links a:focus,
+  .mobile-formal-links a:focus-visible,
+  .header-social-orb:focus,
+  .header-social-orb:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .header-logo:focus-visible,
+    .desktop-nav a:focus-visible,
+    .header-booksy:focus-visible,
+    .mobile-menu-button:focus-visible,
+    .mobile-nav a:focus-visible,
+    .mobile-formal-links a:focus-visible,
+    .header-social-orb:focus-visible {
+      box-shadow: 0 0 0 3px rgba(56, 187, 181, 0.18);
+    }
   }
 
   .header-logo {
@@ -232,20 +376,21 @@ const isActive = (href: string) => {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3px;
+    gap: 4px;
     min-width: 0;
   }
 
   .desktop-nav a {
     display: inline-flex;
-    min-height: 42px;
+    min-height: 44px;
     align-items: center;
     border-radius: 999px;
-    padding: 0 clamp(8px, 0.75vw, 13px);
-    color: rgba(23, 21, 29, 0.72);
-    font-size: clamp(0.75rem, 0.74vw, 0.88rem);
-    font-weight: 740;
-    letter-spacing: -0.02em;
+    padding: 0 clamp(10px, 0.82vw, 15px);
+    color: #17151d;
+    font-size: clamp(0.88rem, 0.82vw, 0.99rem);
+    font-weight: 760;
+    line-height: 1;
+    letter-spacing: -0.014em;
     text-decoration: none;
     white-space: nowrap;
     transition:
@@ -254,18 +399,101 @@ const isActive = (href: string) => {
       transform 0.2s ease;
   }
 
-  .desktop-nav a:hover,
-  .desktop-nav a[aria-current="page"] {
-    color: var(--color-text, #17151d);
-    background: rgba(219, 246, 243, 0.72);
+  .desktop-nav a:hover {
+    color: #17151d;
+    background: rgba(255, 255, 255, 0.68);
     transform: translateY(-1px);
+  }
+
+  .desktop-nav a[aria-current="page"] {
+    color: #17151d;
+    background: rgba(219, 246, 243, 0.78);
+    box-shadow: inset 0 0 0 1px rgba(56, 187, 181, 0.12);
   }
 
   .header-actions {
     display: inline-flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
+  }
+
+  .header-socials {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .header-social-orb {
+    position: relative;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at 26% 20%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.54) 34%, rgba(255, 255, 255, 0.18) 68%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 247, 250, 0.52));
+    border: 1px solid rgba(183, 101, 118, 0.13);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 12px 30px rgba(72, 42, 55, 0.10);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .header-social-orb::after {
+    content: "";
+    position: absolute;
+    inset: 4px 6px auto 6px;
+    height: 11px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent);
+    pointer-events: none;
+  }
+
+  .header-social-orb:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 16px 38px rgba(72, 42, 55, 0.15);
+  }
+
+  .header-social-orb svg {
+    position: relative;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+
+  .header-orb-instagram svg rect,
+  .header-orb-instagram svg circle {
+    fill: none;
+    stroke: #d62976;
+    stroke-width: 1.9;
+  }
+
+  .header-orb-facebook svg {
+    fill: #1877f2;
+  }
+
+  .header-orb-google svg .g-blue {
+    fill: #4285f4;
+  }
+
+  .header-orb-google svg .g-green {
+    fill: #34a853;
+  }
+
+  .header-orb-google svg .g-yellow {
+    fill: #fbbc05;
+  }
+
+  .header-orb-google svg .g-red {
+    fill: #ea4335;
   }
 
   .header-booksy {
@@ -276,14 +504,14 @@ const isActive = (href: string) => {
     border-radius: 999px;
     padding: 0 18px;
     color: #ffffff;
-    font-size: 0.86rem;
-    font-weight: 800;
+    font-size: 0.9rem;
+    font-weight: 810;
     text-decoration: none;
     white-space: nowrap;
     background:
       radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.24), transparent 4rem),
-      linear-gradient(135deg, #b76576, #8f344d);
-    box-shadow: 0 14px 36px rgba(183, 101, 118, 0.2);
+      linear-gradient(135deg, #0f7773 0%, #1aa5a0 100%);
+    box-shadow: 0 14px 36px rgba(35, 156, 150, 0.2);
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
@@ -291,7 +519,7 @@ const isActive = (href: string) => {
 
   .header-booksy:hover {
     transform: translateY(-1px);
-    box-shadow: 0 18px 44px rgba(183, 101, 118, 0.24);
+    box-shadow: 0 18px 44px rgba(35, 156, 150, 0.24);
   }
 
   .mobile-menu-button {
@@ -344,15 +572,15 @@ const isActive = (href: string) => {
 
   .mobile-menu-panel {
     position: fixed;
-    top: 106px;
-    right: 18px;
+    top: 94px;
+    right: 12px;
     z-index: -1;
-    width: min(430px, calc(100vw - 36px));
-    max-height: calc(100vh - 128px);
+    width: min(430px, calc(100vw - 24px));
+    max-height: calc(100vh - 112px);
     overflow: auto;
-    padding: 18px;
+    padding: 14px;
     border: 1px solid rgba(183, 101, 118, 0.16);
-    border-radius: 32px;
+    border-radius: 28px;
     background:
       radial-gradient(circle at 94% 10%, rgba(56, 187, 181, 0.16), transparent 14rem),
       radial-gradient(circle at 10% 88%, rgba(201, 127, 143, 0.14), transparent 14rem),
@@ -381,45 +609,62 @@ const isActive = (href: string) => {
   }
 
   .mobile-menu-head {
-    padding: 8px 8px 16px;
+    padding: 8px 8px 18px;
+    text-align: center;
   }
 
   .mobile-menu-head p {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
     margin: 0;
+    padding: 0 13px;
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.64);
     color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.72rem;
-    font-weight: 840;
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
   }
 
   .mobile-menu-head span {
     display: block;
-    margin-top: 8px;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.9rem;
-    line-height: 1.45;
+    max-width: 270px;
+    margin: 10px auto 0;
+    color: rgba(23, 21, 29, 0.74);
+    font-size: 1.04rem;
+    font-weight: 730;
+    line-height: 1.28;
+    letter-spacing: -0.035em;
   }
 
   .mobile-nav {
     display: grid;
-    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
   }
 
   .mobile-nav a {
     display: grid;
-    grid-template-columns: 42px 1fr;
-    gap: 12px;
-    align-items: center;
-    min-height: 56px;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    min-height: 76px;
+    align-content: center;
+    justify-items: center;
+    padding: 12px 10px;
     border: 1px solid rgba(56, 187, 181, 0.13);
-    border-radius: 20px;
-    padding: 0 16px;
+    border-radius: 19px;
     color: var(--color-text, #17151d);
     font-size: 1rem;
     font-weight: 780;
+    line-height: 1.08;
+    text-align: center;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.62);
+    background:
+      radial-gradient(circle at 85% 10%, rgba(219, 246, 243, 0.5), transparent 5rem),
+      rgba(255, 255, 255, 0.66);
   }
 
   .mobile-nav a[aria-current="page"] {
@@ -428,67 +673,231 @@ const isActive = (href: string) => {
 
   .mobile-nav span {
     color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.7rem;
+    font-size: 0.64rem;
     font-weight: 860;
+    line-height: 1;
     letter-spacing: 0.12em;
   }
 
-  .mobile-menu-cta {
-    margin-top: 14px;
+  .mobile-nav-wide {
+    grid-column: 1 / -1;
   }
 
-  .mobile-menu-cta a {
-    display: flex;
-    min-height: 56px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    padding: 0 18px;
-    color: #ffffff;
-    font-size: 0.94rem;
-    font-weight: 820;
+  .mobile-social-section {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(183, 101, 118, 0.12);
+  }
+
+  .mobile-social-section p {
+    margin: 0 0 12px;
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.7rem;
+    font-weight: 850;
     text-align: center;
-    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .mobile-social-orbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    align-items: center;
+    justify-items: center;
+    padding: 4px 8px 0;
+  }
+
+  .mobile-orb {
+    position: relative;
+    display: grid;
+    width: clamp(54px, 14vw, 68px);
+    height: clamp(54px, 14vw, 68px);
+    place-items: center;
+    overflow: hidden;
+    border-radius: 999px;
     background:
-      radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.24), transparent 4rem),
-      linear-gradient(135deg, #b76576, #8f344d);
-    box-shadow: 0 14px 36px rgba(183, 101, 118, 0.18);
+      radial-gradient(circle at 26% 18%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.54) 34%, rgba(255, 255, 255, 0.12) 72%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 247, 250, 0.5));
+    border: 1px solid rgba(183, 101, 118, 0.13);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.92),
+      0 18px 40px rgba(72, 42, 55, 0.13);
+    text-decoration: none;
+  }
+
+  .mobile-orb::after {
+    content: "";
+    position: absolute;
+    inset: 7px 10px auto 10px;
+    height: 16px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), transparent);
+    pointer-events: none;
+  }
+
+  .mobile-orb svg,
+  .mobile-orb span {
+    position: relative;
+    z-index: 2;
+  }
+
+  .mobile-orb svg {
+    width: clamp(24px, 6vw, 30px);
+    height: clamp(24px, 6vw, 30px);
+    display: block;
+  }
+
+  .mobile-orb-instagram svg rect,
+  .mobile-orb-instagram svg circle {
+    fill: none;
+    stroke: #d62976;
+    stroke-width: 1.9;
+  }
+
+  .mobile-orb-facebook svg {
+    fill: #1877f2;
+  }
+
+  .mobile-orb-google svg .g-blue {
+    fill: #4285f4;
+  }
+
+  .mobile-orb-google svg .g-green {
+    fill: #34a853;
+  }
+
+  .mobile-orb-google svg .g-yellow {
+    fill: #fbbc05;
+  }
+
+  .mobile-orb-google svg .g-red {
+    fill: #ea4335;
+  }
+
+  .mobile-orb-booksy {
+    background:
+      radial-gradient(circle at 26% 18%, rgba(255, 255, 255, 0.45), transparent 4rem),
+      linear-gradient(145deg, #0f7773 0%, #1aa5a0 52%, #74e0d7 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .mobile-orb-booksy span {
+    color: #ffffff;
+    font-size: clamp(1.1rem, 5vw, 1.45rem);
+    font-weight: 900;
+    letter-spacing: -0.08em;
   }
 
   .mobile-formal-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
     margin-top: 14px;
-    padding: 0 2px 2px;
+    padding: 0;
+    justify-content: center;
+    align-items: stretch;
   }
 
   .mobile-formal-links a {
-    display: inline-flex;
-    min-height: 38px;
+    display: flex;
+    min-height: 44px;
     align-items: center;
-    border-radius: 999px;
-    padding: 0 13px;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.78rem;
-    font-weight: 700;
+    justify-content: center;
+    border-radius: 16px;
+    padding: 0 12px;
+    color: rgba(23, 21, 29, 0.72);
+    font-size: 0.76rem;
+    font-weight: 720;
+    line-height: 1.2;
+    text-align: center;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.58);
-    border: 1px solid rgba(183, 101, 118, 0.12);
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(183, 101, 118, 0.13);
   }
 
-  @media (max-width: 1320px) {
+  @media (min-width: 1081px) and (max-width: 1280px) {
+    .header-shell {
+      gap: 8px;
+      padding-left: 12px;
+      padding-right: 10px;
+    }
+
+    .header-logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+    }
+
+    .header-logo-copy strong {
+      max-width: 150px;
+      overflow: hidden;
+      font-size: 0.86rem;
+      letter-spacing: 0.045em;
+      text-overflow: ellipsis;
+    }
+
+    .header-logo-copy em {
+      font-size: 0.47rem;
+      letter-spacing: 0.18em;
+    }
+
+    .desktop-nav {
+      gap: 1px;
+    }
+
+    .desktop-nav a {
+      min-height: 38px;
+      padding: 0 6px;
+      font-size: 0.76rem;
+      font-weight: 740;
+      letter-spacing: -0.02em;
+    }
+
+    .header-socials {
+      gap: 5px;
+    }
+
+    .header-social-orb {
+      width: 32px;
+      height: 32px;
+    }
+
+    .header-social-orb svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .header-booksy {
+      min-height: 40px;
+      padding: 0 14px;
+      font-size: 0.78rem;
+    }
+  }
+
+  @media (min-width: 1281px) and (max-width: 1480px) {
     .header-shell {
       gap: 10px;
     }
 
+    .header-social-orb {
+      width: 34px;
+      height: 34px;
+    }
+
+    .header-social-orb svg {
+      width: 18px;
+      height: 18px;
+    }
+
     .desktop-nav a {
       padding: 0 8px;
-      font-size: 0.75rem;
+      font-size: 0.82rem;
     }
 
     .header-booksy {
-      padding: 0 15px;
+      padding: 0 16px;
+      font-size: 0.84rem;
     }
   }
 
@@ -506,7 +915,8 @@ const isActive = (href: string) => {
       padding: 10px;
     }
 
-    .desktop-nav {
+    .desktop-nav,
+    .header-socials {
       display: none;
     }
 
@@ -515,7 +925,18 @@ const isActive = (href: string) => {
     }
 
     .header-booksy {
-      display: none;
+      display: inline-flex;
+      min-height: 44px;
+      padding: 0 14px;
+      font-size: 0.8rem;
+    }
+
+    .header-actions {
+      gap: 8px;
+    }
+
+    .mobile-menu-head {
+      text-align: center;
     }
   }
 
@@ -527,303 +948,180 @@ const isActive = (href: string) => {
     }
 
     .header-logo-copy strong {
-      max-width: 220px;
+      max-width: 170px;
       overflow: hidden;
-      font-size: 0.98rem;
-      letter-spacing: 0.06em;
+      font-size: 0.92rem;
+      letter-spacing: 0.05em;
       text-overflow: ellipsis;
     }
 
     .header-logo-copy em {
-      font-size: 0.54rem;
-      letter-spacing: 0.23em;
-    }
-
-    .mobile-menu-panel {
-      top: 94px;
-      right: 12px;
-      width: calc(100vw - 24px);
-      max-height: calc(100vh - 112px);
-      border-radius: 28px;
-      padding: 14px;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .header-logo-copy strong {
-      max-width: 178px;
-      font-size: 0.9rem;
-    }
-
-    .header-logo-copy em {
-      font-size: 0.5rem;
-      letter-spacing: 0.18em;
-    }
-  }
-
-  /* V2 — menu polish: desktop typography + centered mobile formal links */
-  @media (min-width: 1081px) {
-    .header-shell {
-      min-height: 76px !important;
-      padding: 10px 12px 10px 16px !important;
-    }
-
-    .desktop-nav {
-      gap: 2px !important;
-    }
-
-    .desktop-nav a {
-      min-height: 40px !important;
-      padding: 0 clamp(9px, 0.68vw, 12px) !important;
-      color: rgba(23, 21, 29, 0.66) !important;
-      font-size: clamp(0.74rem, 0.68vw, 0.82rem) !important;
-      font-weight: 690 !important;
-      line-height: 1 !important;
-      letter-spacing: 0.015em !important;
-      text-transform: none !important;
-      background: transparent !important;
-    }
-
-    .desktop-nav a:hover {
-      color: var(--color-text, #17151d) !important;
-      background: rgba(255, 255, 255, 0.58) !important;
-      transform: translateY(-1px) !important;
-    }
-
-    .desktop-nav a[aria-current="page"] {
-      color: #0f7773 !important;
-      background: rgba(219, 246, 243, 0.72) !important;
-      box-shadow: inset 0 0 0 1px rgba(56, 187, 181, 0.11) !important;
-      transform: none !important;
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
     }
 
     .header-booksy {
-      min-height: 46px !important;
-      padding: 0 18px !important;
-      font-size: 0.82rem !important;
-      font-weight: 760 !important;
-      letter-spacing: 0.01em !important;
-    }
-  }
-
-  @media (min-width: 1081px) and (max-width: 1380px) {
-    .header-logo-copy strong {
-      font-size: 1.02rem !important;
-      letter-spacing: 0.055em !important;
-    }
-
-    .header-logo-copy em {
-      font-size: 0.52rem !important;
-      letter-spacing: 0.24em !important;
-    }
-
-    .desktop-nav a {
-      padding: 0 7px !important;
-      font-size: 0.72rem !important;
-      font-weight: 680 !important;
-    }
-
-    .header-booksy {
-      padding: 0 14px !important;
-    }
-  }
-
-  @media (max-width: 1080px) {
-    .mobile-formal-links {
-      display: grid !important;
-      grid-template-columns: 1fr 1fr !important;
-      gap: 10px !important;
-      margin-top: 14px !important;
-      padding: 0 !important;
-      justify-content: center !important;
-      align-items: stretch !important;
-    }
-
-    .mobile-formal-links a {
-      display: flex !important;
-      min-height: 44px !important;
-      align-items: center !important;
-      justify-content: center !important;
-      border-radius: 16px !important;
-      padding: 0 12px !important;
-      color: rgba(23, 21, 29, 0.72) !important;
-      font-size: 0.76rem !important;
-      font-weight: 720 !important;
-      line-height: 1.2 !important;
-      text-align: center !important;
-      background: rgba(255, 255, 255, 0.68) !important;
-      border: 1px solid rgba(183, 101, 118, 0.13) !important;
+      min-height: 42px;
+      padding: 0 12px;
+      font-size: 0.76rem;
     }
   }
 
   @media (max-width: 430px) {
     .mobile-formal-links {
-      grid-template-columns: 1fr !important;
+      grid-template-columns: 1fr;
     }
   }
 
+  @media (max-width: 390px) {
+    .header-logo-copy strong {
+      max-width: 150px;
+      font-size: 0.86rem;
+    }
 
-  /* V3 — desktop menu: larger, black and more readable */
+    .header-logo-copy em {
+      font-size: 0.48rem;
+      letter-spacing: 0.16em;
+    }
+
+    .header-booksy {
+      min-height: 40px;
+      padding: 0 10px;
+      font-size: 0.72rem;
+    }
+
+    .mobile-social-orbs {
+      gap: 9px;
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+
+    .mobile-orb {
+      width: clamp(48px, 13vw, 58px);
+      height: clamp(48px, 13vw, 58px);
+    }
+
+    .mobile-orb svg {
+      width: 23px;
+      height: 23px;
+    }
+  }
+
+  /* V10 — menu typography closer to Sharley: clean, uppercase, premium */
+  .desktop-nav a,
+  .mobile-nav a {
+    font-family:
+      "Avenir Next",
+      "Helvetica Neue",
+      Arial,
+      sans-serif !important;
+  }
+
   @media (min-width: 1081px) {
+    .desktop-nav {
+      gap: 2px !important;
+    }
+
     .desktop-nav a {
       min-height: 42px !important;
-      padding: 0 clamp(10px, 0.78vw, 14px) !important;
-      color: rgba(23, 21, 29, 0.92) !important;
-      font-size: clamp(0.84rem, 0.78vw, 0.94rem) !important;
-      font-weight: 740 !important;
+      padding: 0 clamp(9px, 0.76vw, 14px) !important;
+      color: #17151d !important;
+      font-size: clamp(0.78rem, 0.74vw, 0.9rem) !important;
+      font-weight: 720 !important;
       line-height: 1 !important;
-      letter-spacing: -0.01em !important;
+      letter-spacing: 0.075em !important;
+      text-transform: uppercase !important;
     }
 
     .desktop-nav a:hover {
       color: #17151d !important;
-      background: rgba(255, 255, 255, 0.7) !important;
-    }
-
-    .desktop-nav a[aria-current="page"] {
-      color: #17151d !important;
-      background: rgba(219, 246, 243, 0.82) !important;
-      box-shadow: inset 0 0 0 1px rgba(56, 187, 181, 0.16) !important;
-    }
-
-    .header-booksy {
-      font-size: 0.88rem !important;
-      font-weight: 800 !important;
-    }
-  }
-
-  @media (min-width: 1081px) and (max-width: 1380px) {
-    .desktop-nav a {
-      padding: 0 8px !important;
-      font-size: clamp(0.78rem, 0.74vw, 0.86rem) !important;
-      font-weight: 730 !important;
-    }
-
-    .header-booksy {
-      font-size: 0.82rem !important;
-      padding: 0 14px !important;
-    }
-  }
-
-  @media (min-width: 1381px) {
-    .desktop-nav {
-      gap: 4px !important;
-    }
-  }
-
-
-  /* V4 — touch screen polish + larger desktop nav + softer mobile menu subtitle */
-  .desktop-nav a,
-  .header-booksy,
-  .mobile-menu-button,
-  .mobile-nav a,
-  .mobile-menu-cta a,
-  .mobile-formal-links a,
-  .header-logo {
-    -webkit-tap-highlight-color: transparent !important;
-    outline: none;
-  }
-
-  .desktop-nav a:focus,
-  .desktop-nav a:focus-visible,
-  .header-booksy:focus,
-  .header-booksy:focus-visible,
-  .mobile-menu-button:focus,
-  .mobile-menu-button:focus-visible,
-  .mobile-nav a:focus,
-  .mobile-nav a:focus-visible,
-  .mobile-menu-cta a:focus,
-  .mobile-menu-cta a:focus-visible,
-  .mobile-formal-links a:focus,
-  .mobile-formal-links a:focus-visible,
-  .header-logo:focus,
-  .header-logo:focus-visible {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .desktop-nav a:focus-visible,
-    .header-booksy:focus-visible,
-    .mobile-menu-button:focus-visible,
-    .mobile-nav a:focus-visible,
-    .mobile-menu-cta a:focus-visible,
-    .mobile-formal-links a:focus-visible,
-    .header-logo:focus-visible {
-      box-shadow: 0 0 0 3px rgba(56, 187, 181, 0.18) !important;
-    }
-  }
-
-  @media (min-width: 1081px) {
-    .desktop-nav a {
-      min-height: 44px !important;
-      padding: 0 clamp(10px, 0.82vw, 15px) !important;
-      color: #17151d !important;
-      font-size: clamp(0.88rem, 0.82vw, 0.99rem) !important;
-      font-weight: 760 !important;
-      letter-spacing: -0.014em !important;
-    }
-
-    .desktop-nav a:hover {
-      color: #17151d !important;
-      background: rgba(255, 255, 255, 0.68) !important;
+      background: rgba(255, 255, 255, 0.64) !important;
       transform: translateY(-1px) !important;
     }
 
     .desktop-nav a[aria-current="page"] {
       color: #17151d !important;
-      background: rgba(219, 246, 243, 0.78) !important;
-      box-shadow: inset 0 0 0 1px rgba(56, 187, 181, 0.12) !important;
+      background: rgba(219, 246, 243, 0.74) !important;
+      box-shadow: inset 0 0 0 1px rgba(56, 187, 181, 0.11) !important;
     }
 
     .header-booksy {
-      min-height: 48px !important;
-      font-size: 0.9rem !important;
-      font-weight: 810 !important;
+      font-family:
+        "Avenir Next",
+        "Helvetica Neue",
+        Arial,
+        sans-serif !important;
+      font-size: 0.84rem !important;
+      font-weight: 760 !important;
+      letter-spacing: 0.045em !important;
+      text-transform: uppercase !important;
     }
   }
 
-  @media (min-width: 1081px) and (max-width: 1380px) {
+  @media (min-width: 1081px) and (max-width: 1280px) {
     .desktop-nav a {
-      padding: 0 8px !important;
-      font-size: clamp(0.82rem, 0.78vw, 0.9rem) !important;
-      font-weight: 750 !important;
+      padding: 0 6px !important;
+      font-size: 0.69rem !important;
+      letter-spacing: 0.055em !important;
+      font-weight: 720 !important;
     }
 
     .header-booksy {
-      font-size: 0.84rem !important;
-      padding: 0 13px !important;
+      padding: 0 12px !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.035em !important;
+    }
+  }
+
+  @media (min-width: 1281px) and (max-width: 1480px) {
+    .desktop-nav a {
+      padding: 0 7px !important;
+      font-size: 0.73rem !important;
+      letter-spacing: 0.06em !important;
+    }
+
+    .header-booksy {
+      font-size: 0.76rem !important;
+      padding: 0 14px !important;
+    }
+  }
+
+  @media (min-width: 1481px) {
+    .desktop-nav a {
+      font-size: 0.82rem !important;
     }
   }
 
   @media (max-width: 1080px) {
-    .mobile-menu-head {
-      padding: 8px 8px 18px !important;
-      text-align: center !important;
-    }
-
-    .mobile-menu-head p {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      min-height: 30px !important;
-      padding: 0 13px !important;
-      border-radius: 999px !important;
-      background: rgba(219, 246, 243, 0.64) !important;
-      color: var(--color-turquoise-dark, #0f7773) !important;
-      font-size: 0.7rem !important;
-      font-weight: 850 !important;
-      letter-spacing: 0.18em !important;
+    .mobile-nav a {
+      font-size: 0.9rem !important;
+      font-weight: 760 !important;
+      letter-spacing: 0.045em !important;
+      text-transform: uppercase !important;
     }
 
     .mobile-menu-head span {
-      max-width: 270px !important;
-      margin: 10px auto 0 !important;
-      color: rgba(23, 21, 29, 0.74) !important;
-      font-size: 1.04rem !important;
-      font-weight: 730 !important;
-      line-height: 1.28 !important;
-      letter-spacing: -0.035em !important;
+      font-family:
+        "Avenir Next",
+        "Helvetica Neue",
+        Arial,
+        sans-serif !important;
+      letter-spacing: 0.02em !important;
+      text-transform: uppercase !important;
+      font-size: 0.88rem !important;
+      font-weight: 720 !important;
+    }
+
+    .header-booksy {
+      font-family:
+        "Avenir Next",
+        "Helvetica Neue",
+        Arial,
+        sans-serif !important;
+      font-size: 0.7rem !important;
+      font-weight: 780 !important;
+      letter-spacing: 0.045em !important;
+      text-transform: uppercase !important;
     }
   }
 
