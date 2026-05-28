@@ -1,0 +1,1122 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const galleryAreas = [
+  {
+    number: "01",
+    title: "Brwi permanentne",
+    text: "Naturalna oprawa oka, miękki kształt, spokojny kolor i efekt dopasowany do twarzy.",
+    href: "/makijaz-permanentny-brwi/"
+  },
+  {
+    number: "02",
+    title: "Silky Hairstroke Brows",
+    text: "Autorskie podejście do włosa maszynowego: lekkość, kierunek włosa i realistyczny efekt.",
+    href: "/makijaz-permanentny-brwi/"
+  },
+  {
+    number: "03",
+    title: "Usta permanentne",
+    text: "Odświeżenie koloru, wyrównanie czerwieni wargowej i subtelny efekt bez przerysowania.",
+    href: "/makijaz-permanentny-ust/"
+  },
+  {
+    number: "04",
+    title: "Kreski permanentne",
+    text: "Zagęszczenie linii rzęs lub delikatne podkreślenie oka dopasowane do powieki.",
+    href: "/makijaz-permanentny-oczu/"
+  }
+];
+
+
+const fullFaceFrames = [
+  {
+    number: "01",
+    title: "Cała twarz",
+    text: "Pełny kadr pokazuje, czy makijaż permanentny naprawdę pasuje do rysów, mimiki i proporcji klientki."
+  },
+  {
+    number: "02",
+    title: "Detal zabiegu",
+    text: "Zbliżenia są potrzebne, ale mają uzupełniać pełny portret, a nie zastępować ocenę całej twarzy."
+  },
+  {
+    number: "03",
+    title: "Efekt po wygojeniu",
+    text: "Docelowo warto pokazywać nie tylko świeży efekt, ale także spokojny rezultat po stabilizacji koloru."
+  },
+  {
+    number: "04",
+    title: "Metamorfoza",
+    text: "Najlepsza galeria powinna łączyć estetyczny portret, detal PMU i krótką historię zmiany."
+  }
+];
+
+const galleryRules = [
+  "Pokazujemy tylko prace, które dobrze oddają styl Bogusława Herda.",
+  "Efekty mają być naturalne, estetyczne i dobrane do urody klientki.",
+  "Zdjęcia przed i po wymagają zgody klientki na publikację.",
+  "Galeria będzie rozwijana etapami, gdy wybierzemy najlepsze materiały zdjęciowe.",
+  "Nie tworzymy przypadkowej galerii — liczy się jakość, światło i spójność."
+];
+
+const relatedPages = [
+  {
+    label: "PMU",
+    title: "Makijaż permanentny Bielsko-Biała",
+    text: "Główna podstrona o naturalnym makijażu permanentnym.",
+    href: "/makijaz-permanentny-bielsko/"
+  },
+  {
+    label: "Brwi",
+    title: "Brwi permanentne",
+    text: "Naturalne brwi, metoda włoskowa i Silky Hairstroke Brows.",
+    href: "/makijaz-permanentny-brwi/"
+  },
+  {
+    label: "Usta",
+    title: "Makijaż permanentny ust",
+    text: "Kolor ust, kontur i odświeżenie czerwieni wargowej.",
+    href: "/makijaz-permanentny-ust/"
+  },
+  {
+    label: "Cennik",
+    title: "Cennik PMU",
+    text: "Ceny makijażu permanentnego, odświeżeń i usuwania PMU.",
+    href: "/cennik-makijaz-permanentny/"
+  }
+];
+---
+
+<Layout
+  title="Galeria makijażu permanentnego Bielsko-Biała | Bogusława Herda"
+  description="Galeria makijażu permanentnego Bogusława Herda w Bielsku-Białej: naturalne brwi permanentne, usta, kreski i wybrane efekty PMU bez przerysowania."
+>
+  <div class="gallery-page">
+    <Header />
+
+    <main>
+      <section class="gallery-hero">
+        <div class="gallery-glow gallery-glow-one"></div>
+        <div class="gallery-glow gallery-glow-two"></div>
+
+        <div class="container gallery-hero-grid">
+          <div class="gallery-hero-copy">
+            <p class="section-kicker">Galeria makijażu permanentnego</p>
+
+            <h1>Wybrane efekty PMU — naturalnie, czysto i bez przerysowania.</h1>
+
+            <p class="gallery-hero-lead">
+              Galeria będzie miejscem na starannie dobrane prace Bogusława Herda:
+              brwi permanentne, usta, kreski i metamorfozy pokazujące styl gabinetu.
+              Nie chodzi o ilość zdjęć, tylko o jakość, światło i prawdziwy efekt.
+            </p>
+
+            <div class="gallery-hero-actions">
+              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Umów konsultację
+              </a>
+
+              <a class="button-secondary" href="#zakres-galerii">
+                Zobacz zakres galerii
+              </a>
+            </div>
+          </div>
+
+          <aside class="gallery-hero-card" aria-label="Kierunek efektu galerii">
+            <p class="gallery-card-label">PMU</p>
+            <h2>Galeria ma pokazywać styl, nie przypadkowe zdjęcia.</h2>
+            <p>
+              Najważniejsze są naturalne proporcje, miękki kolor, czysta praca i efekt,
+              który dobrze wygląda także po wygojeniu.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="gallery-proof-section">
+        <div class="container gallery-proof-grid">
+          <div>
+            <strong>Naturalny efekt</strong>
+            <span>bez ciężkiej formy</span>
+          </div>
+
+          <div>
+            <strong>Selekcja zdjęć</strong>
+            <span>jakość zamiast ilości</span>
+          </div>
+
+          <div>
+            <strong>Realne prace</strong>
+            <span>z zachowaniem zgód klientek</span>
+          </div>
+
+          <div>
+            <strong>Powrót do natury</strong>
+            <span>spójny kierunek estetyczny</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-intro-section">
+        <div class="container gallery-two-column">
+          <div>
+            <p class="section-kicker">Kierunek galerii</p>
+            <h2>To nie będzie przypadkowa kolekcja zdjęć. To będzie wizytówka stylu.</h2>
+          </div>
+
+          <div class="gallery-text-card">
+            <p>
+              W makijażu permanentnym zdjęcie ma sens tylko wtedy, gdy pokazuje jakość pracy:
+              kształt, miękkość, symetrię, kolor i naturalność efektu. Dlatego galeria będzie
+              rozwijana etapami — po wyborze najlepszych zdjęć i materiałów z zachowaniem zgód klientek.
+            </p>
+
+            <p>
+              Strona jest już przygotowana pod przyszłą rozbudowę zdjęciową. Na tym etapie pokazujemy
+              kierunek: brwi, usta, kreski i metamorfozy dobrane tak, aby wzmacniały ekspercki charakter
+              marki Bogusława Herda.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-areas-section" id="zakres-galerii">
+        <div class="container">
+          <div class="gallery-section-heading">
+            <p class="section-kicker">Zakres galerii</p>
+            <h2>Galeria zostanie podzielona według najważniejszych obszarów PMU.</h2>
+            <p>
+              Każdy obszar wymaga innego światła, kadru i sposobu pokazania efektu.
+              Brwi, usta i kreski nie powinny wyglądać jak jedna przypadkowa kategoria.
+            </p>
+          </div>
+
+          <div class="gallery-area-grid">
+            {galleryAreas.map((item) => (
+              <a href={item.href} class:list={["gallery-area-card", { "gallery-area-card-turquoise": item.number === "02" }]}>
+                {item.number === "02" && (
+                  <span class="gallery-big-mark" aria-hidden="true">SHB</span>
+                )}
+
+                <span>{item.number}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-coming-section">
+        <div class="container gallery-coming-card">
+          <span class="gallery-big-mark gallery-big-mark-natural" aria-hidden="true">NATURAL</span>
+
+          <div>
+            <p class="section-kicker">Metamorfozy</p>
+            <h2>Zdjęcia dodamy wtedy, gdy wybierzemy najlepszy materiał.</h2>
+          </div>
+
+          <p>
+            Na stronie nie będziemy publikować przypadkowych zdjęć tylko po to, aby zapełnić galerię.
+            Najlepszy efekt da spokojna selekcja: dobre światło, dobre kadry, zgody klientek
+            i prace pokazujące rzeczywisty styl gabinetu.
+          </p>
+        </div>
+      </section>
+
+
+      <section class="gallery-face-section">
+        <div class="container">
+          <div class="gallery-section-heading">
+            <p class="section-kicker">Pełne kadry twarzy</p>
+            <h2>Galeria powinna pokazywać nie tylko detal, ale też całą twarz klientki.</h2>
+            <p>
+              Makijaż permanentny oceniamy w kontekście całej urody. Zbliżenie na brwi, usta albo kreskę
+              jest ważne technicznie, ale dopiero pełny kadr pokazuje harmonię efektu.
+            </p>
+          </div>
+
+          <div class="gallery-face-grid">
+            {fullFaceFrames.map((item) => (
+              <article class="gallery-face-card">
+                <span>{item.number}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-rules-section">
+        <div class="container gallery-rules-grid">
+          <div class="gallery-rules-card">
+            <p class="section-kicker">Standard publikacji</p>
+            <h2>Jakie zdjęcia powinny trafić do galerii?</h2>
+            <p>
+              Galeria PMU musi być estetyczna, ale też odpowiedzialna. Nie każde zdjęcie nadaje się
+              do publikacji — nawet jeśli efekt zabiegu jest dobry. Liczy się światło, ostrość,
+              zgoda klientki i spójność z kierunkiem strony.
+            </p>
+          </div>
+
+          <div class="gallery-list-card">
+            {galleryRules.map((rule) => (
+              <div>
+                <span></span>
+                <p>{rule}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-related-section">
+        <div class="container">
+          <div class="gallery-section-heading">
+            <p class="section-kicker">Powiązane podstrony</p>
+            <h2>Zobacz najważniejsze obszary makijażu permanentnego.</h2>
+          </div>
+
+          <div class="gallery-related-grid">
+            {relatedPages.map((item) => (
+              <a href={item.href} class="gallery-related-card">
+                <span>{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-faq-section">
+        <div class="container">
+          <div class="gallery-section-heading">
+            <p class="section-kicker">Najczęstsze pytania</p>
+            <h2>Co warto wiedzieć o galerii PMU?</h2>
+          </div>
+
+          <div class="gallery-faq-grid">
+            <article>
+              <h3>Czy galeria będzie zawierać zdjęcia przed i po?</h3>
+              <p>
+                Tak, ale tylko wybrane zdjęcia, które dobrze pokazują styl pracy i mają zgodę klientki na publikację.
+              </p>
+            </article>
+
+            <article>
+              <h3>Dlaczego na razie nie ma wielu zdjęć?</h3>
+              <p>
+                Galeria będzie rozbudowywana etapami. Lepiej dodać mniej zdjęć, ale dobrze dobranych,
+                niż tworzyć przypadkowy zbiór materiałów.
+              </p>
+            </article>
+
+            <article>
+              <h3>Czy zdjęcia pokazują efekt po wygojeniu?</h3>
+              <p>
+                Docelowo galeria powinna pokazywać zarówno świeże efekty, jak i wygojone prace,
+                jeżeli materiał zdjęciowy będzie dostępny.
+              </p>
+            </article>
+
+            <article>
+              <h3>Czy mogę zobaczyć więcej prac przed wizytą?</h3>
+              <p>
+                Najlepiej zapytać podczas konsultacji lub sprawdzić aktualności w mediach społecznościowych gabinetu.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-final-cta" id="kontakt">
+        <div class="container gallery-final-card">
+          <p class="signature cta-signature">Powrót do natury</p>
+          <h2>Chcesz sprawdzić, jaki makijaż permanentny będzie najlepszy dla Ciebie?</h2>
+          <p>
+            Umów konsultację i zobacz, jak może wyglądać naturalny efekt dopasowany
+            do Twojej urody, skóry i codzienności.
+          </p>
+
+          <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+            Umów wizytę przez Booksy
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .gallery-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.12), transparent 28rem),
+      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.12), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
+  }
+
+  .gallery-hero {
+    position: relative;
+    padding: 150px 0 88px;
+    overflow: hidden;
+  }
+
+  .gallery-glow {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 999px;
+  }
+
+  .gallery-glow-one {
+    right: -12rem;
+    top: 4rem;
+    width: 42rem;
+    height: 42rem;
+    background: radial-gradient(circle, rgba(56, 187, 181, 0.2), transparent 68%);
+  }
+
+  .gallery-glow-two {
+    left: -10rem;
+    bottom: -12rem;
+    width: 38rem;
+    height: 38rem;
+    background: radial-gradient(circle, rgba(201, 127, 143, 0.18), transparent 68%);
+  }
+
+  .gallery-hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .gallery-hero-copy,
+  .gallery-hero-card,
+  .gallery-text-card,
+  .gallery-area-card,
+  .gallery-coming-card,
+  .gallery-rules-card,
+  .gallery-list-card,
+  .gallery-related-card,
+  .gallery-faq-grid article,
+  .gallery-final-card {
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .gallery-hero-copy {
+    padding: clamp(38px, 5vw, 72px);
+    border-radius: 42px;
+    background: rgba(255, 255, 255, 0.76);
+  }
+
+  .gallery-hero-copy h1 {
+    max-width: 1040px;
+    margin: 0;
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
+    font-weight: 750;
+    line-height: 1.02;
+    letter-spacing: -0.078em;
+  }
+
+  .gallery-hero-lead {
+    max-width: 780px;
+    margin: 28px 0 0;
+    color: var(--color-muted);
+    font-size: 1.12rem;
+  }
+
+  .gallery-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .gallery-hero-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(34px, 4vw, 56px);
+    border-radius: 42px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.3), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.3), transparent 13rem),
+      linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: gallery-gold-flow 14s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(125, 95, 45, 0.24);
+  }
+
+  .gallery-hero-card::before,
+  .gallery-coming-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.26) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+    transform: translateX(-72%);
+    animation: gallery-panel-shine 8.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .gallery-card-label {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 auto;
+    color: rgba(255, 248, 230, 0.22);
+    font-size: clamp(4.5rem, 7vw, 7.8rem);
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: -0.09em;
+  }
+
+  .gallery-hero-card h2,
+  .gallery-hero-card p:not(.gallery-card-label) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .gallery-hero-card h2 {
+    margin: 40px 0 0;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    font-weight: 740;
+    line-height: 0.96;
+    letter-spacing: -0.075em;
+  }
+
+  .gallery-hero-card p:not(.gallery-card-label) {
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .gallery-proof-section {
+    border-top: 1px solid rgba(183, 101, 118, 0.1);
+    border-bottom: 1px solid rgba(183, 101, 118, 0.1);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .gallery-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .gallery-proof-grid div {
+    min-height: 112px;
+    padding: 24px 22px;
+    border-right: 1px solid rgba(183, 101, 118, 0.12);
+  }
+
+  .gallery-proof-grid div:last-child {
+    border-right: 0;
+  }
+
+  .gallery-proof-grid strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.92rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+  }
+
+  .gallery-proof-grid span {
+    display: block;
+    color: var(--color-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.55;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  .gallery-intro-section,
+  .gallery-areas-section,
+  .gallery-coming-section,
+  .gallery-face-section,
+  .gallery-rules-section,
+  .gallery-related-section,
+  .gallery-faq-section,
+  .gallery-final-cta {
+    padding: 88px 0;
+  }
+
+  .gallery-two-column,
+  .gallery-rules-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 54px;
+    align-items: start;
+  }
+
+  .gallery-two-column h2,
+  .gallery-section-heading h2,
+  .gallery-coming-card h2,
+  .gallery-rules-card h2,
+  .gallery-final-card h2 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .gallery-text-card,
+  .gallery-rules-card,
+  .gallery-list-card {
+    padding: 34px;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  .gallery-section-heading {
+    max-width: 940px;
+    margin-bottom: 38px;
+  }
+
+  .gallery-section-heading .section-kicker {
+    color: var(--color-turquoise-dark);
+    font-size: 0.78rem;
+    font-weight: 820;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .gallery-section-heading p {
+    max-width: 880px;
+    color: var(--color-muted);
+    font-size: 1.05rem;
+    line-height: 1.68;
+  }
+
+  .gallery-area-grid,
+  .gallery-related-grid,
+  .gallery-faq-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .gallery-area-grid,
+  .gallery-related-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .gallery-area-card,
+  .gallery-related-card,
+  .gallery-faq-grid article {
+    position: relative;
+    min-height: 275px;
+    padding: 28px;
+    overflow: hidden;
+    border-radius: 32px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 252, 0.8));
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .gallery-area-card::before,
+  .gallery-related-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .gallery-area-card::after,
+  .gallery-related-card::after {
+    content: "";
+    position: absolute;
+    right: -58px;
+    top: -58px;
+    width: 138px;
+    height: 138px;
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.68);
+    pointer-events: none;
+  }
+
+  .gallery-area-card-turquoise {
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: gallery-turquoise-flow 13s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
+  }
+
+  .gallery-area-card-turquoise::before {
+    border-top-color: rgba(255, 255, 255, 0.28);
+  }
+
+  .gallery-area-card-turquoise::after {
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.16);
+  }
+
+  .gallery-big-mark {
+    position: absolute !important;
+    right: clamp(14px, 2.4vw, 32px) !important;
+    top: clamp(12px, 2vw, 26px) !important;
+    z-index: 1 !important;
+    color: rgba(255, 255, 255, 0.16) !important;
+    font-size: clamp(3.6rem, 7vw, 7.9rem) !important;
+    font-weight: 850 !important;
+    line-height: 0.78 !important;
+    letter-spacing: -0.12em !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  .gallery-big-mark-natural {
+    color: rgba(255, 255, 255, 0.14) !important;
+    font-size: clamp(3.8rem, 7vw, 8rem) !important;
+  }
+
+  .gallery-area-card > *:not(.gallery-big-mark),
+  .gallery-coming-card > *:not(.gallery-big-mark) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .gallery-area-card span:not(.gallery-big-mark),
+  .gallery-related-card span {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    margin-bottom: 44px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 760;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .gallery-area-card h3,
+  .gallery-related-card h3,
+  .gallery-faq-grid h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.065em;
+  }
+
+  .gallery-area-card p,
+  .gallery-related-card p,
+  .gallery-faq-grid p {
+    position: relative;
+    z-index: 2;
+    margin: 14px 0 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.62;
+  }
+
+  .gallery-area-card-turquoise span:not(.gallery-big-mark),
+  .gallery-area-card-turquoise h3,
+  .gallery-area-card-turquoise p {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .gallery-area-card-turquoise h3 {
+    color: #ffffff;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
+  }
+
+  .gallery-coming-section,
+  .gallery-rules-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
+  }
+
+  .gallery-coming-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 34px;
+    align-items: center;
+    overflow: hidden;
+    padding: clamp(32px, 4vw, 54px);
+    border-radius: 38px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 10rem),
+      radial-gradient(circle at 82% 24%, rgba(255, 219, 231, 0.4), transparent 13rem),
+      linear-gradient(145deg, #9d4f68 0%, #d7899f 38%, #a85b73 64%, #6f3046 100%);
+    background-size: 100% 100%, 100% 100%, 220% 220%;
+    animation: gallery-rose-flow 12s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(157, 79, 104, 0.22);
+  }
+
+  .gallery-coming-card .section-kicker,
+  .gallery-coming-card h2,
+  .gallery-coming-card p {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .gallery-coming-card h2 {
+    color: #ffffff;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
+  }
+
+  .gallery-list-card {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .gallery-list-card div {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 14px;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+  }
+
+  .gallery-list-card div:last-child {
+    border-bottom: 0;
+  }
+
+  .gallery-list-card span {
+    width: 10px;
+    height: 10px;
+    margin-top: 7px;
+    border-radius: 999px;
+    background: var(--color-turquoise);
+  }
+
+  .gallery-list-card p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.96rem;
+    line-height: 1.58;
+  }
+
+  .gallery-faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-faq-grid article {
+    min-height: auto;
+  }
+
+  .gallery-faq-grid article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(201, 127, 143, 0.24);
+  }
+
+  .gallery-final-card {
+    padding: clamp(34px, 6vw, 70px);
+    border-radius: 42px;
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .gallery-final-card p:not(.signature) {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-muted);
+  }
+
+  .gallery-final-card .button-primary {
+    margin-top: 18px;
+  }
+
+  @keyframes gallery-panel-shine {
+    0% {
+      transform: translateX(-72%);
+      opacity: 0.28;
+    }
+
+    45% {
+      opacity: 0.88;
+    }
+
+    100% {
+      transform: translateX(88%);
+      opacity: 0.28;
+    }
+  }
+
+  @keyframes gallery-gold-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @keyframes gallery-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @keyframes gallery-rose-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @media (max-width: 1260px) {
+    .gallery-proof-grid,
+    .gallery-area-grid,
+    .gallery-face-grid,
+    .gallery-related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-proof-grid div:nth-child(2) {
+      border-right: 0;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .gallery-hero-grid,
+    .gallery-two-column,
+    .gallery-rules-grid,
+    .gallery-coming-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .gallery-hero {
+      padding: 112px 0 58px;
+    }
+
+    .gallery-hero-copy,
+    .gallery-hero-card,
+    .gallery-text-card,
+    .gallery-area-card,
+    .gallery-face-card,
+    .gallery-coming-card,
+    .gallery-rules-card,
+    .gallery-list-card,
+    .gallery-related-card,
+    .gallery-faq-grid article,
+    .gallery-final-card {
+      border-radius: 28px;
+    }
+
+    .gallery-hero-copy h1 {
+      font-size: clamp(2.75rem, 12.2vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.074em;
+    }
+
+    .gallery-intro-section,
+    .gallery-areas-section,
+    .gallery-coming-section,
+    .gallery-face-section,
+    .gallery-rules-section,
+    .gallery-related-section,
+    .gallery-faq-section,
+    .gallery-final-cta {
+      padding: 58px 0;
+    }
+
+    .gallery-two-column h2,
+    .gallery-section-heading h2,
+    .gallery-coming-card h2,
+    .gallery-rules-card h2,
+    .gallery-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .gallery-proof-grid,
+    .gallery-area-grid,
+    .gallery-face-grid,
+    .gallery-related-grid,
+    .gallery-faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-proof-grid div,
+    .gallery-proof-grid div:nth-child(2) {
+      border-right: 0;
+      border-bottom: 1px solid rgba(183, 101, 118, 0.12);
+    }
+
+    .gallery-proof-grid div:last-child {
+      border-bottom: 0;
+    }
+
+    .gallery-area-card,
+    .gallery-face-card,
+    .gallery-related-card {
+      min-height: auto;
+      padding: 26px;
+    }
+
+    .gallery-big-mark {
+      right: 16px !important;
+      top: 14px !important;
+      font-size: clamp(3rem, 15vw, 5rem) !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-hero-card,
+    .gallery-hero-card::before,
+    .gallery-area-card-turquoise,
+    .gallery-coming-card,
+    .gallery-coming-card::before {
+      animation: none;
+    }
+  }
+
+  /* V3 — naprawa kafelków w sekcji Pełne kadry twarzy */
+  .gallery-face-section {
+    background:
+      radial-gradient(circle at 84% 18%, rgba(56, 187, 181, 0.08), transparent 24rem),
+      rgba(255, 255, 255, 0.62);
+  }
+
+  .gallery-face-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+  }
+
+  .gallery-face-card {
+    position: relative !important;
+    min-height: 245px !important;
+    padding: 28px !important;
+    overflow: hidden !important;
+    border-radius: 32px !important;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(219, 246, 243, 0.72), transparent 7rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.86)) !important;
+    border: 1px solid rgba(183, 101, 118, 0.16) !important;
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075) !important;
+  }
+
+  .gallery-face-card::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-top: 4px solid rgba(56, 187, 181, 0.34) !important;
+    pointer-events: none !important;
+  }
+
+  .gallery-face-card:nth-child(2)::before,
+  .gallery-face-card:nth-child(4)::before {
+    border-top-color: rgba(201, 127, 143, 0.34) !important;
+  }
+
+  .gallery-face-card::after {
+    content: "" !important;
+    position: absolute !important;
+    right: -58px !important;
+    top: -58px !important;
+    width: 138px !important;
+    height: 138px !important;
+    border-radius: 999px !important;
+    background: rgba(219, 246, 243, 0.68) !important;
+    pointer-events: none !important;
+  }
+
+  .gallery-face-card:nth-child(2)::after,
+  .gallery-face-card:nth-child(4)::after {
+    background: rgba(246, 220, 227, 0.76) !important;
+  }
+
+  .gallery-face-card span,
+  .gallery-face-card h3,
+  .gallery-face-card p {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .gallery-face-card span {
+    display: inline-flex !important;
+    margin-bottom: 44px !important;
+    color: var(--color-turquoise-dark) !important;
+    font-size: 0.72rem !important;
+    font-weight: 760 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .gallery-face-card h3 {
+    margin: 0 !important;
+    color: var(--color-text) !important;
+    font-size: clamp(1.45rem, 1.9vw, 2.1rem) !important;
+    font-weight: 740 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.065em !important;
+  }
+
+  .gallery-face-card p {
+    margin: 14px 0 0 !important;
+    color: var(--color-muted) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.62 !important;
+  }
+
+  @media (max-width: 1260px) {
+    .gallery-face-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .gallery-face-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .gallery-face-card {
+      min-height: auto !important;
+      padding: 26px !important;
+      border-radius: 28px !important;
+    }
+  }
+
+</style>

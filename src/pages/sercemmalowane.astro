@@ -1,0 +1,980 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const heartRules = [
+  "To nie jest zwykła pozycja cennikowa, tylko gest i ważna część wrażliwości gabinetu.",
+  "Zakres inicjatywy wymaga indywidualnej rozmowy i spokojnego ustalenia szczegółów.",
+  "Najważniejsze są bezpieczeństwo, kwalifikacja, komfort i odpowiedzialna decyzja.",
+  "Nie każda sytuacja będzie kwalifikowała się do wykonania zabiegu od razu.",
+  "Szczegóły najlepiej omówić bezpośrednio z gabinetem."
+];
+
+const heartSteps = [
+  {
+    number: "01",
+    title: "Rozmowa",
+    text: "Najpierw spokojnie omawiamy sytuację, oczekiwania, możliwości i przeciwwskazania."
+  },
+  {
+    number: "02",
+    title: "Kwalifikacja",
+    text: "Oceniamy, czy zabieg jest bezpieczny, realny i właściwy w danym momencie."
+  },
+  {
+    number: "03",
+    title: "Rysunek wstępny",
+    text: "Jeśli można przejść dalej, ustalamy kształt, kierunek i naturalny efekt pracy."
+  },
+  {
+    number: "04",
+    title: "Decyzja",
+    text: "Dopiero po rozmowie i kwalifikacji podejmowana jest odpowiedzialna decyzja."
+  }
+];
+
+const relatedPages = [
+  {
+    label: "PMU",
+    title: "Makijaż permanentny Bielsko-Biała",
+    text: "Główna podstrona o naturalnym makijażu permanentnym.",
+    href: "/makijaz-permanentny-bielsko/"
+  },
+  {
+    label: "Brwi",
+    title: "Brwi permanentne",
+    text: "Naturalne brwi, metoda włoskowa i Silky Hairstroke Brows.",
+    href: "/makijaz-permanentny-brwi/"
+  },
+  {
+    label: "Kontakt",
+    title: "Kontakt z gabinetem",
+    text: "Booksy, telefon, e-mail, adres gabinetu i informacje przed wizytą.",
+    href: "/kontakt/"
+  },
+  {
+    label: "Zasady",
+    title: "Cennik PMU",
+    text: "Ceny makijażu permanentnego, odświeżeń, usuwania i konsultacji.",
+    href: "/cennik-makijaz-permanentny/"
+  }
+];
+---
+
+<Layout
+  title="#SercemMalowane | Bogusława Herda Makijaż Permanentny Bielsko-Biała"
+  description="#SercemMalowane Bogusława Herda — wyjątkowa inicjatywa gabinetu makijażu permanentnego w Bielsku-Białej, oparta na empatii, rozmowie i odpowiedzialnej kwalifikacji."
+>
+  <div class="heart-page">
+    <Header />
+
+    <main>
+      <section class="heart-hero">
+        <div class="heart-glow heart-glow-one"></div>
+        <div class="heart-glow heart-glow-two"></div>
+
+        <div class="container heart-hero-grid">
+          <div class="heart-hero-copy">
+            <p class="section-kicker">#SercemMalowane</p>
+
+            <h1>Niektóre historie wymagają więcej niż techniki.</h1>
+
+            <p class="heart-hero-lead">
+              #SercemMalowane to wyjątkowe miejsce w komunikacji gabinetu Bogusława Herda —
+              o empatii, uważności i pracy wykonywanej z poczuciem odpowiedzialności.
+            </p>
+
+            <div class="heart-hero-actions">
+              <a class="button-primary" href="/kontakt/">
+                Skontaktuj się z gabinetem
+              </a>
+
+              <a class="button-secondary" href="#o-inicjatywie">
+                Zobacz zasady
+              </a>
+            </div>
+          </div>
+
+          <aside class="heart-hero-card" aria-label="Sercem malowane">
+            <span class="heart-symbol" aria-hidden="true">♥</span>
+            <p class="heart-card-label">HEART</p>
+            <h2>Sercem. Spokojnie. Odpowiedzialnie.</h2>
+            <p>
+              Tutaj najważniejsza jest nie tylko pigmentacja, ale człowiek, rozmowa,
+              kwalifikacja i decyzja podjęta bez presji.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="heart-proof-section">
+        <div class="container heart-proof-grid">
+          <div>
+            <strong>Empatia</strong>
+            <span>rozmowa bez presji</span>
+          </div>
+
+          <div>
+            <strong>Bezpieczeństwo</strong>
+            <span>kwalifikacja przed decyzją</span>
+          </div>
+
+          <div>
+            <strong>Naturalność</strong>
+            <span>bez przerysowania</span>
+          </div>
+
+          <div>
+            <strong>0 zł</strong>
+            <span>pozycja specjalna w cenniku</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="heart-intro-section" id="o-inicjatywie">
+        <div class="container heart-two-column">
+          <div>
+            <p class="section-kicker">O inicjatywie</p>
+            <h2>#SercemMalowane to nie standardowa usługa. To indywidualna historia.</h2>
+          </div>
+
+          <div class="heart-text-card">
+            <p>
+              Są sytuacje, w których makijaż permanentny może mieć znaczenie większe niż codzienne
+              podkreślenie urody. Może pomóc odzyskać poczucie spójności, delikatnie uporządkować wygląd
+              i dać więcej komfortu w patrzeniu na siebie.
+            </p>
+
+            <p>
+              Dlatego #SercemMalowane powinno być prowadzone spokojnie i odpowiedzialnie. Nie chodzi
+              o szybki zabieg, tylko o rozmowę, kwalifikację i decyzję, czy w danym przypadku makijaż
+              permanentny jest właściwym rozwiązaniem.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="heart-process-section">
+        <div class="container">
+          <div class="heart-section-heading">
+            <p class="section-kicker">Jak to wygląda?</p>
+            <h2>Najpierw człowiek i rozmowa. Dopiero później ewentualny zabieg.</h2>
+            <p>
+              Ta ścieżka nie powinna być automatyczna. Każda sytuacja wymaga indywidualnego podejścia,
+              oceny skóry, przeciwwskazań i realnych możliwości wykonania bezpiecznej pracy.
+            </p>
+          </div>
+
+          <div class="heart-step-grid">
+            {heartSteps.map((item) => (
+              <article class="heart-step-card">
+                <span>{item.number}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="heart-red-section">
+        <div class="container heart-red-card">
+          <span class="heart-big-mark" aria-hidden="true">♥</span>
+
+          <div>
+            <p class="section-kicker">Sercem malowane</p>
+            <h2>Czerwony kafelek zostaje symbolem tej inicjatywy.</h2>
+          </div>
+
+          <p>
+            Wyróżniamy tę część strony mocną czerwienią, bo ma być natychmiast rozpoznawalna.
+            To nie jest zwykła karta oferty — to znak wrażliwości, spokoju i szczególnego podejścia.
+          </p>
+        </div>
+      </section>
+
+      <section class="heart-rules-section">
+        <div class="container heart-rules-grid">
+          <div class="heart-rules-card">
+            <p class="section-kicker">Ważne zasady</p>
+            <h2>Co trzeba wiedzieć przed kontaktem?</h2>
+            <p>
+              W przypadku inicjatyw specjalnych najważniejsza jest uczciwa rozmowa i bezpieczna kwalifikacja.
+              Nie obiecujemy efektu przed oceną sytuacji, skóry i możliwości wykonania zabiegu.
+            </p>
+          </div>
+
+          <div class="heart-list-card">
+            {heartRules.map((rule) => (
+              <div>
+                <span></span>
+                <p>{rule}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="heart-related-section">
+        <div class="container">
+          <div class="heart-section-heading">
+            <p class="section-kicker">Powiązane podstrony</p>
+            <h2>Zobacz miejsca, które pomagają lepiej zrozumieć styl pracy.</h2>
+          </div>
+
+          <div class="heart-related-grid">
+            {relatedPages.map((item) => (
+              <a href={item.href} class="heart-related-card">
+                <span>{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="heart-faq-section">
+        <div class="container">
+          <div class="heart-section-heading">
+            <p class="section-kicker">Najczęstsze pytania</p>
+            <h2>Co warto wiedzieć o #SercemMalowane?</h2>
+          </div>
+
+          <div class="heart-faq-grid">
+            <article>
+              <h3>Czy #SercemMalowane jest zwykłą usługą z cennika?</h3>
+              <p>
+                Nie. To pozycja specjalna, która wymaga indywidualnej rozmowy i kwalifikacji.
+              </p>
+            </article>
+
+            <article>
+              <h3>Czy każda osoba może skorzystać z tej inicjatywy?</h3>
+              <p>
+                Nie zawsze. Wszystko zależy od sytuacji, przeciwwskazań, stanu skóry i możliwości wykonania bezpiecznej pracy.
+              </p>
+            </article>
+
+            <article>
+              <h3>Jak najlepiej zapytać o szczegóły?</h3>
+              <p>
+                Najlepiej skontaktować się z gabinetem przez telefon, e-mail albo formularz rezerwacyjny Booksy.
+              </p>
+            </article>
+
+            <article>
+              <h3>Czy decyzja zapada od razu?</h3>
+              <p>
+                Nie musi. Czasem najlepszym rozwiązaniem jest spokojna konsultacja i dopiero późniejsze ustalenie dalszego planu.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="heart-final-cta" id="kontakt">
+        <div class="container heart-final-card">
+          <p class="signature cta-signature">Powrót do natury</p>
+          <h2>Chcesz zapytać o #SercemMalowane?</h2>
+          <p>
+            Napisz lub skontaktuj się z gabinetem. Najpierw spokojnie omówimy sytuację,
+            a dopiero później zdecydujemy, czy i jaki zakres pracy ma sens.
+          </p>
+
+          <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+            Skontaktuj się przez Booksy
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .heart-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 78% 12%, rgba(181, 34, 54, 0.12), transparent 28rem),
+      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.12), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
+  }
+
+  .heart-hero {
+    position: relative;
+    padding: 150px 0 88px;
+    overflow: hidden;
+  }
+
+  .heart-glow {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 999px;
+  }
+
+  .heart-glow-one {
+    right: -12rem;
+    top: 4rem;
+    width: 42rem;
+    height: 42rem;
+    background: radial-gradient(circle, rgba(181, 34, 54, 0.18), transparent 68%);
+  }
+
+  .heart-glow-two {
+    left: -10rem;
+    bottom: -12rem;
+    width: 38rem;
+    height: 38rem;
+    background: radial-gradient(circle, rgba(201, 127, 143, 0.18), transparent 68%);
+  }
+
+  .heart-hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .heart-hero-copy,
+  .heart-hero-card,
+  .heart-text-card,
+  .heart-step-card,
+  .heart-red-card,
+  .heart-rules-card,
+  .heart-list-card,
+  .heart-related-card,
+  .heart-faq-grid article,
+  .heart-final-card {
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .heart-hero-copy {
+    padding: clamp(38px, 5vw, 72px);
+    border-radius: 42px;
+    background: rgba(255, 255, 255, 0.76);
+  }
+
+  .heart-hero-copy h1 {
+    max-width: 1040px;
+    margin: 0;
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
+    font-weight: 750;
+    line-height: 1.02;
+    letter-spacing: -0.078em;
+  }
+
+  .heart-hero-lead {
+    max-width: 780px;
+    margin: 28px 0 0;
+    color: var(--color-muted);
+    font-size: 1.12rem;
+  }
+
+  .heart-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .heart-hero-card,
+  .heart-red-card {
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.32), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(255, 219, 231, 0.34), transparent 13rem),
+      linear-gradient(145deg, #7c0f20 0%, #b52236 28%, #e86f7c 48%, #b52236 68%, #6f0b1a 100%);
+    background-size: 100% 100%, 100% 100%, 220% 220%;
+    animation: heart-red-flow 12s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(181, 34, 54, 0.22);
+  }
+
+  .heart-hero-card {
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(34px, 4vw, 56px);
+    border-radius: 42px;
+  }
+
+  .heart-hero-card::before,
+  .heart-red-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.26) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+    transform: translateX(-72%);
+    animation: heart-panel-shine 8.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .heart-symbol {
+    position: absolute;
+    right: clamp(22px, 4vw, 58px);
+    top: clamp(20px, 4vw, 58px);
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: clamp(5rem, 10vw, 11rem);
+    line-height: 0.8;
+    animation: heart-pulse 1.55s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .heart-card-label {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 auto;
+    color: rgba(255, 255, 255, 0.18);
+    font-size: clamp(4.2rem, 7vw, 7.2rem);
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: -0.09em;
+  }
+
+  .heart-hero-card h2,
+  .heart-hero-card p:not(.heart-card-label),
+  .heart-red-card h2,
+  .heart-red-card p,
+  .heart-red-card .section-kicker {
+    position: relative;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .heart-hero-card h2 {
+    margin: 40px 0 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    font-weight: 740;
+    line-height: 0.96;
+    letter-spacing: -0.075em;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.26);
+  }
+
+  .heart-hero-card p:not(.heart-card-label) {
+    margin: 18px 0 0;
+  }
+
+  .heart-proof-section {
+    border-top: 1px solid rgba(183, 101, 118, 0.1);
+    border-bottom: 1px solid rgba(183, 101, 118, 0.1);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .heart-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .heart-proof-grid div {
+    min-height: 112px;
+    padding: 24px 22px;
+    border-right: 1px solid rgba(183, 101, 118, 0.12);
+  }
+
+  .heart-proof-grid div:last-child {
+    border-right: 0;
+  }
+
+  .heart-proof-grid strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.92rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+  }
+
+  .heart-proof-grid span {
+    display: block;
+    color: var(--color-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.55;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  .heart-intro-section,
+  .heart-process-section,
+  .heart-red-section,
+  .heart-rules-section,
+  .heart-related-section,
+  .heart-faq-section,
+  .heart-final-cta {
+    padding: 88px 0;
+  }
+
+  .heart-two-column,
+  .heart-rules-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 54px;
+    align-items: start;
+  }
+
+  .heart-two-column h2,
+  .heart-section-heading h2,
+  .heart-red-card h2,
+  .heart-rules-card h2,
+  .heart-final-card h2 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .heart-text-card,
+  .heart-rules-card,
+  .heart-list-card {
+    padding: 34px;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  .heart-section-heading {
+    max-width: 940px;
+    margin-bottom: 38px;
+  }
+
+  .heart-section-heading .section-kicker {
+    color: var(--color-turquoise-dark);
+    font-size: 0.78rem;
+    font-weight: 820;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .heart-section-heading p {
+    max-width: 880px;
+    color: var(--color-muted);
+    font-size: 1.05rem;
+    line-height: 1.68;
+  }
+
+  .heart-step-grid,
+  .heart-related-grid,
+  .heart-faq-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .heart-step-grid,
+  .heart-related-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .heart-step-card,
+  .heart-related-card,
+  .heart-faq-grid article {
+    position: relative;
+    min-height: 245px;
+    padding: 28px;
+    overflow: hidden;
+    border-radius: 32px;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(219, 246, 243, 0.72), transparent 7rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.86));
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .heart-step-card::before,
+  .heart-related-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(181, 34, 54, 0.36);
+    pointer-events: none;
+  }
+
+  .heart-step-card::after,
+  .heart-related-card::after {
+    content: "";
+    position: absolute;
+    right: -58px;
+    top: -58px;
+    width: 138px;
+    height: 138px;
+    border-radius: 999px;
+    background: rgba(246, 220, 227, 0.76);
+    pointer-events: none;
+  }
+
+  .heart-step-card span,
+  .heart-related-card span {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    margin-bottom: 44px;
+    color: #9d1e2f;
+    font-size: 0.72rem;
+    font-weight: 760;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .heart-step-card h3,
+  .heart-related-card h3,
+  .heart-faq-grid h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.065em;
+  }
+
+  .heart-step-card p,
+  .heart-related-card p,
+  .heart-faq-grid p {
+    position: relative;
+    z-index: 2;
+    margin: 14px 0 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.62;
+  }
+
+  .heart-red-card {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 34px;
+    align-items: center;
+    padding: clamp(32px, 4vw, 54px);
+    border-radius: 38px;
+  }
+
+  .heart-big-mark {
+    position: absolute;
+    right: clamp(20px, 3vw, 42px);
+    top: clamp(12px, 2vw, 28px);
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.17);
+    font-size: clamp(5rem, 9vw, 10rem);
+    font-weight: 850;
+    line-height: 0.78;
+    pointer-events: none;
+    animation: heart-pulse 1.55s ease-in-out infinite;
+  }
+
+  .heart-list-card {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .heart-list-card div {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 14px;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(181, 34, 54, 0.15);
+  }
+
+  .heart-list-card div:last-child {
+    border-bottom: 0;
+  }
+
+  .heart-list-card span {
+    width: 10px;
+    height: 10px;
+    margin-top: 7px;
+    border-radius: 999px;
+    background: #b52236;
+  }
+
+  .heart-list-card p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.96rem;
+    line-height: 1.58;
+  }
+
+  .heart-faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heart-faq-grid article {
+    min-height: auto;
+  }
+
+  .heart-faq-grid article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(181, 34, 54, 0.24);
+  }
+
+  .heart-final-card {
+    padding: clamp(34px, 6vw, 70px);
+    border-radius: 42px;
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .heart-final-card p:not(.signature) {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-muted);
+  }
+
+  .heart-final-card .button-primary {
+    margin-top: 18px;
+  }
+
+  @keyframes heart-panel-shine {
+    0% {
+      transform: translateX(-72%);
+      opacity: 0.28;
+    }
+
+    45% {
+      opacity: 0.88;
+    }
+
+    100% {
+      transform: translateX(88%);
+      opacity: 0.28;
+    }
+  }
+
+  @keyframes heart-red-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @keyframes heart-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.82;
+    }
+
+    50% {
+      transform: scale(1.075);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 1260px) {
+    .heart-proof-grid,
+    .heart-step-grid,
+    .heart-related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .heart-proof-grid div:nth-child(2) {
+      border-right: 0;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .heart-hero-grid,
+    .heart-two-column,
+    .heart-rules-grid,
+    .heart-red-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .heart-hero {
+      padding: 112px 0 58px;
+    }
+
+    .heart-hero-copy,
+    .heart-hero-card,
+    .heart-text-card,
+    .heart-step-card,
+    .heart-red-card,
+    .heart-rules-card,
+    .heart-list-card,
+    .heart-related-card,
+    .heart-faq-grid article,
+    .heart-final-card {
+      border-radius: 28px;
+    }
+
+    .heart-hero-copy h1 {
+      font-size: clamp(2.75rem, 12.2vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.074em;
+    }
+
+    .heart-intro-section,
+    .heart-process-section,
+    .heart-red-section,
+    .heart-rules-section,
+    .heart-related-section,
+    .heart-faq-section,
+    .heart-final-cta {
+      padding: 58px 0;
+    }
+
+    .heart-two-column h2,
+    .heart-section-heading h2,
+    .heart-red-card h2,
+    .heart-rules-card h2,
+    .heart-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .heart-proof-grid,
+    .heart-step-grid,
+    .heart-related-grid,
+    .heart-faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .heart-proof-grid div,
+    .heart-proof-grid div:nth-child(2) {
+      border-right: 0;
+      border-bottom: 1px solid rgba(183, 101, 118, 0.12);
+    }
+
+    .heart-proof-grid div:last-child {
+      border-bottom: 0;
+    }
+
+    .heart-step-card,
+    .heart-related-card {
+      min-height: auto;
+      padding: 26px;
+    }
+
+    .heart-symbol,
+    .heart-big-mark {
+      font-size: clamp(4rem, 18vw, 6.4rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .heart-hero-card,
+    .heart-hero-card::before,
+    .heart-red-card,
+    .heart-red-card::before,
+    .heart-symbol,
+    .heart-big-mark {
+      animation: none;
+    }
+  }
+
+  /* V2 — czerwone elementy biją jak serce + biały nagłówek czerwonego kafelka */
+  .heart-hero-card,
+  .heart-red-card {
+    animation:
+      heart-red-flow 12s ease-in-out infinite alternate,
+      heart-card-beat 1.7s ease-in-out infinite !important;
+    transform-origin: center;
+  }
+
+  .heart-hero-card h2,
+  .heart-red-card h2,
+  .heart-red-card .section-kicker,
+  .heart-red-card p {
+    color: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  .heart-hero-card h2,
+  .heart-red-card h2 {
+    color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.28) !important;
+  }
+
+  .heart-symbol,
+  .heart-big-mark {
+    animation: heart-symbol-beat 1.35s ease-in-out infinite !important;
+    transform-origin: center;
+  }
+
+  @keyframes heart-card-beat {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 28px 76px rgba(181, 34, 54, 0.22);
+    }
+
+    18% {
+      transform: scale(1.006);
+      box-shadow: 0 30px 84px rgba(181, 34, 54, 0.28);
+    }
+
+    34% {
+      transform: scale(1);
+      box-shadow: 0 28px 76px rgba(181, 34, 54, 0.22);
+    }
+
+    52% {
+      transform: scale(1.004);
+      box-shadow: 0 30px 82px rgba(181, 34, 54, 0.26);
+    }
+
+    100% {
+      transform: scale(1);
+      box-shadow: 0 28px 76px rgba(181, 34, 54, 0.22);
+    }
+  }
+
+  @keyframes heart-symbol-beat {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.78;
+    }
+
+    18% {
+      transform: scale(1.12);
+      opacity: 1;
+    }
+
+    34% {
+      transform: scale(1);
+      opacity: 0.82;
+    }
+
+    52% {
+      transform: scale(1.08);
+      opacity: 0.95;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .heart-hero-card,
+    .heart-red-card,
+    .heart-symbol,
+    .heart-big-mark {
+      animation: none !important;
+    }
+  }
+
+</style>

@@ -1,0 +1,842 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const updatedAt = "28 maja 2026 r.";
+
+const tableOfContents = [
+  "Administrator danych",
+  "Kontakt",
+  "Zakres danych",
+  "Cele i podstawy przetwarzania",
+  "Dokumentacja zabiegowa PMU",
+  "Booksy i rezerwacje",
+  "Analityka i pomiar strony",
+  "Cookies",
+  "Social media, Google Maps i opinie",
+  "Hosting i infrastruktura",
+  "Prawa użytkownika",
+  "Czas przechowywania danych",
+  "Zmiany dokumentu"
+];
+
+const privacySections = [
+  {
+    number: "01",
+    title: "Administrator danych",
+    paragraphs: [
+      "Administratorem danych osobowych w związku z korzystaniem ze strony permanentnybielsko.com jest Bogusława Herda Makijaż Permanentny & Kosmetologia Estetyczna, ul. Barlickiego 5/23, 43-300 Bielsko-Biała, Polska.",
+      "Strona ma charakter informacyjny i prezentuje działalność gabinetu makijażu permanentnego w Bielsku-Białej, ofertę zabiegową, szkolenia PMU, cennik, galerię, treści informacyjne, dane kontaktowe oraz linki do rezerwacji wizyt przez zewnętrzną platformę Booksy."
+    ]
+  },
+  {
+    number: "02",
+    title: "Kontakt z administratorem",
+    paragraphs: [
+      "W sprawach dotyczących prywatności, danych osobowych lub korzystania ze strony można skontaktować się z administratorem telefonicznie pod numerem +48 730 900 125, mailowo pod adresem bogusia@permanentnybielsko.com albo pod adresem gabinetu: ul. Barlickiego 5/23, 43-300 Bielsko-Biała."
+    ]
+  },
+  {
+    number: "03",
+    title: "Jakie dane mogą być przetwarzane?",
+    paragraphs: [
+      "Podczas korzystania ze strony mogą być przetwarzane różne kategorie danych, zależnie od sposobu korzystania ze strony i wybranej formy kontaktu.",
+      "Mogą to być dane techniczne, takie jak adres IP, typ urządzenia, informacje o przeglądarce, podstawowe dane dotyczące wizyty i działania strony.",
+      "Mogą to być dane kontaktowe, jeżeli użytkownik sam skontaktuje się telefonicznie, mailowo, przez Booksy, social media lub inne zewnętrzne narzędzie.",
+      "Mogą to być dane statystyczne, czyli zanonimizowane informacje o odsłonach strony, kliknięciach w przyciski i ogólnej wydajności strony.",
+      "Strona nie posiada obecnie formularza kontaktowego zapisującego dane bezpośrednio w bazie strony. Kontakt odbywa się przez telefon, e-mail, Booksy, media społecznościowe lub linki zewnętrzne."
+    ]
+  },
+  {
+    number: "04",
+    title: "Cele i podstawy przetwarzania danych",
+    paragraphs: [
+      "Dane mogą być przetwarzane w celu udzielenia odpowiedzi na kontakt telefoniczny lub mailowy, obsługi zapytań związanych z ofertą gabinetu, umożliwienia przejścia do rezerwacji wizyty przez Booksy, zapewnienia prawidłowego działania strony internetowej, pomiaru statystycznego odwiedzin i podstawowej skuteczności strony, zabezpieczenia strony, diagnostyki błędów, utrzymania infrastruktury technicznej oraz dochodzenia lub obrony przed ewentualnymi roszczeniami.",
+      "Podstawą przetwarzania danych może być w szczególności prawnie uzasadniony interes administratora, konieczność podjęcia działań na żądanie osoby, której dane dotyczą, obowiązek prawny albo zgoda — jeżeli w przyszłości zostaną wdrożone narzędzia wymagające zgody."
+    ]
+  },
+  {
+    number: "05",
+    title: "Dokumentacja zabiegowa PMU i dane dotyczące zdrowia",
+    paragraphs: [
+      "W przypadku usług makijażu permanentnego, usuwania makijażu permanentnego, pigmentacji medycznej, szkoleń z pracą na modelkach lub innych usług wymagających kwalifikacji gabinet może przetwarzać dane potrzebne do oceny bezpieczeństwa zabiegu.",
+      "Mogą to być informacje dotyczące stanu skóry, alergii, przeciwwskazań, przyjmowanych leków, przebytych zabiegów, wcześniejszych pigmentacji, ciąży, karmienia piersią, chorób przewlekłych, chorób skóry oraz innych okoliczności istotnych dla bezpiecznego wykonania usługi.",
+      "Dane te są przetwarzane wyłącznie w zakresie potrzebnym do kwalifikacji, wykonania usługi, prowadzenia dokumentacji zabiegowej, realizacji zaleceń pozabiegowych, obsługi ewentualnych zgłoszeń oraz zapewnienia bezpieczeństwa Klientki lub Klienta.",
+      "Przy wybranych usługach Klientka lub Klient może zostać poproszony o wypełnienie karty Klientki, ankiety zdrowotnej lub podpisanie świadomej zgody na zabieg."
+    ],
+    featured: true
+  },
+  {
+    number: "06",
+    title: "Booksy i rezerwacje",
+    paragraphs: [
+      "Strona zawiera linki prowadzące do platformy Booksy, gdzie użytkownik może sprawdzić aktualną ofertę, ceny, dostępne terminy oraz dokonać rezerwacji wizyty.",
+      "Po kliknięciu w link Booksy użytkownik przechodzi do zewnętrznego serwisu, który działa według własnych zasad, regulaminu i polityki prywatności. Administrator strony nie zarządza technicznie platformą Booksy."
+    ],
+    cta: {
+      label: "Przejdź do Booksy",
+      href: booksyUrl
+    }
+  },
+  {
+    number: "07",
+    title: "Analityka, pomiar kliknięć i wydajność strony",
+    paragraphs: [
+      "Strona może korzystać z narzędzi Vercel Analytics oraz Vercel Speed Insights, które pomagają sprawdzać liczbę odwiedzin, odsłony podstron, podstawowe zdarzenia na stronie oraz techniczną wydajność serwisu.",
+      "Na stronie mogą być mierzone m.in. kliknięcia w przyciski prowadzące do Booksy, telefonu, e-maila, Instagrama, Facebooka, Google Maps/opinii oraz podstrony kontaktowej. Pomiar ten ma charakter statystyczny i służy ocenie skuteczności strony.",
+      "Strona nie wykorzystuje obecnie Google Analytics, Google Ads ani Meta Pixel. Jeżeli takie narzędzia zostaną dodane w przyszłości, polityka prywatności zostanie uzupełniona, a użytkownik otrzyma możliwość zarządzania zgodami."
+    ]
+  },
+  {
+    number: "08",
+    title: "Pliki cookies i podobne technologie",
+    paragraphs: [
+      "Pliki cookies to niewielkie informacje zapisywane w urządzeniu użytkownika przez stronę internetową lub narzędzia zewnętrzne. Mogą być wykorzystywane m.in. do prawidłowego działania strony, zapamiętywania ustawień, analityki lub działań marketingowych.",
+      "Na dzień ostatniej aktualizacji dokumentu strona nie korzysta z marketingowych cookies Google Ads, Meta Pixel ani z reklamowego profilowania użytkowników. Strona może jednak korzystać z technicznych mechanizmów niezbędnych do działania serwisu, bezpieczeństwa i podstawowego pomiaru statystycznego.",
+      "Użytkownik może samodzielnie zarządzać plikami cookies w ustawieniach swojej przeglądarki, w tym blokować je, usuwać lub ograniczać. Ograniczenie cookies może wpływać na działanie niektórych funkcji stron internetowych.",
+      "Jeżeli w przyszłości zostaną wdrożone narzędzia reklamowe lub analityczne wymagające zgody, na stronie zostanie dodany mechanizm zarządzania zgodami, np. „Akceptuję wszystkie”, „Odrzucam nieobowiązkowe” oraz „Ustawienia”."
+    ]
+  },
+  {
+    number: "09",
+    title: "Social media, Google Maps i opinie",
+    paragraphs: [
+      "Strona zawiera linki do profili społecznościowych oraz usług zewnętrznych, w szczególności Instagram, Facebook, Google Maps/opinie oraz Booksy.",
+      "Po kliknięciu w linki zewnętrzne użytkownik przechodzi do serwisów należących do innych podmiotów. Te serwisy mogą przetwarzać dane użytkownika zgodnie z własnymi politykami prywatności.",
+      "Publikacja zdjęć efektów, metamorfoz, materiałów edukacyjnych lub wizerunku Klientki albo Klienta wymaga osobnej, dobrowolnej zgody. Brak zgody na publikację wizerunku nie wpływa na możliwość skorzystania z usługi."
+    ]
+  },
+  {
+    number: "10",
+    title: "Hosting, domena i infrastruktura techniczna",
+    paragraphs: [
+      "Strona może być hostowana i wdrażana przy użyciu platformy Vercel. Kod strony może być przechowywany w repozytorium GitHub, a domena i DNS mogą być obsługiwane przez Cloudflare albo innego dostawcę infrastruktury.",
+      "Dostawcy infrastruktury technicznej mogą przetwarzać dane techniczne niezbędne do działania strony, zapewnienia bezpieczeństwa, logów technicznych, obsługi zapytań oraz diagnostyki."
+    ]
+  },
+  {
+    number: "11",
+    title: "Prawa użytkownika",
+    paragraphs: [
+      "Osobie, której dane dotyczą, mogą przysługiwać prawa wynikające z przepisów o ochronie danych osobowych, w szczególności prawo dostępu do danych, prawo sprostowania danych, prawo usunięcia danych, prawo ograniczenia przetwarzania, prawo sprzeciwu wobec przetwarzania, prawo przenoszenia danych, jeżeli ma zastosowanie, prawo cofnięcia zgody, jeżeli przetwarzanie odbywa się na podstawie zgody, oraz prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych.",
+      "W celu realizacji praw można skontaktować się z administratorem pod adresem: bogusia@permanentnybielsko.com."
+    ]
+  },
+  {
+    number: "12",
+    title: "Czas przechowywania danych",
+    paragraphs: [
+      "Dane są przechowywane przez okres niezbędny do realizacji celu, dla którego zostały zebrane, a następnie przez czas wymagany przepisami prawa albo uzasadniony ochroną przed roszczeniami.",
+      "Dane techniczne i statystyczne są przechowywane zgodnie z zasadami dostawców narzędzi technicznych i analitycznych wykorzystywanych na stronie.",
+      "Dokumentacja zabiegowa może być przechowywana przez okres potrzebny do zapewnienia bezpieczeństwa, obsługi ewentualnych zgłoszeń, dochodzenia lub obrony przed roszczeniami oraz realizacji obowiązków prawnych."
+    ]
+  },
+  {
+    number: "13",
+    title: "Zmiany polityki prywatności",
+    paragraphs: [
+      "Polityka prywatności może być aktualizowana, szczególnie w przypadku rozwoju strony, dodania nowych narzędzi analitycznych, reklamowych, formularzy kontaktowych, nowych usług zewnętrznych albo zmiany infrastruktury technicznej.",
+      "Aktualna wersja dokumentu jest zawsze dostępna na stronie internetowej pod adresem /rodo-polityka-prywatnosci-regulamin/."
+    ]
+  }
+];
+---
+
+<Layout
+  title="RODO i polityka prywatności | Bogusława Herda PMU Bielsko-Biała"
+  description="Polityka prywatności i cookies strony permanentnybielsko.com. Informacje o przetwarzaniu danych, Booksy, cookies, dokumentacji zabiegowej PMU, zdjęciach, social mediach i prawach użytkownika."
+>
+  <div class="privacy-page">
+    <Header />
+
+    <main>
+      <section class="privacy-hero">
+        <div class="privacy-glow privacy-glow-one"></div>
+        <div class="privacy-glow privacy-glow-two"></div>
+
+        <div class="container privacy-hero-grid">
+          <div class="privacy-hero-copy">
+            <p class="section-kicker">Dokument informacyjny</p>
+
+            <h1>Polityka prywatności i cookies.</h1>
+
+            <p class="privacy-hero-lead">
+              Ten dokument wyjaśnia, jakie dane mogą być przetwarzane podczas korzystania ze strony
+              permanentnybielsko.com, w jakim celu, na jakiej podstawie oraz jakie prawa przysługują
+              osobom odwiedzającym stronę.
+            </p>
+
+            <div class="privacy-hero-actions">
+              <a class="button-primary" href="#spis-tresci">
+                Spis treści
+              </a>
+
+              <a class="button-secondary" href="/regulamin-salonu/">
+                Regulamin salonu
+              </a>
+            </div>
+          </div>
+
+          <aside class="privacy-hero-card" aria-label="RODO PMU">
+            <p class="privacy-card-label">RODO</p>
+            <h2>Dane, bezpieczeństwo i dokumentacja zabiegowa.</h2>
+            <p>
+              W PMU prywatność obejmuje nie tylko kontakt ze stroną, ale też dokumentację zabiegową,
+              zgodę, kwalifikację, zdjęcia i bezpieczeństwo klientki.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="privacy-meta-section">
+        <div class="container privacy-meta-grid">
+          <div>
+            <strong>Ostatnia aktualizacja</strong>
+            <span>{updatedAt}</span>
+          </div>
+
+          <div>
+            <strong>Administrator</strong>
+            <span>Bogusława Herda Makijaż Permanentny & Kosmetologia Estetyczna</span>
+          </div>
+
+          <div>
+            <strong>Kontakt</strong>
+            <span>bogusia@permanentnybielsko.com</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy-toc-section" id="spis-tresci">
+        <div class="container privacy-toc-grid">
+          <div>
+            <p class="section-kicker">Spis treści</p>
+            <h2>Najważniejsze obszary polityki prywatności.</h2>
+          </div>
+
+          <div class="privacy-toc-card">
+            {tableOfContents.map((item, index) => (
+              <a href={`#sekcja-${index + 1}`}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy-content-section">
+        <div class="container">
+          <div class="privacy-section-heading">
+            <p class="section-kicker">Polityka prywatności</p>
+            <h2>Informacje o przetwarzaniu danych.</h2>
+            <p>
+              Poniższe punkty opisują zasady prywatności dla strony i kontaktu z gabinetem.
+              Dokument ma charakter informacyjny i może być aktualizowany wraz z rozwojem strony.
+            </p>
+          </div>
+
+          <div class="privacy-list">
+            {privacySections.map((section, index) => (
+              <article id={`sekcja-${index + 1}`} class:list={["privacy-card", { "privacy-card-featured": section.featured }]}>
+                {section.featured && (
+                  <span class="privacy-big-mark" aria-hidden="true">PMU</span>
+                )}
+
+                <span class="privacy-number">{section.number}</span>
+                <h3>{section.title}</h3>
+
+                {section.paragraphs.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+
+                {section.cta && (
+                  <a class="privacy-inline-button" href={section.cta.href} target="_blank" rel="noopener noreferrer">
+                    {section.cta.label}
+                  </a>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy-contact-section">
+        <div class="container privacy-contact-grid">
+          <div class="privacy-contact-card">
+            <p class="section-kicker">Kontakt w sprawach prywatności</p>
+            <h2>Chcesz zapytać o dane lub dokumentację?</h2>
+            <p>
+              W sprawach związanych z prywatnością, dokumentacją zabiegową, zgodami lub realizacją praw
+              wynikających z przepisów o ochronie danych osobowych skontaktuj się z administratorem.
+            </p>
+          </div>
+
+          <div class="privacy-contact-details">
+            <a href="tel:+48730900125">+48 730 900 125</a>
+            <a href="mailto:bogusia@permanentnybielsko.com">bogusia@permanentnybielsko.com</a>
+            <a href="/kontakt/">Kontakt i lokalizacja gabinetu</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy-final-cta">
+        <div class="container privacy-final-card">
+          <p class="signature cta-signature">Powrót do natury</p>
+          <h2>Regulamin salonu i zasady wizyt</h2>
+          <p>
+            Polityka prywatności wyjaśnia kwestie danych. Zasady wizyt opisują rezerwacje,
+            zadatek, kwalifikację, rysunek wstępny, zgody i opiekę po zabiegu.
+          </p>
+
+          <a class="button-primary" href="/regulamin-salonu/">
+            Zobacz regulamin salonu
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .privacy-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.12), transparent 28rem),
+      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.12), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
+  }
+
+  .privacy-hero {
+    position: relative;
+    padding: 150px 0 88px;
+    overflow: hidden;
+  }
+
+  .privacy-glow {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 999px;
+  }
+
+  .privacy-glow-one {
+    right: -12rem;
+    top: 4rem;
+    width: 42rem;
+    height: 42rem;
+    background: radial-gradient(circle, rgba(56, 187, 181, 0.2), transparent 68%);
+  }
+
+  .privacy-glow-two {
+    left: -10rem;
+    bottom: -12rem;
+    width: 38rem;
+    height: 38rem;
+    background: radial-gradient(circle, rgba(201, 127, 143, 0.18), transparent 68%);
+  }
+
+  .privacy-hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .privacy-hero-copy,
+  .privacy-hero-card,
+  .privacy-toc-card,
+  .privacy-card,
+  .privacy-contact-card,
+  .privacy-contact-details,
+  .privacy-final-card {
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .privacy-hero-copy {
+    padding: clamp(38px, 5vw, 72px);
+    border-radius: 42px;
+    background: rgba(255, 255, 255, 0.76);
+  }
+
+  .privacy-hero-copy h1 {
+    max-width: 1040px;
+    margin: 0;
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
+    font-weight: 750;
+    line-height: 1.02;
+    letter-spacing: -0.078em;
+  }
+
+  .privacy-hero-lead {
+    max-width: 780px;
+    margin: 28px 0 0;
+    color: var(--color-muted);
+    font-size: 1.12rem;
+  }
+
+  .privacy-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .privacy-hero-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(34px, 4vw, 56px);
+    border-radius: 42px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: privacy-turquoise-flow 13s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
+  }
+
+  .privacy-hero-card::before,
+  .privacy-card-featured::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.26) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+    transform: translateX(-72%);
+    animation: privacy-panel-shine 8.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .privacy-card-label {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 auto;
+    color: rgba(255, 255, 255, 0.18);
+    font-size: clamp(4.5rem, 7vw, 7.8rem);
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: -0.09em;
+  }
+
+  .privacy-hero-card h2,
+  .privacy-hero-card p:not(.privacy-card-label) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .privacy-hero-card h2 {
+    margin: 40px 0 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    font-weight: 740;
+    line-height: 0.96;
+    letter-spacing: -0.075em;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.26);
+  }
+
+  .privacy-hero-card p:not(.privacy-card-label) {
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .privacy-meta-section {
+    border-top: 1px solid rgba(183, 101, 118, 0.1);
+    border-bottom: 1px solid rgba(183, 101, 118, 0.1);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .privacy-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .privacy-meta-grid div {
+    min-height: 112px;
+    padding: 24px 22px;
+    border-right: 1px solid rgba(183, 101, 118, 0.12);
+  }
+
+  .privacy-meta-grid div:last-child {
+    border-right: 0;
+  }
+
+  .privacy-meta-grid strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.92rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+  }
+
+  .privacy-meta-grid span {
+    display: block;
+    color: var(--color-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.55;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  .privacy-toc-section,
+  .privacy-content-section,
+  .privacy-contact-section,
+  .privacy-final-cta {
+    padding: 88px 0;
+  }
+
+  .privacy-toc-grid,
+  .privacy-contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 54px;
+    align-items: start;
+  }
+
+  .privacy-toc-grid h2,
+  .privacy-section-heading h2,
+  .privacy-contact-card h2,
+  .privacy-final-card h2 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .privacy-toc-card,
+  .privacy-contact-card,
+  .privacy-contact-details {
+    padding: 34px;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  .privacy-toc-card {
+    display: grid;
+    gap: 10px;
+  }
+
+  .privacy-toc-card a {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 16px 18px;
+    border-radius: 18px;
+    color: var(--color-text);
+    font-weight: 730;
+    text-decoration: none;
+    background: rgba(219, 246, 243, 0.42);
+    border: 1px solid rgba(56, 187, 181, 0.13);
+  }
+
+  .privacy-toc-card span {
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 820;
+    letter-spacing: 0.12em;
+  }
+
+  .privacy-section-heading {
+    max-width: 940px;
+    margin-bottom: 38px;
+  }
+
+  .privacy-section-heading .section-kicker,
+  .privacy-toc-grid .section-kicker {
+    color: var(--color-turquoise-dark);
+    font-size: 0.78rem;
+    font-weight: 820;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .privacy-section-heading p {
+    max-width: 880px;
+    color: var(--color-muted);
+    font-size: 1.05rem;
+    line-height: 1.68;
+  }
+
+  .privacy-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .privacy-card {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(28px, 4vw, 42px);
+    border-radius: 34px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.1), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
+  }
+
+  .privacy-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .privacy-card-featured {
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: privacy-turquoise-flow 13s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
+  }
+
+  .privacy-card-featured::before {
+    border-top-color: rgba(255, 255, 255, 0.28);
+  }
+
+  .privacy-card-featured::after {
+    z-index: 1;
+  }
+
+  .privacy-big-mark {
+    position: absolute !important;
+    right: clamp(14px, 2.4vw, 32px) !important;
+    top: clamp(12px, 2vw, 26px) !important;
+    z-index: 1 !important;
+    color: rgba(255, 255, 255, 0.16) !important;
+    font-size: clamp(3.6rem, 7vw, 7.9rem) !important;
+    font-weight: 850 !important;
+    line-height: 0.78 !important;
+    letter-spacing: -0.12em !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  .privacy-card > *:not(.privacy-big-mark) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .privacy-number {
+    display: inline-flex;
+    margin-bottom: 28px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 760;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .privacy-card h3 {
+    margin: 0 0 18px;
+    color: var(--color-text);
+    font-size: clamp(1.75rem, 2.3vw, 2.55rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.065em;
+  }
+
+  .privacy-card p {
+    max-width: 1050px;
+    margin: 12px 0 0;
+    color: var(--color-muted);
+    font-size: 0.98rem;
+    line-height: 1.68;
+  }
+
+  .privacy-card-featured .privacy-number,
+  .privacy-card-featured h3,
+  .privacy-card-featured p {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .privacy-card-featured h3 {
+    color: #ffffff;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
+  }
+
+  .privacy-inline-button {
+    display: inline-flex;
+    margin-top: 22px;
+    padding: 14px 18px;
+    border-radius: 999px;
+    color: #ffffff;
+    font-weight: 780;
+    text-decoration: none;
+    background: var(--color-turquoise-dark);
+  }
+
+  .privacy-contact-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
+  }
+
+  .privacy-contact-card p {
+    color: var(--color-muted);
+  }
+
+  .privacy-contact-details {
+    display: grid;
+    gap: 12px;
+  }
+
+  .privacy-contact-details a {
+    display: block;
+    padding: 18px 20px;
+    border-radius: 20px;
+    color: var(--color-text);
+    font-weight: 760;
+    text-decoration: none;
+    background: rgba(219, 246, 243, 0.48);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+  }
+
+  .privacy-final-card {
+    padding: clamp(34px, 6vw, 70px);
+    border-radius: 42px;
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .privacy-final-card p:not(.signature) {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-muted);
+  }
+
+  .privacy-final-card .button-primary {
+    margin-top: 18px;
+  }
+
+  @keyframes privacy-panel-shine {
+    0% {
+      transform: translateX(-72%);
+      opacity: 0.28;
+    }
+
+    45% {
+      opacity: 0.88;
+    }
+
+    100% {
+      transform: translateX(88%);
+      opacity: 0.28;
+    }
+  }
+
+  @keyframes privacy-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @media (max-width: 1260px) {
+    .privacy-meta-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .privacy-meta-grid div,
+    .privacy-meta-grid div:last-child {
+      border-right: 0;
+      border-bottom: 1px solid rgba(183, 101, 118, 0.12);
+    }
+
+    .privacy-meta-grid div:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .privacy-hero-grid,
+    .privacy-toc-grid,
+    .privacy-contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .privacy-hero {
+      padding: 112px 0 58px;
+    }
+
+    .privacy-hero-copy,
+    .privacy-hero-card,
+    .privacy-toc-card,
+    .privacy-card,
+    .privacy-contact-card,
+    .privacy-contact-details,
+    .privacy-final-card {
+      border-radius: 28px;
+    }
+
+    .privacy-hero-copy h1 {
+      font-size: clamp(2.75rem, 12.2vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.074em;
+    }
+
+    .privacy-toc-section,
+    .privacy-content-section,
+    .privacy-contact-section,
+    .privacy-final-cta {
+      padding: 58px 0;
+    }
+
+    .privacy-toc-grid h2,
+    .privacy-section-heading h2,
+    .privacy-contact-card h2,
+    .privacy-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .privacy-card {
+      padding: 26px;
+    }
+
+    .privacy-big-mark {
+      right: 16px !important;
+      top: 14px !important;
+      font-size: clamp(3rem, 15vw, 5rem) !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .privacy-hero-card,
+    .privacy-hero-card::before,
+    .privacy-card-featured,
+    .privacy-card-featured::after {
+      animation: none;
+    }
+  }
+</style>

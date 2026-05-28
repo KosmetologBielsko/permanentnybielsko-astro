@@ -1,48 +1,562 @@
 ---
-const currentYear = new Date().getFullYear();
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const instagramUrl = "https://www.instagram.com/permanentnybielsko";
+const facebookUrl = "https://www.facebook.com/PermanentnyBielsko";
+const googleUrl = "https://share.google/r1H8ZLwSZMdRIflO9";
+
+const mainLinks = [
+  { label: "Makijaż permanentny", href: "/makijaz-permanentny-bielsko/" },
+  { label: "Brwi permanentne", href: "/makijaz-permanentny-brwi/" },
+  { label: "Usta permanentne", href: "/makijaz-permanentny-ust/" },
+  { label: "Kreski permanentne", href: "/makijaz-permanentny-oczu/" },
+  { label: "Usuwanie PMU", href: "/usuwanie-makijazu-permanentnego/" },
+  { label: "Cennik PMU", href: "/cennik-makijaz-permanentny/" }
+];
+
+const expertLinks = [
+  { label: "Szkolenie makijaż permanentny", href: "/szkolenie-makijaz-permanentny/" },
+  { label: "Szkolenia PMU", href: "/szkolenia/" },
+  { label: "Galeria", href: "/galeria/" },
+  { label: "#SercemMalowane", href: "/sercemmalowane/" },
+  { label: "Kontakt", href: "/kontakt/" }
+];
+
+const formalLinks = [
+  { label: "Regulamin salonu", href: "/regulamin-salonu/" },
+  { label: "RODO / Polityka prywatności", href: "/rodo-polityka-prywatnosci-regulamin/" },
+  { label: "Mapa strony", href: "/sitemap.xml" }
+];
 ---
 
-<footer class="site-footer" id="kontakt">
-  <div class="container footer-grid">
-    <div>
-      <p class="footer-kicker">Bogusława Herda</p>
-      <h2>Makijaż permanentny Bielsko-Biała</h2>
-      <p>
-        Oficjalna strona makijażu permanentnego Bogusława Herda.
-        Naturalne brwi, usta, kreski, Silky Hairstroke Brows, usuwanie makijażu permanentnego i szkolenia.
-      </p>
-    </div>
+<footer class="site-footer">
+  <div class="footer-glow footer-glow-one"></div>
+  <div class="footer-glow footer-glow-two"></div>
 
-    <div>
-      <h3>Kontakt</h3>
-      <p>ul. Barlickiego 5/23<br />43-300 Bielsko-Biała</p>
-      <p>
-        <a href="tel:+48730900125">+48 730 900 125</a><br />
+  <div class="container footer-container">
+    <section class="footer-top-card" aria-label="Stopka strony">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/" aria-label="Bogusława Herda Permanent Makeup — strona główna">
+          <span>BH</span>
+
+          <strong>
+            Bogusława Herda
+            <em>Permanent Makeup</em>
+          </strong>
+        </a>
+
+        <p class="footer-signature">Powrót do natury</p>
+
+        <p class="footer-description">
+          Makijaż permanentny w centrum Bielska-Białej: naturalne brwi, usta, kreski,
+          usuwanie PMU oraz szkolenia prowadzone przez Bogusława Herda.
+        </p>
+
+        <div class="footer-actions">
+          <a class="footer-primary-link" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+            Umów wizytę przez Booksy
+          </a>
+
+          <a class="footer-secondary-link" href="/kontakt/">
+            Kontakt i dojazd
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-contact-card">
+        <p>Kontakt i lokalizacja</p>
+
+        <a href="tel:+48730900125">+48 730 900 125</a>
         <a href="mailto:bogusia@permanentnybielsko.com">bogusia@permanentnybielsko.com</a>
-      </p>
-    </div>
 
-    <div>
-      <h3>Rezerwacja</h3>
-      <p>Terminy, ceny i dostępne usługi sprawdzisz wygodnie online przez Booksy.</p>
-      <a class="footer-button" href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala" target="_blank" rel="noopener noreferrer">
-        Umów wizytę przez Booksy
-      </a>
-    </div>
+        <address>
+          ul. Barlickiego 5/23<br />
+          43-300 Bielsko-Biała
+        </address>
 
-    <div>
-      <h3>Kosmetologia estetyczna</h3>
+        <span>Centrum Bielska-Białej, blisko Galerii Sfera i Ratusza</span>
+      </div>
+    </section>
+
+    <section class="footer-links-grid" aria-label="Linki w stopce">
+      <div class="footer-link-column">
+        <h2>Oferta PMU</h2>
+
+        <nav aria-label="Oferta makijażu permanentnego">
+          {mainLinks.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <div class="footer-link-column">
+        <h2>Ekspercko</h2>
+
+        <nav aria-label="Szkolenia, galeria i kontakt">
+          {expertLinks.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <div class="footer-link-column footer-online-column">
+        <h2>Online</h2>
+
+        <nav aria-label="Profile online">
+          <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
+            Instagram
+            <span>@permanentnybielsko</span>
+          </a>
+
+          <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
+            Facebook
+            <span>PermanentnyBielsko</span>
+          </a>
+
+          <a href={booksyUrl} target="_blank" rel="noopener noreferrer">
+            Booksy
+            <span>Rezerwacja wizyty</span>
+          </a>
+
+          <a href={googleUrl} target="_blank" rel="noopener noreferrer">
+            Google
+            <span>Mapa i opinie</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="footer-link-column footer-formal-column">
+        <h2>Formalnie</h2>
+
+        <nav aria-label="Dokumenty formalne">
+          {formalLinks.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </nav>
+
+        <div class="footer-sister-site">
+          <p>Kosmetologia estetyczna</p>
+          <a href="https://kosmetologiabielsko.com" target="_blank" rel="noopener noreferrer">
+            kosmetologiabielsko.com
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-bottom">
       <p>
-        Zabiegi kosmetologiczne, technologie, pielęgnacja twarzy i ciała są opisane na osobnej stronie gabinetu.
+        © 2026 Bogusława Herda — Makijaż Permanentny Bielsko-Biała.
       </p>
-      <a href="https://kosmetologiabielsko.com" target="_blank" rel="noopener noreferrer">
-        Przejdź do kosmetologiabielsko.com
-      </a>
-    </div>
-  </div>
 
-  <div class="container footer-bottom">
-    <p>© {currentYear} Bogusława Herda. Wszystkie prawa zastrzeżone.</p>
-    <p>Strona robocza nowej wersji permanentnybielsko.com</p>
+      <p>
+        Oficjalna strona makijażu permanentnego, szkoleń PMU i naturalnej pigmentacji.
+      </p>
+    </section>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    position: relative;
+    overflow: hidden;
+    padding: 90px 0 28px;
+    background:
+      radial-gradient(circle at 84% 10%, rgba(56, 187, 181, 0.14), transparent 28rem),
+      radial-gradient(circle at 12% 38%, rgba(201, 127, 143, 0.13), transparent 25rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.94), #fff7fa 100%);
+    border-top: 1px solid rgba(183, 101, 118, 0.12);
+  }
+
+  .footer-glow {
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+  }
+
+  .footer-glow-one {
+    right: -12rem;
+    top: -14rem;
+    width: 34rem;
+    height: 34rem;
+    background: radial-gradient(circle, rgba(56, 187, 181, 0.16), transparent 68%);
+  }
+
+  .footer-glow-two {
+    left: -10rem;
+    bottom: -16rem;
+    width: 34rem;
+    height: 34rem;
+    background: radial-gradient(circle, rgba(201, 127, 143, 0.14), transparent 68%);
+  }
+
+  .footer-container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-top-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .footer-brand,
+  .footer-contact-card,
+  .footer-link-column,
+  .footer-bottom {
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.065);
+  }
+
+  .footer-brand,
+  .footer-contact-card {
+    border-radius: 36px;
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  .footer-brand {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(30px, 4vw, 48px);
+  }
+
+  .footer-brand::after {
+    content: "PMU";
+    position: absolute;
+    right: clamp(18px, 3vw, 42px);
+    top: clamp(18px, 3vw, 34px);
+    color: rgba(56, 187, 181, 0.1);
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 850;
+    line-height: 0.8;
+    letter-spacing: -0.12em;
+    pointer-events: none;
+  }
+
+  .footer-logo {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .footer-logo span {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 1.22rem;
+    font-weight: 850;
+    letter-spacing: -0.08em;
+    background:
+      radial-gradient(circle at 24% 24%, rgba(255, 255, 255, 0.3), transparent 3rem),
+      linear-gradient(145deg, #9d4f68 0%, #d7899f 45%, #7f344d 100%);
+    box-shadow: 0 16px 38px rgba(157, 79, 104, 0.22);
+  }
+
+  .footer-logo strong {
+    display: grid;
+    gap: 3px;
+    font-size: clamp(1.15rem, 2vw, 1.6rem);
+    font-weight: 780;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .footer-logo em {
+    color: #b76576;
+    font-size: 0.66rem;
+    font-style: normal;
+    font-weight: 720;
+    letter-spacing: 0.32em;
+  }
+
+  .footer-signature {
+    position: relative;
+    z-index: 2;
+    margin: 34px 0 0;
+    color: var(--color-turquoise-dark);
+    font-family: var(--font-signature, inherit);
+    font-size: clamp(2.1rem, 5vw, 4rem);
+    line-height: 0.92;
+  }
+
+  .footer-description {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 18px 0 0;
+    color: var(--color-muted);
+    font-size: 1.02rem;
+    line-height: 1.68;
+  }
+
+  .footer-actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .footer-primary-link,
+  .footer-secondary-link {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0 20px;
+    font-size: 0.88rem;
+    font-weight: 780;
+    text-decoration: none;
+  }
+
+  .footer-primary-link {
+    color: #ffffff;
+    background: linear-gradient(135deg, #b76576, #8f344d);
+    box-shadow: 0 14px 36px rgba(183, 101, 118, 0.18);
+  }
+
+  .footer-secondary-link {
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.66);
+    border: 1px solid rgba(183, 101, 118, 0.18);
+  }
+
+  .footer-contact-card {
+    padding: clamp(28px, 4vw, 42px);
+  }
+
+  .footer-contact-card p,
+  .footer-link-column h2,
+  .footer-sister-site p {
+    margin: 0 0 18px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.74rem;
+    font-weight: 820;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .footer-contact-card a {
+    display: block;
+    color: var(--color-text);
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-weight: 760;
+    line-height: 1.18;
+    text-decoration: none;
+  }
+
+  .footer-contact-card a + a {
+    margin-top: 10px;
+  }
+
+  .footer-contact-card address {
+    margin: 24px 0 0;
+    color: var(--color-text);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.55;
+  }
+
+  .footer-contact-card span {
+    display: block;
+    margin-top: 12px;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .footer-link-column {
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    padding: 28px;
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(219, 246, 243, 0.62), transparent 7rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 252, 0.82));
+  }
+
+  .footer-link-column::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.32);
+    pointer-events: none;
+  }
+
+  .footer-link-column nav {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 11px;
+  }
+
+  .footer-link-column a {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-weight: 660;
+    line-height: 1.3;
+    text-decoration: none;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .footer-link-column a:hover {
+    color: var(--color-turquoise-dark);
+    transform: translateX(3px);
+  }
+
+  .footer-online-column a,
+  .footer-formal-column a {
+    display: grid;
+    gap: 4px;
+  }
+
+  .footer-online-column span {
+    color: var(--color-muted);
+    font-size: 0.77rem;
+    font-weight: 620;
+  }
+
+  .footer-formal-column::before {
+    border-top-color: rgba(201, 127, 143, 0.32);
+  }
+
+  .footer-sister-site {
+    position: relative;
+    z-index: 2;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(183, 101, 118, 0.14);
+  }
+
+  .footer-sister-site p {
+    margin-bottom: 10px;
+    color: #b76576;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 18px;
+    padding: 18px 22px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.66);
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 1180px) {
+    .footer-links-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 980px) {
+    .footer-top-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .site-footer {
+      padding: 64px 0 22px;
+    }
+
+    .footer-top-card,
+    .footer-links-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .footer-brand,
+    .footer-contact-card,
+    .footer-link-column,
+    .footer-bottom {
+      border-radius: 26px;
+    }
+
+    .footer-brand,
+    .footer-contact-card,
+    .footer-link-column {
+      padding: 24px;
+    }
+
+    .footer-brand::after {
+      right: 14px;
+      top: 16px;
+      font-size: clamp(3.5rem, 18vw, 5.2rem);
+    }
+
+    .footer-logo {
+      align-items: flex-start;
+    }
+
+    .footer-logo span {
+      width: 50px;
+      height: 50px;
+      border-radius: 17px;
+    }
+
+    .footer-logo strong {
+      font-size: 1.06rem;
+      letter-spacing: 0.06em;
+    }
+
+    .footer-logo em {
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+    }
+
+    .footer-signature {
+      font-size: clamp(2rem, 12vw, 3.1rem);
+    }
+
+    .footer-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .footer-primary-link,
+    .footer-secondary-link {
+      width: 100%;
+      min-height: 52px;
+      white-space: normal;
+      text-align: center;
+    }
+
+    .footer-link-column {
+      min-height: auto;
+    }
+
+    .footer-bottom {
+      display: grid;
+    }
+  }
+</style>
