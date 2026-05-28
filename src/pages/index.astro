@@ -864,5 +864,129 @@ import Footer from "../components/Footer.astro";
       font-size: clamp(2.75rem, 14vw, 4.5rem) !important;
     }
   }
+
+  /* V2 — mobile touch fix: teksty w kafelkach zawsze widoczne bez dotykania */
+  @media (hover: none), (pointer: coarse), (max-width: 760px) {
+    :global(.home-page article),
+    :global(.home-page article *),
+    :global(.home-page .service-tile),
+    :global(.home-page .service-tile *),
+    :global(.home-page .process-step),
+    :global(.home-page .process-step *),
+    :global(.home-page .master-proof-card),
+    :global(.home-page .master-proof-card *),
+    :global(.home-page .ltl-main-card),
+    :global(.home-page .ltl-main-card *),
+    :global(.home-page .ltl-mentor-card),
+    :global(.home-page .ltl-mentor-card *),
+    :global(.home-page .ltl-value-card),
+    :global(.home-page .ltl-value-card *),
+    :global(.home-page .training-heading-card),
+    :global(.home-page .training-heading-card *),
+    :global(.home-page .training-master-card),
+    :global(.home-page .training-master-card *),
+    :global(.home-page .training-path-card),
+    :global(.home-page .training-path-card *),
+    :global(.home-page .training-detail-card),
+    :global(.home-page .training-detail-card *),
+    :global(.home-page .training-list-card),
+    :global(.home-page .training-list-card *),
+    :global(.home-page .training-cta-card),
+    :global(.home-page .training-cta-card *),
+    :global(.home-page .international-heading-card),
+    :global(.home-page .international-heading-card *),
+    :global(.home-page .international-map-card),
+    :global(.home-page .international-map-card *),
+    :global(.home-page .international-city-card),
+    :global(.home-page .international-city-card *),
+    :global(.home-page .results-heading-card),
+    :global(.home-page .results-heading-card *),
+    :global(.home-page .results-note-card),
+    :global(.home-page .results-note-card *),
+    :global(.home-page .result-tile),
+    :global(.home-page .result-tile *),
+    :global(.home-page .results-feature-card),
+    :global(.home-page .results-feature-card *),
+    :global(.home-page .mission-heading-card),
+    :global(.home-page .mission-heading-card *),
+    :global(.home-page .mission-heart-card),
+    :global(.home-page .mission-heart-card *),
+    :global(.home-page .mission-support-card),
+    :global(.home-page .mission-support-card *),
+    :global(.home-page .mission-quote-card),
+    :global(.home-page .mission-quote-card *),
+    :global(.home-page .cta-card),
+    :global(.home-page .cta-card *) {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    :global(.home-page .service-tile > *),
+    :global(.home-page .process-step > *),
+    :global(.home-page .master-proof-card > *),
+    :global(.home-page .ltl-main-card > *),
+    :global(.home-page .ltl-mentor-card > *),
+    :global(.home-page .ltl-value-card > *),
+    :global(.home-page .training-heading-card > *),
+    :global(.home-page .training-master-card > *),
+    :global(.home-page .training-path-card > *),
+    :global(.home-page .training-detail-card > *),
+    :global(.home-page .training-list-card > *),
+    :global(.home-page .training-cta-card > *),
+    :global(.home-page .international-heading-card > *),
+    :global(.home-page .international-map-card > *),
+    :global(.home-page .international-city-card > *),
+    :global(.home-page .results-heading-card > *),
+    :global(.home-page .results-note-card > *),
+    :global(.home-page .result-tile > *),
+    :global(.home-page .results-feature-card > *),
+    :global(.home-page .mission-heading-card > *),
+    :global(.home-page .mission-heart-card > *),
+    :global(.home-page .mission-support-card > *),
+    :global(.home-page .mission-quote-card > *),
+    :global(.home-page .cta-card > *) {
+      position: relative !important;
+      z-index: 3 !important;
+      transform: none !important;
+    }
+
+    :global(.home-page h2),
+    :global(.home-page h3),
+    :global(.home-page p),
+    :global(.home-page span),
+    :global(.home-page a),
+    :global(.home-page li) {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    :global(.home-page .home-big-mark),
+    :global(.home-page .heart-symbol),
+    :global(.home-page .map-label),
+    :global(.home-page .training-master-label) {
+      z-index: 1 !important;
+      pointer-events: none !important;
+    }
+
+    :global(.home-page article::before),
+    :global(.home-page article::after),
+    :global(.home-page .service-tile::before),
+    :global(.home-page .service-tile::after),
+    :global(.home-page .process-step::before),
+    :global(.home-page .process-step::after),
+    :global(.home-page .master-proof-card::before),
+    :global(.home-page .master-proof-card::after),
+    :global(.home-page .ltl-mentor-card::before),
+    :global(.home-page .ltl-mentor-card::after),
+    :global(.home-page .training-path-card::before),
+    :global(.home-page .training-path-card::after),
+    :global(.home-page .results-note-card::before),
+    :global(.home-page .results-note-card::after),
+    :global(.home-page .mission-heart-card::before),
+    :global(.home-page .mission-heart-card::after) {
+      pointer-events: none !important;
+    }
+  }
+
 </style>
 
