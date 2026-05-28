@@ -178,7 +178,8 @@ import Footer from "../components/Footer.astro";
               </p>
             </article>
 
-            <article class="service-tile service-tile-feature" id="metody">
+            <article class="service-tile service-tile-feature home-premium-mark-card home-premium-mark-card-shb" id="metody">
+              <span class="home-big-mark" aria-hidden="true">SHB</span>
               <span>Autorska metoda</span>
               <h3>Silky Hairstroke Brows</h3>
               <p>
@@ -351,7 +352,8 @@ import Footer from "../components/Footer.astro";
               </p>
             </article>
 
-            <article class="master-proof-card master-proof-card-wide">
+            <article class="master-proof-card master-proof-card-wide home-premium-mark-card home-premium-mark-card-shb-light">
+              <span class="home-big-mark" aria-hidden="true">SHB</span>
               <span>04</span>
               <h3>Autorka Silky Hairstroke Brows</h3>
               <p>
@@ -393,7 +395,8 @@ import Footer from "../components/Footer.astro";
               </div>
             </article>
 
-            <article class="ltl-mentor-card">
+            <article class="ltl-mentor-card home-premium-mark-card home-premium-mark-card-mentor">
+              <span class="home-big-mark" aria-hidden="true">MENTOR</span>
               <p class="section-kicker">Mentor i autorytet</p>
               <h3>Magda Bogulak</h3>
               <p>
@@ -478,7 +481,8 @@ import Footer from "../components/Footer.astro";
               </p>
             </article>
 
-            <article class="training-path-card">
+            <article class="training-path-card home-premium-mark-card home-premium-mark-card-shb-light">
+              <span class="home-big-mark" aria-hidden="true">SHB</span>
               <span>03</span>
               <h3>Silky Hairstroke Brows</h3>
               <p>
@@ -610,7 +614,8 @@ import Footer from "../components/Footer.astro";
               </p>
             </div>
 
-            <div class="results-note-card">
+            <div class="results-note-card home-premium-mark-card home-premium-mark-card-natural">
+              <span class="home-big-mark" aria-hidden="true">NATURAL</span>
               <p class="section-kicker">Kierunek efektu</p>
               <h3>Naturalnie. Czysto. Bez przerysowania.</h3>
               <p>
@@ -760,3 +765,104 @@ import Footer from "../components/Footer.astro";
     <Footer />
   </div>
 </Layout>
+
+
+<style>
+  /*
+    Home premium card marks
+    Cel: duże jasne napisy w tle mocnych kafelków, bez ruszania istniejącego ruchu światła.
+    Nie nadpisujemy ::before / ::after ani animacji kafelków, żeby nie zepsuć działającej poświaty.
+  */
+
+  :global(.home-premium-mark-card) {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate;
+  }
+
+  :global(.home-premium-mark-card > *:not(.home-big-mark)) {
+    position: relative;
+    z-index: 2;
+  }
+
+  :global(.home-big-mark) {
+    position: absolute !important;
+    right: clamp(18px, 3vw, 42px) !important;
+    top: clamp(14px, 2.4vw, 32px) !important;
+    z-index: 1 !important;
+    color: rgba(255, 255, 255, 0.16) !important;
+    font-size: clamp(4.2rem, 8vw, 9.2rem) !important;
+    font-weight: 850 !important;
+    line-height: 0.78 !important;
+    letter-spacing: -0.12em !important;
+    filter: blur(0.15px) !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  :global(.home-premium-mark-card-mentor .home-big-mark) {
+    right: clamp(14px, 2.2vw, 30px) !important;
+    font-size: clamp(3.5rem, 6.6vw, 7.4rem) !important;
+    color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  :global(.home-premium-mark-card-natural .home-big-mark) {
+    right: clamp(12px, 2vw, 30px) !important;
+    top: clamp(14px, 2vw, 26px) !important;
+    font-size: clamp(3.35rem, 6vw, 7rem) !important;
+    color: rgba(255, 255, 255, 0.14) !important;
+  }
+
+  :global(.home-premium-mark-card-shb-light .home-big-mark) {
+    color: rgba(56, 187, 181, 0.13) !important;
+  }
+
+  :global(.home-premium-mark-card-shb),
+  :global(.home-premium-mark-card-mentor),
+  :global(.home-premium-mark-card-natural) {
+    color: #ffffff !important;
+  }
+
+  :global(.home-premium-mark-card-shb .section-kicker),
+  :global(.home-premium-mark-card-shb > span:not(.home-big-mark)),
+  :global(.home-premium-mark-card-mentor .section-kicker),
+  :global(.home-premium-mark-card-natural .section-kicker) {
+    color: rgba(255, 255, 255, 0.78) !important;
+    text-shadow: 0 1px 18px rgba(255, 255, 255, 0.18);
+  }
+
+  :global(.home-premium-mark-card-shb h3),
+  :global(.home-premium-mark-card-mentor h3),
+  :global(.home-premium-mark-card-natural h3) {
+    color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.28);
+  }
+
+  :global(.home-premium-mark-card-shb p),
+  :global(.home-premium-mark-card-mentor p:not(.section-kicker)),
+  :global(.home-premium-mark-card-natural p:not(.section-kicker)) {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  /* Lekki premium polish bez zmiany istniejącego mechanizmu ruchu */
+  :global(.home-premium-mark-card-shb),
+  :global(.home-premium-mark-card-mentor),
+  :global(.home-premium-mark-card-natural) {
+    box-shadow: 0 28px 76px rgba(89, 53, 67, 0.12) !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-big-mark) {
+      right: 18px !important;
+      top: 16px !important;
+      font-size: clamp(3.2rem, 17vw, 5.4rem) !important;
+      letter-spacing: -0.11em !important;
+    }
+
+    :global(.home-premium-mark-card-mentor .home-big-mark),
+    :global(.home-premium-mark-card-natural .home-big-mark) {
+      font-size: clamp(2.75rem, 14vw, 4.5rem) !important;
+    }
+  }
+</style>
+
