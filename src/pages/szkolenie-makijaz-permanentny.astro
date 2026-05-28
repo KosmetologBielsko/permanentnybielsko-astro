@@ -1,0 +1,3286 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const trainingPaths = [
+  {
+    number: "01",
+    title: "Step by Step",
+    text: "Dla osób, które chcą uporządkować podstawy pracy, proces zabiegu, rysunek wstępny, dobór koloru i bezpieczne prowadzenie klientki."
+  },
+  {
+    number: "02",
+    title: "Masterclass",
+    text: "Dla osób pracujących już w PMU, które chcą poprawić jakość efektów, analizować błędy i świadomiej podejmować decyzje techniczne."
+  },
+  {
+    number: "03",
+    title: "Silky Hairstroke Brows",
+    text: "Szkolenie z autorskiego podejścia do włosa maszynowego, naturalnego kierunku, miękkości linii i realistycznego efektu brwi."
+  }
+];
+
+const programItems = [
+  {
+    number: "01",
+    title: "Analiza urody",
+    text: "Twarz, mimika, asymetrie, proporcje i realne możliwości estetyczne przed zabiegiem."
+  },
+  {
+    number: "02",
+    title: "Rysunek wstępny",
+    text: "Kształt brwi, ust lub kresek jako fundament bezpiecznej i świadomej pigmentacji."
+  },
+  {
+    number: "03",
+    title: "Technika i skóra",
+    text: "Dobór metody do rodzaju skóry, oczekiwanego efektu i poziomu doświadczenia."
+  },
+  {
+    number: "04",
+    title: "Pigment, kolor, gojenie",
+    text: "Kolorymetria, nasycenie, reakcja skóry, dopigmentowanie i analiza efektu po wygojeniu."
+  }
+];
+
+
+const stepByStepCourses = [
+  {
+    title: "Step by Step Eyebrows",
+    subtitle: "Stylista brwi Long-Time-Liner®",
+    price: "7.000 zł netto + 23% VAT",
+    time: "3 dni / termin indywidualny",
+    text: "Szkolenie przygotowuje do wykonywania makijażu permanentnego brwi. Obejmuje analizę twarzy, asymetrię, rysunek wstępny brwi, kolorymetrię, pigmenty, techniki napinania i pigmentacji oraz pracę na materiale ćwiczeniowym i modelkach.",
+    points: ["Kształt i asymetria twarzy", "Rysunek wstępny brwi", "Kolorymetria i pigmenty", "Techniki pigmentacji", "Praca na modelkach"]
+  },
+  {
+    title: "Step by Step Lips",
+    subtitle: "Stylista ust Long-Time-Liner®",
+    price: "7.000 zł netto + 23% VAT",
+    time: "3 dni / termin indywidualny",
+    text: "Szkolenie z makijażu permanentnego ust uczy podstaw pigmentacji, doboru kolorów, pracy nad symetrią i rysunku wstępnego ust. To etap dla osób, które chcą wejść w pigmentację ust w uporządkowany sposób.",
+    points: ["Kształty i typy ust", "Asymetria i jej korygowanie", "Rysunek wstępny ust", "Kolorymetria ust", "Praca na modelkach"]
+  },
+  {
+    title: "Step by Step Eyeliner",
+    subtitle: "Stylista oczu Long-Time-Liner®",
+    price: "7.000 zł netto + 23% VAT",
+    time: "3 dni / termin indywidualny",
+    text: "Szkolenie przygotowuje do wykonywania makijażu permanentnego oczu: zagęszczenia linii rzęs, kreski górnej i dolnej. Obejmuje analizę kształtu oka, dobór techniki i bezpieczną pigmentację powiek.",
+    points: ["Kształty oczu", "Dobór techniki kreski", "Rysunek wstępny oczu", "Techniki napinania", "Praca na modelkach"]
+  },
+  {
+    title: "Droga do Licencji 1",
+    subtitle: "Ścieżka rozwoju Long-Time-Liner®",
+    price: "po 3 etapach",
+    time: "brwi + usta + oczy",
+    text: "Trzy szkolenia Step by Step można potraktować jako etapową drogę do pełniejszego rozwoju w marce Long-Time-Liner®. To dobre rozwiązanie dla osób, które chcą rozłożyć naukę w czasie.",
+    points: ["Nauka etapami", "Trzy obszary PMU", "Oryginalne dyplomy", "Rozwój kompetencji", "Praca 1:1 z trenerem"]
+  }
+];
+
+const masterclassCourses = [
+  {
+    title: "Silky Hairstroke Brows",
+    text: "Autorska metoda Bogusława Herda dla osób, które chcą pracować naturalnym włosem maszynowym: kierunek włosa, układ linii, miękkość, realizm i łączenie włosa z cieniem."
+  },
+  {
+    title: "Stardust / Powder Brows",
+    text: "Techniki pudrowe, rozproszenie i gradient. Szkolenie dla linergistek, które chcą uzyskać miękkie, lekkie i eleganckie podkreślenie brwi."
+  },
+  {
+    title: "Magic Eye",
+    text: "Zaawansowana pigmentacja oczu: kreska górna z cieniowaniem, praca z kształtem oka, stabilność ręki i efekt przydymionego spojrzenia."
+  },
+  {
+    title: "Ombre Lips",
+    text: "Technika ust oparta na cieniowaniu i efekcie 3D. Praca z kolorem, światłocieniem, rysunkiem wstępnym i delikatnym budowaniem nasycenia."
+  },
+  {
+    title: "Lips Nude",
+    text: "Pigmentacja ust w stylu no make-up: beże, róże, subtelność i naturalny efekt bez ciężkiego konturu."
+  },
+  {
+    title: "Soft Lips",
+    text: "Ultra naturalne, bezkonturowe podkreślenie ust. Odtwarzanie koloru czerwieni wargowej i delikatny efekt po wygojeniu."
+  },
+  {
+    title: "Juicy Lips",
+    text: "Technika dla osób, które chcą uzyskać bardziej soczyste nasycenie koloru i lepiej kontrolować intensywność po wygojeniu."
+  },
+  {
+    title: "Analiza błędów i korekta pracy",
+    text: "Doskonalenie warsztatu poprzez analizę efektów, gojenia, decyzji technicznych, rysunku wstępnego i sposobu prowadzenia klientki."
+  }
+];
+
+const trainingPrices = [
+  {
+    title: "Step by Step",
+    price: "7.000 zł netto + 23% VAT",
+    text: "Cena za jedno szkolenie tematyczne: brwi, usta albo oczy. Szkolenie trwa 3 dni i prowadzone jest indywidualnie."
+  },
+  {
+    title: "Masterclass",
+    price: "3.000 zł netto + 23% VAT",
+    text: "Cena za jedno szkolenie doszkalające. Szkolenia Masterclass trwają 1 dzień i są przeznaczone dla osób zaawansowanych."
+  },
+  {
+    title: "Bye-Bye Pigment Remover",
+    price: "2.000 zł netto + 23% VAT",
+    text: "Cena szkolenia. Preparat Bye-Bye Pigment Remover nie jest wliczony w cenę i kosztuje 890 zł brutto."
+  },
+  {
+    title: "Termin i miejsce",
+    price: "ustalane indywidualnie",
+    text: "Szkolenia odbywają się w Bielsku-Białej lub w wybranych zakresach także w Warszawie. Szczegóły organizacyjne ustalane są przed szkoleniem."
+  }
+];
+
+const removerItems = [
+  "Podstawy dermatologii w kontekście usuwania pigmentu",
+  "Właściwości i zastosowanie Bye-Bye Pigment Remover",
+  "Usuwanie tatuaży i makijażu permanentnego",
+  "Przebieg zabiegu i bezpieczeństwo pracy",
+  "Pielęgnacja skóry po zabiegu usuwania PMU",
+  "Przeciwwskazania i kwalifikacja klientki"
+];
+
+const relatedPages = [
+  {
+    label: "PMU",
+    title: "Makijaż permanentny Bielsko-Biała",
+    text: "Główna podstrona o naturalnym makijażu permanentnym, konsultacji i rysunku wstępnym.",
+    href: "/makijaz-permanentny-bielsko/"
+  },
+  {
+    label: "Brwi",
+    title: "Brwi permanentne",
+    text: "Naturalne brwi, metoda włoskowa, włos z cieniem i Silky Hairstroke Brows.",
+    href: "/makijaz-permanentny-brwi/"
+  },
+  {
+    label: "Cennik",
+    title: "Cennik PMU",
+    text: "Ceny makijażu permanentnego, odświeżeń, usuwania i konsultacji.",
+    href: "/cennik-makijaz-permanentny/"
+  },
+  {
+    label: "Kontakt",
+    title: "Umów konsultację",
+    text: "Booksy, telefon, e-mail, adres gabinetu i najważniejsze informacje przed wizytą.",
+    href: "/kontakt/"
+  }
+];
+---
+
+<Layout
+  title="Szkolenie makijaż permanentny Bielsko-Biała | Bogusława Herda"
+  description="Szkolenia makijażu permanentnego w Bielsku-Białej: Step by Step, Masterclass, Silky Hairstroke Brows, rysunek wstępny, technika włosa i świadoma pigmentacja u Bogusława Herda."
+>
+  <div class="training-page">
+    <Header />
+
+    <main>
+      <section class="training-hero">
+        <div class="training-glow training-glow-one"></div>
+        <div class="training-glow training-glow-two"></div>
+
+        <div class="container training-hero-grid">
+          <div class="training-hero-copy">
+            <p class="section-kicker">Szkolenie makijaż permanentny Bielsko-Biała</p>
+
+            <h1>Szkolenia PMU dla osób, które chcą pracować świadomie, precyzyjnie i naturalnie.</h1>
+
+            <p class="training-hero-lead">
+              Szkolenie z makijażu permanentnego powinno uczyć nie tylko ruchu ręki.
+              Powinno porządkować sposób myślenia: o twarzy, skórze, rysunku wstępnym,
+              technice, gojeniu i efekcie, który można bezpiecznie powtarzać.
+            </p>
+
+            <div class="training-hero-actions">
+              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Zapytaj o szkolenie
+              </a>
+
+              <a class="button-secondary" href="#program-szkolen">
+                Zobacz zakres
+              </a>
+            </div>
+          </div>
+
+          <aside class="training-hero-card training-shine-card" aria-label="Szkolenia PMU">
+            <p class="training-card-label">EDU</p>
+            <h2>Technika. Decyzja. Standard pracy.</h2>
+            <p>
+              Bogusława Herda łączy doświadczenie mistrzowskie, pracę trenerską Long-Time-Liner®
+              i autorskie podejście do naturalnej pigmentacji.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="training-proof-section">
+        <div class="container training-proof-grid">
+          <div>
+            <strong>Trenerka Long-Time-Liner®</strong>
+            <span>standard edukacji i precyzji</span>
+          </div>
+
+          <div>
+            <strong>Wicemistrzyni świata PMU</strong>
+            <span>doświadczenie konkursowe</span>
+          </div>
+
+          <div>
+            <strong>Silky Hairstroke Brows</strong>
+            <span>autorskie podejście do włosa</span>
+          </div>
+
+          <div>
+            <strong>Naturalny efekt</strong>
+            <span>bez ciężkiej pigmentacji</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="training-intro-section">
+        <div class="container training-two-column">
+          <div>
+            <p class="section-kicker">Dla kogo?</p>
+            <h2>Dla osób, które nie chcą tylko „wykonać zabiegu”, ale rozumieć każdą decyzję.</h2>
+          </div>
+
+          <div class="training-text-card">
+            <p>
+              W makijażu permanentnym sama technika nie wystarcza. Liczy się to, czy osoba wykonująca
+              zabieg potrafi ocenić twarz, skórę, asymetrię, oczekiwania klientki i realny efekt po wygojeniu.
+            </p>
+
+            <p>
+              Dlatego szkolenia prowadzone przez Bogusława Herda kładą nacisk na pełny proces:
+              od konsultacji i rysunku wstępnego, przez dobór techniki i pigmentację, aż po analizę
+              gojenia, dopigmentowanie i budowanie własnego standardu pracy.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="training-paths-section">
+        <div class="container">
+          <div class="training-section-heading">
+            <p class="section-kicker">Ścieżki szkoleniowe</p>
+            <h2>Szkolenie dopasowane do poziomu, celu i doświadczenia.</h2>
+            <p>
+              Zakres szkolenia dobierany jest do poziomu osoby szkolonej. Inaczej wygląda nauka podstaw,
+              inaczej praca nad techniką włosa, a jeszcze inaczej masterclass dla osoby już pracującej w branży.
+            </p>
+          </div>
+
+          <div class="training-path-grid">
+            {trainingPaths.map((item) => (
+              <article class="training-path-card">
+                <span>{item.number}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="training-step-section">
+        <div class="container">
+          <div class="training-section-heading">
+            <p class="section-kicker">Step by Step Long-Time-Liner®</p>
+            <h2>Indywidualna ścieżka dla osób, które chcą uczyć się etapami.</h2>
+            <p>
+              Step by Step to trzy tematyczne szkolenia Long-Time-Liner®: brwi, usta i oczy.
+              Każdy obszar można realizować osobno albo traktować jako kolejne kroki na drodze
+              do pełniejszego rozwoju w makijażu permanentnym.
+            </p>
+          </div>
+
+          <div class="training-course-grid">
+            {stepByStepCourses.map((course) => (
+              <article class="training-course-card">
+                <span>{course.subtitle}</span>
+                <h3>{course.title}</h3>
+                <p>{course.text}</p>
+
+                <div class="training-course-meta">
+                  <strong>{course.time}</strong>
+                  <strong>{course.price}</strong>
+                </div>
+
+                <ul>
+                  {course.points.map((point) => (
+                    <li>{point}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <div class="training-info-band">
+            <p>
+              Szkolenie Step by Step odbywa się w trybie indywidualnym 1:1 z trenerem.
+              Po ukończeniu szkolenia uczestniczka otrzymuje oryginalny dyplom Long-Time-Liner®.
+              Wymagane są predyspozycje manualne, wyczucie estetyki oraz odpowiednie przygotowanie do pracy w PMU.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="training-masterclass-section">
+        <div class="container">
+          <div class="training-section-heading">
+            <p class="section-kicker">Masterclass Long-Time-Liner®</p>
+            <h2>Szkolenia doszkalające dla linergistek, które chcą poprawić warsztat.</h2>
+            <p>
+              Masterclass to jednodniowe szkolenia dla osób zaawansowanych. Ich celem jest rozwój konkretnej
+              techniki, analiza błędów, poprawa jakości efektów i uporządkowanie decyzji technicznych.
+            </p>
+          </div>
+
+          <div class="training-masterclass-grid">
+            {masterclassCourses.map((course) => (
+              <article class:list={["training-masterclass-card", course.title === "Silky Hairstroke Brows" && "training-masterclass-card-silky training-shine-card"]}>
+                <span>Masterclass</span>
+                <h3>{course.title}</h3>
+                <p>{course.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div class="training-info-band training-info-band-rose">
+            <p>
+              Szkolenia Masterclass są przeznaczone dla osób posiadających przynajmniej Licencję I Long-Time-Liner®
+              lub inne bazowe szkolenie z odpowiedniego zakresu pigmentacji. Termin szkolenia ustalany jest indywidualnie.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="training-remover-section">
+        <div class="container training-remover-grid">
+          <div class="training-remover-card">
+            <p class="section-kicker">Bye-Bye Pigment Remover</p>
+            <h2>Szkolenie z usuwania niechcianego makijażu permanentnego.</h2>
+            <p>
+              Bye-Bye Pigment Remover Long-Time-Liner® to szkolenie dla profesjonalistów PMU,
+              którzy chcą pracować ze starym pigmentem odpowiedzialnie, bezpiecznie i zgodnie
+              z właściwą kwalifikacją skóry.
+            </p>
+          </div>
+
+          <div class="training-remover-list">
+            {removerItems.map((item) => (
+              <div>
+                <span></span>
+                <p>{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="training-silky-section">
+        <div class="container training-silky-card training-shine-card">
+          <span class="training-big-mark">SHB</span>
+          <div>
+            <p class="section-kicker">Autorska metoda</p>
+            <h2>Silky Hairstroke Brows jako kierunek pracy z naturalnym włosem maszynowym.</h2>
+          </div>
+
+          <p>
+            Silky Hairstroke Brows to podejście do brwi permanentnych oparte na lekkości,
+            kierunku włosa, rytmie linii i naturalnym efekcie. W szkoleniu najważniejsze jest
+            nie tylko pokazanie ruchu, ale zrozumienie, dlaczego dana linia ma taki kierunek,
+            długość, odstęp i nasycenie.
+          </p>
+        </div>
+      </section>
+
+      <section class="training-program-section" id="program-szkolen">
+        <div class="container">
+          <div class="training-program-panel">
+            <div class="training-program-heading">
+              <p class="section-kicker">Zakres szkolenia</p>
+              <h2>Od analizy twarzy do pewnej, powtarzalnej pracy.</h2>
+              <p>
+                Program nie jest listą przypadkowych tematów. To logiczny proces, który prowadzi
+                od obserwacji klientki, przez rysunek wstępny i decyzję techniczną, aż po kontrolę gojenia.
+              </p>
+            </div>
+
+            <div class="training-program-grid">
+              {programItems.map((item) => (
+                <article class="training-program-card">
+                  <span>{item.number}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="training-authority-section">
+        <div class="container training-authority-grid">
+          <div class="training-authority-card training-shine-card">
+            <span class="training-big-mark training-big-mark-dark">LTL</span>
+            <p class="section-kicker">Long-Time-Liner®</p>
+            <h2>Standard, który miał duży wpływ na drogę zawodową Bogusława Herda.</h2>
+            <p>
+              Long-Time-Liner® jest ważną częścią tożsamości zawodowej Bogusława Herda.
+              To doświadczenie, system pracy i środowisko edukacyjne, które pomogły budować
+              precyzję, dyscyplinę i wysokie standardy w makijażu permanentnym.
+            </p>
+          </div>
+
+          <div class="training-mentor-card training-shine-card">
+            <span class="training-big-mark">MENTOR</span>
+            <p class="section-kicker">Autorytet i mentor</p>
+            <h3>Magda Bogulak</h3>
+            <p>
+              W historii rozwoju Bogusława Herda ważną rolę odgrywa Magda Bogulak — właścicielka
+              Long-Time-Liner Polska oraz Sharley Medical Clinic & Day SPA. To autorytet i mentor,
+              który miał istotny wpływ na kierunek zawodowy, standard pracy i rozwój w PMU.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="training-standard-section">
+        <div class="container training-standard-grid">
+          <div class="training-standard-card">
+            <p class="section-kicker">Czego uczymy</p>
+            <h2>Nie tylko techniki. Uczymy decyzji.</h2>
+            <p>
+              Dobra linergistka nie powinna mechanicznie powtarzać schematu. Powinna wiedzieć,
+              kiedy technika włosa ma sens, kiedy lepsze będzie cieniowanie, kiedy nie wykonywać zabiegu,
+              a kiedy najpierw rozjaśnić stary pigment.
+            </p>
+          </div>
+
+          <div class="training-list-card">
+            <div>
+              <strong>Rysunek wstępny</strong>
+              <span>proporcje, asymetria, mimika i naturalny kierunek pracy</span>
+            </div>
+
+            <div>
+              <strong>Technika pigmentacji</strong>
+              <span>tempo, głębokość, nasycenie i kontrola reakcji skóry</span>
+            </div>
+
+            <div>
+              <strong>Analiza błędów</strong>
+              <span>dlaczego efekt nie wychodzi i jak naprawiać sposób pracy</span>
+            </div>
+
+            <div>
+              <strong>Standard komunikacji</strong>
+              <span>jak prowadzić klientkę od konsultacji do dopigmentowania</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="training-price-section">
+        <div class="container">
+          <div class="training-section-heading">
+            <p class="section-kicker">Ceny i organizacja</p>
+            <h2>Cennik szkoleń makijażu permanentnego.</h2>
+            <p>
+              Ceny dotyczą szkoleń Long-Time-Liner® i mają charakter informacyjny. Terminy ustalane są indywidualnie.
+              Cena nie obejmuje kosztów zakupu sprzętu, produktów do makijażu permanentnego, podróży ani noclegu.
+            </p>
+          </div>
+
+          <div class="training-price-grid">
+            {trainingPrices.map((item) => (
+              <article class="training-price-card">
+                <span>Szkolenie</span>
+                <h3>{item.title}</h3>
+                <strong>{item.price}</strong>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="training-related-section">
+        <div class="container">
+          <div class="training-section-heading">
+            <p class="section-kicker">Powiązane podstrony</p>
+            <h2>Zobacz, z czym łączy się szkolenie PMU.</h2>
+          </div>
+
+          <div class="training-related-grid">
+            {relatedPages.map((item) => (
+              <a href={item.href} class="training-related-card">
+                <span>{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="training-faq-section">
+        <div class="container">
+          <div class="training-section-heading">
+            <p class="section-kicker">Najczęstsze pytania</p>
+            <h2>Co warto wiedzieć o szkoleniach makijażu permanentnego?</h2>
+          </div>
+
+          <div class="training-faq-grid">
+            <article>
+              <h3>Czy szkolenie jest dla osób początkujących?</h3>
+              <p>
+                Tak, zakres Step by Step może być przygotowany dla osób, które potrzebują uporządkowanych podstaw.
+                Poziom szkolenia powinien być dopasowany do doświadczenia uczestniczki.
+              </p>
+            </article>
+
+            <article>
+              <h3>Czy można szkolić się z samej techniki włosa?</h3>
+              <p>
+                Tak, szkolenie Silky Hairstroke Brows koncentruje się na naturalnym efekcie włosa maszynowego,
+                kierunku linii, miękkości i precyzji.
+              </p>
+            </article>
+
+            <article>
+              <h3>Czy szkolenie obejmuje rysunek wstępny?</h3>
+              <p>
+                Tak. Rysunek wstępny jest jednym z kluczowych elementów pracy w PMU, ponieważ wpływa
+                na proporcje, efekt końcowy i bezpieczeństwo estetyczne zabiegu.
+              </p>
+            </article>
+
+            <article>
+              <h3>Czy szkolenie może dotyczyć korekt i błędów?</h3>
+              <p>
+                Tak. Przy osobach już pracujących w branży ważnym elementem może być analiza błędów,
+                praca ze starym pigmentem, kwalifikacja i plan naprawczy.
+              </p>
+            </article>
+
+            <article>
+              <h3>Czy terminy szkoleń są stałe?</h3>
+              <p>
+                Terminy i zakres szkolenia najlepiej ustalić indywidualnie. Najwygodniejszą ścieżką kontaktu
+                jest wiadomość lub konsultacja organizacyjna.
+              </p>
+            </article>
+
+            <article>
+              <h3>Gdzie odbywają się szkolenia?</h3>
+              <p>
+                Szkolenia organizowane są w Bielsku-Białej. Szczegóły miejsca, zakresu i organizacji ustalane są
+                indywidualnie przed szkoleniem.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="training-final-cta" id="kontakt">
+        <div class="container training-final-card">
+          <p class="signature cta-signature">Powrót do natury</p>
+          <h2>Chcesz zapytać o szkolenie makijażu permanentnego?</h2>
+          <p>
+            Napisz lub umów konsultację organizacyjną. Zakres szkolenia najlepiej dobrać
+            do Twojego poziomu, celu i realnych potrzeb technicznych.
+          </p>
+
+          <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+            Skontaktuj się przez Booksy
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .training-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.12), transparent 28rem),
+      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.12), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
+  }
+
+  .training-hero {
+    position: relative;
+    padding: 150px 0 88px;
+    overflow: hidden;
+  }
+
+  .training-glow {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 999px;
+  }
+
+  .training-glow-one {
+    right: -12rem;
+    top: 4rem;
+    width: 42rem;
+    height: 42rem;
+    background: radial-gradient(circle, rgba(56, 187, 181, 0.2), transparent 68%);
+  }
+
+  .training-glow-two {
+    left: -10rem;
+    bottom: -12rem;
+    width: 38rem;
+    height: 38rem;
+    background: radial-gradient(circle, rgba(201, 127, 143, 0.18), transparent 68%);
+  }
+
+  .training-hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .training-hero-copy,
+  .training-hero-card,
+  .training-text-card,
+  .training-path-card,
+  .training-silky-card,
+  .training-program-grid article,
+  .training-authority-card,
+  .training-mentor-card,
+  .training-standard-card,
+  .training-list-card,
+  .training-related-card,
+  .training-faq-grid article,
+  .training-final-card {
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .training-hero-copy {
+    padding: clamp(38px, 5vw, 72px);
+    border-radius: 42px;
+    background: rgba(255, 255, 255, 0.76);
+  }
+
+  .training-hero-copy h1 {
+    max-width: 1040px;
+    margin: 0;
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
+    font-weight: 750;
+    line-height: 1.02;
+    letter-spacing: -0.078em;
+  }
+
+  .training-hero-lead {
+    max-width: 780px;
+    margin: 28px 0 0;
+    color: var(--color-muted);
+    font-size: 1.12rem;
+  }
+
+  .training-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .training-hero-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(34px, 4vw, 56px);
+    border-radius: 42px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
+      radial-gradient(circle at 24% 82%, rgba(56, 187, 181, 0.13), transparent 12rem),
+      linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 240% 240%;
+    animation: training-gold-flow 14s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(125, 95, 45, 0.24);
+  }
+
+  .training-hero-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.26) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+    transform: translateX(-72%);
+    animation: training-panel-shine 8.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .training-card-label {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 auto;
+    color: rgba(255, 248, 230, 0.22);
+    font-size: clamp(4.5rem, 7vw, 7.8rem);
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: -0.09em;
+  }
+
+  .training-hero-card h2,
+  .training-hero-card p:not(.training-card-label) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .training-hero-card h2 {
+    margin: 40px 0 0;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    font-weight: 740;
+    line-height: 0.96;
+    letter-spacing: -0.075em;
+  }
+
+  .training-hero-card p:not(.training-card-label) {
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .training-proof-section {
+    border-top: 1px solid rgba(183, 101, 118, 0.1);
+    border-bottom: 1px solid rgba(183, 101, 118, 0.1);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .training-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .training-proof-grid div {
+    min-height: 112px;
+    padding: 24px 22px;
+    border-right: 1px solid rgba(183, 101, 118, 0.12);
+  }
+
+  .training-proof-grid div:last-child {
+    border-right: 0;
+  }
+
+  .training-proof-grid strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.92rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+  }
+
+  .training-proof-grid span {
+    display: block;
+    color: var(--color-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.55;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  .training-intro-section,
+  .training-paths-section,
+  .training-step-section,
+  .training-masterclass-section,
+  .training-silky-section,
+  .training-program-section,
+  .training-remover-section,
+  .training-authority-section,
+  .training-standard-section,
+  .training-price-section,
+  .training-related-section,
+  .training-faq-section,
+  .training-final-cta {
+    padding: 88px 0;
+  }
+
+  .training-two-column,
+  .training-authority-grid,
+  .training-standard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 54px;
+    align-items: start;
+  }
+
+  .training-two-column h2,
+  .training-section-heading h2,
+  .training-silky-card h2,
+  .training-authority-card h2,
+  .training-standard-card h2,
+  .training-final-card h2 {
+    margin: 0;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.078em;
+  }
+
+  .training-text-card,
+  .training-authority-card,
+  .training-mentor-card,
+  .training-standard-card,
+  .training-list-card {
+    padding: 34px;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  .training-section-heading {
+    max-width: 940px;
+    margin-bottom: 38px;
+  }
+
+  .training-section-heading p {
+    color: var(--color-muted);
+    font-size: 1.05rem;
+  }
+
+  .training-path-grid,
+  .training-related-grid,
+  .training-faq-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .training-path-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .training-related-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .training-path-card,
+  .training-related-card,
+  .training-faq-grid article {
+    position: relative;
+    min-height: 275px;
+    padding: 28px;
+    overflow: hidden;
+    border-radius: 32px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 252, 0.8));
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .training-path-card::before,
+  .training-related-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .training-path-card::after,
+  .training-related-card::after {
+    content: "";
+    position: absolute;
+    right: -58px;
+    top: -58px;
+    width: 138px;
+    height: 138px;
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.68);
+    pointer-events: none;
+  }
+
+  .training-path-card:nth-child(2)::before {
+    border-top-color: rgba(201, 127, 143, 0.34);
+  }
+
+  .training-path-card:nth-child(2)::after {
+    background: rgba(246, 220, 227, 0.76);
+  }
+
+  .training-path-card span,
+  .training-related-card span {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    margin-bottom: 44px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .training-path-card h3,
+  .training-related-card h3,
+  .training-faq-grid h3,
+  .training-mentor-card h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.065em;
+  }
+
+  .training-path-card p,
+  .training-related-card p,
+  .training-faq-grid p,
+  .training-mentor-card p {
+    position: relative;
+    z-index: 2;
+    margin: 14px 0 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.62;
+  }
+
+
+  .training-course-grid,
+  .training-masterclass-grid,
+  .training-price-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .training-course-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .training-masterclass-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .training-price-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .training-course-card,
+  .training-masterclass-card,
+  .training-price-card {
+    position: relative;
+    min-height: 295px;
+    padding: 28px;
+    overflow: hidden;
+    border-radius: 32px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 252, 0.8));
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .training-course-card::before,
+  .training-masterclass-card::before,
+  .training-price-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .training-course-card:nth-child(2)::before,
+  .training-masterclass-card:nth-child(4n + 2)::before {
+    border-top-color: rgba(201, 127, 143, 0.34);
+  }
+
+  .training-course-card:nth-child(3)::before,
+  .training-masterclass-card:nth-child(4n + 3)::before,
+  .training-price-card:nth-child(3)::before {
+    border-top-color: rgba(190, 151, 78, 0.36);
+  }
+
+  .training-course-card::after,
+  .training-masterclass-card::after,
+  .training-price-card::after {
+    content: "";
+    position: absolute;
+    right: -58px;
+    top: -58px;
+    width: 138px;
+    height: 138px;
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.68);
+    pointer-events: none;
+  }
+
+  .training-course-card span,
+  .training-masterclass-card span,
+  .training-price-card span {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    margin-bottom: 34px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .training-course-card h3,
+  .training-masterclass-card h3,
+  .training-price-card h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.065em;
+  }
+
+  .training-course-card p,
+  .training-masterclass-card p,
+  .training-price-card p {
+    position: relative;
+    z-index: 2;
+    margin: 14px 0 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.62;
+  }
+
+  .training-course-card ul {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 8px;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .training-course-card li {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .training-course-card li::before {
+    content: "• ";
+    color: var(--color-turquoise-dark);
+    font-weight: 800;
+  }
+
+  .training-course-meta {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(56, 187, 181, 0.16);
+  }
+
+  .training-course-meta strong,
+  .training-price-card strong {
+    color: var(--color-text);
+    font-size: 0.94rem;
+    font-weight: 760;
+    letter-spacing: -0.03em;
+  }
+
+  .training-price-card strong {
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin-top: 18px;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    letter-spacing: -0.055em;
+  }
+
+  .training-info-band {
+    margin-top: 18px;
+    padding: clamp(26px, 3vw, 38px);
+    border-radius: 32px;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.78), rgba(255, 255, 255, 0.86));
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.06);
+  }
+
+  .training-info-band-rose {
+    background:
+      linear-gradient(145deg, rgba(255, 242, 246, 0.84), rgba(255, 255, 255, 0.88));
+    border-color: rgba(201, 127, 143, 0.18);
+  }
+
+  .training-info-band p {
+    max-width: 1000px;
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1rem;
+  }
+
+  .training-remover-section,
+  .training-price-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
+  }
+
+  .training-remover-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 54px;
+    align-items: stretch;
+  }
+
+  .training-remover-card,
+  .training-remover-list {
+    padding: 34px;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .training-remover-card h2 {
+    margin: 0;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.078em;
+  }
+
+  .training-remover-card p {
+    color: var(--color-muted);
+  }
+
+  .training-remover-list {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .training-remover-list div {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 14px;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+  }
+
+  .training-remover-list div:last-child {
+    border-bottom: 0;
+  }
+
+  .training-remover-list span {
+    width: 10px;
+    height: 10px;
+    margin-top: 7px;
+    border-radius: 999px;
+    background: var(--color-turquoise);
+  }
+
+  .training-remover-list p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.96rem;
+    line-height: 1.58;
+  }
+
+
+  .training-silky-card {
+    display: grid;
+    grid-template-columns: 0.86fr 1.14fr;
+    gap: 34px;
+    align-items: center;
+    padding: clamp(32px, 4vw, 54px);
+    border-radius: 38px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: training-turquoise-flow 13s ease-in-out infinite alternate;
+  }
+
+  .training-silky-card .section-kicker,
+  .training-silky-card p {
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .training-silky-card p {
+    margin: 0;
+    font-size: 1.02rem;
+  }
+
+  .training-program-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 28px;
+    align-items: stretch;
+    padding: clamp(30px, 4vw, 52px);
+    border-radius: 40px;
+    background:
+      radial-gradient(circle at 94% 14%, rgba(56, 187, 181, 0.14), transparent 18rem),
+      radial-gradient(circle at 12% 88%, rgba(201, 127, 143, 0.12), transparent 18rem),
+      rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 22px 68px rgba(89, 53, 67, 0.075);
+  }
+
+  .training-program-heading h2 {
+    margin: 0;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.078em;
+  }
+
+  .training-program-heading p:not(.section-kicker) {
+    max-width: 620px;
+    color: var(--color-muted);
+    font-size: 1.02rem;
+  }
+
+  .training-program-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .training-program-card {
+    position: relative;
+    min-height: 190px;
+    padding: 24px;
+    overflow: hidden;
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(219, 246, 243, 0.82), transparent 7rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.86));
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    box-shadow: 0 18px 46px rgba(89, 53, 67, 0.055);
+  }
+
+  .training-program-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.42);
+    pointer-events: none;
+  }
+
+  .training-program-card:nth-child(2)::before,
+  .training-program-card:nth-child(4)::before {
+    border-top-color: rgba(201, 127, 143, 0.36);
+  }
+
+  .training-program-card span {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    margin-bottom: 34px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 760;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .training-program-card h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-size: clamp(1.35rem, 1.8vw, 1.9rem);
+    font-weight: 760;
+    line-height: 1;
+    letter-spacing: -0.062em;
+  }
+
+  .training-program-card p {
+    position: relative;
+    z-index: 2;
+    margin: 12px 0 0;
+    color: var(--color-muted);
+    font-size: 0.94rem;
+    line-height: 1.58;
+  }
+
+  .training-authority-section,
+  .training-standard-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
+  }
+
+  .training-mentor-card {
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.32), transparent 10rem),
+      radial-gradient(circle at 82% 24%, rgba(255, 219, 231, 0.36), transparent 13rem),
+      linear-gradient(145deg, #9d4f68 0%, #d7899f 40%, #a85b73 66%, #6f3046 100%);
+  }
+
+  .training-mentor-card .section-kicker,
+  .training-mentor-card p {
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .training-list-card {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .training-list-card div {
+    padding: 24px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+  }
+
+  .training-list-card div:last-child {
+    border-bottom: 0;
+  }
+
+  .training-list-card strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 740;
+    letter-spacing: -0.04em;
+  }
+
+  .training-list-card span {
+    display: block;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .training-faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .training-faq-grid article {
+    min-height: auto;
+  }
+
+  .training-faq-grid article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(201, 127, 143, 0.24);
+  }
+
+  .training-final-card {
+    padding: clamp(34px, 6vw, 70px);
+    border-radius: 42px;
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .training-final-card p:not(.signature) {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-muted);
+  }
+
+  .training-final-card .button-primary {
+    margin-top: 18px;
+  }
+
+  @keyframes training-panel-shine {
+    0% {
+      transform: translateX(-72%);
+      opacity: 0.28;
+    }
+
+    45% {
+      opacity: 0.88;
+    }
+
+    100% {
+      transform: translateX(88%);
+      opacity: 0.28;
+    }
+  }
+
+  @keyframes training-gold-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @keyframes training-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @media (max-width: 1260px) {
+    .training-proof-grid,
+    .training-course-grid,
+    .training-masterclass-grid,
+    .training-price-grid,
+    .training-related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .training-proof-grid div:nth-child(2) {
+      border-right: 0;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .training-hero-grid,
+    .training-two-column,
+    .training-authority-grid,
+    .training-standard-grid,
+  
+  .training-course-grid,
+  .training-masterclass-grid,
+  .training-price-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .training-course-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .training-masterclass-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .training-price-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .training-course-card,
+  .training-masterclass-card,
+  .training-price-card {
+    position: relative;
+    min-height: 295px;
+    padding: 28px;
+    overflow: hidden;
+    border-radius: 32px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 252, 0.8));
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .training-course-card::before,
+  .training-masterclass-card::before,
+  .training-price-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .training-course-card:nth-child(2)::before,
+  .training-masterclass-card:nth-child(4n + 2)::before {
+    border-top-color: rgba(201, 127, 143, 0.34);
+  }
+
+  .training-course-card:nth-child(3)::before,
+  .training-masterclass-card:nth-child(4n + 3)::before,
+  .training-price-card:nth-child(3)::before {
+    border-top-color: rgba(190, 151, 78, 0.36);
+  }
+
+  .training-course-card::after,
+  .training-masterclass-card::after,
+  .training-price-card::after {
+    content: "";
+    position: absolute;
+    right: -58px;
+    top: -58px;
+    width: 138px;
+    height: 138px;
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.68);
+    pointer-events: none;
+  }
+
+  .training-course-card span,
+  .training-masterclass-card span,
+  .training-price-card span {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    margin-bottom: 34px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .training-course-card h3,
+  .training-masterclass-card h3,
+  .training-price-card h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.065em;
+  }
+
+  .training-course-card p,
+  .training-masterclass-card p,
+  .training-price-card p {
+    position: relative;
+    z-index: 2;
+    margin: 14px 0 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.62;
+  }
+
+  .training-course-card ul {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 8px;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .training-course-card li {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .training-course-card li::before {
+    content: "• ";
+    color: var(--color-turquoise-dark);
+    font-weight: 800;
+  }
+
+  .training-course-meta {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(56, 187, 181, 0.16);
+  }
+
+  .training-course-meta strong,
+  .training-price-card strong {
+    color: var(--color-text);
+    font-size: 0.94rem;
+    font-weight: 760;
+    letter-spacing: -0.03em;
+  }
+
+  .training-price-card strong {
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin-top: 18px;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    letter-spacing: -0.055em;
+  }
+
+  .training-info-band {
+    margin-top: 18px;
+    padding: clamp(26px, 3vw, 38px);
+    border-radius: 32px;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.78), rgba(255, 255, 255, 0.86));
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.06);
+  }
+
+  .training-info-band-rose {
+    background:
+      linear-gradient(145deg, rgba(255, 242, 246, 0.84), rgba(255, 255, 255, 0.88));
+    border-color: rgba(201, 127, 143, 0.18);
+  }
+
+  .training-info-band p {
+    max-width: 1000px;
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1rem;
+  }
+
+  .training-remover-section,
+  .training-price-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
+  }
+
+  .training-remover-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 54px;
+    align-items: stretch;
+  }
+
+  .training-remover-card,
+  .training-remover-list {
+    padding: 34px;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .training-remover-card h2 {
+    margin: 0;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.078em;
+  }
+
+  .training-remover-card p {
+    color: var(--color-muted);
+  }
+
+  .training-remover-list {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .training-remover-list div {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 14px;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+  }
+
+  .training-remover-list div:last-child {
+    border-bottom: 0;
+  }
+
+  .training-remover-list span {
+    width: 10px;
+    height: 10px;
+    margin-top: 7px;
+    border-radius: 999px;
+    background: var(--color-turquoise);
+  }
+
+  .training-remover-list p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.96rem;
+    line-height: 1.58;
+  }
+
+
+  .training-silky-card {
+      grid-template-columns: 1fr;
+    }
+
+    .training-path-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .training-hero {
+      padding: 112px 0 58px;
+    }
+
+    .training-hero-copy,
+    .training-hero-card,
+    .training-text-card,
+    .training-path-card,
+    .training-course-card,
+    .training-masterclass-card,
+    .training-price-card,
+    .training-remover-card,
+    .training-remover-list,
+    .training-info-band,
+    .training-silky-card,
+    .training-program-panel,
+    .training-program-card,
+    .training-authority-card,
+    .training-mentor-card,
+    .training-standard-card,
+    .training-list-card,
+    .training-related-card,
+    .training-faq-grid article,
+    .training-final-card {
+      border-radius: 28px;
+    }
+
+    .training-hero-copy h1 {
+      font-size: clamp(2.75rem, 12.2vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.074em;
+    }
+
+    .training-intro-section,
+    .training-paths-section,
+    .training-step-section,
+    .training-masterclass-section,
+    .training-silky-section,
+    .training-program-section,
+    .training-remover-section,
+    .training-authority-section,
+    .training-standard-section,
+    .training-price-section,
+    .training-related-section,
+    .training-faq-section,
+    .training-final-cta {
+      padding: 58px 0;
+    }
+
+    .training-two-column h2,
+    .training-section-heading h2,
+    .training-silky-card h2,
+    .training-authority-card h2,
+    .training-standard-card h2,
+    .training-final-card h2 {
+      font-size: clamp(2.35rem, 11vw, 3.4rem);
+    }
+
+    .training-proof-grid,
+    .training-path-grid,
+    .training-course-grid,
+    .training-masterclass-grid,
+    .training-price-grid,
+    .training-related-grid,
+    .training-faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .training-program-panel,
+    .training-program-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .training-proof-grid div,
+    .training-proof-grid div:nth-child(2) {
+      border-right: 0;
+      border-bottom: 1px solid rgba(183, 101, 118, 0.12);
+    }
+
+    .training-proof-grid div:last-child {
+      border-bottom: 0;
+    }
+
+    .training-path-card,
+    .training-course-card,
+    .training-masterclass-card,
+    .training-price-card,
+    .training-related-card {
+      min-height: auto;
+      padding: 26px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .training-hero-card,
+    .training-hero-card::before,
+  
+  .training-course-grid,
+  .training-masterclass-grid,
+  .training-price-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .training-course-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .training-masterclass-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .training-price-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .training-course-card,
+  .training-masterclass-card,
+  .training-price-card {
+    position: relative;
+    min-height: 295px;
+    padding: 28px;
+    overflow: hidden;
+    border-radius: 32px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 252, 0.8));
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .training-course-card::before,
+  .training-masterclass-card::before,
+  .training-price-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .training-course-card:nth-child(2)::before,
+  .training-masterclass-card:nth-child(4n + 2)::before {
+    border-top-color: rgba(201, 127, 143, 0.34);
+  }
+
+  .training-course-card:nth-child(3)::before,
+  .training-masterclass-card:nth-child(4n + 3)::before,
+  .training-price-card:nth-child(3)::before {
+    border-top-color: rgba(190, 151, 78, 0.36);
+  }
+
+  .training-course-card::after,
+  .training-masterclass-card::after,
+  .training-price-card::after {
+    content: "";
+    position: absolute;
+    right: -58px;
+    top: -58px;
+    width: 138px;
+    height: 138px;
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.68);
+    pointer-events: none;
+  }
+
+  .training-course-card span,
+  .training-masterclass-card span,
+  .training-price-card span {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    margin-bottom: 34px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .training-course-card h3,
+  .training-masterclass-card h3,
+  .training-price-card h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.065em;
+  }
+
+  .training-course-card p,
+  .training-masterclass-card p,
+  .training-price-card p {
+    position: relative;
+    z-index: 2;
+    margin: 14px 0 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.62;
+  }
+
+  .training-course-card ul {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 8px;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .training-course-card li {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .training-course-card li::before {
+    content: "• ";
+    color: var(--color-turquoise-dark);
+    font-weight: 800;
+  }
+
+  .training-course-meta {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(56, 187, 181, 0.16);
+  }
+
+  .training-course-meta strong,
+  .training-price-card strong {
+    color: var(--color-text);
+    font-size: 0.94rem;
+    font-weight: 760;
+    letter-spacing: -0.03em;
+  }
+
+  .training-price-card strong {
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin-top: 18px;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    letter-spacing: -0.055em;
+  }
+
+  .training-info-band {
+    margin-top: 18px;
+    padding: clamp(26px, 3vw, 38px);
+    border-radius: 32px;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.78), rgba(255, 255, 255, 0.86));
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.06);
+  }
+
+  .training-info-band-rose {
+    background:
+      linear-gradient(145deg, rgba(255, 242, 246, 0.84), rgba(255, 255, 255, 0.88));
+    border-color: rgba(201, 127, 143, 0.18);
+  }
+
+  .training-info-band p {
+    max-width: 1000px;
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1rem;
+  }
+
+  .training-remover-section,
+  .training-price-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
+  }
+
+  .training-remover-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 54px;
+    align-items: stretch;
+  }
+
+  .training-remover-card,
+  .training-remover-list {
+    padding: 34px;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .training-remover-card h2 {
+    margin: 0;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.078em;
+  }
+
+  .training-remover-card p {
+    color: var(--color-muted);
+  }
+
+  .training-remover-list {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .training-remover-list div {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 14px;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+  }
+
+  .training-remover-list div:last-child {
+    border-bottom: 0;
+  }
+
+  .training-remover-list span {
+    width: 10px;
+    height: 10px;
+    margin-top: 7px;
+    border-radius: 999px;
+    background: var(--color-turquoise);
+  }
+
+  .training-remover-list p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.96rem;
+    line-height: 1.58;
+  }
+
+
+  .training-silky-card {
+      animation: none;
+    }
+  }
+
+
+  /* V3 visual fix — unscoped/global selectors for sections rendered from arrays */
+  :global(.training-step-section),
+  :global(.training-masterclass-section),
+  :global(.training-price-section) {
+    position: relative;
+  }
+
+  :global(.training-step-section .training-course-grid),
+  :global(.training-masterclass-section .training-masterclass-grid),
+  :global(.training-price-section .training-price-grid) {
+    display: grid !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+  }
+
+  :global(.training-step-section .training-course-grid) {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  :global(.training-masterclass-section .training-masterclass-grid) {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  :global(.training-price-section .training-price-grid) {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  :global(.training-course-card),
+  :global(.training-masterclass-card),
+  :global(.training-price-card) {
+    position: relative !important;
+    min-height: 295px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 28px !important;
+    overflow: hidden !important;
+    border-radius: 32px !important;
+    background:
+      radial-gradient(circle at 88% 8%, rgba(56, 187, 181, 0.16), transparent 8.5rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 247, 250, 0.86)) !important;
+    border: 1px solid rgba(183, 101, 118, 0.18) !important;
+    box-shadow: 0 22px 62px rgba(89, 53, 67, 0.09) !important;
+  }
+
+  :global(.training-course-card)::before,
+  :global(.training-masterclass-card)::before,
+  :global(.training-price-card)::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-top: 5px solid rgba(56, 187, 181, 0.48) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.training-course-card)::after,
+  :global(.training-masterclass-card)::after,
+  :global(.training-price-card)::after {
+    content: "" !important;
+    position: absolute !important;
+    right: -58px !important;
+    top: -58px !important;
+    width: 138px !important;
+    height: 138px !important;
+    border-radius: 999px !important;
+    background: rgba(219, 246, 243, 0.82) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.training-course-card:nth-child(2))::before,
+  :global(.training-masterclass-card:nth-child(4n + 2))::before,
+  :global(.training-price-card:nth-child(2))::before {
+    border-top-color: rgba(201, 127, 143, 0.48) !important;
+  }
+
+  :global(.training-course-card:nth-child(3))::before,
+  :global(.training-masterclass-card:nth-child(4n + 3))::before,
+  :global(.training-price-card:nth-child(3))::before {
+    border-top-color: rgba(190, 151, 78, 0.5) !important;
+  }
+
+  :global(.training-course-card:nth-child(2))::after,
+  :global(.training-masterclass-card:nth-child(4n + 2))::after,
+  :global(.training-price-card:nth-child(2))::after {
+    background: rgba(246, 220, 227, 0.84) !important;
+  }
+
+  :global(.training-course-card:nth-child(3))::after,
+  :global(.training-masterclass-card:nth-child(4n + 3))::after,
+  :global(.training-price-card:nth-child(3))::after {
+    background: rgba(248, 231, 190, 0.78) !important;
+  }
+
+  :global(.training-course-card > *),
+  :global(.training-masterclass-card > *),
+  :global(.training-price-card > *) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  :global(.training-course-card span),
+  :global(.training-masterclass-card span),
+  :global(.training-price-card span) {
+    display: inline-flex !important;
+    margin-bottom: 34px !important;
+    color: var(--color-turquoise-dark) !important;
+    font-size: 0.72rem !important;
+    font-weight: 760 !important;
+    line-height: 1.25 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  :global(.training-course-card h3),
+  :global(.training-masterclass-card h3),
+  :global(.training-price-card h3) {
+    margin: 0 !important;
+    color: var(--color-text) !important;
+    font-size: clamp(1.45rem, 1.85vw, 2rem) !important;
+    font-weight: 760 !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.065em !important;
+  }
+
+  :global(.training-course-card p),
+  :global(.training-masterclass-card p),
+  :global(.training-price-card p) {
+    margin: 14px 0 0 !important;
+    color: var(--color-muted) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.62 !important;
+  }
+
+  :global(.training-course-meta) {
+    display: grid !important;
+    gap: 8px !important;
+    margin-top: auto !important;
+    padding-top: 18px !important;
+    border-top: 1px solid rgba(56, 187, 181, 0.16) !important;
+  }
+
+  :global(.training-course-meta strong),
+  :global(.training-price-card strong) {
+    color: var(--color-text) !important;
+    font-size: 0.94rem !important;
+    font-weight: 780 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  :global(.training-price-card strong) {
+    display: block !important;
+    margin-top: 18px !important;
+    color: var(--color-turquoise-dark) !important;
+    font-size: clamp(1.2rem, 2vw, 1.6rem) !important;
+  }
+
+  :global(.training-course-card ul) {
+    display: grid !important;
+    gap: 8px !important;
+    margin: 18px 0 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  :global(.training-course-card li) {
+    color: var(--color-muted) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.45 !important;
+  }
+
+  :global(.training-course-card li)::before {
+    content: "• " !important;
+    color: var(--color-turquoise-dark) !important;
+    font-weight: 800 !important;
+  }
+
+  :global(.training-info-band) {
+    margin-top: 18px !important;
+    padding: clamp(26px, 3vw, 38px) !important;
+    border-radius: 32px !important;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.12), transparent 14rem),
+      linear-gradient(145deg, rgba(219, 246, 243, 0.78), rgba(255, 255, 255, 0.9)) !important;
+    border: 1px solid rgba(56, 187, 181, 0.18) !important;
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.06) !important;
+  }
+
+  :global(.training-info-band-rose) {
+    background:
+      radial-gradient(circle at 94% 12%, rgba(201, 127, 143, 0.13), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 242, 246, 0.84), rgba(255, 255, 255, 0.9)) !important;
+    border-color: rgba(201, 127, 143, 0.18) !important;
+  }
+
+  :global(.training-info-band p) {
+    max-width: 1000px !important;
+    margin: 0 !important;
+    color: var(--color-muted) !important;
+    font-size: 1rem !important;
+    line-height: 1.72 !important;
+  }
+
+  :global(.training-remover-grid) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) !important;
+    gap: 54px !important;
+    align-items: stretch !important;
+  }
+
+  :global(.training-remover-card),
+  :global(.training-remover-list) {
+    padding: 34px !important;
+    border-radius: 34px !important;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.11), transparent 14rem),
+      rgba(255, 255, 255, 0.82) !important;
+    border: 1px solid rgba(183, 101, 118, 0.16) !important;
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075) !important;
+  }
+
+  :global(.training-remover-list) {
+    display: grid !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  :global(.training-remover-list div) {
+    display: grid !important;
+    grid-template-columns: 18px 1fr !important;
+    gap: 14px !important;
+    padding: 22px 24px !important;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.15) !important;
+  }
+
+  :global(.training-remover-list div:last-child) {
+    border-bottom: 0 !important;
+  }
+
+  :global(.training-remover-list span) {
+    width: 10px !important;
+    height: 10px !important;
+    margin-top: 7px !important;
+    border-radius: 999px !important;
+    background: var(--color-turquoise) !important;
+  }
+
+  :global(.training-remover-list p) {
+    margin: 0 !important;
+    color: var(--color-muted) !important;
+    font-size: 0.96rem !important;
+    line-height: 1.58 !important;
+  }
+
+  @media (max-width: 1260px) {
+    :global(.training-step-section .training-course-grid),
+    :global(.training-masterclass-section .training-masterclass-grid),
+    :global(.training-price-section .training-price-grid) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    :global(.training-remover-grid) {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.training-step-section .training-course-grid),
+    :global(.training-masterclass-section .training-masterclass-grid),
+    :global(.training-price-section .training-price-grid) {
+      grid-template-columns: 1fr !important;
+    }
+
+    :global(.training-course-card),
+    :global(.training-masterclass-card),
+    :global(.training-price-card),
+    :global(.training-remover-card),
+    :global(.training-remover-list),
+    :global(.training-info-band) {
+      min-height: auto !important;
+      padding: 26px !important;
+      border-radius: 28px !important;
+    }
+
+    :global(.training-remover-list) {
+      padding: 0 !important;
+    }
+  }
+
+
+  /* V4 — compact premium program section */
+  :global(.training-program-panel) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr) !important;
+    gap: 28px !important;
+    align-items: stretch !important;
+    padding: clamp(30px, 4vw, 52px) !important;
+    border-radius: 40px !important;
+    background:
+      radial-gradient(circle at 94% 14%, rgba(56, 187, 181, 0.14), transparent 18rem),
+      radial-gradient(circle at 12% 88%, rgba(201, 127, 143, 0.12), transparent 18rem),
+      rgba(255, 255, 255, 0.78) !important;
+    border: 1px solid rgba(183, 101, 118, 0.16) !important;
+    box-shadow: 0 22px 68px rgba(89, 53, 67, 0.075) !important;
+  }
+
+  :global(.training-program-heading h2) {
+    margin: 0 !important;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    font-weight: 740 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.078em !important;
+  }
+
+  :global(.training-program-heading p:not(.section-kicker)) {
+    max-width: 620px !important;
+    color: var(--color-muted) !important;
+    font-size: 1.02rem !important;
+    line-height: 1.68 !important;
+  }
+
+  :global(.training-program-panel .training-program-grid) {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  :global(.training-program-card) {
+    position: relative !important;
+    min-height: 190px !important;
+    padding: 24px !important;
+    overflow: hidden !important;
+    border-radius: 30px !important;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(219, 246, 243, 0.82), transparent 7rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.86)) !important;
+    border: 1px solid rgba(56, 187, 181, 0.18) !important;
+    box-shadow: 0 18px 46px rgba(89, 53, 67, 0.055) !important;
+  }
+
+  :global(.training-program-card)::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-top: 4px solid rgba(56, 187, 181, 0.42) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.training-program-card:nth-child(2))::before,
+  :global(.training-program-card:nth-child(4))::before {
+    border-top-color: rgba(201, 127, 143, 0.36) !important;
+  }
+
+  :global(.training-program-card > *) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  :global(.training-program-card span) {
+    display: inline-flex !important;
+    margin-bottom: 34px !important;
+    color: var(--color-turquoise-dark) !important;
+    font-size: 0.72rem !important;
+    font-weight: 760 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  :global(.training-program-card h3) {
+    margin: 0 !important;
+    color: var(--color-text) !important;
+    font-size: clamp(1.35rem, 1.8vw, 1.9rem) !important;
+    font-weight: 760 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.062em !important;
+  }
+
+  :global(.training-program-card p) {
+    margin: 12px 0 0 !important;
+    color: var(--color-muted) !important;
+    font-size: 0.94rem !important;
+    line-height: 1.58 !important;
+  }
+
+  @media (max-width: 1080px) {
+    :global(.training-program-panel) {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.training-program-panel .training-program-grid) {
+      grid-template-columns: 1fr !important;
+    }
+
+    :global(.training-program-panel),
+    :global(.training-program-card) {
+      border-radius: 28px !important;
+    }
+  }
+
+
+  /* V5 — final visual polish for training page */
+  :global(.training-page .section-kicker) {
+    color: var(--color-turquoise-dark) !important;
+    font-size: 0.78rem !important;
+    font-weight: 820 !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.2em !important;
+  }
+
+  :global(.training-page .training-section-heading h2),
+  :global(.training-program-heading h2),
+  :global(.training-remover-card h2),
+  :global(.training-authority-card h2),
+  :global(.training-standard-card h2),
+  :global(.training-final-card h2) {
+    color: var(--color-text) !important;
+    font-weight: 760 !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  :global(.training-step-section .training-course-grid),
+  :global(.training-masterclass-section .training-masterclass-grid),
+  :global(.training-price-section .training-price-grid),
+  :global(.training-related-section .training-related-grid) {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+  }
+
+  :global(.training-course-card),
+  :global(.training-masterclass-card),
+  :global(.training-price-card) {
+    min-height: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  :global(.training-course-card h3),
+  :global(.training-masterclass-card h3),
+  :global(.training-price-card h3),
+  :global(.training-related-card h3),
+  :global(.training-path-card h3) {
+    line-height: 1.04 !important;
+  }
+
+  :global(.training-course-card p),
+  :global(.training-masterclass-card p),
+  :global(.training-price-card p),
+  :global(.training-related-card p),
+  :global(.training-path-card p) {
+    line-height: 1.62 !important;
+  }
+
+  :global(.training-course-meta) {
+    margin-top: auto !important;
+  }
+
+  :global(.training-course-card li) {
+    text-transform: none !important;
+  }
+
+  :global(.training-program-panel) {
+    display: block !important;
+    padding: clamp(32px, 4vw, 56px) !important;
+  }
+
+  :global(.training-program-heading) {
+    max-width: 980px !important;
+    margin-bottom: 34px !important;
+  }
+
+  :global(.training-program-heading p:not(.section-kicker)) {
+    max-width: 900px !important;
+  }
+
+  :global(.training-program-panel .training-program-grid) {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  :global(.training-program-card) {
+    min-height: 235px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  :global(.training-program-card span) {
+    margin-bottom: 38px !important;
+  }
+
+  :global(.training-program-card p) {
+    max-width: 100% !important;
+  }
+
+  :global(.training-remover-grid) {
+    align-items: stretch !important;
+  }
+
+  :global(.training-remover-list div) {
+    align-items: start !important;
+  }
+
+  :global(.training-remover-list p) {
+    text-transform: none !important;
+  }
+
+  :global(.training-authority-card),
+  :global(.training-mentor-card) {
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  :global(.training-authority-card)::before,
+  :global(.training-mentor-card)::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.04) 22%, rgba(255, 255, 255, 0.22) 47%, rgba(255, 255, 255, 0.04) 72%, transparent 100%) !important;
+    transform: translateX(-76%) !important;
+    animation: training-authority-shine 8.5s ease-in-out infinite !important;
+    pointer-events: none !important;
+  }
+
+  :global(.training-authority-card)::after {
+    content: "" !important;
+    position: absolute !important;
+    right: -58px !important;
+    top: -58px !important;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 999px !important;
+    background: rgba(248, 231, 190, 0.5) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.training-authority-card > *),
+  :global(.training-mentor-card > *) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  @keyframes training-authority-shine {
+    0% {
+      transform: translateX(-76%);
+      opacity: 0.25;
+    }
+
+    45% {
+      opacity: 0.85;
+    }
+
+    100% {
+      transform: translateX(86%);
+      opacity: 0.25;
+    }
+  }
+
+  @media (max-width: 1260px) {
+    :global(.training-step-section .training-course-grid),
+    :global(.training-masterclass-section .training-masterclass-grid),
+    :global(.training-price-section .training-price-grid),
+    :global(.training-related-section .training-related-grid),
+    :global(.training-program-panel .training-program-grid) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.training-step-section .training-course-grid),
+    :global(.training-masterclass-section .training-masterclass-grid),
+    :global(.training-price-section .training-price-grid),
+    :global(.training-related-section .training-related-grid),
+    :global(.training-program-panel .training-program-grid) {
+      grid-template-columns: 1fr !important;
+    }
+
+    :global(.training-course-card),
+    :global(.training-masterclass-card),
+    :global(.training-price-card),
+    :global(.training-program-card) {
+      min-height: auto !important;
+    }
+
+    :global(.training-program-panel) {
+      padding: 26px !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.training-authority-card)::before,
+    :global(.training-mentor-card)::before {
+      animation: none !important;
+    }
+  }
+
+
+  /* V6 — intensive cards: light kickers, big blurred marks and visible motion */
+  :global(.training-silky-card),
+  :global(.training-mentor-card),
+  :global(.training-authority-card) {
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  :global(.training-silky-card) {
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%) !important;
+    background-size: 100% 100%, 100% 100%, 240% 240% !important;
+    animation: training-turquoise-flow 13s ease-in-out infinite alternate !important;
+  }
+
+  :global(.training-mentor-card) {
+    background:
+      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 10rem),
+      radial-gradient(circle at 82% 24%, rgba(255, 219, 231, 0.4), transparent 13rem),
+      linear-gradient(145deg, #9d4f68 0%, #d7899f 38%, #a85b73 64%, #6f3046 100%) !important;
+    background-size: 100% 100%, 100% 100%, 220% 220% !important;
+    animation: training-mentor-flow 12s ease-in-out infinite alternate !important;
+  }
+
+  :global(.training-authority-card) {
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
+      linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%) !important;
+    background-size: 100% 100%, 100% 100%, 240% 240% !important;
+    animation: training-gold-flow 14s ease-in-out infinite alternate !important;
+    color: #ffffff !important;
+  }
+
+  :global(.training-silky-card)::before,
+  :global(.training-mentor-card)::before,
+  :global(.training-authority-card)::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.28) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%) !important;
+    transform: translateX(-76%) !important;
+    animation: training-intense-shine 8.5s ease-in-out infinite !important;
+    pointer-events: none !important;
+  }
+
+  :global(.training-silky-card)::after,
+  :global(.training-mentor-card)::after,
+  :global(.training-authority-card)::after {
+    content: "" !important;
+    position: absolute !important;
+    right: -58px !important;
+    top: -58px !important;
+    width: 155px !important;
+    height: 155px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.training-silky-card > *),
+  :global(.training-mentor-card > *),
+  :global(.training-authority-card > *) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  :global(.training-silky-card .section-kicker),
+  :global(.training-mentor-card .section-kicker),
+  :global(.training-authority-card .section-kicker) {
+    color: rgba(255, 255, 255, 0.76) !important;
+    text-shadow: 0 1px 18px rgba(255, 255, 255, 0.22) !important;
+  }
+
+  :global(.training-silky-card h2),
+  :global(.training-mentor-card h3),
+  :global(.training-authority-card h2) {
+    color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.28) !important;
+  }
+
+  :global(.training-silky-card p:not(.section-kicker)),
+  :global(.training-mentor-card p:not(.section-kicker)),
+  :global(.training-authority-card p:not(.section-kicker)) {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  :global(.training-big-mark) {
+    position: absolute !important;
+    right: clamp(18px, 3vw, 42px) !important;
+    top: clamp(14px, 2.4vw, 32px) !important;
+    z-index: 1 !important;
+    color: rgba(255, 255, 255, 0.14) !important;
+    font-size: clamp(4rem, 8vw, 9rem) !important;
+    font-weight: 850 !important;
+    line-height: 0.8 !important;
+    letter-spacing: -0.12em !important;
+    filter: blur(0.2px) !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  :global(.training-big-mark-dark) {
+    color: rgba(255, 248, 230, 0.18) !important;
+  }
+
+  @keyframes training-intense-shine {
+    0% {
+      transform: translateX(-76%);
+      opacity: 0.22;
+    }
+
+    45% {
+      opacity: 0.88;
+    }
+
+    100% {
+      transform: translateX(86%);
+      opacity: 0.22;
+    }
+  }
+
+  @keyframes training-mentor-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.training-silky-card),
+    :global(.training-mentor-card),
+    :global(.training-authority-card),
+    :global(.training-silky-card)::before,
+    :global(.training-mentor-card)::before,
+    :global(.training-authority-card)::before {
+      animation: none !important;
+    }
+  }
+
+
+  /* V7 — mobile stacking + highlighted Silky Masterclass */
+  :global(.training-masterclass-section .training-masterclass-card:first-child) {
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 10rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.26), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%) !important;
+    background-size: 100% 100%, 100% 100%, 240% 240% !important;
+    animation: training-turquoise-flow 13s ease-in-out infinite alternate !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+    box-shadow: 0 28px 76px rgba(20, 142, 136, 0.2) !important;
+  }
+
+  :global(.training-masterclass-section .training-masterclass-card:first-child)::before {
+    border-top-color: rgba(255, 255, 255, 0.5) !important;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.28) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%) !important;
+    transform: translateX(-76%) !important;
+    animation: training-intense-shine 8.5s ease-in-out infinite !important;
+  }
+
+  :global(.training-masterclass-section .training-masterclass-card:first-child)::after {
+    background: rgba(255, 255, 255, 0.18) !important;
+  }
+
+  :global(.training-masterclass-section .training-masterclass-card:first-child span),
+  :global(.training-masterclass-section .training-masterclass-card:first-child h3),
+  :global(.training-masterclass-section .training-masterclass-card:first-child p) {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  :global(.training-masterclass-section .training-masterclass-card:first-child h3) {
+    color: #ffffff !important;
+    text-shadow: 0 14px 36px rgba(10, 52, 50, 0.24) !important;
+  }
+
+  :global(.training-masterclass-section .training-masterclass-card:first-child span)::before {
+    content: "SHB";
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    color: rgba(255, 255, 255, 0.16);
+    font-size: clamp(3rem, 5vw, 5.8rem);
+    font-weight: 850;
+    line-height: 0.8;
+    letter-spacing: -0.12em;
+    pointer-events: none;
+  }
+
+  @media (max-width: 900px) {
+    :global(.training-hero) {
+      padding: 104px 0 54px !important;
+    }
+
+    :global(.training-hero-grid),
+    :global(.training-two-column),
+    :global(.training-authority-grid),
+    :global(.training-standard-grid),
+    :global(.training-silky-card),
+    :global(.training-remover-grid),
+    :global(.training-program-panel) {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 18px !important;
+      align-items: stretch !important;
+    }
+
+    :global(.training-hero-card),
+    :global(.training-text-card),
+    :global(.training-authority-card),
+    :global(.training-mentor-card),
+    :global(.training-standard-card),
+    :global(.training-list-card),
+    :global(.training-silky-card),
+    :global(.training-remover-card),
+    :global(.training-remover-list) {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      min-height: auto !important;
+    }
+
+    :global(.training-hero-copy),
+    :global(.training-hero-card) {
+      padding: 30px !important;
+      border-radius: 30px !important;
+    }
+
+    :global(.training-hero-copy h1) {
+      max-width: 100% !important;
+      font-size: clamp(2.55rem, 11vw, 3.65rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.065em !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    :global(.training-hero-lead) {
+      font-size: 1rem !important;
+      line-height: 1.64 !important;
+    }
+
+    :global(.training-card-label) {
+      margin-bottom: 44px !important;
+      font-size: clamp(3.7rem, 18vw, 5.8rem) !important;
+    }
+
+    :global(.training-hero-card h2) {
+      font-size: clamp(1.85rem, 8vw, 2.75rem) !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.065em !important;
+    }
+
+    :global(.training-two-column h2),
+    :global(.training-section-heading h2),
+    :global(.training-program-heading h2),
+    :global(.training-remover-card h2),
+    :global(.training-authority-card h2),
+    :global(.training-standard-card h2),
+    :global(.training-final-card h2) {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    :global(.training-authority-card),
+    :global(.training-mentor-card) {
+      padding: 30px !important;
+      border-radius: 30px !important;
+    }
+
+    :global(.training-mentor-card h3) {
+      font-size: clamp(1.9rem, 8vw, 2.8rem) !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.065em !important;
+    }
+
+    :global(.training-big-mark) {
+      right: 18px !important;
+      top: 14px !important;
+      font-size: clamp(3.4rem, 16vw, 5.4rem) !important;
+      opacity: 0.72 !important;
+    }
+
+    :global(.training-step-section .training-course-grid),
+    :global(.training-masterclass-section .training-masterclass-grid),
+    :global(.training-price-section .training-price-grid),
+    :global(.training-related-section .training-related-grid),
+    :global(.training-program-panel .training-program-grid),
+    :global(.training-path-grid),
+    :global(.training-proof-grid),
+    :global(.training-faq-grid) {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+
+    :global(.training-course-card),
+    :global(.training-masterclass-card),
+    :global(.training-price-card),
+    :global(.training-program-card),
+    :global(.training-related-card),
+    :global(.training-path-card) {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      min-height: auto !important;
+      padding: 26px !important;
+      border-radius: 28px !important;
+    }
+
+    :global(.training-course-card span),
+    :global(.training-masterclass-card span),
+    :global(.training-price-card span),
+    :global(.training-program-card span),
+    :global(.training-path-card span),
+    :global(.training-related-card span) {
+      margin-bottom: 28px !important;
+    }
+
+    :global(.training-course-card h3),
+    :global(.training-masterclass-card h3),
+    :global(.training-price-card h3),
+    :global(.training-program-card h3),
+    :global(.training-related-card h3),
+    :global(.training-path-card h3) {
+      font-size: clamp(1.45rem, 7vw, 2.1rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.058em !important;
+    }
+
+    :global(.training-course-card p),
+    :global(.training-masterclass-card p),
+    :global(.training-price-card p),
+    :global(.training-program-card p),
+    :global(.training-related-card p),
+    :global(.training-path-card p) {
+      font-size: 0.95rem !important;
+      line-height: 1.6 !important;
+      max-width: 100% !important;
+    }
+
+    :global(.training-program-panel) {
+      display: block !important;
+      padding: 26px !important;
+      border-radius: 30px !important;
+    }
+
+    :global(.training-program-heading) {
+      margin-bottom: 24px !important;
+    }
+
+    :global(.training-list-card div) {
+      padding: 22px !important;
+    }
+
+    :global(.training-list-card strong) {
+      font-size: 1.02rem !important;
+      line-height: 1.2 !important;
+    }
+
+    :global(.training-list-card span) {
+      font-size: 0.94rem !important;
+      line-height: 1.55 !important;
+    }
+  }
+
+  @media (max-width: 520px) {
+    :global(.training-hero-copy),
+    :global(.training-hero-card),
+    :global(.training-text-card),
+    :global(.training-authority-card),
+    :global(.training-mentor-card),
+    :global(.training-standard-card),
+    :global(.training-silky-card),
+    :global(.training-remover-card) {
+      padding: 24px !important;
+      border-radius: 26px !important;
+    }
+
+    :global(.training-hero-copy h1) {
+      font-size: clamp(2.25rem, 12vw, 3.15rem) !important;
+      line-height: 1.06 !important;
+    }
+
+    :global(.training-two-column h2),
+    :global(.training-section-heading h2),
+    :global(.training-program-heading h2),
+    :global(.training-remover-card h2),
+    :global(.training-authority-card h2),
+    :global(.training-standard-card h2),
+    :global(.training-final-card h2) {
+      font-size: clamp(2rem, 10.8vw, 2.85rem) !important;
+      line-height: 1.06 !important;
+      letter-spacing: -0.058em !important;
+    }
+
+    :global(.training-card-label) {
+      font-size: clamp(3.2rem, 18vw, 4.8rem) !important;
+    }
+
+    :global(.training-big-mark) {
+      font-size: clamp(2.8rem, 16vw, 4.4rem) !important;
+    }
+  }
+
+
+  /* V13 — clean working shine based on the PMU card mechanism */
+  .training-shine-card {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+  }
+
+  .training-shine-card > * {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .training-shine-card::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    background:
+      linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.06) 22%,
+        rgba(255, 255, 255, 0.28) 47%,
+        rgba(255, 255, 255, 0.06) 72%,
+        transparent 100%
+      ) !important;
+    transform: translateX(-72%) !important;
+    animation: training-clean-panel-shine 8s ease-in-out infinite !important;
+    pointer-events: none !important;
+  }
+
+  .training-shine-card::before {
+    z-index: 1 !important;
+  }
+
+  .training-hero-card.training-shine-card,
+  .training-authority-card.training-shine-card {
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
+      linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%) !important;
+    background-size: 100% 100%, 100% 100%, 240% 240% !important;
+    animation: training-clean-gold-flow 14s ease-in-out infinite alternate !important;
+    box-shadow: 0 28px 76px rgba(125, 95, 45, 0.24) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .training-silky-card.training-shine-card,
+  .training-masterclass-card-silky.training-shine-card {
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%) !important;
+    background-size: 100% 100%, 100% 100%, 240% 240% !important;
+    animation: training-clean-turquoise-flow 13s ease-in-out infinite alternate !important;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .training-mentor-card.training-shine-card {
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 10rem),
+      radial-gradient(circle at 82% 24%, rgba(255, 219, 231, 0.4), transparent 13rem),
+      linear-gradient(145deg, #9d4f68 0%, #d7899f 38%, #a85b73 64%, #6f3046 100%) !important;
+    background-size: 100% 100%, 100% 100%, 220% 220% !important;
+    animation: training-clean-rose-flow 12s ease-in-out infinite alternate !important;
+    box-shadow: 0 28px 76px rgba(157, 79, 104, 0.22) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .training-masterclass-card-silky.training-shine-card::before {
+    border-top-color: rgba(255, 255, 255, 0.32) !important;
+  }
+
+  .training-masterclass-card-silky.training-shine-card span:not(.training-big-mark),
+  .training-masterclass-card-silky.training-shine-card h3,
+  .training-masterclass-card-silky.training-shine-card p,
+  .training-silky-card.training-shine-card .section-kicker,
+  .training-silky-card.training-shine-card p,
+  .training-mentor-card.training-shine-card .section-kicker,
+  .training-mentor-card.training-shine-card p,
+  .training-authority-card.training-shine-card .section-kicker,
+  .training-authority-card.training-shine-card p,
+  .training-hero-card.training-shine-card p:not(.training-card-label) {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  .training-masterclass-card-silky.training-shine-card h3,
+  .training-silky-card.training-shine-card h2,
+  .training-mentor-card.training-shine-card h3,
+  .training-authority-card.training-shine-card h2,
+  .training-hero-card.training-shine-card h2 {
+    color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.28) !important;
+  }
+
+  .training-masterclass-card-silky.training-shine-card span {
+    color: rgba(255, 255, 255, 0.78) !important;
+  }
+
+  .training-masterclass-card-silky.training-shine-card::before {
+    background: none !important;
+  }
+
+  .training-masterclass-card-silky.training-shine-card .training-big-mark {
+    color: rgba(255, 255, 255, 0.14) !important;
+  }
+
+  .training-masterclass-card-silky.training-shine-card::marker {
+    display: none;
+  }
+
+  .training-masterclass-card-silky.training-shine-card h3::before {
+    content: "SHB";
+    position: absolute;
+    right: -4px;
+    top: -64px;
+    z-index: -1;
+    color: rgba(255, 255, 255, 0.14);
+    font-size: clamp(3.2rem, 5vw, 5.8rem);
+    font-weight: 850;
+    line-height: 0.8;
+    letter-spacing: -0.12em;
+    pointer-events: none;
+  }
+
+  @keyframes training-clean-panel-shine {
+    0% {
+      transform: translateX(-72%);
+      opacity: 0.28;
+    }
+
+    45% {
+      opacity: 0.88;
+    }
+
+    100% {
+      transform: translateX(88%);
+      opacity: 0.28;
+    }
+  }
+
+  @keyframes training-clean-gold-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @keyframes training-clean-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @keyframes training-clean-rose-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .training-shine-card,
+    .training-shine-card::after {
+      animation: none !important;
+    }
+  }
+
+</style>
