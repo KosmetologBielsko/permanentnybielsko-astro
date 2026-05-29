@@ -528,11 +528,17 @@ import Footer from "../components/Footer.astro";
 
           <div class="training-cta-card">
             <p class="section-kicker">Dla linergistek</p>
-            <h3>Chcesz rozwijać technikę PMU pod okiem trenerki Long-Time-Liner®?</h3>
+            <h3>Szkolenia PMU prowadzone przez trenerkę Long-Time-Liner®.</h3>
             <p>
-              Szczegółowy program szkoleń, poziomy zaawansowania i terminy przygotujemy jako osobną
-              podstronę. Na stronie głównej zostaje mocna zapowiedź kierunku edukacyjnego.
+              Pełna podstrona szkoleniowa opisuje ścieżki Step by Step, Masterclass,
+              Silky Hairstroke Brows, Bye-Bye Pigment Remover, zakres programu,
+              organizację i cennik. Na stronie głównej zostaje skrót kierunku edukacyjnego,
+              a szczegóły znajdują się w ofercie szkoleń PMU.
             </p>
+
+            <a class="training-cta-link" href="/szkolenie-makijaz-permanentny/">
+              Zobacz szkolenia PMU
+            </a>
           </div>
         </div>
       </section>
@@ -985,6 +991,118 @@ import Footer from "../components/Footer.astro";
     :global(.home-page .mission-heart-card::before),
     :global(.home-page .mission-heart-card::after) {
       pointer-events: none !important;
+    }
+  }
+
+
+  /* V3 — strona główna: finalny standard małych nagłówków */
+
+  :global(.home-page .section-kicker) {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+    text-shadow: none !important;
+  }
+
+  :global(.home-page .home-premium-mark-card-shb .section-kicker),
+  :global(.home-page .home-premium-mark-card-mentor .section-kicker),
+  :global(.home-page .home-premium-mark-card-natural .section-kicker),
+  :global(.home-page .training-master-card .section-kicker),
+  :global(.home-page .mission-heart-card .section-kicker) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+    text-shadow: none !important;
+  }
+
+  :global(.home-page .hero-copy h1),
+  :global(.home-page .services-heading h2),
+  :global(.home-page .philosophy-heading h2),
+  :global(.home-page .method-heading h2),
+  :global(.home-page .master-heading h2),
+  :global(.home-page .ltl-main-card h2),
+  :global(.home-page .training-heading-card h2),
+  :global(.home-page .international-heading-card h2),
+  :global(.home-page .results-heading-card h2),
+  :global(.home-page .mission-heading-card h2) {
+    font-family: inherit !important;
+  }
+
+  :global(.home-page .section-kicker + h2),
+  :global(.home-page .section-kicker + h3) {
+    margin-top: 0 !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .section-kicker) {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1 !important;
+    }
+  }
+
+
+  /* V4 — strona główna: docelowy tekst i przycisk w sekcji szkoleń */
+
+  :global(.home-page .training-cta-card) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  :global(.home-page .training-cta-card p:not(.section-kicker)) {
+    max-width: 860px !important;
+  }
+
+  :global(.home-page .training-cta-link) {
+    display: inline-flex !important;
+    min-height: 48px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 22px !important;
+    padding: 0 22px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: linear-gradient(135deg, #b76576, #8f344d) !important;
+    box-shadow: 0 14px 34px rgba(183, 101, 118, 0.18) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    font-size: 0.88rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+  }
+
+  :global(.home-page .training-cta-link:hover) {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 18px 42px rgba(183, 101, 118, 0.22) !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .training-cta-link) {
+      width: 100% !important;
+      min-height: 52px !important;
+      margin-top: 20px !important;
+      text-align: center !important;
     }
   }
 

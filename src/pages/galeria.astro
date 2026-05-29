@@ -1219,4 +1219,90 @@ const relatedPages = [
     -webkit-text-fill-color: var(--color-text, #17151d) !important;
   }
 
+
+  /* V9 — awaryjna naprawa kapsuł galerii */
+
+  :global(.gallery-page .section-kicker) {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  :global(.gallery-page .gallery-coming-card .section-kicker) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  :global(.gallery-page .gallery-section-heading h2),
+  :global(.gallery-page .gallery-two-column h2),
+  :global(.gallery-page .gallery-rules-card h2),
+  :global(.gallery-page .gallery-coming-card h2),
+  :global(.gallery-page .gallery-final-card h2) {
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  :global(.gallery-page .gallery-coming-card h2) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
+  }
+
+  :global(.gallery-page .gallery-coming-card p:not(.section-kicker)) {
+    color: rgba(255, 255, 255, 0.88) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  :global(.gallery-page .gallery-section-heading > p:not(.section-kicker)),
+  :global(.gallery-page .gallery-two-column p:not(.section-kicker)),
+  :global(.gallery-page .gallery-rules-card p:not(.section-kicker)),
+  :global(.gallery-page .gallery-final-card p:not(.section-kicker):not(.signature)) {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+    font-weight: 450 !important;
+    line-height: 1.65 !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.gallery-page .section-kicker) {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1 !important;
+    }
+
+    :global(.gallery-page .gallery-section-heading h2),
+    :global(.gallery-page .gallery-two-column h2),
+    :global(.gallery-page .gallery-rules-card h2),
+    :global(.gallery-page .gallery-coming-card h2),
+    :global(.gallery-page .gallery-final-card h2) {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+  }
+
 </style>

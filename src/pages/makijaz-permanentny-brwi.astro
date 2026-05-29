@@ -1171,10 +1171,12 @@ const booksyUrl =
   }
 
 
-  /* V4 — finalny standard małych nagłówków: turkusowe kapsuły, białe na kafelku Silky */
-  .brow-page .section-kicker {
+  /* V5 — awaryjna naprawa mobile brwi i finalne kapsuły */
+
+  :global(.brow-page .section-kicker) {
     display: inline-flex !important;
     width: fit-content !important;
+    max-width: 100% !important;
     min-height: 32px !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1192,17 +1194,70 @@ const booksyUrl =
     text-transform: uppercase !important;
   }
 
-  .brow-page .brow-silky-feature .section-kicker {
+  :global(.brow-page .brow-silky-feature .section-kicker) {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
     background: rgba(255, 255, 255, 0.16) !important;
     border-color: rgba(255, 255, 255, 0.22) !important;
   }
 
-  .brow-page .brow-section-heading h2,
-  .brow-page .brow-two-column h2,
-  .brow-page .brow-correction-card h2,
-  .brow-page .brow-final-card h2 {
+  :global(.brow-page .brow-hero-card) {
+    position: relative !important;
+    overflow: hidden !important;
+    min-height: 430px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding: clamp(34px, 4vw, 56px) !important;
+    border-radius: 42px !important;
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 12rem),
+      radial-gradient(circle at 84% 20%, rgba(255, 219, 231, 0.42), transparent 13rem),
+      radial-gradient(circle at 24% 82%, rgba(56, 187, 181, 0.18), transparent 12rem),
+      linear-gradient(145deg, #a85772 0%, #d88fa5 38%, #b76580 62%, #7a344b 100%) !important;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 220% 220% !important;
+    animation: brow-rose-flow 12s ease-in-out infinite alternate !important;
+    box-shadow: 0 28px 76px rgba(183, 101, 118, 0.24) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  }
+
+  :global(.brow-page .brow-hero-card::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%) !important;
+    transform: translateX(-72%) !important;
+    animation: brow-panel-shine 8s ease-in-out infinite !important;
+    pointer-events: none !important;
+  }
+
+  :global(.brow-page .brow-hero-card > *) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  :global(.brow-page .brow-card-label) {
+    color: rgba(255, 255, 255, 0.22) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  :global(.brow-page .brow-hero-card h2) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
+  }
+
+  :global(.brow-page .brow-hero-card p:not(.brow-card-label)) {
+    color: rgba(255, 255, 255, 0.88) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  :global(.brow-page .brow-section-heading h2),
+  :global(.brow-page .brow-two-column h2),
+  :global(.brow-page .brow-correction-card h2),
+  :global(.brow-page .brow-final-card h2) {
     color: var(--color-text, #17151d) !important;
     font-family: inherit !important;
     font-weight: 760 !important;
@@ -1211,18 +1266,44 @@ const booksyUrl =
     letter-spacing: -0.074em !important;
   }
 
-  .brow-page .brow-section-heading > p:not(.section-kicker),
-  .brow-page .brow-two-column p:not(.section-kicker),
-  .brow-page .brow-correction-card p:not(.section-kicker),
-  .brow-page .brow-final-card p:not(.section-kicker):not(.signature) {
-    color: var(--color-muted, #6e6670) !important;
-    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
-    font-weight: 450 !important;
-    line-height: 1.65 !important;
+  @keyframes brow-rose-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 0% 50%, 100% 50%;
+    }
   }
 
   @media (max-width: 760px) {
-    .brow-page .section-kicker {
+    :global(.brow-page .brow-hero-grid) {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) !important;
+      gap: 16px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+      box-sizing: border-box !important;
+    }
+
+    :global(.brow-page .brow-hero-copy),
+    :global(.brow-page .brow-hero-card) {
+      width: calc(100% - 12px) !important;
+      max-width: calc(100% - 12px) !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      box-sizing: border-box !important;
+      border-radius: 28px !important;
+    }
+
+    :global(.brow-page .brow-hero-card) {
+      min-height: 340px !important;
+      padding: 28px 22px !important;
+    }
+
+    :global(.brow-page .section-kicker) {
       min-height: 30px !important;
       margin-bottom: 16px !important;
       padding: 0 11px !important;
@@ -1230,13 +1311,37 @@ const booksyUrl =
       letter-spacing: 0.13em !important;
     }
 
-    .brow-page .brow-section-heading h2,
-    .brow-page .brow-two-column h2,
-    .brow-page .brow-correction-card h2,
-    .brow-page .brow-final-card h2 {
+    :global(.brow-page .brow-section-heading h2),
+    :global(.brow-page .brow-two-column h2),
+    :global(.brow-page .brow-correction-card h2),
+    :global(.brow-page .brow-final-card h2) {
       font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
       line-height: 1.04 !important;
       letter-spacing: -0.066em !important;
+    }
+
+    :global(.brow-page .brow-hero-card h2) {
+      font-size: clamp(1.85rem, 8.6vw, 2.5rem) !important;
+      line-height: 1.06 !important;
+      letter-spacing: -0.058em !important;
+    }
+
+    :global(.brow-page .brow-card-label) {
+      font-size: clamp(3.3rem, 18vw, 4.9rem) !important;
+      letter-spacing: -0.08em !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    :global(.brow-page .brow-hero-grid) {
+      padding-left: 6px !important;
+      padding-right: 6px !important;
+    }
+
+    :global(.brow-page .brow-hero-copy),
+    :global(.brow-page .brow-hero-card) {
+      width: calc(100% - 10px) !important;
+      max-width: calc(100% - 10px) !important;
     }
   }
 
