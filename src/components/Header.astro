@@ -36,7 +36,8 @@ const isActive = (href: string) => {
   <div class="header-shell">
     <a class="header-logo header-logo-image-link" href="/" aria-label="Bogusława Herda — strona główna">
       <img
-        src="/images/logo-boguslawa-herda-black.webp"
+        data-header-logo-img
+        src="/images/logo-boguslawa-herda-pmu-full.webp"
         alt="Bogusława Herda"
         width="1546"
         height="807"
@@ -44,6 +45,10 @@ const isActive = (href: string) => {
         decoding="async"
         fetchpriority="high"
       />
+      <span class="header-logo-text-fallback" aria-hidden="true">
+        <strong>Bogusława Herda</strong>
+        <em>Permanentny Make-up</em>
+      </span>
     </a>
 
     <nav class="desktop-nav" aria-label="Menu główne">
@@ -206,6 +211,32 @@ const isActive = (href: string) => {
   const button = document.querySelector("[data-menu-button]");
   const panel = document.querySelector("[data-mobile-menu]");
   const backdrop = document.querySelector("[data-menu-backdrop]");
+  const logoImage = document.querySelector("[data-header-logo-img]");
+
+  const logoFallbacks = [
+    "/images/logo-boguslawa-herda-black.webp",
+    "/images/logo-boguslawa-herda-header.webp",
+    "/images/logo-boguslawa-herda-pmu-header.webp"
+  ];
+
+  let logoFallbackIndex = 0;
+
+  logoImage?.addEventListener("error", () => {
+    if (!(logoImage instanceof HTMLImageElement)) return;
+
+    if (logoFallbackIndex < logoFallbacks.length) {
+      const nextLogo = logoFallbacks[logoFallbackIndex];
+      logoFallbackIndex += 1;
+
+      if (logoImage.getAttribute("src") !== nextLogo) {
+        logoImage.src = nextLogo;
+        return;
+      }
+    }
+
+    logoImage.style.display = "none";
+    logoImage.closest(".header-logo")?.classList.add("is-logo-fallback");
+  });
 
   const closeMenu = () => {
     if (!header || !button) return;
@@ -1299,6 +1330,64 @@ const isActive = (href: string) => {
       padding: 10px 7px !important;
       font-size: 0.76rem !important;
       letter-spacing: 0.025em !important;
+    }
+  }
+
+
+
+  /* V14 — odporne logo headera z fallbackiem tekstowym */
+  .header-logo-text-fallback {
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 3px;
+    min-width: 0;
+  }
+
+  .header-logo-text-fallback strong {
+    color: #17151d;
+    font-size: clamp(0.92rem, 1.05vw, 1.18rem);
+    font-weight: 820;
+    line-height: 1;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .header-logo-text-fallback em {
+    color: #b76576;
+    font-size: 0.58rem;
+    font-style: normal;
+    font-weight: 760;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .header-logo-image-link.is-logo-fallback {
+    width: auto !important;
+    min-width: 178px !important;
+    max-width: 230px !important;
+  }
+
+  .header-logo-image-link.is-logo-fallback .header-logo-text-fallback {
+    display: grid;
+  }
+
+  @media (max-width: 1080px) {
+    .header-logo-image-link.is-logo-fallback {
+      min-width: 152px !important;
+      max-width: 190px !important;
+    }
+
+    .header-logo-text-fallback strong {
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+    }
+
+    .header-logo-text-fallback em {
+      font-size: 0.5rem;
+      letter-spacing: 0.14em;
     }
   }
 
