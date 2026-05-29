@@ -1,0 +1,980 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const pageUrl = "https://permanentnybielsko.com/poradnik/";
+const pageTitle = "Poradnik PMU | Makijaż permanentny Bielsko-Biała — Bogusława Herda";
+const pageDescription =
+  "Poradnik PMU Bogusława Herda: ważne zagadnienia makijażu permanentnego, brwi, ust, kresek, usuwania PMU, gojenia, rysunku wstępnego, szkoleń i wydarzeń branżowych.";
+
+const guideAreas = [
+  {
+    number: "01",
+    label: "Brwi",
+    title: "Brwi permanentne i naturalny efekt",
+    text: "Przygotowanie do zabiegu, metoda włosa, cieniowanie, Silky Hairstroke Brows, gojenie i odświeżenie pigmentacji.",
+    href: "/makijaz-permanentny-brwi/",
+    featured: true
+  },
+  {
+    number: "02",
+    label: "Usta",
+    title: "Makijaż permanentny ust",
+    text: "Jak wygląda pigmentacja ust, dla kogo sprawdza się subtelny kolor i czego można oczekiwać po wygojeniu.",
+    href: "/makijaz-permanentny-ust/"
+  },
+  {
+    number: "03",
+    label: "Kreski",
+    title: "Makijaż permanentny oczu",
+    text: "Zagęszczenie linii rzęs, kreski permanentne, kwalifikacja i dobór efektu do budowy oka.",
+    href: "/makijaz-permanentny-oczu/"
+  },
+  {
+    number: "04",
+    label: "Usuwanie",
+    title: "Korekta i usuwanie PMU",
+    text: "Kiedy lepiej najpierw rozjaśnić stary makijaż permanentny, a kiedy możliwa jest korekta.",
+    href: "/usuwanie-makijazu-permanentnego/"
+  },
+  {
+    number: "05",
+    label: "Szkolenia",
+    title: "Edukacja PMU i technika pracy",
+    text: "Ścieżki szkoleniowe, warsztat pracy linergistki, Long-Time-Liner® i rozwój techniczny w PMU.",
+    href: "/szkolenie-makijaz-permanentny/"
+  },
+  {
+    number: "06",
+    label: "Eventy",
+    title: "Wydarzenia, mistrzostwa i scena PMU",
+    text: "Speaker, juror, mistrzostwa, międzynarodowe doświadczenia i obecność marki Bogusława Herda w branży PMU.",
+    href: "/"
+  }
+];
+
+const plannedTopics = [
+  "Jak przygotować się do makijażu permanentnego brwi?",
+  "Jak goją się brwi permanentne i czego nie robić po zabiegu?",
+  "Silky Hairstroke Brows — czym wyróżnia się naturalny włos maszynowy?",
+  "Rysunek wstępny przed pigmentacją — dlaczego jest tak ważny?",
+  "Makijaż permanentny ust — jak wygląda gojenie i odświeżenie koloru?",
+  "Kreska permanentna czy zagęszczenie linii rzęs?",
+  "Kiedy nie poprawiać starego PMU, tylko najpierw je rozjaśnić?",
+  "Usuwanie makijażu permanentnego — laser, remover i decyzja kwalifikacyjna.",
+  "Jak wybrać linergistkę i na co zwrócić uwagę przed zabiegiem?",
+  "Szkolenia PMU — jak świadomie rozwijać technikę pracy?"
+];
+
+const eventNotes = [
+  {
+    country: "TR",
+    place: "Ankara",
+    role: "SPEAKER",
+    text: "Workshop i pokaz techniki Silky Hairstroke Brows jako międzynarodowy trener Long-Time-Liner®."
+  },
+  {
+    country: "FR",
+    place: "Lyon",
+    role: "JUROR",
+    text: "Speaker i juror Mistrzostw Francji PMU — obecność na scenie branżowej."
+  },
+  {
+    country: "DE",
+    place: "Monachium",
+    role: "VICE",
+    text: "Wicemistrzostwo świata PMU i potwierdzenie jakości techniki włosa."
+  },
+  {
+    country: "ID",
+    place: "PMU 2026",
+    role: "WORLD",
+    text: "Speaker i juror wydarzenia PMU o międzynarodowej randze."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${pageUrl}#collection`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Poradnik PMU",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${pageUrl}#topics`,
+    "name": "Planowane tematy poradnika PMU",
+    "itemListElement": plannedTopics.map((topic, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": topic
+    }))
+  }
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/poradnik/"
+  structuredData={structuredData}
+>
+  <div class="guide-page">
+    <Header />
+
+    <main>
+      <section class="guide-hero">
+        <div class="guide-hero-orb guide-hero-orb-one"></div>
+        <div class="guide-hero-orb guide-hero-orb-two"></div>
+
+        <div class="container guide-hero-grid">
+          <div class="guide-hero-copy">
+            <p class="section-kicker">Poradnik PMU</p>
+
+            <h1>Wiedza, decyzje i ważne tematy makijażu permanentnego.</h1>
+
+            <p class="guide-lead">
+              To miejsce na poradnik typowo PMU: przygotowanie do zabiegu, gojenie, rysunek wstępny,
+              naturalny efekt, korekty, usuwanie makijażu permanentnego, szkolenia, wydarzenia branżowe
+              i doświadczenia ze sceny międzynarodowej.
+            </p>
+
+            <p class="guide-lead guide-lead-small">
+              Pełne artykuły uzupełnimy na końcu prac nad stroną. Już teraz porządkujemy strukturę,
+              aby poradnik miał swoje miejsce w menu, mapie strony i strategii SEO nowego serwisu.
+            </p>
+
+            <div class="guide-actions">
+              <a class="button-primary" href="/makijaz-permanentny-bielsko/">
+                Poznaj ofertę PMU
+              </a>
+
+              <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Umów wizytę przez Booksy
+              </a>
+            </div>
+          </div>
+
+          <aside class="guide-hero-card" aria-label="Poradnik PMU">
+            <span class="guide-big-mark" aria-hidden="true">PMU</span>
+            <p class="guide-card-label">W przygotowaniu</p>
+            <h2>Poradnik ekspercki Bogusława Herda</h2>
+            <p>
+              Docelowo znajdą się tu artykuły dla klientek i linergistek: o brwiach, ustach, kreskach,
+              usuwaniu PMU, szkoleniach i wydarzeniach branżowych.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="guide-areas-section">
+        <div class="container">
+          <div class="guide-section-heading">
+            <p class="section-kicker">Zakres poradnika</p>
+            <h2>Tematy, które będą wzmacniać eksperckość strony PMU.</h2>
+            <p>
+              Poradnik nie będzie mieszał kosmetologii z makijażem permanentnym. Jego zadaniem jest
+              wzmacniać obszar PMU: zabiegi, kwalifikację, bezpieczeństwo, technikę pracy i autorytet marki.
+            </p>
+          </div>
+
+          <div class="guide-area-grid">
+            {guideAreas.map((item) => (
+              <a
+                class:list={["guide-area-card", { "guide-area-card-featured": item.featured }]}
+                href={item.href}
+              >
+                {item.featured && (
+                  <span class="guide-card-mark" aria-hidden="true">PMU</span>
+                )}
+
+                <span class="guide-area-number">{item.number}</span>
+                <p class="guide-area-label">{item.label}</p>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-topics-section">
+        <div class="container guide-topics-grid">
+          <article class="guide-topics-copy">
+            <p class="section-kicker">Plan artykułów</p>
+            <h2>Najpierw budujemy miejsce. Artykuły dodamy etapami.</h2>
+            <p>
+              Po domknięciu głównych podstron i mostów SEO poradnik można uzupełniać spokojnie,
+              po jednym mocnym tekście. Każdy wpis powinien prowadzić do właściwej podstrony usługi:
+              brwi, ust, kresek, usuwania albo szkoleń.
+            </p>
+          </article>
+
+          <div class="guide-topic-list">
+            {plannedTopics.map((topic, index) => (
+              <div class="guide-topic-item">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{topic}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-events-section">
+        <div class="container">
+          <div class="guide-section-heading">
+            <p class="section-kicker">Eventy i scena PMU</p>
+            <h2>Poradnik może pokazywać nie tylko zabiegi, ale też rangę doświadczenia.</h2>
+            <p>
+              W tej części docelowo można opisywać ważne wydarzenia, wystąpienia, jurorowanie,
+              mistrzostwa, szkolenia i międzynarodowe doświadczenia, które budują autorytet gabinetu.
+            </p>
+          </div>
+
+          <div class="guide-event-grid">
+            {eventNotes.map((event) => (
+              <article class="guide-event-card">
+                <div>
+                  <span>{event.country}</span>
+                  <h3>{event.place}</h3>
+                </div>
+
+                <strong>{event.role}</strong>
+                <p>{event.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-final-cta">
+        <div class="container guide-final-card">
+          <p class="section-kicker">Makijaż permanentny Bielsko-Biała</p>
+          <h2>Poradnik będzie rozwijany wokół realnych pytań klientek i linergistek.</h2>
+          <p>
+            Na ten moment tworzymy strukturę poradnika. Pełne wpisy dodamy później — tak, aby każdy
+            temat był dopracowany, merytoryczny i połączony z odpowiednią podstroną oferty PMU.
+          </p>
+
+          <a class="button-primary" href="/makijaz-permanentny-bielsko/">
+            Wróć do oferty PMU
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .guide-page {
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(56, 187, 181, 0.11), transparent 27rem),
+      radial-gradient(circle at 92% 14%, rgba(243, 199, 211, 0.20), transparent 29rem),
+      linear-gradient(180deg, #ffffff 0%, #fff9fb 46%, #ffffff 100%);
+  }
+
+  .guide-hero {
+    position: relative;
+    min-height: 74vh;
+    padding: 154px 0 86px;
+  }
+
+  .guide-hero-orb {
+    position: absolute;
+    z-index: 0;
+    border-radius: 999px;
+    filter: blur(12px);
+    pointer-events: none;
+  }
+
+  .guide-hero-orb-one {
+    top: 10%;
+    left: -9%;
+    width: 34vw;
+    height: 34vw;
+    background: rgba(56, 187, 181, 0.12);
+  }
+
+  .guide-hero-orb-two {
+    right: -8%;
+    bottom: 3%;
+    width: 38vw;
+    height: 38vw;
+    background: rgba(243, 199, 211, 0.24);
+  }
+
+  .guide-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr);
+    gap: clamp(26px, 4vw, 54px);
+    align-items: stretch;
+  }
+
+  .guide-hero-copy,
+  .guide-hero-card,
+  .guide-area-card,
+  .guide-topics-copy,
+  .guide-topic-item,
+  .guide-event-card,
+  .guide-final-card {
+    border: 1px solid rgba(183, 101, 118, 0.13);
+    box-shadow: 0 24px 70px rgba(51, 31, 44, 0.07);
+  }
+
+  .guide-hero-copy {
+    padding: clamp(30px, 5vw, 58px);
+    border-radius: 42px;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(56, 187, 181, 0.08), transparent 15rem),
+      rgba(255, 255, 255, 0.84);
+    backdrop-filter: blur(16px);
+  }
+
+  .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 32px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 18px;
+    padding: 0 13px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    font-size: 0.7rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .guide-hero-copy h1 {
+    max-width: 1080px;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(3.05rem, 5.45vw, 6.25rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .guide-lead {
+    max-width: 840px;
+    margin: 24px 0 0;
+    color: var(--color-muted);
+    font-size: 1.08rem;
+    line-height: 1.72;
+  }
+
+  .guide-lead-small {
+    margin-top: 14px;
+    font-size: 1.02rem;
+  }
+
+  .guide-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .guide-hero-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(34px, 4vw, 56px);
+    border-radius: 42px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: guide-turquoise-flow 13s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
+  }
+
+  .guide-hero-card::before,
+  .guide-area-card-featured::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+    transform: translateX(-72%);
+    animation: guide-panel-shine 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .guide-big-mark {
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.16);
+    font-size: clamp(5.2rem, 8vw, 9rem);
+    font-weight: 900;
+    line-height: 0.78;
+    letter-spacing: -0.12em;
+    pointer-events: none;
+  }
+
+  .guide-card-label,
+  .guide-hero-card h2,
+  .guide-hero-card p {
+    position: relative;
+    z-index: 2;
+  }
+
+  .guide-card-label {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 32px;
+    align-items: center;
+    margin: 0 0 auto;
+    padding: 0 13px;
+    border-radius: 999px;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  .guide-hero-card h2 {
+    margin: 58px 0 0;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    font-size: clamp(1.9rem, 2.6vw, 2.85rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.067em;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
+  }
+
+  .guide-hero-card p:not(.guide-card-label) {
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.88);
+    line-height: 1.62;
+  }
+
+  .guide-areas-section,
+  .guide-topics-section,
+  .guide-events-section,
+  .guide-final-cta {
+    padding: 88px 0;
+  }
+
+  .guide-section-heading {
+    max-width: 980px;
+    margin-bottom: 38px;
+  }
+
+  .guide-section-heading h2,
+  .guide-topics-copy h2,
+  .guide-final-card h2 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(2.35rem, 4vw, 4.2rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .guide-section-heading p,
+  .guide-topics-copy p,
+  .guide-final-card p {
+    color: var(--color-muted);
+    font-size: 1.04rem;
+    line-height: 1.68;
+  }
+
+  .guide-area-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .guide-area-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 290px;
+    padding: 30px;
+    border-radius: 34px;
+    color: inherit;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
+  }
+
+  .guide-area-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .guide-area-card-featured {
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: guide-turquoise-flow 13s ease-in-out infinite alternate;
+  }
+
+  .guide-area-card > *:not(.guide-card-mark) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .guide-card-mark {
+    position: absolute;
+    right: 18px;
+    top: 16px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.16);
+    font-size: clamp(4.2rem, 7vw, 7.2rem);
+    font-weight: 900;
+    line-height: 0.78;
+    letter-spacing: -0.12em;
+    pointer-events: none;
+  }
+
+  .guide-area-number {
+    display: inline-flex;
+    margin-bottom: 18px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 860;
+    letter-spacing: 0.18em;
+  }
+
+  .guide-area-label {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 30px;
+    align-items: center;
+    margin: 0 0 18px;
+    padding: 0 11px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark);
+    -webkit-text-fill-color: var(--color-turquoise-dark);
+    font-size: 0.66rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+  }
+
+  .guide-area-card h3 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1.52rem;
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+  }
+
+  .guide-area-card p:not(.guide-area-label) {
+    margin: 16px 0 0;
+    color: var(--color-muted);
+    font-size: 0.94rem;
+    line-height: 1.58;
+  }
+
+  .guide-area-card-featured,
+  .guide-area-card-featured * {
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .guide-area-card-featured .guide-area-label {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+
+  .guide-area-card-featured p:not(.guide-area-label) {
+    color: rgba(255, 255, 255, 0.86);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.86);
+  }
+
+  .guide-topics-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: 18px;
+    align-items: start;
+  }
+
+  .guide-topics-copy,
+  .guide-topic-item,
+  .guide-final-card {
+    padding: clamp(28px, 4vw, 46px);
+    border-radius: 36px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      rgba(255, 255, 255, 0.9);
+  }
+
+  .guide-topic-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .guide-topic-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 20px 22px;
+  }
+
+  .guide-topic-item span {
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+  }
+
+  .guide-topic-item p {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 640;
+    line-height: 1.42;
+  }
+
+  .guide-event-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .guide-event-card {
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px;
+    border-radius: 34px;
+    color: #ffffff;
+    background: linear-gradient(145deg, #17151d, #473944);
+  }
+
+  .guide-event-card span,
+  .guide-event-card h3,
+  .guide-event-card strong,
+  .guide-event-card p {
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .guide-event-card span {
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+  }
+
+  .guide-event-card h3 {
+    margin: 8px 0 0;
+    font-size: 1.65rem;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+  }
+
+  .guide-event-card strong {
+    display: block;
+    margin-top: 36px;
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    font-weight: 950;
+    line-height: 0.78;
+    letter-spacing: -0.12em;
+  }
+
+  .guide-event-card p {
+    margin: 22px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.48;
+    opacity: 0.84;
+  }
+
+  .guide-final-card .button-primary {
+    margin-top: 18px;
+  }
+
+  @keyframes guide-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @keyframes guide-panel-shine {
+    0%,
+    35% {
+      transform: translateX(-72%);
+      opacity: 0;
+    }
+
+    52% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(72%);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .guide-hero-grid,
+    .guide-topics-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-area-grid,
+    .guide-event-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .guide-page,
+    .guide-page * {
+      box-sizing: border-box;
+    }
+
+    .guide-page {
+      overflow-x: clip;
+    }
+
+    .guide-page .container {
+      width: 100%;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .guide-hero {
+      padding: 112px 0 58px;
+    }
+
+    .guide-hero-grid,
+    .guide-area-grid,
+    .guide-topics-grid,
+    .guide-event-grid {
+      width: 100%;
+      grid-template-columns: minmax(0, 1fr) !important;
+      justify-items: stretch;
+    }
+
+    .guide-hero-copy,
+    .guide-hero-card,
+    .guide-area-card,
+    .guide-topics-copy,
+    .guide-topic-item,
+    .guide-event-card,
+    .guide-final-card {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+      border-radius: 28px;
+    }
+
+    .guide-hero-copy,
+    .guide-hero-card,
+    .guide-area-card,
+    .guide-topics-copy,
+    .guide-topic-item,
+    .guide-event-card,
+    .guide-final-card {
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+
+    .guide-hero-copy h1 {
+      font-size: clamp(2rem, 9vw, 2.95rem);
+      line-height: 1.08;
+      letter-spacing: -0.052em;
+    }
+
+    .guide-hero-card {
+      min-height: 340px;
+    }
+
+    .guide-hero-card h2 {
+      font-size: clamp(1.45rem, 7.4vw, 2.28rem);
+      line-height: 1.06;
+      letter-spacing: -0.048em;
+    }
+
+    .guide-section-heading h2,
+    .guide-topics-copy h2,
+    .guide-final-card h2 {
+      font-size: clamp(1.82rem, 8.2vw, 2.62rem);
+      line-height: 1.08;
+      letter-spacing: -0.052em;
+    }
+
+    .guide-area-card h3 {
+      font-size: clamp(1.28rem, 6.4vw, 1.72rem);
+      line-height: 1.08;
+      letter-spacing: -0.038em;
+    }
+
+    .guide-lead,
+    .guide-section-heading p,
+    .guide-topics-copy p,
+    .guide-final-card p,
+    .guide-area-card p:not(.guide-area-label) {
+      font-size: 0.98rem;
+      line-height: 1.62;
+    }
+
+    .guide-areas-section,
+    .guide-topics-section,
+    .guide-events-section,
+    .guide-final-cta {
+      padding: 58px 0;
+    }
+
+    .guide-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+
+    .guide-actions a,
+    .guide-final-card .button-primary {
+      width: 100%;
+      max-width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .section-kicker,
+    .guide-area-label,
+    .guide-card-label {
+      max-width: 100%;
+      white-space: normal;
+      min-height: 30px;
+      height: auto;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      line-height: 1.15;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .guide-page .container {
+      padding-left: 14px;
+      padding-right: 14px;
+    }
+
+    .guide-hero-copy,
+    .guide-hero-card,
+    .guide-area-card,
+    .guide-topics-copy,
+    .guide-topic-item,
+    .guide-event-card,
+    .guide-final-card {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .guide-hero-card,
+    .guide-hero-card::before,
+    .guide-area-card-featured,
+    .guide-area-card-featured::after {
+      animation: none;
+    }
+  }
+
+
+  /* V2 — poradnik: stonowany znak PMU w wyróżnionym kafelku */
+  .guide-area-card-featured .guide-card-mark {
+    color: rgba(255, 255, 255, 0.13) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.13) !important;
+    font-size: clamp(4.8rem, 7.2vw, 7.8rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.12em !important;
+    text-shadow: none !important;
+  }
+
+  @media (max-width: 760px) {
+    .guide-area-card-featured .guide-card-mark {
+      right: 14px !important;
+      top: 16px !important;
+      font-size: clamp(4rem, 20vw, 5.8rem) !important;
+      opacity: 0.92 !important;
+    }
+  }
+
+</style>

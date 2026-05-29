@@ -15,6 +15,7 @@ const navLinks = [
   { label: "Kreski", href: "/makijaz-permanentny-oczu/" },
   { label: "Usuwanie", href: "/usuwanie-makijazu-permanentnego/" },
   { label: "Szkolenia", href: "/szkolenie-makijaz-permanentny/" },
+  { label: "Poradnik", href: "/poradnik/" },
   { label: "Galeria", href: "/galeria/" },
   { label: "Cennik", href: "/cennik-makijaz-permanentny/" },
   { label: "Kontakt", href: "/kontakt/" }
@@ -33,12 +34,12 @@ const isActive = (href: string) => {
 
 <header class="site-header" data-site-header>
   <div class="header-shell">
-    <a class="header-logo header-logo-image-link" href="/" aria-label="Bogusława Herda Makijaż Permanentny — strona główna">
+    <a class="header-logo header-logo-image-link" href="/" aria-label="Bogusława Herda — strona główna">
       <img
-        src="/images/logo-boguslawa-herda-pmu-header.webp"
-        alt="Bogusława Herda Makijaż Permanentny"
-        width="2058"
-        height="247"
+        src="/images/logo-boguslawa-herda-black.webp"
+        alt="Bogusława Herda"
+        width="1546"
+        height="807"
         loading="eager"
         decoding="async"
         fetchpriority="high"
@@ -128,7 +129,6 @@ const isActive = (href: string) => {
         <a
           href={link.href}
           aria-current={isActive(link.href) ? "page" : undefined}
-          class:list={[index === navLinks.length - 1 && "mobile-nav-wide"]}
         >
           <span>{String(index + 1).padStart(2, "0")}</span>
           {link.label}
@@ -1129,73 +1129,176 @@ const isActive = (href: string) => {
   }
 
 
-  /* V11 — bezpieczna podmiana logo w headerze: tylko obraz, bez zmiany układu menu */
+  /* V11 — logo WEBP w belce menu */
   .header-logo-image-link {
+    width: clamp(170px, 17vw, 245px) !important;
+    max-width: 245px !important;
+    height: 54px !important;
     display: flex !important;
-    width: clamp(210px, 20vw, 310px) !important;
-    max-width: 310px !important;
-    height: 52px !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    min-width: 0 !important;
+    overflow: visible !important;
     gap: 0 !important;
-    text-decoration: none !important;
   }
 
   .header-logo-image-link img {
     display: block !important;
     width: 100% !important;
     height: auto !important;
-    max-height: 42px !important;
+    max-height: 54px !important;
     object-fit: contain !important;
-    object-position: left center !important;
   }
 
   @media (min-width: 1081px) and (max-width: 1280px) {
     .header-logo-image-link {
-      width: 188px !important;
-      max-width: 188px !important;
-      height: 46px !important;
+      width: 155px !important;
+      max-width: 155px !important;
+      height: 48px !important;
     }
 
     .header-logo-image-link img {
-      max-height: 34px !important;
+      max-height: 48px !important;
     }
   }
 
   @media (min-width: 1281px) and (max-width: 1480px) {
     .header-logo-image-link {
-      width: 235px !important;
-      max-width: 235px !important;
-      height: 48px !important;
-    }
-
-    .header-logo-image-link img {
-      max-height: 36px !important;
+      width: 180px !important;
+      max-width: 180px !important;
     }
   }
 
   @media (max-width: 1080px) {
     .header-logo-image-link {
-      width: clamp(150px, 41vw, 198px) !important;
-      max-width: 198px !important;
+      width: clamp(142px, 42vw, 190px) !important;
+      max-width: 190px !important;
       height: 48px !important;
     }
 
     .header-logo-image-link img {
-      max-height: 34px !important;
+      max-height: 48px !important;
     }
   }
 
   @media (max-width: 420px) {
     .header-logo-image-link {
-      width: clamp(136px, 37vw, 162px) !important;
-      max-width: 162px !important;
+      width: clamp(128px, 39vw, 160px) !important;
+      max-width: 160px !important;
       height: 44px !important;
     }
 
     .header-logo-image-link img {
-      max-height: 30px !important;
+      max-height: 44px !important;
+    }
+  }
+
+
+  /* V12 — header używa tego samego logo WEBP co footer */
+  .header-logo-image-link {
+    width: clamp(150px, 13vw, 210px) !important;
+    max-width: 210px !important;
+    height: 58px !important;
+  }
+
+  .header-logo-image-link img {
+    width: 100% !important;
+    height: 58px !important;
+    max-height: 58px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  @media (min-width: 1081px) and (max-width: 1280px) {
+    .header-logo-image-link {
+      width: 132px !important;
+      max-width: 132px !important;
+      height: 50px !important;
+    }
+
+    .header-logo-image-link img {
+      height: 50px !important;
+      max-height: 50px !important;
+    }
+  }
+
+  @media (min-width: 1281px) and (max-width: 1480px) {
+    .header-logo-image-link {
+      width: 152px !important;
+      max-width: 152px !important;
+      height: 54px !important;
+    }
+
+    .header-logo-image-link img {
+      height: 54px !important;
+      max-height: 54px !important;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .header-logo-image-link {
+      width: clamp(120px, 34vw, 150px) !important;
+      max-width: 150px !important;
+      height: 48px !important;
+    }
+
+    .header-logo-image-link img {
+      height: 48px !important;
+      max-height: 48px !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .header-logo-image-link {
+      width: clamp(105px, 30vw, 132px) !important;
+      max-width: 132px !important;
+      height: 44px !important;
+    }
+
+    .header-logo-image-link img {
+      height: 44px !important;
+      max-height: 44px !important;
+    }
+  }
+
+
+
+  /* V13 — mobile menu: Kontakt nie jest szeroki po dodaniu Poradnika */
+  @media (max-width: 1080px) {
+    .mobile-nav {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .mobile-nav a,
+    .mobile-nav-wide {
+      grid-column: auto !important;
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    .mobile-nav a {
+      min-height: 70px !important;
+      padding: 11px 8px !important;
+      font-size: 0.82rem !important;
+      line-height: 1.05 !important;
+      letter-spacing: 0.035em !important;
+    }
+
+    .mobile-nav span {
+      font-size: 0.6rem !important;
+      letter-spacing: 0.1em !important;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .mobile-nav {
+      gap: 8px !important;
+    }
+
+    .mobile-nav a {
+      min-height: 66px !important;
+      padding: 10px 7px !important;
+      font-size: 0.76rem !important;
+      letter-spacing: 0.025em !important;
     }
   }
 
