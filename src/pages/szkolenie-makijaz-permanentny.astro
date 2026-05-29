@@ -213,7 +213,7 @@ const relatedPages = [
             </div>
           </div>
 
-          <aside class="training-hero-card training-shine-card" aria-label="Szkolenia PMU">
+          <aside class="training-hero-card training-hero-card-turquoise" aria-label="Szkolenia PMU">
             <p class="training-card-label">EDU</p>
             <h2>Technika. Decyzja. Standard pracy.</h2>
             <p>
@@ -720,12 +720,11 @@ const relatedPages = [
     color: #ffffff;
     background:
       radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
-      radial-gradient(circle at 24% 82%, rgba(56, 187, 181, 0.13), transparent 12rem),
-      linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 240% 240%;
-    animation: training-gold-flow 14s ease-in-out infinite alternate;
-    box-shadow: 0 28px 76px rgba(125, 95, 45, 0.24);
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: training-turquoise-flow 13s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
   }
 
   .training-hero-card::before {
@@ -3136,7 +3135,6 @@ const relatedPages = [
     z-index: 1 !important;
   }
 
-  .training-hero-card.training-shine-card,
   .training-authority-card.training-shine-card {
     color: #ffffff !important;
     background:
@@ -3291,6 +3289,134 @@ const relatedPages = [
       line-height: 1.08 !important;
       letter-spacing: -0.052em !important;
       max-width: 100% !important;
+    }
+  }
+
+
+  /* V17 — EDU na stałe turkusowy, bez konfliktu ze złotą regułą training-shine-card */
+  .training-page .training-hero-card,
+  .training-page .training-hero-card.training-hero-card-turquoise {
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%) !important;
+    background-size: 100% 100%, 100% 100%, 240% 240% !important;
+    animation: training-turquoise-flow 13s ease-in-out infinite alternate !important;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .training-page .training-hero-card .training-card-label {
+    color: rgba(255, 255, 255, 0.18) !important;
+  }
+
+  .training-page .training-hero-card h2 {
+    color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
+  }
+
+  .training-page .training-hero-card p:not(.training-card-label) {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  @keyframes training-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+
+  /* V18 — finalny standard małych nagłówków: turkusowe kapsuły, białe na mocnych kafelkach */
+  .training-page .section-kicker {
+    display: inline-flex !important;
+    width: fit-content !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  .training-page .training-silky-card .section-kicker,
+  .training-page .training-authority-card.training-shine-card .section-kicker,
+  .training-page .training-mentor-card.training-shine-card .section-kicker,
+  .training-page .training-masterclass-card-silky.training-shine-card .section-kicker {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .training-page .training-section-heading h2,
+  .training-page .training-two-column h2,
+  .training-page .training-remover-card h2,
+  .training-page .training-standard-card h2,
+  .training-page .training-final-card h2 {
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .training-page .training-section-heading h2,
+  .training-page .training-two-column h2,
+  .training-page .training-remover-card h2,
+  .training-page .training-standard-card h2,
+  .training-page .training-final-card h2 {
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+  }
+
+  .training-page .training-section-heading > p:not(.section-kicker),
+  .training-page .training-two-column p:not(.section-kicker),
+  .training-page .training-remover-card p:not(.section-kicker),
+  .training-page .training-standard-card p:not(.section-kicker),
+  .training-page .training-final-card p:not(.section-kicker):not(.signature) {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+    font-weight: 450 !important;
+    line-height: 1.65 !important;
+  }
+
+  .training-page .training-silky-card p:not(.section-kicker),
+  .training-page .training-authority-card.training-shine-card p:not(.section-kicker),
+  .training-page .training-mentor-card.training-shine-card p:not(.section-kicker) {
+    color: rgba(255, 255, 255, 0.88) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  @media (max-width: 760px) {
+    .training-page .section-kicker {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+    }
+
+    .training-page .training-section-heading h2,
+    .training-page .training-two-column h2,
+    .training-page .training-remover-card h2,
+    .training-page .training-standard-card h2,
+    .training-page .training-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
     }
   }
 

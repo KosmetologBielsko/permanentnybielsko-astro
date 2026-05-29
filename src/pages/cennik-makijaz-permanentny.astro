@@ -1823,4 +1823,126 @@ const featuredPrices = [
     }
   }
 
+
+  /* V6 — finalny standard małych turkusowych nagłówków */
+
+  .price-page .section-kicker {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  .price-page .price-section-heading h2,
+  .price-page .price-two-column h2,
+  .price-page .price-safety-card h2,
+  .price-page .price-final-card h2,
+  .price-page .price-note-card h2,
+  .price-page .price-location-card h2,
+  .price-page .price-before-card h2,
+  .price-page .price-standard-card h2,
+  .price-page .price-remover-card h2,
+  .price-page .price-rules-card h2 {
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .price-page .price-section-heading > p:not(.section-kicker),
+  .price-page .price-two-column p:not(.section-kicker),
+  .price-page .price-safety-card p:not(.section-kicker),
+  .price-page .price-final-card p:not(.section-kicker):not(.signature),
+  .price-page .price-note-card p:not(.section-kicker),
+  .price-page .price-location-card p:not(.section-kicker),
+  .price-page .price-before-card p:not(.section-kicker),
+  .price-page .price-standard-card p:not(.section-kicker),
+  .price-page .price-remover-card p:not(.section-kicker),
+  .price-page .price-rules-card p:not(.section-kicker) {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+    font-weight: 450 !important;
+    line-height: 1.65 !important;
+  }
+
+  @media (max-width: 760px) {
+    .price-page .section-kicker {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1 !important;
+    }
+
+    .price-page .price-section-heading h2,
+    .price-page .price-two-column h2,
+    .price-page .price-safety-card h2,
+    .price-page .price-final-card h2,
+    .price-page .price-note-card h2,
+    .price-page .price-location-card h2,
+    .price-page .price-before-card h2,
+    .price-page .price-standard-card h2,
+    .price-page .price-remover-card h2,
+    .price-page .price-rules-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+  }
+
+  .price-page .price-group-label,
+  .price-page .price-group-head .section-kicker,
+  .price-page .price-featured-card > span,
+  .price-page .price-related-card > span {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  @media (max-width: 760px) {
+    .price-page .price-group-label,
+    .price-page .price-group-head .section-kicker,
+    .price-page .price-featured-card > span,
+    .price-page .price-related-card > span {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+    }
+  }
+
+
 </style>

@@ -930,4 +930,341 @@ const booksyUrl =
       animation: none;
     }
   }
+
+  /* V2 — usta: nagłówki sekcji i poprawka mobile hero */
+  .lips-section-heading > .section-kicker,
+  .lips-two-column > div > .section-kicker,
+  .lips-safety-card > .section-kicker,
+  .lips-final-card > .section-kicker {
+    display: inline-flex !important;
+    width: fit-content !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  .lips-hero-copy h1,
+  .lips-two-column h2,
+  .lips-section-heading h2,
+  .lips-safety-card h2,
+  .lips-final-card h2,
+  .lips-type-card h3,
+  .lips-process-grid h3,
+  .lips-related-card h3,
+  .lips-faq-grid h3 {
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+  }
+
+  .lips-hero-copy h1 {
+    max-width: 1080px !important;
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .lips-two-column h2,
+  .lips-section-heading h2,
+  .lips-safety-card h2,
+  .lips-final-card h2 {
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .lips-section-heading {
+    max-width: 980px !important;
+    margin-bottom: 38px !important;
+  }
+
+  .lips-section-heading > p:not(.section-kicker),
+  .lips-text-card p,
+  .lips-safety-card p,
+  .lips-type-card p,
+  .lips-process-grid p,
+  .lips-related-card p,
+  .lips-faq-grid p,
+  .lips-list-card span,
+  .lips-final-card p:not(.signature),
+  .lips-hero-lead {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+    font-weight: 450 !important;
+    line-height: 1.65 !important;
+  }
+
+  .lips-type-card,
+  .lips-process-grid article,
+  .lips-related-card,
+  .lips-faq-grid article,
+  .lips-text-card,
+  .lips-safety-card,
+  .lips-list-card {
+    border-color: rgba(183, 101, 118, 0.14) !important;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
+  }
+
+  .lips-type-card::before,
+  .lips-process-grid article::before,
+  .lips-related-card::before {
+    border-top-color: rgba(56, 187, 181, 0.34) !important;
+  }
+
+  .lips-type-card-rose::before,
+  .lips-related-card-rose::before,
+  .lips-faq-grid article::before {
+    border-top-color: rgba(201, 127, 143, 0.28) !important;
+  }
+
+  .lips-type-card span,
+  .lips-process-grid span,
+  .lips-related-card span {
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    font-weight: 850 !important;
+  }
+
+  .lips-proof-section {
+    background: rgba(255, 255, 255, 0.72) !important;
+    border-top-color: rgba(183, 101, 118, 0.10) !important;
+    border-bottom-color: rgba(183, 101, 118, 0.10) !important;
+  }
+
+  .lips-proof-grid strong,
+  .lips-list-card strong {
+    color: var(--color-text, #17151d) !important;
+    -webkit-text-fill-color: var(--color-text, #17151d) !important;
+    font-weight: 780 !important;
+  }
+
+  .lips-proof-grid span {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+  }
+
+  @media (max-width: 760px) {
+    .lips-hero {
+      padding: 112px 0 58px !important;
+      overflow: hidden !important;
+    }
+
+    .lips-hero-grid {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) !important;
+      gap: 16px !important;
+      justify-items: center !important;
+      align-items: stretch !important;
+      overflow: visible !important;
+    }
+
+    .lips-hero-copy,
+    .lips-hero-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      border-radius: 28px !important;
+    }
+
+    .lips-hero-copy {
+      padding: 28px 22px !important;
+    }
+
+    .lips-hero-card {
+      min-height: 340px !important;
+      padding: 28px 22px !important;
+      justify-content: flex-end !important;
+    }
+
+    .lips-hero-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.068em !important;
+    }
+
+    .lips-hero-card h2 {
+      font-size: clamp(1.85rem, 8.6vw, 2.5rem) !important;
+      line-height: 1.06 !important;
+      letter-spacing: -0.058em !important;
+    }
+
+    .lips-card-label {
+      font-size: clamp(3.3rem, 18vw, 4.9rem) !important;
+      letter-spacing: -0.08em !important;
+    }
+
+    .lips-section-heading > .section-kicker,
+    .lips-two-column > div > .section-kicker,
+    .lips-safety-card > .section-kicker,
+    .lips-final-card > .section-kicker {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+    }
+
+    .lips-two-column h2,
+    .lips-section-heading h2,
+    .lips-safety-card h2,
+    .lips-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .lips-hero-copy,
+    .lips-hero-card {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+
+    .lips-hero-actions {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+    }
+
+    .lips-hero-actions a {
+      width: 100% !important;
+      text-align: center !important;
+    }
+  }
+
+
+  /* V3 — mobile: boczny oddech dla głównych kafelków hero */
+  @media (max-width: 760px) {
+    .lips-hero-grid {
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+      box-sizing: border-box !important;
+    }
+
+    .lips-hero-copy,
+    .lips-hero-card {
+      width: calc(100% - 12px) !important;
+      max-width: calc(100% - 12px) !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .lips-hero-grid {
+      padding-left: 6px !important;
+      padding-right: 6px !important;
+    }
+
+    .lips-hero-copy,
+    .lips-hero-card {
+      width: calc(100% - 10px) !important;
+      max-width: calc(100% - 10px) !important;
+    }
+  }
+
+
+  /* V4 — finalny standard małych turkusowych nagłówków */
+
+  .lips-page .section-kicker {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  .lips-page .lips-section-heading h2,
+  .lips-page .lips-two-column h2,
+  .lips-page .lips-safety-card h2,
+  .lips-page .lips-final-card h2,
+  .lips-page .lips-note-card h2,
+  .lips-page .lips-location-card h2,
+  .lips-page .lips-before-card h2,
+  .lips-page .lips-standard-card h2,
+  .lips-page .lips-remover-card h2,
+  .lips-page .lips-rules-card h2 {
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .lips-page .lips-section-heading > p:not(.section-kicker),
+  .lips-page .lips-two-column p:not(.section-kicker),
+  .lips-page .lips-safety-card p:not(.section-kicker),
+  .lips-page .lips-final-card p:not(.section-kicker):not(.signature),
+  .lips-page .lips-note-card p:not(.section-kicker),
+  .lips-page .lips-location-card p:not(.section-kicker),
+  .lips-page .lips-before-card p:not(.section-kicker),
+  .lips-page .lips-standard-card p:not(.section-kicker),
+  .lips-page .lips-remover-card p:not(.section-kicker),
+  .lips-page .lips-rules-card p:not(.section-kicker) {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+    font-weight: 450 !important;
+    line-height: 1.65 !important;
+  }
+
+  @media (max-width: 760px) {
+    .lips-page .section-kicker {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1 !important;
+    }
+
+    .lips-page .lips-section-heading h2,
+    .lips-page .lips-two-column h2,
+    .lips-page .lips-safety-card h2,
+    .lips-page .lips-final-card h2,
+    .lips-page .lips-note-card h2,
+    .lips-page .lips-location-card h2,
+    .lips-page .lips-before-card h2,
+    .lips-page .lips-standard-card h2,
+    .lips-page .lips-remover-card h2,
+    .lips-page .lips-rules-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+  }
+
+
 </style>

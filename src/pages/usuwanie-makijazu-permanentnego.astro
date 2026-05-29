@@ -1238,4 +1238,89 @@ const booksyUrl =
     }
   }
 
+
+  /* V4 — finalny standard małych turkusowych nagłówków */
+
+  .removal-page .section-kicker {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  .removal-page .removal-section-heading h2,
+  .removal-page .removal-two-column h2,
+  .removal-page .removal-safety-card h2,
+  .removal-page .removal-final-card h2,
+  .removal-page .removal-note-card h2,
+  .removal-page .removal-location-card h2,
+  .removal-page .removal-before-card h2,
+  .removal-page .removal-standard-card h2,
+  .removal-page .removal-remover-card h2,
+  .removal-page .removal-rules-card h2 {
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .removal-page .removal-section-heading > p:not(.section-kicker),
+  .removal-page .removal-two-column p:not(.section-kicker),
+  .removal-page .removal-safety-card p:not(.section-kicker),
+  .removal-page .removal-final-card p:not(.section-kicker):not(.signature),
+  .removal-page .removal-note-card p:not(.section-kicker),
+  .removal-page .removal-location-card p:not(.section-kicker),
+  .removal-page .removal-before-card p:not(.section-kicker),
+  .removal-page .removal-standard-card p:not(.section-kicker),
+  .removal-page .removal-remover-card p:not(.section-kicker),
+  .removal-page .removal-rules-card p:not(.section-kicker) {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+    font-weight: 450 !important;
+    line-height: 1.65 !important;
+  }
+
+  @media (max-width: 760px) {
+    .removal-page .section-kicker {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1 !important;
+    }
+
+    .removal-page .removal-section-heading h2,
+    .removal-page .removal-two-column h2,
+    .removal-page .removal-safety-card h2,
+    .removal-page .removal-final-card h2,
+    .removal-page .removal-note-card h2,
+    .removal-page .removal-location-card h2,
+    .removal-page .removal-before-card h2,
+    .removal-page .removal-standard-card h2,
+    .removal-page .removal-remover-card h2,
+    .removal-page .removal-rules-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+  }
+
+
 </style>

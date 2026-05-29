@@ -942,4 +942,302 @@ const booksyUrl =
       animation: none;
     }
   }
+
+  /* V2 — brwi: różowy kafelek główny i ujednolicenie małych nagłówków */
+  .brow-hero-card {
+    background:
+      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 12rem),
+      radial-gradient(circle at 84% 20%, rgba(255, 219, 231, 0.42), transparent 13rem),
+      radial-gradient(circle at 24% 82%, rgba(56, 187, 181, 0.18), transparent 12rem),
+      linear-gradient(145deg, #a85772 0%, #d88fa5 38%, #b76580 62%, #7a344b 100%) !important;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 220% 220% !important;
+    animation: brow-rose-flow 12s ease-in-out infinite alternate !important;
+    box-shadow: 0 28px 76px rgba(183, 101, 118, 0.24) !important;
+  }
+
+  .brow-hero-card h2 {
+    color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
+  }
+
+  .brow-hero-card p:not(.brow-card-label) {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  .brow-card-label {
+    color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .brow-section-heading > .section-kicker,
+  .brow-two-column > div > .section-kicker,
+  .brow-silky-feature .section-kicker,
+  .brow-correction-card > .section-kicker,
+  .brow-final-card > .section-kicker {
+    display: inline-flex !important;
+    width: fit-content !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  .brow-silky-feature .section-kicker {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .brow-hero-copy h1,
+  .brow-two-column h2,
+  .brow-section-heading h2,
+  .brow-correction-card h2,
+  .brow-final-card h2,
+  .brow-silky-feature h3,
+  .brow-method-card h3,
+  .brow-process-grid h3,
+  .brow-faq-grid h3 {
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+  }
+
+  .brow-hero-copy h1 {
+    max-width: 1080px !important;
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .brow-two-column h2,
+  .brow-section-heading h2,
+  .brow-correction-card h2,
+  .brow-final-card h2 {
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .brow-section-heading {
+    max-width: 980px !important;
+    margin-bottom: 38px !important;
+  }
+
+  .brow-section-heading > p:not(.section-kicker),
+  .brow-text-card p,
+  .brow-correction-card p,
+  .brow-method-card p,
+  .brow-process-grid p,
+  .brow-faq-grid p,
+  .brow-list-card span,
+  .brow-final-card p:not(.signature),
+  .brow-hero-lead {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+    font-weight: 450 !important;
+    line-height: 1.65 !important;
+  }
+
+  .brow-method-card,
+  .brow-process-grid article,
+  .brow-faq-grid article,
+  .brow-text-card,
+  .brow-correction-card,
+  .brow-list-card {
+    border-color: rgba(183, 101, 118, 0.14) !important;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
+  }
+
+  .brow-method-card::before,
+  .brow-process-grid article::before {
+    border-top-color: rgba(56, 187, 181, 0.34) !important;
+  }
+
+  .brow-faq-grid article::before {
+    border-top-color: rgba(201, 127, 143, 0.24) !important;
+  }
+
+  .brow-method-card span,
+  .brow-process-grid span {
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    font-weight: 850 !important;
+  }
+
+  .brow-proof-section {
+    background: rgba(255, 255, 255, 0.72) !important;
+    border-top-color: rgba(183, 101, 118, 0.10) !important;
+    border-bottom-color: rgba(183, 101, 118, 0.10) !important;
+  }
+
+  .brow-proof-grid strong,
+  .brow-list-card strong {
+    color: var(--color-text, #17151d) !important;
+    -webkit-text-fill-color: var(--color-text, #17151d) !important;
+    font-weight: 780 !important;
+  }
+
+  .brow-proof-grid span {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+  }
+
+  @keyframes brow-rose-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .brow-hero {
+      padding: 112px 0 58px !important;
+    }
+
+    .brow-hero-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.068em !important;
+    }
+
+    .brow-two-column h2,
+    .brow-section-heading h2,
+    .brow-correction-card h2,
+    .brow-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+
+    .brow-section-heading > .section-kicker,
+    .brow-two-column > div > .section-kicker,
+    .brow-silky-feature .section-kicker,
+    .brow-correction-card > .section-kicker,
+    .brow-final-card > .section-kicker {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+    }
+
+    .brow-hero-card h2 {
+      font-size: clamp(1.85rem, 8.6vw, 2.5rem) !important;
+      line-height: 1.06 !important;
+      letter-spacing: -0.058em !important;
+    }
+  }
+
+
+  /* V3 — poprawka białej czcionki w turkusowym kafelku Silky Hairstroke Brows */
+  .brow-silky-feature,
+  .brow-silky-feature * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  .brow-silky-feature .section-kicker {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .brow-silky-feature h3 {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
+  }
+
+  .brow-silky-feature p {
+    color: rgba(255, 255, 255, 0.88) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+
+  /* V4 — finalny standard małych nagłówków: turkusowe kapsuły, białe na kafelku Silky */
+  .brow-page .section-kicker {
+    display: inline-flex !important;
+    width: fit-content !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  .brow-page .brow-silky-feature .section-kicker {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .brow-page .brow-section-heading h2,
+  .brow-page .brow-two-column h2,
+  .brow-page .brow-correction-card h2,
+  .brow-page .brow-final-card h2 {
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .brow-page .brow-section-heading > p:not(.section-kicker),
+  .brow-page .brow-two-column p:not(.section-kicker),
+  .brow-page .brow-correction-card p:not(.section-kicker),
+  .brow-page .brow-final-card p:not(.section-kicker):not(.signature) {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+    font-weight: 450 !important;
+    line-height: 1.65 !important;
+  }
+
+  @media (max-width: 760px) {
+    .brow-page .section-kicker {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+    }
+
+    .brow-page .brow-section-heading h2,
+    .brow-page .brow-two-column h2,
+    .brow-page .brow-correction-card h2,
+    .brow-page .brow-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+  }
+
 </style>
