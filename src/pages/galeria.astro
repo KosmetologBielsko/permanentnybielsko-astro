@@ -1196,4 +1196,59 @@ const relatedPages = [
     }
   }
 
+
+  /* V5 — galeria: srebrno-grafitowy połysk w pasku wyróżników */
+  .gallery-proof-grid span {
+    display: inline-block !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    background:
+      linear-gradient(
+        110deg,
+        #5f6368 0%,
+        #24272d 18%,
+        #f4f7f8 42%,
+        #89919a 58%,
+        #2b2f35 78%,
+        #6d737c 100%
+      ) !important;
+    background-size: 240% 100% !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    font-weight: 780 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    animation: gallery-silver-text-shine 7.5s ease-in-out infinite alternate !important;
+    text-shadow: 0 12px 28px rgba(32, 35, 40, 0.10) !important;
+  }
+
+  .gallery-proof-grid strong {
+    color: var(--color-text, #17151d) !important;
+    -webkit-text-fill-color: var(--color-text, #17151d) !important;
+  }
+
+  @keyframes gallery-silver-text-shine {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-proof-grid span {
+      animation: none !important;
+      background-position: 55% 50% !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .gallery-proof-grid span {
+      letter-spacing: 0.1em !important;
+      font-size: 0.7rem !important;
+    }
+  }
+
 </style>
