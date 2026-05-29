@@ -160,7 +160,7 @@ const privacySections = [
 
         <div class="container privacy-hero-grid">
           <div class="privacy-hero-copy">
-            <p class="section-kicker">Dokument informacyjny</p>
+            <p class="section-kicker privacy-kicker-chip" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:var(--color-turquoise-dark,#0f7773);-webkit-text-fill-color:var(--color-turquoise-dark,#0f7773);background:rgba(219,246,243,0.72);border:1px solid rgba(56,187,181,0.16);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">Dokument informacyjny</p>
 
             <h1>Polityka prywatności i cookies.</h1>
 
@@ -214,7 +214,7 @@ const privacySections = [
       <section class="privacy-toc-section" id="spis-tresci">
         <div class="container privacy-toc-grid">
           <div>
-            <p class="section-kicker">Spis treści</p>
+            <p class="section-kicker privacy-kicker-chip" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:var(--color-turquoise-dark,#0f7773);-webkit-text-fill-color:var(--color-turquoise-dark,#0f7773);background:rgba(219,246,243,0.72);border:1px solid rgba(56,187,181,0.16);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">Spis treści</p>
             <h2>Najważniejsze obszary polityki prywatności.</h2>
           </div>
 
@@ -232,7 +232,7 @@ const privacySections = [
       <section class="privacy-content-section">
         <div class="container">
           <div class="privacy-section-heading">
-            <p class="section-kicker">Polityka prywatności</p>
+            <p class="section-kicker privacy-kicker-chip" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:var(--color-turquoise-dark,#0f7773);-webkit-text-fill-color:var(--color-turquoise-dark,#0f7773);background:rgba(219,246,243,0.72);border:1px solid rgba(56,187,181,0.16);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">Polityka prywatności</p>
             <h2>Informacje o przetwarzaniu danych.</h2>
             <p>
               Poniższe punkty opisują zasady prywatności dla strony i kontaktu z gabinetem.
@@ -268,7 +268,7 @@ const privacySections = [
       <section class="privacy-contact-section">
         <div class="container privacy-contact-grid">
           <div class="privacy-contact-card">
-            <p class="section-kicker">Kontakt w sprawach prywatności</p>
+            <p class="section-kicker privacy-kicker-chip" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:var(--color-turquoise-dark,#0f7773);-webkit-text-fill-color:var(--color-turquoise-dark,#0f7773);background:rgba(219,246,243,0.72);border:1px solid rgba(56,187,181,0.16);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">Kontakt w sprawach prywatności</p>
             <h2>Chcesz zapytać o dane lub dokumentację?</h2>
             <p>
               W sprawach związanych z prywatnością, dokumentacją zabiegową, zgodami lub realizacją praw
@@ -839,4 +839,78 @@ const privacySections = [
       animation: none;
     }
   }
+
+  /* V4 — RODO kapsuły wymuszone inline */
+
+  .privacy-kicker-chip {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    box-shadow: none !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+    text-shadow: none !important;
+  }
+
+  .privacy-page .privacy-hero-copy h1 {
+    max-width: 1080px !important;
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .privacy-page .privacy-toc-grid h2,
+  .privacy-page .privacy-section-heading h2,
+  .privacy-page .privacy-contact-card h2,
+  .privacy-page .privacy-final-card h2 {
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  @media (max-width: 760px) {
+    .privacy-kicker-chip {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1 !important;
+    }
+
+    .privacy-page .privacy-hero-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.068em !important;
+    }
+
+    .privacy-page .privacy-toc-grid h2,
+    .privacy-page .privacy-section-heading h2,
+    .privacy-page .privacy-contact-card h2,
+    .privacy-page .privacy-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+  }
+
 </style>
