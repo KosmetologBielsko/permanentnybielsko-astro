@@ -681,41 +681,89 @@ const structuredData = [
             </div>
           </div>
 
-          <div class="international-city-grid">
-            <article class="international-city-card international-city-card-flag international-city-card-turkey">
-              <span>Turcja</span>
-              <h3>Ankara</h3>
-              <p>Wydarzenia branżowe, wymiana doświadczeń i kontakt z inną estetyką pracy PMU.</p>
+          <div class="international-city-grid international-event-grid">
+            <article class="international-city-card international-city-card-flag international-event-card international-city-card-turkey">
+              <div class="event-card-top">
+                <span>Turcja</span>
+                <h3>Ankara</h3>
+              </div>
+
+              <div class="event-card-symbol" aria-hidden="true">☾★</div>
+
+              <div class="event-card-panel">
+                <strong>Workshop · Speaker</strong>
+                <p>Zaproszenie na workshop oraz pokaz techniki Silky Hairstroke Brows jako międzynarodowy trener Long-Time-Liner®.</p>
+              </div>
             </article>
 
-            <article class="international-city-card international-city-card-flag international-city-card-hungary">
-              <span>Węgry</span>
-              <h3>Budapeszt</h3>
-              <p>Spotkania i edukacja w środowisku linergistek pracujących na różnych technikach.</p>
+            <article class="international-city-card international-city-card-flag international-event-card international-city-card-hungary">
+              <div class="event-card-top">
+                <span>Węgry</span>
+                <h3>Budapeszt</h3>
+              </div>
+
+              <div class="event-card-symbol" aria-hidden="true">PMU</div>
+
+              <div class="event-card-panel">
+                <strong>Workshop · Speaker</strong>
+                <p>Zaproszenie na workshop oraz pokaz techniki Silky Hairstroke Brows jako międzynarodowy trener Long-Time-Liner®.</p>
+              </div>
             </article>
 
-            <article class="international-city-card international-city-card-flag international-city-card-france">
-              <span>Francja</span>
-              <h3>Lyon</h3>
-              <p>Scena PMU, wystąpienia, konkursy i obecność wśród międzynarodowych specjalistek.</p>
+            <article class="international-city-card international-city-card-flag international-event-card international-city-card-france">
+              <div class="event-card-top">
+                <span>Francja</span>
+                <h3>Lyon</h3>
+              </div>
+
+              <div class="event-card-symbol" aria-hidden="true">FR</div>
+
+              <div class="event-card-panel">
+                <strong>Speaker · Juror</strong>
+                <p>Speaker i juror Mistrzostw Francji PMU — obecność na scenie branżowej wśród międzynarodowych specjalistek.</p>
+              </div>
             </article>
 
-            <article class="international-city-card international-city-card-flag international-city-card-germany">
-              <span>Niemcy</span>
-              <h3>Monachium</h3>
-              <p>Miejsce ważnego sukcesu konkursowego i potwierdzenia jakości techniki włosa.</p>
+            <article class="international-city-card international-city-card-flag international-event-card international-city-card-germany">
+              <div class="event-card-top">
+                <span>Niemcy</span>
+                <h3>Monachium</h3>
+              </div>
+
+              <div class="event-card-symbol" aria-hidden="true">VICE</div>
+
+              <div class="event-card-panel">
+                <strong>Wicemistrzostwo świata</strong>
+                <p>Wicemistrzostwo świata PMU — ważny sukces konkursowy i potwierdzenie jakości techniki włosa maszynowego.</p>
+              </div>
             </article>
 
-            <article class="international-city-card international-city-card-flag international-city-card-germany">
-              <span>Niemcy</span>
-              <h3>Düsseldorf</h3>
-              <p>Edukacja, profesjonalizacja i praca w standardzie europejskiego PMU.</p>
+            <article class="international-city-card international-city-card-flag international-event-card international-city-card-germany">
+              <div class="event-card-top">
+                <span>Niemcy</span>
+                <h3>Düsseldorf</h3>
+              </div>
+
+              <div class="event-card-symbol" aria-hidden="true">LTL</div>
+
+              <div class="event-card-panel">
+                <strong>Workshop · Speaker</strong>
+                <p>Zaproszenie na workshop oraz pokaz techniki Silky Hairstroke Brows jako międzynarodowy trener Long-Time-Liner®.</p>
+              </div>
             </article>
 
-            <article class="international-city-card international-city-card-flag international-city-card-indonesia">
-              <span>Indonezja</span>
-              <h3>PMU 2026</h3>
-              <p>Międzynarodowa perspektywa, jurorowanie i obecność marki Bogusława Herda poza Europą.</p>
+            <article class="international-city-card international-city-card-flag international-event-card international-city-card-indonesia">
+              <div class="event-card-top">
+                <span>Indonezja</span>
+                <h3>PMU 2026</h3>
+              </div>
+
+              <div class="event-card-symbol" aria-hidden="true">WORLD</div>
+
+              <div class="event-card-panel">
+                <strong>Speaker · Juror</strong>
+                <p>Speaker i juror Mistrzostw Świata PMU — międzynarodowa obecność marki Bogusława Herda poza Europą.</p>
+              </div>
             </article>
           </div>
         </div>
@@ -1614,6 +1662,519 @@ const structuredData = [
   @media (max-width: 760px) {
     :global(.home-page .international-city-card-flag::before) {
       height: 6px !important;
+    }
+  }
+
+
+  /* V12 — strona główna: żywsze kafelki miast z tłem flag */
+
+  /* V12 — żywsze kafelki miast z delikatnym tłem flag i symboliką */
+  :global(.home-page .international-city-card-flag) {
+    background:
+      var(--flag-card, linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 250, 252, 0.9))) !important;
+    border: 1px solid var(--flag-border, rgba(183, 101, 118, 0.13)) !important;
+    box-shadow: 0 24px 58px var(--flag-shadow, rgba(51, 31, 44, 0.07)) !important;
+  }
+
+  :global(.home-page .international-city-card-flag::before) {
+    height: 8px !important;
+    background: var(--flag-strip, linear-gradient(90deg, #ffffff, #d992a2)) !important;
+  }
+
+  :global(.home-page .international-city-card-flag::after) {
+    content: "" !important;
+    position: absolute !important;
+    right: -1.2rem !important;
+    top: 1.4rem !important;
+    z-index: 0 !important;
+    width: 72% !important;
+    height: 62% !important;
+    border-radius: 26px !important;
+    opacity: 0.46 !important;
+    pointer-events: none !important;
+    filter: saturate(110%) !important;
+  }
+
+  :global(.home-page .international-city-card-flag > *) {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  :global(.home-page .international-city-card-flag span) {
+    color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
+    -webkit-text-fill-color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
+  }
+
+  :global(.home-page .international-city-card-turkey) {
+    --flag-card: linear-gradient(145deg, rgba(227, 10, 23, 0.16), rgba(255, 255, 255, 0.96) 48%, rgba(255, 245, 246, 0.96) 100%);
+    --flag-strip: linear-gradient(90deg, #e30a17 0%, #e30a17 72%, #ffffff 72%, #ffffff 100%);
+    --flag-border: rgba(227, 10, 23, 0.18);
+    --flag-shadow: rgba(227, 10, 23, 0.08);
+    --flag-label: #b30814;
+  }
+
+  :global(.home-page .international-city-card-turkey::after) {
+    content: "☾★" !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    height: auto !important;
+    right: 1.05rem !important;
+    top: 1.45rem !important;
+    font-size: clamp(3.7rem, 4vw, 5rem) !important;
+    line-height: 0.85 !important;
+    letter-spacing: -0.18em !important;
+    color: rgba(255, 255, 255, 0.38) !important;
+    opacity: 0.9 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    text-shadow: 0 0 28px rgba(227, 10, 23, 0.16) !important;
+    transform: rotate(-10deg) !important;
+  }
+
+  :global(.home-page .international-city-card-hungary) {
+    --flag-card: linear-gradient(145deg, rgba(206, 41, 57, 0.11), rgba(255, 255, 255, 0.97) 44%, rgba(71, 112, 80, 0.11) 100%);
+    --flag-strip: linear-gradient(90deg, #ce2939 0%, #ce2939 33.3%, #ffffff 33.3%, #ffffff 66.6%, #477050 66.6%, #477050 100%);
+    --flag-border: rgba(71, 112, 80, 0.16);
+    --flag-shadow: rgba(71, 112, 80, 0.07);
+    --flag-label: #477050;
+  }
+
+  :global(.home-page .international-city-card-hungary::after) {
+    background: linear-gradient(180deg, rgba(206, 41, 57, 0.30) 0%, rgba(206, 41, 57, 0.30) 33.3%, rgba(255, 255, 255, 0.42) 33.3%, rgba(255, 255, 255, 0.42) 66.6%, rgba(71, 112, 80, 0.28) 66.6%, rgba(71, 112, 80, 0.28) 100%) !important;
+  }
+
+  :global(.home-page .international-city-card-france) {
+    --flag-card: linear-gradient(145deg, rgba(0, 85, 164, 0.10), rgba(255, 255, 255, 0.97) 48%, rgba(239, 65, 53, 0.10) 100%);
+    --flag-strip: linear-gradient(90deg, #0055a4 0%, #0055a4 33.3%, #ffffff 33.3%, #ffffff 66.6%, #ef4135 66.6%, #ef4135 100%);
+    --flag-border: rgba(0, 85, 164, 0.15);
+    --flag-shadow: rgba(0, 85, 164, 0.07);
+    --flag-label: #0055a4;
+  }
+
+  :global(.home-page .international-city-card-france::after) {
+    background: linear-gradient(90deg, rgba(0, 85, 164, 0.28) 0%, rgba(0, 85, 164, 0.28) 33.3%, rgba(255, 255, 255, 0.45) 33.3%, rgba(255, 255, 255, 0.45) 66.6%, rgba(239, 65, 53, 0.26) 66.6%, rgba(239, 65, 53, 0.26) 100%) !important;
+  }
+
+  :global(.home-page .international-city-card-germany) {
+    --flag-card: linear-gradient(145deg, rgba(32, 32, 32, 0.08), rgba(255, 255, 255, 0.97) 45%, rgba(255, 206, 0, 0.10) 100%);
+    --flag-strip: linear-gradient(90deg, #1d1d1d 0%, #1d1d1d 33.3%, #dd0000 33.3%, #dd0000 66.6%, #ffce00 66.6%, #ffce00 100%);
+    --flag-border: rgba(221, 0, 0, 0.14);
+    --flag-shadow: rgba(29, 29, 29, 0.06);
+    --flag-label: #8f1020;
+  }
+
+  :global(.home-page .international-city-card-germany::after) {
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.30) 0%, rgba(20, 20, 20, 0.30) 33.3%, rgba(221, 0, 0, 0.28) 33.3%, rgba(221, 0, 0, 0.28) 66.6%, rgba(255, 206, 0, 0.28) 66.6%, rgba(255, 206, 0, 0.28) 100%) !important;
+  }
+
+  :global(.home-page .international-city-card-indonesia) {
+    --flag-card: linear-gradient(145deg, rgba(206, 17, 38, 0.14), rgba(255, 255, 255, 0.97) 55%, rgba(255, 255, 255, 0.98) 100%);
+    --flag-strip: linear-gradient(90deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
+    --flag-border: rgba(206, 17, 38, 0.16);
+    --flag-shadow: rgba(206, 17, 38, 0.07);
+    --flag-label: #b30d20;
+  }
+
+  :global(.home-page .international-city-card-indonesia::after) {
+    background: linear-gradient(180deg, rgba(206, 17, 38, 0.30) 0%, rgba(206, 17, 38, 0.30) 50%, rgba(255, 255, 255, 0.44) 50%, rgba(255, 255, 255, 0.44) 100%) !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-city-card-flag::before) {
+      height: 6px !important;
+    }
+
+    :global(.home-page .international-city-card-flag::after) {
+      width: 66% !important;
+      height: 54% !important;
+      right: -0.9rem !important;
+      top: 1.05rem !important;
+      opacity: 0.42 !important;
+    }
+
+    :global(.home-page .international-city-card-turkey::after) {
+      width: auto !important;
+      height: auto !important;
+      right: 0.85rem !important;
+      top: 1.1rem !important;
+      font-size: 3.25rem !important;
+    }
+  }
+
+
+  /* V13 — strona główna: kafelki miast biały styl z pełną flagą */
+
+  /* V13 — kafelki miast: białe karty, pełna flaga w tle, bez poświat szablonu */
+  :global(.home-page .international-city-card-flag) {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(23, 21, 29, 0.08) !important;
+    box-shadow: 0 18px 42px rgba(18, 17, 22, 0.08) !important;
+  }
+
+  :global(.home-page .international-city-card-flag::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    height: auto !important;
+    border-radius: inherit !important;
+    background: var(--flag-bg, linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,248,248,0.94))) !important;
+    opacity: 0.92 !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-city-card-flag::after) {
+    content: var(--flag-mark, "") !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: var(--flag-mark-size, 4.9rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: var(--flag-mark-spacing, -0.08em) !important;
+    line-height: 1 !important;
+    color: var(--flag-mark-color, rgba(255,255,255,0.40)) !important;
+    text-shadow: none !important;
+    background: none !important;
+    border-radius: 0 !important;
+    opacity: 1 !important;
+    transform: var(--flag-mark-transform, none) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-city-card-flag > *) {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  :global(.home-page .international-city-card-flag span) {
+    color: var(--flag-label, #17151d) !important;
+    -webkit-text-fill-color: var(--flag-label, #17151d) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+    font-weight: 800 !important;
+  }
+
+  :global(.home-page .international-city-card-flag h3) {
+    color: #17151d !important;
+    -webkit-text-fill-color: #17151d !important;
+  }
+
+  :global(.home-page .international-city-card-turkey) {
+    --flag-bg:
+      linear-gradient(180deg, rgba(227, 10, 23, 0.22) 0%, rgba(227, 10, 23, 0.22) 100%),
+      linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+    --flag-mark: "☾★";
+    --flag-mark-size: 5.2rem;
+    --flag-mark-spacing: -0.16em;
+    --flag-mark-color: rgba(255, 255, 255, 0.74);
+    --flag-mark-transform: rotate(-10deg);
+    --flag-label: #a10914;
+  }
+
+  :global(.home-page .international-city-card-hungary) {
+    --flag-bg:
+      linear-gradient(180deg,
+        rgba(206, 41, 57, 0.23) 0%,
+        rgba(206, 41, 57, 0.23) 33.333%,
+        rgba(255, 255, 255, 0.72) 33.333%,
+        rgba(255, 255, 255, 0.72) 66.666%,
+        rgba(71, 112, 80, 0.23) 66.666%,
+        rgba(71, 112, 80, 0.23) 100%);
+    --flag-label: #3e6548;
+  }
+
+  :global(.home-page .international-city-card-france) {
+    --flag-bg:
+      linear-gradient(90deg,
+        rgba(0, 85, 164, 0.22) 0%,
+        rgba(0, 85, 164, 0.22) 33.333%,
+        rgba(255, 255, 255, 0.74) 33.333%,
+        rgba(255, 255, 255, 0.74) 66.666%,
+        rgba(239, 65, 53, 0.22) 66.666%,
+        rgba(239, 65, 53, 0.22) 100%);
+    --flag-label: #004a92;
+  }
+
+  :global(.home-page .international-city-card-germany) {
+    --flag-bg:
+      linear-gradient(180deg,
+        rgba(24, 24, 24, 0.20) 0%,
+        rgba(24, 24, 24, 0.20) 33.333%,
+        rgba(221, 0, 0, 0.19) 33.333%,
+        rgba(221, 0, 0, 0.19) 66.666%,
+        rgba(255, 206, 0, 0.24) 66.666%,
+        rgba(255, 206, 0, 0.24) 100%);
+    --flag-label: #7c0c1b;
+  }
+
+  :global(.home-page .international-city-card-indonesia) {
+    --flag-bg:
+      linear-gradient(180deg,
+        rgba(206, 17, 38, 0.24) 0%,
+        rgba(206, 17, 38, 0.24) 50%,
+        rgba(255, 255, 255, 0.76) 50%,
+        rgba(255, 255, 255, 0.76) 100%);
+    --flag-label: #a90e20;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-city-card-flag::after) {
+      font-size: 4rem !important;
+    }
+  }
+
+
+  /* V14 — strona główna: eventowe kafelki miast z flagą i błyskiem */
+
+  /*
+    V14: kafelki miast jako mocne event cards.
+    Żywa flaga w tle, duży symbol, a opis przeniesiony do osobnego dolnego panelu.
+  */
+  :global(.home-page .international-event-grid) {
+    align-items: stretch !important;
+  }
+
+  :global(.home-page .international-event-card) {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    min-height: 342px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding: 26px !important;
+    border: 1px solid rgba(255, 255, 255, 0.24) !important;
+    background: var(--event-flag-bg) !important;
+    box-shadow: 0 28px 72px var(--event-shadow, rgba(23, 21, 29, 0.14)) !important;
+    transform: translateZ(0) !important;
+  }
+
+  :global(.home-page .international-event-card::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    height: auto !important;
+    border-radius: inherit !important;
+    background:
+      linear-gradient(112deg, transparent 0%, rgba(255, 255, 255, 0.10) 26%, rgba(255, 255, 255, 0.45) 48%, rgba(255, 255, 255, 0.10) 72%, transparent 100%) !important;
+    transform: translateX(-86%) !important;
+    animation: city-event-shine 8.8s ease-in-out infinite !important;
+    opacity: 0.86 !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-event-card::after) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.24), transparent 13rem),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.26)) !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-event-card > *) {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  :global(.home-page .event-card-top) {
+    display: grid !important;
+    gap: 8px !important;
+  }
+
+  :global(.home-page .event-card-top span) {
+    display: inline-flex !important;
+    width: fit-content !important;
+    min-height: 30px !important;
+    align-items: center !important;
+    padding: 0 12px !important;
+    border-radius: 999px !important;
+    color: var(--event-chip-text, #17151d) !important;
+    -webkit-text-fill-color: var(--event-chip-text, #17151d) !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+    border: 1px solid rgba(255, 255, 255, 0.52) !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10) !important;
+    font-size: 0.68rem !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+  }
+
+  :global(.home-page .event-card-top h3) {
+    margin: 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(2.05rem, 3.1vw, 3.55rem) !important;
+    font-weight: 820 !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.076em !important;
+    text-shadow: 0 16px 38px rgba(0, 0, 0, 0.30) !important;
+  }
+
+  :global(.home-page .event-card-symbol) {
+    position: absolute !important;
+    z-index: 2 !important;
+    inset: 72px 16px auto auto !important;
+    color: rgba(255, 255, 255, 0.34) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.34) !important;
+    font-size: var(--event-symbol-size, clamp(4.2rem, 6vw, 7rem)) !important;
+    font-weight: 920 !important;
+    line-height: 0.82 !important;
+    letter-spacing: -0.14em !important;
+    text-shadow: 0 20px 46px rgba(0, 0, 0, 0.18) !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  :global(.home-page .event-card-panel) {
+    margin-top: auto !important;
+    padding: 18px 18px 17px !important;
+    border-radius: 24px !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    border: 1px solid rgba(255, 255, 255, 0.54) !important;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14) !important;
+    backdrop-filter: blur(12px) !important;
+  }
+
+  :global(.home-page .event-card-panel strong) {
+    display: block !important;
+    margin-bottom: 8px !important;
+    color: var(--event-panel-strong, #17151d) !important;
+    -webkit-text-fill-color: var(--event-panel-strong, #17151d) !important;
+    font-size: 0.8rem !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.11em !important;
+    text-transform: uppercase !important;
+  }
+
+  :global(.home-page .event-card-panel p) {
+    margin: 0 !important;
+    color: #312a31 !important;
+    -webkit-text-fill-color: #312a31 !important;
+    font-size: 0.88rem !important;
+    font-weight: 540 !important;
+    line-height: 1.48 !important;
+  }
+
+  :global(.home-page .international-city-card-turkey) {
+    --event-flag-bg:
+      radial-gradient(circle at 74% 18%, rgba(255, 255, 255, 0.22), transparent 9rem),
+      linear-gradient(135deg, #ff2330 0%, #d70a17 48%, #a50712 100%);
+    --event-shadow: rgba(164, 7, 18, 0.25);
+    --event-panel-strong: #a50712;
+    --event-chip-text: #a50712;
+    --event-symbol-size: clamp(4.6rem, 6.4vw, 7.6rem);
+  }
+
+  :global(.home-page .international-city-card-hungary) {
+    --event-flag-bg:
+      linear-gradient(180deg, #ce2939 0%, #ce2939 33.333%, #ffffff 33.333%, #ffffff 66.666%, #477050 66.666%, #477050 100%);
+    --event-shadow: rgba(71, 112, 80, 0.24);
+    --event-panel-strong: #477050;
+    --event-chip-text: #477050;
+  }
+
+  :global(.home-page .international-city-card-hungary .event-card-top h3),
+  :global(.home-page .international-city-card-hungary .event-card-symbol) {
+    color: rgba(23, 21, 29, 0.78) !important;
+    -webkit-text-fill-color: rgba(23, 21, 29, 0.78) !important;
+    text-shadow: 0 12px 30px rgba(255, 255, 255, 0.42) !important;
+  }
+
+  :global(.home-page .international-city-card-france) {
+    --event-flag-bg:
+      linear-gradient(90deg, #0055a4 0%, #0055a4 33.333%, #ffffff 33.333%, #ffffff 66.666%, #ef4135 66.666%, #ef4135 100%);
+    --event-shadow: rgba(0, 85, 164, 0.22);
+    --event-panel-strong: #0055a4;
+    --event-chip-text: #0055a4;
+  }
+
+  :global(.home-page .international-city-card-france .event-card-top h3),
+  :global(.home-page .international-city-card-france .event-card-symbol) {
+    color: rgba(23, 21, 29, 0.78) !important;
+    -webkit-text-fill-color: rgba(23, 21, 29, 0.78) !important;
+    text-shadow: 0 12px 30px rgba(255, 255, 255, 0.42) !important;
+  }
+
+  :global(.home-page .international-city-card-germany) {
+    --event-flag-bg:
+      linear-gradient(180deg, #171717 0%, #171717 33.333%, #dd0000 33.333%, #dd0000 66.666%, #ffce00 66.666%, #ffce00 100%);
+    --event-shadow: rgba(23, 23, 23, 0.23);
+    --event-panel-strong: #8f1020;
+    --event-chip-text: #8f1020;
+  }
+
+  :global(.home-page .international-city-card-indonesia) {
+    --event-flag-bg:
+      linear-gradient(180deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
+    --event-shadow: rgba(206, 17, 38, 0.24);
+    --event-panel-strong: #b30d20;
+    --event-chip-text: #b30d20;
+  }
+
+  :global(.home-page .international-city-card-indonesia .event-card-top h3),
+  :global(.home-page .international-city-card-indonesia .event-card-symbol) {
+    color: rgba(23, 21, 29, 0.78) !important;
+    -webkit-text-fill-color: rgba(23, 21, 29, 0.78) !important;
+    text-shadow: 0 12px 30px rgba(255, 255, 255, 0.42) !important;
+  }
+
+  @keyframes city-event-shine {
+    0%,
+    42% {
+      transform: translateX(-86%);
+      opacity: 0;
+    }
+
+    58% {
+      opacity: 0.92;
+    }
+
+    100% {
+      transform: translateX(86%);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-event-card) {
+      min-height: 322px !important;
+      padding: 22px !important;
+    }
+
+    :global(.home-page .event-card-top h3) {
+      font-size: clamp(2rem, 12vw, 3.25rem) !important;
+    }
+
+    :global(.home-page .event-card-symbol) {
+      inset: 68px 16px auto auto !important;
+      font-size: clamp(3.9rem, 16vw, 5.8rem) !important;
+    }
+
+    :global(.home-page .event-card-panel) {
+      padding: 16px !important;
+      border-radius: 22px !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.home-page .international-event-card::before) {
+      animation: none !important;
+      opacity: 0 !important;
     }
   }
 
