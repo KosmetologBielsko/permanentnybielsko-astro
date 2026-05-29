@@ -840,9 +840,14 @@ const privacySections = [
     }
   }
 
-  /* V2 — finalny standard małych turkusowych nagłówków */
+  /* V3 — RODO pewna naprawa turkusowych kapsuł bez global */
 
-  :global(.privacy-page .section-kicker) {
+  .privacy-page .section-kicker,
+  .privacy-hero-copy > .section-kicker,
+  .privacy-toc-grid > div > .section-kicker,
+  .privacy-section-heading > .section-kicker,
+  .privacy-contact-card > .section-kicker,
+  .privacy-final-card > .section-kicker {
     display: inline-flex !important;
     width: fit-content !important;
     max-width: 100% !important;
@@ -856,6 +861,7 @@ const privacySections = [
     -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
     background: rgba(219, 246, 243, 0.72) !important;
     border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    box-shadow: none !important;
     font-size: 0.7rem !important;
     font-weight: 850 !important;
     line-height: 1 !important;
@@ -864,11 +870,20 @@ const privacySections = [
     text-shadow: none !important;
   }
 
-  :global(.privacy-page .privacy-hero-copy h1),
-  :global(.privacy-page .privacy-toc-grid h2),
-  :global(.privacy-page .privacy-section-heading h2),
-  :global(.privacy-page .privacy-contact-card h2),
-  :global(.privacy-page .privacy-final-card h2) {
+  .privacy-page .privacy-hero-copy h1 {
+    max-width: 1080px !important;
+    color: var(--color-text, #17151d) !important;
+    font-family: inherit !important;
+    font-weight: 760 !important;
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .privacy-page .privacy-toc-grid h2,
+  .privacy-page .privacy-section-heading h2,
+  .privacy-page .privacy-contact-card h2,
+  .privacy-page .privacy-final-card h2 {
     color: var(--color-text, #17151d) !important;
     font-family: inherit !important;
     font-weight: 760 !important;
@@ -877,16 +892,11 @@ const privacySections = [
     letter-spacing: -0.074em !important;
   }
 
-  :global(.privacy-page .privacy-hero-copy h1) {
-    max-width: 1080px !important;
-    font-size: clamp(3.05rem, 5.45vw, 6.35rem) !important;
-  }
-
-  :global(.privacy-page .privacy-hero-lead),
-  :global(.privacy-page .privacy-toc-grid p:not(.section-kicker)),
-  :global(.privacy-page .privacy-section-heading p:not(.section-kicker)),
-  :global(.privacy-page .privacy-contact-card p:not(.section-kicker)),
-  :global(.privacy-page .privacy-final-card p:not(.section-kicker):not(.signature)) {
+  .privacy-page .privacy-hero-lead,
+  .privacy-page .privacy-toc-grid p:not(.section-kicker),
+  .privacy-page .privacy-section-heading p:not(.section-kicker),
+  .privacy-page .privacy-contact-card p:not(.section-kicker),
+  .privacy-page .privacy-final-card p:not(.section-kicker):not(.signature) {
     color: var(--color-muted, #6e6670) !important;
     -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
     font-weight: 450 !important;
@@ -894,7 +904,12 @@ const privacySections = [
   }
 
   @media (max-width: 760px) {
-    :global(.privacy-page .section-kicker) {
+    .privacy-page .section-kicker,
+    .privacy-hero-copy > .section-kicker,
+    .privacy-toc-grid > div > .section-kicker,
+    .privacy-section-heading > .section-kicker,
+    .privacy-contact-card > .section-kicker,
+    .privacy-final-card > .section-kicker {
       min-height: 30px !important;
       margin-bottom: 16px !important;
       padding: 0 11px !important;
@@ -903,16 +918,16 @@ const privacySections = [
       line-height: 1 !important;
     }
 
-    :global(.privacy-page .privacy-hero-copy h1) {
+    .privacy-page .privacy-hero-copy h1 {
       font-size: clamp(2.55rem, 11.6vw, 3.85rem) !important;
       line-height: 1.04 !important;
       letter-spacing: -0.068em !important;
     }
 
-    :global(.privacy-page .privacy-toc-grid h2),
-    :global(.privacy-page .privacy-section-heading h2),
-    :global(.privacy-page .privacy-contact-card h2),
-    :global(.privacy-page .privacy-final-card h2) {
+    .privacy-page .privacy-toc-grid h2,
+    .privacy-page .privacy-section-heading h2,
+    .privacy-page .privacy-contact-card h2,
+    .privacy-page .privacy-final-card h2 {
       font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
       line-height: 1.04 !important;
       letter-spacing: -0.066em !important;
