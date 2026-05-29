@@ -1119,4 +1119,81 @@ const relatedPages = [
     }
   }
 
+
+  /* V4 — galeria: turkusowy kafelek główny i metamorfozy w standardzie PMU */
+  .gallery-hero-card,
+  .gallery-coming-card {
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%) !important;
+    background-size: 100% 100%, 100% 100%, 240% 240% !important;
+    animation: gallery-turquoise-flow 13s ease-in-out infinite alternate !important;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22) !important;
+  }
+
+  .gallery-hero-card h2,
+  .gallery-coming-card h2 {
+    color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
+  }
+
+  .gallery-hero-card p:not(.gallery-card-label),
+  .gallery-coming-card p:not(.section-kicker) {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  .gallery-card-label,
+  .gallery-coming-card .gallery-big-mark,
+  .gallery-big-mark-natural {
+    color: rgba(255, 255, 255, 0.18) !important;
+  }
+
+  .gallery-coming-card .section-kicker {
+    display: inline-flex !important;
+    width: fit-content !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+  }
+
+  .gallery-coming-card::before,
+  .gallery-hero-card::before {
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.05) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.05) 72%, transparent 100%) !important;
+  }
+
+  @keyframes gallery-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .gallery-coming-card .section-kicker {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+    }
+  }
+
 </style>
