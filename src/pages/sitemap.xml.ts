@@ -48,11 +48,6 @@ const pages = [
     changefreq: "monthly"
   },
   {
-    path: "/szkolenia/",
-    priority: "0.55",
-    changefreq: "monthly"
-  },
-  {
     path: "/poradnik/",
     priority: "0.72",
     changefreq: "monthly"
