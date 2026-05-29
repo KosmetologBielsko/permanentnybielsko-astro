@@ -5,11 +5,174 @@ import Footer from "../components/Footer.astro";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const pageUrl = "https://permanentnybielsko.com/makijaz-permanentny-ust/";
+const pageTitle = "Makijaż permanentny ust Bielsko-Biała | Naturalny kolor ust";
+const pageDescription =
+  "Makijaż permanentny ust Bielsko-Biała: naturalne odświeżenie koloru, wyrównanie czerwieni wargowej, kontur ust i subtelny efekt bez przerysowania u Bogusława Herda.";
+
+const faqItems = [
+  {
+    "question": "Czy makijaż permanentny ust powiększa usta?",
+    "answer": "Nie. Pigmentacja ust nie jest zabiegiem powiększania ust. Może optycznie uporządkować kontur i odświeżyć kolor, ale nie zastępuje zabiegów wolumetrycznych."
+  },
+  {
+    "question": "Czy efekt może wyglądać naturalnie?",
+    "answer": "Tak. Naturalny efekt zależy od właściwego koloru, miękkiego konturu, stopnia nasycenia i dopasowania pigmentacji do urody klientki."
+  },
+  {
+    "question": "Czy przed zabiegiem wykonywany jest rysunek wstępny?",
+    "answer": "Tak. Rysunek wstępny pozwala omówić kształt, kontur i zakres pigmentacji przed rozpoczęciem zabiegu."
+  },
+  {
+    "question": "Czy kolor po zabiegu jest finalny?",
+    "answer": "Nie. Bezpośrednio po zabiegu kolor może być intensywniejszy. Finalny efekt ocenia się po wygojeniu i stabilizacji pigmentu."
+  },
+  {
+    "question": "Czy usta wymagają dopigmentowania?",
+    "answer": "Zazwyczaj dopigmentowanie jest etapem finalnego dopracowania koloru i równomierności po wygojeniu."
+  },
+  {
+    "question": "Czy można wykonać PMU na ustach po wcześniejszym powiększaniu?",
+    "answer": "To wymaga indywidualnej oceny. Ważny jest czas od zabiegu, stan tkanek, symetria ust i aktualny efekt."
+  },
+  {
+    "question": "Czy opryszczka ma znaczenie przy pigmentacji ust?",
+    "answer": "Tak. Skłonność do opryszczki należy omówić przed zabiegiem, ponieważ może mieć znaczenie dla przygotowania i gojenia ust."
+  },
+  {
+    "question": "Gdzie wykonywany jest makijaż permanentny ust?",
+    "answer": "Zabieg wykonywany jest w gabinecie Bogusława Herda w Bielsku-Białej. Aktualne terminy i rezerwacje dostępne są przez Booksy."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Makijaż permanentny Bielsko-Biała",
+        "item": "https://permanentnybielsko.com/makijaz-permanentny-bielsko/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Makijaż permanentny ust",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    "name": "Makijaż permanentny ust Bielsko-Biała",
+    "serviceType": "Makijaż permanentny ust",
+    "description":
+      "Makijaż permanentny ust w Bielsku-Białej: naturalne odświeżenie koloru, wyrównanie czerwieni wargowej, subtelne uporządkowanie konturu i efekt bez przerysowania.",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Bielsko-Biała"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "województwo śląskie"
+      }
+    ],
+    "provider": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "Bogusława Herda Makijaż Permanentny"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Zakres pigmentacji ust",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Odświeżenie koloru ust"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Wyrównanie konturu ust"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Pełniejszy efekt koloru ust"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Korekta lub odświeżenie makijażu permanentnego ust"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+
 ---
 
 <Layout
-  title="Makijaż permanentny ust Bielsko-Biała | Naturalny kolor ust"
-  description="Makijaż permanentny ust Bielsko-Biała: naturalne odświeżenie koloru, wyrównanie czerwieni wargowej, kontur ust i subtelny efekt bez przerysowania u Bogusława Herda."
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/makijaz-permanentny-ust/"
+  structuredData={structuredData}
 >
   <div class="lips-page">
     <Header />

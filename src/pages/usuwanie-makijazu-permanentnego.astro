@@ -5,6 +5,167 @@ import Footer from "../components/Footer.astro";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const pageUrl = "https://permanentnybielsko.com/usuwanie-makijazu-permanentnego/";
+const pageTitle = "Usuwanie makijażu permanentnego Bielsko-Biała | Korekta PMU";
+const pageDescription =
+  "Usuwanie makijażu permanentnego Bielsko-Biała: rozjaśnianie starego PMU, korekta nieudanego makijażu permanentnego i przygotowanie skóry do nowej pigmentacji.";
+
+const faqItems = [
+  {
+    "question": "Czy każdy stary makijaż permanentny można poprawić bez usuwania?",
+    "answer": "Nie. Jeśli pigment jest zbyt ciemny, nierówny lub ma niekorzystny kształt, korekta bez wcześniejszego rozjaśnienia może pogłębić problem."
+  },
+  {
+    "question": "Ile zabiegów usuwania PMU jest potrzebnych?",
+    "answer": "Liczba zabiegów zależy od rodzaju pigmentu, jego głębokości, nasycenia, koloru, wieku pigmentacji i reakcji skóry. Ustala się to indywidualnie."
+  },
+  {
+    "question": "Czy usuwanie PMU boli?",
+    "answer": "Odczucia są indywidualne. Podczas konsultacji omawiany jest przebieg zabiegu, możliwy dyskomfort i zalecenia po zabiegu."
+  },
+  {
+    "question": "Czym różni się laser od removera?",
+    "answer": "To różne metody pracy ze starym pigmentem. Wybór zależy od konkretnej sytuacji: koloru, nasycenia, skóry i celu zabiegowego."
+  },
+  {
+    "question": "Kiedy można wykonać nowy makijaż permanentny?",
+    "answer": "Dopiero po odpowiednim wygojeniu skóry i ocenie efektu rozjaśnienia. W wielu przypadkach potrzebny jest plan etapowy."
+  },
+  {
+    "question": "Czy po usuwaniu można uzyskać naturalne brwi?",
+    "answer": "Często tak, ale zależy to od tego, ile starego pigmentu uda się rozjaśnić, jaki jest stan skóry i czy możliwe jest wykonanie nowego rysunku wstępnego."
+  },
+  {
+    "question": "Czy usuwanie zostawia blizny?",
+    "answer": "Celem jest bezpieczna praca i ochrona skóry, dlatego tak ważna jest kwalifikacja, odpowiednia metoda oraz przestrzeganie zaleceń po zabiegu."
+  },
+  {
+    "question": "Gdzie wykonywane jest usuwanie PMU?",
+    "answer": "Zabieg wykonywany jest w gabinecie Bogusława Herda w Bielsku-Białej. Aktualne terminy i rezerwacje dostępne są przez Booksy."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Makijaż permanentny Bielsko-Biała",
+        "item": "https://permanentnybielsko.com/makijaz-permanentny-bielsko/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Usuwanie makijażu permanentnego",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    "name": "Usuwanie makijażu permanentnego Bielsko-Biała",
+    "serviceType": "Usuwanie i rozjaśnianie makijażu permanentnego",
+    "description":
+      "Usuwanie i rozjaśnianie starego makijażu permanentnego w Bielsku-Białej, kwalifikacja skóry, korekta nieudanego PMU i przygotowanie do nowej pigmentacji.",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Bielsko-Biała"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "województwo śląskie"
+      }
+    ],
+    "provider": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "Bogusława Herda Makijaż Permanentny"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Usuwanie i naprawa PMU",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Rozjaśnianie starego makijażu permanentnego"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Usuwanie niechcianego pigmentu PMU"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Korekta nieudanego makijażu permanentnego"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Przygotowanie skóry do nowej pigmentacji"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+
 ---
 
 <Layout

@@ -6,6 +6,194 @@ import Footer from "../components/Footer.astro";
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
+const pageUrl = "https://permanentnybielsko.com/szkolenie-makijaz-permanentny/";
+const pageTitle = "Szkolenie makijaż permanentny Bielsko-Biała | Bogusława Herda";
+const pageDescription =
+  "Szkolenia makijażu permanentnego w Bielsku-Białej: Step by Step, Masterclass, Silky Hairstroke Brows, rysunek wstępny, technika włosa i świadoma pigmentacja u Bogusława Herda.";
+
+const faqItems = [
+  {
+    "question": "Czy szkolenie jest dla osób początkujących?",
+    "answer": "Tak, zakres Step by Step może być przygotowany dla osób, które potrzebują uporządkowanych podstaw. Poziom szkolenia powinien być dopasowany do doświadczenia uczestniczki."
+  },
+  {
+    "question": "Czy można szkolić się z samej techniki włosa?",
+    "answer": "Tak, szkolenie Silky Hairstroke Brows koncentruje się na naturalnym efekcie włosa maszynowego, kierunku linii, miękkości i precyzji."
+  },
+  {
+    "question": "Czy szkolenie obejmuje rysunek wstępny?",
+    "answer": "Tak. Rysunek wstępny jest jednym z kluczowych elementów pracy w PMU, ponieważ wpływa na proporcje, efekt końcowy i bezpieczeństwo estetyczne zabiegu."
+  },
+  {
+    "question": "Czy szkolenie może dotyczyć korekt i błędów?",
+    "answer": "Tak. Przy osobach już pracujących w branży ważnym elementem może być analiza błędów, praca ze starym pigmentem, kwalifikacja i plan naprawczy."
+  },
+  {
+    "question": "Czy terminy szkoleń są stałe?",
+    "answer": "Terminy i zakres szkolenia najlepiej ustalić indywidualnie. Najwygodniejszą ścieżką kontaktu jest wiadomość lub konsultacja organizacyjna."
+  },
+  {
+    "question": "Gdzie odbywają się szkolenia?",
+    "answer": "Szkolenia organizowane są w Bielsku-Białej. Szczegóły miejsca, zakresu i organizacji ustalane są indywidualnie przed szkoleniem."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#person"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Szkolenie makijaż permanentny",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "@id": `${pageUrl}#course`,
+    "name": "Szkolenie makijaż permanentny Bielsko-Biała",
+    "description":
+      "Szkolenia PMU prowadzone przez Bogusława Herda: Step by Step, Masterclass, Silky Hairstroke Brows, Bye-Bye Pigment Remover, rysunek wstępny, technika włosa i świadoma praca ze skórą.",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://permanentnybielsko.com/#localbusiness",
+      "name": "Bogusława Herda Makijaż Permanentny"
+    },
+    "creator": {
+      "@id": "https://permanentnybielsko.com/#person"
+    },
+    "inLanguage": "pl-PL",
+    "courseMode": "onsite",
+    "educationalLevel": "professional",
+    "teaches": [
+      "makijaż permanentny",
+      "rysunek wstępny",
+      "technika włosa maszynowego",
+      "Silky Hairstroke Brows",
+      "kolorymetria PMU",
+      "korekta błędów w makijażu permanentnym",
+      "usuwanie i rozjaśnianie niechcianego pigmentu"
+    ],
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Makijaż permanentny"
+      },
+      {
+        "@type": "Thing",
+        "name": "Silky Hairstroke Brows"
+      },
+      {
+        "@type": "Thing",
+        "name": "Long-Time-Liner®"
+      }
+    ],
+    "hasCourseInstance": [
+      {
+        "@type": "CourseInstance",
+        "name": "Step by Step Long-Time-Liner®",
+        "courseMode": "onsite",
+        "courseWorkload": "P3D",
+        "location": {
+          "@id": "https://permanentnybielsko.com/#localbusiness"
+        }
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Masterclass Long-Time-Liner®",
+        "courseMode": "onsite",
+        "courseWorkload": "P1D",
+        "location": {
+          "@id": "https://permanentnybielsko.com/#localbusiness"
+        }
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Silky Hairstroke Brows",
+        "courseMode": "onsite",
+        "courseWorkload": "P1D",
+        "location": {
+          "@id": "https://permanentnybielsko.com/#localbusiness"
+        }
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Bye-Bye Pigment Remover",
+        "courseMode": "onsite",
+        "courseWorkload": "P1D",
+        "location": {
+          "@id": "https://permanentnybielsko.com/#localbusiness"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#training-service`,
+    "name": "Szkolenia PMU Bielsko-Biała",
+    "serviceType": "Szkolenia makijażu permanentnego",
+    "description":
+      "Indywidualne szkolenia makijażu permanentnego dla osób początkujących i linergistek: Step by Step, Masterclass, Silky Hairstroke Brows oraz praca ze starym pigmentem.",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Bielsko-Biała"
+      },
+      {
+        "@type": "Country",
+        "name": "Polska"
+      }
+    ],
+    "provider": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+
 const trainingPaths = [
   {
     number: "01",
@@ -179,8 +367,10 @@ const relatedPages = [
 ---
 
 <Layout
-  title="Szkolenie makijaż permanentny Bielsko-Biała | Bogusława Herda"
-  description="Szkolenia makijażu permanentnego w Bielsku-Białej: Step by Step, Masterclass, Silky Hairstroke Brows, rysunek wstępny, technika włosa i świadoma pigmentacja u Bogusława Herda."
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/szkolenie-makijaz-permanentny/"
+  structuredData={structuredData}
 >
   <div class="training-page">
     <Header />

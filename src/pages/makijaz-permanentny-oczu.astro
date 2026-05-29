@@ -5,6 +5,167 @@ import Footer from "../components/Footer.astro";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const pageUrl = "https://permanentnybielsko.com/makijaz-permanentny-oczu/";
+const pageTitle = "Makijaż permanentny oczu Bielsko-Biała | Kreski permanentne";
+const pageDescription =
+  "Makijaż permanentny oczu Bielsko-Biała: kreski permanentne, zagęszczenie linii rzęs i subtelne podkreślenie spojrzenia bez ciężkiego efektu.";
+
+const faqItems = [
+  {
+    "question": "Czy kreski permanentne mogą wyglądać naturalnie?",
+    "answer": "Tak. Najbardziej naturalnym wariantem jest często zagęszczenie linii rzęs, które podkreśla oko bez efektu klasycznej, mocnej kreski."
+  },
+  {
+    "question": "Czym różni się zagęszczenie rzęs od kreski?",
+    "answer": "Zagęszczenie rzęs jest bardzo subtelne i wykonywane blisko linii rzęs. Kreska jest bardziej widoczna i daje mocniejszy efekt makijażu."
+  },
+  {
+    "question": "Czy kreska jest dobierana do kształtu oka?",
+    "answer": "Tak. Kreska powinna być dopasowana do powieki, kształtu oka, asymetrii, naturalnej linii rzęs i tego, jak klientka maluje się na co dzień."
+  },
+  {
+    "question": "Czy makijaż permanentny oczu boli?",
+    "answer": "Odczucia są indywidualne. Okolica oka jest wrażliwa, dlatego przed zabiegiem omawiany jest przebieg pracy i komfort klientki."
+  },
+  {
+    "question": "Czy każda osoba może wykonać kreskę dekoracyjną?",
+    "answer": "Nie zawsze. Przy opadającej powiece, wiotkiej skórze lub szczególnej budowie oka lepszym rozwiązaniem może być subtelniejsze zagęszczenie linii rzęs."
+  },
+  {
+    "question": "Kiedy widać finalny efekt?",
+    "answer": "Bezpośrednio po zabiegu kreska może być intensywniejsza. Finalny efekt ocenia się po wygojeniu skóry i stabilizacji pigmentu."
+  },
+  {
+    "question": "Czy wykonuje się dopigmentowanie kresek?",
+    "answer": "Decyzja zależy od efektu po wygojeniu. Dopigmentowanie może służyć dopracowaniu nasycenia, równości i stabilności kreski."
+  },
+  {
+    "question": "Gdzie wykonywany jest makijaż permanentny oczu?",
+    "answer": "Zabieg wykonywany jest w gabinecie Bogusława Herda w Bielsku-Białej. Aktualne terminy i rezerwacje dostępne są przez Booksy."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Makijaż permanentny Bielsko-Biała",
+        "item": "https://permanentnybielsko.com/makijaz-permanentny-bielsko/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Makijaż permanentny oczu",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    "name": "Makijaż permanentny oczu Bielsko-Biała",
+    "serviceType": "Makijaż permanentny oczu",
+    "description":
+      "Makijaż permanentny oczu w Bielsku-Białej: delikatne zagęszczenie linii rzęs, kreska dekoracyjna oraz indywidualne dopasowanie kreski do budowy oka i powieki.",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Bielsko-Biała"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "województwo śląskie"
+      }
+    ],
+    "provider": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "Bogusława Herda Makijaż Permanentny"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Zakres kreski permanentnej",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Zagęszczenie linii rzęs"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Kreska dekoracyjna"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Kreska dopasowana do budowy oka"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Korekta lub odświeżenie kreski permanentnej"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+
 ---
 
 <Layout

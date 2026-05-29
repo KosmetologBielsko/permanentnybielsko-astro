@@ -91,11 +91,105 @@ const relatedPages = [
     href: "/cennik-makijaz-permanentny/"
   }
 ];
+
+const pageUrl = "https://permanentnybielsko.com/galeria/";
+const pageTitle = "Galeria makijażu permanentnego Bielsko-Biała | Bogusława Herda";
+const pageDescription =
+  "Galeria makijażu permanentnego Bogusława Herda w Bielsku-Białej: naturalne brwi permanentne, usta, kreski i wybrane efekty PMU bez przerysowania.";
+
+const faqItems = [
+  {
+    "question": "Czy galeria będzie zawierać zdjęcia przed i po?",
+    "answer": "Tak, ale tylko wybrane zdjęcia, które dobrze pokazują styl pracy i mają zgodę klientki na publikację."
+  },
+  {
+    "question": "Dlaczego na razie nie ma wielu zdjęć?",
+    "answer": "Galeria będzie rozbudowywana etapami. Lepiej dodać mniej zdjęć, ale dobrze dobranych, niż tworzyć przypadkowy zbiór materiałów."
+  },
+  {
+    "question": "Czy zdjęcia pokazują efekt po wygojeniu?",
+    "answer": "Docelowo galeria powinna pokazywać zarówno świeże efekty, jak i wygojone prace, jeżeli materiał zdjęciowy będzie dostępny."
+  },
+  {
+    "question": "Czy mogę zobaczyć więcej prac przed wizytą?",
+    "answer": "Najlepiej zapytać podczas konsultacji lub sprawdzić aktualności w mediach społecznościowych gabinetu."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Galeria makijażu permanentnego",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${pageUrl}#gallery-areas`,
+    "name": "Zakres galerii makijażu permanentnego",
+    "itemListElement": galleryAreas.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.title,
+      "description": item.text,
+      "url": new URL(item.href, pageUrl).toString()
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+
 ---
 
 <Layout
-  title="Galeria makijażu permanentnego Bielsko-Biała | Bogusława Herda"
-  description="Galeria makijażu permanentnego Bogusława Herda w Bielsku-Białej: naturalne brwi permanentne, usta, kreski i wybrane efekty PMU bez przerysowania."
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/galeria/"
+  structuredData={structuredData}
 >
   <div class="gallery-page">
     <Header />

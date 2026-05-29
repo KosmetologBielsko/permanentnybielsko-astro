@@ -5,11 +5,184 @@ import Footer from "../components/Footer.astro";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const pageUrl = "https://permanentnybielsko.com/makijaz-permanentny-bielsko/";
+const pageTitle = "Makijaż permanentny Bielsko-Biała | Naturalne brwi, usta i kreski";
+const pageDescription =
+  "Makijaż permanentny Bielsko-Biała: naturalne brwi permanentne, usta permanentne, kreski permanentne, Silky Hairstroke Brows, korekty i konsultacje u Bogusława Herda.";
+
+const faqItems = [
+  {
+    "question": "Czy makijaż permanentny może wyglądać naturalnie?",
+    "answer": "Tak. Naturalny efekt zależy od rysunku wstępnego, koloru, techniki, skóry i doświadczenia osoby wykonującej zabieg. Celem nie musi być mocny makijaż — często najlepszy efekt jest subtelny, miękki i dopasowany do twarzy."
+  },
+  {
+    "question": "Czy przed zabiegiem wykonywany jest rysunek wstępny?",
+    "answer": "Tak. Rysunek wstępny jest jednym z najważniejszych etapów. Kształt, proporcje i kierunek pracy są omawiane przed pigmentacją, aby klientka wiedziała, jaki efekt planujemy uzyskać."
+  },
+  {
+    "question": "Czym różni się rysunek wstępny od samej pigmentacji?",
+    "answer": "Rysunek wstępny pokazuje plan: kształt, proporcje i kierunek pracy. Pigmentacja jest dopiero kolejnym etapem, wykonywanym po omówieniu i zaakceptowaniu planu zabiegu."
+  },
+  {
+    "question": "Czy kolor pigmentu jest dobierany indywidualnie?",
+    "answer": "Tak. Kolor powinien pasować do typu urody, skóry, naturalnej oprawy twarzy i oczekiwanego efektu. Przy naturalnym PMU zbyt ciemny lub zbyt chłodny odcień może wyglądać ciężko."
+  },
+  {
+    "question": "Czy makijaż permanentny boli?",
+    "answer": "Odczucia są indywidualne i zależą od progu wrażliwości, okolicy zabiegowej oraz stanu skóry. Podczas konsultacji omawiany jest przebieg zabiegu i komfort klientki."
+  },
+  {
+    "question": "Jak długo utrzymuje się makijaż permanentny?",
+    "answer": "Trwałość zależy od skóry, techniki, koloru, pielęgnacji, ekspozycji na słońce i metabolizmu pigmentu. Z czasem pigment stopniowo się rozjaśnia, dlatego możliwe są odświeżenia."
+  },
+  {
+    "question": "Kiedy wykonuje się dopigmentowanie?",
+    "answer": "Dopigmentowanie wykonuje się po wygojeniu skóry, gdy można ocenić kolor, nasycenie i równomierność efektu. To etap dopracowania, a nie powtarzania całego zabiegu od początku."
+  },
+  {
+    "question": "Czy efekt od razu po zabiegu jest finalny?",
+    "answer": "Nie. Bezpośrednio po zabiegu kolor może być intensywniejszy. Finalny efekt ocenia się po procesie gojenia i stabilizacji pigmentu w skórze."
+  },
+  {
+    "question": "Czy można poprawić stary makijaż permanentny?",
+    "answer": "Czasem tak, ale wymaga to oceny starego pigmentu. Niekiedy konieczne jest wcześniejsze rozjaśnienie, usuwanie PMU albo zaplanowanie pracy etapami."
+  },
+  {
+    "question": "Kiedy lepiej najpierw usunąć lub rozjaśnić stary PMU?",
+    "answer": "Gdy stary pigment jest zbyt ciemny, zbyt chłodny, nierówny albo ma niekorzystny kształt, nowa pigmentacja może nie dać naturalnego efektu bez wcześniejszego przygotowania skóry."
+  },
+  {
+    "question": "Jak przygotować się do konsultacji?",
+    "answer": "Warto przemyśleć, czy oczekiwany efekt ma być bardzo naturalny, czy bardziej widoczny. Dobrze też poinformować o wcześniejszych pigmentacjach, zabiegach, lekach i wrażliwości skóry."
+  },
+  {
+    "question": "Gdzie wykonywany jest zabieg?",
+    "answer": "Zabiegi wykonywane są w gabinecie Bogusława Herda w Bielsku-Białej. Rezerwacje i aktualne terminy są dostępne przez Booksy."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Makijaż permanentny Bielsko-Biała",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    "name": "Makijaż permanentny Bielsko-Biała",
+    "serviceType": "Makijaż permanentny",
+    "description":
+      "Naturalny makijaż permanentny brwi, ust i kresek w Bielsku-Białej, poprzedzony konsultacją, analizą urody i rysunkiem wstępnym.",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Bielsko-Biała"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "województwo śląskie"
+      }
+    ],
+    "provider": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "Bogusława Herda Makijaż Permanentny"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Oferta makijażu permanentnego",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Brwi permanentne"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Makijaż permanentny ust"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Kreski permanentne"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Korekta lub odświeżenie makijażu permanentnego"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+
 ---
 
 <Layout
-  title="Makijaż permanentny Bielsko-Biała | Naturalne brwi, usta i kreski"
-  description="Makijaż permanentny Bielsko-Biała: naturalne brwi permanentne, usta permanentne, kreski permanentne, Silky Hairstroke Brows, korekty i konsultacje u Bogusława Herda."
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/makijaz-permanentny-bielsko/"
+  structuredData={structuredData}
 >
   <div class="pmu-service-page">
     <Header />

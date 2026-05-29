@@ -198,11 +198,123 @@ const featuredPrices = [
     href: "/usuwanie-makijazu-permanentnego/"
   }
 ];
+
+const pageUrl = "https://permanentnybielsko.com/cennik-makijaz-permanentny/";
+const pageTitle = "Cennik makijażu permanentnego Bielsko-Biała | Bogusława Herda";
+const pageDescription =
+  "Cennik makijażu permanentnego Bielsko-Biała: brwi permanentne, metoda włoskowa, kreski permanentne, makijaż permanentny ust, odświeżenie PMU, usuwanie laserowe i remover.";
+
+const faqItems = [
+  {
+    "question": "Czy cena makijażu permanentnego obejmuje korektę?",
+    "answer": "Tak, ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące."
+  },
+  {
+    "question": "Czy konsultacja jest płatna?",
+    "answer": "Tak. Konsultacja makijażu permanentnego trwa 30 minut i kosztuje 50 zł."
+  },
+  {
+    "question": "Dlaczego naprawa po innym gabinecie ma indywidualną wycenę?",
+    "answer": "Ponieważ wymaga oceny starego pigmentu, jego koloru, nasycenia, kształtu oraz możliwości wykonania korekty lub wcześniejszego rozjaśnienia."
+  },
+  {
+    "question": "Czy usługa VIP ma stałą cenę?",
+    "answer": "Usługa VIP, czyli przyjęcie bez wcześniejszej rezerwacji, wynosi 150% ceny podstawowej i zależy od dostępności terminu."
+  },
+  {
+    "question": "Czy odświeżenie PMU dotyczy każdej pigmentacji?",
+    "answer": "Podane ceny odświeżenia dotyczą makijażu wykonanego w naszym gabinecie do 2 lat. Inne przypadki wymagają indywidualnej oceny."
+  },
+  {
+    "question": "Gdzie sprawdzić dostępne terminy?",
+    "answer": "Aktualne terminy, rezerwacje i dostępność usług można sprawdzić przez Booksy."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cennik makijażu permanentnego",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "@id": `${pageUrl}#offer-catalog`,
+    "name": "Cennik makijażu permanentnego Bielsko-Biała",
+    "url": pageUrl,
+    "itemListElement": priceGroups.map((group) => ({
+      "@type": "OfferCatalog",
+      "name": group.title,
+      "description": group.note,
+      "itemListElement": group.items.map((item) => ({
+        "@type": "Offer",
+        "name": item.name,
+        "price": item.price.replace(" zł", "").replace("od ", "").replace(",", "."),
+        "priceCurrency": "PLN",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": {
+          "@type": "Service",
+          "name": item.name,
+          "serviceType": group.title,
+          "provider": {
+            "@id": "https://permanentnybielsko.com/#localbusiness"
+          }
+        }
+      }))
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+
 ---
 
 <Layout
-  title="Cennik makijażu permanentnego Bielsko-Biała | Bogusława Herda"
-  description="Cennik makijażu permanentnego Bielsko-Biała: brwi permanentne, metoda włoskowa, kreski permanentne, makijaż permanentny ust, odświeżenie PMU, usuwanie laserowe i remover."
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/cennik-makijaz-permanentny/"
+  structuredData={structuredData}
 >
   <div class="price-page">
     <Header />
