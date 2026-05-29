@@ -6,20 +6,12 @@ import Footer from "../components/Footer.astro";
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
-const pageUrl = "https://permanentnybielsko.com/skinpen-kosmetolog-bielsko-biala/";
-const pageTitle = "SkinPen Bielsko-Biała | Bogusława Herda Kosmetologia";
+const pageUrl = "https://permanentnybielsko.com/mezoterapia/";
+const pageTitle = "Mezoterapia Bielsko-Biała | Bogusława Herda";
 const pageDescription =
-  "Szukasz zabiegu SkinPen w Bielsku-Białej? Aktualne informacje o technologiach kosmetologicznych znajdziesz na kosmetologiabielsko.com.";
+  "Szukasz mezoterapii w Bielsku-Białej? Aktualne informacje o zabiegach na twarz i pracy ze skórą znajdziesz na kosmetologiabielsko.com.";
 
 const bridgeLinks = [
-  {
-    "number": "02",
-    "label": "Technologie",
-    "title": "Technologie kosmetologiczne",
-    "text": "SkinPen, DermaPulse, laser Q-Switch, Contour Sculpt Pro i technologie wspierające efekty zabiegowe.",
-    "href": "https://kosmetologiabielsko.com/technologie-kosmetologiczne/",
-    "visibleUrl": "kosmetologiabielsko.com/technologie-kosmetologiczne/"
-  },
   {
     "number": "01",
     "label": "Twarz",
@@ -28,6 +20,14 @@ const bridgeLinks = [
     "href": "https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/",
     "visibleUrl": "kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/",
     "featured": true
+  },
+  {
+    "number": "02",
+    "label": "Technologie",
+    "title": "Technologie kosmetologiczne",
+    "text": "SkinPen, DermaPulse, laser Q-Switch, Contour Sculpt Pro i technologie wspierające efekty zabiegowe.",
+    "href": "https://kosmetologiabielsko.com/technologie-kosmetologiczne/",
+    "visibleUrl": "kosmetologiabielsko.com/technologie-kosmetologiczne/"
   },
   {
     "number": "03",
@@ -101,7 +101,7 @@ const structuredData = [
 <Layout
   title={pageTitle}
   description={pageDescription}
-  canonicalPath="/skinpen-kosmetolog-bielsko-biala/"
+  canonicalPath="/mezoterapia/"
   structuredData={structuredData}
 >
   <div class="cosmetic-bridge-page">
@@ -111,21 +111,21 @@ const structuredData = [
       <section class="cosmetic-bridge-hero">
         <div class="container cosmetic-bridge-grid">
           <div class="cosmetic-bridge-copy">
-            <p class="section-kicker">SkinPen</p>
+            <p class="section-kicker">Mezoterapia</p>
 
-            <h1>SkinPen i technologie kosmetologiczne — aktualne informacje są na stronie kosmetologicznej.</h1>
+            <h1>Mezoterapia i zabiegi wspierające skórę — aktualne informacje są na stronie kosmetologicznej.</h1>
 
             <p class="cosmetic-bridge-lead">
-              Jeśli interesuje Cię SkinPen, mezoterapia mikroigłowa albo technologie wspierające jakość skóry, przejdź do aktualnej podstrony: <a class="cosmetic-bridge-text-link" href="https://kosmetologiabielsko.com/technologie-kosmetologiczne/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/technologie-kosmetologiczne/</a>.
+              Jeśli szukasz informacji o mezoterapii, nawilżeniu, regeneracji skóry albo zabiegach poprawiających jej kondycję, przejdź do aktualnej podstrony: <a class="cosmetic-bridge-text-link" href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/</a>.
             </p>
 
             <p class="cosmetic-bridge-lead cosmetic-bridge-lead-small">
-              Technologie kosmetologiczne opisujemy osobno, aby łatwiej pokazać ich zastosowanie, kwalifikację, możliwe efekty i miejsce w planie pracy ze skórą.
+              Na stronie kosmetologicznej znajdziesz spokojny opis pracy ze skórą, konsultacji, planu zabiegowego i pielęgnacji domowej po zabiegach.
             </p>
 
             <div class="cosmetic-bridge-actions">
-              <a class="button-primary" href="https://kosmetologiabielsko.com/technologie-kosmetologiczne/" target="_blank" rel="noopener noreferrer">
-                Przejdź do technologii
+              <a class="button-primary" href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">
+                Przejdź do zabiegów na twarz
               </a>
 
               <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
@@ -134,13 +134,13 @@ const structuredData = [
             </div>
           </div>
 
-          <aside class="cosmetic-bridge-card" aria-label="Technologie">
+          <aside class="cosmetic-bridge-card" aria-label="Zabiegi na twarz">
             <span class="cosmetic-bridge-big-mark" aria-hidden="true">SKIN</span>
-            <p class="cosmetic-bridge-label">Technologie</p>
-            <h2>SkinPen i świadoma praca ze skórą</h2>
-            <p>Aktualny opis technologii gabinetowych, w tym SkinPen, znajduje się na oficjalnej stronie kosmetologicznej.</p>
-            <a class="cosmetic-bridge-card-link" href="https://kosmetologiabielsko.com/technologie-kosmetologiczne/" target="_blank" rel="noopener noreferrer">
-              kosmetologiabielsko.com/technologie-kosmetologiczne/
+            <p class="cosmetic-bridge-label">Zabiegi na twarz</p>
+            <h2>Regeneracja, nawilżenie, blask</h2>
+            <p>Aktualne informacje o zabiegach na twarz i pracy ze skórą są prowadzone na oficjalnej stronie kosmetologicznej gabinetu.</p>
+            <a class="cosmetic-bridge-card-link" href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">
+              kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/
             </a>
           </aside>
         </div>
@@ -149,15 +149,15 @@ const structuredData = [
       <section class="cosmetic-bridge-info-section">
         <div class="container cosmetic-bridge-info-grid">
           <article class="cosmetic-bridge-info-card">
-            <p class="section-kicker">Technologia</p>
-            <h2>Urządzenie jest narzędziem. Najważniejsza jest kwalifikacja skóry.</h2>
-            <p>Opis technologii kosmetologicznych znajdziesz tutaj: <a href="https://kosmetologiabielsko.com/technologie-kosmetologiczne/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/technologie-kosmetologiczne/</a>.</p>
+            <p class="section-kicker">Dla skóry</p>
+            <h2>Mezoterapia powinna wynikać z potrzeb skóry.</h2>
+            <p>Zanim wybierzesz konkretny zabieg, warto określić, czego skóra potrzebuje: nawilżenia, regeneracji, ukojenia, poprawy blasku czy wsparcia anti-aging. Zobacz: <a href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/</a>.</p>
           </article>
 
           <article class="cosmetic-bridge-info-card cosmetic-bridge-info-card-olive">
-            <p class="section-kicker">Plan zabiegowy</p>
-            <h2>SkinPen może być elementem szerszego planu pracy ze skórą.</h2>
-            <p>Jeśli chcesz zobaczyć szerszą ofertę zabiegów na twarz, sprawdź: <a href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/</a>.</p>
+            <p class="section-kicker">Pielęgnacja</p>
+            <h2>Efekt zabiegu wspiera codzienna pielęgnacja.</h2>
+            <p>Po zabiegach ważne są również zalecenia domowe. Sprawdź: <a href="https://kosmetologiabielsko.com/pielegnacja-profesjonalna-i-domowa/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/pielegnacja-profesjonalna-i-domowa/</a>.</p>
           </article>
         </div>
       </section>
@@ -166,8 +166,8 @@ const structuredData = [
         <div class="container">
           <div class="cosmetic-bridge-section-heading">
             <p class="section-kicker">Aktualne linki</p>
-            <h2>Przejdź do technologii i zabiegów.</h2>
-            <p>Poniżej znajdziesz aktywne linki do technologii kosmetologicznych, zabiegów na twarz i pielęgnacji.</p>
+            <h2>Przejdź do aktualnych informacji o zabiegach.</h2>
+            <p>Poniżej znajdziesz aktywne linki do najważniejszych podstron kosmetologicznych.</p>
           </div>
 
           <div class="cosmetic-bridge-link-grid">
@@ -195,12 +195,12 @@ const structuredData = [
 
       <section class="cosmetic-bridge-final-cta">
         <div class="container cosmetic-bridge-final-card">
-          <p class="section-kicker">Technologie kosmetologiczne</p>
-          <h2>Zobacz aktualną podstronę technologii.</h2>
-          <p>Aktualny opis SkinPen i innych technologii znajdziesz tutaj: <a href="https://kosmetologiabielsko.com/technologie-kosmetologiczne/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/technologie-kosmetologiczne/</a>.</p>
+          <p class="section-kicker">Oficjalna strona kosmetologiczna</p>
+          <h2>Zobacz aktualne zabiegi na twarz.</h2>
+          <p>Aktualna oferta zabiegów na twarz znajduje się tutaj: <a href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/</a>.</p>
 
-          <a class="button-primary" href="https://kosmetologiabielsko.com/technologie-kosmetologiczne/" target="_blank" rel="noopener noreferrer">
-            Przejdź do technologii
+          <a class="button-primary" href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">
+            Przejdź do zabiegów na twarz
           </a>
         </div>
       </section>
