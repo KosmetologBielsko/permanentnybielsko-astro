@@ -1,15 +1,92 @@
 ---
 import "../styles/global.css";
+import { siteConfig, getCanonicalUrl, getOgImageUrl } from "../config/site";
 
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  robots?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
-  title = "Makijaż permanentny Bielsko-Biała | Bogusława Herda",
-  description = "Makijaż permanentny Bielsko-Biała: naturalne brwi, usta i kreski, Silky Hairstroke Brows, usuwanie makijażu permanentnego i szkolenia Long-Time-Liner."
+  title = siteConfig.defaultTitle,
+  description = siteConfig.defaultDescription,
+  canonicalPath,
+  ogImage = siteConfig.defaultOgImage,
+  ogType = "website",
+  robots,
+  structuredData = []
 } = Astro.props;
+
+const canonicalUrl = getCanonicalUrl(canonicalPath ?? Astro.url.pathname);
+const ogImageUrl = getOgImageUrl(ogImage);
+
+const robotsContent =
+  robots ?? (siteConfig.indexingEnabled ? "index, follow, max-image-preview:large" : "noindex, nofollow, noarchive");
+
+const pageStructuredData = Array.isArray(structuredData) ? structuredData : [structuredData];
+
+const defaultStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteConfig.siteUrl}/#website`,
+    "url": siteConfig.siteUrl,
+    "name": siteConfig.name,
+    "alternateName": siteConfig.alternateName,
+    "inLanguage": "pl-PL",
+    "publisher": {
+      "@id": `${siteConfig.siteUrl}/#localbusiness`
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "BeautySalon"],
+    "@id": `${siteConfig.siteUrl}/#localbusiness`,
+    "name": siteConfig.businessName,
+    "url": siteConfig.siteUrl,
+    "image": ogImageUrl,
+    "telephone": siteConfig.phone,
+    "email": siteConfig.email,
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": siteConfig.address.streetAddress,
+      "postalCode": siteConfig.address.postalCode,
+      "addressLocality": siteConfig.address.addressLocality,
+      "addressCountry": "PL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": siteConfig.geo.latitude,
+      "longitude": siteConfig.geo.longitude
+    },
+    "openingHoursSpecification": siteConfig.openingHoursSpecification,
+    "sameAs": siteConfig.sameAs,
+    "founder": {
+      "@id": `${siteConfig.siteUrl}/#person`
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${siteConfig.siteUrl}/#person`,
+    "name": "Bogusława Herda",
+    "url": siteConfig.siteUrl,
+    "jobTitle": "Linergistka, trenerka Long-Time-Liner® i ekspertka makijażu permanentnego",
+    "worksFor": {
+      "@id": `${siteConfig.siteUrl}/#localbusiness`
+    },
+    "sameAs": siteConfig.sameAs
+  }
+];
+
+const allStructuredData = [...defaultStructuredData, ...pageStructuredData].filter(Boolean);
+const structuredDataJson = JSON.stringify(allStructuredData).replaceAll("<", "\\u003c");
 ---
 
 <!doctype html>
@@ -18,16 +95,32 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- WERSJA ROBOCZA: nie indeksować w Google przed migracją -->
-    <meta name="robots" content="noindex, nofollow, noarchive" />
-    <meta name="googlebot" content="noindex, nofollow, noarchive" />
-
+    <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robotsContent} />
+    <meta name="googlebot" content={robotsContent} />
     <meta name="generator" content={Astro.generator} />
 
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <title>{title}</title>
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={siteConfig.defaultOgImageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <meta name="theme-color" content="#0f7773" />
+
+    <script type="application/ld+json" set:html={structuredDataJson} />
   </head>
   <body>
     <slot />

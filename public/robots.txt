@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://permanentnybielsko.com/sitemap.xml

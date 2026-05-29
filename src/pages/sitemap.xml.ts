@@ -1,6 +1,5 @@
 import type { APIRoute } from "astro";
-
-const siteUrl = "https://permanentnybielsko.com";
+import { siteConfig } from "../config/site";
 
 const pages = [
   {
@@ -88,7 +87,7 @@ export const GET: APIRoute = () => {
 
   const urls = pages
     .map((page) => {
-      const loc = `${siteUrl}${page.path}`;
+      const loc = new URL(page.path, siteConfig.siteUrl).toString();
 
       return `  <url>
     <loc>${escapeXml(loc)}</loc>
