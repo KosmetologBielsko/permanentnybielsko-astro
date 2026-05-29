@@ -294,7 +294,7 @@ const structuredData = [
 
             <article class="service-tile service-tile-feature home-premium-mark-card home-premium-mark-card-shb" id="metody">
               <span class="home-big-mark" aria-hidden="true">SHB</span>
-              <span>Autorska metoda</span>
+              <span class="shb-card-kicker">Autorska metoda</span>
               <h3>Silky Hairstroke Brows</h3>
               <p>
                 Technika włosa maszynowego dla realistycznego, miękkiego efektu brwi.
@@ -811,6 +811,12 @@ const structuredData = [
                 Są sytuacje, w których pigmentacja nie jest wyłącznie estetyką. Może pomóc odzyskać
                 spokój, domknąć trudny etap i spojrzeć w lustro z większą łagodnością wobec siebie.
               </p>
+
+              <div class="mission-link-row">
+                <a class="mission-learn-more" href="/sercemmalowane/">
+                  Dowiedz się więcej o #SercemMalowane
+                </a>
+              </div>
             </div>
 
             <div class="mission-heart-card">
@@ -1197,8 +1203,8 @@ const structuredData = [
     border-radius: 999px !important;
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
-    background: linear-gradient(135deg, #b76576, #8f344d) !important;
-    box-shadow: 0 14px 34px rgba(183, 101, 118, 0.18) !important;
+    background: linear-gradient(135deg, #d71920, #8f1020) !important;
+    box-shadow: 0 14px 34px rgba(215, 25, 32, 0.22) !important;
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
     font-size: 0.88rem !important;
     font-weight: 800 !important;
@@ -1217,6 +1223,290 @@ const structuredData = [
       min-height: 52px !important;
       margin-top: 20px !important;
       text-align: center !important;
+    }
+  }
+
+
+  /* V6 — strona główna: widoczny odnośnik do SercemMalowane */
+
+  :global(.home-page .mission-link-row) {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-top: 26px !important;
+  }
+
+  :global(.home-page .mission-learn-more) {
+    display: inline-flex !important;
+    min-height: 48px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 22px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: linear-gradient(135deg, #d71920, #8f1020) !important;
+    box-shadow: 0 14px 34px rgba(215, 25, 32, 0.22) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    font-size: 0.88rem !important;
+    font-weight: 820 !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+  }
+
+  :global(.home-page .mission-learn-more:hover) {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 18px 42px rgba(215, 25, 32, 0.30) !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .mission-learn-more) {
+      width: 100% !important;
+      min-height: 52px !important;
+      text-align: center !important;
+    }
+  }
+
+
+  /* V7 — strona główna: czerwony przycisk SercemMalowane */
+
+  :global(.home-page .mission-learn-more) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: linear-gradient(135deg, #d71920, #8f1020) !important;
+    box-shadow: 0 14px 34px rgba(215, 25, 32, 0.22) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  :global(.home-page .mission-learn-more:hover) {
+    box-shadow: 0 18px 42px rgba(215, 25, 32, 0.30) !important;
+  }
+
+
+  /* V8 — strona główna: przycisk szkolenia jak Poznaj ofertę */
+
+  :global(.home-page .training-cta-link) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: linear-gradient(135deg, #d992a2, #c77788) !important;
+    box-shadow: 0 16px 34px rgba(199, 119, 136, 0.30) !important;
+    border: 0 !important;
+  }
+
+  :global(.home-page .training-cta-link:hover),
+  :global(.home-page .training-cta-link:focus-visible) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: linear-gradient(135deg, #d992a2, #c77788) !important;
+    box-shadow: 0 18px 42px rgba(199, 119, 136, 0.34) !important;
+    transform: translateY(-2px) !important;
+  }
+
+
+  /* V9 — strona główna: szkolenia wycentrowane i SercemMalowane czerwony klimat */
+
+  /* 1) Przyciski szkolenia — na monitorze środek, mobile zostaje szeroko jak było */
+  :global(.home-page .training-cta-card) {
+    align-items: stretch !important;
+  }
+
+  :global(.home-page .training-cta-link) {
+    align-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .training-cta-link) {
+      align-self: stretch !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+
+  /*
+    2) #SercemMalowane — czerwony klimat całej sekcji.
+    WAŻNE: nie ruszamy bijącego czerwonego kafelka z sercem.
+    Kafelek .mission-heart-card zostaje taki jak wcześniej.
+  */
+  :global(.home-page .mission-premium-section) {
+    position: relative !important;
+    overflow: hidden !important;
+    background:
+      radial-gradient(circle at 8% 16%, rgba(215, 25, 32, 0.12), transparent 26rem),
+      radial-gradient(circle at 92% 10%, rgba(143, 16, 32, 0.10), transparent 25rem),
+      radial-gradient(circle at 50% 96%, rgba(183, 101, 118, 0.10), transparent 28rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 247, 249, 0.94) 45%, rgba(255, 255, 255, 0.98) 100%) !important;
+    border-top: 1px solid rgba(215, 25, 32, 0.10) !important;
+    border-bottom: 1px solid rgba(215, 25, 32, 0.10) !important;
+  }
+
+  :global(.home-page .mission-premium-section::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    background:
+      linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.42) 46%, transparent 72%) !important;
+    transform: translateX(-72%) !important;
+    animation: home-sercem-section-shine 12s ease-in-out infinite !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .mission-premium-section > .container) {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  :global(.home-page .mission-heading-card) {
+    background:
+      radial-gradient(circle at 92% 12%, rgba(215, 25, 32, 0.10), transparent 15rem),
+      radial-gradient(circle at 8% 100%, rgba(183, 101, 118, 0.10), transparent 18rem),
+      rgba(255, 255, 255, 0.88) !important;
+    border: 1px solid rgba(215, 25, 32, 0.14) !important;
+    box-shadow: 0 24px 70px rgba(143, 16, 32, 0.07) !important;
+  }
+
+  :global(.home-page .mission-heading-card .section-kicker) {
+    color: #8f1020 !important;
+    -webkit-text-fill-color: #8f1020 !important;
+    background: rgba(255, 238, 242, 0.86) !important;
+    border-color: rgba(215, 25, 32, 0.16) !important;
+  }
+
+  :global(.home-page .mission-heading-card h2) {
+    color: var(--color-text, #17151d) !important;
+  }
+
+  :global(.home-page .mission-heading-card p:not(.section-kicker)) {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+  }
+
+  :global(.home-page .mission-support-card) {
+    background:
+      radial-gradient(circle at 94% 12%, rgba(215, 25, 32, 0.08), transparent 12rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 248, 250, 0.90)) !important;
+    border: 1px solid rgba(215, 25, 32, 0.12) !important;
+    box-shadow: 0 20px 54px rgba(143, 16, 32, 0.06) !important;
+  }
+
+  :global(.home-page .mission-support-card-rose) {
+    background:
+      radial-gradient(circle at 86% 18%, rgba(215, 25, 32, 0.13), transparent 12rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 244, 247, 0.92)) !important;
+    border-color: rgba(215, 25, 32, 0.16) !important;
+    box-shadow: 0 22px 58px rgba(215, 25, 32, 0.08) !important;
+  }
+
+  :global(.home-page .mission-support-card span) {
+    color: #b76576 !important;
+    -webkit-text-fill-color: #b76576 !important;
+  }
+
+  :global(.home-page .mission-support-card-rose span) {
+    color: #d71920 !important;
+    -webkit-text-fill-color: #d71920 !important;
+  }
+
+  :global(.home-page .mission-quote-card) {
+    background:
+      radial-gradient(circle at 8% 24%, rgba(215, 25, 32, 0.10), transparent 16rem),
+      radial-gradient(circle at 94% 80%, rgba(143, 16, 32, 0.08), transparent 18rem),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 247, 249, 0.90)) !important;
+    border: 1px solid rgba(215, 25, 32, 0.13) !important;
+    box-shadow: 0 22px 60px rgba(143, 16, 32, 0.07) !important;
+  }
+
+  :global(.home-page .mission-quote-card p) {
+    color: #5f313b !important;
+    -webkit-text-fill-color: #5f313b !important;
+  }
+
+  @keyframes home-sercem-section-shine {
+    0%,
+    38% {
+      transform: translateX(-72%);
+      opacity: 0;
+    }
+
+    52% {
+      opacity: 0.75;
+    }
+
+    100% {
+      transform: translateX(72%);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.home-page .mission-premium-section::before) {
+      animation: none !important;
+      opacity: 0 !important;
+    }
+  }
+
+
+  /* V10 — strona główna: nagłówek kafelka Silky Hairstroke Brows */
+
+  /*
+    Kafelek SHB na stronie głównej:
+    "Autorska metoda" przestaje wyglądać jak zwykły numer/kicker kafelka.
+    Dostaje premium etykietę, a główny nagłówek SHB zostaje mocny i czytelny.
+  */
+  :global(.home-page .home-premium-mark-card-shb .shb-card-kicker) {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 26px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    box-shadow: none !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+    text-shadow: none !important;
+  }
+
+  :global(.home-page .home-premium-mark-card-shb h3) {
+    max-width: 520px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(2.2rem, 3.4vw, 4.05rem) !important;
+    font-weight: 780 !important;
+    line-height: 0.96 !important;
+    letter-spacing: -0.075em !important;
+    text-shadow: 0 16px 42px rgba(12, 65, 63, 0.26) !important;
+  }
+
+  :global(.home-page .home-premium-mark-card-shb p) {
+    max-width: 650px !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .home-premium-mark-card-shb .shb-card-kicker) {
+      min-height: 30px !important;
+      margin-bottom: 20px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1 !important;
+    }
+
+    :global(.home-page .home-premium-mark-card-shb h3) {
+      font-size: clamp(2.05rem, 10vw, 3.05rem) !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.066em !important;
     }
   }
 

@@ -6,6 +6,52 @@ import Footer from "../components/Footer.astro";
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
+const pageUrl = "https://permanentnybielsko.com/szkolenia/";
+const canonicalTrainingUrl = "https://permanentnybielsko.com/szkolenie-makijaz-permanentny/";
+const pageTitle = "Szkolenia PMU Bielsko-Biała | Bogusława Herda";
+const pageDescription =
+  "Szkolenia PMU Bogusława Herda w Bielsku-Białej. Strona kierunkowa prowadząca do pełnej oferty: Step by Step, Masterclass, Silky Hairstroke Brows i Long-Time-Liner®.";
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#person"
+    },
+    "mainEntity": {
+      "@id": `${canonicalTrainingUrl}#course`
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Szkolenia PMU",
+        "item": pageUrl
+      }
+    ]
+  }
+];
+
 const bridgeCards = [
   {
     number: "01",
@@ -33,29 +79,13 @@ const bridgeCards = [
     href: "/kontakt/"
   }
 ];
-
-const photoSlots = [
-  {
-    label: "Zdjęcie szkoleniowe",
-    title: "Praca z kursantką",
-    text: "Miejsce na zdjęcie pokazujące atmosferę szkolenia, pracę przy stanowisku albo konsultację techniczną."
-  },
-  {
-    label: "Detal PMU",
-    title: "Technika i precyzja",
-    text: "Miejsce na kadr detalu: rysunek wstępny, pigmentacja, skórki treningowe albo praca na modelce."
-  },
-  {
-    label: "Autorytet",
-    title: "Bogusława Herda",
-    text: "Miejsce na zdjęcie prowadzącej szkolenie, najlepiej portretowe lub w naturalnej pracy z kursantką."
-  }
-];
 ---
 
 <Layout
-  title="Szkolenia PMU Bielsko-Biała | Bogusława Herda"
-  description="Szkolenia PMU Bogusława Herda w Bielsku-Białej. Step by Step, Masterclass, Silky Hairstroke Brows i szkolenia Long-Time-Liner®. Przejdź do pełnej oferty szkoleń makijażu permanentnego."
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/szkolenie-makijaz-permanentny/"
+  structuredData={structuredData}
 >
   <div class="trainings-bridge-page">
     <Header />
@@ -67,13 +97,14 @@ const photoSlots = [
 
         <div class="container trainings-bridge-grid">
           <div class="trainings-bridge-copy">
-            <p class="section-kicker">Szkolenia PMU Bielsko-Biała</p>
+            <p class="section-kicker">Szkolenia PMU</p>
 
-            <h1>Szkolenia makijażu permanentnego prowadzone przez Bogusława Herda.</h1>
+            <h1>Szkolenia makijażu permanentnego u Bogusława Herda.</h1>
 
             <p class="trainings-bridge-lead">
-              Edukacja w PMU powinna rozwijać nie tylko technikę, ale też sposób myślenia:
-              o twarzy, skórze, rysunku wstępnym, kolorze, gojeniu i odpowiedzialnej pracy z klientką.
+              Ten adres porządkuje wejście do edukacyjnej części strony i prowadzi do pełnej oferty
+              szkoleń makijażu permanentnego: Step by Step, Masterclass, Silky Hairstroke Brows
+              oraz szkoleń Long-Time-Liner®.
             </p>
 
             <div class="trainings-bridge-actions">
@@ -89,49 +120,32 @@ const photoSlots = [
 
           <aside class="trainings-bridge-card" aria-label="Szkolenia PMU">
             <p class="trainings-bridge-label">EDU</p>
-            <h2>Technika. Decyzja. Standard pracy.</h2>
+            <h2>Jedna główna oferta. Ten adres prowadzi dalej.</h2>
             <p>
-              Szkolenia prowadzą do świadomej pracy: od rysunku wstępnego i kwalifikacji,
-              przez dobór techniki, aż po analizę efektu po wygojeniu.
+              Szczegółowy program, ceny, zakres i organizacja szkoleń znajdują się na głównej
+              podstronie szkolenia makijażu permanentnego.
             </p>
           </aside>
         </div>
       </section>
 
-      <section class="trainings-bridge-intro-section">
-        <div class="container trainings-bridge-two-column">
-          <div>
-            <p class="section-kicker">Kierunek szkoleniowy</p>
-            <h2>Jedna uporządkowana ścieżka do pełnej oferty szkoleń PMU.</h2>
-          </div>
-
-          <div class="trainings-bridge-text-card">
-            <p>
-              W tej części strony znajdziesz najważniejsze kierunki edukacyjne: szkolenia podstawowe,
-              szkolenia doszkalające, technikę Silky Hairstroke Brows oraz kontakt w sprawie organizacji.
-            </p>
-
-            <p>
-              Szczegółowy program, ceny, warunki uczestnictwa i opis poszczególnych szkoleń znajdują się
-              na pełnej podstronie szkolenia makijażu permanentnego.
-            </p>
-
-            <a class="text-link" href="/szkolenie-makijaz-permanentny/">
-              Przejdź do szczegółów szkoleń →
-            </a>
-          </div>
+      <section class="trainings-bridge-note-section">
+        <div class="container trainings-bridge-note">
+          <p class="section-kicker">Ważne dla przejrzystości</p>
+          <h2>Ta podstrona nie dubluje pełnej oferty. Jest eleganckim przejściem do właściwego miejsca.</h2>
+          <p>
+            Stary adres <strong>/szkolenia/</strong> zostaje obsłużony, ale najważniejszą stroną
+            szkoleniową pozostaje <strong>/szkolenie-makijaz-permanentny/</strong>. Dzięki temu
+            użytkownik trafia do odpowiedniej treści, a struktura strony pozostaje uporządkowana.
+          </p>
         </div>
       </section>
 
       <section class="trainings-bridge-links-section">
         <div class="container">
           <div class="trainings-bridge-heading">
-            <p class="section-kicker">Wybierz kierunek</p>
-            <h2>Najważniejsze obszary szkoleń makijażu permanentnego.</h2>
-            <p>
-              Każdy kafelek prowadzi do właściwego miejsca — pełnej oferty szkoleń albo kontaktu,
-              jeżeli chcesz najpierw zapytać o zakres i termin.
-            </p>
+            <p class="section-kicker">Kierunki szkoleniowe</p>
+            <h2>Wybierz temat i przejdź do szczegółów.</h2>
           </div>
 
           <div class="trainings-bridge-link-grid">
@@ -147,48 +161,6 @@ const photoSlots = [
               </a>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section class="trainings-bridge-photos-section">
-        <div class="container">
-          <div class="trainings-bridge-heading">
-            <p class="section-kicker">Miejsce na zdjęcia</p>
-            <h2>Strona jest przygotowana pod późniejsze zdjęcia ze szkoleń.</h2>
-            <p>
-              Na tym etapie zostawiamy eleganckie miejsca pod zdjęcia. Później wystarczy podmienić
-              placeholdery na właściwe kadry: pracę z kursantką, detal techniczny i portret prowadzącej.
-            </p>
-          </div>
-
-          <div class="trainings-photo-grid">
-            {photoSlots.map((slot) => (
-              <article class="trainings-photo-card">
-                <div class="trainings-photo-placeholder">
-                  <span>{slot.label}</span>
-                </div>
-
-                <h3>{slot.title}</h3>
-                <p>{slot.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="trainings-bridge-feature-section">
-        <div class="container trainings-bridge-feature-card">
-          <span class="trainings-bridge-big-mark trainings-bridge-big-mark-large" aria-hidden="true">MENTOR</span>
-
-          <div>
-            <p class="section-kicker">Rozwój i autorytet</p>
-            <h2>Szkolenia są częścią zawodowej historii Bogusława Herda.</h2>
-          </div>
-
-          <p>
-            Doświadczenie trenerskie, praca w standardzie Long-Time-Liner® oraz autorska technika
-            Silky Hairstroke Brows tworzą zaplecze edukacyjne, które wykracza poza samą instrukcję zabiegu.
-          </p>
         </div>
       </section>
 
@@ -261,10 +233,8 @@ const photoSlots = [
 
   .trainings-bridge-copy,
   .trainings-bridge-card,
-  .trainings-bridge-text-card,
+  .trainings-bridge-note,
   .trainings-bridge-link-card,
-  .trainings-photo-card,
-  .trainings-bridge-feature-card,
   .trainings-bridge-final-card {
     border: 1px solid rgba(183, 101, 118, 0.16);
     box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
@@ -319,8 +289,7 @@ const photoSlots = [
   }
 
   .trainings-bridge-card::before,
-  .trainings-bridge-link-card-featured::after,
-  .trainings-bridge-feature-card::before {
+  .trainings-bridge-link-card-featured::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -363,24 +332,22 @@ const photoSlots = [
     color: rgba(255, 255, 255, 0.88);
   }
 
-  .trainings-bridge-intro-section,
+  .trainings-bridge-note-section,
   .trainings-bridge-links-section,
-  .trainings-bridge-photos-section,
-  .trainings-bridge-feature-section,
   .trainings-bridge-final-cta {
     padding: 88px 0;
   }
 
-  .trainings-bridge-two-column {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: 54px;
-    align-items: start;
+  .trainings-bridge-note {
+    padding: clamp(32px, 4vw, 54px);
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.12), transparent 14rem),
+      linear-gradient(145deg, rgba(219, 246, 243, 0.76), rgba(255, 255, 255, 0.88));
   }
 
-  .trainings-bridge-two-column h2,
+  .trainings-bridge-note h2,
   .trainings-bridge-heading h2,
-  .trainings-bridge-feature-card h2,
   .trainings-bridge-final-card h2 {
     margin: 0;
     color: var(--color-text);
@@ -390,26 +357,7 @@ const photoSlots = [
     letter-spacing: -0.074em;
   }
 
-  .trainings-bridge-text-card {
-    padding: 34px;
-    border-radius: 34px;
-    background: rgba(255, 255, 255, 0.78);
-  }
-
-  .trainings-bridge-heading {
-    max-width: 940px;
-    margin-bottom: 38px;
-  }
-
-  .trainings-bridge-heading .section-kicker {
-    color: var(--color-turquoise-dark);
-    font-size: 0.78rem;
-    font-weight: 820;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-  }
-
+  .trainings-bridge-note p:not(.section-kicker),
   .trainings-bridge-heading p,
   .trainings-bridge-final-card p:not(.signature) {
     max-width: 880px;
@@ -418,30 +366,28 @@ const photoSlots = [
     line-height: 1.68;
   }
 
-  .text-link {
-    display: inline-flex;
-    margin-top: 10px;
-    color: var(--color-turquoise-dark);
-    font-weight: 760;
-    text-decoration: none;
+  .trainings-bridge-heading {
+    max-width: 940px;
+    margin-bottom: 38px;
   }
 
-  .trainings-bridge-link-grid,
-  .trainings-photo-grid {
-    display: grid;
-    gap: 18px;
+  .trainings-bridge-heading .section-kicker,
+  .trainings-bridge-note .section-kicker {
+    color: var(--color-turquoise-dark);
+    font-size: 0.78rem;
+    font-weight: 820;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
   }
 
   .trainings-bridge-link-grid {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
   }
 
-  .trainings-photo-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .trainings-bridge-link-card,
-  .trainings-photo-card {
+  .trainings-bridge-link-card {
     position: relative;
     min-height: 275px;
     padding: 28px;
@@ -454,8 +400,7 @@ const photoSlots = [
     color: inherit;
   }
 
-  .trainings-bridge-link-card::before,
-  .trainings-photo-card::before {
+  .trainings-bridge-link-card::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -463,8 +408,7 @@ const photoSlots = [
     pointer-events: none;
   }
 
-  .trainings-bridge-link-card::after,
-  .trainings-photo-card::after {
+  .trainings-bridge-link-card::after {
     content: "";
     position: absolute;
     right: -58px;
@@ -512,14 +456,7 @@ const photoSlots = [
     user-select: none !important;
   }
 
-  .trainings-bridge-big-mark-large {
-    color: rgba(255, 255, 255, 0.14) !important;
-    font-size: clamp(3.8rem, 7vw, 8rem) !important;
-  }
-
-  .trainings-bridge-link-card > *:not(.trainings-bridge-big-mark),
-  .trainings-bridge-feature-card > *:not(.trainings-bridge-big-mark),
-  .trainings-photo-card > * {
+  .trainings-bridge-link-card > *:not(.trainings-bridge-big-mark) {
     position: relative;
     z-index: 2;
   }
@@ -536,8 +473,7 @@ const photoSlots = [
     letter-spacing: 0.18em;
   }
 
-  .trainings-bridge-link-card h3,
-  .trainings-photo-card h3 {
+  .trainings-bridge-link-card h3 {
     position: relative;
     z-index: 2;
     margin: 0;
@@ -548,8 +484,7 @@ const photoSlots = [
     letter-spacing: -0.065em;
   }
 
-  .trainings-bridge-link-card p,
-  .trainings-photo-card p {
+  .trainings-bridge-link-card p {
     position: relative;
     z-index: 2;
     margin: 14px 0 0;
@@ -565,66 +500,6 @@ const photoSlots = [
   }
 
   .trainings-bridge-link-card-featured h3 {
-    color: #ffffff;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
-  }
-
-  .trainings-photo-placeholder {
-    position: relative;
-    display: grid;
-    min-height: 220px;
-    margin: -4px -4px 22px;
-    place-items: center;
-    overflow: hidden;
-    border-radius: 24px;
-    background:
-      radial-gradient(circle at 25% 20%, rgba(56, 187, 181, 0.22), transparent 12rem),
-      radial-gradient(circle at 78% 86%, rgba(201, 127, 143, 0.18), transparent 12rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 247, 250, 0.92));
-    border: 1px dashed rgba(56, 187, 181, 0.28);
-  }
-
-  .trainings-photo-placeholder span {
-    color: var(--color-turquoise-dark);
-    font-size: 0.72rem;
-    font-weight: 820;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .trainings-bridge-photos-section,
-  .trainings-bridge-feature-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
-  }
-
-  .trainings-bridge-feature-card {
-    position: relative;
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 34px;
-    align-items: center;
-    overflow: hidden;
-    padding: clamp(32px, 4vw, 54px);
-    border-radius: 38px;
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 10rem),
-      radial-gradient(circle at 82% 24%, rgba(255, 219, 231, 0.4), transparent 13rem),
-      linear-gradient(145deg, #9d4f68 0%, #d7899f 38%, #a85b73 64%, #6f3046 100%);
-    background-size: 100% 100%, 100% 100%, 220% 220%;
-    animation: trainings-bridge-rose-flow 12s ease-in-out infinite alternate;
-    box-shadow: 0 28px 76px rgba(157, 79, 104, 0.22);
-  }
-
-  .trainings-bridge-feature-card h2,
-  .trainings-bridge-feature-card .section-kicker,
-  .trainings-bridge-feature-card p {
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .trainings-bridge-feature-card h2 {
     color: #ffffff;
     text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
   }
@@ -684,31 +559,14 @@ const photoSlots = [
     }
   }
 
-  @keyframes trainings-bridge-rose-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
-
   @media (max-width: 1260px) {
-    .trainings-bridge-link-grid,
-    .trainings-photo-grid {
+    .trainings-bridge-link-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 1080px) {
-    .trainings-bridge-grid,
-    .trainings-bridge-two-column,
-    .trainings-bridge-feature-card {
-      grid-template-columns: 1fr;
-    }
-
-    .trainings-photo-grid {
+    .trainings-bridge-grid {
       grid-template-columns: 1fr;
     }
   }
@@ -720,10 +578,8 @@ const photoSlots = [
 
     .trainings-bridge-copy,
     .trainings-bridge-card,
-    .trainings-bridge-text-card,
+    .trainings-bridge-note,
     .trainings-bridge-link-card,
-    .trainings-photo-card,
-    .trainings-bridge-feature-card,
     .trainings-bridge-final-card {
       border-radius: 28px;
     }
@@ -734,17 +590,14 @@ const photoSlots = [
       letter-spacing: -0.074em;
     }
 
-    .trainings-bridge-intro-section,
+    .trainings-bridge-note-section,
     .trainings-bridge-links-section,
-    .trainings-bridge-photos-section,
-    .trainings-bridge-feature-section,
     .trainings-bridge-final-cta {
       padding: 58px 0;
     }
 
-    .trainings-bridge-two-column h2,
+    .trainings-bridge-note h2,
     .trainings-bridge-heading h2,
-    .trainings-bridge-feature-card h2,
     .trainings-bridge-final-card h2 {
       font-size: clamp(2.15rem, 9.4vw, 3.15rem);
       line-height: 1.04;
@@ -755,14 +608,9 @@ const photoSlots = [
       grid-template-columns: 1fr;
     }
 
-    .trainings-bridge-link-card,
-    .trainings-photo-card {
+    .trainings-bridge-link-card {
       min-height: auto;
       padding: 26px;
-    }
-
-    .trainings-photo-placeholder {
-      min-height: 190px;
     }
 
     .trainings-bridge-big-mark {
@@ -776,187 +624,8 @@ const photoSlots = [
     .trainings-bridge-card,
     .trainings-bridge-card::before,
     .trainings-bridge-link-card-featured,
-    .trainings-bridge-link-card-featured::after,
-    .trainings-bridge-feature-card,
-    .trainings-bridge-feature-card::before {
+    .trainings-bridge-link-card-featured::after {
       animation: none;
     }
   }
-
-  /* V2 — mocne kafelki dla sekcji Kierunek szkoleniowy i Miejsce na zdjęcia */
-  :global(.trainings-bridge-two-column) {
-    display: grid !important;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) !important;
-    gap: 54px !important;
-    align-items: start !important;
-  }
-
-  :global(.trainings-bridge-text-card) {
-    position: relative !important;
-    padding: 34px !important;
-    overflow: hidden !important;
-    border-radius: 34px !important;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.12), transparent 14rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
-    border: 1px solid rgba(183, 101, 118, 0.16) !important;
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075) !important;
-  }
-
-  :global(.trainings-bridge-text-card)::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    border-top: 4px solid rgba(56, 187, 181, 0.34) !important;
-    pointer-events: none !important;
-  }
-
-  :global(.trainings-bridge-text-card p),
-  :global(.trainings-bridge-text-card a) {
-    position: relative !important;
-    z-index: 2 !important;
-  }
-
-  :global(.trainings-photo-grid) {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 18px !important;
-    align-items: stretch !important;
-  }
-
-  :global(.trainings-photo-card) {
-    position: relative !important;
-    display: flex !important;
-    min-height: 420px !important;
-    flex-direction: column !important;
-    padding: 28px !important;
-    overflow: hidden !important;
-    border-radius: 32px !important;
-    background:
-      radial-gradient(circle at 92% 10%, rgba(219, 246, 243, 0.72), transparent 7rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.86)) !important;
-    border: 1px solid rgba(183, 101, 118, 0.16) !important;
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075) !important;
-  }
-
-  :global(.trainings-photo-card)::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    border-top: 4px solid rgba(56, 187, 181, 0.34) !important;
-    pointer-events: none !important;
-  }
-
-  :global(.trainings-photo-card:nth-child(2)::before) {
-    border-top-color: rgba(201, 127, 143, 0.34) !important;
-  }
-
-  :global(.trainings-photo-card:nth-child(3)::before) {
-    border-top-color: rgba(190, 151, 78, 0.36) !important;
-  }
-
-  :global(.trainings-photo-card)::after {
-    content: "" !important;
-    position: absolute !important;
-    right: -58px !important;
-    top: -58px !important;
-    width: 138px !important;
-    height: 138px !important;
-    border-radius: 999px !important;
-    background: rgba(219, 246, 243, 0.68) !important;
-    pointer-events: none !important;
-  }
-
-  :global(.trainings-photo-card:nth-child(2)::after) {
-    background: rgba(246, 220, 227, 0.76) !important;
-  }
-
-  :global(.trainings-photo-card:nth-child(3)::after) {
-    background: rgba(248, 231, 190, 0.72) !important;
-  }
-
-  :global(.trainings-photo-placeholder) {
-    position: relative !important;
-    z-index: 2 !important;
-    display: grid !important;
-    min-height: 220px !important;
-    margin: -4px -4px 22px !important;
-    place-items: center !important;
-    overflow: hidden !important;
-    border-radius: 24px !important;
-    background:
-      radial-gradient(circle at 25% 20%, rgba(56, 187, 181, 0.24), transparent 12rem),
-      radial-gradient(circle at 78% 86%, rgba(201, 127, 143, 0.18), transparent 12rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 247, 250, 0.92)) !important;
-    border: 1px dashed rgba(56, 187, 181, 0.34) !important;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.62) !important;
-  }
-
-  :global(.trainings-photo-placeholder)::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 18px !important;
-    border-radius: 18px !important;
-    border: 1px solid rgba(255, 255, 255, 0.7) !important;
-    pointer-events: none !important;
-  }
-
-  :global(.trainings-photo-placeholder span) {
-    position: relative !important;
-    z-index: 2 !important;
-    max-width: 190px !important;
-    color: var(--color-turquoise-dark) !important;
-    font-size: 0.72rem !important;
-    font-weight: 820 !important;
-    line-height: 1.45 !important;
-    text-align: center !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.18em !important;
-  }
-
-  :global(.trainings-photo-card h3),
-  :global(.trainings-photo-card p) {
-    position: relative !important;
-    z-index: 2 !important;
-  }
-
-  :global(.trainings-photo-card h3) {
-    margin: 0 !important;
-    color: var(--color-text) !important;
-    font-size: clamp(1.45rem, 1.9vw, 2.1rem) !important;
-    font-weight: 740 !important;
-    line-height: 1 !important;
-    letter-spacing: -0.065em !important;
-  }
-
-  :global(.trainings-photo-card p) {
-    margin: 14px 0 0 !important;
-    color: var(--color-muted) !important;
-    font-size: 0.95rem !important;
-    line-height: 1.62 !important;
-  }
-
-  @media (max-width: 1080px) {
-    :global(.trainings-bridge-two-column),
-    :global(.trainings-photo-grid) {
-      grid-template-columns: 1fr !important;
-    }
-  }
-
-  @media (max-width: 760px) {
-    :global(.trainings-bridge-text-card),
-    :global(.trainings-photo-card) {
-      border-radius: 28px !important;
-    }
-
-    :global(.trainings-photo-card) {
-      min-height: auto !important;
-      padding: 26px !important;
-    }
-
-    :global(.trainings-photo-placeholder) {
-      min-height: 190px !important;
-    }
-  }
-
 </style>

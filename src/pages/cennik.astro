@@ -1,0 +1,603 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const pageUrl = "https://permanentnybielsko.com/cennik/";
+const canonicalPriceUrl = "https://permanentnybielsko.com/cennik-makijaz-permanentny/";
+const pageTitle = "Cennik PMU Bielsko-Biała | Bogusława Herda";
+const pageDescription =
+  "Cennik makijażu permanentnego został przeniesiony na pełną podstronę cennika PMU: brwi, usta, kreski, usuwanie, odświeżenie i konsultacja.";
+
+const priceBridgeLinks = [
+  {
+    number: "01",
+    title: "Pełny cennik PMU",
+    text: "Aktualna podstrona z cenami makijażu permanentnego, odświeżenia, usuwania PMU i konsultacji.",
+    href: "/cennik-makijaz-permanentny/",
+    featured: true
+  },
+  {
+    number: "02",
+    title: "Oferta PMU",
+    text: "Zobacz główną ofertę makijażu permanentnego: brwi, usta, kreski, korekty i naturalny efekt.",
+    href: "/makijaz-permanentny-bielsko/"
+  },
+  {
+    number: "03",
+    title: "Rezerwacja Booksy",
+    text: "Sprawdź aktualne terminy, dostępność i możliwość umówienia konsultacji lub zabiegu.",
+    href: booksyUrl,
+    external: true
+  },
+  {
+    number: "04",
+    title: "Kontakt z gabinetem",
+    text: "Jeżeli nie wiesz, którą usługę wybrać, skontaktuj się z gabinetem przed rezerwacją.",
+    href: "/kontakt/"
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "mainEntity": {
+      "@id": `${canonicalPriceUrl}#offer-catalog`
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cennik",
+        "item": pageUrl
+      }
+    ]
+  }
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/cennik-makijaz-permanentny/"
+  structuredData={structuredData}
+>
+  <div class="price-bridge-page">
+    <Header />
+
+    <main>
+      <section class="price-bridge-hero">
+        <div class="price-bridge-glow price-bridge-glow-one"></div>
+        <div class="price-bridge-glow price-bridge-glow-two"></div>
+
+        <div class="container price-bridge-grid">
+          <div class="price-bridge-copy">
+            <p class="section-kicker">Cennik PMU</p>
+
+            <h1>Cennik makijażu permanentnego jest teraz w jednym miejscu.</h1>
+
+            <p class="price-bridge-lead">
+              Adres <strong>/cennik/</strong> zostaje zachowany jako most ze starej struktury strony.
+              Pełny i aktualny cennik makijażu permanentnego znajduje się pod adresem
+              <strong>/cennik-makijaz-permanentny/</strong>. Dzięki temu porządkujemy SEO i nie
+              dublujemy dwóch podstron o tej samej intencji.
+            </p>
+
+            <div class="price-bridge-actions">
+              <a class="button-primary" href="/cennik-makijaz-permanentny/">
+                Przejdź do pełnego cennika PMU
+              </a>
+
+              <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Sprawdź terminy w Booksy
+              </a>
+            </div>
+          </div>
+
+          <aside class="price-bridge-card" aria-label="Docelowy cennik PMU">
+            <p class="price-bridge-label">PMU</p>
+            <h2>Docelowy adres cennika.</h2>
+            <p>
+              Głównym adresem dla cen jest:
+              <strong>/cennik-makijaz-permanentny/</strong>. Ten adres zostaje tylko jako
+              bezpieczne przejście dla użytkowników i Google.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="price-bridge-cards-section">
+        <div class="container">
+          <div class="price-bridge-section-heading">
+            <p class="section-kicker">Gdzie przejść dalej?</p>
+            <h2>Wybierz właściwą ścieżkę.</h2>
+            <p>
+              Jeżeli szukasz cen zabiegów PMU, przejdź do pełnego cennika. Jeżeli nie wiesz,
+              od czego zacząć, najlepiej wybrać konsultację albo kontakt z gabinetem.
+            </p>
+          </div>
+
+          <div class="price-bridge-card-grid">
+            {priceBridgeLinks.map((card) => (
+              <a
+                class:list={["price-bridge-link-card", { "price-bridge-link-card-featured": card.featured }]}
+                href={card.href}
+                target={card.external ? "_blank" : undefined}
+                rel={card.external ? "noopener noreferrer" : undefined}
+              >
+                {card.featured && (
+                  <span class="price-bridge-big-mark" aria-hidden="true">CENNIK</span>
+                )}
+
+                <span>{card.number}</span>
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="price-bridge-final-cta">
+        <div class="container price-bridge-final-card">
+          <p class="section-kicker">Aktualne ceny i terminy</p>
+          <h2>Pełny cennik PMU znajdziesz na docelowej podstronie.</h2>
+          <p>
+            Ceny, zakresy usług i ważne informacje dotyczące korekty, odświeżenia oraz usuwania PMU
+            zostały uporządkowane na jednej podstronie.
+          </p>
+
+          <a class="button-primary" href="/cennik-makijaz-permanentny/">
+            Zobacz cennik makijażu permanentnego
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .price-bridge-page {
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 9% 9%, rgba(56, 187, 181, 0.12), transparent 26rem),
+      radial-gradient(circle at 90% 16%, rgba(243, 199, 211, 0.22), transparent 28rem),
+      linear-gradient(180deg, #ffffff 0%, #fff9fb 46%, #ffffff 100%);
+  }
+
+  .price-bridge-hero {
+    position: relative;
+    min-height: 72vh;
+    padding: 154px 0 86px;
+  }
+
+  .price-bridge-glow {
+    position: absolute;
+    z-index: 0;
+    border-radius: 999px;
+    filter: blur(12px);
+    pointer-events: none;
+  }
+
+  .price-bridge-glow-one {
+    top: 10%;
+    left: -9%;
+    width: 34vw;
+    height: 34vw;
+    background: rgba(56, 187, 181, 0.14);
+  }
+
+  .price-bridge-glow-two {
+    right: -8%;
+    bottom: 3%;
+    width: 38vw;
+    height: 38vw;
+    background: rgba(243, 199, 211, 0.27);
+  }
+
+  .price-bridge-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr);
+    gap: clamp(26px, 4vw, 54px);
+    align-items: stretch;
+  }
+
+  .price-bridge-copy,
+  .price-bridge-card,
+  .price-bridge-link-card,
+  .price-bridge-final-card {
+    border: 1px solid rgba(183, 101, 118, 0.13);
+    box-shadow: 0 24px 70px rgba(51, 31, 44, 0.07);
+  }
+
+  .price-bridge-copy {
+    padding: clamp(30px, 5vw, 58px);
+    border-radius: 42px;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(56, 187, 181, 0.08), transparent 15rem),
+      rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+  }
+
+  .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 32px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 18px;
+    padding: 0 13px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    font-size: 0.7rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .price-bridge-copy h1 {
+    max-width: 1040px;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(3.05rem, 5.45vw, 6.25rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .price-bridge-lead {
+    max-width: 820px;
+    margin: 24px 0 0;
+    color: var(--color-muted);
+    font-size: 1.08rem;
+    line-height: 1.72;
+  }
+
+  .price-bridge-lead strong {
+    color: var(--color-text);
+    font-weight: 820;
+  }
+
+  .price-bridge-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .price-bridge-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(34px, 4vw, 56px);
+    border-radius: 42px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: price-bridge-turquoise-flow 13s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
+  }
+
+  .price-bridge-card::before,
+  .price-bridge-link-card-featured::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+    transform: translateX(-72%);
+    animation: price-bridge-panel-shine 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .price-bridge-label {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 auto;
+    color: rgba(255, 255, 255, 0.18);
+    font-size: clamp(4.8rem, 7vw, 8rem);
+    font-weight: 850;
+    line-height: 0.78;
+    letter-spacing: -0.12em;
+  }
+
+  .price-bridge-card h2,
+  .price-bridge-card p:not(.price-bridge-label) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .price-bridge-card h2 {
+    margin: 40px 0 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    font-weight: 740;
+    line-height: 0.96;
+    letter-spacing: -0.075em;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
+  }
+
+  .price-bridge-card p:not(.price-bridge-label) {
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.62;
+  }
+
+  .price-bridge-card strong {
+    color: #ffffff;
+    font-weight: 850;
+  }
+
+  .price-bridge-cards-section,
+  .price-bridge-final-cta {
+    padding: 88px 0;
+  }
+
+  .price-bridge-section-heading {
+    max-width: 980px;
+    margin-bottom: 38px;
+  }
+
+  .price-bridge-section-heading h2,
+  .price-bridge-final-card h2 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(2.35rem, 4vw, 4.2rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .price-bridge-section-heading p,
+  .price-bridge-final-card p {
+    color: var(--color-muted);
+    font-size: 1.04rem;
+    line-height: 1.68;
+  }
+
+  .price-bridge-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .price-bridge-link-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 260px;
+    padding: 30px;
+    border-radius: 34px;
+    color: inherit;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
+  }
+
+  .price-bridge-link-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .price-bridge-link-card-featured {
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: price-bridge-turquoise-flow 13s ease-in-out infinite alternate;
+  }
+
+  .price-bridge-link-card > *:not(.price-bridge-big-mark) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .price-bridge-link-card span:not(.price-bridge-big-mark) {
+    display: inline-flex;
+    margin-bottom: 34px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 860;
+    letter-spacing: 0.18em;
+  }
+
+  .price-bridge-link-card-featured span:not(.price-bridge-big-mark),
+  .price-bridge-link-card-featured h3 {
+    color: #ffffff;
+  }
+
+  .price-bridge-link-card h3 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1.45rem;
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+  }
+
+  .price-bridge-link-card p {
+    margin: 16px 0 0;
+    color: var(--color-muted);
+    font-size: 0.94rem;
+    line-height: 1.58;
+  }
+
+  .price-bridge-link-card-featured p {
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+  .price-bridge-big-mark {
+    position: absolute;
+    right: 18px;
+    top: 16px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.16);
+    font-size: clamp(3.4rem, 5.4vw, 6.3rem);
+    font-weight: 850;
+    line-height: 0.78;
+    letter-spacing: -0.12em;
+    pointer-events: none;
+  }
+
+  .price-bridge-final-card {
+    padding: clamp(28px, 4vw, 46px);
+    border-radius: 36px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      rgba(255, 255, 255, 0.9);
+  }
+
+  .price-bridge-final-card .button-primary {
+    margin-top: 18px;
+  }
+
+  @keyframes price-bridge-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @keyframes price-bridge-panel-shine {
+    0%,
+    35% {
+      transform: translateX(-72%);
+      opacity: 0;
+    }
+
+    52% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(72%);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .price-bridge-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .price-bridge-card-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .price-bridge-hero {
+      padding: 112px 0 58px;
+    }
+
+    .price-bridge-copy,
+    .price-bridge-card,
+    .price-bridge-link-card,
+    .price-bridge-final-card {
+      border-radius: 28px;
+    }
+
+    .price-bridge-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem);
+      line-height: 1.04;
+      letter-spacing: -0.068em;
+    }
+
+    .price-bridge-card {
+      min-height: 340px;
+      padding: 28px 22px;
+    }
+
+    .price-bridge-cards-section,
+    .price-bridge-final-cta {
+      padding: 58px 0;
+    }
+
+    .price-bridge-section-heading h2,
+    .price-bridge-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .price-bridge-card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .price-bridge-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .price-bridge-actions a {
+      width: 100%;
+      text-align: center;
+    }
+
+    .section-kicker {
+      min-height: 30px;
+      margin-bottom: 16px;
+      padding: 0 11px;
+      font-size: 0.64rem;
+      letter-spacing: 0.13em;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .price-bridge-card,
+    .price-bridge-card::before,
+    .price-bridge-link-card-featured,
+    .price-bridge-link-card-featured::after {
+      animation: none;
+    }
+  }
+</style>

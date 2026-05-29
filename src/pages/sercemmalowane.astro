@@ -63,11 +63,130 @@ const relatedPages = [
     href: "/cennik-makijaz-permanentny/"
   }
 ];
+
+const pageUrl = "https://permanentnybielsko.com/sercemmalowane/";
+const pageTitle = "#SercemMalowane | Bogusława Herda Makijaż Permanentny Bielsko-Biała";
+const pageDescription =
+  "#SercemMalowane Bogusława Herda — wyjątkowa inicjatywa gabinetu makijażu permanentnego w Bielsku-Białej, oparta na empatii, rozmowie i odpowiedzialnej kwalifikacji.";
+
+const faqItems = [
+  {
+    "question": "Czy #SercemMalowane jest zwykłą usługą z cennika?",
+    "answer": "Nie. To pozycja specjalna, która wymaga indywidualnej rozmowy i kwalifikacji."
+  },
+  {
+    "question": "Czy każda osoba może skorzystać z tej inicjatywy?",
+    "answer": "Nie zawsze. Wszystko zależy od sytuacji, przeciwwskazań, stanu skóry i możliwości wykonania bezpiecznej pracy."
+  },
+  {
+    "question": "Jak najlepiej zapytać o szczegóły?",
+    "answer": "Najlepiej skontaktować się z gabinetem przez telefon, e-mail albo formularz rezerwacyjny Booksy."
+  },
+  {
+    "question": "Czy decyzja zapada od razu?",
+    "answer": "Nie musi. Czasem najlepszym rozwiązaniem jest spokojna konsultacja i dopiero późniejsze ustalenie dalszego planu."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "#SercemMalowane",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    "name": "#SercemMalowane",
+    "serviceType": "Indywidualna konsultacja i kwalifikacja PMU",
+    "description":
+      "Wyjątkowa inicjatywa gabinetu Bogusława Herda związana z empatią, rozmową, kwalifikacją i odpowiedzialną decyzją przed wykonaniem makijażu permanentnego w szczególnych sytuacjach.",
+    "provider": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Bielsko-Biała"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "województwo śląskie"
+      }
+    ],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "osoby wymagające indywidualnej kwalifikacji i spokojnej konsultacji PMU"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${pageUrl}#process`,
+    "name": "Proces kwalifikacji #SercemMalowane",
+    "itemListElement": heartSteps.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.title,
+      "description": item.text
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+
 ---
 
 <Layout
-  title="#SercemMalowane | Bogusława Herda Makijaż Permanentny Bielsko-Biała"
-  description="#SercemMalowane Bogusława Herda — wyjątkowa inicjatywa gabinetu makijażu permanentnego w Bielsku-Białej, oparta na empatii, rozmowie i odpowiedzialnej kwalifikacji."
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/sercemmalowane/"
+  structuredData={structuredData}
 >
   <div class="heart-page">
     <Header />
@@ -79,7 +198,7 @@ const relatedPages = [
 
         <div class="container heart-hero-grid">
           <div class="heart-hero-copy">
-            <p class="section-kicker">#SercemMalowane</p>
+            <p class="section-kicker heart-kicker-chip" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:var(--color-turquoise-dark,#0f7773);-webkit-text-fill-color:var(--color-turquoise-dark,#0f7773);background:rgba(219,246,243,0.72);border:1px solid rgba(56,187,181,0.16);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">#SercemMalowane</p>
 
             <h1>Niektóre historie wymagają więcej niż techniki.</h1>
 
@@ -138,7 +257,7 @@ const relatedPages = [
       <section class="heart-intro-section" id="o-inicjatywie">
         <div class="container heart-two-column">
           <div>
-            <p class="section-kicker">O inicjatywie</p>
+            <p class="section-kicker heart-kicker-chip" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:var(--color-turquoise-dark,#0f7773);-webkit-text-fill-color:var(--color-turquoise-dark,#0f7773);background:rgba(219,246,243,0.72);border:1px solid rgba(56,187,181,0.16);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">O inicjatywie</p>
             <h2>#SercemMalowane to nie standardowa usługa. To indywidualna historia.</h2>
           </div>
 
@@ -161,7 +280,7 @@ const relatedPages = [
       <section class="heart-process-section">
         <div class="container">
           <div class="heart-section-heading">
-            <p class="section-kicker">Jak to wygląda?</p>
+            <p class="section-kicker heart-kicker-chip" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:var(--color-turquoise-dark,#0f7773);-webkit-text-fill-color:var(--color-turquoise-dark,#0f7773);background:rgba(219,246,243,0.72);border:1px solid rgba(56,187,181,0.16);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">Jak to wygląda?</p>
             <h2>Najpierw człowiek i rozmowa. Dopiero później ewentualny zabieg.</h2>
             <p>
               Ta ścieżka nie powinna być automatyczna. Każda sytuacja wymaga indywidualnego podejścia,
@@ -186,7 +305,7 @@ const relatedPages = [
           <span class="heart-big-mark" aria-hidden="true">♥</span>
 
           <div>
-            <p class="section-kicker">Sercem malowane</p>
+            <p class="section-kicker heart-kicker-chip heart-kicker-chip-light" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:#ffffff;-webkit-text-fill-color:#ffffff;background:rgba(255,255,255,0.16);border:1px solid rgba(255,255,255,0.22);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">Sercem malowane</p>
             <h2>Czerwony kafelek zostaje symbolem tej inicjatywy.</h2>
           </div>
 
@@ -200,7 +319,7 @@ const relatedPages = [
       <section class="heart-rules-section">
         <div class="container heart-rules-grid">
           <div class="heart-rules-card">
-            <p class="section-kicker">Ważne zasady</p>
+            <p class="section-kicker heart-kicker-chip" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:var(--color-turquoise-dark,#0f7773);-webkit-text-fill-color:var(--color-turquoise-dark,#0f7773);background:rgba(219,246,243,0.72);border:1px solid rgba(56,187,181,0.16);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">Ważne zasady</p>
             <h2>Co trzeba wiedzieć przed kontaktem?</h2>
             <p>
               W przypadku inicjatyw specjalnych najważniejsza jest uczciwa rozmowa i bezpieczna kwalifikacja.
@@ -222,7 +341,7 @@ const relatedPages = [
       <section class="heart-related-section">
         <div class="container">
           <div class="heart-section-heading">
-            <p class="section-kicker">Powiązane podstrony</p>
+            <p class="section-kicker heart-kicker-chip" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:var(--color-turquoise-dark,#0f7773);-webkit-text-fill-color:var(--color-turquoise-dark,#0f7773);background:rgba(219,246,243,0.72);border:1px solid rgba(56,187,181,0.16);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">Powiązane podstrony</p>
             <h2>Zobacz miejsca, które pomagają lepiej zrozumieć styl pracy.</h2>
           </div>
 
@@ -241,7 +360,7 @@ const relatedPages = [
       <section class="heart-faq-section">
         <div class="container">
           <div class="heart-section-heading">
-            <p class="section-kicker">Najczęstsze pytania</p>
+            <p class="section-kicker heart-kicker-chip" style="display:inline-flex;width:fit-content;max-width:100%;min-height:32px;align-items:center;justify-content:center;margin:0 0 18px;padding:0 13px;border-radius:999px;color:var(--color-turquoise-dark,#0f7773);-webkit-text-fill-color:var(--color-turquoise-dark,#0f7773);background:rgba(219,246,243,0.72);border:1px solid rgba(56,187,181,0.16);box-shadow:none;font-size:0.7rem;font-weight:850;line-height:1;letter-spacing:0.17em;text-transform:uppercase;text-shadow:none;">Najczęstsze pytania</p>
             <h2>Co warto wiedzieć o #SercemMalowane?</h2>
           </div>
 
@@ -974,6 +1093,50 @@ const relatedPages = [
     .heart-symbol,
     .heart-big-mark {
       animation: none !important;
+    }
+  }
+
+
+  /* V4 — SercemMalowane wymuszone kapsuły inline */
+
+  .heart-kicker-chip {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    box-shadow: none !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+    text-shadow: none !important;
+  }
+
+  .heart-kicker-chip-light {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  @media (max-width: 760px) {
+    .heart-kicker-chip {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1 !important;
     }
   }
 
