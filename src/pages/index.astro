@@ -682,37 +682,37 @@ const structuredData = [
           </div>
 
           <div class="international-city-grid">
-            <article class="international-city-card">
+            <article class="international-city-card international-city-card-flag international-city-card-turkey">
               <span>Turcja</span>
               <h3>Ankara</h3>
               <p>Wydarzenia branżowe, wymiana doświadczeń i kontakt z inną estetyką pracy PMU.</p>
             </article>
 
-            <article class="international-city-card international-city-card-pink">
+            <article class="international-city-card international-city-card-flag international-city-card-hungary">
               <span>Węgry</span>
               <h3>Budapeszt</h3>
               <p>Spotkania i edukacja w środowisku linergistek pracujących na różnych technikach.</p>
             </article>
 
-            <article class="international-city-card">
+            <article class="international-city-card international-city-card-flag international-city-card-france">
               <span>Francja</span>
               <h3>Lyon</h3>
               <p>Scena PMU, wystąpienia, konkursy i obecność wśród międzynarodowych specjalistek.</p>
             </article>
 
-            <article class="international-city-card">
+            <article class="international-city-card international-city-card-flag international-city-card-germany">
               <span>Niemcy</span>
               <h3>Monachium</h3>
               <p>Miejsce ważnego sukcesu konkursowego i potwierdzenia jakości techniki włosa.</p>
             </article>
 
-            <article class="international-city-card international-city-card-turquoise">
+            <article class="international-city-card international-city-card-flag international-city-card-germany">
               <span>Niemcy</span>
               <h3>Düsseldorf</h3>
               <p>Edukacja, profesjonalizacja i praca w standardzie europejskiego PMU.</p>
             </article>
 
-            <article class="international-city-card">
+            <article class="international-city-card international-city-card-flag international-city-card-indonesia">
               <span>Indonezja</span>
               <h3>PMU 2026</h3>
               <p>Międzynarodowa perspektywa, jurorowanie i obecność marki Bogusława Herda poza Europą.</p>
@@ -1507,6 +1507,113 @@ const structuredData = [
       font-size: clamp(2.05rem, 10vw, 3.05rem) !important;
       line-height: 1.02 !important;
       letter-spacing: -0.066em !important;
+    }
+  }
+
+
+  /* V11 — strona główna: kafelki miast w kolorach flag */
+
+  /*
+    Kafelki miast — inspiracja kolorami flag.
+    Nie robimy dosłownych flag, tylko eleganckie akcenty: pasek, poświata i kolor etykiety.
+  */
+  :global(.home-page .international-city-card-flag) {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+    background:
+      radial-gradient(circle at 94% 12%, var(--flag-glow, rgba(56, 187, 181, 0.08)), transparent 13rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
+    border: 1px solid var(--flag-border, rgba(183, 101, 118, 0.13)) !important;
+    box-shadow: 0 22px 58px var(--flag-shadow, rgba(51, 31, 44, 0.07)) !important;
+  }
+
+  :global(.home-page .international-city-card-flag::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 0 auto 0 !important;
+    z-index: 1 !important;
+    height: 7px !important;
+    background: var(--flag-strip, linear-gradient(90deg, #ffffff, #d992a2)) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-city-card-flag::after) {
+    content: "" !important;
+    position: absolute !important;
+    right: -4.6rem !important;
+    top: -4.6rem !important;
+    z-index: 0 !important;
+    width: 13rem !important;
+    height: 13rem !important;
+    border-radius: 999px !important;
+    background: radial-gradient(circle, var(--flag-orb, rgba(183, 101, 118, 0.14)), transparent 70%) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-city-card-flag > *) {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  :global(.home-page .international-city-card-flag span) {
+    color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
+    -webkit-text-fill-color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
+  }
+
+  :global(.home-page .international-city-card-flag h3) {
+    color: var(--color-text, #17151d) !important;
+    -webkit-text-fill-color: var(--color-text, #17151d) !important;
+  }
+
+  :global(.home-page .international-city-card-turkey) {
+    --flag-strip: linear-gradient(90deg, #e30a17 0%, #e30a17 72%, #ffffff 72%, #ffffff 100%);
+    --flag-glow: rgba(227, 10, 23, 0.10);
+    --flag-orb: rgba(227, 10, 23, 0.16);
+    --flag-border: rgba(227, 10, 23, 0.16);
+    --flag-shadow: rgba(227, 10, 23, 0.08);
+    --flag-label: #b30814;
+  }
+
+  :global(.home-page .international-city-card-hungary) {
+    --flag-strip: linear-gradient(90deg, #ce2939 0%, #ce2939 33.3%, #ffffff 33.3%, #ffffff 66.6%, #477050 66.6%, #477050 100%);
+    --flag-glow: rgba(71, 112, 80, 0.10);
+    --flag-orb: rgba(206, 41, 57, 0.12);
+    --flag-border: rgba(71, 112, 80, 0.16);
+    --flag-shadow: rgba(71, 112, 80, 0.07);
+    --flag-label: #477050;
+  }
+
+  :global(.home-page .international-city-card-france) {
+    --flag-strip: linear-gradient(90deg, #0055a4 0%, #0055a4 33.3%, #ffffff 33.3%, #ffffff 66.6%, #ef4135 66.6%, #ef4135 100%);
+    --flag-glow: rgba(0, 85, 164, 0.10);
+    --flag-orb: rgba(239, 65, 53, 0.12);
+    --flag-border: rgba(0, 85, 164, 0.15);
+    --flag-shadow: rgba(0, 85, 164, 0.07);
+    --flag-label: #0055a4;
+  }
+
+  :global(.home-page .international-city-card-germany) {
+    --flag-strip: linear-gradient(90deg, #1d1d1d 0%, #1d1d1d 33.3%, #dd0000 33.3%, #dd0000 66.6%, #ffce00 66.6%, #ffce00 100%);
+    --flag-glow: rgba(255, 206, 0, 0.12);
+    --flag-orb: rgba(221, 0, 0, 0.12);
+    --flag-border: rgba(221, 0, 0, 0.14);
+    --flag-shadow: rgba(29, 29, 29, 0.06);
+    --flag-label: #8f1020;
+  }
+
+  :global(.home-page .international-city-card-indonesia) {
+    --flag-strip: linear-gradient(90deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
+    --flag-glow: rgba(206, 17, 38, 0.11);
+    --flag-orb: rgba(206, 17, 38, 0.14);
+    --flag-border: rgba(206, 17, 38, 0.15);
+    --flag-shadow: rgba(206, 17, 38, 0.07);
+    --flag-label: #b30d20;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-city-card-flag::before) {
+      height: 6px !important;
     }
   }
 
