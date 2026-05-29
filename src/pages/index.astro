@@ -681,88 +681,88 @@ const structuredData = [
             </div>
           </div>
 
-          <div class="international-city-grid international-event-grid">
-            <article class="international-city-card international-city-card-flag international-event-card international-city-card-turkey">
-              <div class="event-card-top">
-                <span>Turcja</span>
+          <div class="international-city-grid international-badge-grid">
+            <article class="international-city-card international-badge-card international-badge-card-turkey">
+              <div class="badge-place">
+                <span>TR</span>
                 <h3>Ankara</h3>
               </div>
 
-              <div class="event-card-symbol" aria-hidden="true">☾★</div>
+              <strong class="badge-main-word">SPEAKER</strong>
 
-              <div class="event-card-panel">
-                <strong>Workshop · Speaker</strong>
-                <p>Zaproszenie na workshop oraz pokaz techniki Silky Hairstroke Brows jako międzynarodowy trener Long-Time-Liner®.</p>
+              <div class="badge-caption">
+                <span>Long-Time-Liner®</span>
+                <span>Silky Hairstroke Brows</span>
               </div>
             </article>
 
-            <article class="international-city-card international-city-card-flag international-event-card international-city-card-hungary">
-              <div class="event-card-top">
-                <span>Węgry</span>
+            <article class="international-city-card international-badge-card international-badge-card-hungary">
+              <div class="badge-place">
+                <span>HU</span>
                 <h3>Budapeszt</h3>
               </div>
 
-              <div class="event-card-symbol" aria-hidden="true">PMU</div>
+              <strong class="badge-main-word">LTL</strong>
 
-              <div class="event-card-panel">
-                <strong>Workshop · Speaker</strong>
-                <p>Zaproszenie na workshop oraz pokaz techniki Silky Hairstroke Brows jako międzynarodowy trener Long-Time-Liner®.</p>
+              <div class="badge-caption">
+                <span>Workshop</span>
+                <span>Speaker</span>
               </div>
             </article>
 
-            <article class="international-city-card international-city-card-flag international-event-card international-city-card-france">
-              <div class="event-card-top">
-                <span>Francja</span>
+            <article class="international-city-card international-badge-card international-badge-card-france">
+              <div class="badge-place">
+                <span>FR</span>
                 <h3>Lyon</h3>
               </div>
 
-              <div class="event-card-symbol" aria-hidden="true">FR</div>
+              <strong class="badge-main-word">JUROR</strong>
 
-              <div class="event-card-panel">
-                <strong>Speaker · Juror</strong>
-                <p>Speaker i juror Mistrzostw Francji PMU — obecność na scenie branżowej wśród międzynarodowych specjalistek.</p>
+              <div class="badge-caption">
+                <span>Mistrzostwa Francji PMU</span>
+                <span>Speaker</span>
               </div>
             </article>
 
-            <article class="international-city-card international-city-card-flag international-event-card international-city-card-germany">
-              <div class="event-card-top">
-                <span>Niemcy</span>
+            <article class="international-city-card international-badge-card international-badge-card-germany">
+              <div class="badge-place">
+                <span>DE</span>
                 <h3>Monachium</h3>
               </div>
 
-              <div class="event-card-symbol" aria-hidden="true">VICE</div>
+              <strong class="badge-main-word">VICE</strong>
 
-              <div class="event-card-panel">
-                <strong>Wicemistrzostwo świata</strong>
-                <p>Wicemistrzostwo świata PMU — ważny sukces konkursowy i potwierdzenie jakości techniki włosa maszynowego.</p>
+              <div class="badge-caption">
+                <span>Wicemistrzostwo świata</span>
+                <span>PMU</span>
               </div>
             </article>
 
-            <article class="international-city-card international-city-card-flag international-event-card international-city-card-germany">
-              <div class="event-card-top">
-                <span>Niemcy</span>
+            <article class="international-city-card international-badge-card international-badge-card-germany">
+              <div class="badge-place">
+                <span>DE</span>
                 <h3>Düsseldorf</h3>
               </div>
 
-              <div class="event-card-symbol" aria-hidden="true">LTL</div>
+              <strong class="badge-main-word">LTL</strong>
 
-              <div class="event-card-panel">
-                <strong>Workshop · Speaker</strong>
-                <p>Zaproszenie na workshop oraz pokaz techniki Silky Hairstroke Brows jako międzynarodowy trener Long-Time-Liner®.</p>
+              <div class="badge-caption">
+                <span>Workshop</span>
+                <span>Speaker · Silky</span>
               </div>
             </article>
 
-            <article class="international-city-card international-city-card-flag international-event-card international-city-card-indonesia">
-              <div class="event-card-top">
-                <span>Indonezja</span>
+            <article class="international-city-card international-badge-card international-badge-card-indonesia">
+              <div class="badge-place">
+                <span>ID</span>
                 <h3>PMU 2026</h3>
               </div>
 
-              <div class="event-card-symbol" aria-hidden="true">WORLD</div>
+              <strong class="badge-main-word">WORLD</strong>
 
-              <div class="event-card-panel">
-                <strong>Speaker · Juror</strong>
-                <p>Speaker i juror Mistrzostw Świata PMU — międzynarodowa obecność marki Bogusława Herda poza Europą.</p>
+              <div class="badge-caption">
+                <span>Speaker</span>
+                <span>Juror</span>
               </div>
             </article>
           </div>
@@ -2175,6 +2175,358 @@ const structuredData = [
     :global(.home-page .international-event-card::before) {
       animation: none !important;
       opacity: 0 !important;
+    }
+  }
+
+
+  /* V15 — strona główna: eventowe kafelki pełne flagi i białe napisy */
+
+  /*
+    V15: pełne kolory flag, bez połysku i poświat.
+    Państwo + miejscowość są białe, osadzone na ciemnym panelu,
+    żeby nie zlewały się z jasnymi fragmentami flag.
+  */
+  :global(.home-page .international-event-card) {
+    min-height: 350px !important;
+    padding: 24px !important;
+    background: var(--event-flag-bg) !important;
+    border: 0 !important;
+    box-shadow: 0 24px 58px rgba(18, 17, 22, 0.16) !important;
+  }
+
+  :global(.home-page .international-event-card::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    height: auto !important;
+    border-radius: inherit !important;
+    background: var(--event-flag-bg) !important;
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-event-card::after) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.08) 42%, rgba(0, 0, 0, 0.36) 100%) !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .event-card-top) {
+    width: 100% !important;
+    display: grid !important;
+    gap: 8px !important;
+    padding: 16px 16px 15px !important;
+    border-radius: 24px !important;
+    background: rgba(0, 0, 0, 0.34) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+
+  :global(.home-page .event-card-top span) {
+    display: block !important;
+    width: fit-content !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    font-size: 0.72rem !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.45) !important;
+  }
+
+  :global(.home-page .event-card-top h3) {
+    margin: 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(2.2rem, 3.35vw, 3.85rem) !important;
+    font-weight: 850 !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.08em !important;
+    text-shadow: 0 6px 24px rgba(0, 0, 0, 0.46) !important;
+  }
+
+  :global(.home-page .event-card-symbol) {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 3 !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin: 20px 0 18px auto !important;
+    padding: 10px 14px 9px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(0, 0, 0, 0.32) !important;
+    border: 1px solid rgba(255, 255, 255, 0.24) !important;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16) !important;
+    backdrop-filter: blur(8px) !important;
+    font-size: 0.74rem !important;
+    font-weight: 950 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.38) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-city-card-turkey .event-card-symbol) {
+    font-size: 1.75rem !important;
+    letter-spacing: -0.12em !important;
+    line-height: 0.85 !important;
+    padding: 12px 18px 11px !important;
+    text-transform: none !important;
+  }
+
+  :global(.home-page .event-card-panel) {
+    margin-top: auto !important;
+    padding: 17px 17px 16px !important;
+    border-radius: 24px !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+    border: 1px solid rgba(255, 255, 255, 0.62) !important;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  :global(.home-page .event-card-panel strong) {
+    display: block !important;
+    margin-bottom: 8px !important;
+    color: var(--event-panel-strong, #17151d) !important;
+    -webkit-text-fill-color: var(--event-panel-strong, #17151d) !important;
+    font-size: 0.78rem !important;
+    font-weight: 950 !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.10em !important;
+    text-transform: uppercase !important;
+  }
+
+  :global(.home-page .event-card-panel p) {
+    margin: 0 !important;
+    color: #2f2a31 !important;
+    -webkit-text-fill-color: #2f2a31 !important;
+    font-size: 0.86rem !important;
+    font-weight: 540 !important;
+    line-height: 1.46 !important;
+  }
+
+  :global(.home-page .international-city-card-turkey) {
+    --event-flag-bg: #e30a17;
+    --event-panel-strong: #a50712;
+  }
+
+  :global(.home-page .international-city-card-hungary) {
+    --event-flag-bg: linear-gradient(180deg, #ce2939 0%, #ce2939 33.333%, #ffffff 33.333%, #ffffff 66.666%, #477050 66.666%, #477050 100%);
+    --event-panel-strong: #477050;
+  }
+
+  :global(.home-page .international-city-card-france) {
+    --event-flag-bg: linear-gradient(90deg, #0055a4 0%, #0055a4 33.333%, #ffffff 33.333%, #ffffff 66.666%, #ef4135 66.666%, #ef4135 100%);
+    --event-panel-strong: #0055a4;
+  }
+
+  :global(.home-page .international-city-card-germany) {
+    --event-flag-bg: linear-gradient(180deg, #171717 0%, #171717 33.333%, #dd0000 33.333%, #dd0000 66.666%, #ffce00 66.666%, #ffce00 100%);
+    --event-panel-strong: #8f1020;
+  }
+
+  :global(.home-page .international-city-card-indonesia) {
+    --event-flag-bg: linear-gradient(180deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
+    --event-panel-strong: #b30d20;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-event-card) {
+      min-height: 330px !important;
+      padding: 20px !important;
+    }
+
+    :global(.home-page .event-card-top) {
+      padding: 15px !important;
+      border-radius: 22px !important;
+    }
+
+    :global(.home-page .event-card-top h3) {
+      font-size: clamp(2.1rem, 12vw, 3.35rem) !important;
+      line-height: 0.92 !important;
+    }
+
+    :global(.home-page .event-card-symbol) {
+      margin: 18px 0 16px auto !important;
+    }
+
+    :global(.home-page .event-card-panel) {
+      padding: 16px !important;
+      border-radius: 22px !important;
+    }
+  }
+
+
+  /* V16 — strona główna: finalne badge cards z flagą */
+
+  /*
+    V16: finalne kafelki międzynarodowe.
+    Jedna karta = pełna żywa flaga, biała typografia, duży napis jak EDU/SHB/LTL.
+    Bez opisów i bez poświat szablonu.
+  */
+  :global(.home-page .international-badge-grid) {
+    align-items: stretch !important;
+  }
+
+  :global(.home-page .international-badge-card) {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    min-height: 310px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding: 26px !important;
+    border: 0 !important;
+    border-radius: 34px !important;
+    background: var(--badge-flag) !important;
+    box-shadow: 0 24px 58px rgba(18, 17, 22, 0.18) !important;
+  }
+
+  :global(.home-page .international-badge-card::before),
+  :global(.home-page .international-badge-card::after) {
+    content: none !important;
+    display: none !important;
+  }
+
+  :global(.home-page .international-badge-card > *) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  :global(.home-page .badge-place) {
+    display: grid !important;
+    gap: 5px !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+  }
+
+  :global(.home-page .badge-place span) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: 0.78rem !important;
+    font-weight: 950 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.42) !important;
+  }
+
+  :global(.home-page .badge-place h3) {
+    margin: 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(1.9rem, 2.55vw, 3.05rem) !important;
+    font-weight: 830 !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.072em !important;
+    text-shadow: 0 5px 22px rgba(0, 0, 0, 0.48) !important;
+  }
+
+  :global(.home-page .badge-main-word) {
+    display: block !important;
+    align-self: center !important;
+    width: 100% !important;
+    margin: auto 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(3.25rem, 5.6vw, 7.2rem) !important;
+    font-weight: 950 !important;
+    line-height: 0.78 !important;
+    letter-spacing: -0.125em !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    text-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.34),
+      0 1px 0 rgba(255, 255, 255, 0.16) !important;
+  }
+
+  :global(.home-page .badge-caption) {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  :global(.home-page .badge-caption span) {
+    display: inline-flex !important;
+    min-height: 30px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 11px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(0, 0, 0, 0.24) !important;
+    border: 1px solid rgba(255, 255, 255, 0.26) !important;
+    font-size: 0.68rem !important;
+    font-weight: 880 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.34) !important;
+  }
+
+  :global(.home-page .international-badge-card-turkey) {
+    --badge-flag: #e30a17;
+  }
+
+  :global(.home-page .international-badge-card-hungary) {
+    --badge-flag: linear-gradient(180deg, #ce2939 0%, #ce2939 33.333%, #ffffff 33.333%, #ffffff 66.666%, #477050 66.666%, #477050 100%);
+  }
+
+  :global(.home-page .international-badge-card-france) {
+    --badge-flag: linear-gradient(90deg, #0055a4 0%, #0055a4 33.333%, #ffffff 33.333%, #ffffff 66.666%, #ef4135 66.666%, #ef4135 100%);
+  }
+
+  :global(.home-page .international-badge-card-germany) {
+    --badge-flag: linear-gradient(180deg, #171717 0%, #171717 33.333%, #dd0000 33.333%, #dd0000 66.666%, #ffce00 66.666%, #ffce00 100%);
+  }
+
+  :global(.home-page .international-badge-card-indonesia) {
+    --badge-flag: linear-gradient(180deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-badge-card) {
+      min-height: 286px !important;
+      padding: 22px !important;
+      border-radius: 28px !important;
+    }
+
+    :global(.home-page .badge-place h3) {
+      font-size: clamp(1.85rem, 10vw, 2.95rem) !important;
+    }
+
+    :global(.home-page .badge-main-word) {
+      font-size: clamp(3.1rem, 17vw, 5.6rem) !important;
+      letter-spacing: -0.12em !important;
+    }
+
+    :global(.home-page .badge-caption span) {
+      min-height: 29px !important;
+      padding: 0 10px !important;
+      font-size: 0.62rem !important;
+      letter-spacing: 0.06em !important;
     }
   }
 
