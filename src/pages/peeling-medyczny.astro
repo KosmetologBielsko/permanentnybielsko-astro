@@ -713,4 +713,115 @@ const structuredData = [
     }
   }
 
+
+
+  /* V2 — poprawka mobile: pełne krawędzie i wyśrodkowanie kafli */
+  .cosmetic-bridge-page,
+  .cosmetic-bridge-page * {
+    box-sizing: border-box;
+  }
+
+  .cosmetic-bridge-page {
+    overflow-x: clip;
+  }
+
+  .cosmetic-bridge-page .container,
+  .cosmetic-bridge-grid,
+  .cosmetic-bridge-info-grid,
+  .cosmetic-bridge-link-grid {
+    min-width: 0;
+  }
+
+  .cosmetic-bridge-copy,
+  .cosmetic-bridge-card,
+  .cosmetic-bridge-info-card,
+  .cosmetic-bridge-link-card,
+  .cosmetic-bridge-final-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .cosmetic-bridge-text-link,
+  .cosmetic-bridge-card-link,
+  .cosmetic-bridge-visible-url,
+  .cosmetic-bridge-info-card a,
+  .cosmetic-bridge-final-card a:not(.button-primary) {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  @media (max-width: 760px) {
+    .cosmetic-bridge-page .container {
+      width: 100%;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .cosmetic-bridge-grid,
+    .cosmetic-bridge-info-grid,
+    .cosmetic-bridge-link-grid {
+      width: 100%;
+      max-width: 100%;
+      grid-template-columns: minmax(0, 1fr) !important;
+      justify-items: stretch;
+    }
+
+    .cosmetic-bridge-copy,
+    .cosmetic-bridge-card,
+    .cosmetic-bridge-info-card,
+    .cosmetic-bridge-link-card,
+    .cosmetic-bridge-final-card {
+      width: 100%;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cosmetic-bridge-copy,
+    .cosmetic-bridge-card {
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+
+    .cosmetic-bridge-info-card,
+    .cosmetic-bridge-link-card,
+    .cosmetic-bridge-final-card {
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+
+    .cosmetic-bridge-actions {
+      width: 100%;
+    }
+
+    .cosmetic-bridge-actions a,
+    .cosmetic-bridge-final-card .button-primary {
+      width: 100%;
+      max-width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .cosmetic-bridge-page .container {
+      padding-left: 14px;
+      padding-right: 14px;
+    }
+
+    .cosmetic-bridge-copy,
+    .cosmetic-bridge-card,
+    .cosmetic-bridge-info-card,
+    .cosmetic-bridge-link-card,
+    .cosmetic-bridge-final-card {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+  }
+
 </style>
