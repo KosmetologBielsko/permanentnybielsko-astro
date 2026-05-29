@@ -1,0 +1,833 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const pageUrl = "https://permanentnybielsko.com/oferta-permanentny-kosmetolog/";
+const canonicalOfferUrl = "https://permanentnybielsko.com/makijaz-permanentny-bielsko/";
+const pageTitle = "Oferta makijażu permanentnego Bielsko-Biała | Bogusława Herda";
+const pageDescription =
+  "Szukasz oferty makijażu permanentnego w Bielsku-Białej? Aktualna oferta PMU Bogusława Herda znajduje się na podstronie permanentnybielsko.com/makijaz-permanentny-bielsko/.";
+
+const offerLinks = [
+  {
+    number: "01",
+    label: "PMU",
+    title: "Makijaż permanentny Bielsko-Biała",
+    text: "Główna, aktualna podstrona oferty PMU: brwi, usta, kreski, korekty i naturalny efekt.",
+    href: "/makijaz-permanentny-bielsko/",
+    visibleUrl: "permanentnybielsko.com/makijaz-permanentny-bielsko/",
+    featured: true
+  },
+  {
+    number: "02",
+    label: "Brwi",
+    title: "Brwi permanentne",
+    text: "Naturalne brwi, technika włosa, cieniowanie, włos z cieniem i Silky Hairstroke Brows.",
+    href: "/makijaz-permanentny-brwi/",
+    visibleUrl: "permanentnybielsko.com/makijaz-permanentny-brwi/"
+  },
+  {
+    number: "03",
+    label: "Usta",
+    title: "Makijaż permanentny ust",
+    text: "Odświeżenie koloru ust, wyrównanie czerwieni wargowej i subtelny efekt bez przerysowania.",
+    href: "/makijaz-permanentny-ust/",
+    visibleUrl: "permanentnybielsko.com/makijaz-permanentny-ust/"
+  },
+  {
+    number: "04",
+    label: "Kreski",
+    title: "Makijaż permanentny oczu",
+    text: "Zagęszczenie linii rzęs i kreski permanentne dopasowane do budowy oka.",
+    href: "/makijaz-permanentny-oczu/",
+    visibleUrl: "permanentnybielsko.com/makijaz-permanentny-oczu/"
+  },
+  {
+    number: "05",
+    label: "Usuwanie",
+    title: "Usuwanie PMU",
+    text: "Rozjaśnianie, korekta starego makijażu permanentnego i przygotowanie skóry do nowej pigmentacji.",
+    href: "/usuwanie-makijazu-permanentnego/",
+    visibleUrl: "permanentnybielsko.com/usuwanie-makijazu-permanentnego/"
+  },
+  {
+    number: "06",
+    label: "Cennik",
+    title: "Cennik PMU",
+    text: "Ceny konsultacji, zabiegów, odświeżeń, usług specjalnych i usuwania makijażu permanentnego.",
+    href: "/cennik-makijaz-permanentny/",
+    visibleUrl: "permanentnybielsko.com/cennik-makijaz-permanentny/"
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "mainEntity": {
+      "@id": `${canonicalOfferUrl}#service`
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Oferta makijażu permanentnego",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${pageUrl}#offer-links`,
+    "name": "Główne obszary oferty makijażu permanentnego",
+    "itemListElement": offerLinks.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.title,
+      "description": item.text,
+      "url": new URL(item.href, pageUrl).toString()
+    }))
+  }
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/makijaz-permanentny-bielsko/"
+  structuredData={structuredData}
+>
+  <div class="offer-bridge-page">
+    <Header />
+
+    <main>
+      <section class="offer-bridge-hero">
+        <div class="offer-bridge-bg offer-bridge-bg-one"></div>
+        <div class="offer-bridge-bg offer-bridge-bg-two"></div>
+
+        <div class="container offer-bridge-grid">
+          <div class="offer-bridge-copy">
+            <p class="section-kicker">Oferta PMU</p>
+
+            <h1>Oferta makijażu permanentnego w Bielsku-Białej — aktualne informacje.</h1>
+
+            <p class="offer-bridge-lead">
+              Jeśli szukasz oferty makijażu permanentnego u Bogusława Herda, przejdź do aktualnej
+              podstrony z pełnym opisem usług PMU:
+              <a class="offer-bridge-text-link" href="/makijaz-permanentny-bielsko/">
+                permanentnybielsko.com/makijaz-permanentny-bielsko/
+              </a>.
+            </p>
+
+            <p class="offer-bridge-lead offer-bridge-lead-small">
+              Znajdziesz tam najważniejsze informacje o brwiach permanentnych, ustach, kreskach,
+              korektach, usuwaniu makijażu permanentnego oraz konsultacji przed zabiegiem.
+            </p>
+
+            <div class="offer-bridge-actions">
+              <a class="button-primary" href="/makijaz-permanentny-bielsko/">
+                Przejdź do głównej oferty PMU
+              </a>
+
+              <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Umów wizytę przez Booksy
+              </a>
+            </div>
+          </div>
+
+          <aside class="offer-bridge-card" aria-label="Aktualna oferta makijażu permanentnego">
+            <span class="offer-bridge-big-mark" aria-hidden="true">PMU</span>
+
+            <p class="offer-bridge-label">Aktualna oferta</p>
+
+            <h2>Makijaż permanentny Bielsko-Biała</h2>
+
+            <p>
+              Pełny opis usług, najważniejsze zakresy zabiegów, informacje o naturalnym efekcie
+              i linki do szczegółowych podstron znajdziesz tutaj:
+            </p>
+
+            <a class="offer-bridge-card-link" href="/makijaz-permanentny-bielsko/">
+              permanentnybielsko.com/makijaz-permanentny-bielsko/
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="offer-bridge-reason-section">
+        <div class="container offer-bridge-reason-grid">
+          <article class="offer-bridge-reason-card">
+            <p class="section-kicker">Dla klientek</p>
+            <h2>Najważniejsze informacje o PMU są teraz w jednym miejscu.</h2>
+            <p>
+              Aktualna oferta została uporządkowana tak, aby łatwiej przejść od ogólnego opisu
+              makijażu permanentnego do konkretnych zabiegów: brwi, ust, kresek, usuwania PMU
+              oraz cennika.
+            </p>
+          </article>
+
+          <article class="offer-bridge-reason-card offer-bridge-reason-card-rose">
+            <p class="section-kicker">Naturalny efekt</p>
+            <h2>Oferta prowadzi do zabiegów dopasowanych do urody, nie do przypadkowej pigmentacji.</h2>
+            <p>
+              Główna podstrona
+              <a class="offer-bridge-text-link" href="/makijaz-permanentny-bielsko/">permanentnybielsko.com/makijaz-permanentny-bielsko/</a>
+              pokazuje kierunek pracy gabinetu: naturalne brwi, subtelne usta, kreski dopasowane do oka
+              i odpowiedzialną kwalifikację przed zabiegiem.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="offer-bridge-links-section">
+        <div class="container">
+          <div class="offer-bridge-section-heading">
+            <p class="section-kicker">Aktualna oferta</p>
+            <h2>Wybierz właściwy zakres makijażu permanentnego.</h2>
+            <p>
+              Poniżej znajdziesz aktywne linki do najważniejszych podstron oferty PMU:
+              głównej oferty, brwi, ust, kresek, usuwania makijażu permanentnego i cennika.
+            </p>
+          </div>
+
+          <div class="offer-bridge-link-grid">
+            {offerLinks.map((item) => (
+              <a
+                class:list={["offer-bridge-link-card", { "offer-bridge-link-card-featured": item.featured }]}
+                href={item.href}
+              >
+                {item.featured && (
+                  <span class="offer-bridge-card-mark" aria-hidden="true">PMU</span>
+                )}
+
+                <span class="offer-bridge-card-number">{item.number}</span>
+                <p class="offer-bridge-card-label">{item.label}</p>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <span class="offer-bridge-visible-url">{item.visibleUrl}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="offer-bridge-final-cta">
+        <div class="container offer-bridge-final-card">
+          <p class="section-kicker">Główna oferta PMU</p>
+          <h2>Zobacz pełną ofertę makijażu permanentnego.</h2>
+          <p>
+            Przejdź do aktualnej strony oferty PMU:
+            <a class="offer-bridge-text-link" href="/makijaz-permanentny-bielsko/">permanentnybielsko.com/makijaz-permanentny-bielsko/</a>.
+            To najlepszy punkt startowy, jeśli rozważasz brwi permanentne, usta, kreski albo konsultację.
+          </p>
+
+          <a class="button-primary" href="/makijaz-permanentny-bielsko/">
+            Zobacz makijaż permanentny Bielsko-Biała
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .offer-bridge-page {
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(56, 187, 181, 0.11), transparent 27rem),
+      radial-gradient(circle at 92% 14%, rgba(243, 199, 211, 0.20), transparent 29rem),
+      linear-gradient(180deg, #ffffff 0%, #fff9fb 46%, #ffffff 100%);
+  }
+
+  .offer-bridge-hero {
+    position: relative;
+    min-height: 74vh;
+    padding: 154px 0 86px;
+  }
+
+  .offer-bridge-bg {
+    position: absolute;
+    z-index: 0;
+    border-radius: 999px;
+    filter: blur(12px);
+    pointer-events: none;
+  }
+
+  .offer-bridge-bg-one {
+    top: 10%;
+    left: -9%;
+    width: 34vw;
+    height: 34vw;
+    background: rgba(56, 187, 181, 0.12);
+  }
+
+  .offer-bridge-bg-two {
+    right: -8%;
+    bottom: 3%;
+    width: 38vw;
+    height: 38vw;
+    background: rgba(243, 199, 211, 0.24);
+  }
+
+  .offer-bridge-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr);
+    gap: clamp(26px, 4vw, 54px);
+    align-items: stretch;
+  }
+
+  .offer-bridge-copy,
+  .offer-bridge-card,
+  .offer-bridge-reason-card,
+  .offer-bridge-link-card,
+  .offer-bridge-final-card {
+    border: 1px solid rgba(183, 101, 118, 0.13);
+    box-shadow: 0 24px 70px rgba(51, 31, 44, 0.07);
+  }
+
+  .offer-bridge-copy {
+    padding: clamp(30px, 5vw, 58px);
+    border-radius: 42px;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(56, 187, 181, 0.08), transparent 15rem),
+      rgba(255, 255, 255, 0.84);
+    backdrop-filter: blur(16px);
+  }
+
+  .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 32px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 18px;
+    padding: 0 13px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    font-size: 0.7rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .offer-bridge-copy h1 {
+    max-width: 1080px;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(3.05rem, 5.45vw, 6.25rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .offer-bridge-lead {
+    max-width: 840px;
+    margin: 24px 0 0;
+    color: var(--color-muted);
+    font-size: 1.08rem;
+    line-height: 1.72;
+  }
+
+  .offer-bridge-lead-small {
+    margin-top: 14px;
+    font-size: 1.02rem;
+  }
+
+  .offer-bridge-lead strong {
+    color: var(--color-text);
+    font-weight: 820;
+  }
+
+  .offer-bridge-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .offer-bridge-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(34px, 4vw, 56px);
+    border-radius: 42px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: offer-bridge-turquoise-flow 13s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
+  }
+
+  .offer-bridge-card::before,
+  .offer-bridge-link-card-featured::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+    transform: translateX(-72%);
+    animation: offer-bridge-panel-shine 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .offer-bridge-big-mark {
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.16);
+    font-size: clamp(5.2rem, 8vw, 9rem);
+    font-weight: 900;
+    line-height: 0.78;
+    letter-spacing: -0.12em;
+    pointer-events: none;
+  }
+
+  .offer-bridge-label,
+  .offer-bridge-card h2,
+  .offer-bridge-card p {
+    position: relative;
+    z-index: 2;
+  }
+
+  .offer-bridge-label {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 32px;
+    align-items: center;
+    margin: 0 0 auto;
+    padding: 0 13px;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  .offer-bridge-card h2 {
+    margin: 58px 0 0;
+    color: #ffffff;
+    font-size: clamp(1.9rem, 2.6vw, 2.85rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.067em;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
+  }
+
+  .offer-bridge-card p:not(.offer-bridge-label) {
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.62;
+  }
+
+  .offer-bridge-reason-section,
+  .offer-bridge-links-section,
+  .offer-bridge-final-cta {
+    padding: 88px 0;
+  }
+
+  .offer-bridge-reason-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .offer-bridge-reason-card,
+  .offer-bridge-final-card {
+    padding: clamp(28px, 4vw, 46px);
+    border-radius: 36px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      rgba(255, 255, 255, 0.9);
+  }
+
+  .offer-bridge-reason-card-rose {
+    background:
+      radial-gradient(circle at 94% 12%, rgba(201, 127, 143, 0.11), transparent 14rem),
+      rgba(255, 255, 255, 0.92);
+  }
+
+  .offer-bridge-reason-card h2,
+  .offer-bridge-section-heading h2,
+  .offer-bridge-final-card h2 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(2.35rem, 4vw, 4.2rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .offer-bridge-reason-card p,
+  .offer-bridge-section-heading p,
+  .offer-bridge-final-card p {
+    color: var(--color-muted);
+    font-size: 1.04rem;
+    line-height: 1.68;
+  }
+
+  .offer-bridge-reason-card a {
+    color: var(--color-turquoise-dark);
+    font-weight: 820;
+    text-decoration: none;
+  }
+
+  .offer-bridge-section-heading {
+    max-width: 980px;
+    margin-bottom: 38px;
+  }
+
+  .offer-bridge-link-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .offer-bridge-link-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 278px;
+    padding: 30px;
+    border-radius: 34px;
+    color: inherit;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
+  }
+
+  .offer-bridge-link-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .offer-bridge-link-card-featured {
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: offer-bridge-turquoise-flow 13s ease-in-out infinite alternate;
+  }
+
+  .offer-bridge-link-card > *:not(.offer-bridge-card-mark) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .offer-bridge-card-mark {
+    position: absolute;
+    right: 18px;
+    top: 16px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.16);
+    font-size: clamp(4.2rem, 7vw, 7.2rem);
+    font-weight: 900;
+    line-height: 0.78;
+    letter-spacing: -0.12em;
+    pointer-events: none;
+  }
+
+  .offer-bridge-card-number {
+    display: inline-flex;
+    margin-bottom: 18px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 860;
+    letter-spacing: 0.18em;
+  }
+
+  .offer-bridge-card-label {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 30px;
+    align-items: center;
+    margin: 0 0 18px;
+    padding: 0 11px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.66rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+  }
+
+  .offer-bridge-link-card-featured .offer-bridge-card-number,
+  .offer-bridge-link-card-featured .offer-bridge-card-label,
+  .offer-bridge-link-card-featured h3 {
+    color: #ffffff;
+  }
+
+  .offer-bridge-link-card-featured .offer-bridge-card-label {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+
+  .offer-bridge-link-card h3 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1.52rem;
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+  }
+
+  .offer-bridge-link-card p:not(.offer-bridge-card-label) {
+    margin: 16px 0 0;
+    color: var(--color-muted);
+    font-size: 0.94rem;
+    line-height: 1.58;
+  }
+
+  .offer-bridge-link-card-featured p:not(.offer-bridge-card-label) {
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+  .offer-bridge-final-card .button-primary {
+    margin-top: 18px;
+  }
+
+  @keyframes offer-bridge-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @keyframes offer-bridge-panel-shine {
+    0%,
+    35% {
+      transform: translateX(-72%);
+      opacity: 0;
+    }
+
+    52% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(72%);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .offer-bridge-grid,
+    .offer-bridge-reason-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .offer-bridge-link-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .offer-bridge-hero {
+      padding: 112px 0 58px;
+    }
+
+    .offer-bridge-copy,
+    .offer-bridge-card,
+    .offer-bridge-reason-card,
+    .offer-bridge-link-card,
+    .offer-bridge-final-card {
+      border-radius: 28px;
+    }
+
+    .offer-bridge-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem);
+      line-height: 1.04;
+      letter-spacing: -0.068em;
+    }
+
+    .offer-bridge-card {
+      min-height: 340px;
+      padding: 28px 22px;
+    }
+
+    .offer-bridge-reason-section,
+    .offer-bridge-links-section,
+    .offer-bridge-final-cta {
+      padding: 58px 0;
+    }
+
+    .offer-bridge-reason-card h2,
+    .offer-bridge-section-heading h2,
+    .offer-bridge-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .offer-bridge-link-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .offer-bridge-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .offer-bridge-actions a {
+      width: 100%;
+      text-align: center;
+    }
+
+    .section-kicker {
+      min-height: 30px;
+      margin-bottom: 16px;
+      padding: 0 11px;
+      font-size: 0.64rem;
+      letter-spacing: 0.13em;
+      line-height: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .offer-bridge-card,
+    .offer-bridge-card::before,
+    .offer-bridge-link-card-featured,
+    .offer-bridge-link-card-featured::after {
+      animation: none;
+    }
+  }
+
+  /* V2 — poprawka linku tekstowego i białej czcionki w turkusowym kafelku */
+
+  .offer-bridge-text-link {
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    font-weight: 860 !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.28) !important;
+  }
+
+  .offer-bridge-text-link:hover,
+  .offer-bridge-text-link:focus-visible {
+    color: #0b5f5c !important;
+    -webkit-text-fill-color: #0b5f5c !important;
+    border-bottom-color: rgba(56, 187, 181, 0.52) !important;
+  }
+
+  .offer-bridge-link-card-featured,
+  .offer-bridge-link-card-featured * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  .offer-bridge-link-card-featured .offer-bridge-card-label {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .offer-bridge-link-card-featured p,
+  .offer-bridge-link-card-featured p:not(.offer-bridge-card-label),
+  .offer-bridge-link-card-featured h3,
+  .offer-bridge-link-card-featured .offer-bridge-card-number {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+
+  /* V3 — tekst klientocentryczny i aktywne linki oferty */
+
+  .offer-bridge-card-link {
+    position: relative;
+    z-index: 2;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 18px;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: 0.92rem;
+    font-weight: 820;
+    line-height: 1.35;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+  }
+
+  .offer-bridge-visible-url {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 18px;
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.78rem;
+    font-weight: 820;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.24);
+  }
+
+  .offer-bridge-link-card-featured .offer-bridge-visible-url {
+    color: rgba(255, 255, 255, 0.86) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.86) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.30);
+  }
+
+  .offer-bridge-link-card {
+    min-height: 314px;
+  }
+
+</style>
