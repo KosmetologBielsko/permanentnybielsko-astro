@@ -2,11 +2,125 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+const pageUrl = "https://permanentnybielsko.com/";
+const pageTitle = "Makijaż permanentny Bielsko-Biała | Bogusława Herda";
+const pageDescription =
+  "Makijaż permanentny Bielsko-Biała: naturalne brwi permanentne, usta permanentne, kreski permanentne, Silky Hairstroke Brows, korekta i usuwanie PMU oraz szkolenia PMU.";
+
+const mainServices = [
+  {
+    name: "Makijaż permanentny Bielsko-Biała",
+    description: "Naturalny makijaż permanentny brwi, ust i kresek dopasowany do urody, skóry i oczekiwanego efektu.",
+    url: "https://permanentnybielsko.com/makijaz-permanentny-bielsko/"
+  },
+  {
+    name: "Brwi permanentne",
+    description: "Naturalne brwi permanentne, metoda włoskowa, cieniowanie, włos z cieniem i Silky Hairstroke Brows.",
+    url: "https://permanentnybielsko.com/makijaz-permanentny-brwi/"
+  },
+  {
+    name: "Makijaż permanentny ust",
+    description: "Subtelne odświeżenie koloru ust, wyrównanie czerwieni wargowej i naturalny efekt bez przerysowania.",
+    url: "https://permanentnybielsko.com/makijaz-permanentny-ust/"
+  },
+  {
+    name: "Makijaż permanentny oczu",
+    description: "Kreski permanentne, zagęszczenie linii rzęs i dopasowanie kreski do budowy oka.",
+    url: "https://permanentnybielsko.com/makijaz-permanentny-oczu/"
+  },
+  {
+    name: "Usuwanie makijażu permanentnego",
+    description: "Rozjaśnianie starego PMU, korekta nieudanego pigmentu i przygotowanie skóry do nowej pigmentacji.",
+    url: "https://permanentnybielsko.com/usuwanie-makijazu-permanentnego/"
+  },
+  {
+    name: "Szkolenie makijaż permanentny",
+    description: "Szkolenia PMU: Step by Step, Masterclass, Silky Hairstroke Brows i Bye-Bye Pigment Remover.",
+    url: "https://permanentnybielsko.com/szkolenie-makijaz-permanentny/"
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
+    },
+    "mainEntity": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${pageUrl}#main-services`,
+    "name": "Główne usługi makijażu permanentnego",
+    "itemListElement": mainServices.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": service.name,
+      "description": service.description,
+      "url": service.url
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "@id": `${pageUrl}#offer-catalog`,
+    "name": "Oferta PMU Bogusława Herda",
+    "itemListElement": mainServices.map((service) => ({
+      "@type": "Offer",
+      "url": service.url,
+      "itemOffered": {
+        "@type": "Service",
+        "name": service.name,
+        "description": service.description,
+        "provider": {
+          "@id": "https://permanentnybielsko.com/#localbusiness"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Bielsko-Biała"
+        }
+      }
+    }))
+  }
+];
+
 ---
 
 <Layout
-  title="Makijaż permanentny Bielsko-Biała | Bogusława Herda"
-  description="Makijaż permanentny Bielsko-Biała: naturalne brwi permanentne, usta permanentne, kreski permanentne, Silky Hairstroke Brows, korekta i usuwanie PMU oraz szkolenia PMU."
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/"
+  structuredData={structuredData}
 >
   <div class="home-page">
     <Header />
