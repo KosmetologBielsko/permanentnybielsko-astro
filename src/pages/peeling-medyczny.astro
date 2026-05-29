@@ -1,0 +1,716 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const pageUrl = "https://permanentnybielsko.com/peeling-medyczny/";
+const pageTitle = "Peeling medyczny Bielsko-Biała | Bogusława Herda";
+const pageDescription =
+  "Szukasz peelingów i zabiegów wspierających odnowę skóry w Bielsku-Białej? Aktualne informacje znajdziesz na kosmetologiabielsko.com.";
+
+const bridgeLinks = [
+  {
+    "number": "01",
+    "label": "Twarz",
+    "title": "Zabiegi na twarz",
+    "text": "Aktualna oferta zabiegów na twarz: regeneracja, nawilżenie, ukojenie, blask, struktura skóry i anti-aging.",
+    "href": "https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/",
+    "visibleUrl": "kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/",
+    "featured": true
+  },
+  {
+    "number": "02",
+    "label": "Technologie",
+    "title": "Technologie kosmetologiczne",
+    "text": "SkinPen, DermaPulse, laser Q-Switch, Contour Sculpt Pro i technologie wspierające efekty zabiegowe.",
+    "href": "https://kosmetologiabielsko.com/technologie-kosmetologiczne/",
+    "visibleUrl": "kosmetologiabielsko.com/technologie-kosmetologiczne/"
+  },
+  {
+    "number": "03",
+    "label": "Kosmetologia",
+    "title": "Kosmetologia Bielsko-Biała",
+    "text": "Oficjalna strona kosmetologiczna gabinetu Bogusława Herda: konsultacja, zabiegi i świadoma praca ze skórą.",
+    "href": "https://kosmetologiabielsko.com/kosmetologia-bielsko-biala/",
+    "visibleUrl": "kosmetologiabielsko.com/kosmetologia-bielsko-biala/"
+  },
+  {
+    "number": "04",
+    "label": "Pielęgnacja",
+    "title": "Pielęgnacja profesjonalna i domowa",
+    "text": "Połączenie zabiegów gabinetowych, pielęgnacji domowej i indywidualnych zaleceń dla skóry.",
+    "href": "https://kosmetologiabielsko.com/pielegnacja-profesjonalna-i-domowa/",
+    "visibleUrl": "kosmetologiabielsko.com/pielegnacja-profesjonalna-i-domowa/"
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": pageTitle,
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${pageUrl}#links`,
+    "name": "Powiązane strony kosmetologiczne",
+    "itemListElement": bridgeLinks.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.title,
+      "description": item.text,
+      "url": item.href
+    }))
+  }
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/peeling-medyczny/"
+  structuredData={structuredData}
+>
+  <div class="cosmetic-bridge-page">
+    <Header />
+
+    <main>
+      <section class="cosmetic-bridge-hero">
+        <div class="container cosmetic-bridge-grid">
+          <div class="cosmetic-bridge-copy">
+            <p class="section-kicker">Peeling medyczny</p>
+
+            <h1>Peelingi i odnowa skóry — aktualne informacje są na stronie kosmetologicznej.</h1>
+
+            <p class="cosmetic-bridge-lead">
+              Jeśli interesują Cię peelingi, odświeżenie skóry, poprawa blasku albo zabiegi wspierające strukturę skóry, przejdź do aktualnej podstrony: <a class="cosmetic-bridge-text-link" href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/</a>.
+            </p>
+
+            <p class="cosmetic-bridge-lead cosmetic-bridge-lead-small">
+              Peeling powinien być dobrany do skóry, sezonu, celu zabiegowego i pielęgnacji domowej — dlatego pełne informacje prowadzimy na stronie kosmetologicznej.
+            </p>
+
+            <div class="cosmetic-bridge-actions">
+              <a class="button-primary" href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">
+                Przejdź do zabiegów na twarz
+              </a>
+
+              <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Sprawdź ceny i terminy w Booksy
+              </a>
+            </div>
+          </div>
+
+          <aside class="cosmetic-bridge-card" aria-label="Odnowa skóry">
+            <span class="cosmetic-bridge-big-mark" aria-hidden="true">SKIN</span>
+            <p class="cosmetic-bridge-label">Odnowa skóry</p>
+            <h2>Świeżość, blask i struktura</h2>
+            <p>Aktualne informacje o peelingach i zabiegach odświeżających skórę znajdziesz w ofercie zabiegów na twarz.</p>
+            <a class="cosmetic-bridge-card-link" href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">
+              kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="cosmetic-bridge-info-section">
+        <div class="container cosmetic-bridge-info-grid">
+          <article class="cosmetic-bridge-info-card">
+            <p class="section-kicker">Dobór zabiegu</p>
+            <h2>Peeling nie powinien być przypadkowym wyborem.</h2>
+            <p>Właściwy zabieg zależy od skóry, celu, sezonu i przeciwwskazań. Zobacz aktualne zabiegi: <a href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/</a>.</p>
+          </article>
+
+          <article class="cosmetic-bridge-info-card cosmetic-bridge-info-card-olive">
+            <p class="section-kicker">Pielęgnacja po zabiegu</p>
+            <h2>Efekt peelingu wspiera spokojna pielęgnacja domowa.</h2>
+            <p>Po zabiegach złuszczających ważne są zalecenia domowe i ochrona skóry. Sprawdź: <a href="https://kosmetologiabielsko.com/pielegnacja-profesjonalna-i-domowa/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/pielegnacja-profesjonalna-i-domowa/</a>.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cosmetic-bridge-links-section">
+        <div class="container">
+          <div class="cosmetic-bridge-section-heading">
+            <p class="section-kicker">Aktualne linki</p>
+            <h2>Przejdź do aktualnych informacji o skórze.</h2>
+            <p>Poniżej znajdziesz aktywne linki do zabiegów na twarz, pielęgnacji i technologii kosmetologicznych.</p>
+          </div>
+
+          <div class="cosmetic-bridge-link-grid">
+            {bridgeLinks.map((item) => (
+              <a
+                class:list={["cosmetic-bridge-link-card", { "cosmetic-bridge-link-card-featured": item.featured }]}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.featured && (
+                  <span class="cosmetic-bridge-card-mark" aria-hidden="true">BH</span>
+                )}
+
+                <span class="cosmetic-bridge-card-number">{item.number}</span>
+                <p class="cosmetic-bridge-card-label">{item.label}</p>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <span class="cosmetic-bridge-visible-url">{item.visibleUrl}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="cosmetic-bridge-final-cta">
+        <div class="container cosmetic-bridge-final-card">
+          <p class="section-kicker">Oficjalna strona kosmetologiczna</p>
+          <h2>Zobacz aktualne zabiegi na twarz.</h2>
+          <p>Pełna oferta zabiegów na twarz znajduje się tutaj: <a href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/</a>.</p>
+
+          <a class="button-primary" href="https://kosmetologiabielsko.com/zabiegi-na-twarz-bielsko-biala/" target="_blank" rel="noopener noreferrer">
+            Przejdź do zabiegów na twarz
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+
+  .cosmetic-bridge-page {
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(56, 187, 181, 0.10), transparent 27rem),
+      radial-gradient(circle at 92% 14%, rgba(157, 176, 126, 0.18), transparent 29rem),
+      linear-gradient(180deg, #ffffff 0%, #fbfff9 46%, #ffffff 100%);
+  }
+
+  .cosmetic-bridge-hero {
+    position: relative;
+    min-height: 74vh;
+    padding: 154px 0 86px;
+  }
+
+  .cosmetic-bridge-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr);
+    gap: clamp(26px, 4vw, 54px);
+    align-items: stretch;
+  }
+
+  .cosmetic-bridge-copy,
+  .cosmetic-bridge-card,
+  .cosmetic-bridge-info-card,
+  .cosmetic-bridge-link-card,
+  .cosmetic-bridge-final-card {
+    border: 1px solid rgba(92, 119, 78, 0.14);
+    box-shadow: 0 24px 70px rgba(51, 31, 44, 0.07);
+  }
+
+  .cosmetic-bridge-copy {
+    padding: clamp(30px, 5vw, 58px);
+    border-radius: 42px;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(56, 187, 181, 0.08), transparent 15rem),
+      rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(16px);
+  }
+
+  .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 32px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 18px;
+    padding: 0 13px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    font-size: 0.7rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .cosmetic-bridge-copy h1 {
+    max-width: 1080px;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(3.05rem, 5.45vw, 6.25rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .cosmetic-bridge-lead {
+    max-width: 840px;
+    margin: 24px 0 0;
+    color: var(--color-muted);
+    font-size: 1.08rem;
+    line-height: 1.72;
+  }
+
+  .cosmetic-bridge-lead-small {
+    margin-top: 14px;
+    font-size: 1.02rem;
+  }
+
+  .cosmetic-bridge-text-link,
+  .cosmetic-bridge-info-card a,
+  .cosmetic-bridge-final-card a:not(.button-primary) {
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    font-weight: 860;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.28);
+    overflow-wrap: anywhere;
+  }
+
+  .cosmetic-bridge-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .cosmetic-bridge-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(34px, 4vw, 56px);
+    border-radius: 42px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.30), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(226, 239, 214, 0.30), transparent 13rem),
+      linear-gradient(140deg, #344b36 0%, #5f7650 25%, #9db07e 44%, #526942 62%, #77915f 80%, #dfe9d2 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: cosmetic-bridge-olive-flow 13s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(92, 119, 78, 0.22);
+  }
+
+  .cosmetic-bridge-card::before,
+  .cosmetic-bridge-link-card-featured::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.05) 22%, rgba(255, 255, 255, 0.22) 47%, rgba(255, 255, 255, 0.05) 72%, transparent 100%);
+    transform: translateX(-72%);
+    animation: cosmetic-bridge-panel-shine 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .cosmetic-bridge-big-mark {
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.16);
+    font-size: clamp(4.6rem, 7.4vw, 8.6rem);
+    font-weight: 900;
+    line-height: 0.78;
+    letter-spacing: -0.12em;
+    pointer-events: none;
+  }
+
+  .cosmetic-bridge-label,
+  .cosmetic-bridge-card h2,
+  .cosmetic-bridge-card p,
+  .cosmetic-bridge-card-link {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cosmetic-bridge-label {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 32px;
+    align-items: center;
+    margin: 0 0 auto;
+    padding: 0 13px;
+    border-radius: 999px;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  .cosmetic-bridge-card h2 {
+    margin: 58px 0 0;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    font-size: clamp(1.9rem, 2.6vw, 2.85rem);
+    font-weight: 740;
+    line-height: 1;
+    letter-spacing: -0.067em;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
+  }
+
+  .cosmetic-bridge-card p:not(.cosmetic-bridge-label) {
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.88);
+    line-height: 1.62;
+  }
+
+  .cosmetic-bridge-card-link {
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 18px;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 820;
+    line-height: 1.35;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+  }
+
+  .cosmetic-bridge-info-section,
+  .cosmetic-bridge-links-section,
+  .cosmetic-bridge-final-cta {
+    padding: 88px 0;
+  }
+
+  .cosmetic-bridge-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .cosmetic-bridge-info-card,
+  .cosmetic-bridge-final-card {
+    padding: clamp(28px, 4vw, 46px);
+    border-radius: 36px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      rgba(255, 255, 255, 0.9);
+  }
+
+  .cosmetic-bridge-info-card-olive {
+    background:
+      radial-gradient(circle at 94% 12%, rgba(157, 176, 126, 0.18), transparent 14rem),
+      rgba(255, 255, 255, 0.92);
+  }
+
+  .cosmetic-bridge-info-card h2,
+  .cosmetic-bridge-section-heading h2,
+  .cosmetic-bridge-final-card h2 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(2.35rem, 4vw, 4.2rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .cosmetic-bridge-info-card p,
+  .cosmetic-bridge-section-heading p,
+  .cosmetic-bridge-final-card p {
+    color: var(--color-muted);
+    font-size: 1.04rem;
+    line-height: 1.68;
+  }
+
+  .cosmetic-bridge-section-heading {
+    max-width: 980px;
+    margin-bottom: 38px;
+  }
+
+  .cosmetic-bridge-link-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .cosmetic-bridge-link-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 314px;
+    padding: 30px;
+    border-radius: 34px;
+    color: inherit;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(251, 255, 249, 0.90));
+  }
+
+  .cosmetic-bridge-link-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .cosmetic-bridge-link-card-featured {
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.30), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(226, 239, 214, 0.30), transparent 13rem),
+      linear-gradient(140deg, #344b36 0%, #5f7650 25%, #9db07e 44%, #526942 62%, #77915f 80%, #dfe9d2 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: cosmetic-bridge-olive-flow 13s ease-in-out infinite alternate;
+  }
+
+  .cosmetic-bridge-link-card > *:not(.cosmetic-bridge-card-mark) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cosmetic-bridge-card-mark {
+    position: absolute;
+    right: 18px;
+    top: 16px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.16);
+    font-size: clamp(3.8rem, 6vw, 6.4rem);
+    font-weight: 900;
+    line-height: 0.78;
+    letter-spacing: -0.12em;
+    pointer-events: none;
+  }
+
+  .cosmetic-bridge-card-number {
+    display: inline-flex;
+    margin-bottom: 18px;
+    color: var(--color-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 860;
+    letter-spacing: 0.18em;
+  }
+
+  .cosmetic-bridge-card-label {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 30px;
+    align-items: center;
+    margin: 0 0 18px;
+    padding: 0 11px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark);
+    -webkit-text-fill-color: var(--color-turquoise-dark);
+    font-size: 0.66rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+  }
+
+  .cosmetic-bridge-link-card h3 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1.52rem;
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+  }
+
+  .cosmetic-bridge-link-card p:not(.cosmetic-bridge-card-label) {
+    margin: 16px 0 0;
+    color: var(--color-muted);
+    font-size: 0.94rem;
+    line-height: 1.58;
+  }
+
+  .cosmetic-bridge-visible-url {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 18px;
+    color: var(--color-turquoise-dark);
+    -webkit-text-fill-color: var(--color-turquoise-dark);
+    font-size: 0.78rem;
+    font-weight: 820;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.24);
+  }
+
+  .cosmetic-bridge-link-card-featured,
+  .cosmetic-bridge-link-card-featured * {
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .cosmetic-bridge-link-card-featured .cosmetic-bridge-card-label {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+
+  .cosmetic-bridge-link-card-featured .cosmetic-bridge-visible-url,
+  .cosmetic-bridge-link-card-featured p:not(.cosmetic-bridge-card-label) {
+    color: rgba(255, 255, 255, 0.86);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.86);
+    border-bottom-color: rgba(255, 255, 255, 0.30);
+  }
+
+  .cosmetic-bridge-final-card .button-primary {
+    margin-top: 18px;
+  }
+
+  @keyframes cosmetic-bridge-olive-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @keyframes cosmetic-bridge-panel-shine {
+    0%,
+    35% {
+      transform: translateX(-72%);
+      opacity: 0;
+    }
+
+    52% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(72%);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .cosmetic-bridge-grid,
+    .cosmetic-bridge-info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cosmetic-bridge-link-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .cosmetic-bridge-hero {
+      padding: 112px 0 58px;
+    }
+
+    .cosmetic-bridge-copy,
+    .cosmetic-bridge-card,
+    .cosmetic-bridge-info-card,
+    .cosmetic-bridge-link-card,
+    .cosmetic-bridge-final-card {
+      border-radius: 28px;
+    }
+
+    .cosmetic-bridge-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem);
+      line-height: 1.04;
+      letter-spacing: -0.068em;
+    }
+
+    .cosmetic-bridge-card {
+      min-height: 340px;
+      padding: 28px 22px;
+    }
+
+    .cosmetic-bridge-info-section,
+    .cosmetic-bridge-links-section,
+    .cosmetic-bridge-final-cta {
+      padding: 58px 0;
+    }
+
+    .cosmetic-bridge-info-card h2,
+    .cosmetic-bridge-section-heading h2,
+    .cosmetic-bridge-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .cosmetic-bridge-link-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cosmetic-bridge-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .cosmetic-bridge-actions a {
+      width: 100%;
+      text-align: center;
+    }
+
+    .section-kicker {
+      min-height: 30px;
+      margin-bottom: 16px;
+      padding: 0 11px;
+      font-size: 0.64rem;
+      letter-spacing: 0.13em;
+      line-height: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cosmetic-bridge-card,
+    .cosmetic-bridge-card::before,
+    .cosmetic-bridge-link-card-featured,
+    .cosmetic-bridge-link-card-featured::after {
+      animation: none;
+    }
+  }
+
+</style>
