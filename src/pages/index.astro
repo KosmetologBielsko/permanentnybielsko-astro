@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import HomeVideo from "../components/HomeVideo.astro";
 
 const pageUrl = "https://permanentnybielsko.com/";
 const pageTitle = "Makijaż permanentny Bielsko-Biała | Bogusława Herda";
@@ -387,6 +388,8 @@ const structuredData = [
       </section>
 
 
+      <HomeVideo />
+
       <section class="process-section" id="proces">
         <div class="container">
           <div class="two-column process-intro">
@@ -582,6 +585,22 @@ const structuredData = [
               </p>
             </article>
           </div>
+
+          <figure class="ltl-team-photo-feature">
+            <img
+              src="/images/long-time-liner-zespol-boguslawa-herda.webp"
+              alt="Zdjęcie zespołowe Long-Time-Liner podczas wydarzenia PMU - Bogusława Herda, szkolenia i rozwój w makijażu permanentnym"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            />
+
+            <figcaption>
+              Long-Time-Liner® to nie tylko marka i technologia. To środowisko, edukacja,
+              mentorzy i standard pracy, który przez lata budował zawodową drogę Bogusława Herda.
+            </figcaption>
+          </figure>
 
           <div class="ltl-values-grid">
             <article class="ltl-value-card">
@@ -929,13 +948,22 @@ const structuredData = [
               </div>
             </div>
 
-            <div class="mission-heart-card">
-              <p class="heart-symbol">♥</p>
-              <h3>Sercem malowane</h3>
-              <p>
-                Delikatność, empatia i technika spotykają się tam, gdzie uroda potrzebuje
-                szczególnej uważności.
-              </p>
+            <div class="mission-visual-column">
+              <figure class="mission-photo-card">
+                <img
+                  src="/images/portret-sercem-malowane-boguslawa-herda.webp"
+                  alt="Bogusława Herda z wyróżnieniem Ambasador Serca Long-Time-Liner w projekcie SercemMalowane"
+                  width="941"
+                  height="1672"
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <figcaption>
+                  Ambasador Serca Long-Time-Liner® — empatia, doświadczenie i makijaż permanentny,
+                  który może pomóc odzyskać spokój po trudnych doświadczeniach.
+                </figcaption>
+              </figure>
             </div>
           </div>
 
@@ -968,7 +996,8 @@ const structuredData = [
             </article>
           </div>
 
-          <div class="mission-quote-card">
+          <div class="mission-quote-card mission-quote-heart-card">
+            <span class="mission-quote-heart" aria-hidden="true">♥</span>
             <p>
               „Nie każda pigmentacja zaczyna się od potrzeby makijażu. Czasem zaczyna się od potrzeby,
               żeby znowu poczuć się dobrze ze swoją twarzą.”
@@ -1301,6 +1330,81 @@ const structuredData = [
       justify-content: flex-start;
       min-height: 38px;
       font-size: 0.72rem;
+    }
+  }
+
+
+  /* V17 — strona główna: mniejsze poziome zdjęcie w sekcji Long-Time-Liner® */
+
+  .ltl-team-photo-feature {
+    position: relative;
+    z-index: 1;
+    width: min(920px, 100%);
+    margin: clamp(24px, 3.6vw, 48px) auto clamp(28px, 4vw, 56px);
+    overflow: hidden;
+    padding: clamp(9px, 1.4vw, 14px);
+    border-radius: clamp(26px, 3.4vw, 42px);
+    background:
+      radial-gradient(circle at 8% 12%, rgba(56, 187, 181, 0.10), transparent 17rem),
+      radial-gradient(circle at 92% 86%, rgba(217, 146, 162, 0.10), transparent 18rem),
+      rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(56, 187, 181, 0.14);
+    box-shadow: 0 22px 58px rgba(23, 21, 29, 0.09);
+  }
+
+  .ltl-team-photo-feature::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    z-index: 2;
+    border-radius: clamp(18px, 2.6vw, 30px);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    pointer-events: none;
+  }
+
+  .ltl-team-photo-feature img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: clamp(20px, 2.8vw, 32px);
+    object-fit: contain;
+    object-position: center;
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .ltl-team-photo-feature figcaption {
+    position: relative;
+    z-index: 3;
+    margin: 0;
+    padding: clamp(15px, 2.1vw, 22px) clamp(16px, 2.5vw, 26px) 2px;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(0.92rem, 1.02vw, 1rem);
+    font-weight: 560;
+    line-height: 1.62;
+  }
+
+  @media (max-width: 760px) {
+    .ltl-team-photo-feature {
+      width: 100%;
+      margin: 22px auto 32px;
+      padding: 8px;
+      border-radius: 24px;
+      box-shadow: 0 18px 42px rgba(23, 21, 29, 0.08);
+    }
+
+    .ltl-team-photo-feature::before {
+      inset: 9px;
+      border-radius: 18px;
+    }
+
+    .ltl-team-photo-feature img {
+      border-radius: 18px;
+    }
+
+    .ltl-team-photo-feature figcaption {
+      padding: 14px 12px 2px;
+      font-size: 0.88rem;
+      line-height: 1.55;
     }
   }
 
@@ -2890,6 +2994,248 @@ const structuredData = [
       padding: 0 10px !important;
       font-size: 0.62rem !important;
       letter-spacing: 0.06em !important;
+    }
+  }
+
+
+  /* V18 — #SercemMalowane: zdjęcie widoczne + kolejność mobile + mleczne bijące serce */
+
+  :global(.home-page .mission-premium-grid) {
+    display: grid !important;
+    gap: clamp(22px, 4vw, 54px) !important;
+  }
+
+  :global(.home-page .mission-heading-card) {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  :global(.home-page .mission-heading-card .mission-link-row) {
+    justify-content: center !important;
+    margin-top: 28px !important;
+  }
+
+  :global(.home-page .mission-heading-card .mission-learn-more) {
+    min-width: min(100%, 360px) !important;
+    text-align: center !important;
+  }
+
+  :global(.home-page .mission-visual-column) {
+    display: flex !important;
+    width: 100% !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  :global(.home-page .mission-photo-card) {
+    position: relative !important;
+    display: block !important;
+    width: min(100%, 460px) !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    border-radius: clamp(28px, 4vw, 46px) !important;
+    background:
+      radial-gradient(circle at 10% 12%, rgba(56, 187, 181, 0.10), transparent 17rem),
+      radial-gradient(circle at 94% 86%, rgba(215, 25, 32, 0.10), transparent 18rem),
+      rgba(255, 255, 255, 0.90) !important;
+    border: 1px solid rgba(215, 25, 32, 0.13) !important;
+    box-shadow: 0 28px 78px rgba(143, 16, 32, 0.10) !important;
+  }
+
+  :global(.home-page .mission-photo-card::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 14px !important;
+    z-index: 2 !important;
+    border-radius: clamp(22px, 3vw, 34px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.46) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .mission-photo-card img) {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 620px !important;
+    aspect-ratio: 4 / 5.15 !important;
+    object-fit: cover !important;
+    object-position: center 18% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  :global(.home-page .mission-photo-card figcaption) {
+    position: relative !important;
+    z-index: 3 !important;
+    margin: 0 !important;
+    padding: clamp(17px, 2.4vw, 24px) clamp(18px, 2.8vw, 28px) !important;
+    color: #6d4a52 !important;
+    -webkit-text-fill-color: #6d4a52 !important;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 247, 249, 0.92)) !important;
+    border-top: 1px solid rgba(215, 25, 32, 0.11) !important;
+    font-size: clamp(0.9rem, 1.02vw, 0.98rem) !important;
+    font-weight: 560 !important;
+    line-height: 1.56 !important;
+  }
+
+  :global(.home-page .mission-quote-heart-card) {
+    position: relative !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    background:
+      radial-gradient(circle at 50% 24%, rgba(255, 255, 255, 0.14), transparent 14rem),
+      linear-gradient(135deg, #d71920, #8f1020) !important;
+    border-color: rgba(255, 255, 255, 0.20) !important;
+    box-shadow: 0 22px 60px rgba(143, 16, 32, 0.14) !important;
+  }
+
+  :global(.home-page .mission-quote-heart-card::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    background:
+      linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.20) 46%, transparent 72%) !important;
+    transform: translateX(-82%) !important;
+    animation: mission-heart-mini-shine 6.2s ease-in-out infinite !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .mission-quote-heart-card > *) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  :global(.home-page .mission-quote-heart-card p) {
+    max-width: 880px !important;
+    margin: 0 auto !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.92) !important;
+    text-shadow: 0 10px 30px rgba(79, 5, 18, 0.16) !important;
+  }
+
+  :global(.home-page .mission-quote-heart) {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 12px !important;
+    color: rgba(255, 255, 255, 0.30) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.30) !important;
+    font-size: clamp(3.4rem, 7vw, 6.6rem) !important;
+    font-weight: 900 !important;
+    line-height: 0.82 !important;
+    text-shadow:
+      0 0 16px rgba(255, 255, 255, 0.24),
+      0 0 42px rgba(255, 255, 255, 0.18) !important;
+    filter: blur(0.08px) !important;
+    animation: mission-heartbeat-mini 1.7s ease-in-out infinite !important;
+    transform-origin: center !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  @keyframes mission-heartbeat-mini {
+    0%, 100% { transform: scale(1); opacity: 0.76; }
+    18% { transform: scale(1.12); opacity: 1; }
+    34% { transform: scale(0.99); opacity: 0.86; }
+    48% { transform: scale(1.08); opacity: 1; }
+    68% { transform: scale(1); opacity: 0.82; }
+  }
+
+  @keyframes mission-heart-mini-shine {
+    0%, 42% { transform: translateX(-82%); opacity: 0; }
+    58% { opacity: 0.72; }
+    100% { transform: translateX(82%); opacity: 0; }
+  }
+
+  @media (min-width: 981px) {
+    :global(.home-page .mission-premium-grid) {
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.64fr) !important;
+      align-items: center !important;
+    }
+
+    :global(.home-page .mission-visual-column) {
+      justify-self: end !important;
+      max-width: 460px !important;
+    }
+  }
+
+  @media (max-width: 980px) {
+    :global(.home-page .mission-premium-grid) {
+      grid-template-columns: 1fr !important;
+    }
+
+    :global(.home-page .mission-heading-card) {
+      order: 1 !important;
+    }
+
+    :global(.home-page .mission-visual-column) {
+      order: 2 !important;
+      max-width: 430px !important;
+      margin: 20px auto 0 !important;
+    }
+
+    :global(.home-page .mission-support-grid) {
+      order: 3 !important;
+    }
+
+    :global(.home-page .mission-quote-card) {
+      order: 4 !important;
+    }
+
+    :global(.home-page .mission-photo-card) {
+      max-width: 430px !important;
+      margin-inline: auto !important;
+    }
+
+    :global(.home-page .mission-photo-card img) {
+      max-height: 480px !important;
+      aspect-ratio: 4 / 5 !important;
+      object-position: center 16% !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .mission-visual-column) {
+      max-width: 345px !important;
+      margin-top: 18px !important;
+    }
+
+    :global(.home-page .mission-photo-card) {
+      max-width: 345px !important;
+      border-radius: 24px !important;
+    }
+
+    :global(.home-page .mission-photo-card::before) {
+      inset: 10px !important;
+      border-radius: 18px !important;
+    }
+
+    :global(.home-page .mission-photo-card img) {
+      max-height: 400px !important;
+      aspect-ratio: 4 / 5 !important;
+      object-fit: cover !important;
+      object-position: center 16% !important;
+    }
+
+    :global(.home-page .mission-photo-card figcaption) {
+      display: none !important;
+    }
+
+    :global(.home-page .mission-quote-heart) {
+      margin-bottom: 10px !important;
+      font-size: clamp(3.2rem, 16vw, 4.9rem) !important;
+      color: rgba(255, 255, 255, 0.28) !important;
+      -webkit-text-fill-color: rgba(255, 255, 255, 0.28) !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.home-page .mission-quote-heart-card::before),
+    :global(.home-page .mission-quote-heart) {
+      animation: none !important;
     }
   }
 
