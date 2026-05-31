@@ -943,8 +943,8 @@ const structuredData = [
 
       <section class="mission-section mission-premium-section" id="sercem-malowane">
         <div class="container">
-          <div class="mission-premium-grid">
-            <div class="mission-heading-card">
+          <div class="mission-premium-grid mission-premium-grid-single">
+            <div class="mission-heading-card mission-heading-card-centered">
               <p class="section-kicker">#SercemMalowane</p>
               <h2>Makijaż permanentny, który może być czymś więcej niż zabiegiem.</h2>
               <p>
@@ -957,31 +957,25 @@ const structuredData = [
                   Dowiedz się więcej o #SercemMalowane
                 </a>
               </div>
-
-              <div class="mission-heart-card mission-heart-card-small" aria-label="Sercem malowane - empatia i uważność">
-                <p class="heart-symbol" aria-hidden="true">♥</p>
-                <h3>Sercem malowane</h3>
-                <p>Mały akcent serca zostaje jako znak empatii, delikatności i uważności.</p>
-              </div>
             </div>
+          </div>
 
-            <div class="mission-visual-column">
-              <figure class="mission-photo-card">
-                <img
-                  src="/images/portret-sercem-malowane-boguslawa-herda.webp"
-                  alt="Bogusława Herda z wyróżnieniem Ambasador Serca Long-Time-Liner w projekcie SercemMalowane"
-                  width="941"
-                  height="1672"
-                  loading="lazy"
-                  decoding="async"
-                />
+          <div class="mission-visual-column mission-visual-between">
+            <figure class="mission-photo-card">
+              <img
+                src="/images/portret-sercem-malowane-boguslawa-herda.webp"
+                alt="Bogusława Herda z wyróżnieniem Ambasador Serca Long-Time-Liner w projekcie SercemMalowane"
+                width="941"
+                height="1672"
+                loading="lazy"
+                decoding="async"
+              />
 
-                <figcaption>
-                  Ambasador Serca Long-Time-Liner® — empatia, doświadczenie i makijaż permanentny,
-                  który może pomóc odzyskać spokój po trudnych doświadczeniach.
-                </figcaption>
-              </figure>
-            </div>
+              <figcaption>
+                Ambasador Serca Long-Time-Liner® — empatia, doświadczenie i makijaż permanentny,
+                który może pomóc odzyskać spokój po trudnych doświadczeniach.
+              </figcaption>
+            </figure>
           </div>
 
           <div class="mission-support-grid">
@@ -1013,7 +1007,8 @@ const structuredData = [
             </article>
           </div>
 
-          <div class="mission-quote-card">
+          <div class="mission-quote-card mission-quote-heart-card">
+            <span class="mission-quote-heart" aria-hidden="true">♥</span>
             <p>
               „Nie każda pigmentacja zaczyna się od potrzeby makijażu. Czasem zaczyna się od potrzeby,
               żeby znowu poczuć się dobrze ze swoją twarzą.”
@@ -3459,6 +3454,251 @@ const structuredData = [
       border-radius: 16px !important;
     }
   }
+
+
+  /* V22 — #SercemMalowane: mleczne, półtransparentne serce + bicie także na mobile */
+
+  :global(.home-page .mission-heart-card-small .heart-symbol),
+  :global(.home-page .mission-heading-card .mission-heart-card-small .heart-symbol),
+  :global(.home-page .mission-quote-heart) {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    color: rgba(255, 255, 255, 0.28) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.28) !important;
+    font-size: clamp(3.4rem, 7vw, 6.2rem) !important;
+    font-weight: 950 !important;
+    line-height: 0.82 !important;
+    letter-spacing: -0.08em !important;
+    text-shadow:
+      0 0 14px rgba(255, 255, 255, 0.30),
+      0 0 34px rgba(255, 255, 255, 0.22),
+      0 12px 30px rgba(255, 255, 255, 0.10) !important;
+    filter: blur(0.08px) !important;
+    opacity: 1 !important;
+    transform-origin: center center !important;
+    animation: sercem-malowane-heart-pulse 1.58s ease-in-out infinite !important;
+    animation-play-state: running !important;
+    will-change: transform, opacity !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  :global(.home-page .mission-heart-card-small) {
+    background:
+      radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.18), transparent 58%),
+      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.20), transparent 10rem),
+      linear-gradient(135deg, #d71920, #8f1020) !important;
+  }
+
+  @keyframes sercem-malowane-heart-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.74;
+    }
+
+    18% {
+      transform: scale(1.14);
+      opacity: 1;
+    }
+
+    34% {
+      transform: scale(0.98);
+      opacity: 0.82;
+    }
+
+    50% {
+      transform: scale(1.09);
+      opacity: 0.96;
+    }
+
+    72% {
+      transform: scale(1);
+      opacity: 0.78;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .mission-heart-card-small .heart-symbol),
+    :global(.home-page .mission-heading-card .mission-heart-card-small .heart-symbol),
+    :global(.home-page .mission-quote-heart) {
+      display: inline-flex !important;
+      color: rgba(255, 255, 255, 0.30) !important;
+      -webkit-text-fill-color: rgba(255, 255, 255, 0.30) !important;
+      font-size: clamp(3.25rem, 17vw, 5.2rem) !important;
+      text-shadow:
+        0 0 13px rgba(255, 255, 255, 0.30),
+        0 0 30px rgba(255, 255, 255, 0.21),
+        0 10px 24px rgba(255, 255, 255, 0.10) !important;
+      animation: sercem-malowane-heart-pulse 1.58s ease-in-out infinite !important;
+      animation-play-state: running !important;
+    }
+  }
+
+
+
+  /* V24 — #SercemMalowane: kolejność kafelek → zdjęcie → 01/02/03 → cytat */
+
+  :global(.home-page .mission-premium-grid-single) {
+    grid-template-columns: 1fr !important;
+    max-width: 900px !important;
+    margin-inline: auto !important;
+    align-items: stretch !important;
+  }
+
+  :global(.home-page .mission-heading-card-centered) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  :global(.home-page .mission-heading-card-centered p:not(.section-kicker)) {
+    max-width: 760px !important;
+  }
+
+  :global(.home-page .mission-heading-card-centered .mission-link-row) {
+    justify-content: center !important;
+    margin-top: 26px !important;
+  }
+
+  :global(.home-page .mission-heading-card-centered .mission-learn-more) {
+    min-width: min(100%, 360px) !important;
+    text-align: center !important;
+  }
+
+  :global(.home-page .mission-visual-between) {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 470px !important;
+    margin: clamp(26px, 4vw, 42px) auto clamp(26px, 4vw, 42px) !important;
+  }
+
+  :global(.home-page .mission-visual-between .mission-photo-card) {
+    width: min(100%, 430px) !important;
+    max-width: 430px !important;
+    margin-inline: auto !important;
+  }
+
+  :global(.home-page .mission-heart-card-small),
+  :global(.home-page .mission-visual-column .mission-heart-card-small) {
+    display: none !important;
+  }
+
+  :global(.home-page .mission-support-grid) {
+    margin-top: 0 !important;
+  }
+
+  :global(.home-page .mission-quote-heart-card) {
+    position: relative !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    background:
+      radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.18), transparent 14rem),
+      linear-gradient(135deg, #d71920, #8f1020) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+    box-shadow: 0 24px 64px rgba(143, 16, 32, 0.16) !important;
+  }
+
+  :global(.home-page .mission-quote-heart) {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 12px !important;
+    color: rgba(255, 255, 255, 0.30) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.30) !important;
+    font-size: clamp(3.5rem, 7vw, 6.4rem) !important;
+    font-weight: 950 !important;
+    line-height: 0.82 !important;
+    text-shadow:
+      0 0 14px rgba(255, 255, 255, 0.32),
+      0 0 34px rgba(255, 255, 255, 0.24),
+      0 12px 30px rgba(255, 255, 255, 0.10) !important;
+    filter: blur(0.08px) !important;
+    animation: sercem-malowane-heart-pulse 1.58s ease-in-out infinite !important;
+    animation-play-state: running !important;
+    transform-origin: center center !important;
+    will-change: transform, opacity !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  :global(.home-page .mission-quote-heart-card p) {
+    max-width: 860px !important;
+    margin: 0 auto !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.92) !important;
+    text-shadow: 0 10px 30px rgba(79, 5, 18, 0.16) !important;
+  }
+
+  @media (min-width: 981px) {
+    :global(.home-page .mission-visual-between) {
+      max-width: 500px !important;
+    }
+
+    :global(.home-page .mission-visual-between .mission-photo-card) {
+      width: min(100%, 440px) !important;
+      max-width: 440px !important;
+    }
+  }
+
+  @media (max-width: 980px) {
+    :global(.home-page .mission-visual-between) {
+      order: 0 !important;
+      max-width: 390px !important;
+      margin: 22px auto 28px !important;
+    }
+
+    :global(.home-page .mission-visual-between .mission-photo-card) {
+      max-width: 390px !important;
+    }
+
+    :global(.home-page .mission-visual-between .mission-photo-card img) {
+      max-height: 450px !important;
+      object-position: center 18% !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .mission-heading-card-centered .mission-link-row) {
+      margin-top: 22px !important;
+    }
+
+    :global(.home-page .mission-visual-between) {
+      max-width: 330px !important;
+      margin: 20px auto 24px !important;
+    }
+
+    :global(.home-page .mission-visual-between .mission-photo-card) {
+      width: min(100%, 330px) !important;
+      max-width: 330px !important;
+      border-radius: 24px !important;
+    }
+
+    :global(.home-page .mission-visual-between .mission-photo-card img) {
+      max-height: 385px !important;
+      aspect-ratio: 4 / 5 !important;
+      object-fit: cover !important;
+      object-position: center 18% !important;
+    }
+
+    :global(.home-page .mission-visual-between .mission-photo-card figcaption) {
+      display: none !important;
+    }
+
+    :global(.home-page .mission-quote-heart) {
+      font-size: clamp(3.2rem, 17vw, 5rem) !important;
+      color: rgba(255, 255, 255, 0.32) !important;
+      -webkit-text-fill-color: rgba(255, 255, 255, 0.32) !important;
+      margin-bottom: 10px !important;
+    }
+  }
+
 
 </style>
 
