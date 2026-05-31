@@ -2,11 +2,125 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+const pageUrl = "https://permanentnybielsko.com/";
+const pageTitle = "Makijaż permanentny Bielsko-Biała | Bogusława Herda";
+const pageDescription =
+  "Makijaż permanentny Bielsko-Biała: naturalne brwi permanentne, usta permanentne, kreski permanentne, Silky Hairstroke Brows, korekta i usuwanie PMU oraz szkolenia PMU.";
+
+const mainServices = [
+  {
+    name: "Makijaż permanentny Bielsko-Biała",
+    description: "Naturalny makijaż permanentny brwi, ust i kresek dopasowany do urody, skóry i oczekiwanego efektu.",
+    url: "https://permanentnybielsko.com/makijaz-permanentny-bielsko/"
+  },
+  {
+    name: "Brwi permanentne",
+    description: "Naturalne brwi permanentne, metoda włoskowa, cieniowanie, włos z cieniem i Silky Hairstroke Brows.",
+    url: "https://permanentnybielsko.com/makijaz-permanentny-brwi/"
+  },
+  {
+    name: "Makijaż permanentny ust",
+    description: "Subtelne odświeżenie koloru ust, wyrównanie czerwieni wargowej i naturalny efekt bez przerysowania.",
+    url: "https://permanentnybielsko.com/makijaz-permanentny-ust/"
+  },
+  {
+    name: "Makijaż permanentny oczu",
+    description: "Kreski permanentne, zagęszczenie linii rzęs i dopasowanie kreski do budowy oka.",
+    url: "https://permanentnybielsko.com/makijaz-permanentny-oczu/"
+  },
+  {
+    name: "Usuwanie makijażu permanentnego",
+    description: "Rozjaśnianie starego PMU, korekta nieudanego pigmentu i przygotowanie skóry do nowej pigmentacji.",
+    url: "https://permanentnybielsko.com/usuwanie-makijazu-permanentnego/"
+  },
+  {
+    name: "Szkolenie makijaż permanentny",
+    description: "Szkolenia PMU: Step by Step, Masterclass, Silky Hairstroke Brows i Bye-Bye Pigment Remover.",
+    url: "https://permanentnybielsko.com/szkolenie-makijaz-permanentny/"
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": "pl-PL",
+    "isPartOf": {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    "about": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
+    },
+    "mainEntity": {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${pageUrl}#main-services`,
+    "name": "Główne usługi makijażu permanentnego",
+    "itemListElement": mainServices.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": service.name,
+      "description": service.description,
+      "url": service.url
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "@id": `${pageUrl}#offer-catalog`,
+    "name": "Oferta PMU Bogusława Herda",
+    "itemListElement": mainServices.map((service) => ({
+      "@type": "Offer",
+      "url": service.url,
+      "itemOffered": {
+        "@type": "Service",
+        "name": service.name,
+        "description": service.description,
+        "provider": {
+          "@id": "https://permanentnybielsko.com/#localbusiness"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Bielsko-Biała"
+        }
+      }
+    }))
+  }
+];
+
 ---
 
 <Layout
-  title="Makijaż permanentny Bielsko-Biała | Bogusława Herda"
-  description="Makijaż permanentny Bielsko-Biała: naturalne brwi, usta i kreski, Silky Hairstroke Brows, metoda włoskowa, usuwanie makijażu permanentnego i szkolenia Long-Time-Liner."
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/"
+  structuredData={structuredData}
 >
   <div class="home-page">
     <Header />
@@ -57,21 +171,15 @@ import Footer from "../components/Footer.astro";
           </div>
 
           <div class="hero-visual" aria-label="Bogusława Herda - makijaż permanentny Bielsko-Biała">
-            <picture>
-              <source
-                srcset="/images/hero-boguslawa-herda-pmu-mobile-cutout.webp"
-                media="(max-width: 760px)"
-              />
-              <img
-                class="hero-portrait"
-                src="/images/hero-boguslawa-herda-pmu-cutout.webp"
-                alt="Bogusława Herda - makijaż permanentny Bielsko-Biała, trenerka Long-Time-Liner"
-                width="1024"
-                height="1536"
-                loading="eager"
-                decoding="async"
-              />
-            </picture>
+            <img
+              class="hero-portrait"
+              src="/images/hero-boguslawa-herda-pmu-cutout.webp"
+              alt="Bogusława Herda - makijaż permanentny Bielsko-Biała, trenerka Long-Time-Liner"
+              width="1024"
+              height="1536"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
@@ -110,6 +218,153 @@ import Footer from "../components/Footer.astro";
         </div>
       </section>
 
+      <section class="home-editorial-section home-editorial-section-first" aria-label="Naturalny styl pracy Bogusława Herda">
+        <div class="container home-editorial-grid">
+          <figure class="home-editorial-photo home-editorial-photo-large">
+            <img
+              src="/images/wizerunek-boguslawa-herda-biala-koszula.webp"
+              alt="Bogusława Herda - naturalny makijaż permanentny Bielsko-Biała, elegancki styl pracy"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <div class="home-editorial-copy">
+            <p class="section-kicker">Naturalny kierunek</p>
+            <h2>Makijaż permanentny, który porządkuje urodę — nie zmienia twarzy.</h2>
+            <p>
+              Najlepszy efekt PMU nie wygląda jak mocny makijaż. Wygląda jak spokojniejsza
+              oprawa oka, lepsza proporcja, subtelniejszy kolor i twarz, która nadal pozostaje sobą.
+            </p>
+            <p>
+              Dlatego na stronie nie dokładamy zdjęć jako przypadkowej galerii. Każdy kadr ma
+              prowadzić klientkę przez historię: zaufanie, doświadczenie, naturalność i decyzję
+              o konsultacji.
+            </p>
+
+            <div class="home-editorial-points" aria-label="Założenia naturalnego makijażu permanentnego">
+              <span>bez przerysowania</span>
+              <span>indywidualny projekt</span>
+              <span>spokojna pigmentacja</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="philosophy-section">
+        <div class="container two-column">
+          <div>
+            <p class="section-kicker">Makijaż permanentny Bielsko-Biała</p>
+            <h2>Naturalny efekt od mistrzyni PMU.</h2>
+          </div>
+
+          <div class="text-panel">
+            <p>
+              Makijaż permanentny w gabinecie Bogusława Herda w Bielsku-Białej
+              powstaje z myślą o naturalnym efekcie, harmonii twarzy i spokojnym
+              podkreśleniu urody — bez przerysowania, przypadkowego koloru i ciężkiej formy.
+            </p>
+
+            <p>
+              To miejsce dla kobiet, które chcą wyglądać świeżo i zadbanie każdego dnia,
+              ale nadal czuć się sobą. Brwi permanentne, usta, kreski, korekty PMU
+              oraz autorska technika Silky Hairstroke Brows są dobierane indywidualnie
+              do urody, skóry, mimiki i oczekiwań klientki.
+            </p>
+
+            <p>
+              Doświadczenie, międzynarodowe osiągnięcia, praca trenerska Long-Time-Liner®
+              i własna metoda pigmentacji pozwalają prowadzić klientkę przez cały proces:
+              od konsultacji i projektu, przez zabieg, aż po dopigmentowanie i finalny efekt.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="services-section services-premium-section" id="makijaz-permanentny">
+        <div class="container">
+          <div class="two-column services-intro">
+            <div>
+              <p class="section-kicker">Oferta makijażu permanentnego</p>
+              <h2>Makijaż permanentny dopasowany do urody, nie do schematu.</h2>
+            </div>
+
+            <div class="text-panel services-lead-card">
+              <p>
+                Oferta jest podzielona na najważniejsze obszary pracy: brwi, usta, kreski,
+                korekty, usuwanie PMU oraz szkolenia. Każdy z nich wymaga osobnej analizy,
+                projektu i decyzji dopasowanej do skóry, urody i oczekiwanego efektu.
+              </p>
+            </div>
+          </div>
+
+          <div class="services-tile-grid">
+            <article class="service-tile">
+              <span>01</span>
+              <h3>Brwi permanentne</h3>
+              <p>
+                Naturalna oprawa oka, miękki kształt i kolor dobrany do rysów twarzy.
+                Bez ciężkiej, graficznej formy.
+              </p>
+            </article>
+
+            <article class="service-tile">
+              <span>02</span>
+              <h3>Usta permanentne</h3>
+              <p>
+                Subtelne odświeżenie koloru, wyrównanie konturu i efekt zadbanych ust
+                bez przerysowania.
+              </p>
+            </article>
+
+            <article class="service-tile">
+              <span>03</span>
+              <h3>Kreski permanentne</h3>
+              <p>
+                Delikatne zagęszczenie linii rzęs albo bardziej wyraziste podkreślenie spojrzenia.
+              </p>
+            </article>
+
+            <article class="service-tile service-tile-feature home-premium-mark-card home-premium-mark-card-shb" id="metody">
+              <span class="home-big-mark" aria-hidden="true">SHB</span>
+              <span class="shb-card-kicker">Autorska metoda</span>
+              <h3>Silky Hairstroke Brows</h3>
+              <p>
+                Technika włosa maszynowego dla realistycznego, miękkiego efektu brwi.
+                To metoda stworzona z myślą o lekkości, naturalnym kierunku włosa
+                i precyzyjnej pracy bez efektu ciężkiej pigmentacji.
+              </p>
+            </article>
+
+            <article class="service-tile service-tile-small">
+              <span>04</span>
+              <h3>Korekta PMU</h3>
+              <p>
+                Plan naprawczy dla zbyt mocnego, nierównego lub nieaktualnego pigmentu.
+              </p>
+            </article>
+
+            <article class="service-tile service-tile-small">
+              <span>05</span>
+              <h3>Usuwanie PMU</h3>
+              <p>
+                Rozjaśnianie i przygotowanie skóry do nowej, lżejszej pigmentacji.
+              </p>
+            </article>
+
+            <article class="service-tile service-tile-small" id="szkolenia">
+              <span>06</span>
+              <h3>Szkolenia PMU</h3>
+              <p>
+                Rozwój techniki, projektowania i pracy ze skórą dla linergistek.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="philosophy-section">
         <div class="container two-column">
           <div>
@@ -122,6 +377,7 @@ import Footer from "../components/Footer.astro";
               W mojej pracy nie chodzi o stworzenie nowej twarzy. Chodzi o wydobycie tej prawdziwej —
               spokojniejszej, bardziej harmonijnej i subtelnie podkreślonej.
             </p>
+
             <p>
               Makijaż permanentny powinien wyglądać naturalnie: jak miękka linia, właściwy odcień,
               lepsza proporcja i świeżość, która nie dominuje nad urodą.
@@ -130,138 +386,627 @@ import Footer from "../components/Footer.astro";
         </div>
       </section>
 
-      <section class="services-section" id="makijaz-permanentny">
+
+      <section class="process-section" id="proces">
         <div class="container">
-          <div class="section-heading">
-            <p class="section-kicker">Oferta makijażu permanentnego</p>
-            <h2>Makijaż permanentny w mistrzowskim wydaniu.</h2>
-            <p>
-              Brwi, usta, kreski i usuwanie makijażu permanentnego — z indywidualnym projektem,
-              spokojną konsultacją i efektem dopasowanym do urody.
-            </p>
+          <div class="two-column process-intro">
+            <div>
+              <p class="section-kicker">Metoda pracy</p>
+              <h2>Nie zaczynamy od pigmentu. Zaczynamy od twarzy.</h2>
+            </div>
+
+            <div class="text-panel process-lead-card">
+              <p>
+                Dobry makijaż permanentny nie zaczyna się od koloru ani od urządzenia.
+                Zaczyna się od analizy twarzy, skóry, mimiki, przyzwyczajeń i tego,
+                jak klientka chce wyglądać na co dzień.
+              </p>
+
+              <p>
+                Dopiero po tej rozmowie powstaje projekt. Pigmentacja jest ostatnim etapem
+                decyzji, a nie pierwszym impulsem.
+              </p>
+            </div>
           </div>
 
-          <div class="cards-grid">
-            <article class="service-card">
+          <div class="process-steps-grid">
+            <article class="process-step">
               <span>01</span>
-              <h3>Brwi permanentne</h3>
-              <p>Naturalny kształt, symetria i lekkość — bez efektu przerysowania.</p>
+              <h3>Konsultacja</h3>
+              <p>Rozmowa o oczekiwaniach, codziennym makijażu, skórze i efekcie, który ma wyglądać naturalnie.</p>
             </article>
 
-            <article class="service-card feature-card" id="metody">
+            <article class="process-step">
               <span>02</span>
-              <h3>Silky Hairstroke Brows</h3>
-              <p>Autorska technika włosa maszynowego, która tworzy realistyczny efekt naturalnych brwi.</p>
+              <h3>Analiza urody</h3>
+              <p>Ocena proporcji twarzy, mimiki, oprawy oka, koloru skóry i warunków do pigmentacji.</p>
             </article>
 
-            <article class="service-card">
+            <article class="process-step">
               <span>03</span>
-              <h3>Usta permanentne</h3>
-              <p>Subtelny kolor, poprawa konturu i świeży wygląd ust każdego dnia.</p>
+              <h3>Projekt</h3>
+              <p>Najpierw forma, potem pigment. Kształt i kierunek pracy muszą być zaakceptowane przed zabiegiem.</p>
             </article>
 
-            <article class="service-card">
+            <article class="process-step">
               <span>04</span>
-              <h3>Kreski permanentne</h3>
-              <p>Delikatne zagęszczenie linii rzęs albo bardziej wyraziste podkreślenie spojrzenia.</p>
+              <h3>Pigmentacja</h3>
+              <p>Precyzyjna praca warstwowa, prowadzona spokojnie i z kontrolą intensywności efektu.</p>
             </article>
 
-            <article class="service-card">
+            <article class="process-step">
               <span>05</span>
-              <h3>Usuwanie makijażu permanentnego</h3>
-              <p>Bezpieczna korekta nieudanego pigmentu przy użyciu odpowiednio dobranej metody.</p>
+              <h3>Gojenie</h3>
+              <p>Etap stabilizacji koloru i skóry. Naturalny efekt ocenia się po wygojeniu, nie od razu po zabiegu.</p>
             </article>
 
-            <article class="service-card" id="szkolenia">
+            <article class="process-step">
               <span>06</span>
-              <h3>Szkolenia makijażu permanentnego</h3>
-              <p>Step by Step, Masterclass i rozwój technik PMU pod opieką trenerki Long-Time-Liner®.</p>
+              <h3>Dopigmentowanie</h3>
+              <p>Finalne dopracowanie detalu, koloru i równowagi — bez pośpiechu i bez przerysowania.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="longtime-section">
-        <div class="container longtime-grid">
-          <div class="soft-card">
-            <p class="section-kicker">Tożsamość zawodowa</p>
-            <h2>Long-Time-Liner® — szkoła precyzji, która ukształtowała moją drogę.</h2>
-            <p>
-              Long-Time-Liner® to jedna z najważniejszych marek w świecie makijażu permanentnego.
-              To standard pracy, który miał ogromny wpływ na mój rozwój, technikę i sposób myślenia
-              o odpowiedzialnej pigmentacji.
-            </p>
+
+      <section class="master-authority-section" id="autorytet">
+        <div class="container">
+          <div class="master-authority-grid">
+            <div class="master-authority-heading">
+              <p class="section-kicker">Autorytet PMU</p>
+              <h2>Doświadczenie, które widać w spokoju ręki.</h2>
+              <p>
+                W makijażu permanentnym liczy się nie tylko technika. Liczy się decyzja:
+                kiedy podkreślić, kiedy odpuścić, jak dobrać intensywność i jak zachować
+                naturalny charakter twarzy.
+              </p>
+            </div>
+
+            <div class="master-authority-panel">
+              <p class="panel-number">PMU</p>
+              <h3>Mistrzowska precyzja bez przerysowania.</h3>
+              <p>
+                Bogusława Herda łączy doświadczenie mistrzowskie, pracę trenerską,
+                międzynarodową edukację i autorskie podejście do naturalnej pigmentacji.
+              </p>
+            </div>
           </div>
 
-          <div class="soft-card accent-card">
-            <p class="section-kicker">Autorytet i mentor</p>
-            <h2>Magda Bogulak — osoba, która miała ogromny wpływ na moją drogę.</h2>
-            <p>
-              Właścicielka Long-Time-Liner Polska i Sharley Medical Clinic & Day SPA, kosmetolog
-              z ponad 20-letnim doświadczeniem, autorytet, mentor i ważna postać w mojej historii zawodowej.
-            </p>
+          <div class="master-photo-feature-grid">
+            <figure class="master-photo-card">
+              <img
+                src="/images/ekspert-boguslawa-herda-portret-pmu.webp"
+                alt="Bogusława Herda - ekspertka makijażu permanentnego, trenerka Long-Time-Liner i autorka Silky Hairstroke Brows"
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
+            <div class="master-photo-copy-card">
+              <p class="section-kicker">Ekspertka PMU</p>
+              <h3>Profesjonalizm, który klientka czuje jeszcze przed zabiegiem.</h3>
+              <p>
+                Wizerunek ekspertki ma wspierać treść, a nie ją przykrywać. Ten kadr buduje
+                zaufanie: pokazuje osobę, doświadczenie, spokój i standard pracy, który stoi
+                za naturalnym makijażem permanentnym.
+              </p>
+              <p>
+                To dobre miejsce na zdjęcie Bogusława Herda, bo obok pojawiają się tytuły,
+                szkolenia, Long-Time-Liner®, Silky Hairstroke Brows i międzynarodowa perspektywa.
+              </p>
+            </div>
+          </div>
+
+          <div class="master-proof-grid">
+            <article class="master-proof-card">
+              <span>01</span>
+              <h3>Wicemistrzyni świata</h3>
+              <p>
+                Tytuł zdobyty w makijażu permanentnym to potwierdzenie precyzji,
+                kontroli techniki i konsekwentnej pracy nad detalem.
+              </p>
+            </article>
+
+            <article class="master-proof-card master-proof-card-pink">
+              <span>02</span>
+              <h3>8-krotna mistrzyni</h3>
+              <p>
+                Osiągnięcia konkursowe budują standard pracy, ale najważniejszym testem
+                pozostaje codzienna satysfakcja klientek.
+              </p>
+            </article>
+
+            <article class="master-proof-card">
+              <span>03</span>
+              <h3>Trenerka Long-Time-Liner®</h3>
+              <p>
+                Praca edukacyjna wymaga nie tylko umiejętności, ale też umiejętności
+                tłumaczenia procesu, błędów i decyzji technicznych.
+              </p>
+            </article>
+
+            <article class="master-proof-card master-proof-card-wide home-premium-mark-card home-premium-mark-card-shb-light">
+              <span class="home-big-mark" aria-hidden="true">SHB</span>
+              <span>04</span>
+              <h3>Autorka Silky Hairstroke Brows</h3>
+              <p>
+                Autorska technika włosa maszynowego powstała z potrzeby tworzenia brwi,
+                które wyglądają lekko, realistycznie i są dopasowane do naturalnej urody.
+              </p>
+            </article>
+
+            <article class="master-proof-card master-proof-card-wide master-proof-card-turquoise">
+              <span>05</span>
+              <h3>Międzynarodowa perspektywa</h3>
+              <p>
+                Wystąpienia, szkolenia i wydarzenia branżowe w Polsce i za granicą
+                pozwalają stale konfrontować własny standard z najlepszymi praktykami PMU.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="international-section" id="o-mnie">
-        <div class="container two-column">
-          <div>
-            <p class="section-kicker">Doświadczenie</p>
-            <h2>Polska precyzja na międzynarodowej scenie makijażu permanentnego.</h2>
+      <section class="longtime-section longtime-premium-section">
+        <div class="container">
+          <div class="ltl-grid">
+            <article class="ltl-main-card">
+              <p class="section-kicker">Long-Time-Liner®</p>
+              <h2>Światowy standard, który ukształtował precyzję pracy.</h2>
+              <p>
+                Long-Time-Liner® to jedna z marek, które najmocniej wpłynęły na rozwój
+                profesjonalnego makijażu permanentnego. Dla Bogusława Herda to nie tylko
+                technologia i system pracy, ale część zawodowej tożsamości: precyzja,
+                odpowiedzialność, edukacja i szacunek do naturalnej urody.
+              </p>
+
+              <div class="ltl-pill-grid" aria-label="Wartości Long-Time-Liner">
+                <span>precyzja</span>
+                <span>bezpieczeństwo</span>
+                <span>edukacja</span>
+                <span>naturalny efekt</span>
+              </div>
+            </article>
+
+            <article class="ltl-mentor-card home-premium-mark-card home-premium-mark-card-mentor">
+              <span class="home-big-mark" aria-hidden="true">MENTOR</span>
+              <p class="section-kicker">Mentor i autorytet</p>
+              <h3>Magda Bogulak</h3>
+              <p>
+                Właścicielka Long-Time-Liner Polska oraz Sharley Medical Clinic & Day SPA.
+                Autorytet, mentor i jedna z najważniejszych osób w zawodowej historii
+                Bogusława Herda.
+              </p>
+            </article>
           </div>
 
-          <div>
+          <div class="ltl-values-grid">
+            <article class="ltl-value-card">
+              <span>01</span>
+              <h3>Technika z odpowiedzialnością</h3>
+              <p>
+                Makijaż permanentny wymaga kontroli głębokości, tempa, koloru i reakcji skóry.
+                To praca, w której doświadczenie jest równie ważne jak talent.
+              </p>
+            </article>
+
+            <article class="ltl-value-card ltl-value-card-turquoise">
+              <span>02</span>
+              <h3>Edukacja, która buduje standard</h3>
+              <p>
+                Praca trenerska oznacza ciągłe porządkowanie wiedzy, tłumaczenie decyzji
+                i rozwijanie techniki w sposób świadomy, nie przypadkowy.
+              </p>
+            </article>
+
+            <article class="ltl-value-card">
+              <span>03</span>
+              <h3>Naturalność jako najwyższy poziom</h3>
+              <p>
+                Najtrudniejsze efekty często wyglądają najciszej: miękka linia, dobry odcień,
+                spokojna forma i twarz, która nadal pozostaje sobą.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="training-section training-premium-section" id="szkolenia-pmu">
+        <div class="container">
+          <div class="training-hero-grid">
+            <div class="training-heading-card">
+              <p class="section-kicker">Szkolenia PMU</p>
+              <h2>Szkolenia makijażu permanentnego dla linergistek, które chcą pracować świadomie.</h2>
+              <p>
+                Szkolenie z makijażu permanentnego nie powinno być tylko pokazem techniki.
+                Powinno porządkować myślenie: o projekcie, skórze, pigmentacji, błędach,
+                tempie pracy i naturalnym efekcie, który można powtórzyć u różnych klientek.
+              </p>
+            </div>
+
+            <div class="training-master-card">
+              <p class="training-master-label">EDU</p>
+              <h3>Technika. Projekt. Decyzja.</h3>
+              <p>
+                Szkolenia prowadzone przez Bogusława Herda opierają się na doświadczeniu
+                mistrzowskim, pracy trenerskiej Long-Time-Liner® i autorskim podejściu
+                do naturalnej pigmentacji.
+              </p>
+            </div>
+          </div>
+
+          <div class="training-path-grid">
+            <article class="training-path-card">
+              <span>01</span>
+              <h3>Step by Step</h3>
+              <p>
+                Dla osób, które potrzebują solidnych podstaw, uporządkowania procesu
+                i bezpiecznego wejścia w makijaż permanentny.
+              </p>
+            </article>
+
+            <article class="training-path-card training-path-card-turquoise">
+              <span>02</span>
+              <h3>Masterclass</h3>
+              <p>
+                Dla linergistek, które chcą podnieść jakość pracy, lepiej rozumieć błędy
+                i rozwinąć precyzję techniczną.
+              </p>
+            </article>
+
+            <article class="training-path-card home-premium-mark-card home-premium-mark-card-shb-light">
+              <span class="home-big-mark" aria-hidden="true">SHB</span>
+              <span>03</span>
+              <h3>Silky Hairstroke Brows</h3>
+              <p>
+                Szkolenie z autorskiego podejścia do włosa maszynowego, naturalnego kierunku
+                i miękkiego efektu brwi.
+              </p>
+            </article>
+          </div>
+
+          <div class="training-detail-row">
+            <div class="training-detail-card">
+              <p class="section-kicker">Czego uczymy</p>
+              <h3>Nie tylko ruchu ręki. Całego sposobu myślenia.</h3>
+              <p>
+                Dobre szkolenie PMU powinno uczyć nie tylko „jak wykonać zabieg”, ale też
+                kiedy zmienić plan, jak analizować skórę, jak projektować brwi i jak nie przesadzić
+                z intensywnością pigmentacji.
+              </p>
+            </div>
+
+            <div class="training-list-card">
+              <div>
+                <strong>Projektowanie brwi</strong>
+                <span>proporcje, mimika, asymetria, naturalny kierunek i miękkość efektu</span>
+              </div>
+
+              <div>
+                <strong>Praca ze skórą</strong>
+                <span>reakcja skóry, tempo, głębokość, nasycenie i stabilizacja koloru</span>
+              </div>
+
+              <div>
+                <strong>Technika włosa</strong>
+                <span>kontrola linii, rytm, kierunek, powtarzalność i lekkość pigmentacji</span>
+              </div>
+
+              <div>
+                <strong>Rozwój linergistki</strong>
+                <span>świadomość decyzji, analiza błędów i budowanie własnego standardu pracy</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="training-cta-card">
+            <p class="section-kicker">Dla linergistek</p>
+            <h3>Szkolenia PMU prowadzone przez trenerkę Long-Time-Liner®.</h3>
             <p>
-              Ankara, Budapeszt, Lyon, Monachium, Düsseldorf, Indonezja — międzynarodowe wydarzenia,
-              pokazy, szkolenia i wystąpienia są częścią drogi, która dziś przekłada się na jakość pracy
-              w gabinecie w Bielsku-Białej.
+              Pełna podstrona szkoleniowa opisuje ścieżki Step by Step, Masterclass,
+              Silky Hairstroke Brows, Bye-Bye Pigment Remover, zakres programu,
+              organizację i cennik. Na stronie głównej zostaje skrót kierunku edukacyjnego,
+              a szczegóły znajdują się w ofercie szkoleń PMU.
             </p>
 
-            <div class="places-list">
-              <span>Turcja / Ankara</span>
-              <span>Węgry / Budapeszt</span>
-              <span>Francja / Lyon</span>
-              <span>Niemcy / Monachium</span>
-              <span>Niemcy / Düsseldorf</span>
-              <span>Indonesia PMU 2026</span>
+            <a class="training-cta-link" href="/szkolenie-makijaz-permanentny/">
+              Zobacz szkolenia PMU
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="international-section international-premium-section" id="o-mnie">
+        <div class="container">
+          <div class="international-hero-grid">
+            <div class="international-heading-card">
+              <p class="section-kicker">Doświadczenie międzynarodowe</p>
+              <h2>Polska precyzja na scenie PMU w Europie i na świecie.</h2>
+              <p>
+                Konkursy, szkolenia, pokazy i wydarzenia branżowe poza granicami Polski
+                poszerzają perspektywę. To doświadczenie wraca do gabinetu w Bielsku-Białej
+                w postaci spokojniejszej decyzji, lepszej techniki i większej odpowiedzialności
+                za naturalny efekt.
+              </p>
+            </div>
+
+            <div class="international-map-card">
+              <p class="map-label">PMU</p>
+              <h3>Technika, która nie kończy się na jednym rynku.</h3>
+              <p>
+                Międzynarodowa edukacja i praca z branżą PMU pozwalają patrzeć szerzej:
+                na trendy, bezpieczeństwo, styl pigmentacji i oczekiwania klientek.
+              </p>
+            </div>
+          </div>
+
+          <div class="international-city-grid international-badge-grid">
+            <article class="international-city-card international-badge-card international-badge-card-turkey">
+              <div class="badge-place">
+                <span>TR</span>
+                <h3>Ankara</h3>
+              </div>
+
+              <strong class="badge-main-word">SPEAKER</strong>
+
+              <div class="badge-caption">
+                <span>Long-Time-Liner®</span>
+                <span>Silky Hairstroke Brows</span>
+              </div>
+            </article>
+
+            <article class="international-city-card international-badge-card international-badge-card-hungary">
+              <div class="badge-place">
+                <span>HU</span>
+                <h3>Budapeszt</h3>
+              </div>
+
+              <strong class="badge-main-word">LTL</strong>
+
+              <div class="badge-caption">
+                <span>Workshop</span>
+                <span>Speaker</span>
+              </div>
+            </article>
+
+            <article class="international-city-card international-badge-card international-badge-card-france">
+              <div class="badge-place">
+                <span>FR</span>
+                <h3>Lyon</h3>
+              </div>
+
+              <strong class="badge-main-word">JUROR</strong>
+
+              <div class="badge-caption">
+                <span>Mistrzostwa Francji PMU</span>
+                <span>Speaker</span>
+              </div>
+            </article>
+
+            <article class="international-city-card international-badge-card international-badge-card-germany">
+              <div class="badge-place">
+                <span>DE</span>
+                <h3>Monachium</h3>
+              </div>
+
+              <strong class="badge-main-word">VICE</strong>
+
+              <div class="badge-caption">
+                <span>Wicemistrzostwo świata</span>
+                <span>PMU</span>
+              </div>
+            </article>
+
+            <article class="international-city-card international-badge-card international-badge-card-germany">
+              <div class="badge-place">
+                <span>DE</span>
+                <h3>Düsseldorf</h3>
+              </div>
+
+              <strong class="badge-main-word">LTL</strong>
+
+              <div class="badge-caption">
+                <span>Workshop</span>
+                <span>Speaker · Silky</span>
+              </div>
+            </article>
+
+            <article class="international-city-card international-badge-card international-badge-card-indonesia">
+              <div class="badge-place">
+                <span>ID</span>
+                <h3>PMU 2026</h3>
+              </div>
+
+              <strong class="badge-main-word">WORLD</strong>
+
+              <div class="badge-caption">
+                <span>Speaker</span>
+                <span>Juror</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section results-premium-section" id="efekty">
+        <div class="container">
+          <div class="results-hero-grid">
+            <div class="results-heading-card">
+              <p class="section-kicker">Efekty i metamorfozy</p>
+              <h2>Efekt ma być widoczny, ale nie powinien krzyczeć.</h2>
+              <p>
+                W makijażu permanentnym najważniejszy jest balans: klientka ma wyglądać świeżo,
+                spokojnie i naturalnie — bez efektu ciężkiej pigmentacji. Galerię zdjęć uzupełnimy
+                na końcu, kiedy wybierzemy najlepsze kadry brwi, ust, kresek i korekt.
+              </p>
+            </div>
+
+            <div class="results-note-card home-premium-mark-card home-premium-mark-card-natural">
+              <span class="home-big-mark" aria-hidden="true">NATURAL</span>
+              <p class="section-kicker">Kierunek efektu</p>
+              <h3>Naturalnie. Czysto. Bez przerysowania.</h3>
+              <p>
+                To będzie miejsce na wybrane prace i metamorfozy — nie przypadkową galerię,
+                ale spokojnie dobrany pokaz stylu Bogusława Herda.
+              </p>
+            </div>
+          </div>
+
+          <div class="results-gallery-grid">
+            <article class="result-tile">
+              <span>01</span>
+              <h3>Brwi</h3>
+              <p>Miękka oprawa oka, naturalny kierunek i kolor dopasowany do urody.</p>
+            </article>
+
+            <article class="result-tile result-tile-turquoise">
+              <span>02</span>
+              <h3>Silky Hairstroke</h3>
+              <p>Realistyczny efekt włosa maszynowego i lekka, nieprzerysowana forma.</p>
+            </article>
+
+            <article class="result-tile">
+              <span>03</span>
+              <h3>Usta</h3>
+              <p>Odświeżenie koloru, wyrównanie konturu i efekt zadbanej czerwieni wargowej.</p>
+            </article>
+
+            <article class="result-tile result-tile-pink">
+              <span>04</span>
+              <h3>Kreski</h3>
+              <p>Delikatne zagęszczenie linii rzęs albo eleganckie podkreślenie oka.</p>
+            </article>
+          </div>
+
+          <div class="results-feature-row">
+            <div class="results-feature-card">
+              <p class="section-kicker">Metamorfozy</p>
+              <h3>Przed i po — ale z klasą.</h3>
+              <p>
+                Zdjęcia efektów dodamy dopiero wtedy, gdy będą spójne z nową stroną:
+                dobre światło, podobna kolorystyka, czyste kadry i realistyczne pokazanie pracy.
+              </p>
+            </div>
+
+            <div class="results-mini-list">
+              <div>
+                <strong>Korekty PMU</strong>
+                <span>rozjaśnienie, przebudowa kształtu, przygotowanie skóry</span>
+              </div>
+
+              <div>
+                <strong>Naturalne wygojenie</strong>
+                <span>efekt oceniany po stabilizacji skóry, nie tylko tuż po zabiegu</span>
+              </div>
+
+              <div>
+                <strong>Portfolio końcowe</strong>
+                <span>zdjęcia uzupełnimy na ostatnim etapie projektu</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="results-section" id="efekty">
+      <section class="mission-section mission-premium-section" id="sercem-malowane">
         <div class="container">
-          <div class="section-heading">
-            <p class="section-kicker">Efekty</p>
-            <h2>Efekty, które nie potrzebują przesady.</h2>
+          <div class="mission-premium-grid">
+            <div class="mission-heading-card">
+              <p class="section-kicker">#SercemMalowane</p>
+              <h2>Makijaż permanentny, który może być czymś więcej niż zabiegiem.</h2>
+              <p>
+                Są sytuacje, w których pigmentacja nie jest wyłącznie estetyką. Może pomóc odzyskać
+                spokój, domknąć trudny etap i spojrzeć w lustro z większą łagodnością wobec siebie.
+              </p>
+
+              <div class="mission-link-row">
+                <a class="mission-learn-more" href="/sercemmalowane/">
+                  Dowiedz się więcej o #SercemMalowane
+                </a>
+              </div>
+            </div>
+
+            <div class="mission-heart-card">
+              <p class="heart-symbol">♥</p>
+              <h3>Sercem malowane</h3>
+              <p>
+                Delikatność, empatia i technika spotykają się tam, gdzie uroda potrzebuje
+                szczególnej uważności.
+              </p>
+            </div>
+          </div>
+
+          <div class="mission-support-grid">
+            <article class="mission-support-card">
+              <span>01</span>
+              <h3>Po rozszczepie wargi</h3>
+              <p>
+                Praca z kolorem i konturem wymaga spokojnej kwalifikacji, cierpliwości
+                oraz bardzo indywidualnego podejścia do tkanki i oczekiwanego efektu.
+              </p>
+            </article>
+
+            <article class="mission-support-card mission-support-card-rose">
+              <span>02</span>
+              <h3>Po leczeniu onkologicznym</h3>
+              <p>
+                Uzupełnienie brwi lub delikatna pigmentacja mogą być częścią powrotu do siebie,
+                zawsze z szacunkiem do historii skóry i aktualnego stanu zdrowia.
+              </p>
+            </article>
+
+            <article class="mission-support-card">
+              <span>03</span>
+              <h3>Alopecja i utrata brwi</h3>
+              <p>
+                Naturalnie zaprojektowane brwi mogą pomóc odbudować oprawę twarzy bez efektu maski
+                i bez nadmiernego obciążenia rysów.
+              </p>
+            </article>
+          </div>
+
+          <div class="mission-quote-card">
             <p>
-              W kolejnych krokach dodamy tutaj zdjęcia prac: brwi, usta, kreski, korekty i metamorfozy.
+              „Nie każda pigmentacja zaczyna się od potrzeby makijażu. Czasem zaczyna się od potrzeby,
+              żeby znowu poczuć się dobrze ze swoją twarzą.”
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-nature-image-section" aria-label="Powrót do natury w makijażu permanentnym">
+        <div class="container home-nature-image-card">
+          <div class="home-nature-copy">
+            <p class="signature">Powrót do natury</p>
+            <h2>Naturalność zostaje ostatnim wrażeniem.</h2>
+            <p>
+              Ten kadr nie ma udawać zdjęcia zabiegowego. Ma domknąć opowieść strony:
+              makijaż permanentny może być profesjonalny, precyzyjny i jednocześnie miękki,
+              kobiecy, spokojny oraz dopasowany do codzienności.
+            </p>
+            <p>
+              Dlatego zdjęcie z kapeluszem najlepiej działa nisko na stronie — przy filozofii
+              „Powrót do natury”, tuż przed decyzją o kontakcie i rezerwacji wizyty.
             </p>
           </div>
 
-          <div class="gallery-placeholder">
-            <div>Brwi</div>
-            <div>Usta</div>
-            <div>Kreski</div>
-            <div>Korekty</div>
-          </div>
+          <figure class="home-nature-photo">
+            <img
+              src="/images/powrot-do-natury-boguslawa-herda-kapelusz.webp"
+              alt="Powrót do natury - Bogusława Herda i naturalny makijaż permanentny dopasowany do urody"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
         </div>
       </section>
 
-      <section class="mission-section">
-        <div class="container mission-card">
-          <p class="section-kicker">#SercemMalowane</p>
-          <h2>Makijaż permanentny, który potrafi przywracać pewność siebie.</h2>
-          <p>
-            W ramach #SercemMalowane Bogusława Herda wspiera osoby po trudnych doświadczeniach zdrowotnych —
-            po rozszczepie wargi, leczeniu onkologicznym czy zmagające się z alopecją. To nie kampania.
-            To misja, w której piękno staje się realnym wsparciem.
-          </p>
-        </div>
-      </section>
-
-      <section class="cta-section">
+      <section class="cta-section" id="kontakt">
         <div class="container cta-card">
           <p class="signature cta-signature">Powrót do natury</p>
           <h2>Chcesz sprawdzić, jaki makijaż permanentny będzie najlepszy dla Ciebie?</h2>
@@ -269,6 +1014,7 @@ import Footer from "../components/Footer.astro";
             Umów konsultację i zobacz, jak może wyglądać naturalny efekt dopasowany do Twojej urody,
             skóry i codzienności.
           </p>
+
           <a
             class="button-primary"
             href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala"
@@ -284,3 +1030,1868 @@ import Footer from "../components/Footer.astro";
     <Footer />
   </div>
 </Layout>
+
+
+<style>
+
+  /* V11 — strona główna: zdjęcia w układzie editorial premium, bez ruszania hero */
+
+  .home-editorial-section,
+  .home-nature-image-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(46px, 7vw, 98px) 0;
+  }
+
+  .home-editorial-section::before,
+  .home-nature-image-section::before {
+    content: "";
+    position: absolute;
+    inset: auto -12% 8% auto;
+    width: min(34rem, 58vw);
+    height: min(34rem, 58vw);
+    border-radius: 999px;
+    background:
+      radial-gradient(circle, rgba(56, 187, 181, 0.13), transparent 68%),
+      radial-gradient(circle at 72% 28%, rgba(217, 146, 162, 0.12), transparent 56%);
+    filter: blur(6px);
+    pointer-events: none;
+  }
+
+  .home-editorial-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(24px, 4vw, 58px);
+    align-items: center;
+  }
+
+  .home-editorial-photo,
+  .master-photo-card,
+  .home-nature-photo {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: clamp(28px, 4vw, 48px);
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(56, 187, 181, 0.14);
+    box-shadow: 0 28px 78px rgba(23, 21, 29, 0.10);
+  }
+
+  .home-editorial-photo::before,
+  .master-photo-card::before,
+  .home-nature-photo::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    z-index: 2;
+    border-radius: clamp(22px, 3vw, 36px);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    pointer-events: none;
+  }
+
+  .home-editorial-photo img,
+  .master-photo-card img,
+  .home-nature-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .home-editorial-photo-large {
+    transform: rotate(-1.1deg);
+  }
+
+  .home-editorial-copy {
+    position: relative;
+    padding: clamp(24px, 4vw, 42px);
+    border-radius: clamp(28px, 4vw, 44px);
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.12), transparent 16rem),
+      radial-gradient(circle at 0% 100%, rgba(217, 146, 162, 0.10), transparent 18rem),
+      rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(56, 187, 181, 0.13);
+    box-shadow: 0 24px 70px rgba(23, 21, 29, 0.07);
+  }
+
+  .home-editorial-copy h2,
+  .home-nature-copy h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.25rem, 4.4vw, 5.1rem);
+    font-weight: 780;
+    line-height: 0.94;
+    letter-spacing: -0.075em;
+  }
+
+  .home-editorial-copy p:not(.section-kicker),
+  .home-nature-copy p:not(.signature),
+  .master-photo-copy-card p:not(.section-kicker) {
+    max-width: 720px;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1rem, 1.35vw, 1.12rem);
+    line-height: 1.75;
+  }
+
+  .home-editorial-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .home-editorial-points span {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 14px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark, #0f7773);
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    font-size: 0.78rem;
+    font-weight: 820;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .master-photo-feature-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+    gap: clamp(22px, 4vw, 54px);
+    align-items: stretch;
+    margin-top: clamp(28px, 4vw, 56px);
+    margin-bottom: clamp(28px, 4vw, 56px);
+  }
+
+  .master-photo-card {
+    min-height: 100%;
+    border-color: rgba(217, 146, 162, 0.18);
+    box-shadow: 0 28px 78px rgba(199, 119, 136, 0.13);
+  }
+
+  .master-photo-copy-card {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(24px, 4vw, 44px);
+    border-radius: clamp(28px, 4vw, 44px);
+    background:
+      radial-gradient(circle at 92% 16%, rgba(217, 146, 162, 0.14), transparent 17rem),
+      radial-gradient(circle at 8% 96%, rgba(56, 187, 181, 0.10), transparent 18rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 249, 251, 0.90));
+    border: 1px solid rgba(217, 146, 162, 0.16);
+    box-shadow: 0 24px 70px rgba(23, 21, 29, 0.07);
+  }
+
+  .master-photo-copy-card h3 {
+    max-width: 740px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2rem, 3.4vw, 4.2rem);
+    font-weight: 780;
+    line-height: 0.96;
+    letter-spacing: -0.07em;
+  }
+
+  .home-nature-image-card {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+    gap: clamp(24px, 4vw, 58px);
+    align-items: center;
+    padding: clamp(24px, 4vw, 54px);
+    border-radius: clamp(30px, 4vw, 54px);
+    background:
+      radial-gradient(circle at 10% 10%, rgba(217, 146, 162, 0.13), transparent 20rem),
+      radial-gradient(circle at 94% 88%, rgba(56, 187, 181, 0.13), transparent 22rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 249, 251, 0.90));
+    border: 1px solid rgba(217, 146, 162, 0.14);
+    box-shadow: 0 28px 84px rgba(23, 21, 29, 0.08);
+  }
+
+  .home-nature-copy .signature {
+    margin-bottom: 18px;
+  }
+
+  .home-nature-photo {
+    border-color: rgba(56, 187, 181, 0.18);
+    transform: rotate(1.1deg);
+  }
+
+  @media (min-width: 1500px) {
+    .home-editorial-grid,
+    .master-photo-feature-grid,
+    .home-nature-image-card {
+      gap: 64px;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .home-editorial-grid,
+    .master-photo-feature-grid,
+    .home-nature-image-card {
+      grid-template-columns: 1fr;
+    }
+
+    .home-editorial-photo-large,
+    .home-nature-photo {
+      transform: none;
+    }
+
+    .home-editorial-photo,
+    .master-photo-card,
+    .home-nature-photo {
+      max-width: 620px;
+      margin-inline: auto;
+    }
+
+    .home-nature-copy {
+      order: 2;
+    }
+
+    .home-nature-photo {
+      order: 1;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .home-editorial-section,
+    .home-nature-image-section {
+      padding: 38px 0;
+    }
+
+    .home-editorial-copy,
+    .master-photo-copy-card,
+    .home-nature-image-card {
+      padding: 22px;
+      border-radius: 28px;
+    }
+
+    .home-editorial-photo,
+    .master-photo-card,
+    .home-nature-photo {
+      border-radius: 28px;
+    }
+
+    .home-editorial-photo::before,
+    .master-photo-card::before,
+    .home-nature-photo::before {
+      inset: 10px;
+      border-radius: 22px;
+    }
+
+    .home-editorial-copy h2,
+    .home-nature-copy h2,
+    .master-photo-copy-card h3 {
+      font-size: clamp(2.05rem, 10vw, 3.1rem);
+      line-height: 1.02;
+      letter-spacing: -0.066em;
+    }
+
+    .home-editorial-points span {
+      width: 100%;
+      justify-content: flex-start;
+      min-height: 38px;
+      font-size: 0.72rem;
+    }
+  }
+
+
+  /*
+    Home premium card marks
+    Cel: duże jasne napisy w tle mocnych kafelków, bez ruszania istniejącego ruchu światła.
+    Nie nadpisujemy ::before / ::after ani animacji kafelków, żeby nie zepsuć działającej poświaty.
+  */
+
+  :global(.home-premium-mark-card) {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate;
+  }
+
+  :global(.home-premium-mark-card > *:not(.home-big-mark)) {
+    position: relative;
+    z-index: 2;
+  }
+
+  :global(.home-big-mark) {
+    position: absolute !important;
+    right: clamp(18px, 3vw, 42px) !important;
+    top: clamp(14px, 2.4vw, 32px) !important;
+    z-index: 1 !important;
+    color: rgba(255, 255, 255, 0.16) !important;
+    font-size: clamp(4.2rem, 8vw, 9.2rem) !important;
+    font-weight: 850 !important;
+    line-height: 0.78 !important;
+    letter-spacing: -0.12em !important;
+    filter: blur(0.15px) !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  :global(.home-premium-mark-card-mentor .home-big-mark) {
+    right: clamp(14px, 2.2vw, 30px) !important;
+    font-size: clamp(3.5rem, 6.6vw, 7.4rem) !important;
+    color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  :global(.home-premium-mark-card-natural .home-big-mark) {
+    right: clamp(12px, 2vw, 30px) !important;
+    top: clamp(14px, 2vw, 26px) !important;
+    font-size: clamp(3.35rem, 6vw, 7rem) !important;
+    color: rgba(255, 255, 255, 0.14) !important;
+  }
+
+  :global(.home-premium-mark-card-shb-light .home-big-mark) {
+    color: rgba(56, 187, 181, 0.13) !important;
+  }
+
+  :global(.home-premium-mark-card-shb),
+  :global(.home-premium-mark-card-mentor),
+  :global(.home-premium-mark-card-natural) {
+    color: #ffffff !important;
+  }
+
+  :global(.home-premium-mark-card-shb .section-kicker),
+  :global(.home-premium-mark-card-shb > span:not(.home-big-mark)),
+  :global(.home-premium-mark-card-mentor .section-kicker),
+  :global(.home-premium-mark-card-natural .section-kicker) {
+    color: rgba(255, 255, 255, 0.78) !important;
+    text-shadow: 0 1px 18px rgba(255, 255, 255, 0.18);
+  }
+
+  :global(.home-premium-mark-card-shb h3),
+  :global(.home-premium-mark-card-mentor h3),
+  :global(.home-premium-mark-card-natural h3) {
+    color: #ffffff !important;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.28);
+  }
+
+  :global(.home-premium-mark-card-shb p),
+  :global(.home-premium-mark-card-mentor p:not(.section-kicker)),
+  :global(.home-premium-mark-card-natural p:not(.section-kicker)) {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  /* Lekki premium polish bez zmiany istniejącego mechanizmu ruchu */
+  :global(.home-premium-mark-card-shb),
+  :global(.home-premium-mark-card-mentor),
+  :global(.home-premium-mark-card-natural) {
+    box-shadow: 0 28px 76px rgba(89, 53, 67, 0.12) !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-big-mark) {
+      right: 18px !important;
+      top: 16px !important;
+      font-size: clamp(3.2rem, 17vw, 5.4rem) !important;
+      letter-spacing: -0.11em !important;
+    }
+
+    :global(.home-premium-mark-card-mentor .home-big-mark),
+    :global(.home-premium-mark-card-natural .home-big-mark) {
+      font-size: clamp(2.75rem, 14vw, 4.5rem) !important;
+    }
+  }
+
+  /* V2 — mobile touch fix: teksty w kafelkach zawsze widoczne bez dotykania */
+  @media (hover: none), (pointer: coarse), (max-width: 760px) {
+    :global(.home-page article),
+    :global(.home-page article *),
+    :global(.home-page .service-tile),
+    :global(.home-page .service-tile *),
+    :global(.home-page .process-step),
+    :global(.home-page .process-step *),
+    :global(.home-page .master-proof-card),
+    :global(.home-page .master-proof-card *),
+    :global(.home-page .ltl-main-card),
+    :global(.home-page .ltl-main-card *),
+    :global(.home-page .ltl-mentor-card),
+    :global(.home-page .ltl-mentor-card *),
+    :global(.home-page .ltl-value-card),
+    :global(.home-page .ltl-value-card *),
+    :global(.home-page .training-heading-card),
+    :global(.home-page .training-heading-card *),
+    :global(.home-page .training-master-card),
+    :global(.home-page .training-master-card *),
+    :global(.home-page .training-path-card),
+    :global(.home-page .training-path-card *),
+    :global(.home-page .training-detail-card),
+    :global(.home-page .training-detail-card *),
+    :global(.home-page .training-list-card),
+    :global(.home-page .training-list-card *),
+    :global(.home-page .training-cta-card),
+    :global(.home-page .training-cta-card *),
+    :global(.home-page .international-heading-card),
+    :global(.home-page .international-heading-card *),
+    :global(.home-page .international-map-card),
+    :global(.home-page .international-map-card *),
+    :global(.home-page .international-city-card),
+    :global(.home-page .international-city-card *),
+    :global(.home-page .results-heading-card),
+    :global(.home-page .results-heading-card *),
+    :global(.home-page .results-note-card),
+    :global(.home-page .results-note-card *),
+    :global(.home-page .result-tile),
+    :global(.home-page .result-tile *),
+    :global(.home-page .results-feature-card),
+    :global(.home-page .results-feature-card *),
+    :global(.home-page .mission-heading-card),
+    :global(.home-page .mission-heading-card *),
+    :global(.home-page .mission-heart-card),
+    :global(.home-page .mission-heart-card *),
+    :global(.home-page .mission-support-card),
+    :global(.home-page .mission-support-card *),
+    :global(.home-page .mission-quote-card),
+    :global(.home-page .mission-quote-card *),
+    :global(.home-page .cta-card),
+    :global(.home-page .cta-card *) {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    :global(.home-page .service-tile > *),
+    :global(.home-page .process-step > *),
+    :global(.home-page .master-proof-card > *),
+    :global(.home-page .ltl-main-card > *),
+    :global(.home-page .ltl-mentor-card > *),
+    :global(.home-page .ltl-value-card > *),
+    :global(.home-page .training-heading-card > *),
+    :global(.home-page .training-master-card > *),
+    :global(.home-page .training-path-card > *),
+    :global(.home-page .training-detail-card > *),
+    :global(.home-page .training-list-card > *),
+    :global(.home-page .training-cta-card > *),
+    :global(.home-page .international-heading-card > *),
+    :global(.home-page .international-map-card > *),
+    :global(.home-page .international-city-card > *),
+    :global(.home-page .results-heading-card > *),
+    :global(.home-page .results-note-card > *),
+    :global(.home-page .result-tile > *),
+    :global(.home-page .results-feature-card > *),
+    :global(.home-page .mission-heading-card > *),
+    :global(.home-page .mission-heart-card > *),
+    :global(.home-page .mission-support-card > *),
+    :global(.home-page .mission-quote-card > *),
+    :global(.home-page .cta-card > *) {
+      position: relative !important;
+      z-index: 3 !important;
+      transform: none !important;
+    }
+
+    :global(.home-page h2),
+    :global(.home-page h3),
+    :global(.home-page p),
+    :global(.home-page span),
+    :global(.home-page a),
+    :global(.home-page li) {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    :global(.home-page .home-big-mark),
+    :global(.home-page .heart-symbol),
+    :global(.home-page .map-label),
+    :global(.home-page .training-master-label) {
+      z-index: 1 !important;
+      pointer-events: none !important;
+    }
+
+    :global(.home-page article::before),
+    :global(.home-page article::after),
+    :global(.home-page .service-tile::before),
+    :global(.home-page .service-tile::after),
+    :global(.home-page .process-step::before),
+    :global(.home-page .process-step::after),
+    :global(.home-page .master-proof-card::before),
+    :global(.home-page .master-proof-card::after),
+    :global(.home-page .ltl-mentor-card::before),
+    :global(.home-page .ltl-mentor-card::after),
+    :global(.home-page .training-path-card::before),
+    :global(.home-page .training-path-card::after),
+    :global(.home-page .results-note-card::before),
+    :global(.home-page .results-note-card::after),
+    :global(.home-page .mission-heart-card::before),
+    :global(.home-page .mission-heart-card::after) {
+      pointer-events: none !important;
+    }
+  }
+
+
+  /* V3 — strona główna: finalny standard małych nagłówków */
+
+  :global(.home-page .section-kicker) {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 18px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    border: 1px solid rgba(56, 187, 181, 0.16) !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+    text-shadow: none !important;
+  }
+
+  :global(.home-page .home-premium-mark-card-shb .section-kicker),
+  :global(.home-page .home-premium-mark-card-mentor .section-kicker),
+  :global(.home-page .home-premium-mark-card-natural .section-kicker),
+  :global(.home-page .training-master-card .section-kicker),
+  :global(.home-page .mission-heart-card .section-kicker) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+    text-shadow: none !important;
+  }
+
+  :global(.home-page .hero-copy h1),
+  :global(.home-page .services-heading h2),
+  :global(.home-page .philosophy-heading h2),
+  :global(.home-page .method-heading h2),
+  :global(.home-page .master-heading h2),
+  :global(.home-page .ltl-main-card h2),
+  :global(.home-page .training-heading-card h2),
+  :global(.home-page .international-heading-card h2),
+  :global(.home-page .results-heading-card h2),
+  :global(.home-page .mission-heading-card h2) {
+    font-family: inherit !important;
+  }
+
+  :global(.home-page .section-kicker + h2),
+  :global(.home-page .section-kicker + h3) {
+    margin-top: 0 !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .section-kicker) {
+      min-height: 30px !important;
+      margin-bottom: 16px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1 !important;
+    }
+  }
+
+
+  /* V4 — strona główna: docelowy tekst i przycisk w sekcji szkoleń */
+
+  :global(.home-page .training-cta-card) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  :global(.home-page .training-cta-card p:not(.section-kicker)) {
+    max-width: 860px !important;
+  }
+
+  :global(.home-page .training-cta-link) {
+    display: inline-flex !important;
+    min-height: 48px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 22px !important;
+    padding: 0 22px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: linear-gradient(135deg, #d71920, #8f1020) !important;
+    box-shadow: 0 14px 34px rgba(215, 25, 32, 0.22) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    font-size: 0.88rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+  }
+
+  :global(.home-page .training-cta-link:hover) {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 18px 42px rgba(183, 101, 118, 0.22) !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .training-cta-link) {
+      width: 100% !important;
+      min-height: 52px !important;
+      margin-top: 20px !important;
+      text-align: center !important;
+    }
+  }
+
+
+  /* V6 — strona główna: widoczny odnośnik do SercemMalowane */
+
+  :global(.home-page .mission-link-row) {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-top: 26px !important;
+  }
+
+  :global(.home-page .mission-learn-more) {
+    display: inline-flex !important;
+    min-height: 48px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 22px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: linear-gradient(135deg, #d71920, #8f1020) !important;
+    box-shadow: 0 14px 34px rgba(215, 25, 32, 0.22) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    font-size: 0.88rem !important;
+    font-weight: 820 !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+  }
+
+  :global(.home-page .mission-learn-more:hover) {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 18px 42px rgba(215, 25, 32, 0.30) !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .mission-learn-more) {
+      width: 100% !important;
+      min-height: 52px !important;
+      text-align: center !important;
+    }
+  }
+
+
+  /* V7 — strona główna: czerwony przycisk SercemMalowane */
+
+  :global(.home-page .mission-learn-more) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: linear-gradient(135deg, #d71920, #8f1020) !important;
+    box-shadow: 0 14px 34px rgba(215, 25, 32, 0.22) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  :global(.home-page .mission-learn-more:hover) {
+    box-shadow: 0 18px 42px rgba(215, 25, 32, 0.30) !important;
+  }
+
+
+  /* V8 — strona główna: przycisk szkolenia jak Poznaj ofertę */
+
+  :global(.home-page .training-cta-link) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: linear-gradient(135deg, #d992a2, #c77788) !important;
+    box-shadow: 0 16px 34px rgba(199, 119, 136, 0.30) !important;
+    border: 0 !important;
+  }
+
+  :global(.home-page .training-cta-link:hover),
+  :global(.home-page .training-cta-link:focus-visible) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: linear-gradient(135deg, #d992a2, #c77788) !important;
+    box-shadow: 0 18px 42px rgba(199, 119, 136, 0.34) !important;
+    transform: translateY(-2px) !important;
+  }
+
+
+  /* V9 — strona główna: szkolenia wycentrowane i SercemMalowane czerwony klimat */
+
+  /* 1) Przyciski szkolenia — na monitorze środek, mobile zostaje szeroko jak było */
+  :global(.home-page .training-cta-card) {
+    align-items: stretch !important;
+  }
+
+  :global(.home-page .training-cta-link) {
+    align-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .training-cta-link) {
+      align-self: stretch !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+
+  /*
+    2) #SercemMalowane — czerwony klimat całej sekcji.
+    WAŻNE: nie ruszamy bijącego czerwonego kafelka z sercem.
+    Kafelek .mission-heart-card zostaje taki jak wcześniej.
+  */
+  :global(.home-page .mission-premium-section) {
+    position: relative !important;
+    overflow: hidden !important;
+    background:
+      radial-gradient(circle at 8% 16%, rgba(215, 25, 32, 0.12), transparent 26rem),
+      radial-gradient(circle at 92% 10%, rgba(143, 16, 32, 0.10), transparent 25rem),
+      radial-gradient(circle at 50% 96%, rgba(183, 101, 118, 0.10), transparent 28rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 247, 249, 0.94) 45%, rgba(255, 255, 255, 0.98) 100%) !important;
+    border-top: 1px solid rgba(215, 25, 32, 0.10) !important;
+    border-bottom: 1px solid rgba(215, 25, 32, 0.10) !important;
+  }
+
+  :global(.home-page .mission-premium-section::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    background:
+      linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.42) 46%, transparent 72%) !important;
+    transform: translateX(-72%) !important;
+    animation: home-sercem-section-shine 12s ease-in-out infinite !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .mission-premium-section > .container) {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  :global(.home-page .mission-heading-card) {
+    background:
+      radial-gradient(circle at 92% 12%, rgba(215, 25, 32, 0.10), transparent 15rem),
+      radial-gradient(circle at 8% 100%, rgba(183, 101, 118, 0.10), transparent 18rem),
+      rgba(255, 255, 255, 0.88) !important;
+    border: 1px solid rgba(215, 25, 32, 0.14) !important;
+    box-shadow: 0 24px 70px rgba(143, 16, 32, 0.07) !important;
+  }
+
+  :global(.home-page .mission-heading-card .section-kicker) {
+    color: #8f1020 !important;
+    -webkit-text-fill-color: #8f1020 !important;
+    background: rgba(255, 238, 242, 0.86) !important;
+    border-color: rgba(215, 25, 32, 0.16) !important;
+  }
+
+  :global(.home-page .mission-heading-card h2) {
+    color: var(--color-text, #17151d) !important;
+  }
+
+  :global(.home-page .mission-heading-card p:not(.section-kicker)) {
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+  }
+
+  :global(.home-page .mission-support-card) {
+    background:
+      radial-gradient(circle at 94% 12%, rgba(215, 25, 32, 0.08), transparent 12rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 248, 250, 0.90)) !important;
+    border: 1px solid rgba(215, 25, 32, 0.12) !important;
+    box-shadow: 0 20px 54px rgba(143, 16, 32, 0.06) !important;
+  }
+
+  :global(.home-page .mission-support-card-rose) {
+    background:
+      radial-gradient(circle at 86% 18%, rgba(215, 25, 32, 0.13), transparent 12rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 244, 247, 0.92)) !important;
+    border-color: rgba(215, 25, 32, 0.16) !important;
+    box-shadow: 0 22px 58px rgba(215, 25, 32, 0.08) !important;
+  }
+
+  :global(.home-page .mission-support-card span) {
+    color: #b76576 !important;
+    -webkit-text-fill-color: #b76576 !important;
+  }
+
+  :global(.home-page .mission-support-card-rose span) {
+    color: #d71920 !important;
+    -webkit-text-fill-color: #d71920 !important;
+  }
+
+  :global(.home-page .mission-quote-card) {
+    background:
+      radial-gradient(circle at 8% 24%, rgba(215, 25, 32, 0.10), transparent 16rem),
+      radial-gradient(circle at 94% 80%, rgba(143, 16, 32, 0.08), transparent 18rem),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 247, 249, 0.90)) !important;
+    border: 1px solid rgba(215, 25, 32, 0.13) !important;
+    box-shadow: 0 22px 60px rgba(143, 16, 32, 0.07) !important;
+  }
+
+  :global(.home-page .mission-quote-card p) {
+    color: #5f313b !important;
+    -webkit-text-fill-color: #5f313b !important;
+  }
+
+  @keyframes home-sercem-section-shine {
+    0%,
+    38% {
+      transform: translateX(-72%);
+      opacity: 0;
+    }
+
+    52% {
+      opacity: 0.75;
+    }
+
+    100% {
+      transform: translateX(72%);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.home-page .mission-premium-section::before) {
+      animation: none !important;
+      opacity: 0 !important;
+    }
+  }
+
+
+  /* V10 — strona główna: nagłówek kafelka Silky Hairstroke Brows */
+
+  /*
+    Kafelek SHB na stronie głównej:
+    "Autorska metoda" przestaje wyglądać jak zwykły numer/kicker kafelka.
+    Dostaje premium etykietę, a główny nagłówek SHB zostaje mocny i czytelny.
+  */
+  :global(.home-page .home-premium-mark-card-shb .shb-card-kicker) {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 26px !important;
+    padding: 0 13px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    box-shadow: none !important;
+    font-size: 0.7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.17em !important;
+    text-transform: uppercase !important;
+    text-shadow: none !important;
+  }
+
+  :global(.home-page .home-premium-mark-card-shb h3) {
+    max-width: 520px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(2.2rem, 3.4vw, 4.05rem) !important;
+    font-weight: 780 !important;
+    line-height: 0.96 !important;
+    letter-spacing: -0.075em !important;
+    text-shadow: 0 16px 42px rgba(12, 65, 63, 0.26) !important;
+  }
+
+  :global(.home-page .home-premium-mark-card-shb p) {
+    max-width: 650px !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .home-premium-mark-card-shb .shb-card-kicker) {
+      min-height: 30px !important;
+      margin-bottom: 20px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1 !important;
+    }
+
+    :global(.home-page .home-premium-mark-card-shb h3) {
+      font-size: clamp(2.05rem, 10vw, 3.05rem) !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.066em !important;
+    }
+  }
+
+
+  /* V11 — strona główna: kafelki miast w kolorach flag */
+
+  /*
+    Kafelki miast — inspiracja kolorami flag.
+    Nie robimy dosłownych flag, tylko eleganckie akcenty: pasek, poświata i kolor etykiety.
+  */
+  :global(.home-page .international-city-card-flag) {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+    background:
+      radial-gradient(circle at 94% 12%, var(--flag-glow, rgba(56, 187, 181, 0.08)), transparent 13rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
+    border: 1px solid var(--flag-border, rgba(183, 101, 118, 0.13)) !important;
+    box-shadow: 0 22px 58px var(--flag-shadow, rgba(51, 31, 44, 0.07)) !important;
+  }
+
+  :global(.home-page .international-city-card-flag::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 0 auto 0 !important;
+    z-index: 1 !important;
+    height: 7px !important;
+    background: var(--flag-strip, linear-gradient(90deg, #ffffff, #d992a2)) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-city-card-flag::after) {
+    content: "" !important;
+    position: absolute !important;
+    right: -4.6rem !important;
+    top: -4.6rem !important;
+    z-index: 0 !important;
+    width: 13rem !important;
+    height: 13rem !important;
+    border-radius: 999px !important;
+    background: radial-gradient(circle, var(--flag-orb, rgba(183, 101, 118, 0.14)), transparent 70%) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-city-card-flag > *) {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  :global(.home-page .international-city-card-flag span) {
+    color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
+    -webkit-text-fill-color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
+  }
+
+  :global(.home-page .international-city-card-flag h3) {
+    color: var(--color-text, #17151d) !important;
+    -webkit-text-fill-color: var(--color-text, #17151d) !important;
+  }
+
+  :global(.home-page .international-city-card-turkey) {
+    --flag-strip: linear-gradient(90deg, #e30a17 0%, #e30a17 72%, #ffffff 72%, #ffffff 100%);
+    --flag-glow: rgba(227, 10, 23, 0.10);
+    --flag-orb: rgba(227, 10, 23, 0.16);
+    --flag-border: rgba(227, 10, 23, 0.16);
+    --flag-shadow: rgba(227, 10, 23, 0.08);
+    --flag-label: #b30814;
+  }
+
+  :global(.home-page .international-city-card-hungary) {
+    --flag-strip: linear-gradient(90deg, #ce2939 0%, #ce2939 33.3%, #ffffff 33.3%, #ffffff 66.6%, #477050 66.6%, #477050 100%);
+    --flag-glow: rgba(71, 112, 80, 0.10);
+    --flag-orb: rgba(206, 41, 57, 0.12);
+    --flag-border: rgba(71, 112, 80, 0.16);
+    --flag-shadow: rgba(71, 112, 80, 0.07);
+    --flag-label: #477050;
+  }
+
+  :global(.home-page .international-city-card-france) {
+    --flag-strip: linear-gradient(90deg, #0055a4 0%, #0055a4 33.3%, #ffffff 33.3%, #ffffff 66.6%, #ef4135 66.6%, #ef4135 100%);
+    --flag-glow: rgba(0, 85, 164, 0.10);
+    --flag-orb: rgba(239, 65, 53, 0.12);
+    --flag-border: rgba(0, 85, 164, 0.15);
+    --flag-shadow: rgba(0, 85, 164, 0.07);
+    --flag-label: #0055a4;
+  }
+
+  :global(.home-page .international-city-card-germany) {
+    --flag-strip: linear-gradient(90deg, #1d1d1d 0%, #1d1d1d 33.3%, #dd0000 33.3%, #dd0000 66.6%, #ffce00 66.6%, #ffce00 100%);
+    --flag-glow: rgba(255, 206, 0, 0.12);
+    --flag-orb: rgba(221, 0, 0, 0.12);
+    --flag-border: rgba(221, 0, 0, 0.14);
+    --flag-shadow: rgba(29, 29, 29, 0.06);
+    --flag-label: #8f1020;
+  }
+
+  :global(.home-page .international-city-card-indonesia) {
+    --flag-strip: linear-gradient(90deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
+    --flag-glow: rgba(206, 17, 38, 0.11);
+    --flag-orb: rgba(206, 17, 38, 0.14);
+    --flag-border: rgba(206, 17, 38, 0.15);
+    --flag-shadow: rgba(206, 17, 38, 0.07);
+    --flag-label: #b30d20;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-city-card-flag::before) {
+      height: 6px !important;
+    }
+  }
+
+
+  /* V12 — strona główna: żywsze kafelki miast z tłem flag */
+
+  /* V12 — żywsze kafelki miast z delikatnym tłem flag i symboliką */
+  :global(.home-page .international-city-card-flag) {
+    background:
+      var(--flag-card, linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 250, 252, 0.9))) !important;
+    border: 1px solid var(--flag-border, rgba(183, 101, 118, 0.13)) !important;
+    box-shadow: 0 24px 58px var(--flag-shadow, rgba(51, 31, 44, 0.07)) !important;
+  }
+
+  :global(.home-page .international-city-card-flag::before) {
+    height: 8px !important;
+    background: var(--flag-strip, linear-gradient(90deg, #ffffff, #d992a2)) !important;
+  }
+
+  :global(.home-page .international-city-card-flag::after) {
+    content: "" !important;
+    position: absolute !important;
+    right: -1.2rem !important;
+    top: 1.4rem !important;
+    z-index: 0 !important;
+    width: 72% !important;
+    height: 62% !important;
+    border-radius: 26px !important;
+    opacity: 0.46 !important;
+    pointer-events: none !important;
+    filter: saturate(110%) !important;
+  }
+
+  :global(.home-page .international-city-card-flag > *) {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  :global(.home-page .international-city-card-flag span) {
+    color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
+    -webkit-text-fill-color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
+  }
+
+  :global(.home-page .international-city-card-turkey) {
+    --flag-card: linear-gradient(145deg, rgba(227, 10, 23, 0.16), rgba(255, 255, 255, 0.96) 48%, rgba(255, 245, 246, 0.96) 100%);
+    --flag-strip: linear-gradient(90deg, #e30a17 0%, #e30a17 72%, #ffffff 72%, #ffffff 100%);
+    --flag-border: rgba(227, 10, 23, 0.18);
+    --flag-shadow: rgba(227, 10, 23, 0.08);
+    --flag-label: #b30814;
+  }
+
+  :global(.home-page .international-city-card-turkey::after) {
+    content: "☾★" !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    height: auto !important;
+    right: 1.05rem !important;
+    top: 1.45rem !important;
+    font-size: clamp(3.7rem, 4vw, 5rem) !important;
+    line-height: 0.85 !important;
+    letter-spacing: -0.18em !important;
+    color: rgba(255, 255, 255, 0.38) !important;
+    opacity: 0.9 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    text-shadow: 0 0 28px rgba(227, 10, 23, 0.16) !important;
+    transform: rotate(-10deg) !important;
+  }
+
+  :global(.home-page .international-city-card-hungary) {
+    --flag-card: linear-gradient(145deg, rgba(206, 41, 57, 0.11), rgba(255, 255, 255, 0.97) 44%, rgba(71, 112, 80, 0.11) 100%);
+    --flag-strip: linear-gradient(90deg, #ce2939 0%, #ce2939 33.3%, #ffffff 33.3%, #ffffff 66.6%, #477050 66.6%, #477050 100%);
+    --flag-border: rgba(71, 112, 80, 0.16);
+    --flag-shadow: rgba(71, 112, 80, 0.07);
+    --flag-label: #477050;
+  }
+
+  :global(.home-page .international-city-card-hungary::after) {
+    background: linear-gradient(180deg, rgba(206, 41, 57, 0.30) 0%, rgba(206, 41, 57, 0.30) 33.3%, rgba(255, 255, 255, 0.42) 33.3%, rgba(255, 255, 255, 0.42) 66.6%, rgba(71, 112, 80, 0.28) 66.6%, rgba(71, 112, 80, 0.28) 100%) !important;
+  }
+
+  :global(.home-page .international-city-card-france) {
+    --flag-card: linear-gradient(145deg, rgba(0, 85, 164, 0.10), rgba(255, 255, 255, 0.97) 48%, rgba(239, 65, 53, 0.10) 100%);
+    --flag-strip: linear-gradient(90deg, #0055a4 0%, #0055a4 33.3%, #ffffff 33.3%, #ffffff 66.6%, #ef4135 66.6%, #ef4135 100%);
+    --flag-border: rgba(0, 85, 164, 0.15);
+    --flag-shadow: rgba(0, 85, 164, 0.07);
+    --flag-label: #0055a4;
+  }
+
+  :global(.home-page .international-city-card-france::after) {
+    background: linear-gradient(90deg, rgba(0, 85, 164, 0.28) 0%, rgba(0, 85, 164, 0.28) 33.3%, rgba(255, 255, 255, 0.45) 33.3%, rgba(255, 255, 255, 0.45) 66.6%, rgba(239, 65, 53, 0.26) 66.6%, rgba(239, 65, 53, 0.26) 100%) !important;
+  }
+
+  :global(.home-page .international-city-card-germany) {
+    --flag-card: linear-gradient(145deg, rgba(32, 32, 32, 0.08), rgba(255, 255, 255, 0.97) 45%, rgba(255, 206, 0, 0.10) 100%);
+    --flag-strip: linear-gradient(90deg, #1d1d1d 0%, #1d1d1d 33.3%, #dd0000 33.3%, #dd0000 66.6%, #ffce00 66.6%, #ffce00 100%);
+    --flag-border: rgba(221, 0, 0, 0.14);
+    --flag-shadow: rgba(29, 29, 29, 0.06);
+    --flag-label: #8f1020;
+  }
+
+  :global(.home-page .international-city-card-germany::after) {
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.30) 0%, rgba(20, 20, 20, 0.30) 33.3%, rgba(221, 0, 0, 0.28) 33.3%, rgba(221, 0, 0, 0.28) 66.6%, rgba(255, 206, 0, 0.28) 66.6%, rgba(255, 206, 0, 0.28) 100%) !important;
+  }
+
+  :global(.home-page .international-city-card-indonesia) {
+    --flag-card: linear-gradient(145deg, rgba(206, 17, 38, 0.14), rgba(255, 255, 255, 0.97) 55%, rgba(255, 255, 255, 0.98) 100%);
+    --flag-strip: linear-gradient(90deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
+    --flag-border: rgba(206, 17, 38, 0.16);
+    --flag-shadow: rgba(206, 17, 38, 0.07);
+    --flag-label: #b30d20;
+  }
+
+  :global(.home-page .international-city-card-indonesia::after) {
+    background: linear-gradient(180deg, rgba(206, 17, 38, 0.30) 0%, rgba(206, 17, 38, 0.30) 50%, rgba(255, 255, 255, 0.44) 50%, rgba(255, 255, 255, 0.44) 100%) !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-city-card-flag::before) {
+      height: 6px !important;
+    }
+
+    :global(.home-page .international-city-card-flag::after) {
+      width: 66% !important;
+      height: 54% !important;
+      right: -0.9rem !important;
+      top: 1.05rem !important;
+      opacity: 0.42 !important;
+    }
+
+    :global(.home-page .international-city-card-turkey::after) {
+      width: auto !important;
+      height: auto !important;
+      right: 0.85rem !important;
+      top: 1.1rem !important;
+      font-size: 3.25rem !important;
+    }
+  }
+
+
+  /* V13 — strona główna: kafelki miast biały styl z pełną flagą */
+
+  /* V13 — kafelki miast: białe karty, pełna flaga w tle, bez poświat szablonu */
+  :global(.home-page .international-city-card-flag) {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(23, 21, 29, 0.08) !important;
+    box-shadow: 0 18px 42px rgba(18, 17, 22, 0.08) !important;
+  }
+
+  :global(.home-page .international-city-card-flag::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    height: auto !important;
+    border-radius: inherit !important;
+    background: var(--flag-bg, linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,248,248,0.94))) !important;
+    opacity: 0.92 !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-city-card-flag::after) {
+    content: var(--flag-mark, "") !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: var(--flag-mark-size, 4.9rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: var(--flag-mark-spacing, -0.08em) !important;
+    line-height: 1 !important;
+    color: var(--flag-mark-color, rgba(255,255,255,0.40)) !important;
+    text-shadow: none !important;
+    background: none !important;
+    border-radius: 0 !important;
+    opacity: 1 !important;
+    transform: var(--flag-mark-transform, none) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-city-card-flag > *) {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  :global(.home-page .international-city-card-flag span) {
+    color: var(--flag-label, #17151d) !important;
+    -webkit-text-fill-color: var(--flag-label, #17151d) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+    font-weight: 800 !important;
+  }
+
+  :global(.home-page .international-city-card-flag h3) {
+    color: #17151d !important;
+    -webkit-text-fill-color: #17151d !important;
+  }
+
+  :global(.home-page .international-city-card-turkey) {
+    --flag-bg:
+      linear-gradient(180deg, rgba(227, 10, 23, 0.22) 0%, rgba(227, 10, 23, 0.22) 100%),
+      linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+    --flag-mark: "☾★";
+    --flag-mark-size: 5.2rem;
+    --flag-mark-spacing: -0.16em;
+    --flag-mark-color: rgba(255, 255, 255, 0.74);
+    --flag-mark-transform: rotate(-10deg);
+    --flag-label: #a10914;
+  }
+
+  :global(.home-page .international-city-card-hungary) {
+    --flag-bg:
+      linear-gradient(180deg,
+        rgba(206, 41, 57, 0.23) 0%,
+        rgba(206, 41, 57, 0.23) 33.333%,
+        rgba(255, 255, 255, 0.72) 33.333%,
+        rgba(255, 255, 255, 0.72) 66.666%,
+        rgba(71, 112, 80, 0.23) 66.666%,
+        rgba(71, 112, 80, 0.23) 100%);
+    --flag-label: #3e6548;
+  }
+
+  :global(.home-page .international-city-card-france) {
+    --flag-bg:
+      linear-gradient(90deg,
+        rgba(0, 85, 164, 0.22) 0%,
+        rgba(0, 85, 164, 0.22) 33.333%,
+        rgba(255, 255, 255, 0.74) 33.333%,
+        rgba(255, 255, 255, 0.74) 66.666%,
+        rgba(239, 65, 53, 0.22) 66.666%,
+        rgba(239, 65, 53, 0.22) 100%);
+    --flag-label: #004a92;
+  }
+
+  :global(.home-page .international-city-card-germany) {
+    --flag-bg:
+      linear-gradient(180deg,
+        rgba(24, 24, 24, 0.20) 0%,
+        rgba(24, 24, 24, 0.20) 33.333%,
+        rgba(221, 0, 0, 0.19) 33.333%,
+        rgba(221, 0, 0, 0.19) 66.666%,
+        rgba(255, 206, 0, 0.24) 66.666%,
+        rgba(255, 206, 0, 0.24) 100%);
+    --flag-label: #7c0c1b;
+  }
+
+  :global(.home-page .international-city-card-indonesia) {
+    --flag-bg:
+      linear-gradient(180deg,
+        rgba(206, 17, 38, 0.24) 0%,
+        rgba(206, 17, 38, 0.24) 50%,
+        rgba(255, 255, 255, 0.76) 50%,
+        rgba(255, 255, 255, 0.76) 100%);
+    --flag-label: #a90e20;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-city-card-flag::after) {
+      font-size: 4rem !important;
+    }
+  }
+
+
+  /* V14 — strona główna: eventowe kafelki miast z flagą i błyskiem */
+
+  /*
+    V14: kafelki miast jako mocne event cards.
+    Żywa flaga w tle, duży symbol, a opis przeniesiony do osobnego dolnego panelu.
+  */
+  :global(.home-page .international-event-grid) {
+    align-items: stretch !important;
+  }
+
+  :global(.home-page .international-event-card) {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    min-height: 342px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding: 26px !important;
+    border: 1px solid rgba(255, 255, 255, 0.24) !important;
+    background: var(--event-flag-bg) !important;
+    box-shadow: 0 28px 72px var(--event-shadow, rgba(23, 21, 29, 0.14)) !important;
+    transform: translateZ(0) !important;
+  }
+
+  :global(.home-page .international-event-card::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    height: auto !important;
+    border-radius: inherit !important;
+    background:
+      linear-gradient(112deg, transparent 0%, rgba(255, 255, 255, 0.10) 26%, rgba(255, 255, 255, 0.45) 48%, rgba(255, 255, 255, 0.10) 72%, transparent 100%) !important;
+    transform: translateX(-86%) !important;
+    animation: city-event-shine 8.8s ease-in-out infinite !important;
+    opacity: 0.86 !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-event-card::after) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.24), transparent 13rem),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.26)) !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-event-card > *) {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  :global(.home-page .event-card-top) {
+    display: grid !important;
+    gap: 8px !important;
+  }
+
+  :global(.home-page .event-card-top span) {
+    display: inline-flex !important;
+    width: fit-content !important;
+    min-height: 30px !important;
+    align-items: center !important;
+    padding: 0 12px !important;
+    border-radius: 999px !important;
+    color: var(--event-chip-text, #17151d) !important;
+    -webkit-text-fill-color: var(--event-chip-text, #17151d) !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+    border: 1px solid rgba(255, 255, 255, 0.52) !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10) !important;
+    font-size: 0.68rem !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+  }
+
+  :global(.home-page .event-card-top h3) {
+    margin: 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(2.05rem, 3.1vw, 3.55rem) !important;
+    font-weight: 820 !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.076em !important;
+    text-shadow: 0 16px 38px rgba(0, 0, 0, 0.30) !important;
+  }
+
+  :global(.home-page .event-card-symbol) {
+    position: absolute !important;
+    z-index: 2 !important;
+    inset: 72px 16px auto auto !important;
+    color: rgba(255, 255, 255, 0.34) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.34) !important;
+    font-size: var(--event-symbol-size, clamp(4.2rem, 6vw, 7rem)) !important;
+    font-weight: 920 !important;
+    line-height: 0.82 !important;
+    letter-spacing: -0.14em !important;
+    text-shadow: 0 20px 46px rgba(0, 0, 0, 0.18) !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  :global(.home-page .event-card-panel) {
+    margin-top: auto !important;
+    padding: 18px 18px 17px !important;
+    border-radius: 24px !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    border: 1px solid rgba(255, 255, 255, 0.54) !important;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14) !important;
+    backdrop-filter: blur(12px) !important;
+  }
+
+  :global(.home-page .event-card-panel strong) {
+    display: block !important;
+    margin-bottom: 8px !important;
+    color: var(--event-panel-strong, #17151d) !important;
+    -webkit-text-fill-color: var(--event-panel-strong, #17151d) !important;
+    font-size: 0.8rem !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.11em !important;
+    text-transform: uppercase !important;
+  }
+
+  :global(.home-page .event-card-panel p) {
+    margin: 0 !important;
+    color: #312a31 !important;
+    -webkit-text-fill-color: #312a31 !important;
+    font-size: 0.88rem !important;
+    font-weight: 540 !important;
+    line-height: 1.48 !important;
+  }
+
+  :global(.home-page .international-city-card-turkey) {
+    --event-flag-bg:
+      radial-gradient(circle at 74% 18%, rgba(255, 255, 255, 0.22), transparent 9rem),
+      linear-gradient(135deg, #ff2330 0%, #d70a17 48%, #a50712 100%);
+    --event-shadow: rgba(164, 7, 18, 0.25);
+    --event-panel-strong: #a50712;
+    --event-chip-text: #a50712;
+    --event-symbol-size: clamp(4.6rem, 6.4vw, 7.6rem);
+  }
+
+  :global(.home-page .international-city-card-hungary) {
+    --event-flag-bg:
+      linear-gradient(180deg, #ce2939 0%, #ce2939 33.333%, #ffffff 33.333%, #ffffff 66.666%, #477050 66.666%, #477050 100%);
+    --event-shadow: rgba(71, 112, 80, 0.24);
+    --event-panel-strong: #477050;
+    --event-chip-text: #477050;
+  }
+
+  :global(.home-page .international-city-card-hungary .event-card-top h3),
+  :global(.home-page .international-city-card-hungary .event-card-symbol) {
+    color: rgba(23, 21, 29, 0.78) !important;
+    -webkit-text-fill-color: rgba(23, 21, 29, 0.78) !important;
+    text-shadow: 0 12px 30px rgba(255, 255, 255, 0.42) !important;
+  }
+
+  :global(.home-page .international-city-card-france) {
+    --event-flag-bg:
+      linear-gradient(90deg, #0055a4 0%, #0055a4 33.333%, #ffffff 33.333%, #ffffff 66.666%, #ef4135 66.666%, #ef4135 100%);
+    --event-shadow: rgba(0, 85, 164, 0.22);
+    --event-panel-strong: #0055a4;
+    --event-chip-text: #0055a4;
+  }
+
+  :global(.home-page .international-city-card-france .event-card-top h3),
+  :global(.home-page .international-city-card-france .event-card-symbol) {
+    color: rgba(23, 21, 29, 0.78) !important;
+    -webkit-text-fill-color: rgba(23, 21, 29, 0.78) !important;
+    text-shadow: 0 12px 30px rgba(255, 255, 255, 0.42) !important;
+  }
+
+  :global(.home-page .international-city-card-germany) {
+    --event-flag-bg:
+      linear-gradient(180deg, #171717 0%, #171717 33.333%, #dd0000 33.333%, #dd0000 66.666%, #ffce00 66.666%, #ffce00 100%);
+    --event-shadow: rgba(23, 23, 23, 0.23);
+    --event-panel-strong: #8f1020;
+    --event-chip-text: #8f1020;
+  }
+
+  :global(.home-page .international-city-card-indonesia) {
+    --event-flag-bg:
+      linear-gradient(180deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
+    --event-shadow: rgba(206, 17, 38, 0.24);
+    --event-panel-strong: #b30d20;
+    --event-chip-text: #b30d20;
+  }
+
+  :global(.home-page .international-city-card-indonesia .event-card-top h3),
+  :global(.home-page .international-city-card-indonesia .event-card-symbol) {
+    color: rgba(23, 21, 29, 0.78) !important;
+    -webkit-text-fill-color: rgba(23, 21, 29, 0.78) !important;
+    text-shadow: 0 12px 30px rgba(255, 255, 255, 0.42) !important;
+  }
+
+  @keyframes city-event-shine {
+    0%,
+    42% {
+      transform: translateX(-86%);
+      opacity: 0;
+    }
+
+    58% {
+      opacity: 0.92;
+    }
+
+    100% {
+      transform: translateX(86%);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-event-card) {
+      min-height: 322px !important;
+      padding: 22px !important;
+    }
+
+    :global(.home-page .event-card-top h3) {
+      font-size: clamp(2rem, 12vw, 3.25rem) !important;
+    }
+
+    :global(.home-page .event-card-symbol) {
+      inset: 68px 16px auto auto !important;
+      font-size: clamp(3.9rem, 16vw, 5.8rem) !important;
+    }
+
+    :global(.home-page .event-card-panel) {
+      padding: 16px !important;
+      border-radius: 22px !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.home-page .international-event-card::before) {
+      animation: none !important;
+      opacity: 0 !important;
+    }
+  }
+
+
+  /* V15 — strona główna: eventowe kafelki pełne flagi i białe napisy */
+
+  /*
+    V15: pełne kolory flag, bez połysku i poświat.
+    Państwo + miejscowość są białe, osadzone na ciemnym panelu,
+    żeby nie zlewały się z jasnymi fragmentami flag.
+  */
+  :global(.home-page .international-event-card) {
+    min-height: 350px !important;
+    padding: 24px !important;
+    background: var(--event-flag-bg) !important;
+    border: 0 !important;
+    box-shadow: 0 24px 58px rgba(18, 17, 22, 0.16) !important;
+  }
+
+  :global(.home-page .international-event-card::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    height: auto !important;
+    border-radius: inherit !important;
+    background: var(--event-flag-bg) !important;
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-event-card::after) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.08) 42%, rgba(0, 0, 0, 0.36) 100%) !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .event-card-top) {
+    width: 100% !important;
+    display: grid !important;
+    gap: 8px !important;
+    padding: 16px 16px 15px !important;
+    border-radius: 24px !important;
+    background: rgba(0, 0, 0, 0.34) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+
+  :global(.home-page .event-card-top span) {
+    display: block !important;
+    width: fit-content !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    font-size: 0.72rem !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.45) !important;
+  }
+
+  :global(.home-page .event-card-top h3) {
+    margin: 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(2.2rem, 3.35vw, 3.85rem) !important;
+    font-weight: 850 !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.08em !important;
+    text-shadow: 0 6px 24px rgba(0, 0, 0, 0.46) !important;
+  }
+
+  :global(.home-page .event-card-symbol) {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 3 !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin: 20px 0 18px auto !important;
+    padding: 10px 14px 9px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(0, 0, 0, 0.32) !important;
+    border: 1px solid rgba(255, 255, 255, 0.24) !important;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16) !important;
+    backdrop-filter: blur(8px) !important;
+    font-size: 0.74rem !important;
+    font-weight: 950 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.38) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-city-card-turkey .event-card-symbol) {
+    font-size: 1.75rem !important;
+    letter-spacing: -0.12em !important;
+    line-height: 0.85 !important;
+    padding: 12px 18px 11px !important;
+    text-transform: none !important;
+  }
+
+  :global(.home-page .event-card-panel) {
+    margin-top: auto !important;
+    padding: 17px 17px 16px !important;
+    border-radius: 24px !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+    border: 1px solid rgba(255, 255, 255, 0.62) !important;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  :global(.home-page .event-card-panel strong) {
+    display: block !important;
+    margin-bottom: 8px !important;
+    color: var(--event-panel-strong, #17151d) !important;
+    -webkit-text-fill-color: var(--event-panel-strong, #17151d) !important;
+    font-size: 0.78rem !important;
+    font-weight: 950 !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.10em !important;
+    text-transform: uppercase !important;
+  }
+
+  :global(.home-page .event-card-panel p) {
+    margin: 0 !important;
+    color: #2f2a31 !important;
+    -webkit-text-fill-color: #2f2a31 !important;
+    font-size: 0.86rem !important;
+    font-weight: 540 !important;
+    line-height: 1.46 !important;
+  }
+
+  :global(.home-page .international-city-card-turkey) {
+    --event-flag-bg: #e30a17;
+    --event-panel-strong: #a50712;
+  }
+
+  :global(.home-page .international-city-card-hungary) {
+    --event-flag-bg: linear-gradient(180deg, #ce2939 0%, #ce2939 33.333%, #ffffff 33.333%, #ffffff 66.666%, #477050 66.666%, #477050 100%);
+    --event-panel-strong: #477050;
+  }
+
+  :global(.home-page .international-city-card-france) {
+    --event-flag-bg: linear-gradient(90deg, #0055a4 0%, #0055a4 33.333%, #ffffff 33.333%, #ffffff 66.666%, #ef4135 66.666%, #ef4135 100%);
+    --event-panel-strong: #0055a4;
+  }
+
+  :global(.home-page .international-city-card-germany) {
+    --event-flag-bg: linear-gradient(180deg, #171717 0%, #171717 33.333%, #dd0000 33.333%, #dd0000 66.666%, #ffce00 66.666%, #ffce00 100%);
+    --event-panel-strong: #8f1020;
+  }
+
+  :global(.home-page .international-city-card-indonesia) {
+    --event-flag-bg: linear-gradient(180deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
+    --event-panel-strong: #b30d20;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-event-card) {
+      min-height: 330px !important;
+      padding: 20px !important;
+    }
+
+    :global(.home-page .event-card-top) {
+      padding: 15px !important;
+      border-radius: 22px !important;
+    }
+
+    :global(.home-page .event-card-top h3) {
+      font-size: clamp(2.1rem, 12vw, 3.35rem) !important;
+      line-height: 0.92 !important;
+    }
+
+    :global(.home-page .event-card-symbol) {
+      margin: 18px 0 16px auto !important;
+    }
+
+    :global(.home-page .event-card-panel) {
+      padding: 16px !important;
+      border-radius: 22px !important;
+    }
+  }
+
+
+  /* V16 — strona główna: finalne badge cards z flagą */
+
+  /*
+    V16: finalne kafelki międzynarodowe.
+    Jedna karta = pełna żywa flaga, biała typografia, duży napis jak EDU/SHB/LTL.
+    Bez opisów i bez poświat szablonu.
+  */
+  :global(.home-page .international-badge-grid) {
+    align-items: stretch !important;
+  }
+
+  :global(.home-page .international-badge-card) {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    min-height: 310px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding: 26px !important;
+    border: 0 !important;
+    border-radius: 34px !important;
+    background: var(--badge-flag) !important;
+    box-shadow: 0 24px 58px rgba(18, 17, 22, 0.18) !important;
+  }
+
+  :global(.home-page .international-badge-card::before),
+  :global(.home-page .international-badge-card::after) {
+    content: none !important;
+    display: none !important;
+  }
+
+  :global(.home-page .international-badge-card > *) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  :global(.home-page .badge-place) {
+    display: grid !important;
+    gap: 5px !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+  }
+
+  :global(.home-page .badge-place span) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: 0.78rem !important;
+    font-weight: 950 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.42) !important;
+  }
+
+  :global(.home-page .badge-place h3) {
+    margin: 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(1.9rem, 2.55vw, 3.05rem) !important;
+    font-weight: 830 !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.072em !important;
+    text-shadow: 0 5px 22px rgba(0, 0, 0, 0.48) !important;
+  }
+
+  :global(.home-page .badge-main-word) {
+    display: block !important;
+    align-self: center !important;
+    width: 100% !important;
+    margin: auto 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(3.25rem, 5.6vw, 7.2rem) !important;
+    font-weight: 950 !important;
+    line-height: 0.78 !important;
+    letter-spacing: -0.125em !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    text-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.34),
+      0 1px 0 rgba(255, 255, 255, 0.16) !important;
+  }
+
+  :global(.home-page .badge-caption) {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  :global(.home-page .badge-caption span) {
+    display: inline-flex !important;
+    min-height: 30px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 11px !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(0, 0, 0, 0.24) !important;
+    border: 1px solid rgba(255, 255, 255, 0.26) !important;
+    font-size: 0.68rem !important;
+    font-weight: 880 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.34) !important;
+  }
+
+  :global(.home-page .international-badge-card-turkey) {
+    --badge-flag: #e30a17;
+  }
+
+  :global(.home-page .international-badge-card-hungary) {
+    --badge-flag: linear-gradient(180deg, #ce2939 0%, #ce2939 33.333%, #ffffff 33.333%, #ffffff 66.666%, #477050 66.666%, #477050 100%);
+  }
+
+  :global(.home-page .international-badge-card-france) {
+    --badge-flag: linear-gradient(90deg, #0055a4 0%, #0055a4 33.333%, #ffffff 33.333%, #ffffff 66.666%, #ef4135 66.666%, #ef4135 100%);
+  }
+
+  :global(.home-page .international-badge-card-germany) {
+    --badge-flag: linear-gradient(180deg, #171717 0%, #171717 33.333%, #dd0000 33.333%, #dd0000 66.666%, #ffce00 66.666%, #ffce00 100%);
+  }
+
+  :global(.home-page .international-badge-card-indonesia) {
+    --badge-flag: linear-gradient(180deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-badge-card) {
+      min-height: 286px !important;
+      padding: 22px !important;
+      border-radius: 28px !important;
+    }
+
+    :global(.home-page .badge-place h3) {
+      font-size: clamp(1.85rem, 10vw, 2.95rem) !important;
+    }
+
+    :global(.home-page .badge-main-word) {
+      font-size: clamp(3.1rem, 17vw, 5.6rem) !important;
+      letter-spacing: -0.12em !important;
+    }
+
+    :global(.home-page .badge-caption span) {
+      min-height: 29px !important;
+      padding: 0 10px !important;
+      font-size: 0.62rem !important;
+      letter-spacing: 0.06em !important;
+    }
+  }
+
+</style>
+
