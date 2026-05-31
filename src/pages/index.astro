@@ -218,6 +218,41 @@ const structuredData = [
         </div>
       </section>
 
+      <section class="home-editorial-section home-editorial-section-first" aria-label="Naturalny styl pracy Bogusława Herda">
+        <div class="container home-editorial-grid">
+          <figure class="home-editorial-photo home-editorial-photo-large">
+            <img
+              src="/images/wizerunek-boguslawa-herda-biala-koszula.webp"
+              alt="Bogusława Herda - naturalny makijaż permanentny Bielsko-Biała, elegancki styl pracy"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <div class="home-editorial-copy">
+            <p class="section-kicker">Naturalny kierunek</p>
+            <h2>Makijaż permanentny, który porządkuje urodę — nie zmienia twarzy.</h2>
+            <p>
+              Najlepszy efekt PMU nie wygląda jak mocny makijaż. Wygląda jak spokojniejsza
+              oprawa oka, lepsza proporcja, subtelniejszy kolor i twarz, która nadal pozostaje sobą.
+            </p>
+            <p>
+              Dlatego na stronie nie dokładamy zdjęć jako przypadkowej galerii. Każdy kadr ma
+              prowadzić klientkę przez historię: zaufanie, doświadczenie, naturalność i decyzję
+              o konsultacji.
+            </p>
+
+            <div class="home-editorial-points" aria-label="Założenia naturalnego makijażu permanentnego">
+              <span>bez przerysowania</span>
+              <span>indywidualny projekt</span>
+              <span>spokojna pigmentacja</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="philosophy-section">
         <div class="container two-column">
           <div>
@@ -434,6 +469,33 @@ const structuredData = [
               <p>
                 Bogusława Herda łączy doświadczenie mistrzowskie, pracę trenerską,
                 międzynarodową edukację i autorskie podejście do naturalnej pigmentacji.
+              </p>
+            </div>
+          </div>
+
+          <div class="master-photo-feature-grid">
+            <figure class="master-photo-card">
+              <img
+                src="/images/ekspert-boguslawa-herda-portret-pmu.webp"
+                alt="Bogusława Herda - ekspertka makijażu permanentnego, trenerka Long-Time-Liner i autorka Silky Hairstroke Brows"
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
+            <div class="master-photo-copy-card">
+              <p class="section-kicker">Ekspertka PMU</p>
+              <h3>Profesjonalizm, który klientka czuje jeszcze przed zabiegiem.</h3>
+              <p>
+                Wizerunek ekspertki ma wspierać treść, a nie ją przykrywać. Ten kadr buduje
+                zaufanie: pokazuje osobę, doświadczenie, spokój i standard pracy, który stoi
+                za naturalnym makijażem permanentnym.
+              </p>
+              <p>
+                To dobre miejsce na zdjęcie Bogusława Herda, bo obok pojawiają się tytuły,
+                szkolenia, Long-Time-Liner®, Silky Hairstroke Brows i międzynarodowa perspektywa.
               </p>
             </div>
           </div>
@@ -915,6 +977,35 @@ const structuredData = [
         </div>
       </section>
 
+      <section class="home-nature-image-section" aria-label="Powrót do natury w makijażu permanentnym">
+        <div class="container home-nature-image-card">
+          <div class="home-nature-copy">
+            <p class="signature">Powrót do natury</p>
+            <h2>Naturalność zostaje ostatnim wrażeniem.</h2>
+            <p>
+              Ten kadr nie ma udawać zdjęcia zabiegowego. Ma domknąć opowieść strony:
+              makijaż permanentny może być profesjonalny, precyzyjny i jednocześnie miękki,
+              kobiecy, spokojny oraz dopasowany do codzienności.
+            </p>
+            <p>
+              Dlatego zdjęcie z kapeluszem najlepiej działa nisko na stronie — przy filozofii
+              „Powrót do natury”, tuż przed decyzją o kontakcie i rezerwacji wizyty.
+            </p>
+          </div>
+
+          <figure class="home-nature-photo">
+            <img
+              src="/images/powrot-do-natury-boguslawa-herda-kapelusz.webp"
+              alt="Powrót do natury - Bogusława Herda i naturalny makijaż permanentny dopasowany do urody"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
       <section class="cta-section" id="kontakt">
         <div class="container cta-card">
           <p class="signature cta-signature">Powrót do natury</p>
@@ -942,6 +1033,278 @@ const structuredData = [
 
 
 <style>
+
+  /* V11 — strona główna: zdjęcia w układzie editorial premium, bez ruszania hero */
+
+  .home-editorial-section,
+  .home-nature-image-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(46px, 7vw, 98px) 0;
+  }
+
+  .home-editorial-section::before,
+  .home-nature-image-section::before {
+    content: "";
+    position: absolute;
+    inset: auto -12% 8% auto;
+    width: min(34rem, 58vw);
+    height: min(34rem, 58vw);
+    border-radius: 999px;
+    background:
+      radial-gradient(circle, rgba(56, 187, 181, 0.13), transparent 68%),
+      radial-gradient(circle at 72% 28%, rgba(217, 146, 162, 0.12), transparent 56%);
+    filter: blur(6px);
+    pointer-events: none;
+  }
+
+  .home-editorial-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(24px, 4vw, 58px);
+    align-items: center;
+  }
+
+  .home-editorial-photo,
+  .master-photo-card,
+  .home-nature-photo {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: clamp(28px, 4vw, 48px);
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(56, 187, 181, 0.14);
+    box-shadow: 0 28px 78px rgba(23, 21, 29, 0.10);
+  }
+
+  .home-editorial-photo::before,
+  .master-photo-card::before,
+  .home-nature-photo::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    z-index: 2;
+    border-radius: clamp(22px, 3vw, 36px);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    pointer-events: none;
+  }
+
+  .home-editorial-photo img,
+  .master-photo-card img,
+  .home-nature-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .home-editorial-photo-large {
+    transform: rotate(-1.1deg);
+  }
+
+  .home-editorial-copy {
+    position: relative;
+    padding: clamp(24px, 4vw, 42px);
+    border-radius: clamp(28px, 4vw, 44px);
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.12), transparent 16rem),
+      radial-gradient(circle at 0% 100%, rgba(217, 146, 162, 0.10), transparent 18rem),
+      rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(56, 187, 181, 0.13);
+    box-shadow: 0 24px 70px rgba(23, 21, 29, 0.07);
+  }
+
+  .home-editorial-copy h2,
+  .home-nature-copy h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.25rem, 4.4vw, 5.1rem);
+    font-weight: 780;
+    line-height: 0.94;
+    letter-spacing: -0.075em;
+  }
+
+  .home-editorial-copy p:not(.section-kicker),
+  .home-nature-copy p:not(.signature),
+  .master-photo-copy-card p:not(.section-kicker) {
+    max-width: 720px;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1rem, 1.35vw, 1.12rem);
+    line-height: 1.75;
+  }
+
+  .home-editorial-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .home-editorial-points span {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 14px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark, #0f7773);
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    font-size: 0.78rem;
+    font-weight: 820;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .master-photo-feature-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+    gap: clamp(22px, 4vw, 54px);
+    align-items: stretch;
+    margin-top: clamp(28px, 4vw, 56px);
+    margin-bottom: clamp(28px, 4vw, 56px);
+  }
+
+  .master-photo-card {
+    min-height: 100%;
+    border-color: rgba(217, 146, 162, 0.18);
+    box-shadow: 0 28px 78px rgba(199, 119, 136, 0.13);
+  }
+
+  .master-photo-copy-card {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(24px, 4vw, 44px);
+    border-radius: clamp(28px, 4vw, 44px);
+    background:
+      radial-gradient(circle at 92% 16%, rgba(217, 146, 162, 0.14), transparent 17rem),
+      radial-gradient(circle at 8% 96%, rgba(56, 187, 181, 0.10), transparent 18rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 249, 251, 0.90));
+    border: 1px solid rgba(217, 146, 162, 0.16);
+    box-shadow: 0 24px 70px rgba(23, 21, 29, 0.07);
+  }
+
+  .master-photo-copy-card h3 {
+    max-width: 740px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2rem, 3.4vw, 4.2rem);
+    font-weight: 780;
+    line-height: 0.96;
+    letter-spacing: -0.07em;
+  }
+
+  .home-nature-image-card {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+    gap: clamp(24px, 4vw, 58px);
+    align-items: center;
+    padding: clamp(24px, 4vw, 54px);
+    border-radius: clamp(30px, 4vw, 54px);
+    background:
+      radial-gradient(circle at 10% 10%, rgba(217, 146, 162, 0.13), transparent 20rem),
+      radial-gradient(circle at 94% 88%, rgba(56, 187, 181, 0.13), transparent 22rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 249, 251, 0.90));
+    border: 1px solid rgba(217, 146, 162, 0.14);
+    box-shadow: 0 28px 84px rgba(23, 21, 29, 0.08);
+  }
+
+  .home-nature-copy .signature {
+    margin-bottom: 18px;
+  }
+
+  .home-nature-photo {
+    border-color: rgba(56, 187, 181, 0.18);
+    transform: rotate(1.1deg);
+  }
+
+  @media (min-width: 1500px) {
+    .home-editorial-grid,
+    .master-photo-feature-grid,
+    .home-nature-image-card {
+      gap: 64px;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .home-editorial-grid,
+    .master-photo-feature-grid,
+    .home-nature-image-card {
+      grid-template-columns: 1fr;
+    }
+
+    .home-editorial-photo-large,
+    .home-nature-photo {
+      transform: none;
+    }
+
+    .home-editorial-photo,
+    .master-photo-card,
+    .home-nature-photo {
+      max-width: 620px;
+      margin-inline: auto;
+    }
+
+    .home-nature-copy {
+      order: 2;
+    }
+
+    .home-nature-photo {
+      order: 1;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .home-editorial-section,
+    .home-nature-image-section {
+      padding: 38px 0;
+    }
+
+    .home-editorial-copy,
+    .master-photo-copy-card,
+    .home-nature-image-card {
+      padding: 22px;
+      border-radius: 28px;
+    }
+
+    .home-editorial-photo,
+    .master-photo-card,
+    .home-nature-photo {
+      border-radius: 28px;
+    }
+
+    .home-editorial-photo::before,
+    .master-photo-card::before,
+    .home-nature-photo::before {
+      inset: 10px;
+      border-radius: 22px;
+    }
+
+    .home-editorial-copy h2,
+    .home-nature-copy h2,
+    .master-photo-copy-card h3 {
+      font-size: clamp(2.05rem, 10vw, 3.1rem);
+      line-height: 1.02;
+      letter-spacing: -0.066em;
+    }
+
+    .home-editorial-points span {
+      width: 100%;
+      justify-content: flex-start;
+      min-height: 38px;
+      font-size: 0.72rem;
+    }
+  }
+
+
   /*
     Home premium card marks
     Cel: duże jasne napisy w tle mocnych kafelków, bez ruszania istniejącego ruchu światła.
