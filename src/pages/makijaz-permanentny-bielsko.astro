@@ -275,6 +275,43 @@ const structuredData = [
         </div>
       </section>
 
+      <section class="pmu-portrait-section" aria-label="Naturalny makijaż permanentny i analiza urody">
+        <div class="container pmu-portrait-card">
+          <div class="pmu-portrait-copy">
+            <p class="section-kicker">Naturalny efekt</p>
+            <h2>Naturalny makijaż permanentny zaczyna się od właściwej decyzji.</h2>
+            <p>
+              Makijaż permanentny nie powinien być przypadkowym zabiegiem ani kopią zdjęcia
+              z internetu. Najpierw analizowana jest twarz, mimika, kolor skóry, oprawa oka
+              i oczekiwania klientki.
+            </p>
+            <p>
+              Dopiero później powstaje rysunek wstępny i decyzja o pigmentacji. Dzięki temu
+              efekt może być widoczny, ale nadal subtelny — dopasowany do urody, wieku, skóry
+              i codziennego stylu życia.
+            </p>
+
+            <div class="pmu-portrait-points" aria-label="Etapy naturalnego makijażu permanentnego">
+              <span>analiza twarzy</span>
+              <span>rysunek wstępny</span>
+              <span>naturalny efekt</span>
+              <span>bez przerysowania</span>
+            </div>
+          </div>
+
+          <figure class="pmu-portrait-photo">
+            <img
+              src="/images/portret-boguslawa-herda-naturalny-pmu.webp"
+              alt="Bogusława Herda – naturalny makijaż permanentny Bielsko-Biała, subtelny efekt i elegancki portret PMU"
+              width="1024"
+              height="1536"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
       <section class="pmu-services-section" id="zakres-zabiegow">
         <div class="container">
           <div class="pmu-section-heading">
@@ -1012,6 +1049,166 @@ const structuredData = [
   .pmu-final-card .button-primary {
     margin-top: 18px;
   }
+
+  /* V7 — portret PMU: desktop jako elegancka sekcja, mobile jako czytelny kafelek */
+
+  .pmu-portrait-section {
+    padding: 18px 0 88px;
+  }
+
+  .pmu-portrait-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.72fr);
+    gap: clamp(24px, 4vw, 54px);
+    align-items: center;
+    padding: clamp(22px, 4vw, 42px);
+    border-radius: clamp(30px, 4vw, 44px);
+    background:
+      radial-gradient(circle at 10% 10%, rgba(56, 187, 181, 0.12), transparent 18rem),
+      radial-gradient(circle at 94% 88%, rgba(201, 127, 143, 0.11), transparent 20rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 249, 251, 0.90));
+    border: 1px solid rgba(56, 187, 181, 0.14);
+    box-shadow: 0 24px 70px rgba(23, 21, 29, 0.07);
+  }
+
+  .pmu-portrait-copy {
+    max-width: 780px;
+  }
+
+  .pmu-portrait-copy h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.25rem, 3.8vw, 4.45rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .pmu-portrait-copy p:not(.section-kicker) {
+    max-width: 720px;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1rem, 1.22vw, 1.08rem);
+    line-height: 1.72;
+  }
+
+  .pmu-portrait-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .pmu-portrait-points span {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 14px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark, #0f7773);
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    font-size: 0.76rem;
+    font-weight: 820;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .pmu-portrait-photo {
+    position: relative;
+    width: min(100%, 430px);
+    margin: 0 0 0 auto;
+    overflow: hidden;
+    border-radius: clamp(26px, 3vw, 38px);
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(201, 127, 143, 0.17);
+    box-shadow: 0 26px 72px rgba(89, 53, 67, 0.11);
+  }
+
+  .pmu-portrait-photo::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    z-index: 2;
+    border-radius: clamp(20px, 2.5vw, 30px);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    pointer-events: none;
+  }
+
+  .pmu-portrait-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (min-width: 1500px) {
+    .pmu-portrait-card {
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.62fr);
+    }
+
+    .pmu-portrait-photo {
+      width: min(100%, 440px);
+    }
+  }
+
+  @media (max-width: 980px) {
+    .pmu-portrait-section {
+      padding: 0 0 58px;
+    }
+
+    .pmu-portrait-card {
+      grid-template-columns: 1fr;
+    }
+
+    .pmu-portrait-photo {
+      width: min(100%, 520px);
+      margin-inline: auto;
+      order: 1;
+    }
+
+    .pmu-portrait-copy {
+      order: 2;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .pmu-portrait-section {
+      padding: 0 0 54px;
+    }
+
+    .pmu-portrait-card {
+      padding: 20px;
+      border-radius: 28px;
+    }
+
+    .pmu-portrait-photo {
+      width: 100%;
+      border-radius: 26px;
+    }
+
+    .pmu-portrait-photo::before {
+      inset: 10px;
+      border-radius: 20px;
+    }
+
+    .pmu-portrait-copy h2 {
+      font-size: clamp(2.1rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .pmu-portrait-points span {
+      width: 100%;
+      min-height: 38px;
+      justify-content: flex-start;
+      font-size: 0.7rem;
+    }
+  }
+
 
   @keyframes pmu-panel-shine {
     0% {
