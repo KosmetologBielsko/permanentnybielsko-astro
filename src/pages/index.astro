@@ -657,6 +657,17 @@ const structuredData = [
             </div>
           </div>
 
+          <figure class="training-home-photo-card">
+            <img
+              src="/images/szkolenia-pmu-long-time-liner-boguslawa-herda.webp"
+              alt="Bogusława Herda jako trenerka PMU z pigmentami, urządzeniem i akcesoriami Long-Time-Liner"
+              width="1448"
+              height="1086"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
           <div class="training-path-grid">
             <article class="training-path-card">
               <span>01</span>
@@ -946,6 +957,12 @@ const structuredData = [
                   Dowiedz się więcej o #SercemMalowane
                 </a>
               </div>
+
+              <div class="mission-heart-card mission-heart-card-small" aria-label="Sercem malowane - empatia i uważność">
+                <p class="heart-symbol" aria-hidden="true">♥</p>
+                <h3>Sercem malowane</h3>
+                <p>Mały akcent serca zostaje jako znak empatii, delikatności i uważności.</p>
+              </div>
             </div>
 
             <div class="mission-visual-column">
@@ -996,8 +1013,7 @@ const structuredData = [
             </article>
           </div>
 
-          <div class="mission-quote-card mission-quote-heart-card">
-            <span class="mission-quote-heart" aria-hidden="true">♥</span>
+          <div class="mission-quote-card">
             <p>
               „Nie każda pigmentacja zaczyna się od potrzeby makijażu. Czasem zaczyna się od potrzeby,
               żeby znowu poczuć się dobrze ze swoją twarzą.”
@@ -2998,12 +3014,319 @@ const structuredData = [
   }
 
 
-  /* V18 — #SercemMalowane: zdjęcie widoczne + kolejność mobile + mleczne bijące serce */
+  /* V18 — strona główna: zdjęcie w sekcji #SercemMalowane */
 
-  :global(.home-page .mission-premium-grid) {
-    display: grid !important;
-    gap: clamp(22px, 4vw, 54px) !important;
+  :global(.home-page .mission-photo-card) {
+    position: relative !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    border-radius: clamp(28px, 4vw, 46px) !important;
+    background:
+      radial-gradient(circle at 10% 12%, rgba(56, 187, 181, 0.10), transparent 17rem),
+      radial-gradient(circle at 94% 86%, rgba(215, 25, 32, 0.10), transparent 18rem),
+      rgba(255, 255, 255, 0.86) !important;
+    border: 1px solid rgba(215, 25, 32, 0.13) !important;
+    box-shadow: 0 28px 78px rgba(143, 16, 32, 0.10) !important;
   }
+
+  :global(.home-page .mission-photo-card::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 14px !important;
+    z-index: 2 !important;
+    border-radius: clamp(22px, 3vw, 34px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.46) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .mission-photo-card::after) {
+    content: "♥" !important;
+    position: absolute !important;
+    left: clamp(16px, 2.2vw, 30px) !important;
+    bottom: clamp(86px, 8vw, 128px) !important;
+    z-index: 3 !important;
+    color: rgba(215, 25, 32, 0.18) !important;
+    -webkit-text-fill-color: rgba(215, 25, 32, 0.18) !important;
+    font-size: clamp(3.2rem, 6vw, 6.6rem) !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    pointer-events: none !important;
+    text-shadow: 0 12px 34px rgba(215, 25, 32, 0.10) !important;
+  }
+
+  :global(.home-page .mission-photo-card img) {
+    display: block !important;
+    width: 100% !important;
+    max-height: 760px !important;
+    aspect-ratio: 4 / 5.35 !important;
+    object-fit: cover !important;
+    object-position: center 35% !important;
+  }
+
+  :global(.home-page .mission-photo-card figcaption) {
+    position: relative !important;
+    z-index: 3 !important;
+    margin: 0 !important;
+    padding: clamp(17px, 2.4vw, 26px) clamp(18px, 2.8vw, 30px) !important;
+    color: #6d4a52 !important;
+    -webkit-text-fill-color: #6d4a52 !important;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 247, 249, 0.92)) !important;
+    border-top: 1px solid rgba(215, 25, 32, 0.11) !important;
+    font-size: clamp(0.92rem, 1.08vw, 1rem) !important;
+    font-weight: 560 !important;
+    line-height: 1.58 !important;
+  }
+
+  @media (min-width: 981px) {
+    :global(.home-page .mission-premium-grid) {
+      align-items: stretch !important;
+      grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.72fr) !important;
+    }
+
+    :global(.home-page .mission-heading-card) {
+      min-height: 100% !important;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    :global(.home-page .mission-photo-card) {
+      max-width: 520px !important;
+      justify-self: end !important;
+    }
+  }
+
+  @media (max-width: 980px) {
+    :global(.home-page .mission-photo-card) {
+      order: -1 !important;
+      max-width: 620px !important;
+      margin-inline: auto !important;
+    }
+
+    :global(.home-page .mission-photo-card img) {
+      max-height: none !important;
+      aspect-ratio: 4 / 5.35 !important;
+      object-position: center top !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .mission-photo-card) {
+      border-radius: 28px !important;
+    }
+
+    :global(.home-page .mission-photo-card::before) {
+      inset: 10px !important;
+      border-radius: 22px !important;
+    }
+
+    :global(.home-page .mission-photo-card::after) {
+      left: 16px !important;
+      bottom: 106px !important;
+      font-size: 3.4rem !important;
+    }
+
+    :global(.home-page .mission-photo-card figcaption) {
+      padding: 17px 18px 19px !important;
+      font-size: 0.9rem !important;
+      line-height: 1.54 !important;
+    }
+  }
+
+
+
+  /* V19 — #SercemMalowane: mniejsze zdjęcie na mobile + mały kafelek bicia serca */
+
+  :global(.home-page .mission-visual-column) {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: clamp(14px, 2.4vw, 22px) !important;
+    align-self: stretch !important;
+    justify-content: center !important;
+  }
+
+  :global(.home-page .mission-heart-card-small) {
+    position: relative !important;
+    min-height: auto !important;
+    padding: clamp(18px, 2.4vw, 24px) !important;
+    border-radius: clamp(24px, 3vw, 34px) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background:
+      radial-gradient(circle at 26% 24%, rgba(255, 255, 255, 0.26), transparent 9rem),
+      linear-gradient(135deg, #d71920, #8f1020) !important;
+    border: 1px solid rgba(255, 255, 255, 0.20) !important;
+    box-shadow: 0 20px 54px rgba(215, 25, 32, 0.18) !important;
+    overflow: hidden !important;
+  }
+
+  :global(.home-page .mission-heart-card-small::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.20) 46%, transparent 72%) !important;
+    transform: translateX(-82%) !important;
+    animation: mission-heart-mini-shine 5.8s ease-in-out infinite !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .mission-heart-card-small > *) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  :global(.home-page .mission-heart-card-small .heart-symbol) {
+    margin: 0 0 8px !important;
+    color: rgba(255, 255, 255, 0.96) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.96) !important;
+    font-size: clamp(2rem, 4vw, 3.2rem) !important;
+    line-height: 1 !important;
+    text-shadow: 0 10px 28px rgba(255, 255, 255, 0.22) !important;
+    animation: mission-heartbeat-mini 1.65s ease-in-out infinite !important;
+    transform-origin: center !important;
+  }
+
+  :global(.home-page .mission-heart-card-small h3) {
+    margin: 0 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(1.45rem, 2.1vw, 2.2rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  :global(.home-page .mission-heart-card-small p:not(.heart-symbol)) {
+    max-width: 360px !important;
+    margin: 10px 0 0 !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.88) !important;
+    font-size: 0.92rem !important;
+    line-height: 1.48 !important;
+  }
+
+  @keyframes mission-heartbeat-mini {
+    0%, 100% { transform: scale(1); }
+    18% { transform: scale(1.12); }
+    34% { transform: scale(0.98); }
+    48% { transform: scale(1.08); }
+    68% { transform: scale(1); }
+  }
+
+  @keyframes mission-heart-mini-shine {
+    0%, 42% { transform: translateX(-82%); opacity: 0; }
+    58% { opacity: 0.72; }
+    100% { transform: translateX(82%); opacity: 0; }
+  }
+
+  @media (min-width: 981px) {
+    :global(.home-page .mission-premium-grid) {
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.64fr) !important;
+      align-items: center !important;
+    }
+
+    :global(.home-page .mission-visual-column) {
+      max-width: 460px !important;
+      justify-self: end !important;
+    }
+
+    :global(.home-page .mission-photo-card) {
+      max-width: 460px !important;
+      justify-self: stretch !important;
+    }
+
+    :global(.home-page .mission-photo-card img) {
+      max-height: 620px !important;
+      aspect-ratio: 4 / 5.15 !important;
+      object-fit: cover !important;
+      object-position: center 25% !important;
+    }
+  }
+
+  @media (max-width: 980px) {
+    :global(.home-page .mission-visual-column) {
+      order: -1 !important;
+      width: 100% !important;
+      max-width: 430px !important;
+      margin-inline: auto !important;
+      gap: 14px !important;
+    }
+
+    :global(.home-page .mission-photo-card) {
+      max-width: 430px !important;
+      margin-inline: auto !important;
+    }
+
+    :global(.home-page .mission-photo-card img) {
+      max-height: 480px !important;
+      aspect-ratio: 4 / 5 !important;
+      object-fit: cover !important;
+      object-position: center 18% !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .mission-visual-column) {
+      max-width: 345px !important;
+      gap: 12px !important;
+      margin-bottom: 4px !important;
+    }
+
+    :global(.home-page .mission-photo-card) {
+      max-width: 345px !important;
+      border-radius: 24px !important;
+    }
+
+    :global(.home-page .mission-photo-card img) {
+      max-height: 400px !important;
+      aspect-ratio: 4 / 5 !important;
+      object-fit: cover !important;
+      object-position: center 18% !important;
+    }
+
+    :global(.home-page .mission-photo-card figcaption) {
+      display: none !important;
+    }
+
+    :global(.home-page .mission-photo-card::after) {
+      bottom: 18px !important;
+      font-size: 2.7rem !important;
+      opacity: 0.72 !important;
+    }
+
+    :global(.home-page .mission-heart-card-small) {
+      padding: 16px 18px !important;
+      border-radius: 22px !important;
+    }
+
+    :global(.home-page .mission-heart-card-small .heart-symbol) {
+      display: inline-flex !important;
+      margin: 0 0 6px !important;
+      font-size: 2.35rem !important;
+    }
+
+    :global(.home-page .mission-heart-card-small h3) {
+      font-size: 1.55rem !important;
+    }
+
+    :global(.home-page .mission-heart-card-small p:not(.heart-symbol)) {
+      font-size: 0.86rem !important;
+      line-height: 1.42 !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.home-page .mission-heart-card-small::before),
+    :global(.home-page .mission-heart-card-small .heart-symbol) {
+      animation: none !important;
+    }
+  }
+
+
+
+
+  /* V20 — #SercemMalowane: bicie serca w kafelku tekstowym + wycentrowany link */
 
   :global(.home-page .mission-heading-card) {
     display: flex !important;
@@ -3021,221 +3344,119 @@ const structuredData = [
     text-align: center !important;
   }
 
-  :global(.home-page .mission-visual-column) {
-    display: flex !important;
-    width: 100% !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  :global(.home-page .mission-photo-card) {
-    position: relative !important;
-    display: block !important;
-    width: min(100%, 460px) !important;
-    margin: 0 auto !important;
-    overflow: hidden !important;
-    border-radius: clamp(28px, 4vw, 46px) !important;
-    background:
-      radial-gradient(circle at 10% 12%, rgba(56, 187, 181, 0.10), transparent 17rem),
-      radial-gradient(circle at 94% 86%, rgba(215, 25, 32, 0.10), transparent 18rem),
-      rgba(255, 255, 255, 0.90) !important;
-    border: 1px solid rgba(215, 25, 32, 0.13) !important;
-    box-shadow: 0 28px 78px rgba(143, 16, 32, 0.10) !important;
-  }
-
-  :global(.home-page .mission-photo-card::before) {
-    content: "" !important;
-    position: absolute !important;
-    inset: 14px !important;
-    z-index: 2 !important;
-    border-radius: clamp(22px, 3vw, 34px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.46) !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .mission-photo-card img) {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    max-height: 620px !important;
-    aspect-ratio: 4 / 5.15 !important;
-    object-fit: cover !important;
-    object-position: center 18% !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  :global(.home-page .mission-photo-card figcaption) {
-    position: relative !important;
-    z-index: 3 !important;
-    margin: 0 !important;
-    padding: clamp(17px, 2.4vw, 24px) clamp(18px, 2.8vw, 28px) !important;
-    color: #6d4a52 !important;
-    -webkit-text-fill-color: #6d4a52 !important;
-    background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 247, 249, 0.92)) !important;
-    border-top: 1px solid rgba(215, 25, 32, 0.11) !important;
-    font-size: clamp(0.9rem, 1.02vw, 0.98rem) !important;
-    font-weight: 560 !important;
-    line-height: 1.56 !important;
-  }
-
-  :global(.home-page .mission-quote-heart-card) {
-    position: relative !important;
-    overflow: hidden !important;
+  :global(.home-page .mission-heading-card .mission-heart-card-small) {
+    width: min(100%, 430px) !important;
+    margin: 24px auto 0 !important;
     text-align: center !important;
-    background:
-      radial-gradient(circle at 50% 24%, rgba(255, 255, 255, 0.14), transparent 14rem),
-      linear-gradient(135deg, #d71920, #8f1020) !important;
-    border-color: rgba(255, 255, 255, 0.20) !important;
-    box-shadow: 0 22px 60px rgba(143, 16, 32, 0.14) !important;
+    padding: 18px 22px !important;
   }
 
-  :global(.home-page .mission-quote-heart-card::before) {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 0 !important;
-    background:
-      linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.20) 46%, transparent 72%) !important;
-    transform: translateX(-82%) !important;
-    animation: mission-heart-mini-shine 6.2s ease-in-out infinite !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .mission-quote-heart-card > *) {
-    position: relative !important;
-    z-index: 2 !important;
-  }
-
-  :global(.home-page .mission-quote-heart-card p) {
-    max-width: 880px !important;
-    margin: 0 auto !important;
-    color: rgba(255, 255, 255, 0.92) !important;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.92) !important;
-    text-shadow: 0 10px 30px rgba(79, 5, 18, 0.16) !important;
-  }
-
-  :global(.home-page .mission-quote-heart) {
+  :global(.home-page .mission-heading-card .mission-heart-card-small .heart-symbol) {
     display: inline-flex !important;
-    align-items: center !important;
     justify-content: center !important;
-    margin: 0 auto 12px !important;
-    color: rgba(255, 255, 255, 0.30) !important;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.30) !important;
-    font-size: clamp(3.4rem, 7vw, 6.6rem) !important;
-    font-weight: 900 !important;
-    line-height: 0.82 !important;
-    text-shadow:
-      0 0 16px rgba(255, 255, 255, 0.24),
-      0 0 42px rgba(255, 255, 255, 0.18) !important;
-    filter: blur(0.08px) !important;
-    animation: mission-heartbeat-mini 1.7s ease-in-out infinite !important;
-    transform-origin: center !important;
-    pointer-events: none !important;
-    user-select: none !important;
+    align-items: center !important;
+    margin: 0 auto 8px !important;
   }
 
-  @keyframes mission-heartbeat-mini {
-    0%, 100% { transform: scale(1); opacity: 0.76; }
-    18% { transform: scale(1.12); opacity: 1; }
-    34% { transform: scale(0.99); opacity: 0.86; }
-    48% { transform: scale(1.08); opacity: 1; }
-    68% { transform: scale(1); opacity: 0.82; }
+  :global(.home-page .mission-heading-card .mission-heart-card-small p:not(.heart-symbol)) {
+    max-width: 330px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
-  @keyframes mission-heart-mini-shine {
-    0%, 42% { transform: translateX(-82%); opacity: 0; }
-    58% { opacity: 0.72; }
-    100% { transform: translateX(82%); opacity: 0; }
+  :global(.home-page .mission-visual-column .mission-heart-card-small) {
+    display: none !important;
   }
 
   @media (min-width: 981px) {
-    :global(.home-page .mission-premium-grid) {
-      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.64fr) !important;
-      align-items: center !important;
-    }
-
-    :global(.home-page .mission-visual-column) {
-      justify-self: end !important;
-      max-width: 460px !important;
-    }
-  }
-
-  @media (max-width: 980px) {
-    :global(.home-page .mission-premium-grid) {
-      grid-template-columns: 1fr !important;
-    }
-
-    :global(.home-page .mission-heading-card) {
-      order: 1 !important;
-    }
-
-    :global(.home-page .mission-visual-column) {
-      order: 2 !important;
-      max-width: 430px !important;
-      margin: 20px auto 0 !important;
-    }
-
-    :global(.home-page .mission-support-grid) {
-      order: 3 !important;
-    }
-
-    :global(.home-page .mission-quote-card) {
-      order: 4 !important;
-    }
-
-    :global(.home-page .mission-photo-card) {
-      max-width: 430px !important;
-      margin-inline: auto !important;
-    }
-
-    :global(.home-page .mission-photo-card img) {
-      max-height: 480px !important;
-      aspect-ratio: 4 / 5 !important;
-      object-position: center 16% !important;
+    :global(.home-page .mission-heading-card .mission-heart-card-small) {
+      align-self: center !important;
     }
   }
 
   @media (max-width: 760px) {
-    :global(.home-page .mission-visual-column) {
-      max-width: 345px !important;
+    :global(.home-page .mission-heading-card .mission-link-row) {
+      margin-top: 24px !important;
+    }
+
+    :global(.home-page .mission-heading-card .mission-heart-card-small) {
+      width: 100% !important;
       margin-top: 18px !important;
+      padding: 15px 18px !important;
+      border-radius: 22px !important;
     }
 
-    :global(.home-page .mission-photo-card) {
-      max-width: 345px !important;
-      border-radius: 24px !important;
+    :global(.home-page .mission-heading-card .mission-heart-card-small h3) {
+      font-size: 1.45rem !important;
     }
 
-    :global(.home-page .mission-photo-card::before) {
-      inset: 10px !important;
-      border-radius: 18px !important;
-    }
-
-    :global(.home-page .mission-photo-card img) {
-      max-height: 400px !important;
-      aspect-ratio: 4 / 5 !important;
-      object-fit: cover !important;
-      object-position: center 16% !important;
-    }
-
-    :global(.home-page .mission-photo-card figcaption) {
-      display: none !important;
-    }
-
-    :global(.home-page .mission-quote-heart) {
-      margin-bottom: 10px !important;
-      font-size: clamp(3.2rem, 16vw, 4.9rem) !important;
-      color: rgba(255, 255, 255, 0.28) !important;
-      -webkit-text-fill-color: rgba(255, 255, 255, 0.28) !important;
+    :global(.home-page .mission-heading-card .mission-heart-card-small p:not(.heart-symbol)) {
+      font-size: 0.84rem !important;
+      line-height: 1.42 !important;
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    :global(.home-page .mission-quote-heart-card::before),
-    :global(.home-page .mission-quote-heart) {
-      animation: none !important;
+
+  /* V21 — zdjęcie poziome w sekcji Szkolenia PMU */
+
+  :global(.home-page .training-home-photo-card) {
+    position: relative !important;
+    width: min(100%, 720px) !important;
+    margin: clamp(24px, 3.5vw, 40px) auto clamp(26px, 3.8vw, 46px) !important;
+    overflow: hidden !important;
+    padding: clamp(7px, 1vw, 10px) !important;
+    border-radius: clamp(22px, 3vw, 34px) !important;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(56, 187, 181, 0.10), transparent 16rem),
+      radial-gradient(circle at 94% 88%, rgba(217, 146, 162, 0.10), transparent 17rem),
+      rgba(255, 255, 255, 0.90) !important;
+    border: 1px solid rgba(56, 187, 181, 0.14) !important;
+    box-shadow: 0 18px 48px rgba(23, 21, 29, 0.08) !important;
+  }
+
+  :global(.home-page .training-home-photo-card::before) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 10px !important;
+    z-index: 2 !important;
+    border-radius: clamp(16px, 2.4vw, 26px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.48) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .training-home-photo-card img) {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1448 / 1086 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border-radius: clamp(16px, 2.4vw, 26px) !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+  }
+
+  @media (min-width: 1500px) {
+    :global(.home-page .training-home-photo-card) {
+      width: min(100%, 660px) !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .training-home-photo-card) {
+      width: min(100%, 90vw) !important;
+      margin: 22px auto 28px !important;
+      padding: 6px !important;
+      border-radius: 22px !important;
+      box-shadow: 0 14px 36px rgba(23, 21, 29, 0.07) !important;
+    }
+
+    :global(.home-page .training-home-photo-card::before) {
+      inset: 7px !important;
+      border-radius: 16px !important;
+    }
+
+    :global(.home-page .training-home-photo-card img) {
+      border-radius: 16px !important;
     }
   }
 
