@@ -4090,7 +4090,7 @@ const structuredData = [
       border-radius: 22px !important;
     }
 
-    :global(.home-page .results-collage-card img) {
+   :global(.home-page .results-collage-card img) {
       max-height: 280px !important;
       aspect-ratio: 16 / 9 !important;
       object-fit: contain !important;
@@ -4098,6 +4098,185 @@ const structuredData = [
     }
   }
   /* V25-FIX-IMAGE-SIZES-END */
+
+  /* V29 — desktop: lepszy układ sekcji Metamorfozy z filmem */
+
+  @media (min-width: 981px) {
+    :global(.home-page .results-feature-row) {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr) !important;
+      gap: clamp(22px, 2.6vw, 36px) !important;
+      align-items: stretch !important;
+      max-width: 1080px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    :global(.home-page .results-feature-card),
+    :global(.home-page .results-mini-list) {
+      min-height: 100% !important;
+      align-self: stretch !important;
+    }
+
+    :global(.home-page .results-feature-card) {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      padding: clamp(24px, 3vw, 38px) !important;
+    }
+
+    :global(.home-page .results-feature-card h3) {
+      max-width: 520px !important;
+      font-size: clamp(2rem, 2.8vw, 3.25rem) !important;
+      line-height: 0.98 !important;
+    }
+
+    :global(.home-page .results-feature-card p:not(.section-kicker)) {
+      max-width: 560px !important;
+      font-size: 0.98rem !important;
+      line-height: 1.68 !important;
+    }
+
+    :global(.home-page .metamorfozy-video-card) {
+      width: 300px !important;
+      max-width: 300px !important;
+      align-self: center !important;
+      justify-self: center !important;
+      margin: 0 !important;
+    }
+
+    :global(.home-page .metamorfozy-video) {
+      max-height: 500px !important;
+      object-fit: cover !important;
+    }
+
+    :global(.home-page .results-mini-list) {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      gap: 14px !important;
+      padding: clamp(20px, 2.6vw, 30px) !important;
+    }
+
+    :global(.home-page .results-mini-list div) {
+      padding: 16px 0 !important;
+    }
+
+    :global(.home-page .results-mini-list strong) {
+      font-size: 0.86rem !important;
+      line-height: 1.1 !important;
+    }
+
+    :global(.home-page .results-mini-list span) {
+      font-size: 0.92rem !important;
+      line-height: 1.48 !important;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    :global(.home-page .results-feature-row) {
+      max-width: 1040px !important;
+      grid-template-columns: minmax(0, 1fr) 280px minmax(0, 1fr) !important;
+    }
+
+    :global(.home-page .metamorfozy-video-card) {
+      width: 280px !important;
+      max-width: 280px !important;
+    }
+
+    :global(.home-page .metamorfozy-video) {
+      max-height: 470px !important;
+    }
+  }
+  /* V30 — mocna poprawka desktop dla rzędu Metamorfozy z filmem */
+
+  @media (min-width: 981px) {
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card)) {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) 260px minmax(0, 1fr) !important;
+      gap: 28px !important;
+      align-items: center !important;
+      max-width: 980px !important;
+      margin: 44px auto 0 !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .results-feature-card) {
+      display: flex !important;
+      min-height: 100% !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      padding: 28px !important;
+      border-radius: 30px !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .results-feature-card h3) {
+      font-size: clamp(2rem, 2.4vw, 2.9rem) !important;
+      line-height: 1 !important;
+      letter-spacing: -0.06em !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .results-feature-card p:not(.section-kicker)) {
+      font-size: 0.96rem !important;
+      line-height: 1.62 !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .metamorfozy-video-card) {
+      width: 260px !important;
+      max-width: 260px !important;
+      margin: 0 auto !important;
+      justify-self: center !important;
+      align-self: center !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .metamorfozy-video) {
+      width: 100% !important;
+      max-height: 462px !important;
+      aspect-ratio: 9 / 16 !important;
+      object-fit: cover !important;
+      object-position: center !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .results-mini-list) {
+      display: flex !important;
+      min-height: 100% !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      gap: 0 !important;
+      padding: 24px 28px !important;
+      border-radius: 30px !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .results-mini-list div) {
+      padding: 14px 0 !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .results-mini-list strong) {
+      font-size: 0.82rem !important;
+      letter-spacing: 0.08em !important;
+      line-height: 1.1 !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .results-mini-list span) {
+      font-size: 0.9rem !important;
+      line-height: 1.45 !important;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card)) {
+      grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr) !important;
+      max-width: 940px !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .metamorfozy-video-card) {
+      width: 240px !important;
+      max-width: 240px !important;
+    }
+
+    :global(.home-page .results-feature-row:has(.metamorfozy-video-card) .metamorfozy-video) {
+      max-height: 426px !important;
+    }
+  }
 </style>
 
 
