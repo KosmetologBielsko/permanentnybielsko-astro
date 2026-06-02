@@ -10,7 +10,7 @@ const booksyUrl =
 const pageUrl = "https://permanentnybielsko.com/makijaz-permanentny-bielsko/";
 const pageTitle = "Makijaż permanentny Bielsko-Biała | Naturalne brwi, usta i kreski";
 const pageDescription =
-  "Makijaż permanentny Bielsko-Biała: naturalne brwi permanentne, usta permanentne, kreski permanentne, Silky Hairstroke Brows, korekty i konsultacje u Bogusława Herda.";
+  "Makijaż permanentny Bielsko-Biała: naturalne brwi permanentne, usta permanentne, kreski permanentne, Silky Hairstroke Brows, korekty i konsultacje u Bogusławy Herda.";
 
 const faqItems = [
   {
@@ -59,7 +59,7 @@ const faqItems = [
   },
   {
     "question": "Gdzie wykonywany jest zabieg?",
-    "answer": "Zabiegi wykonywane są w gabinecie Bogusława Herda w Bielsku-Białej. Rezerwacje i aktualne terminy są dostępne przez Booksy."
+    "answer": "Zabiegi wykonywane są w gabinecie Bogusławy Herda w Bielsku-Białej. Rezerwacje i aktualne terminy są dostępne przez Booksy."
   }
 ];
 
@@ -219,7 +219,7 @@ const structuredData = [
             <p class="pmu-card-label">PMU</p>
             <h2>Efekt ma być widoczny, ale nie powinien krzyczeć.</h2>
             <p>
-              W gabinecie Bogusława Herda makijaż permanentny zaczyna się od rozmowy,
+              W gabinecie Bogusławy Herda makijaż permanentny zaczyna się od rozmowy,
               analizy urody i rysunku wstępnego. Dopiero później wybierana jest technika, kolor
               i intensywność pigmentacji.
             </p>
@@ -447,7 +447,75 @@ const structuredData = [
           </div>
         </div>
       </section>
+          </div>
+        </div>
+      </section>
 
+      <section class="pmu-expert-section" aria-label="Dlaczego Bogusława Herda">
+        <div class="container pmu-expert-card">
+          <figure class="pmu-expert-photo">
+            <img
+              src="/images/dlaczego-boguslawa-herda-pmu.webp"
+              alt="Bogusława Herda – ekspertka makijażu permanentnego w Bielsku-Białej"
+              width="1024"
+              height="1536"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <div class="pmu-expert-copy">
+            <p class="section-kicker">Dlaczego Bogusława Herda</p>
+
+            <h2>Doświadczenie, precyzja i naturalny styl pracy.</h2>
+
+            <p>
+              Makijaż permanentny wymaga nie tylko techniki, ale też decyzji: kiedy wzmocnić,
+              kiedy zostawić lekkość, kiedy odmówić zbyt mocnego efektu i kiedy zaplanować pracę
+              etapami. Dlatego tak ważne są doświadczenie, spokojna kwalifikacja i umiejętność
+              patrzenia na twarz jako całość.
+            </p>
+
+            <div class="pmu-expert-grid" aria-label="Najważniejsze wyróżniki Bogusławy Herda">
+              <article>
+                <span>01</span>
+                <strong>Wicemistrzyni świata</strong>
+                <p>doświadczenie konkursowe i wysoki standard pracy w makijażu permanentnym</p>
+              </article>
+
+              <article>
+                <span>02</span>
+                <strong>8-krotna mistrzyni</strong>
+                <p>lata rozwoju, praktyki i konsekwentnego budowania jakości zabiegów PMU</p>
+              </article>
+
+              <article>
+                <span>03</span>
+                <strong>Trenerka Long-Time-Liner®</strong>
+                <p>praca w standardzie marki, która mocno wpłynęła na jej rozwój zawodowy</p>
+              </article>
+
+              <article>
+                <span>04</span>
+                <strong>Silky Hairstroke Brows</strong>
+                <p>autorskie podejście do naturalnych brwi i lekkiego efektu włosa maszynowego</p>
+              </article>
+
+              <article>
+                <span>05</span>
+                <strong>Doświadczenie międzynarodowe</strong>
+                <p>udział w wydarzeniach, szkoleniach, konkursach i projektach branżowych PMU</p>
+              </article>
+
+              <article>
+                <span>06</span>
+                <strong>Naturalny efekt</strong>
+                <p>makijaż permanentny dopasowany do twarzy, skóry i codziennego stylu klientki</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="pmu-safety-section">
         <div class="container pmu-safety-grid">
           <div class="pmu-safety-card">
@@ -583,7 +651,7 @@ const structuredData = [
             <article>
               <h3>Gdzie wykonywany jest zabieg?</h3>
               <p>
-                Zabiegi wykonywane są w gabinecie Bogusława Herda w Bielsku-Białej.
+                Zabiegi wykonywane są w gabinecie Bogusławy Herda w Bielsku-Białej.
                 Rezerwacje i aktualne terminy są dostępne przez Booksy.
               </p>
             </article>
@@ -2468,6 +2536,234 @@ const structuredData = [
       max-height: none !important;
       aspect-ratio: 1672 / 941 !important;
       object-fit: contain !important;
+    }
+  }
+    /* V17 — sekcja Dlaczego Bogusława Herda */
+
+  .pmu-expert-section {
+    padding: 88px 0;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(56, 187, 181, 0.10), transparent 24rem),
+      radial-gradient(circle at 90% 82%, rgba(201, 127, 143, 0.10), transparent 26rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 248, 250, 0.76));
+  }
+
+  .pmu-expert-card {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+    gap: clamp(28px, 4vw, 58px);
+    align-items: center;
+    padding: clamp(22px, 4vw, 44px);
+    border-radius: clamp(30px, 4vw, 46px);
+    background:
+      radial-gradient(circle at 8% 12%, rgba(56, 187, 181, 0.10), transparent 18rem),
+      radial-gradient(circle at 94% 88%, rgba(217, 146, 162, 0.10), transparent 20rem),
+      rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(56, 187, 181, 0.14);
+    box-shadow: 0 24px 70px rgba(23, 21, 29, 0.075);
+  }
+
+  .pmu-expert-photo {
+    position: relative;
+    width: min(100%, 420px);
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: clamp(26px, 3vw, 38px);
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(201, 127, 143, 0.17);
+    box-shadow: 0 26px 72px rgba(89, 53, 67, 0.11);
+  }
+
+  .pmu-expert-photo::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    z-index: 2;
+    border-radius: clamp(20px, 2.5vw, 30px);
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    pointer-events: none;
+  }
+
+  .pmu-expert-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .pmu-expert-copy {
+    max-width: 820px;
+  }
+
+  .pmu-expert-copy h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .pmu-expert-copy > p:not(.section-kicker) {
+    max-width: 760px;
+    margin-top: 22px;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1rem, 1.18vw, 1.08rem);
+    line-height: 1.72;
+  }
+
+  .pmu-expert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .pmu-expert-grid article {
+    position: relative;
+    min-height: 178px;
+    padding: 22px;
+    overflow: hidden;
+    border-radius: 26px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.82));
+    border: 1px solid rgba(183, 101, 118, 0.14);
+    box-shadow: 0 16px 42px rgba(89, 53, 67, 0.06);
+  }
+
+  .pmu-expert-grid article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.32);
+    pointer-events: none;
+  }
+
+  .pmu-expert-grid article::after {
+    content: "";
+    position: absolute;
+    right: -54px;
+    top: -54px;
+    width: 126px;
+    height: 126px;
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.66);
+    pointer-events: none;
+  }
+
+  .pmu-expert-grid span {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    margin-bottom: 22px;
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.68rem;
+    font-weight: 820;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .pmu-expert-grid strong {
+    position: relative;
+    z-index: 2;
+    display: block;
+    color: var(--color-text, #17151d);
+    font-size: 1.08rem;
+    font-weight: 760;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+  }
+
+  .pmu-expert-grid p {
+    position: relative;
+    z-index: 2;
+    margin: 10px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  @media (min-width: 1500px) {
+    .pmu-expert-card {
+      grid-template-columns: minmax(300px, 0.62fr) minmax(0, 1.38fr);
+      max-width: 1120px;
+    }
+
+    .pmu-expert-photo {
+      width: min(100%, 390px);
+    }
+
+    .pmu-expert-grid article {
+      min-height: 168px;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .pmu-expert-card {
+      grid-template-columns: 1fr;
+    }
+
+    .pmu-expert-photo {
+      width: min(100%, 460px);
+    }
+
+    .pmu-expert-copy {
+      max-width: 100%;
+    }
+
+    .pmu-expert-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+    .pmu-expert-section {
+      padding: 58px 0;
+    }
+
+    .pmu-expert-card {
+      padding: 20px;
+      border-radius: 30px;
+    }
+
+    .pmu-expert-photo {
+      width: min(100%, 340px);
+      border-radius: 26px;
+    }
+
+    .pmu-expert-photo::before {
+      inset: 10px;
+      border-radius: 20px;
+    }
+
+    .pmu-expert-copy h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .pmu-expert-copy > p:not(.section-kicker) {
+      font-size: 0.98rem;
+      line-height: 1.68;
+    }
+
+    .pmu-expert-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .pmu-expert-grid article {
+      min-height: auto;
+      padding: 22px;
+      border-radius: 24px;
+    }
+
+    .pmu-expert-grid span {
+      margin-bottom: 18px;
     }
   }
 </style>
