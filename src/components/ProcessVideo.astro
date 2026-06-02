@@ -1,0 +1,53 @@
+---
+const videoSrc = "/video/proces-makijazu-permanentnego-boguslawa-herda.mp4";
+const posterSrc = "/video/proces-makijazu-permanentnego-boguslawa-herda-poster.webp";
+---
+
+<div class="process-video-card">
+ <video
+  class="process-video"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="metadata"
+  poster={posterSrc}
+>
+    <source src={videoSrc} type="video/mp4" />
+    Twoja przeglądarka nie obsługuje wideo HTML5.
+  </video>
+</div>
+
+<style>
+  .process-video-card {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 8px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 244, 246, 0.96));
+    border: 1px solid rgba(215, 205, 196, 0.9);
+    box-shadow: 0 22px 54px rgba(31, 24, 28, 0.08);
+  }
+
+  .process-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 22px;
+    background: #000;
+  }
+
+  @media (max-width: 760px) {
+    .process-video-card {
+      max-width: 270px;
+      padding: 6px;
+      border-radius: 22px;
+    }
+
+    .process-video {
+      border-radius: 18px;
+    }
+  }
+</style>
