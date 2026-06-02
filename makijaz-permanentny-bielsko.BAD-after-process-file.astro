@@ -1,0 +1,699 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const pageUrl = "https://permanentnybielsko.com/makijaz-permanentny-bielsko/";
+const pageTitle = "Makijaż permanentny Bielsko-Biała | Brwi, usta i kreski";
+const pageDescription =
+  "Makijaż permanentny Bielsko-Biała u Bogusława Herda: naturalne brwi permanentne, usta permanentne, kreski permanentne, konsultacja, rysunek wstępny i efekt bez przerysowania.";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const offerItems = [
+  {
+    title: "Brwi permanentne",
+    text: "Naturalna oprawa oka, miękki kształt, kolor dobrany do urody i praca bez efektu ciężkich, przerysowanych brwi.",
+    href: "/makijaz-permanentny-brwi/"
+  },
+  {
+    title: "Usta permanentne",
+    text: "Subtelne odświeżenie koloru, wyrównanie czerwieni wargowej i efekt zadbanych ust bez mocnego konturu.",
+    href: "/makijaz-permanentny-ust/"
+  },
+  {
+    title: "Kreski permanentne",
+    text: "Zagęszczenie linii rzęs albo delikatna kreska dopasowana do budowy oka, stylu i codziennego makijażu.",
+    href: "/makijaz-permanentny-oczu/"
+  },
+  {
+    title: "Korekta i odświeżenie PMU",
+    text: "Analiza starego pigmentu, plan naprawczy, rozjaśnienie lub przebudowa kształtu, jeśli skóra na to pozwala.",
+    href: "/usuwanie-makijazu-permanentnego/"
+  }
+];
+
+const faqItems = [
+  {
+    question: "Czy makijaż permanentny może wyglądać naturalnie?",
+    answer:
+      "Tak. Naturalny efekt zależy od rysunku wstępnego, koloru pigmentu, techniki pracy, skóry i decyzji o intensywności. W gabinecie Bogusława Herda makijaż permanentny ma podkreślać urodę, a nie zmieniać twarz."
+  },
+  {
+    question: "Od czego zaczyna się makijaż permanentny?",
+    answer:
+      "Proces zaczyna się od rozmowy, analizy urody, skóry, mimiki i oczekiwań. Dopiero później powstaje rysunek wstępny, a pigmentacja jest wykonywana po jego akceptacji."
+  },
+  {
+    question: "Czy przed zabiegiem wykonywany jest rysunek wstępny?",
+    answer:
+      "Tak. Rysunek wstępny jest jednym z najważniejszych etapów. Pozwala ocenić proporcje, kształt i kierunek pracy przed rozpoczęciem pigmentacji."
+  },
+  {
+    question: "Czy można poprawić stary makijaż permanentny?",
+    answer:
+      "Czasem tak, ale wymaga to indywidualnej kwalifikacji. Przy zbyt ciemnym, chłodnym lub źle położonym pigmencie może być potrzebne wcześniejsze rozjaśnienie albo usuwanie PMU."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+    inLanguage: "pl-PL",
+    isPartOf: {
+      "@id": "https://permanentnybielsko.com/#website"
+    },
+    about: {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: "https://permanentnybielsko.com/images/portret-boguslawa-herda-naturalny-pmu.webp"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Strona główna",
+        item: "https://permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Makijaż permanentny Bielsko-Biała",
+        item: pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    name: "Makijaż permanentny Bielsko-Biała",
+    description: pageDescription,
+    serviceType: "Makijaż permanentny",
+    areaServed: {
+      "@type": "City",
+      name: "Bielsko-Biała"
+    },
+    provider: {
+      "@id": "https://permanentnybielsko.com/#localbusiness"
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Oferta makijażu permanentnego",
+      itemListElement: offerItems.map((item) => ({
+        "@type": "Offer",
+        url: `https://permanentnybielsko.com${item.href}`,
+        itemOffered: {
+          "@type": "Service",
+          name: item.title,
+          description: item.text
+        }
+      }))
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  }
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/makijaz-permanentny-bielsko/"
+  structuredData={structuredData}
+>
+  <div class="pmu-offer-page">
+    <Header />
+
+    <main>
+      <section class="pmu-hero-section">
+        <div class="pmu-hero-glow pmu-hero-glow-one"></div>
+        <div class="pmu-hero-glow pmu-hero-glow-two"></div>
+
+        <div class="container pmu-hero-grid">
+          <div class="pmu-hero-copy">
+            <p class="section-kicker">Makijaż permanentny Bielsko-Biała</p>
+            <h1>Naturalny makijaż permanentny dopasowany do twarzy, nie do szablonu.</h1>
+            <p class="pmu-hero-lead">
+              Brwi permanentne, usta permanentne i kreski permanentne wykonywane z myślą
+              o harmonii twarzy, subtelnym efekcie i spokojnym podkreśleniu urody.
+            </p>
+
+            <div class="pmu-hero-actions">
+              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Umów konsultację przez Booksy
+              </a>
+
+              <a class="button-secondary" href="#zakres-zabiegow">
+                Zobacz zakres zabiegów
+              </a>
+            </div>
+          </div>
+
+          <figure class="pmu-hero-photo">
+            <img
+              src="/images/portret-boguslawa-herda-naturalny-pmu.webp"
+              alt="Bogusława Herda – naturalny makijaż permanentny Bielsko-Biała, subtelny efekt i elegancki portret PMU"
+              width="1024"
+              height="1536"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="pmu-proof-strip" aria-label="Najważniejsze wyróżniki PMU">
+        <div class="container pmu-proof-grid">
+          <div>
+            <strong>Naturalny efekt</strong>
+            <span>bez przerysowania i ciężkiej formy</span>
+          </div>
+          <div>
+            <strong>Rysunek wstępny</strong>
+            <span>kształt zaakceptowany przed pigmentacją</span>
+          </div>
+          <div>
+            <strong>Doświadczenie</strong>
+            <span>mistrzowska precyzja i praca trenerska</span>
+          </div>
+          <div>
+            <strong>Indywidualnie</strong>
+            <span>do skóry, urody, mimiki i oczekiwań</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="pmu-intro-section">
+        <div class="container pmu-two-column">
+          <div>
+            <p class="section-kicker">Kierunek pracy</p>
+            <h2>Makijaż permanentny ma wyglądać jak lepsza wersja naturalnej urody.</h2>
+          </div>
+
+          <div class="pmu-text-panel">
+            <p>
+              W gabinecie Bogusława Herda makijaż permanentny nie zaczyna się od pigmentu.
+              Najpierw jest rozmowa, analiza twarzy, ocena skóry, mimiki i tego, jak klientka
+              chce wyglądać na co dzień.
+            </p>
+            <p>
+              Dopiero później powstaje rysunek wstępny. To etap, w którym można spokojnie
+              ocenić proporcje, kształt i kierunek pracy. Pigmentacja jest ostatnim elementem
+              świadomej decyzji, a nie pierwszym impulsem.
+            </p>
+            <p>
+              Efekt ma być czytelny, ale subtelny: brwi mają porządkować oprawę oka, usta
+              odświeżać kolor, a kreski delikatnie podkreślać spojrzenie.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="pmu-offer-section" id="zakres-zabiegow">
+        <div class="container">
+          <div class="pmu-section-heading">
+            <p class="section-kicker">Zakres zabiegów</p>
+            <h2>Wybierz obszar makijażu permanentnego.</h2>
+            <p>
+              Każdy obszar wymaga innej decyzji: innego rysunku wstępnego, innej techniki,
+              innego koloru i innego poziomu intensywności.
+            </p>
+          </div>
+
+          <div class="pmu-offer-grid">
+            {offerItems.map((item, index) => (
+              <a class="pmu-offer-card" href={item.href}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <strong>Zobacz więcej →</strong>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="pmu-portrait-section" aria-label="Portret i standard pracy PMU">
+        <div class="container pmu-portrait-card">
+          <div class="pmu-portrait-copy">
+            <p class="section-kicker">Zaufanie przed zabiegiem</p>
+            <h2>Najpierw twarz, proporcje i spokój. Potem pigment.</h2>
+            <p>
+              To zdjęcie wprowadzamy na główną ofertę PMU, bo najlepiej opowiada o charakterze
+              pracy: naturalności, bliskości, kobiecości i subtelnym efekcie. Makijaż permanentny
+              jest zabiegiem na twarzy, dlatego zaufanie do osoby wykonującej zabieg jest równie
+              ważne jak technika.
+            </p>
+            <p>
+              Celem jest efekt, który porządkuje urodę, ale nie zabiera indywidualności.
+            </p>
+          </div>
+
+          <figure class="pmu-portrait-photo">
+            <img
+              src="/images/portret-boguslawa-herda-naturalny-pmu.webp"
+              alt="Bogusława Herda – naturalny makijaż permanentny Bielsko-Biała, subtelny efekt i elegancki portret PMU"
+              width="1024"
+              height="1536"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="pmu-process-section" id="proces">
+        <div class="container">
+          <div class="pmu-section-heading">
+            <p class="section-kicker">Proces zabiegu</p>
+            <h2>Jak wygląda makijaż permanentny krok po kroku?</h2>
+          </div>
+
+          <div class="pmu-process-grid">
+            <article>
+              <span>01</span>
+              <h3>Konsultacja</h3>
+              <p>Rozmowa o oczekiwaniach, codziennym makijażu, skórze i oczekiwanym efekcie.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Analiza urody</h3>
+              <p>Ocena proporcji twarzy, mimiki, oprawy oka, koloru skóry i warunków do pigmentacji.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Rysunek wstępny</h3>
+              <p>Ustalenie kształtu i kierunku pracy przed rozpoczęciem pigmentacji.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Pigmentacja</h3>
+              <p>Spokojna, warstwowa praca z kontrolą intensywności i reakcji skóry.</p>
+            </article>
+            <article>
+              <span>05</span>
+              <h3>Gojenie</h3>
+              <p>Stabilizacja skóry i koloru. Efekt ocenia się po wygojeniu, nie tuż po zabiegu.</p>
+            </article>
+            <article>
+              <span>06</span>
+              <h3>Dopigmentowanie</h3>
+              <p>Dopracowanie detalu, koloru i równowagi po wygojeniu pierwszej pigmentacji.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pmu-faq-section" id="faq">
+        <div class="container">
+          <div class="pmu-section-heading">
+            <p class="section-kicker">FAQ</p>
+            <h2>Najczęstsze pytania o makijaż permanentny.</h2>
+          </div>
+
+          <div class="pmu-faq-grid">
+            {faqItems.map((item) => (
+              <details>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="pmu-cta-section">
+        <div class="container pmu-cta-card">
+          <p class="signature">Powrót do natury</p>
+          <h2>Chcesz sprawdzić, jaki makijaż permanentny będzie najlepszy dla Ciebie?</h2>
+          <p>
+            Umów konsultację i porozmawiajmy o naturalnym efekcie dopasowanym do Twojej urody,
+            skóry i codzienności.
+          </p>
+          <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+            Umów wizytę przez Booksy
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .pmu-offer-page {
+    background:
+      radial-gradient(circle at 8% 8%, rgba(56, 187, 181, 0.09), transparent 28rem),
+      radial-gradient(circle at 92% 18%, rgba(217, 146, 162, 0.12), transparent 30rem),
+      #fff;
+  }
+
+  .pmu-hero-section,
+  .pmu-intro-section,
+  .pmu-offer-section,
+  .pmu-portrait-section,
+  .pmu-process-section,
+  .pmu-faq-section,
+  .pmu-cta-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(54px, 7vw, 108px) 0;
+  }
+
+  .pmu-hero-section {
+    padding-top: clamp(74px, 9vw, 136px);
+  }
+
+  .pmu-hero-glow {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(8px);
+    pointer-events: none;
+  }
+
+  .pmu-hero-glow-one {
+    width: min(34rem, 60vw);
+    height: min(34rem, 60vw);
+    left: -12rem;
+    top: 4rem;
+    background: radial-gradient(circle, rgba(56, 187, 181, 0.14), transparent 68%);
+  }
+
+  .pmu-hero-glow-two {
+    width: min(36rem, 62vw);
+    height: min(36rem, 62vw);
+    right: -10rem;
+    bottom: 2rem;
+    background: radial-gradient(circle, rgba(217, 146, 162, 0.16), transparent 68%);
+  }
+
+  .pmu-hero-grid,
+  .pmu-two-column,
+  .pmu-portrait-card {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+    gap: clamp(26px, 4.8vw, 72px);
+    align-items: center;
+  }
+
+  .pmu-hero-copy h1,
+  .pmu-two-column h2,
+  .pmu-section-heading h2,
+  .pmu-portrait-copy h2,
+  .pmu-cta-card h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.65rem, 5.2vw, 6.4rem);
+    font-weight: 790;
+    line-height: 0.92;
+    letter-spacing: -0.082em;
+  }
+
+  .pmu-hero-lead,
+  .pmu-text-panel p,
+  .pmu-section-heading p,
+  .pmu-portrait-copy p,
+  .pmu-cta-card p {
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1rem, 1.35vw, 1.14rem);
+    line-height: 1.75;
+  }
+
+  .pmu-hero-lead {
+    max-width: 720px;
+    margin-top: 24px;
+  }
+
+  .pmu-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .pmu-hero-photo,
+  .pmu-portrait-photo {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: clamp(30px, 4vw, 50px);
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(56, 187, 181, 0.14);
+    box-shadow: 0 28px 78px rgba(23, 21, 29, 0.11);
+  }
+
+  .pmu-hero-photo::before,
+  .pmu-portrait-photo::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    z-index: 2;
+    border-radius: clamp(22px, 3vw, 38px);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    pointer-events: none;
+  }
+
+  .pmu-hero-photo img,
+  .pmu-portrait-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .pmu-proof-strip {
+    padding: 16px 0;
+  }
+
+  .pmu-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .pmu-proof-grid div,
+  .pmu-text-panel,
+  .pmu-offer-card,
+  .pmu-process-grid article,
+  .pmu-faq-grid details,
+  .pmu-portrait-card,
+  .pmu-cta-card {
+    border-radius: clamp(24px, 3vw, 38px);
+    background:
+      radial-gradient(circle at 92% 12%, rgba(56, 187, 181, 0.08), transparent 12rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 249, 251, 0.90));
+    border: 1px solid rgba(56, 187, 181, 0.12);
+    box-shadow: 0 20px 58px rgba(23, 21, 29, 0.06);
+  }
+
+  .pmu-proof-grid div {
+    padding: 22px;
+  }
+
+  .pmu-proof-grid strong {
+    display: block;
+    color: var(--color-text, #17151d);
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .pmu-proof-grid span {
+    display: block;
+    margin-top: 7px;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .pmu-text-panel,
+  .pmu-portrait-copy {
+    padding: clamp(24px, 4vw, 44px);
+  }
+
+  .pmu-section-heading {
+    max-width: 980px;
+    margin-bottom: clamp(26px, 4vw, 50px);
+  }
+
+  .pmu-section-heading p {
+    max-width: 760px;
+    margin-top: 18px;
+  }
+
+  .pmu-offer-grid,
+  .pmu-process-grid,
+  .pmu-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .pmu-offer-card,
+  .pmu-process-grid article,
+  .pmu-faq-grid details {
+    padding: clamp(24px, 3vw, 34px);
+  }
+
+  .pmu-offer-card {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .pmu-offer-card span,
+  .pmu-process-grid span {
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+  }
+
+  .pmu-offer-card h3,
+  .pmu-process-grid h3 {
+    margin: 16px 0 10px;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.55rem, 2.4vw, 2.45rem);
+    line-height: 1;
+    letter-spacing: -0.045em;
+  }
+
+  .pmu-offer-card p,
+  .pmu-process-grid p,
+  .pmu-faq-grid p {
+    color: var(--color-muted, #6e6670);
+    line-height: 1.65;
+  }
+
+  .pmu-offer-card strong {
+    display: inline-flex;
+    margin-top: 14px;
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.9rem;
+  }
+
+  .pmu-portrait-card {
+    padding: clamp(22px, 4vw, 48px);
+    grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+  }
+
+  .pmu-faq-grid details summary {
+    cursor: pointer;
+    color: var(--color-text, #17151d);
+    font-size: 1.08rem;
+    font-weight: 790;
+    line-height: 1.35;
+  }
+
+  .pmu-cta-card {
+    text-align: center;
+    padding: clamp(34px, 5vw, 70px);
+  }
+
+  .pmu-cta-card p:not(.signature) {
+    max-width: 720px;
+    margin: 18px auto 28px;
+  }
+
+  @media (max-width: 980px) {
+    .pmu-hero-grid,
+    .pmu-two-column,
+    .pmu-portrait-card {
+      grid-template-columns: 1fr;
+    }
+
+    .pmu-proof-grid,
+    .pmu-offer-grid,
+    .pmu-process-grid,
+    .pmu-faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pmu-hero-photo,
+    .pmu-portrait-photo {
+      max-width: 620px;
+      margin-inline: auto;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .pmu-hero-section,
+    .pmu-intro-section,
+    .pmu-offer-section,
+    .pmu-portrait-section,
+    .pmu-process-section,
+    .pmu-faq-section,
+    .pmu-cta-section {
+      padding: 42px 0;
+    }
+
+    .pmu-hero-section {
+      padding-top: 58px;
+    }
+
+    .pmu-hero-copy h1,
+    .pmu-two-column h2,
+    .pmu-section-heading h2,
+    .pmu-portrait-copy h2,
+    .pmu-cta-card h2 {
+      font-size: clamp(2.35rem, 11vw, 3.45rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+    }
+
+    .pmu-hero-actions a,
+    .pmu-cta-card a {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .pmu-hero-photo,
+    .pmu-portrait-photo {
+      border-radius: 28px;
+    }
+
+    .pmu-hero-photo::before,
+    .pmu-portrait-photo::before {
+      inset: 10px;
+      border-radius: 22px;
+    }
+
+    .pmu-text-panel,
+    .pmu-portrait-copy,
+    .pmu-offer-card,
+    .pmu-process-grid article,
+    .pmu-faq-grid details,
+    .pmu-cta-card {
+      padding: 22px;
+      border-radius: 28px;
+    }
+  }
+</style>
