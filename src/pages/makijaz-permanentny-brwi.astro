@@ -193,7 +193,9 @@ const structuredData = [
           <div class="brow-hero-copy">
             <p class="section-kicker">Brwi permanentne Bielsko-Biała</p>
 
-            <h1>Naturalne brwi permanentne, które porządkują twarz bez efektu maski.</h1>
+            <h1>
+              <span class="pmu-hero-rose-text">Naturalne brwi permanentne</span>, które porządkują twarz bez efektu maski.
+            </h1>
 
             <p class="brow-hero-lead">
               Brwi permanentne powinny podkreślać oprawę oka, a nie dominować nad twarzą.
@@ -1514,5 +1516,28 @@ const structuredData = [
       max-width: calc(100% - 10px) !important;
     }
   }
+  /* Hero — różowy akcent w pierwszym nagłówku */
 
+  .pmu-hero-rose-text {
+    display: inline;
+    color: #b76576;
+    background:
+      linear-gradient(
+        120deg,
+        #7f344d 0%,
+        #b76576 24%,
+        #d7899f 48%,
+        #9d4f68 72%,
+        #6f3046 100%
+      );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media (max-width: 760px) {
+    .pmu-hero-rose-text {
+      display: inline;
+    }
+  }
 </style>

@@ -186,7 +186,9 @@ const structuredData = [
           <div class="lips-hero-copy">
             <p class="section-kicker">Makijaż permanentny ust Bielsko-Biała</p>
 
-            <h1>Makijaż permanentny ust, który odświeża kolor bez efektu przerysowania.</h1>
+            <h1>
+                <span class="pmu-hero-rose-text">Makijaż permanentny ust</span>, który odświeża kolor bez efektu przerysowania.
+            </h1>
 
             <p class="lips-hero-lead">
               Permanentny makijaż ust może subtelnie wyrównać czerwień wargową, podkreślić kontur
@@ -1428,6 +1430,28 @@ const structuredData = [
       letter-spacing: -0.066em !important;
     }
   }
+  /* Hero — różowy akcent w pierwszym nagłówku */
 
+  .pmu-hero-rose-text {
+    display: inline;
+    color: #b76576;
+    background:
+      linear-gradient(
+        120deg,
+        #7f344d 0%,
+        #b76576 24%,
+        #d7899f 48%,
+        #9d4f68 72%,
+        #6f3046 100%
+      );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
+  @media (max-width: 760px) {
+    .pmu-hero-rose-text {
+      display: inline;
+    }
+  }
 </style>

@@ -184,7 +184,9 @@ const structuredData = [
           <div class="removal-hero-copy">
             <p class="section-kicker">Usuwanie makijażu permanentnego Bielsko-Biała</p>
 
-            <h1>Stary makijaż permanentny czasem trzeba najpierw rozjaśnić, a dopiero potem poprawiać.</h1>
+            <h1>
+                <span class="pmu-hero-turquoise-text">Stary makijaż permanentny</span> czasem trzeba najpierw rozjaśnić, a dopiero potem poprawiać.
+            </h1>
 
             <p class="removal-hero-lead">
               Zbyt ciemne brwi, niekorzystny kształt, chłodny odcień albo nierówna pigmentacja
@@ -1482,6 +1484,29 @@ const structuredData = [
       letter-spacing: -0.066em !important;
     }
   }
+  /* Hero — turkusowy akcent w pierwszym nagłówku */
 
+  .pmu-hero-turquoise-text {
+    display: inline;
+    color: #0f7773;
+    background:
+      linear-gradient(
+        120deg,
+        #0d6a67 0%,
+        #0f7773 22%,
+        #1aa5a0 46%,
+        #74e0d7 68%,
+        #138a86 86%,
+        #0d6a67 100%
+      );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
+  @media (max-width: 760px) {
+    .pmu-hero-turquoise-text {
+      display: inline;
+    }
+  }
 </style>

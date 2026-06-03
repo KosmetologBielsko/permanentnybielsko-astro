@@ -203,7 +203,9 @@ const structuredData = [
           <div class="gallery-hero-copy">
             <p class="section-kicker">Galeria makijażu permanentnego</p>
 
-            <h1>Wybrane efekty PMU — naturalnie, czysto i bez przerysowania.</h1>
+            <h1>
+                <span class="pmu-hero-turquoise-text">Wybrane efekty PMU</span> — naturalnie, czysto i bez przerysowania.
+            </h1>
 
             <p class="gallery-hero-lead">
               Galeria będzie miejscem na starannie dobrane prace Bogusława Herda:
@@ -1398,5 +1400,29 @@ const structuredData = [
       letter-spacing: -0.066em !important;
     }
   }
+  /* Hero — turkusowy akcent w pierwszym nagłówku */
 
+  .pmu-hero-turquoise-text {
+    display: inline;
+    color: #0f7773;
+    background:
+      linear-gradient(
+        120deg,
+        #0d6a67 0%,
+        #0f7773 22%,
+        #1aa5a0 46%,
+        #74e0d7 68%,
+        #138a86 86%,
+        #0d6a67 100%
+      );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media (max-width: 760px) {
+    .pmu-hero-turquoise-text {
+      display: inline;
+    }
+  }
 </style>

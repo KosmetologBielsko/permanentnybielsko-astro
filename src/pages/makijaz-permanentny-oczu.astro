@@ -184,7 +184,9 @@ const structuredData = [
           <div class="eye-hero-copy">
             <p class="section-kicker">Makijaż permanentny oczu Bielsko-Biała</p>
 
-            <h1>Kreski permanentne, które podkreślają spojrzenie bez ciężkiego efektu.</h1>
+            <h1>
+                <span class="pmu-hero-rose-text">Kreski permanentne</span>, które podkreślają spojrzenie bez ciężkiego efektu.
+            </h1>
 
             <p class="eye-hero-lead">
               Makijaż permanentny oczu może subtelnie zagęścić linię rzęs, otworzyć spojrzenie
@@ -1312,6 +1314,28 @@ const structuredData = [
       letter-spacing: -0.066em !important;
     }
   }
+  /* Hero — różowy akcent w pierwszym nagłówku */
 
+  .pmu-hero-rose-text {
+    display: inline;
+    color: #b76576;
+    background:
+      linear-gradient(
+        120deg,
+        #7f344d 0%,
+        #b76576 24%,
+        #d7899f 48%,
+        #9d4f68 72%,
+        #6f3046 100%
+      );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
+  @media (max-width: 760px) {
+    .pmu-hero-rose-text {
+      display: inline;
+    }
+  }
 </style>

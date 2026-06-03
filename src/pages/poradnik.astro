@@ -164,7 +164,9 @@ const structuredData = [
           <div class="guide-hero-copy">
             <p class="section-kicker">Poradnik PMU</p>
 
-            <h1>Wiedza, decyzje i ważne tematy makijażu permanentnego.</h1>
+            <h1>
+                <span class="pmu-hero-turquoise-text">Wiedza, decyzje</span> i ważne tematy makijażu permanentnego.
+            </h1>
 
             <p class="guide-lead">
               To miejsce na poradnik typowo PMU: przygotowanie do zabiegu, gojenie, rysunek wstępny,
@@ -976,5 +978,29 @@ const structuredData = [
       opacity: 0.92 !important;
     }
   }
+  /* Hero — turkusowy akcent w pierwszym nagłówku */
 
+  .pmu-hero-turquoise-text {
+    display: inline;
+    color: #0f7773;
+    background:
+      linear-gradient(
+        120deg,
+        #0d6a67 0%,
+        #0f7773 22%,
+        #1aa5a0 46%,
+        #74e0d7 68%,
+        #138a86 86%,
+        #0d6a67 100%
+      );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media (max-width: 760px) {
+    .pmu-hero-turquoise-text {
+      display: inline;
+    }
+  }
 </style>
