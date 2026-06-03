@@ -197,7 +197,9 @@ const structuredData = [
           <div class="pmu-hero-copy">
             <p class="section-kicker">Makijaż permanentny Bielsko-Biała</p>
 
-            <h1>Naturalny makijaż permanentny dopasowany do twarzy, nie do schematu.</h1>
+            <h1> 
+              <span class="pmu-hero-gold-text">Naturalny makijaż permanentny</span> dopasowany do twarzy, nie do schematu.
+            </h1>
 
             <p class="pmu-hero-lead">
               Brwi permanentne, usta permanentne i kreski permanentne wykonywane z myślą
@@ -2764,6 +2766,30 @@ const structuredData = [
 
     .pmu-expert-grid span {
       margin-bottom: 18px;
+    }
+  }
+    /* V18 — złoty akcent w pierwszym nagłówku PMU */
+
+  .pmu-hero-gold-text {
+    display: inline;
+    color: #b9924d;
+    background:
+      linear-gradient(
+        120deg,
+        #8e6b36 0%,
+        #b9924d 22%,
+        #f4e0a4 46%,
+        #d1aa63 68%,
+        #8a6731 100%
+      );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media (max-width: 760px) {
+    .pmu-hero-gold-text {
+      display: inline;
     }
   }
 </style>
