@@ -2056,825 +2056,6 @@ const structuredData = [
       letter-spacing: -0.066em !important;
     }
   }
-
-
-  /* V11 — strona główna: kafelki miast w kolorach flag */
-
-  /*
-    Kafelki miast — inspiracja kolorami flag.
-    Nie robimy dosłownych flag, tylko eleganckie akcenty: pasek, poświata i kolor etykiety.
-  */
-  :global(.home-page .international-city-card-flag) {
-    position: relative !important;
-    overflow: hidden !important;
-    isolation: isolate !important;
-    background:
-      radial-gradient(circle at 94% 12%, var(--flag-glow, rgba(56, 187, 181, 0.08)), transparent 13rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
-    border: 1px solid var(--flag-border, rgba(183, 101, 118, 0.13)) !important;
-    box-shadow: 0 22px 58px var(--flag-shadow, rgba(51, 31, 44, 0.07)) !important;
-  }
-
-  :global(.home-page .international-city-card-flag::before) {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 0 auto 0 !important;
-    z-index: 1 !important;
-    height: 7px !important;
-    background: var(--flag-strip, linear-gradient(90deg, #ffffff, #d992a2)) !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .international-city-card-flag::after) {
-    content: "" !important;
-    position: absolute !important;
-    right: -4.6rem !important;
-    top: -4.6rem !important;
-    z-index: 0 !important;
-    width: 13rem !important;
-    height: 13rem !important;
-    border-radius: 999px !important;
-    background: radial-gradient(circle, var(--flag-orb, rgba(183, 101, 118, 0.14)), transparent 70%) !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .international-city-card-flag > *) {
-    position: relative !important;
-    z-index: 3 !important;
-  }
-
-  :global(.home-page .international-city-card-flag span) {
-    color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
-    -webkit-text-fill-color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
-  }
-
-  :global(.home-page .international-city-card-flag h3) {
-    color: var(--color-text, #17151d) !important;
-    -webkit-text-fill-color: var(--color-text, #17151d) !important;
-  }
-
-  :global(.home-page .international-city-card-turkey) {
-    --flag-strip: linear-gradient(90deg, #e30a17 0%, #e30a17 72%, #ffffff 72%, #ffffff 100%);
-    --flag-glow: rgba(227, 10, 23, 0.10);
-    --flag-orb: rgba(227, 10, 23, 0.16);
-    --flag-border: rgba(227, 10, 23, 0.16);
-    --flag-shadow: rgba(227, 10, 23, 0.08);
-    --flag-label: #b30814;
-  }
-
-  :global(.home-page .international-city-card-hungary) {
-    --flag-strip: linear-gradient(90deg, #ce2939 0%, #ce2939 33.3%, #ffffff 33.3%, #ffffff 66.6%, #477050 66.6%, #477050 100%);
-    --flag-glow: rgba(71, 112, 80, 0.10);
-    --flag-orb: rgba(206, 41, 57, 0.12);
-    --flag-border: rgba(71, 112, 80, 0.16);
-    --flag-shadow: rgba(71, 112, 80, 0.07);
-    --flag-label: #477050;
-  }
-
-  :global(.home-page .international-city-card-france) {
-    --flag-strip: linear-gradient(90deg, #0055a4 0%, #0055a4 33.3%, #ffffff 33.3%, #ffffff 66.6%, #ef4135 66.6%, #ef4135 100%);
-    --flag-glow: rgba(0, 85, 164, 0.10);
-    --flag-orb: rgba(239, 65, 53, 0.12);
-    --flag-border: rgba(0, 85, 164, 0.15);
-    --flag-shadow: rgba(0, 85, 164, 0.07);
-    --flag-label: #0055a4;
-  }
-
-  :global(.home-page .international-city-card-germany) {
-    --flag-strip: linear-gradient(90deg, #1d1d1d 0%, #1d1d1d 33.3%, #dd0000 33.3%, #dd0000 66.6%, #ffce00 66.6%, #ffce00 100%);
-    --flag-glow: rgba(255, 206, 0, 0.12);
-    --flag-orb: rgba(221, 0, 0, 0.12);
-    --flag-border: rgba(221, 0, 0, 0.14);
-    --flag-shadow: rgba(29, 29, 29, 0.06);
-    --flag-label: #8f1020;
-  }
-
-  :global(.home-page .international-city-card-indonesia) {
-    --flag-strip: linear-gradient(90deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
-    --flag-glow: rgba(206, 17, 38, 0.11);
-    --flag-orb: rgba(206, 17, 38, 0.14);
-    --flag-border: rgba(206, 17, 38, 0.15);
-    --flag-shadow: rgba(206, 17, 38, 0.07);
-    --flag-label: #b30d20;
-  }
-
-  @media (max-width: 760px) {
-    :global(.home-page .international-city-card-flag::before) {
-      height: 6px !important;
-    }
-  }
-
-
-  /* V12 — strona główna: żywsze kafelki miast z tłem flag */
-
-  /* V12 — żywsze kafelki miast z delikatnym tłem flag i symboliką */
-  :global(.home-page .international-city-card-flag) {
-    background:
-      var(--flag-card, linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 250, 252, 0.9))) !important;
-    border: 1px solid var(--flag-border, rgba(183, 101, 118, 0.13)) !important;
-    box-shadow: 0 24px 58px var(--flag-shadow, rgba(51, 31, 44, 0.07)) !important;
-  }
-
-  :global(.home-page .international-city-card-flag::before) {
-    height: 8px !important;
-    background: var(--flag-strip, linear-gradient(90deg, #ffffff, #d992a2)) !important;
-  }
-
-  :global(.home-page .international-city-card-flag::after) {
-    content: "" !important;
-    position: absolute !important;
-    right: -1.2rem !important;
-    top: 1.4rem !important;
-    z-index: 0 !important;
-    width: 72% !important;
-    height: 62% !important;
-    border-radius: 26px !important;
-    opacity: 0.46 !important;
-    pointer-events: none !important;
-    filter: saturate(110%) !important;
-  }
-
-  :global(.home-page .international-city-card-flag > *) {
-    position: relative !important;
-    z-index: 3 !important;
-  }
-
-  :global(.home-page .international-city-card-flag span) {
-    color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
-    -webkit-text-fill-color: var(--flag-label, var(--color-turquoise-dark, #0f7773)) !important;
-  }
-
-  :global(.home-page .international-city-card-turkey) {
-    --flag-card: linear-gradient(145deg, rgba(227, 10, 23, 0.16), rgba(255, 255, 255, 0.96) 48%, rgba(255, 245, 246, 0.96) 100%);
-    --flag-strip: linear-gradient(90deg, #e30a17 0%, #e30a17 72%, #ffffff 72%, #ffffff 100%);
-    --flag-border: rgba(227, 10, 23, 0.18);
-    --flag-shadow: rgba(227, 10, 23, 0.08);
-    --flag-label: #b30814;
-  }
-
-  :global(.home-page .international-city-card-turkey::after) {
-    content: "☾★" !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: auto !important;
-    height: auto !important;
-    right: 1.05rem !important;
-    top: 1.45rem !important;
-    font-size: clamp(3.7rem, 4vw, 5rem) !important;
-    line-height: 0.85 !important;
-    letter-spacing: -0.18em !important;
-    color: rgba(255, 255, 255, 0.38) !important;
-    opacity: 0.9 !important;
-    border-radius: 0 !important;
-    background: none !important;
-    text-shadow: 0 0 28px rgba(227, 10, 23, 0.16) !important;
-    transform: rotate(-10deg) !important;
-  }
-
-  :global(.home-page .international-city-card-hungary) {
-    --flag-card: linear-gradient(145deg, rgba(206, 41, 57, 0.11), rgba(255, 255, 255, 0.97) 44%, rgba(71, 112, 80, 0.11) 100%);
-    --flag-strip: linear-gradient(90deg, #ce2939 0%, #ce2939 33.3%, #ffffff 33.3%, #ffffff 66.6%, #477050 66.6%, #477050 100%);
-    --flag-border: rgba(71, 112, 80, 0.16);
-    --flag-shadow: rgba(71, 112, 80, 0.07);
-    --flag-label: #477050;
-  }
-
-  :global(.home-page .international-city-card-hungary::after) {
-    background: linear-gradient(180deg, rgba(206, 41, 57, 0.30) 0%, rgba(206, 41, 57, 0.30) 33.3%, rgba(255, 255, 255, 0.42) 33.3%, rgba(255, 255, 255, 0.42) 66.6%, rgba(71, 112, 80, 0.28) 66.6%, rgba(71, 112, 80, 0.28) 100%) !important;
-  }
-
-  :global(.home-page .international-city-card-france) {
-    --flag-card: linear-gradient(145deg, rgba(0, 85, 164, 0.10), rgba(255, 255, 255, 0.97) 48%, rgba(239, 65, 53, 0.10) 100%);
-    --flag-strip: linear-gradient(90deg, #0055a4 0%, #0055a4 33.3%, #ffffff 33.3%, #ffffff 66.6%, #ef4135 66.6%, #ef4135 100%);
-    --flag-border: rgba(0, 85, 164, 0.15);
-    --flag-shadow: rgba(0, 85, 164, 0.07);
-    --flag-label: #0055a4;
-  }
-
-  :global(.home-page .international-city-card-france::after) {
-    background: linear-gradient(90deg, rgba(0, 85, 164, 0.28) 0%, rgba(0, 85, 164, 0.28) 33.3%, rgba(255, 255, 255, 0.45) 33.3%, rgba(255, 255, 255, 0.45) 66.6%, rgba(239, 65, 53, 0.26) 66.6%, rgba(239, 65, 53, 0.26) 100%) !important;
-  }
-
-  :global(.home-page .international-city-card-germany) {
-    --flag-card: linear-gradient(145deg, rgba(32, 32, 32, 0.08), rgba(255, 255, 255, 0.97) 45%, rgba(255, 206, 0, 0.10) 100%);
-    --flag-strip: linear-gradient(90deg, #1d1d1d 0%, #1d1d1d 33.3%, #dd0000 33.3%, #dd0000 66.6%, #ffce00 66.6%, #ffce00 100%);
-    --flag-border: rgba(221, 0, 0, 0.14);
-    --flag-shadow: rgba(29, 29, 29, 0.06);
-    --flag-label: #8f1020;
-  }
-
-  :global(.home-page .international-city-card-germany::after) {
-    background: linear-gradient(180deg, rgba(20, 20, 20, 0.30) 0%, rgba(20, 20, 20, 0.30) 33.3%, rgba(221, 0, 0, 0.28) 33.3%, rgba(221, 0, 0, 0.28) 66.6%, rgba(255, 206, 0, 0.28) 66.6%, rgba(255, 206, 0, 0.28) 100%) !important;
-  }
-
-  :global(.home-page .international-city-card-indonesia) {
-    --flag-card: linear-gradient(145deg, rgba(206, 17, 38, 0.14), rgba(255, 255, 255, 0.97) 55%, rgba(255, 255, 255, 0.98) 100%);
-    --flag-strip: linear-gradient(90deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
-    --flag-border: rgba(206, 17, 38, 0.16);
-    --flag-shadow: rgba(206, 17, 38, 0.07);
-    --flag-label: #b30d20;
-  }
-
-  :global(.home-page .international-city-card-indonesia::after) {
-    background: linear-gradient(180deg, rgba(206, 17, 38, 0.30) 0%, rgba(206, 17, 38, 0.30) 50%, rgba(255, 255, 255, 0.44) 50%, rgba(255, 255, 255, 0.44) 100%) !important;
-  }
-
-  @media (max-width: 760px) {
-    :global(.home-page .international-city-card-flag::before) {
-      height: 6px !important;
-    }
-
-    :global(.home-page .international-city-card-flag::after) {
-      width: 66% !important;
-      height: 54% !important;
-      right: -0.9rem !important;
-      top: 1.05rem !important;
-      opacity: 0.42 !important;
-    }
-
-    :global(.home-page .international-city-card-turkey::after) {
-      width: auto !important;
-      height: auto !important;
-      right: 0.85rem !important;
-      top: 1.1rem !important;
-      font-size: 3.25rem !important;
-    }
-  }
-
-
-  /* V13 — strona główna: kafelki miast biały styl z pełną flagą */
-
-  /* V13 — kafelki miast: białe karty, pełna flaga w tle, bez poświat szablonu */
-  :global(.home-page .international-city-card-flag) {
-    position: relative !important;
-    isolation: isolate !important;
-    overflow: hidden !important;
-    background: #ffffff !important;
-    border: 1px solid rgba(23, 21, 29, 0.08) !important;
-    box-shadow: 0 18px 42px rgba(18, 17, 22, 0.08) !important;
-  }
-
-  :global(.home-page .international-city-card-flag::before) {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 0 !important;
-    height: auto !important;
-    border-radius: inherit !important;
-    background: var(--flag-bg, linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,248,248,0.94))) !important;
-    opacity: 0.92 !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .international-city-card-flag::after) {
-    content: var(--flag-mark, "") !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: var(--flag-mark-size, 4.9rem) !important;
-    font-weight: 700 !important;
-    letter-spacing: var(--flag-mark-spacing, -0.08em) !important;
-    line-height: 1 !important;
-    color: var(--flag-mark-color, rgba(255,255,255,0.40)) !important;
-    text-shadow: none !important;
-    background: none !important;
-    border-radius: 0 !important;
-    opacity: 1 !important;
-    transform: var(--flag-mark-transform, none) !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .international-city-card-flag > *) {
-    position: relative !important;
-    z-index: 3 !important;
-  }
-
-  :global(.home-page .international-city-card-flag span) {
-    color: var(--flag-label, #17151d) !important;
-    -webkit-text-fill-color: var(--flag-label, #17151d) !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.12em !important;
-    font-weight: 800 !important;
-  }
-
-  :global(.home-page .international-city-card-flag h3) {
-    color: #17151d !important;
-    -webkit-text-fill-color: #17151d !important;
-  }
-
-  :global(.home-page .international-city-card-turkey) {
-    --flag-bg:
-      linear-gradient(180deg, rgba(227, 10, 23, 0.22) 0%, rgba(227, 10, 23, 0.22) 100%),
-      linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
-    --flag-mark: "☾★";
-    --flag-mark-size: 5.2rem;
-    --flag-mark-spacing: -0.16em;
-    --flag-mark-color: rgba(255, 255, 255, 0.74);
-    --flag-mark-transform: rotate(-10deg);
-    --flag-label: #a10914;
-  }
-
-  :global(.home-page .international-city-card-hungary) {
-    --flag-bg:
-      linear-gradient(180deg,
-        rgba(206, 41, 57, 0.23) 0%,
-        rgba(206, 41, 57, 0.23) 33.333%,
-        rgba(255, 255, 255, 0.72) 33.333%,
-        rgba(255, 255, 255, 0.72) 66.666%,
-        rgba(71, 112, 80, 0.23) 66.666%,
-        rgba(71, 112, 80, 0.23) 100%);
-    --flag-label: #3e6548;
-  }
-
-  :global(.home-page .international-city-card-france) {
-    --flag-bg:
-      linear-gradient(90deg,
-        rgba(0, 85, 164, 0.22) 0%,
-        rgba(0, 85, 164, 0.22) 33.333%,
-        rgba(255, 255, 255, 0.74) 33.333%,
-        rgba(255, 255, 255, 0.74) 66.666%,
-        rgba(239, 65, 53, 0.22) 66.666%,
-        rgba(239, 65, 53, 0.22) 100%);
-    --flag-label: #004a92;
-  }
-
-  :global(.home-page .international-city-card-germany) {
-    --flag-bg:
-      linear-gradient(180deg,
-        rgba(24, 24, 24, 0.20) 0%,
-        rgba(24, 24, 24, 0.20) 33.333%,
-        rgba(221, 0, 0, 0.19) 33.333%,
-        rgba(221, 0, 0, 0.19) 66.666%,
-        rgba(255, 206, 0, 0.24) 66.666%,
-        rgba(255, 206, 0, 0.24) 100%);
-    --flag-label: #7c0c1b;
-  }
-
-  :global(.home-page .international-city-card-indonesia) {
-    --flag-bg:
-      linear-gradient(180deg,
-        rgba(206, 17, 38, 0.24) 0%,
-        rgba(206, 17, 38, 0.24) 50%,
-        rgba(255, 255, 255, 0.76) 50%,
-        rgba(255, 255, 255, 0.76) 100%);
-    --flag-label: #a90e20;
-  }
-
-  @media (max-width: 760px) {
-    :global(.home-page .international-city-card-flag::after) {
-      font-size: 4rem !important;
-    }
-  }
-
-
-  /* V14 — strona główna: eventowe kafelki miast z flagą i błyskiem */
-
-  /*
-    V14: kafelki miast jako mocne event cards.
-    Żywa flaga w tle, duży symbol, a opis przeniesiony do osobnego dolnego panelu.
-  */
-  :global(.home-page .international-event-grid) {
-    align-items: stretch !important;
-  }
-
-  :global(.home-page .international-event-card) {
-    position: relative !important;
-    isolation: isolate !important;
-    overflow: hidden !important;
-    min-height: 342px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    padding: 26px !important;
-    border: 1px solid rgba(255, 255, 255, 0.24) !important;
-    background: var(--event-flag-bg) !important;
-    box-shadow: 0 28px 72px var(--event-shadow, rgba(23, 21, 29, 0.14)) !important;
-    transform: translateZ(0) !important;
-  }
-
-  :global(.home-page .international-event-card::before) {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 0 !important;
-    height: auto !important;
-    border-radius: inherit !important;
-    background:
-      linear-gradient(112deg, transparent 0%, rgba(255, 255, 255, 0.10) 26%, rgba(255, 255, 255, 0.45) 48%, rgba(255, 255, 255, 0.10) 72%, transparent 100%) !important;
-    transform: translateX(-86%) !important;
-    animation: city-event-shine 8.8s ease-in-out infinite !important;
-    opacity: 0.86 !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .international-event-card::after) {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1 !important;
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.24), transparent 13rem),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.26)) !important;
-    opacity: 1 !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .international-event-card > *) {
-    position: relative !important;
-    z-index: 3 !important;
-  }
-
-  :global(.home-page .event-card-top) {
-    display: grid !important;
-    gap: 8px !important;
-  }
-
-  :global(.home-page .event-card-top span) {
-    display: inline-flex !important;
-    width: fit-content !important;
-    min-height: 30px !important;
-    align-items: center !important;
-    padding: 0 12px !important;
-    border-radius: 999px !important;
-    color: var(--event-chip-text, #17151d) !important;
-    -webkit-text-fill-color: var(--event-chip-text, #17151d) !important;
-    background: rgba(255, 255, 255, 0.78) !important;
-    border: 1px solid rgba(255, 255, 255, 0.52) !important;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10) !important;
-    font-size: 0.68rem !important;
-    font-weight: 900 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.16em !important;
-    text-transform: uppercase !important;
-  }
-
-  :global(.home-page .event-card-top h3) {
-    margin: 0 !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    font-size: clamp(2.05rem, 3.1vw, 3.55rem) !important;
-    font-weight: 820 !important;
-    line-height: 0.92 !important;
-    letter-spacing: -0.076em !important;
-    text-shadow: 0 16px 38px rgba(0, 0, 0, 0.30) !important;
-  }
-
-  :global(.home-page .event-card-symbol) {
-    position: absolute !important;
-    z-index: 2 !important;
-    inset: 72px 16px auto auto !important;
-    color: rgba(255, 255, 255, 0.34) !important;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.34) !important;
-    font-size: var(--event-symbol-size, clamp(4.2rem, 6vw, 7rem)) !important;
-    font-weight: 920 !important;
-    line-height: 0.82 !important;
-    letter-spacing: -0.14em !important;
-    text-shadow: 0 20px 46px rgba(0, 0, 0, 0.18) !important;
-    pointer-events: none !important;
-    user-select: none !important;
-  }
-
-  :global(.home-page .event-card-panel) {
-    margin-top: auto !important;
-    padding: 18px 18px 17px !important;
-    border-radius: 24px !important;
-    background: rgba(255, 255, 255, 0.82) !important;
-    border: 1px solid rgba(255, 255, 255, 0.54) !important;
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14) !important;
-    backdrop-filter: blur(12px) !important;
-  }
-
-  :global(.home-page .event-card-panel strong) {
-    display: block !important;
-    margin-bottom: 8px !important;
-    color: var(--event-panel-strong, #17151d) !important;
-    -webkit-text-fill-color: var(--event-panel-strong, #17151d) !important;
-    font-size: 0.8rem !important;
-    font-weight: 900 !important;
-    line-height: 1.08 !important;
-    letter-spacing: 0.11em !important;
-    text-transform: uppercase !important;
-  }
-
-  :global(.home-page .event-card-panel p) {
-    margin: 0 !important;
-    color: #312a31 !important;
-    -webkit-text-fill-color: #312a31 !important;
-    font-size: 0.88rem !important;
-    font-weight: 540 !important;
-    line-height: 1.48 !important;
-  }
-
-  :global(.home-page .international-city-card-turkey) {
-    --event-flag-bg:
-      radial-gradient(circle at 74% 18%, rgba(255, 255, 255, 0.22), transparent 9rem),
-      linear-gradient(135deg, #ff2330 0%, #d70a17 48%, #a50712 100%);
-    --event-shadow: rgba(164, 7, 18, 0.25);
-    --event-panel-strong: #a50712;
-    --event-chip-text: #a50712;
-    --event-symbol-size: clamp(4.6rem, 6.4vw, 7.6rem);
-  }
-
-  :global(.home-page .international-city-card-hungary) {
-    --event-flag-bg:
-      linear-gradient(180deg, #ce2939 0%, #ce2939 33.333%, #ffffff 33.333%, #ffffff 66.666%, #477050 66.666%, #477050 100%);
-    --event-shadow: rgba(71, 112, 80, 0.24);
-    --event-panel-strong: #477050;
-    --event-chip-text: #477050;
-  }
-
-  :global(.home-page .international-city-card-hungary .event-card-top h3),
-  :global(.home-page .international-city-card-hungary .event-card-symbol) {
-    color: rgba(23, 21, 29, 0.78) !important;
-    -webkit-text-fill-color: rgba(23, 21, 29, 0.78) !important;
-    text-shadow: 0 12px 30px rgba(255, 255, 255, 0.42) !important;
-  }
-
-  :global(.home-page .international-city-card-france) {
-    --event-flag-bg:
-      linear-gradient(90deg, #0055a4 0%, #0055a4 33.333%, #ffffff 33.333%, #ffffff 66.666%, #ef4135 66.666%, #ef4135 100%);
-    --event-shadow: rgba(0, 85, 164, 0.22);
-    --event-panel-strong: #0055a4;
-    --event-chip-text: #0055a4;
-  }
-
-  :global(.home-page .international-city-card-france .event-card-top h3),
-  :global(.home-page .international-city-card-france .event-card-symbol) {
-    color: rgba(23, 21, 29, 0.78) !important;
-    -webkit-text-fill-color: rgba(23, 21, 29, 0.78) !important;
-    text-shadow: 0 12px 30px rgba(255, 255, 255, 0.42) !important;
-  }
-
-  :global(.home-page .international-city-card-germany) {
-    --event-flag-bg:
-      linear-gradient(180deg, #171717 0%, #171717 33.333%, #dd0000 33.333%, #dd0000 66.666%, #ffce00 66.666%, #ffce00 100%);
-    --event-shadow: rgba(23, 23, 23, 0.23);
-    --event-panel-strong: #8f1020;
-    --event-chip-text: #8f1020;
-  }
-
-  :global(.home-page .international-city-card-indonesia) {
-    --event-flag-bg:
-      linear-gradient(180deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
-    --event-shadow: rgba(206, 17, 38, 0.24);
-    --event-panel-strong: #b30d20;
-    --event-chip-text: #b30d20;
-  }
-
-  :global(.home-page .international-city-card-indonesia .event-card-top h3),
-  :global(.home-page .international-city-card-indonesia .event-card-symbol) {
-    color: rgba(23, 21, 29, 0.78) !important;
-    -webkit-text-fill-color: rgba(23, 21, 29, 0.78) !important;
-    text-shadow: 0 12px 30px rgba(255, 255, 255, 0.42) !important;
-  }
-
-  @keyframes city-event-shine {
-    0%,
-    42% {
-      transform: translateX(-86%);
-      opacity: 0;
-    }
-
-    58% {
-      opacity: 0.92;
-    }
-
-    100% {
-      transform: translateX(86%);
-      opacity: 0;
-    }
-  }
-
-  @media (max-width: 760px) {
-    :global(.home-page .international-event-card) {
-      min-height: 322px !important;
-      padding: 22px !important;
-    }
-
-    :global(.home-page .event-card-top h3) {
-      font-size: clamp(2rem, 12vw, 3.25rem) !important;
-    }
-
-    :global(.home-page .event-card-symbol) {
-      inset: 68px 16px auto auto !important;
-      font-size: clamp(3.9rem, 16vw, 5.8rem) !important;
-    }
-
-    :global(.home-page .event-card-panel) {
-      padding: 16px !important;
-      border-radius: 22px !important;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    :global(.home-page .international-event-card::before) {
-      animation: none !important;
-      opacity: 0 !important;
-    }
-  }
-
-
-  /* V15 — strona główna: eventowe kafelki pełne flagi i białe napisy */
-
-  /*
-    V15: pełne kolory flag, bez połysku i poświat.
-    Państwo + miejscowość są białe, osadzone na ciemnym panelu,
-    żeby nie zlewały się z jasnymi fragmentami flag.
-  */
-  :global(.home-page .international-event-card) {
-    min-height: 350px !important;
-    padding: 24px !important;
-    background: var(--event-flag-bg) !important;
-    border: 0 !important;
-    box-shadow: 0 24px 58px rgba(18, 17, 22, 0.16) !important;
-  }
-
-  :global(.home-page .international-event-card::before) {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 0 !important;
-    height: auto !important;
-    border-radius: inherit !important;
-    background: var(--event-flag-bg) !important;
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .international-event-card::after) {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1 !important;
-    background:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.08) 42%, rgba(0, 0, 0, 0.36) 100%) !important;
-    opacity: 1 !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .event-card-top) {
-    width: 100% !important;
-    display: grid !important;
-    gap: 8px !important;
-    padding: 16px 16px 15px !important;
-    border-radius: 24px !important;
-    background: rgba(0, 0, 0, 0.34) !important;
-    border: 1px solid rgba(255, 255, 255, 0.22) !important;
-    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18) !important;
-    backdrop-filter: blur(8px) !important;
-  }
-
-  :global(.home-page .event-card-top span) {
-    display: block !important;
-    width: fit-content !important;
-    min-height: auto !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    font-size: 0.72rem !important;
-    font-weight: 900 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.18em !important;
-    text-transform: uppercase !important;
-    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.45) !important;
-  }
-
-  :global(.home-page .event-card-top h3) {
-    margin: 0 !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    font-size: clamp(2.2rem, 3.35vw, 3.85rem) !important;
-    font-weight: 850 !important;
-    line-height: 0.9 !important;
-    letter-spacing: -0.08em !important;
-    text-shadow: 0 6px 24px rgba(0, 0, 0, 0.46) !important;
-  }
-
-  :global(.home-page .event-card-symbol) {
-    position: relative !important;
-    inset: auto !important;
-    z-index: 3 !important;
-    width: fit-content !important;
-    max-width: 100% !important;
-    margin: 20px 0 18px auto !important;
-    padding: 10px 14px 9px !important;
-    border-radius: 999px !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    background: rgba(0, 0, 0, 0.32) !important;
-    border: 1px solid rgba(255, 255, 255, 0.24) !important;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16) !important;
-    backdrop-filter: blur(8px) !important;
-    font-size: 0.74rem !important;
-    font-weight: 950 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.15em !important;
-    text-transform: uppercase !important;
-    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.38) !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .international-city-card-turkey .event-card-symbol) {
-    font-size: 1.75rem !important;
-    letter-spacing: -0.12em !important;
-    line-height: 0.85 !important;
-    padding: 12px 18px 11px !important;
-    text-transform: none !important;
-  }
-
-  :global(.home-page .event-card-panel) {
-    margin-top: auto !important;
-    padding: 17px 17px 16px !important;
-    border-radius: 24px !important;
-    background: rgba(255, 255, 255, 0.88) !important;
-    border: 1px solid rgba(255, 255, 255, 0.62) !important;
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16) !important;
-    backdrop-filter: blur(10px) !important;
-  }
-
-  :global(.home-page .event-card-panel strong) {
-    display: block !important;
-    margin-bottom: 8px !important;
-    color: var(--event-panel-strong, #17151d) !important;
-    -webkit-text-fill-color: var(--event-panel-strong, #17151d) !important;
-    font-size: 0.78rem !important;
-    font-weight: 950 !important;
-    line-height: 1.08 !important;
-    letter-spacing: 0.10em !important;
-    text-transform: uppercase !important;
-  }
-
-  :global(.home-page .event-card-panel p) {
-    margin: 0 !important;
-    color: #2f2a31 !important;
-    -webkit-text-fill-color: #2f2a31 !important;
-    font-size: 0.86rem !important;
-    font-weight: 540 !important;
-    line-height: 1.46 !important;
-  }
-
-  :global(.home-page .international-city-card-turkey) {
-    --event-flag-bg: #e30a17;
-    --event-panel-strong: #a50712;
-  }
-
-  :global(.home-page .international-city-card-hungary) {
-    --event-flag-bg: linear-gradient(180deg, #ce2939 0%, #ce2939 33.333%, #ffffff 33.333%, #ffffff 66.666%, #477050 66.666%, #477050 100%);
-    --event-panel-strong: #477050;
-  }
-
-  :global(.home-page .international-city-card-france) {
-    --event-flag-bg: linear-gradient(90deg, #0055a4 0%, #0055a4 33.333%, #ffffff 33.333%, #ffffff 66.666%, #ef4135 66.666%, #ef4135 100%);
-    --event-panel-strong: #0055a4;
-  }
-
-  :global(.home-page .international-city-card-germany) {
-    --event-flag-bg: linear-gradient(180deg, #171717 0%, #171717 33.333%, #dd0000 33.333%, #dd0000 66.666%, #ffce00 66.666%, #ffce00 100%);
-    --event-panel-strong: #8f1020;
-  }
-
-  :global(.home-page .international-city-card-indonesia) {
-    --event-flag-bg: linear-gradient(180deg, #ce1126 0%, #ce1126 50%, #ffffff 50%, #ffffff 100%);
-    --event-panel-strong: #b30d20;
-  }
-
-  @media (max-width: 760px) {
-    :global(.home-page .international-event-card) {
-      min-height: 330px !important;
-      padding: 20px !important;
-    }
-
-    :global(.home-page .event-card-top) {
-      padding: 15px !important;
-      border-radius: 22px !important;
-    }
-
-    :global(.home-page .event-card-top h3) {
-      font-size: clamp(2.1rem, 12vw, 3.35rem) !important;
-      line-height: 0.92 !important;
-    }
-
-    :global(.home-page .event-card-symbol) {
-      margin: 18px 0 16px auto !important;
-    }
-
-    :global(.home-page .event-card-panel) {
-      padding: 16px !important;
-      border-radius: 22px !important;
-    }
-  }
-
-
   /* V16 — strona główna: finalne badge cards z flagą */
 
   /*
@@ -3892,164 +3073,7 @@ const structuredData = [
       display: none !important;
     }
   }
-  /* V26 — kolaż w sekcji Efekty i metamorfozy */
 
-  :global(.home-page .results-collage-card) {
-    position: relative !important;
-    width: min(100%, 760px) !important;
-    max-width: 760px !important;
-    margin: clamp(24px, 3.8vw, 42px) auto clamp(28px, 4vw, 48px) !important;
-    padding: clamp(7px, 1vw, 10px) !important;
-    overflow: hidden !important;
-    border-radius: clamp(24px, 3vw, 34px) !important;
-    background:
-      radial-gradient(circle at 10% 16%, rgba(56, 187, 181, 0.08), transparent 16rem),
-      radial-gradient(circle at 92% 84%, rgba(217, 146, 162, 0.10), transparent 17rem),
-      rgba(255, 255, 255, 0.92) !important;
-    border: 1px solid rgba(56, 187, 181, 0.12) !important;
-    box-shadow: 0 18px 48px rgba(23, 21, 29, 0.08) !important;
-  }
-
-  :global(.home-page .results-collage-card::before) {
-    content: "" !important;
-    position: absolute !important;
-    inset: 9px !important;
-    z-index: 2 !important;
-    border-radius: clamp(18px, 2.4vw, 26px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.46) !important;
-    pointer-events: none !important;
-  }
-
-  :global(.home-page .results-collage-card img) {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    max-height: 520px !important;
-    aspect-ratio: 16 / 10 !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    border-radius: clamp(18px, 2.4vw, 26px) !important;
-    background: rgba(255, 255, 255, 0.7) !important;
-  }
-
-  @media (min-width: 1500px) {
-    :global(.home-page .results-collage-card) {
-      max-width: 700px !important;
-    }
-
-    :global(.home-page .results-collage-card img) {
-      max-height: 480px !important;
-    }
-  }
-
-  @media (max-width: 980px) {
-    :global(.home-page .results-collage-card) {
-      width: min(100%, 88vw) !important;
-      max-width: 620px !important;
-    }
-
-    :global(.home-page .results-collage-card img) {
-      max-height: 420px !important;
-    }
-  }
-
-  @media (max-width: 760px) {
-    :global(.home-page .results-collage-card) {
-      width: min(100%, 90vw) !important;
-      max-width: 350px !important;
-      margin: 22px auto 28px !important;
-      padding: 6px !important;
-      border-radius: 22px !important;
-      box-shadow: 0 14px 36px rgba(23, 21, 29, 0.07) !important;
-    }
-
-    :global(.home-page .results-collage-card::before) {
-      inset: 7px !important;
-      border-radius: 16px !important;
-    }
-
-    :global(.home-page .results-collage-card img) {
-      max-height: 300px !important;
-      aspect-ratio: 4 / 5 !important;
-      object-fit: cover !important;
-      object-position: center !important;
-      border-radius: 16px !important;
-    }
-  }
-    /* V27 — poprawka rozmiaru kolażu Efekty i metamorfozy */
-
-  :global(.home-page .results-collage-card) {
-    width: min(100%, 640px) !important;
-    max-width: 520px !important;
-    margin: clamp(22px, 3vw, 34px) auto clamp(24px, 3.4vw, 38px) !important;
-    padding: 7px !important;
-    border-radius: 26px !important;
-    overflow: hidden !important;
-    background: rgba(255, 255, 255, 0.92) !important;
-    border: 1px solid rgba(56, 187, 181, 0.12) !important;
-    box-shadow: 0 14px 36px rgba(23, 21, 29, 0.07) !important;
-  }
-
-  :global(.home-page .results-collage-card::before) {
-    inset: 8px !important;
-    border-radius: 20px !important;
-  }
-
-  :global(.home-page .results-collage-card img) {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
-    aspect-ratio: 16 / 9 !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    border-radius: 20px !important;
-    background: rgba(255, 255, 255, 0.72) !important;
-  }
-
-  @media (min-width: 1500px) {
-    :global(.home-page .results-collage-card) {
-      width: min(100%, 600px) !important;
-      max-width: 600px !important;
-    }
-  }
-
-  @media (max-width: 980px) {
-    :global(.home-page .results-collage-card) {
-      width: min(100%, 86vw) !important;
-      max-width: 560px !important;
-    }
-
-    :global(.home-page .results-collage-card img) {
-      aspect-ratio: 16 / 9 !important;
-      object-fit: contain !important;
-    }
-  }
-
-  @media (max-width: 760px) {
-    :global(.home-page .results-collage-card) {
-      width: min(100%, 88vw) !important;
-      max-width: 330px !important;
-      margin: 20px auto 26px !important;
-      padding: 6px !important;
-      border-radius: 22px !important;
-    }
-
-    :global(.home-page .results-collage-card::before) {
-      inset: 7px !important;
-      border-radius: 16px !important;
-    }
-
-    :global(.home-page .results-collage-card img) {
-      width: 100% !important;
-      height: auto !important;
-      max-height: none !important;
-      aspect-ratio: 16 / 9 !important;
-      object-fit: contain !important;
-      object-position: center !important;
-      border-radius: 16px !important;
-    }
-  }
     /* V28 — kolaż Efekty i metamorfozy taki sam rozmiar jak zdjęcie szkoleniowe */
 
   :global(.home-page .results-collage-card) {
@@ -4342,6 +3366,123 @@ const structuredData = [
       padding: 0 12px;
       font-size: 0.64rem;
       letter-spacing: 0.09em;
+    }
+  }
+    /* FINAL — mobile: zdjęcia i kolaże w szerokości kafelków */
+
+  @media (max-width: 760px) {
+    :global(.home-page .ltl-team-photo-feature),
+    :global(.home-page .training-home-photo-card),
+    :global(.home-page .results-collage-card) {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 22px auto 30px !important;
+      padding: 7px !important;
+      border-radius: 26px !important;
+      box-shadow: 0 16px 42px rgba(23, 21, 29, 0.08) !important;
+    }
+
+    :global(.home-page .ltl-team-photo-feature::before),
+    :global(.home-page .training-home-photo-card::before),
+    :global(.home-page .results-collage-card::before) {
+      inset: 8px !important;
+      border-radius: 19px !important;
+    }
+
+    :global(.home-page .ltl-team-photo-feature img),
+    :global(.home-page .training-home-photo-card img),
+    :global(.home-page .results-collage-card img) {
+      width: 100% !important;
+      height: auto !important;
+      max-height: none !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      border-radius: 19px !important;
+    }
+
+    :global(.home-page .ltl-team-photo-feature img),
+    :global(.home-page .training-home-photo-card img),
+    :global(.home-page .results-collage-card img) {
+      aspect-ratio: auto !important;
+    }
+
+    :global(.home-page .ltl-team-photo-feature figcaption) {
+      padding: 15px 14px 4px !important;
+      font-size: 0.9rem !important;
+      line-height: 1.55 !important;
+    }
+  }
+    /* FINAL — mobile: pionowe zdjęcie i film metamorfoz w rytmie kafelków */
+
+  @media (max-width: 760px) {
+    :global(.home-page .mission-visual-between) {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 22px auto 28px !important;
+      padding: 0 !important;
+    }
+
+    :global(.home-page .mission-visual-between .mission-photo-card) {
+      width: 100% !important;
+      max-width: none !important;
+      margin-inline: auto !important;
+      border-radius: 26px !important;
+      box-shadow: 0 16px 42px rgba(23, 21, 29, 0.08) !important;
+    }
+
+    :global(.home-page .mission-visual-between .mission-photo-card::before) {
+      inset: 8px !important;
+      border-radius: 19px !important;
+    }
+
+    :global(.home-page .mission-visual-between .mission-photo-card img) {
+      width: 100% !important;
+      height: auto !important;
+      max-height: none !important;
+      aspect-ratio: 4 / 5 !important;
+      object-fit: cover !important;
+      object-position: center 18% !important;
+      border-radius: 19px !important;
+    }
+
+    :global(.home-page .results-feature-row) {
+      width: 100% !important;
+      max-width: none !important;
+      margin-top: 30px !important;
+    }
+
+    :global(.home-page .metamorfozy-video-card) {
+      width: min(100%, 390px) !important;
+      max-width: 390px !important;
+      margin: 24px auto 28px !important;
+      border-radius: 28px !important;
+      box-shadow: 0 18px 48px rgba(23, 21, 29, 0.10) !important;
+    }
+
+    :global(.home-page .metamorfozy-video-card::before) {
+      inset: 8px !important;
+      border-radius: 20px !important;
+    }
+
+    :global(.home-page .metamorfozy-video) {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 540px !important;
+      aspect-ratio: 9 / 16 !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      border-radius: 20px !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    :global(.home-page .metamorfozy-video-card) {
+      width: min(100%, 360px) !important;
+      max-width: 360px !important;
+    }
+
+    :global(.home-page .metamorfozy-video) {
+      max-height: 500px !important;
     }
   }
 </style>
