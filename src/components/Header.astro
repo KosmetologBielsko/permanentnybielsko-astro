@@ -35,16 +35,22 @@ const isActive = (href: string) => {
 <header class="site-header" data-site-header>
   <div class="header-shell">
     <a class="header-logo header-logo-image-link" href="/" aria-label="Bogusława Herda — strona główna">
-      <img
-        data-header-logo-img
-        src="/images/logo-boguslawa-herda-pmu-full.webp"
-        alt="Bogusława Herda"
-        width="1546"
-        height="807"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-      />
+      <picture class="header-logo-picture">
+        <source
+          media="(max-width: 1080px)"
+          srcset="/images/logo-boguslawa-herda-pmu-mobile.webp"
+        />
+        <img
+          data-header-logo-img
+          src="/images/logo-boguslawa-herda-pmu-desktop.webp"
+          alt="Bogusława Herda Makijaż Permanentny – Powrót do natury"
+          width="1600"
+          height="334"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </picture>
       <span class="header-logo-text-fallback" aria-hidden="true">
         <strong>Bogusława Herda</strong>
         <em>Permanentny Make-up</em>
@@ -214,6 +220,9 @@ const isActive = (href: string) => {
   const logoImage = document.querySelector("[data-header-logo-img]");
 
   const logoFallbacks = [
+    "/images/logo-boguslawa-herda-pmu-desktop.webp",
+    "/images/logo-boguslawa-herda-pmu-mobile.webp",
+    "/images/logo-boguslawa-herda-pmu-full.webp",
     "/images/logo-boguslawa-herda-black.webp",
     "/images/logo-boguslawa-herda-header.webp",
     "/images/logo-boguslawa-herda-pmu-header.webp"
@@ -1390,5 +1399,148 @@ const isActive = (href: string) => {
       letter-spacing: 0.14em;
     }
   }
+
+
+  /* V15 — czytelne logo headera: desktop + mobile */
+  .header-logo-picture {
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  .header-logo-image-link {
+    width: clamp(230px, 18vw, 315px) !important;
+    max-width: 315px !important;
+    height: 62px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    overflow: visible !important;
+    flex: 0 0 auto !important;
+  }
+
+  .header-logo-image-link img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 58px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+  }
+
+  .header-logo-image-link.is-logo-fallback .header-logo-picture {
+    display: none !important;
+  }
+
+  @media (min-width: 1481px) {
+    .header-logo-image-link {
+      width: 315px !important;
+      max-width: 315px !important;
+    }
+  }
+
+  @media (min-width: 1281px) and (max-width: 1480px) {
+    .header-logo-image-link {
+      width: 250px !important;
+      max-width: 250px !important;
+      height: 58px !important;
+    }
+
+    .header-logo-image-link img {
+      max-height: 54px !important;
+    }
+  }
+
+  @media (min-width: 1081px) and (max-width: 1280px) {
+    .header-logo-image-link {
+      width: 205px !important;
+      max-width: 205px !important;
+      height: 54px !important;
+    }
+
+    .header-logo-image-link img {
+      max-height: 50px !important;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .header-logo-image-link {
+      width: clamp(182px, 46vw, 240px) !important;
+      max-width: 240px !important;
+      height: 50px !important;
+    }
+
+    .header-logo-image-link img {
+      max-height: 48px !important;
+      object-position: left center !important;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .header-shell {
+      gap: 7px !important;
+      padding: 9px !important;
+    }
+
+    .header-logo-image-link {
+      width: clamp(170px, 45vw, 205px) !important;
+      max-width: 205px !important;
+      height: 48px !important;
+    }
+
+    .header-logo-image-link img {
+      max-height: 46px !important;
+    }
+
+    .header-booksy {
+      min-height: 40px !important;
+      padding: 0 10px !important;
+      font-size: 0.68rem !important;
+      letter-spacing: 0.035em !important;
+    }
+
+    .mobile-menu-button {
+      width: 44px !important;
+      height: 44px !important;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .header-logo-image-link {
+      width: clamp(158px, 43vw, 185px) !important;
+      max-width: 185px !important;
+      height: 46px !important;
+    }
+
+    .header-logo-image-link img {
+      max-height: 44px !important;
+    }
+
+    .header-booksy {
+      padding: 0 9px !important;
+      font-size: 0.64rem !important;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .header-logo-image-link {
+      width: clamp(148px, 42vw, 170px) !important;
+      max-width: 170px !important;
+    }
+
+    .header-booksy {
+      min-height: 38px !important;
+      padding: 0 8px !important;
+      font-size: 0.6rem !important;
+    }
+
+    .mobile-menu-button {
+      width: 42px !important;
+      height: 42px !important;
+    }
+  }
+
 
 </style>
