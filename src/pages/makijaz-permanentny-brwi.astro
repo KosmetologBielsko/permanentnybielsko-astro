@@ -3469,6 +3469,24 @@ const structuredData = [
       min-height: 340px !important;
     }
   }
+    /* FINAL FIX — brwi: statyczny duży blok Silky bez ruchomej poświaty */
+
+  :global(.brow-page .brow-silky-feature),
+  :global(.brow-page .brow-silky-signature) {
+    animation: none !important;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.18), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 28%, #63d7cf 54%, #138a86 74%, #0d6a67 100%) !important;
+    background-size: 100% 100% !important;
+  }
+
+  :global(.brow-page .brow-silky-feature::before),
+  :global(.brow-page .brow-silky-signature::before) {
+    display: none !important;
+    content: none !important;
+    animation: none !important;
+  }
 </style>
 <script>
   const browMethodScroll = document.querySelector("#browMethodScroll");
