@@ -411,7 +411,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="lips-types-section lips-methods-premium-section" id="zakres-ust">
+                <section class="lips-types-section lips-methods-premium-section" id="zakres-ust">
         <div class="container">
           <div class="lips-methods-heading">
             <p class="section-kicker">Zakres pigmentacji ust</p>
@@ -519,22 +519,15 @@ const structuredData = [
             </p>
           </div>
 
-          <figure class="lips-signature-media lips-media-frame lips-signature-video-frame">
-            <video
-              class="lips-signature-video"
-              poster="/video/makijaz-permanentny-ust-efekt-01-poster.webp"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              aria-label="Naturalny kolor ust po makijażu permanentnym"
-            >
-              <source
-                src="/video/makijaz-permanentny-ust-efekt-01.mp4"
-                type="video/mp4"
-              />
-            </video>
+          <figure class="lips-signature-media lips-media-frame">
+            <img
+              src="/images/makijaz-permanentny-ust-bielsko-biala-efekt-03.webp"
+              alt="Naturalny kolor ust po makijażu permanentnym"
+              width="900"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
 
           <div class="lips-signature-points" aria-label="Cechy naturalnego makijażu permanentnego ust">
@@ -2054,27 +2047,205 @@ const structuredData = [
       font-size: 1rem !important;
     }
   }
-
-  /* FINAL — usta: film w różowym kafelku Kolor i kształt */
-  .lips-signature-video-frame {
-    aspect-ratio: 4 / 5 !important;
-    background: rgba(255, 255, 255, 0.16) !important;
+    /* FINAL FORCE — usta: wymuszenie układu jak metody brwi */
+  .lips-page .lips-types-section.lips-methods-premium-section {
+    padding: 96px 0 104px !important;
+    overflow: hidden !important;
   }
 
-  .lips-signature-video {
+  .lips-page .lips-types-section.lips-methods-premium-section .container {
+    max-width: 1440px !important;
+  }
+
+  .lips-page .lips-methods-heading {
+    max-width: 1180px !important;
+    margin: 0 auto 42px !important;
+  }
+
+  .lips-page .lips-methods-heading h2 {
+    max-width: 1120px !important;
+    margin: 0 !important;
+    color: #17151d !important;
+    font-size: clamp(2.7rem, 5vw, 5.6rem) !important;
+    font-weight: 780 !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.078em !important;
+  }
+
+  .lips-page .lips-methods-heading p:not(.section-kicker) {
+    max-width: 1080px !important;
+    margin: 24px 0 0 !important;
+    color: #6e6670 !important;
+    font-size: clamp(1.03rem, 1.25vw, 1.18rem) !important;
+    line-height: 1.72 !important;
+  }
+
+  .lips-page .lips-methods-collage-card {
+    position: relative !important;
+    display: block !important;
+    width: min(100%, 1120px) !important;
+    margin: 0 auto 28px !important;
+    padding: clamp(14px, 1.8vw, 22px) !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(56, 187, 181, 0.24) !important;
+    border-radius: 38px !important;
+    background:
+      radial-gradient(circle at 94% 8%, rgba(56, 187, 181, 0.08), transparent 18rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 251, 0.94)) !important;
+    box-shadow:
+      0 24px 72px rgba(89, 53, 67, 0.08),
+      0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+  }
+
+  .lips-page .lips-methods-collage-card img {
     display: block !important;
     width: 100% !important;
-    height: 100% !important;
-    min-height: 100% !important;
+    height: auto !important;
+    border-radius: 26px !important;
     object-fit: cover !important;
-    object-position: center !important;
-    border-radius: 24px !important;
+    box-shadow: 0 18px 46px rgba(89, 53, 67, 0.12) !important;
+  }
+
+  .lips-page .lips-methods-controls {
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    width: min(100%, 1120px) !important;
+    margin: 0 auto 20px !important;
+  }
+
+  .lips-page .lips-methods-arrow {
+    display: inline-flex !important;
+    width: 52px !important;
+    height: 52px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid rgba(56, 187, 181, 0.24) !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    color: #0f7773 !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    box-shadow: 0 14px 34px rgba(89, 53, 67, 0.08) !important;
+    cursor: pointer !important;
+  }
+
+  .lips-page .lips-methods-track {
+    display: grid !important;
+    width: 100% !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: minmax(360px, 460px) !important;
+    grid-template-columns: none !important;
+    gap: 22px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 10px max(18px, calc((100vw - 1440px) / 2)) 32px !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+  }
+
+  .lips-page .lips-method-premium-card {
+    position: relative !important;
+    display: block !important;
+    min-height: 360px !important;
+    padding: clamp(30px, 3vw, 44px) !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(183, 101, 118, 0.15) !important;
+    border-radius: 36px !important;
+    background:
+      radial-gradient(circle at 92% 0%, rgba(219, 246, 243, 0.72), transparent 7.2rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
+    box-shadow: 0 20px 58px rgba(89, 53, 67, 0.075) !important;
+    scroll-snap-align: start !important;
+  }
+
+  .lips-page .lips-method-premium-card::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-top: 5px solid rgba(56, 187, 181, 0.34) !important;
+    pointer-events: none !important;
+  }
+
+  .lips-page .lips-method-premium-card-rose {
+    background:
+      radial-gradient(circle at 92% 0%, rgba(246, 220, 227, 0.84), transparent 7.2rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
+  }
+
+  .lips-page .lips-method-premium-card-rose::before {
+    border-top-color: rgba(201, 127, 143, 0.34) !important;
+  }
+
+  .lips-page .lips-method-premium-card-strong {
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 82% 10%, rgba(255, 255, 255, 0.2), transparent 10rem),
+      linear-gradient(145deg, #d58b9d 0%, #bd637c 45%, #8b3852 100%) !important;
+    box-shadow: 0 24px 68px rgba(183, 101, 118, 0.22) !important;
+  }
+
+  .lips-page .lips-method-premium-card span {
+    position: relative !important;
+    z-index: 2 !important;
+    display: inline-flex !important;
+    margin-bottom: clamp(72px, 8vw, 110px) !important;
+    color: #0f7773 !important;
+    font-size: 0.86rem !important;
+    font-weight: 850 !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .lips-page .lips-method-premium-card h3 {
+    position: relative !important;
+    z-index: 2 !important;
+    max-width: 350px !important;
+    margin: 0 !important;
+    color: #17151d !important;
+    font-size: clamp(2rem, 3vw, 3.35rem) !important;
+    font-weight: 780 !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.076em !important;
+  }
+
+  .lips-page .lips-method-premium-card p {
+    position: relative !important;
+    z-index: 2 !important;
+    max-width: 360px !important;
+    margin: 20px 0 0 !important;
+    color: #6e6670 !important;
+    font-size: clamp(1rem, 1.16vw, 1.12rem) !important;
+    line-height: 1.62 !important;
+  }
+
+  .lips-page .lips-method-premium-card-strong span,
+  .lips-page .lips-method-premium-card-strong h3 {
+    color: #ffffff !important;
+  }
+
+  .lips-page .lips-method-premium-card-strong p {
+    color: rgba(255, 255, 255, 0.86) !important;
   }
 
   @media (max-width: 760px) {
-    .lips-signature-video {
-      border-radius: 20px !important;
+    .lips-page .lips-methods-track {
+      grid-auto-columns: minmax(270px, 82vw) !important;
+      gap: 16px !important;
+      padding-bottom: 24px !important;
+    }
+
+    .lips-page .lips-method-premium-card {
+      min-height: 310px !important;
+      padding: 28px !important;
+      border-radius: 28px !important;
+    }
+
+    .lips-page .lips-method-premium-card span {
+      margin-bottom: 64px !important;
+    }
+
+    .lips-page .lips-method-premium-card h3 {
+      font-size: clamp(1.8rem, 8.2vw, 2.6rem) !important;
     }
   }
-
 </style>

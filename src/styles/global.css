@@ -3289,3 +3289,62 @@ img {
     border-radius: 26px;
   }
 }
+/* FINAL FIX — HOME training CTA full width across all desktop/tablet widths */
+.training-section .training-hero-grid {
+  align-items: stretch !important;
+}
+
+.training-section .training-hero-grid > .training-cta-card.training-wide-card {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  justify-self: stretch !important;
+  box-sizing: border-box !important;
+}
+
+.training-section .training-hero-grid > .training-cta-card.training-wide-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding-left: clamp(30px, 5vw, 74px) !important;
+  padding-right: clamp(30px, 5vw, 74px) !important;
+}
+
+.training-section .training-hero-grid > .training-cta-card.training-wide-card h3 {
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.training-section .training-hero-grid > .training-cta-card.training-wide-card p:not(.section-kicker) {
+  max-width: 920px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.training-section .training-hero-grid > .training-cta-card.training-wide-card .training-cta-link {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media (min-width: 761px) and (max-width: 1320px) {
+  .training-section .training-hero-grid > .training-cta-card.training-wide-card {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .training-section .training-hero-grid > .training-cta-card.training-wide-card {
+    grid-column: 1 / -1 !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .training-section .training-hero-grid > .training-cta-card.training-wide-card h3,
+  .training-section .training-hero-grid > .training-cta-card.training-wide-card p:not(.section-kicker) {
+    max-width: 100% !important;
+  }
+}
