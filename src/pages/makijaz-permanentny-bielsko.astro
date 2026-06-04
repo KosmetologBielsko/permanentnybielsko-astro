@@ -536,25 +536,45 @@ const structuredData = [
             </p>
           </div>
 
-          <div class="pmu-list-card">
-            <div>
-              <strong>Stare pigmentacje</strong>
-              <span>ocena koloru, nasycenia i możliwości wykonania nowej pracy</span>
+          <div class="premium-points-list premium-points-list--gold premium-points-list--compact" aria-label="Najważniejsze decyzje w makijażu permanentnym">
+            <div class="premium-point">
+              <span class="premium-point__dot" aria-hidden="true"></span>
+              <div class="premium-point__content">
+                <strong class="premium-point__title">Stare pigmentacje</strong>
+                <span class="premium-point__text">
+                  ocena koloru, nasycenia i możliwości wykonania nowej pracy
+                </span>
+              </div>
             </div>
 
-            <div>
-              <strong>Dobór techniki</strong>
-              <span>brwi pudrowe, włos maszynowy, usta, kreski lub korekta</span>
+            <div class="premium-point">
+              <span class="premium-point__dot" aria-hidden="true"></span>
+              <div class="premium-point__content">
+                <strong class="premium-point__title">Dobór techniki</strong>
+                <span class="premium-point__text">
+                  brwi pudrowe, włos maszynowy, usta, kreski lub korekta
+                </span>
+              </div>
             </div>
 
-            <div>
-              <strong>Naturalna intensywność</strong>
-              <span>efekt dopasowany do twarzy, nie do chwilowego trendu</span>
+            <div class="premium-point">
+              <span class="premium-point__dot" aria-hidden="true"></span>
+              <div class="premium-point__content">
+                <strong class="premium-point__title">Naturalna intensywność</strong>
+                <span class="premium-point__text">
+                  efekt dopasowany do twarzy, nie do chwilowego trendu
+                </span>
+              </div>
             </div>
 
-            <div>
-              <strong>Zalecenia po zabiegu</strong>
-              <span>pielęgnacja i gojenie omawiane indywidualnie po pigmentacji</span>
+            <div class="premium-point">
+              <span class="premium-point__dot" aria-hidden="true"></span>
+              <div class="premium-point__content">
+                <strong class="premium-point__title">Zalecenia po zabiegu</strong>
+                <span class="premium-point__text">
+                  pielęgnacja i gojenie omawiane indywidualnie po pigmentacji
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -2932,9 +2952,10 @@ const structuredData = [
       line-height: 1.68 !important;
     }
   }
-    /* V20 — Apple-like sekcja wyboru obszaru PMU */
+     /* FINAL — sekcja Wybierz obszar PMU: slider kafelków */
 
-  .pmu-next-section {
+  .pmu-service-page .pmu-next-section {
+    display: block;
     padding: 88px 0;
     overflow: hidden;
     background:
@@ -2943,12 +2964,12 @@ const structuredData = [
       linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 248, 250, 0.74));
   }
 
-  .pmu-next-heading {
+  .pmu-service-page .pmu-next-heading {
     max-width: 880px;
     margin-bottom: 34px;
   }
 
-  .pmu-next-heading h2 {
+  .pmu-service-page .pmu-next-heading h2 {
     margin: 0;
     color: var(--color-text, #17151d);
     font-size: clamp(2.45rem, 4.2vw, 4.45rem);
@@ -2957,7 +2978,7 @@ const structuredData = [
     letter-spacing: -0.074em;
   }
 
-  .pmu-next-heading p:not(.section-kicker) {
+  .pmu-service-page .pmu-next-heading p:not(.section-kicker) {
     max-width: 760px;
     margin-top: 20px;
     color: var(--color-muted, #6e6670);
@@ -2965,35 +2986,91 @@ const structuredData = [
     line-height: 1.7;
   }
 
-  .pmu-next-scroll {
+  .pmu-service-page .pmu-next-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin: 24px 10px 28px auto;
+    padding: 0 8px;
+  }
+
+  .pmu-service-page .pmu-next-arrow {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    background:
+      radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.32) 48%, rgba(216, 248, 245, 0.18) 100%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.46), rgba(218, 246, 243, 0.22));
+    color: rgba(34, 78, 82, 0.88);
+    box-shadow:
+      0 10px 24px rgba(23, 21, 29, 0.10),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      inset 0 -10px 18px rgba(56, 187, 181, 0.08);
+    font-size: 1.18rem;
+    font-weight: 760;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      background 0.18s ease,
+      opacity 0.18s ease;
+  }
+
+  .pmu-service-page .pmu-next-arrow:hover {
+    transform: translateY(-1px);
+    background:
+      radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.42) 48%, rgba(196, 244, 239, 0.24) 100%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.54), rgba(218, 246, 243, 0.28));
+    box-shadow:
+      0 14px 28px rgba(23, 21, 29, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 1),
+      inset 0 -10px 18px rgba(56, 187, 181, 0.10);
+  }
+
+  .pmu-service-page .pmu-next-arrow:active {
+    transform: scale(0.96);
+  }
+
+  .pmu-service-page .pmu-next-arrow-left {
+    opacity: 0.78;
+  }
+
+  .pmu-service-page .pmu-next-arrow-right {
+    opacity: 0.96;
+  }
+
+  .pmu-service-page .pmu-next-scroll {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: minmax(280px, 330px);
+    grid-template-columns: none;
     gap: 18px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 4px 4px 18px;
+    padding: 4px 4px 6px;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 4px;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  .pmu-next-scroll::-webkit-scrollbar {
-    height: 8px;
+  .pmu-service-page .pmu-next-scroll::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
   }
 
-  .pmu-next-scroll::-webkit-scrollbar-track {
-    border-radius: 999px;
-    background: rgba(183, 101, 118, 0.08);
-  }
-
-  .pmu-next-scroll::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    background: rgba(56, 187, 181, 0.34);
-  }
-
-  .pmu-next-card {
+  .pmu-service-page .pmu-next-card {
     position: relative;
     min-height: 310px;
     display: flex;
@@ -3013,12 +3090,12 @@ const structuredData = [
       box-shadow 0.22s ease;
   }
 
-  .pmu-next-card:hover {
+  .pmu-service-page .pmu-next-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 26px 72px rgba(89, 53, 67, 0.12);
   }
 
-  .pmu-next-card::before {
+  .pmu-service-page .pmu-next-card::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -3026,7 +3103,7 @@ const structuredData = [
     pointer-events: none;
   }
 
-  .pmu-next-card::after {
+  .pmu-service-page .pmu-next-card::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -3038,11 +3115,11 @@ const structuredData = [
     pointer-events: none;
   }
 
-  .pmu-next-card:hover::after {
+  .pmu-service-page .pmu-next-card:hover::after {
     transform: translateX(74%);
   }
 
-  .pmu-next-card span {
+  .pmu-service-page .pmu-next-card span {
     position: absolute;
     top: 24px;
     left: 26px;
@@ -3054,7 +3131,7 @@ const structuredData = [
     text-transform: uppercase;
   }
 
-  .pmu-next-card strong {
+  .pmu-service-page .pmu-next-card strong {
     display: block;
     max-width: 260px;
     color: #ffffff;
@@ -3065,7 +3142,7 @@ const structuredData = [
     text-shadow: 0 16px 42px rgba(55, 23, 35, 0.20);
   }
 
-  .pmu-next-card p {
+  .pmu-service-page .pmu-next-card p {
     max-width: 260px;
     margin: 14px 0 0;
     color: rgba(255, 255, 255, 0.86);
@@ -3073,7 +3150,7 @@ const structuredData = [
     line-height: 1.55;
   }
 
-  .pmu-next-card em {
+  .pmu-service-page .pmu-next-card em {
     display: inline-flex;
     width: fit-content;
     min-height: 34px;
@@ -3093,521 +3170,105 @@ const structuredData = [
     text-transform: uppercase;
   }
 
-  .pmu-next-card-rose::before {
+  .pmu-service-page .pmu-next-card-rose::before {
     background:
       radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.30), transparent 10rem),
       radial-gradient(circle at 82% 24%, rgba(255, 219, 231, 0.34), transparent 13rem),
       linear-gradient(145deg, #9d4f68 0%, #d7899f 38%, #a85b73 64%, #6f3046 100%);
   }
 
-  .pmu-next-card-turquoise::before {
+  .pmu-service-page .pmu-next-card-turquoise::before {
     background:
       radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.32), transparent 11rem),
       radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
       linear-gradient(140deg, #0f7773 0%, #1aa5a0 30%, #74e0d7 56%, #0d6a67 100%);
   }
 
-  .pmu-next-card-gold::before {
+  .pmu-service-page .pmu-next-card-gold::before {
     background:
       radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
       radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
       linear-gradient(140deg, #6f5730 0%, #b9924d 22%, #f4e0a4 44%, #8e6b36 68%, #6f5730 100%);
   }
 
+  .pmu-service-page .pmu-next-section::after {
+    display: none;
+    content: none;
+  }
+
   @media (min-width: 1280px) {
-    .pmu-next-scroll {
+    .pmu-service-page .pmu-next-scroll {
       grid-auto-columns: minmax(300px, 340px);
     }
   }
 
   @media (max-width: 760px) {
-    .pmu-next-section {
+    .pmu-service-page .pmu-next-section {
       padding: 58px 0;
     }
 
-    .pmu-next-heading {
+    .pmu-service-page .pmu-next-heading {
       margin-bottom: 26px;
     }
 
-    .pmu-next-heading h2 {
+    .pmu-service-page .pmu-next-heading h2 {
       font-size: clamp(2.15rem, 9.4vw, 3.15rem);
       line-height: 1.04;
       letter-spacing: -0.066em;
     }
 
-    .pmu-next-heading p:not(.section-kicker) {
+    .pmu-service-page .pmu-next-heading p:not(.section-kicker) {
       font-size: 0.98rem;
       line-height: 1.68;
     }
 
-    .pmu-next-scroll {
+    .pmu-service-page .pmu-next-controls {
+      justify-content: flex-end;
+      gap: 8px;
+      margin: 18px 4px 24px auto;
+      padding-right: 4px;
+    }
+
+    .pmu-service-page .pmu-next-arrow {
+      width: 36px;
+      height: 36px;
+      font-size: 1.02rem;
+    }
+
+    .pmu-service-page .pmu-next-scroll {
       grid-auto-columns: minmax(250px, 82vw);
       gap: 14px;
-      padding-bottom: 16px;
+      padding-bottom: 6px;
       margin-right: -20px;
     }
 
-    .pmu-next-card {
+    .pmu-service-page .pmu-next-card {
       min-height: 280px;
       padding: 24px;
       border-radius: 28px;
     }
 
-    .pmu-next-card span {
+    .pmu-service-page .pmu-next-card span {
       top: 22px;
       left: 24px;
     }
 
-    .pmu-next-card strong {
+    .pmu-service-page .pmu-next-card strong {
       font-size: clamp(1.7rem, 8vw, 2.2rem);
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .pmu-next-card,
-    .pmu-next-card::after {
+    .pmu-service-page .pmu-next-card,
+    .pmu-service-page .pmu-next-card::after,
+    .pmu-service-page .pmu-next-arrow {
       transition: none;
     }
 
-    .pmu-next-card:hover {
+    .pmu-service-page .pmu-next-card:hover,
+    .pmu-service-page .pmu-next-arrow:hover,
+    .pmu-service-page .pmu-next-arrow:active {
       transform: none;
-    }
-  }
-    /* V21 — naprawa sekcji Wybierz obszar PMU, wymuszenie kafelków */
-
-  .pmu-service-page .pmu-next-section {
-    display: block !important;
-    padding: 88px 0 !important;
-    overflow: hidden !important;
-    background:
-      radial-gradient(circle at 12% 18%, rgba(56, 187, 181, 0.10), transparent 24rem),
-      radial-gradient(circle at 90% 82%, rgba(201, 127, 143, 0.10), transparent 26rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 248, 250, 0.74)) !important;
-  }
-
-  .pmu-service-page .pmu-next-heading {
-    max-width: 880px !important;
-    margin-bottom: 34px !important;
-  }
-
-  .pmu-service-page .pmu-next-heading h2 {
-    margin: 0 !important;
-    color: var(--color-text, #17151d) !important;
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
-    font-weight: 760 !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.074em !important;
-  }
-
-  .pmu-service-page .pmu-next-heading p:not(.section-kicker) {
-    max-width: 760px !important;
-    margin-top: 20px !important;
-    color: var(--color-muted, #6e6670) !important;
-    font-size: clamp(1rem, 1.18vw, 1.08rem) !important;
-    line-height: 1.7 !important;
-  }
-
-  .pmu-service-page .pmu-next-scroll {
-    display: grid !important;
-    grid-auto-flow: column !important;
-    grid-auto-columns: minmax(280px, 330px) !important;
-    grid-template-columns: none !important;
-    gap: 18px !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    padding: 4px 4px 18px !important;
-    scroll-snap-type: x mandatory !important;
-    scroll-padding-left: 4px !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-
-  .pmu-service-page .pmu-next-card {
-    position: relative !important;
-    min-height: 310px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important;
-    overflow: hidden !important;
-    scroll-snap-align: start !important;
-    padding: 28px !important;
-    border-radius: 34px !important;
-    text-decoration: none !important;
-    isolation: isolate !important;
-    border: 1px solid rgba(183, 101, 118, 0.14) !important;
-    box-shadow: 0 20px 58px rgba(89, 53, 67, 0.08) !important;
-    transform: translateZ(0) !important;
-  }
-
-  .pmu-service-page .pmu-next-card::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: -2 !important;
-    pointer-events: none !important;
-  }
-
-  .pmu-service-page .pmu-next-card::after {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: -1 !important;
-    background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.04) 24%, rgba(255, 255, 255, 0.20) 48%, rgba(255, 255, 255, 0.04) 74%, transparent 100%) !important;
-    transform: translateX(-74%) !important;
-    pointer-events: none !important;
-  }
-
-  .pmu-service-page .pmu-next-card:hover::after {
-    transform: translateX(74%) !important;
-  }
-
-  .pmu-service-page .pmu-next-card span {
-    position: absolute !important;
-    top: 24px !important;
-    left: 26px !important;
-    color: rgba(255, 255, 255, 0.78) !important;
-    font-size: 0.7rem !important;
-    font-weight: 850 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.18em !important;
-    text-transform: uppercase !important;
-  }
-
-  .pmu-service-page .pmu-next-card strong {
-    display: block !important;
-    max-width: 260px !important;
-    color: #ffffff !important;
-    font-size: clamp(1.75rem, 2.2vw, 2.25rem) !important;
-    font-weight: 780 !important;
-    line-height: 0.98 !important;
-    letter-spacing: -0.07em !important;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.20) !important;
-  }
-
-  .pmu-service-page .pmu-next-card p {
-    max-width: 260px !important;
-    margin: 14px 0 0 !important;
-    color: rgba(255, 255, 255, 0.86) !important;
-    font-size: 0.94rem !important;
-    line-height: 1.55 !important;
-  }
-
-  .pmu-service-page .pmu-next-card em {
-    display: inline-flex !important;
-    width: fit-content !important;
-    min-height: 34px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin-top: 22px !important;
-    padding: 0 14px !important;
-    border-radius: 999px !important;
-    color: rgba(23, 21, 29, 0.86) !important;
-    background: rgba(255, 255, 255, 0.76) !important;
-    border: 1px solid rgba(255, 255, 255, 0.34) !important;
-    font-size: 0.7rem !important;
-    font-style: normal !important;
-    font-weight: 850 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.12em !important;
-    text-transform: uppercase !important;
-  }
-
-  .pmu-service-page .pmu-next-card-rose::before {
-    background:
-      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.30), transparent 10rem),
-      radial-gradient(circle at 82% 24%, rgba(255, 219, 231, 0.34), transparent 13rem),
-      linear-gradient(145deg, #9d4f68 0%, #d7899f 38%, #a85b73 64%, #6f3046 100%) !important;
-  }
-
-  .pmu-service-page .pmu-next-card-turquoise::before {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.32), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-      linear-gradient(140deg, #0f7773 0%, #1aa5a0 30%, #74e0d7 56%, #0d6a67 100%) !important;
-  }
-
-  .pmu-service-page .pmu-next-card-gold::before {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
-      linear-gradient(140deg, #6f5730 0%, #b9924d 22%, #f4e0a4 44%, #8e6b36 68%, #6f5730 100%) !important;
-  }
-
-  @media (max-width: 760px) {
-    .pmu-service-page .pmu-next-section {
-      padding: 58px 0 !important;
-    }
-
-    .pmu-service-page .pmu-next-scroll {
-      grid-auto-columns: minmax(250px, 82vw) !important;
-      gap: 14px !important;
-      padding-bottom: 16px !important;
-      margin-right: -20px !important;
-    }
-
-    .pmu-service-page .pmu-next-card {
-      min-height: 280px !important;
-      padding: 24px !important;
-      border-radius: 28px !important;
-    }
-
-    .pmu-service-page .pmu-next-card strong {
-      font-size: clamp(1.7rem, 8vw, 2.2rem) !important;
-    }
-  }
-    /* V22 — minimalistyczny slider bez brzydkiego paska przewijania */
-
-  .pmu-service-page .pmu-next-scroll {
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    padding-bottom: 6px !important;
-  }
-
-  .pmu-service-page .pmu-next-scroll::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  .pmu-service-page .pmu-next-section::after {
-    content: "Przesuń palcem lub przewiń poziomo";
-    display: block;
-    width: fit-content;
-    margin: 12px auto 0;
-    padding: 8px 14px;
-    border-radius: 999px;
-    color: rgba(15, 119, 115, 0.72);
-    background: rgba(219, 246, 243, 0.55);
-    border: 1px solid rgba(56, 187, 181, 0.12);
-    font-size: 0.68rem;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  @media (min-width: 981px) {
-    .pmu-service-page .pmu-next-section::after {
-      content: "Przewiń poziomo";
-    }
-  }
-
-  @media (max-width: 760px) {
-    .pmu-service-page .pmu-next-section::after {
-      margin-top: 10px;
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-    }
-  }
-    /* V23 — eleganckie strzałki do slidera PMU */
-
-  .pmu-service-page .pmu-next-controls {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin: -8px 4px 18px auto;
-  }
-
-  .pmu-service-page .pmu-next-arrow {
-    width: 44px;
-    height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    border: 1px solid rgba(56, 187, 181, 0.18);
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(219, 246, 243, 0.72));
-    color: var(--color-turquoise-dark, #0f7773);
-    box-shadow: 0 14px 34px rgba(23, 21, 29, 0.07);
-    font-size: 1.25rem;
-    font-weight: 800;
-    line-height: 1;
-    cursor: pointer;
-    transition:
-      transform 0.18s ease,
-      box-shadow 0.18s ease,
-      background 0.18s ease;
-  }
-
-  .pmu-service-page .pmu-next-arrow:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 18px 44px rgba(23, 21, 29, 0.10);
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(191, 246, 241, 0.78));
-  }
-
-  .pmu-service-page .pmu-next-arrow:active {
-    transform: translateY(0);
-  }
-
-  @media (max-width: 760px) {
-    .pmu-service-page .pmu-next-controls {
-      justify-content: flex-start;
-      margin: -4px 0 14px;
-    }
-
-    .pmu-service-page .pmu-next-arrow {
-      width: 40px;
-      height: 40px;
-      font-size: 1.12rem;
-    }
-  }
-    /* V24 — Apple-like minimalistyczne strzałki slidera PMU */
-
-  .pmu-service-page .pmu-next-controls {
-    display: flex !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-    gap: 12px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 18px 4px 0 auto !important;
-    padding: 0 4px !important;
-    order: 3 !important;
-  }
-
-  .pmu-service-page .pmu-next-arrow {
-    width: 52px !important;
-    height: 52px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-radius: 999px !important;
-    border: 0 !important;
-    background: rgba(23, 21, 29, 0.88) !important;
-    color: rgba(255, 255, 255, 0.92) !important;
-    box-shadow: none !important;
-    font-size: 1.65rem !important;
-    font-weight: 760 !important;
-    line-height: 1 !important;
-    cursor: pointer !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    transition:
-      background 0.18s ease,
-      transform 0.18s ease,
-      opacity 0.18s ease !important;
-  }
-
-  .pmu-service-page .pmu-next-arrow:hover {
-    transform: none !important;
-    background: rgba(23, 21, 29, 0.98) !important;
-    box-shadow: none !important;
-  }
-
-  .pmu-service-page .pmu-next-arrow:active {
-    transform: scale(0.96) !important;
-  }
-
-  .pmu-service-page .pmu-next-arrow-left {
-    opacity: 0.72 !important;
-  }
-
-  .pmu-service-page .pmu-next-arrow-right {
-    opacity: 0.94 !important;
-  }
-
-  .pmu-service-page .pmu-next-section::after {
-    display: none !important;
-    content: none !important;
-  }
-
-  @media (max-width: 760px) {
-    .pmu-service-page .pmu-next-controls {
-      justify-content: flex-end !important;
-      margin-top: 14px !important;
-      padding-right: 2px !important;
-    }
-
-    .pmu-service-page .pmu-next-arrow {
-      width: 44px !important;
-      height: 44px !important;
-      font-size: 1.35rem !important;
-      background: rgba(23, 21, 29, 0.82) !important;
-    }
-  }
-     /* V26 — szklane, białe strzałki slidera PMU z lekkim turkusowym efektem */
-
-  .pmu-service-page .pmu-next-controls {
-    display: flex !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-    gap: 10px !important;
-    width: 100% !important;
-    margin: 24px 10px 28px auto !important;
-    padding: 0 8px !important;
-  }
-
-  .pmu-service-page .pmu-next-arrow {
-    width: 40px !important;
-    height: 40px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-radius: 999px !important;
-    border: 1px solid rgba(255, 255, 255, 0.72) !important;
-    background:
-      radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.32) 48%, rgba(216, 248, 245, 0.18) 100%),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.46), rgba(218, 246, 243, 0.22)) !important;
-    color: rgba(34, 78, 82, 0.88) !important;
-    box-shadow:
-      0 10px 24px rgba(23, 21, 29, 0.10),
-      inset 0 1px 0 rgba(255, 255, 255, 0.95),
-      inset 0 -10px 18px rgba(56, 187, 181, 0.08) !important;
-    font-size: 1.18rem !important;
-    font-weight: 760 !important;
-    line-height: 1 !important;
-    cursor: pointer !important;
-    backdrop-filter: blur(14px) saturate(140%) !important;
-    -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
-    transition:
-      transform 0.18s ease,
-      box-shadow 0.18s ease,
-      background 0.18s ease,
-      opacity 0.18s ease !important;
-  }
-
-  .pmu-service-page .pmu-next-arrow:hover {
-    transform: translateY(-1px) !important;
-    background:
-      radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.42) 48%, rgba(196, 244, 239, 0.24) 100%),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.54), rgba(218, 246, 243, 0.28)) !important;
-    box-shadow:
-      0 14px 28px rgba(23, 21, 29, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 1),
-      inset 0 -10px 18px rgba(56, 187, 181, 0.10) !important;
-  }
-
-  .pmu-service-page .pmu-next-arrow:active {
-    transform: scale(0.96) !important;
-  }
-
-  .pmu-service-page .pmu-next-arrow-left {
-    opacity: 0.78 !important;
-  }
-
-  .pmu-service-page .pmu-next-arrow-right {
-    opacity: 0.96 !important;
-  }
-
-  .pmu-service-page .pmu-next-section::after {
-    display: none !important;
-    content: none !important;
-  }
-
-  @media (max-width: 760px) {
-    .pmu-service-page .pmu-next-controls {
-      justify-content: flex-end !important;
-      gap: 8px !important;
-      margin: 18px 4px 24px auto !important;
-      padding-right: 4px !important;
-    }
-
-    .pmu-service-page .pmu-next-arrow {
-      width: 36px !important;
-      height: 36px !important;
-      font-size: 1.02rem !important;
     }
   }
 </style>
