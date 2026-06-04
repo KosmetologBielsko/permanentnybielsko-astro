@@ -375,6 +375,16 @@ const structuredData = [
             </p>
           </div>
 
+          <figure class="methods-collage-frame methods-collage-frame--compact">
+            <img
+              src="/images/metody-brwi-permanentnych-kolaz-poziomy.webp"
+              alt="Kolaż efektów brwi permanentnych pokazujący różne metody pigmentacji brwi"
+              loading="lazy"
+              decoding="async"
+              width="1800"
+              height="1122"
+            />
+          </figure>
           <div class="brow-method-controls" aria-label="Przewijanie metod brwi permanentnych">
             <button class="brow-method-arrow brow-method-arrow-left" type="button" aria-label="Przewiń w lewo">
               ←
@@ -453,6 +463,21 @@ const structuredData = [
                 które wyglądają spokojnie, miękko i naturalnie — jak uporządkowana oprawa oka,
                 a nie szablon nałożony na twarz.
               </p>
+            </div>
+
+            <div class="silky-video-row">
+              <figure class="silky-motion-frame" aria-label="Silky Hairstroke Brows w zbliżeniu">
+                <video
+                  class="silky-motion-frame__video"
+                  src="/video/brwi-permanentne-silky-zblizenie-bez-dzwieku.mp4"
+                  poster="/video/brwi-permanentne-silky-zblizenie-poster.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+              </figure>
             </div>
 
             <div class="brow-silky-signature-points" aria-label="Cechy techniki Silky Hairstroke Brows">
@@ -3860,6 +3885,402 @@ const structuredData = [
   :global(.brow-page .brow-process-visual-photo figcaption) {
     display: none !important;
   }
+  /* Compact collage under "Metody brwi permanentnych" */
+.methods-collage-frame.methods-collage-frame--compact {
+  width: min(calc(100% - 40px), 940px) !important;
+  margin: clamp(26px, 4vw, 44px) auto clamp(42px, 5vw, 66px) !important;
+  padding: clamp(6px, 1vw, 10px) !important;
+  border: 1px solid rgba(31, 168, 166, 0.22) !important;
+  border-radius: 32px !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow:
+    0 20px 58px rgba(31, 35, 45, 0.10),
+    0 6px 18px rgba(31, 35, 45, 0.06) !important;
+  overflow: visible !important;
+}
+
+.methods-collage-frame.methods-collage-frame--compact img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 590px !important;
+  object-fit: contain !important;
+  border-radius: 24px !important;
+}
+
+@media (max-width: 760px) {
+  .methods-collage-frame.methods-collage-frame--compact {
+    width: min(calc(100% - 30px), 520px) !important;
+    margin: 24px auto 42px !important;
+    padding: 5px !important;
+    border-radius: 24px !important;
+  }
+
+  .methods-collage-frame.methods-collage-frame--compact img {
+    max-height: none !important;
+    border-radius: 19px !important;
+  }
+}
+/* FINAL CLEAN — Silky Hairstroke Brows: video + points responsive */
+:global(.brow-page .brow-silky-signature) {
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: clamp(28px, 4vw, 52px) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .brow-silky-signature-copy) {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .brow-silky-signature-copy p:not(.section-kicker):not(.brow-silky-lead)) {
+  max-width: 760px !important;
+}
+
+:global(.brow-page .silky-video-row) {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: clamp(34px, 5vw, 62px) auto clamp(34px, 5vw, 62px) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  clear: both !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .silky-motion-frame) {
+  position: relative !important;
+  inset: auto !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  float: none !important;
+
+  display: block !important;
+  width: clamp(320px, 31vw, 560px) !important;
+  max-width: calc(100vw - 64px) !important;
+  margin: 0 auto !important;
+  padding: clamp(7px, 1vw, 10px) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.44) !important;
+  border-radius: 34px !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  box-shadow:
+    0 24px 60px rgba(0, 70, 72, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14) !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .silky-motion-frame__video) {
+  display: block !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  max-height: 560px !important;
+  object-fit: cover !important;
+  border-radius: 26px !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+}
+
+:global(.brow-page .brow-silky-signature-points) {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: 1180px !important;
+  margin: clamp(8px, 2vw, 18px) auto clamp(36px, 5vw, 64px) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: clamp(14px, 2vw, 20px) !important;
+  align-self: stretch !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .brow-silky-signature-points div) {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  min-height: clamp(108px, 7vw, 138px) !important;
+  padding: clamp(22px, 2.2vw, 30px) !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .brow-silky-signature-points strong),
+:global(.brow-page .brow-silky-signature-points p) {
+  max-width: 100% !important;
+}
+
+:global(.brow-page .brow-silky-gallery) {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 1500px) {
+  :global(.brow-page .brow-silky-signature-points) {
+    max-width: 1320px !important;
+  }
+
+  :global(.brow-page .silky-motion-frame) {
+    width: clamp(380px, 26vw, 620px) !important;
+  }
+
+  :global(.brow-page .silky-motion-frame__video) {
+    max-height: 620px !important;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1180px) {
+  :global(.brow-page .brow-silky-signature) {
+    padding: clamp(30px, 4vw, 46px) !important;
+  }
+
+  :global(.brow-page .silky-motion-frame) {
+    width: min(100%, 500px) !important;
+    max-width: calc(100vw - 72px) !important;
+  }
+
+  :global(.brow-page .silky-motion-frame__video) {
+    max-height: 500px !important;
+  }
+
+  :global(.brow-page .brow-silky-signature-points) {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.brow-page .silky-video-row) {
+    margin: 26px auto 34px !important;
+  }
+
+  :global(.brow-page .silky-motion-frame) {
+    width: min(100%, 390px) !important;
+    max-width: 100% !important;
+    padding: 6px !important;
+    border-radius: 28px !important;
+  }
+
+  :global(.brow-page .silky-motion-frame__video) {
+    max-height: none !important;
+    border-radius: 22px !important;
+  }
+
+  :global(.brow-page .brow-silky-signature-points) {
+    max-width: 100% !important;
+    margin: 24px auto 34px !important;
+    gap: 10px !important;
+  }
+
+  :global(.brow-page .brow-silky-signature-points div) {
+    min-height: auto !important;
+    padding: 18px !important;
+  }
+}
+/* FINAL CLEAN V2 — Silky Hairstroke Brows: desktop text + video, points below */
+:global(.brow-page .brow-silky-signature) {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: clamp(28px, 4vw, 52px) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .brow-silky-signature-copy) {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .brow-silky-signature-copy p:not(.section-kicker):not(.brow-silky-lead)) {
+  max-width: 760px !important;
+}
+
+:global(.brow-page .silky-video-row) {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: clamp(26px, 4vw, 44px) auto clamp(26px, 4vw, 44px) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  clear: both !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .silky-motion-frame) {
+  position: relative !important;
+  inset: auto !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  float: none !important;
+
+  display: block !important;
+  width: min(100%, 500px) !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: clamp(7px, 1vw, 10px) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.44) !important;
+  border-radius: 34px !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  box-shadow:
+    0 24px 60px rgba(0, 70, 72, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14) !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .silky-motion-frame__video) {
+  display: block !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  max-height: 500px !important;
+  object-fit: cover !important;
+  border-radius: 26px !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+}
+
+:global(.brow-page .brow-silky-signature-points) {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: 1180px !important;
+  margin: clamp(10px, 2vw, 20px) auto clamp(36px, 5vw, 64px) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: clamp(14px, 2vw, 20px) !important;
+  align-self: stretch !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .brow-silky-signature-points div) {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  min-height: clamp(108px, 7vw, 138px) !important;
+  padding: clamp(22px, 2.2vw, 30px) !important;
+  box-sizing: border-box !important;
+}
+
+:global(.brow-page .brow-silky-gallery) {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Od większego tabletu / małego laptopa: tekst obok filmu */
+@media (min-width: 1081px) {
+  :global(.brow-page .brow-silky-signature) {
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr) !important;
+    align-items: center !important;
+  }
+
+  :global(.brow-page .brow-silky-signature-copy) {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 !important;
+    align-self: center !important;
+  }
+
+  :global(.brow-page .silky-video-row) {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 !important;
+    align-self: center !important;
+    margin: 0 !important;
+    justify-content: center !important;
+  }
+
+  :global(.brow-page .silky-motion-frame) {
+    width: min(100%, 440px) !important;
+  }
+
+  :global(.brow-page .silky-motion-frame__video) {
+    max-height: 440px !important;
+  }
+
+  :global(.brow-page .brow-silky-signature-points) {
+    margin-top: clamp(18px, 3vw, 34px) !important;
+  }
+}
+
+/* Duże monitory: film może delikatnie urosnąć, ale bez pustki */
+@media (min-width: 1500px) {
+  :global(.brow-page .brow-silky-signature) {
+    grid-template-columns: minmax(0, 1.05fr) minmax(400px, 0.78fr) !important;
+  }
+
+  :global(.brow-page .silky-motion-frame) {
+    width: min(100%, 520px) !important;
+  }
+
+  :global(.brow-page .silky-motion-frame__video) {
+    max-height: 520px !important;
+  }
+
+  :global(.brow-page .brow-silky-signature-points) {
+    max-width: 1320px !important;
+  }
+}
+
+/* Tablet i mobile: tekst, film, kafelki jeden pod drugim */
+@media (max-width: 1080px) {
+  :global(.brow-page .brow-silky-signature) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  :global(.brow-page .silky-video-row) {
+    grid-column: 1 / -1 !important;
+  }
+
+  :global(.brow-page .brow-silky-signature-points) {
+    grid-column: 1 / -1 !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.brow-page .silky-video-row) {
+    margin: 26px auto 34px !important;
+  }
+
+  :global(.brow-page .silky-motion-frame) {
+    width: min(100%, 390px) !important;
+    max-width: 100% !important;
+    padding: 6px !important;
+    border-radius: 28px !important;
+  }
+
+  :global(.brow-page .silky-motion-frame__video) {
+    max-height: none !important;
+    border-radius: 22px !important;
+  }
+
+  :global(.brow-page .brow-silky-signature-points) {
+    margin: 24px auto 34px !important;
+    gap: 10px !important;
+  }
+
+  :global(.brow-page .brow-silky-signature-points div) {
+    min-height: auto !important;
+    padding: 18px !important;
+  }
+}
 </style>
 <script>
   const browMethodScroll = document.querySelector("#browMethodScroll");
