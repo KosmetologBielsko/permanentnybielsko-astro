@@ -4281,6 +4281,50 @@ const structuredData = [
     padding: 18px !important;
   }
 }
+/* FINAL — brwi: statyczne kafelki metod i "Dla kogo" bez ruchu */
+:global(.brow-page .brow-method-slide-card),
+:global(.brow-page .brow-for-card) {
+  transform: none !important;
+  transition: none !important;
+}
+
+:global(.brow-page .brow-method-slide-card:hover),
+:global(.brow-page .brow-method-slide-card-turquoise:hover),
+:global(.brow-page .brow-method-slide-card-gold:hover),
+:global(.brow-page .brow-for-card:hover) {
+  transform: none !important;
+}
+
+:global(.brow-page .brow-method-slide-card::after),
+:global(.brow-page .brow-method-slide-card-turquoise::after),
+:global(.brow-page .brow-method-slide-card-gold::after),
+:global(.brow-page .brow-for-card::after) {
+  transition: none !important;
+  animation: none !important;
+}
+
+:global(.brow-page .brow-method-slide-card:hover::after),
+:global(.brow-page .brow-method-slide-card-turquoise:hover::after),
+:global(.brow-page .brow-method-slide-card-gold:hover::after),
+:global(.brow-page .brow-for-card:hover::after) {
+  transform: none !important;
+  animation: none !important;
+}
+
+/* Zostawiamy wygląd premium, ale bez zmiany cienia po najechaniu */
+:global(.brow-page .brow-method-slide-card:hover),
+:global(.brow-page .brow-for-card:hover) {
+  box-shadow: 0 20px 58px rgba(89, 53, 67, 0.08) !important;
+  border-color: rgba(183, 101, 118, 0.14) !important;
+}
+
+:global(.brow-page .brow-method-slide-card-turquoise:hover) {
+  box-shadow: 0 26px 72px rgba(35, 156, 150, 0.18) !important;
+}
+
+:global(.brow-page .brow-method-slide-card-gold:hover) {
+  box-shadow: 0 26px 72px rgba(125, 95, 45, 0.18) !important;
+}
 </style>
 <script>
   const browMethodScroll = document.querySelector("#browMethodScroll");
