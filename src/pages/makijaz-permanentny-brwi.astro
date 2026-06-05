@@ -4325,6 +4325,409 @@ const structuredData = [
 :global(.brow-page .brow-method-slide-card-gold:hover) {
   box-shadow: 0 26px 72px rgba(125, 95, 45, 0.18) !important;
 }
+/* FINAL — brwi: metody jak zakres ust, większe kafelki i czytelniejsze strzałki */
+
+:global(.brow-page .brow-methods-section) {
+  padding: 96px 0 104px !important;
+  overflow: hidden !important;
+}
+
+:global(.brow-page .brow-methods-section .brow-section-heading) {
+  max-width: 1180px !important;
+  margin: 0 auto 46px !important;
+}
+
+:global(.brow-page .brow-methods-section .brow-section-heading h2) {
+  max-width: 1120px !important;
+  margin: 0 !important;
+  color: var(--color-text, #17151d) !important;
+  font-size: clamp(2.7rem, 5vw, 5.6rem) !important;
+  font-weight: 780 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.078em !important;
+}
+
+:global(.brow-page .brow-methods-section .brow-section-heading p:not(.section-kicker)) {
+  max-width: 1080px !important;
+  margin: 24px 0 0 !important;
+  color: var(--color-muted, #6e6670) !important;
+  font-size: clamp(1.03rem, 1.25vw, 1.18rem) !important;
+  line-height: 1.72 !important;
+}
+
+/* Kolaż — większy i podobny do sekcji ust */
+:global(.brow-page .methods-collage-frame.methods-collage-frame--compact) {
+  position: relative !important;
+  width: min(100%, 1120px) !important;
+  margin: 0 auto 36px !important;
+  overflow: hidden !important;
+  padding: clamp(14px, 1.8vw, 22px) !important;
+  border: 1px solid rgba(56, 187, 181, 0.22) !important;
+  border-radius: 38px !important;
+  background:
+    radial-gradient(circle at 94% 8%, rgba(56, 187, 181, 0.08), transparent 18rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 251, 0.94)) !important;
+  box-shadow:
+    0 24px 72px rgba(89, 53, 67, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+}
+
+:global(.brow-page .methods-collage-frame.methods-collage-frame--compact::after) {
+  content: "" !important;
+  position: absolute !important;
+  inset: clamp(22px, 2.2vw, 34px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.72) !important;
+  border-radius: 26px !important;
+  pointer-events: none !important;
+}
+
+:global(.brow-page .methods-collage-frame.methods-collage-frame--compact img) {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  border-radius: 26px !important;
+  box-shadow: 0 18px 46px rgba(89, 53, 67, 0.12) !important;
+}
+
+/* Strzałki — większe, czytelniejsze, jak w ustach */
+:global(.brow-page .brow-method-controls) {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: min(100%, 1120px) !important;
+  margin: 0 auto 22px !important;
+  padding: 0 !important;
+}
+
+:global(.brow-page .brow-method-arrow) {
+  display: inline-flex !important;
+  width: 56px !important;
+  height: 56px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(56, 187, 181, 0.22) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #0f7773 !important;
+  -webkit-text-fill-color: #0f7773 !important;
+  font-size: 1.35rem !important;
+  font-weight: 780 !important;
+  line-height: 1 !important;
+  box-shadow:
+    0 14px 34px rgba(89, 53, 67, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92) !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease !important;
+}
+
+:global(.brow-page .brow-method-arrow:hover) {
+  transform: translateY(-2px) !important;
+  background: #159a96 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow:
+    0 18px 42px rgba(35, 156, 150, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28) !important;
+}
+
+:global(.brow-page .brow-method-arrow:active) {
+  transform: scale(0.96) !important;
+}
+
+/* Tor kafelków — większy, czytelny, przewijany */
+:global(.brow-page .brow-method-scroll) {
+  display: grid !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: minmax(360px, 460px) !important;
+  grid-template-columns: none !important;
+  gap: 18px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 10px 2px 32px !important;
+  margin: 0 0 26px !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-padding-left: 2px !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(56, 187, 181, 0.32) rgba(246, 220, 227, 0.24) !important;
+}
+
+:global(.brow-page .brow-method-scroll::-webkit-scrollbar) {
+  display: block !important;
+  width: auto !important;
+  height: 10px !important;
+}
+
+:global(.brow-page .brow-method-scroll::-webkit-scrollbar-track) {
+  border-radius: 999px !important;
+  background: rgba(246, 220, 227, 0.24) !important;
+}
+
+:global(.brow-page .brow-method-scroll::-webkit-scrollbar-thumb) {
+  border-radius: 999px !important;
+  background: rgba(56, 187, 181, 0.34) !important;
+}
+
+/* Kafelki — większe jak w sekcji ust */
+:global(.brow-page .brow-method-slide-card) {
+  position: relative !important;
+  display: flex !important;
+  min-height: 390px !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  overflow: hidden !important;
+  scroll-snap-align: start !important;
+  padding: clamp(34px, 3vw, 46px) !important;
+  border: 1px solid rgba(183, 101, 118, 0.15) !important;
+  border-radius: 38px !important;
+  isolation: isolate !important;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(219, 246, 243, 0.72), transparent 7.2rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
+  box-shadow: 0 20px 58px rgba(89, 53, 67, 0.075) !important;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease !important;
+}
+
+:global(.brow-page .brow-method-slide-card::before) {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  border-top: 5px solid rgba(56, 187, 181, 0.34) !important;
+  pointer-events: none !important;
+}
+
+:global(.brow-page .brow-method-slide-card:not(.brow-method-slide-card-turquoise):not(.brow-method-slide-card-gold)::after) {
+  content: "" !important;
+  position: absolute !important;
+  right: -64px !important;
+  top: -64px !important;
+  width: 160px !important;
+  height: 160px !important;
+  border-radius: 999px !important;
+  background: rgba(219, 246, 243, 0.72) !important;
+  pointer-events: none !important;
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease !important;
+}
+
+:global(.brow-page .brow-method-slide-card:hover) {
+  transform: translateY(-3px) !important;
+  border-color: rgba(56, 187, 181, 0.22) !important;
+  box-shadow: 0 26px 72px rgba(89, 53, 67, 0.12) !important;
+}
+
+:global(.brow-page .brow-method-slide-card:hover::after) {
+  transform: scale(1.08) !important;
+}
+
+:global(.brow-page .brow-method-slide-card-rose) {
+  background:
+    radial-gradient(circle at 92% 0%, rgba(246, 220, 227, 0.84), transparent 7.2rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
+}
+
+:global(.brow-page .brow-method-slide-card-rose::before) {
+  border-top-color: rgba(201, 127, 143, 0.34) !important;
+}
+
+:global(.brow-page .brow-method-slide-card-rose::after) {
+  background: rgba(246, 220, 227, 0.84) !important;
+}
+
+:global(.brow-page .brow-method-slide-card span) {
+  position: absolute !important;
+  top: clamp(32px, 3vw, 44px) !important;
+  left: clamp(32px, 3vw, 46px) !important;
+  z-index: 2 !important;
+  display: inline-flex !important;
+  margin: 0 !important;
+  color: var(--color-turquoise-dark, #0f7773) !important;
+  -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+  font-size: 0.86rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+:global(.brow-page .brow-method-slide-card h3) {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 380px !important;
+  margin: 0 !important;
+  color: var(--color-text, #17151d) !important;
+  -webkit-text-fill-color: var(--color-text, #17151d) !important;
+  font-size: clamp(2rem, 3vw, 3.35rem) !important;
+  font-weight: 780 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.076em !important;
+}
+
+:global(.brow-page .brow-method-slide-card p) {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 390px !important;
+  margin: 20px 0 0 !important;
+  color: var(--color-muted, #6e6670) !important;
+  -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+  font-size: clamp(1rem, 1.16vw, 1.12rem) !important;
+  line-height: 1.62 !important;
+}
+
+/* Kafelek turkusowy Silky */
+:global(.brow-page .brow-method-slide-card-turquoise) {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.24) !important;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.32), transparent 11rem),
+    radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+    linear-gradient(140deg, #0f7773 0%, #1aa5a0 30%, #74e0d7 56%, #0d6a67 100%) !important;
+  box-shadow: 0 26px 72px rgba(35, 156, 150, 0.18) !important;
+}
+
+:global(.brow-page .brow-method-slide-card-turquoise::before) {
+  border-top-color: rgba(255, 255, 255, 0.30) !important;
+}
+
+:global(.brow-page .brow-method-slide-card-turquoise span),
+:global(.brow-page .brow-method-slide-card-turquoise h3),
+:global(.brow-page .brow-method-slide-card-turquoise p) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+:global(.brow-page .brow-method-slide-card-turquoise p) {
+  color: rgba(255, 255, 255, 0.88) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* Kafelek złoty */
+:global(.brow-page .brow-method-slide-card-gold) {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.24) !important;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+    radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
+    linear-gradient(140deg, #6f5730 0%, #b9924d 22%, #f4e0a4 44%, #8e6b36 68%, #6f5730 100%) !important;
+  box-shadow: 0 26px 72px rgba(125, 95, 45, 0.18) !important;
+}
+
+:global(.brow-page .brow-method-slide-card-gold::before) {
+  border-top-color: rgba(255, 255, 255, 0.30) !important;
+}
+
+:global(.brow-page .brow-method-slide-card-gold span),
+:global(.brow-page .brow-method-slide-card-gold h3),
+:global(.brow-page .brow-method-slide-card-gold p) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+:global(.brow-page .brow-method-slide-card-gold p) {
+  color: rgba(255, 255, 255, 0.88) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  :global(.brow-page .brow-methods-section) {
+    padding: 64px 0 70px !important;
+  }
+
+  :global(.brow-page .brow-methods-section .brow-section-heading) {
+    margin-bottom: 30px !important;
+  }
+
+  :global(.brow-page .brow-methods-section .brow-section-heading h2) {
+    font-size: clamp(2.1rem, 9.8vw, 3.2rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.068em !important;
+  }
+
+  :global(.brow-page .brow-methods-section .brow-section-heading p:not(.section-kicker)) {
+    margin-top: 18px !important;
+    font-size: 1rem !important;
+    line-height: 1.68 !important;
+  }
+
+  :global(.brow-page .methods-collage-frame.methods-collage-frame--compact) {
+    width: min(calc(100% - 30px), 560px) !important;
+    margin: 0 auto 24px !important;
+    padding: 10px !important;
+    border-radius: 26px !important;
+  }
+
+  :global(.brow-page .methods-collage-frame.methods-collage-frame--compact::after) {
+    inset: 16px !important;
+    border-radius: 18px !important;
+  }
+
+  :global(.brow-page .methods-collage-frame.methods-collage-frame--compact img) {
+    border-radius: 18px !important;
+  }
+
+  :global(.brow-page .brow-method-controls) {
+    justify-content: flex-end !important;
+    gap: 10px !important;
+    width: min(calc(100% - 30px), 560px) !important;
+    margin: 0 auto 16px !important;
+  }
+
+  :global(.brow-page .brow-method-arrow) {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 1.15rem !important;
+  }
+
+  :global(.brow-page .brow-method-scroll) {
+    grid-auto-columns: minmax(300px, 84vw) !important;
+    gap: 16px !important;
+    padding: 8px 15px 28px !important;
+    margin: 0 0 22px !important;
+  }
+
+  :global(.brow-page .brow-method-slide-card) {
+    min-height: 340px !important;
+    padding: 30px !important;
+    border-radius: 30px !important;
+  }
+
+  :global(.brow-page .brow-method-slide-card:hover) {
+    transform: none !important;
+  }
+
+  :global(.brow-page .brow-method-slide-card span) {
+    top: 28px !important;
+    left: 30px !important;
+    font-size: 0.78rem !important;
+  }
+
+  :global(.brow-page .brow-method-slide-card h3) {
+    font-size: clamp(1.9rem, 8.2vw, 2.6rem) !important;
+  }
+
+  :global(.brow-page .brow-method-slide-card p) {
+    font-size: 1rem !important;
+  }
+}
 </style>
 <script>
   const browMethodScroll = document.querySelector("#browMethodScroll");
