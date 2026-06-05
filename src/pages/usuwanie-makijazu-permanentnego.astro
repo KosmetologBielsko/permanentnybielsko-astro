@@ -7,43 +7,121 @@ const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const pageUrl = "https://permanentnybielsko.com/usuwanie-makijazu-permanentnego/";
-const pageTitle = "Usuwanie makijażu permanentnego Bielsko-Biała | Korekta PMU";
+const pageTitle = "Usuwanie makijażu permanentnego Bielsko-Biała | Laser i remover";
 const pageDescription =
-  "Usuwanie makijażu permanentnego Bielsko-Biała: rozjaśnianie starego PMU, korekta nieudanego makijażu permanentnego i przygotowanie skóry do nowej pigmentacji.";
+  "Usuwanie makijażu permanentnego Bielsko-Biała: rozjaśnianie starego PMU laserem GLOVCON Q-Switch Nd:YAG lub removerem Bye-Bye Pigment Long-Time-Liner.";
+
+const proofItems = [
+  { title: "Kwalifikacja", text: "ocena starego pigmentu i skóry" },
+  { title: "Laser / remover", text: "dobór metody do sytuacji" },
+  { title: "Korekta PMU", text: "czasem dopiero po rozjaśnieniu" },
+  { title: "Plan etapowy", text: "bez pośpiechu i bez pogłębiania problemu" },
+];
+
+const decisionItems = [
+  {
+    title: "Liczba zabiegów",
+    text: "zależy od koloru, głębokości, nasycenia i reakcji skóry",
+  },
+  {
+    title: "Przerwy między etapami",
+    text: "są potrzebne do regeneracji i oceny efektu rozjaśnienia",
+  },
+  {
+    title: "Realne oczekiwania",
+    text: "nie każdy pigment da się usunąć szybko i w pełni przewidywalnie",
+  },
+  {
+    title: "Plan korekty",
+    text: "nowe brwi planujemy dopiero wtedy, gdy skóra daje do tego warunki",
+  },
+];
+
+const indicationsItems = [
+  {
+    title: "Zbyt ciemny pigment",
+    text: "gdy brwi, usta albo kreska są za mocne i nie współpracują z urodą",
+  },
+  {
+    title: "Nieodpowiedni kształt",
+    text: "gdy stary rysunek zaburza proporcje twarzy albo ogranicza nowy projekt",
+  },
+  {
+    title: "Chłodny odcień",
+    text: "gdy pigment po czasie zmienił ton i wymaga oceny przed dalszą pracą",
+  },
+  {
+    title: "Nierówna pigmentacja",
+    text: "gdy kolor nie rozłożył się równomiernie albo wymaga etapowego rozjaśniania",
+  },
+  {
+    title: "Plan nowego PMU",
+    text: "gdy przed korektą trzeba przygotować skórę i stworzyć miejsce na nowy efekt",
+  },
+  {
+    title: "Stara praca w skórze",
+    text: "gdy nie da się odpowiedzialnie przykryć starego pigmentu kolejną pigmentacją",
+  },
+];
+
+const processItems = [
+  {
+    title: "Konsultacja",
+    text: "rozmowa o historii pigmentacji, oczekiwanym efekcie i możliwych ograniczeniach",
+  },
+  {
+    title: "Ocena pigmentu",
+    text: "analiza koloru, głębokości, nasycenia, kształtu i stanu skóry",
+  },
+  {
+    title: "Dobór metody",
+    text: "wybór między laserem, removerem albo etapowym przygotowaniem do korekty",
+  },
+  {
+    title: "Zabieg",
+    text: "precyzyjna praca wyłącznie w zakresie, który daje skórze bezpieczne warunki",
+  },
+  {
+    title: "Gojenie",
+    text: "czas na regenerację, obserwację skóry i stopniowe rozjaśnianie pigmentu",
+  },
+  {
+    title: "Dalszy plan",
+    text: "kolejny etap, przerwa albo przygotowanie do nowego makijażu permanentnego",
+  },
+];
 
 const faqItems = [
   {
-    "question": "Czy każdy stary makijaż permanentny można poprawić bez usuwania?",
-    "answer": "Nie. Jeśli pigment jest zbyt ciemny, nierówny lub ma niekorzystny kształt, korekta bez wcześniejszego rozjaśnienia może pogłębić problem."
+    question: "Czy jeden zabieg usuwania makijażu permanentnego wystarczy?",
+    answer:
+      "Nie zawsze. Liczba zabiegów zależy od koloru, głębokości, nasycenia pigmentu, rodzaju użytych barwników i indywidualnej reakcji skóry.",
   },
   {
-    "question": "Ile zabiegów usuwania PMU jest potrzebnych?",
-    "answer": "Liczba zabiegów zależy od rodzaju pigmentu, jego głębokości, nasycenia, koloru, wieku pigmentacji i reakcji skóry. Ustala się to indywidualnie."
+    question: "Co jest lepsze: laser czy remover?",
+    answer:
+      "Nie ma jednej odpowiedzi dla każdej klientki. Metodę dobiera się po ocenie pigmentu, skóry, miejsca zabiegowego i planu dalszej korekty.",
   },
   {
-    "question": "Czy usuwanie PMU boli?",
-    "answer": "Odczucia są indywidualne. Podczas konsultacji omawiany jest przebieg zabiegu, możliwy dyskomfort i zalecenia po zabiegu."
+    question: "Czy można od razu przykryć stary makijaż permanentny nowym?",
+    answer:
+      "Czasem tak, ale bardzo często najpierw trzeba rozjaśnić starą pigmentację. Przykrywanie zbyt ciemnego lub źle ułożonego pigmentu może pogłębić problem.",
   },
   {
-    "question": "Czym różni się laser od removera?",
-    "answer": "To różne metody pracy ze starym pigmentem. Wybór zależy od konkretnej sytuacji: koloru, nasycenia, skóry i celu zabiegowego."
+    question: "Kiedy można planować nowy makijaż permanentny po rozjaśnianiu?",
+    answer:
+      "Dopiero po wygojeniu skóry i ocenie efektu rozjaśnienia. Plan nowego PMU powinien wynikać z realnego stanu skóry, a nie z pośpiechu.",
   },
   {
-    "question": "Kiedy można wykonać nowy makijaż permanentny?",
-    "answer": "Dopiero po odpowiednim wygojeniu skóry i ocenie efektu rozjaśnienia. W wielu przypadkach potrzebny jest plan etapowy."
+    question: "Czy usuwanie makijażu permanentnego boli?",
+    answer:
+      "Odczucia są indywidualne. Przed zabiegiem omawiany jest przebieg pracy, możliwe reakcje skóry i zalecenia po zabiegu.",
   },
   {
-    "question": "Czy po usuwaniu można uzyskać naturalne brwi?",
-    "answer": "Często tak, ale zależy to od tego, ile starego pigmentu uda się rozjaśnić, jaki jest stan skóry i czy możliwe jest wykonanie nowego rysunku wstępnego."
+    question: "Czy można usuwać pigment z brwi, ust i kresek?",
+    answer:
+      "Każda okolica wymaga osobnej kwalifikacji. Szczególnej ostrożności wymagają usta i okolica oka, dlatego decyzja o metodzie zapada po analizie przypadku.",
   },
-  {
-    "question": "Czy usuwanie zostawia blizny?",
-    "answer": "Celem jest bezpieczna praca i ochrona skóry, dlatego tak ważna jest kwalifikacja, odpowiednia metoda oraz przestrzeganie zaleceń po zabiegu."
-  },
-  {
-    "question": "Gdzie wykonywane jest usuwanie PMU?",
-    "answer": "Zabieg wykonywany jest w gabinecie Bogusława Herda w Bielsku-Białej. Aktualne terminy i rezerwacje dostępne są przez Booksy."
-  }
 ];
 
 const structuredData = [
@@ -51,126 +129,93 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
-    "url": pageUrl,
-    "name": pageTitle,
-    "description": pageDescription,
-    "inLanguage": "pl-PL",
-    "isPartOf": {
-      "@id": "https://permanentnybielsko.com/#website"
-    },
-    "about": {
-      "@id": "https://permanentnybielsko.com/#localbusiness"
-    },
-    "primaryImageOfPage": {
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+    inLanguage: "pl-PL",
+    isPartOf: { "@id": "https://permanentnybielsko.com/#website" },
+    about: { "@id": "https://permanentnybielsko.com/#localbusiness" },
+    primaryImageOfPage: {
       "@type": "ImageObject",
-      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
-    }
+      url: "https://permanentnybielsko.com/images/usuwanie-pmu-glovcon-q-switch-nd-yag.webp",
+    },
   },
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "@id": `${pageUrl}#breadcrumb`,
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Strona główna",
-        "item": "https://permanentnybielsko.com/"
+        position: 1,
+        name: "Strona główna",
+        item: "https://permanentnybielsko.com/",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Makijaż permanentny Bielsko-Biała",
-        "item": "https://permanentnybielsko.com/makijaz-permanentny-bielsko/"
+        position: 2,
+        name: "Makijaż permanentny Bielsko-Biała",
+        item: "https://permanentnybielsko.com/makijaz-permanentny-bielsko/",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": "Usuwanie makijażu permanentnego",
-        "item": pageUrl
-      }
-    ]
+        position: 3,
+        name: "Usuwanie makijażu permanentnego",
+        item: pageUrl,
+      },
+    ],
   },
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${pageUrl}#service`,
-    "name": "Usuwanie makijażu permanentnego Bielsko-Biała",
-    "serviceType": "Usuwanie i rozjaśnianie makijażu permanentnego",
-    "description":
-      "Usuwanie i rozjaśnianie starego makijażu permanentnego w Bielsku-Białej, kwalifikacja skóry, korekta nieudanego PMU i przygotowanie do nowej pigmentacji.",
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Bielsko-Biała"
-      },
-      {
-        "@type": "AdministrativeArea",
-        "name": "województwo śląskie"
-      }
+    name: "Usuwanie makijażu permanentnego Bielsko-Biała",
+    serviceType: "Usuwanie makijażu permanentnego",
+    description:
+      "Usuwanie i rozjaśnianie starego makijażu permanentnego w Bielsku-Białej: kwalifikacja, laser GLOVCON Q-Switch Nd:YAG, remover Bye-Bye Pigment Long-Time-Liner i plan korekty PMU.",
+    areaServed: [
+      { "@type": "City", name: "Bielsko-Biała" },
+      { "@type": "AdministrativeArea", name: "województwo śląskie" },
     ],
-    "provider": {
-      "@id": "https://permanentnybielsko.com/#localbusiness"
-    },
-    "brand": {
-      "@type": "Brand",
-      "name": "Bogusława Herda Makijaż Permanentny"
-    },
-    "hasOfferCatalog": {
+    provider: { "@id": "https://permanentnybielsko.com/#localbusiness" },
+    brand: { "@type": "Brand", name: "Bogusława Herda Makijaż Permanentny" },
+    hasOfferCatalog: {
       "@type": "OfferCatalog",
-      "name": "Usuwanie i naprawa PMU",
-      "itemListElement": [
+      name: "Metody usuwania makijażu permanentnego",
+      itemListElement: [
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Rozjaśnianie starego makijażu permanentnego"
-          }
+          itemOffered: { "@type": "Service", name: "Laserowe usuwanie makijażu permanentnego" },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Usuwanie niechcianego pigmentu PMU"
-          }
+          itemOffered: { "@type": "Service", name: "Remover Bye-Bye Pigment Long-Time-Liner" },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Korekta nieudanego makijażu permanentnego"
-          }
+          itemOffered: { "@type": "Service", name: "Korekta makijażu permanentnego po rozjaśnieniu" },
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Przygotowanie skóry do nowej pigmentacji"
-          }
-        }
-      ]
-    }
+      ],
+    },
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
-    "mainEntity": faqItems.map((item) => ({
+    mainEntity: faqItems.map((item) => ({
       "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.answer
-      }
-    }))
-  }
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
 ];
-
 ---
 
 <Layout
-  title="Usuwanie makijażu permanentnego Bielsko-Biała | Laser i remover"
-  description="Usuwanie makijażu permanentnego Bielsko-Biała: rozjaśnianie starego PMU, korekta brwi, laserowe usuwanie makijażu permanentnego i kwalifikacja przed nową pigmentacją."
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/usuwanie-makijazu-permanentnego/"
+  structuredData={structuredData}
 >
   <div class="removal-page">
     <Header />
@@ -185,7 +230,8 @@ const structuredData = [
             <p class="section-kicker">Usuwanie makijażu permanentnego Bielsko-Biała</p>
 
             <h1>
-                <span class="pmu-hero-turquoise-text">Stary makijaż permanentny</span> czasem trzeba najpierw rozjaśnić, a dopiero potem poprawiać.
+              Stary makijaż permanentny czasem trzeba najpierw
+              <span class="pmu-hero-turquoise-text">rozjaśnić</span>, a dopiero potem poprawiać.
             </h1>
 
             <p class="removal-hero-lead">
@@ -216,183 +262,234 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="removal-proof-section">
+      <section class="removal-proof-section" aria-label="Najważniejsze etapy usuwania PMU">
         <div class="container removal-proof-grid">
-          <div>
-            <strong>Kwalifikacja</strong>
-            <span>ocena starego pigmentu i skóry</span>
-          </div>
-
-          <div>
-            <strong>Laser / remover</strong>
-            <span>dobór metody do sytuacji</span>
-          </div>
-
-          <div>
-            <strong>Korekta PMU</strong>
-            <span>czasem dopiero po rozjaśnieniu</span>
-          </div>
-
-          <div>
-            <strong>Plan etapowy</strong>
-            <span>bez pośpiechu i bez pogłębiania problemu</span>
-          </div>
+          {proofItems.map((item) => (
+            <div>
+              <strong>{item.title}</strong>
+              <span>{item.text}</span>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section class="removal-intro-section">
-        <div class="container removal-two-column">
-          <div>
-            <p class="section-kicker">Kiedy rozważyć usuwanie?</p>
-            <h2>Nie każdą starą pigmentację da się estetycznie przykryć nowym kolorem.</h2>
-          </div>
+      <section class="removal-intro-section" id="kwalifikacja">
+        <div class="container removal-assessment-card">
+          <figure class="removal-assessment-media">
+            <img
+              src="/images/usuwanie-pmu-boguslawa-herda.webp"
+              alt="Bogusława Herda — kwalifikacja przed usuwaniem makijażu permanentnego"
+              width="1200"
+              height="1800"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
 
-          <div class="removal-text-card">
+          <div class="removal-assessment-copy">
+            <p class="section-kicker">Kwalifikacja</p>
+
+            <h2>Najpierw ocena starego pigmentu. Dopiero potem decyzja o metodzie.</h2>
+
             <p>
-              Stary makijaż permanentny może po latach zmienić kolor, stać się zbyt chłodny,
-              zbyt ciemny albo stracić równomierność. Jeśli pigment jest mocno nasycony,
-              nowa praca nałożona bez przygotowania może wyglądać ciężko i nienaturalnie.
+              Usuwanie makijażu permanentnego nie powinno być przypadkowe. Inaczej pracuje się
+              przy zbyt ciemnych brwiach, inaczej przy chłodnym odcieniu, a jeszcze inaczej
+              przy wcześniejszej pigmentacji ust lub kresek.
             </p>
 
             <p>
-              Dlatego przed korektą najważniejsza jest kwalifikacja. Czasem można zaplanować
-              korektę od razu, ale w wielu przypadkach konieczne jest wcześniejsze rozjaśnienie,
-              usunięcie części pigmentu albo praca etapami.
+              Celem jest bezpieczne przygotowanie skóry do dalszego planu: rozjaśnienia,
+              korekty albo nowego makijażu permanentnego. Dlatego liczy się nie tylko sam zabieg,
+              ale również przerwy, gojenie i realna ocena efektu po każdym etapie.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="removal-reasons-section">
+      <section class="removal-methods-section">
         <div class="container">
           <div class="removal-section-heading">
-            <p class="section-kicker">Najczęstsze powody</p>
-            <h2>Kiedy usuwanie PMU może być lepszą decyzją niż natychmiastowa korekta?</h2>
+            <p class="section-kicker">Dwie ścieżki pracy</p>
+            <h2>Laser albo remover — metoda musi wynikać z tego, co jest w skórze.</h2>
             <p>
-              Celem nie jest agresywne „kasowanie” za wszelką cenę, ale stworzenie warunków
-              do bezpiecznej, estetycznej i bardziej naturalnej pracy w przyszłości.
+              Nie każdy pigment zachowuje się tak samo. Dlatego przed zabiegiem oceniany jest kolor,
+              nasycenie, głębokość, okolica zabiegowa i to, czy celem jest pełniejsze rozjaśnienie,
+              czy przygotowanie skóry do korekty.
             </p>
           </div>
 
-          <div class="removal-reason-grid">
-            <article class="removal-reason-card">
-              <span>01</span>
-              <h3>Zbyt ciemne brwi</h3>
-              <p>
-                Gdy pigment jest mocno nasycony, nowa pigmentacja może jeszcze bardziej obciążyć twarz.
-                Rozjaśnienie daje większą kontrolę nad kolejnym etapem.
-              </p>
+          <div class="removal-methods-grid">
+            <article class="removal-method-card">
+              <figure class="removal-method-media">
+                <img
+                  src="/images/usuwanie-pmu-bye-bye-pigment-zestaw.webp"
+                  alt="Remover Bye-Bye Pigment Long-Time-Liner do usuwania makijażu permanentnego"
+                  width="1600"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+
+              <div class="removal-method-copy">
+                <p class="section-kicker">Remover Long-Time-Liner®</p>
+                <h3>Bye-Bye Pigment jako delikatna alternatywa dla wybranych przypadków.</h3>
+                <p>
+                  Remover może być rozwiązaniem przy wybranych pigmentacjach, gdy potrzebna jest
+                  precyzyjna praca w konkretnym obszarze. Preparat dobierany jest do sytuacji
+                  po wcześniejszej ocenie skóry, pigmentu i planu dalszej korekty.
+                </p>
+              </div>
             </article>
 
-            <article class="removal-reason-card removal-reason-card-rose">
-              <span>02</span>
-              <h3>Nieprawidłowy kształt</h3>
-              <p>
-                Jeśli stary kształt jest zbyt szeroki, zbyt długi albo asymetryczny, często nie da się
-                uzyskać lekkich brwi bez wcześniejszego przygotowania skóry.
-              </p>
-            </article>
+            <article class="removal-method-card removal-method-card-turquoise">
+              <figure class="removal-method-media">
+                <img
+                  src="/images/usuwanie-pmu-glovcon-q-switch-nd-yag.webp"
+                  alt="Glovcon MED Q-Switch Nd:YAG — technologia laserowa do rozjaśniania pigmentu"
+                  width="1800"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
 
-            <article class="removal-reason-card">
-              <span>03</span>
-              <h3>Chłodny lub niekorzystny kolor</h3>
-              <p>
-                Szare, grafitowe, sine albo czerwone pozostałości pigmentu wymagają ostrożnej oceny
-                i dobrania właściwej strategii.
-              </p>
+              <div class="removal-method-copy">
+                <p class="section-kicker">Laserowe rozjaśnianie</p>
+                <h3>GLOVCON® Q-Switch Nd:YAG jako wsparcie przy usuwaniu starego PMU.</h3>
+                <p>
+                  Laser działa impulsowo, rozbijając cząsteczki pigmentu w skórze.
+                  Rozjaśnianie zwykle wymaga etapów, przerw i obserwacji reakcji skóry,
+                  dlatego plan zabiegowy ustalany jest indywidualnie.
+                </p>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="removal-methods-section" id="kwalifikacja">
+      <section class="removal-knowledge-section">
+        <div class="container removal-knowledge-grid">
+          <div class="removal-knowledge-heading">
+            <p class="section-kicker">Co warto wiedzieć?</p>
+            <h2>Usuwanie pigmentu wymaga cierpliwości, planu i realnej oceny.</h2>
+            <p>
+              To nie jest zabieg, w którym warto działać na skróty. Skóra potrzebuje czasu,
+              pigment reaguje indywidualnie, a dobry efekt końcowy zależy od rozsądnych decyzji
+              podejmowanych etap po etapie.
+            </p>
+          </div>
+
+          <div class="premium-points-list premium-points-list--turquoise" aria-label="Najważniejsze zasady usuwania makijażu permanentnego">
+            {decisionItems.map((item) => (
+              <div class="premium-point">
+                <span class="premium-point__dot" aria-hidden="true"></span>
+                <div class="premium-point__content">
+                  <strong class="premium-point__title">{item.title}</strong>
+                  <span class="premium-point__text">{item.text}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="removal-indications-section">
         <div class="container">
-          <div class="removal-two-column removal-methods-intro">
-            <div>
-              <p class="section-kicker">Metody pracy</p>
-              <h2>Laser, remover czy korekta? Decyzja zależy od skóry i pigmentu.</h2>
-            </div>
-
-            <div class="removal-text-card">
-              <p>
-                Nie ma jednej metody dobrej dla każdej starej pigmentacji. Wybór zależy od koloru,
-                głębokości, nasycenia, okolicy zabiegowej, stanu skóry i celu, który chcemy osiągnąć:
-                pełne usunięcie, częściowe rozjaśnienie albo przygotowanie do nowego PMU.
-              </p>
-            </div>
+          <div class="removal-section-heading">
+            <p class="section-kicker">Kiedy rozważyć usuwanie?</p>
+            <h2>Czasem najlepsza korekta zaczyna się od rozjaśnienia starej pracy.</h2>
+            <p>
+              Jeśli pigment jest zbyt mocny, ma niekorzystny kolor albo blokuje nowy projekt,
+              odpowiedzialna korekta może wymagać wcześniejszego przygotowania skóry.
+            </p>
           </div>
 
-          <div class="removal-method-grid">
-            <article>
-              <span>01</span>
-              <h3>Konsultacja</h3>
-              <p>Ocena starego makijażu permanentnego, skóry i oczekiwań klientki.</p>
-            </article>
-
-            <article>
-              <span>02</span>
-              <h3>Plan działania</h3>
-              <p>Omówienie, czy celem jest rozjaśnienie, usuwanie czy przygotowanie do korekty.</p>
-            </article>
-
-            <article>
-              <span>03</span>
-              <h3>Laser</h3>
-              <p>Metoda stosowana w wybranych przypadkach, szczególnie przy określonych kolorach pigmentu.</p>
-            </article>
-
-            <article>
-              <span>04</span>
-              <h3>Remover</h3>
-              <p>Może być rozważany w sytuacjach, w których jest lepszym wyborem niż laser.</p>
-            </article>
-
-            <article>
-              <span>05</span>
-              <h3>Gojenie</h3>
-              <p>Skóra potrzebuje czasu na regenerację, dlatego praca zwykle odbywa się etapami.</p>
-            </article>
-
-            <article>
-              <span>06</span>
-              <h3>Nowy PMU</h3>
-              <p>Dopiero po przygotowaniu skóry można bezpieczniej planować rysunek wstępny i pigmentację.</p>
-            </article>
+          <div class="removal-indications-grid">
+            {indicationsItems.map((item, index) => (
+              <article class="removal-mini-card">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section class="removal-safety-section">
-        <div class="container removal-safety-grid">
-          <div class="removal-safety-card">
-            <p class="section-kicker">Bezpieczeństwo i cierpliwość</p>
-            <h2>Usuwanie PMU to proces, nie szybka poprawka.</h2>
+      <section class="removal-product-section">
+        <div class="container removal-product-card">
+          <div class="removal-product-copy">
+            <p class="section-kicker">Bye-Bye Pigment</p>
+            <h2>Remover stosujemy wtedy, gdy jest do tego dobra kwalifikacja.</h2>
             <p>
-              Skóra po usuwaniu lub rozjaśnianiu potrzebuje czasu. Zbyt szybkie działanie,
-              zbyt mocna ingerencja albo próba przykrycia problemu nowym pigmentem mogą utrudnić
-              osiągnięcie naturalnego efektu.
+              Nie każda pigmentacja wymaga lasera. W wybranych przypadkach remover pozwala
+              pracować punktowo i etapowo, szczególnie gdy ważna jest bardzo spokojna ocena
+              reakcji skóry oraz późniejszy plan korekty.
             </p>
           </div>
 
-          <div class="removal-list-card">
+          <figure class="removal-product-media">
+            <img
+              src="/images/usuwanie-pmu-bye-bye-pigment.webp"
+              alt="Bye-Bye Pigment Long-Time-Liner — remover do makijażu permanentnego"
+              width="1200"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="removal-process-section">
+        <div class="container">
+          <div class="removal-section-heading">
+            <p class="section-kicker">Proces pracy</p>
+            <h2>Najpierw plan. Potem zabieg. Na końcu decyzja, czy skóra jest gotowa na korektę.</h2>
+            <p>
+              Przy usuwaniu PMU najważniejsze jest, żeby nie pogłębić problemu. Dlatego każdy etap
+              powinien być zaplanowany z uwzględnieniem skóry, pigmentu i docelowego efektu.
+            </p>
+          </div>
+
+          <div class="removal-process-grid">
+            {processItems.map((item, index) => (
+              <article>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="removal-price-section">
+        <div class="container removal-price-card">
+          <div>
+            <p class="section-kicker">Cennik orientacyjny</p>
+            <h2>Cena zależy od metody, obszaru i planu pracy.</h2>
+            <p>
+              Dokładny koszt i liczba etapów ustalane są po kwalifikacji. Przy starym makijażu
+              permanentnym ważniejsza od szybkiej decyzji jest dobra ocena skóry i pigmentu.
+            </p>
+          </div>
+
+          <div class="removal-price-list">
             <div>
-              <strong>Liczba zabiegów</strong>
-              <span>zależy od koloru, głębokości, nasycenia i reakcji skóry</span>
+              <strong>Laserowe usuwanie PMU</strong>
+              <span>200–400 zł</span>
             </div>
 
             <div>
-              <strong>Przerwy między etapami</strong>
-              <span>są potrzebne do regeneracji i oceny efektu rozjaśnienia</span>
+              <strong>Remover Bye-Bye Pigment</strong>
+              <span>200–400 zł</span>
             </div>
 
             <div>
-              <strong>Realne oczekiwania</strong>
-              <span>nie każdy pigment da się usunąć szybko i w pełni przewidywalnie</span>
-            </div>
-
-            <div>
-              <strong>Plan korekty</strong>
-              <span>nowe brwi planujemy dopiero wtedy, gdy skóra daje do tego warunki</span>
+              <strong>Konsultacja i plan korekty</strong>
+              <span>ustalane indywidualnie</span>
             </div>
           </div>
         </div>
@@ -402,7 +499,7 @@ const structuredData = [
         <div class="container">
           <div class="removal-section-heading">
             <p class="section-kicker">Oferta PMU</p>
-            <h2>Zobacz również powiązane podstrony makijażu permanentnego.</h2>
+            <h2>Zobacz również inne podstrony makijażu permanentnego.</h2>
           </div>
 
           <div class="removal-related-grid">
@@ -418,10 +515,16 @@ const structuredData = [
               <p>Naturalne brwi, metoda włoskowa, włos z cieniem i Silky Hairstroke Brows.</p>
             </a>
 
-            <a href="/makijaz-permanentny-oczu/" class="removal-related-card">
-              <span>Oczy</span>
+            <a href="/makijaz-permanentny-ust/" class="removal-related-card">
+              <span>Usta</span>
+              <h3>Usta permanentne</h3>
+              <p>Naturalny kolor ust, miękki kontur i świeży efekt bez przerysowania.</p>
+            </a>
+
+            <a href="/makijaz-permanentny-oczu/" class="removal-related-card removal-related-card-rose">
+              <span>Kreski</span>
               <h3>Makijaż permanentny oczu</h3>
-              <p>Kreski permanentne, zagęszczenie linii rzęs i subtelne podkreślenie spojrzenia.</p>
+              <p>Zagęszczenie linii rzęs i kreski dopasowane do budowy oka.</p>
             </a>
           </div>
         </div>
@@ -435,69 +538,12 @@ const structuredData = [
           </div>
 
           <div class="removal-faq-grid">
-            <article>
-              <h3>Czy każdy stary makijaż permanentny można poprawić bez usuwania?</h3>
-              <p>
-                Nie. Jeśli pigment jest zbyt ciemny, nierówny lub ma niekorzystny kształt,
-                korekta bez wcześniejszego rozjaśnienia może pogłębić problem.
-              </p>
-            </article>
-
-            <article>
-              <h3>Ile zabiegów usuwania PMU jest potrzebnych?</h3>
-              <p>
-                Liczba zabiegów zależy od rodzaju pigmentu, jego głębokości, nasycenia, koloru,
-                wieku pigmentacji i reakcji skóry. Ustala się to indywidualnie.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy usuwanie PMU boli?</h3>
-              <p>
-                Odczucia są indywidualne. Podczas konsultacji omawiany jest przebieg zabiegu,
-                możliwy dyskomfort i zalecenia po zabiegu.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czym różni się laser od removera?</h3>
-              <p>
-                To różne metody pracy ze starym pigmentem. Wybór zależy od konkretnej sytuacji:
-                koloru, nasycenia, skóry i celu zabiegowego.
-              </p>
-            </article>
-
-            <article>
-              <h3>Kiedy można wykonać nowy makijaż permanentny?</h3>
-              <p>
-                Dopiero po odpowiednim wygojeniu skóry i ocenie efektu rozjaśnienia.
-                W wielu przypadkach potrzebny jest plan etapowy.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy po usuwaniu można uzyskać naturalne brwi?</h3>
-              <p>
-                Często tak, ale zależy to od tego, ile starego pigmentu uda się rozjaśnić,
-                jaki jest stan skóry i czy możliwe jest wykonanie nowego rysunku wstępnego.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy usuwanie zostawia blizny?</h3>
-              <p>
-                Celem jest bezpieczna praca i ochrona skóry, dlatego tak ważna jest kwalifikacja,
-                odpowiednia metoda oraz przestrzeganie zaleceń po zabiegu.
-              </p>
-            </article>
-
-            <article>
-              <h3>Gdzie wykonywane jest usuwanie PMU?</h3>
-              <p>
-                Zabieg wykonywany jest w gabinecie Bogusława Herda w Bielsku-Białej.
-                Aktualne terminy i rezerwacje dostępne są przez Booksy.
-              </p>
-            </article>
+            {faqItems.map((item) => (
+              <article>
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -505,10 +551,10 @@ const structuredData = [
       <section class="removal-final-cta" id="kontakt">
         <div class="container removal-final-card">
           <p class="signature cta-signature">Powrót do natury</p>
-          <h2>Chcesz sprawdzić, czy stary makijaż permanentny można poprawić?</h2>
+          <h2>Chcesz sprawdzić, czy stary makijaż permanentny wymaga rozjaśnienia?</h2>
           <p>
-            Umów konsultację i zobacz, czy lepszym rozwiązaniem będzie korekta,
-            rozjaśnienie czy etapowe przygotowanie skóry do nowej pigmentacji.
+            Umów konsultację i zobacz, jaki plan będzie najbezpieczniejszy dla Twojej skóry:
+            laser, remover, etapowe rozjaśnianie albo przygotowanie do korekty PMU.
           </p>
 
           <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
@@ -529,7 +575,27 @@ const structuredData = [
     background:
       radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.12), transparent 28rem),
       radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.12), transparent 26rem),
-      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 48%, #ffffff 100%);
+  }
+
+  .removal-page .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 32px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 18px;
+    padding: 0 13px;
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.76);
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.7rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
   }
 
   .removal-hero {
@@ -549,7 +615,7 @@ const structuredData = [
     top: 4rem;
     width: 42rem;
     height: 42rem;
-    background: radial-gradient(circle, rgba(56, 187, 181, 0.2), transparent 68%);
+    background: radial-gradient(circle, rgba(56, 187, 181, 0.20), transparent 68%);
   }
 
   .removal-glow-two {
@@ -564,18 +630,19 @@ const structuredData = [
     position: relative;
     z-index: 2;
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+    grid-template-columns: minmax(0, 1.03fr) minmax(360px, 0.97fr);
     gap: 24px;
     align-items: stretch;
   }
 
   .removal-hero-copy,
   .removal-hero-card,
-  .removal-text-card,
-  .removal-reason-card,
-  .removal-method-grid article,
-  .removal-safety-card,
-  .removal-list-card,
+  .removal-assessment-card,
+  .removal-method-card,
+  .removal-mini-card,
+  .removal-product-card,
+  .removal-process-grid article,
+  .removal-price-card,
   .removal-related-card,
   .removal-faq-grid article,
   .removal-final-card {
@@ -584,25 +651,41 @@ const structuredData = [
   }
 
   .removal-hero-copy {
+    display: flex;
+    min-height: 620px;
+    flex-direction: column;
+    justify-content: center;
     padding: clamp(38px, 5vw, 72px);
-    border-radius: 42px;
-    background: rgba(255, 255, 255, 0.76);
+    border-radius: 44px;
+    background:
+      radial-gradient(circle at 92% 14%, rgba(56, 187, 181, 0.10), transparent 16rem),
+      rgba(255, 255, 255, 0.78);
   }
 
   .removal-hero-copy h1 {
-    max-width: 1040px;
+    max-width: 1100px;
     margin: 0;
-    font-size: clamp(3.1rem, 5.5vw, 6.55rem);
-    font-weight: 750;
-    line-height: 0.94;
-    letter-spacing: -0.085em;
+    color: var(--color-text, #17151d);
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .pmu-hero-rose-text {
+    color: #b76576;
+    background: linear-gradient(120deg, #7f344d 0%, #b76576 24%, #d7899f 48%, #9d4f68 72%, #6f3046 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .removal-hero-lead {
-    max-width: 780px;
+    max-width: 810px;
     margin: 28px 0 0;
-    color: var(--color-muted);
+    color: var(--color-muted, #6e6670);
     font-size: 1.12rem;
+    line-height: 1.68;
   }
 
   .removal-hero-actions {
@@ -614,21 +697,19 @@ const structuredData = [
 
   .removal-hero-card {
     position: relative;
-    overflow: hidden;
-    min-height: 430px;
     display: flex;
+    min-height: 620px;
     flex-direction: column;
     justify-content: flex-end;
-    padding: clamp(34px, 4vw, 56px);
-    border-radius: 42px;
+    overflow: hidden;
+    padding: clamp(38px, 5vw, 72px);
+    border-radius: 44px;
     color: #ffffff;
     background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
-      linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%);
-    background-size: 100% 100%, 100% 100%, 240% 240%;
-    animation: removal-gold-flow 14s ease-in-out infinite alternate;
-    box-shadow: 0 28px 76px rgba(125, 95, 45, 0.24);
+      radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.34), transparent 13rem),
+      radial-gradient(circle at 82% 84%, rgba(127, 52, 77, 0.22), transparent 18rem),
+      linear-gradient(145deg, #d992a7 0%, #c97894 36%, #b76576 72%, #9c4e68 100%);
+    box-shadow: 0 28px 76px rgba(183, 101, 118, 0.22);
   }
 
   .removal-hero-card::before {
@@ -636,46 +717,57 @@ const structuredData = [
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.26) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+      linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.06) 22%, rgba(255,255,255,0.24) 47%, rgba(255,255,255,0.06) 72%, transparent 100%);
     transform: translateX(-72%);
-    animation: removal-panel-shine 8.5s ease-in-out infinite;
+    animation: removal-panel-shine 8s ease-in-out infinite;
     pointer-events: none;
   }
 
-  .removal-card-label {
+  .removal-hero-card > * {
     position: relative;
     z-index: 2;
-    margin: 0 0 auto;
-    color: rgba(255, 248, 230, 0.22);
-    font-size: clamp(4.5rem, 7vw, 7.8rem);
-    font-weight: 800;
-    line-height: 0.8;
-    letter-spacing: -0.09em;
   }
 
-  .removal-hero-card h2,
-  .removal-hero-card p:not(.removal-card-label) {
-    position: relative;
-    z-index: 2;
+  .removal-card-label {
+    position: absolute;
+    top: clamp(26px, 3vw, 46px);
+    left: clamp(30px, 4vw, 58px);
+    margin: 0;
+    color: rgba(255, 255, 255, 0.22);
+    font-size: clamp(6.2rem, 9vw, 11.8rem);
+    font-weight: 850;
+    line-height: 0.78;
+    letter-spacing: -0.085em;
   }
 
   .removal-hero-card h2 {
-    margin: 40px 0 0;
-    font-size: clamp(2rem, 3vw, 3.2rem);
-    font-weight: 740;
-    line-height: 0.96;
+    max-width: 640px;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2.15rem, 3.7vw, 4.35rem);
+    font-weight: 780;
+    line-height: 1;
     letter-spacing: -0.075em;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
   }
 
   .removal-hero-card p:not(.removal-card-label) {
-    margin: 18px 0 0;
+    max-width: 650px;
+    margin: 22px 0 0;
     color: rgba(255, 255, 255, 0.88);
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  @keyframes removal-panel-shine {
+    0%, 45% { transform: translateX(-72%); }
+    100% { transform: translateX(72%); }
   }
 
   .removal-proof-section {
-    border-top: 1px solid rgba(183, 101, 118, 0.1);
-    border-bottom: 1px solid rgba(183, 101, 118, 0.1);
-    background: rgba(255, 255, 255, 0.72);
+    border-top: 1px solid rgba(183, 101, 118, 0.10);
+    border-bottom: 1px solid rgba(183, 101, 118, 0.10);
+    background: rgba(255, 255, 255, 0.74);
   }
 
   .removal-proof-grid {
@@ -689,109 +781,300 @@ const structuredData = [
     border-right: 1px solid rgba(183, 101, 118, 0.12);
   }
 
-  .removal-proof-grid div:last-child {
-    border-right: 0;
-  }
+  .removal-proof-grid div:last-child { border-right: 0; }
 
   .removal-proof-grid strong {
     display: block;
     margin-bottom: 8px;
+    color: var(--color-text, #17151d);
     font-size: 0.92rem;
-    font-weight: 750;
+    font-weight: 780;
     letter-spacing: -0.02em;
   }
 
   .removal-proof-grid span {
     display: block;
-    color: var(--color-muted);
+    color: var(--color-muted, #6e6670);
     font-size: 0.72rem;
-    font-weight: 600;
+    font-weight: 650;
     line-height: 1.55;
     text-transform: uppercase;
     letter-spacing: 0.16em;
   }
 
   .removal-intro-section,
-  .removal-reasons-section,
   .removal-methods-section,
-  .removal-safety-section,
+  .removal-knowledge-section,
+  .removal-indications-section,
+  .removal-product-section,
+  .removal-process-section,
+  .removal-price-section,
   .removal-related-section,
   .removal-faq-section,
   .removal-final-cta {
     padding: 88px 0;
   }
 
-  .removal-two-column,
-  .removal-safety-grid {
+  .removal-assessment-card,
+  .removal-product-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(34px, 4vw, 64px);
+    align-items: center;
+    overflow: hidden;
+    padding: clamp(22px, 2.8vw, 34px);
+    border-radius: 46px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.10), transparent 18rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 248, 251, 0.92));
+  }
+
+  .removal-product-card {
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+  }
+
+  .removal-assessment-media,
+  .removal-product-media,
+  .removal-method-media {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 22px 54px rgba(89, 53, 67, 0.12), 0 0 0 1px rgba(255,255,255,0.64) inset;
+  }
+
+  .removal-assessment-media { min-height: clamp(520px, 48vw, 720px); }
+  .removal-product-media { min-height: clamp(420px, 38vw, 560px); }
+  .removal-method-media { aspect-ratio: 4 / 3; }
+
+  .removal-assessment-media::after,
+  .removal-product-media::after,
+  .removal-method-media::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1.5px solid rgba(255, 255, 255, 0.58);
+    border-radius: 26px;
+    pointer-events: none;
+  }
+
+  .removal-assessment-media img,
+  .removal-product-media img,
+  .removal-method-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .removal-assessment-media img {
+    min-height: clamp(520px, 48vw, 720px);
+    object-position: center top;
+  }
+
+  .removal-product-media img {
+    min-height: clamp(420px, 38vw, 560px);
+    object-fit: contain;
+    padding: 20px;
+    background: #ffffff;
+  }
+
+  .removal-assessment-copy,
+  .removal-product-copy { padding: clamp(8px, 1.4vw, 18px); }
+
+  .removal-assessment-copy h2,
+  .removal-product-copy h2,
+  .removal-section-heading h2,
+  .removal-knowledge-heading h2,
+  .removal-price-card h2,
+  .removal-final-card h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .removal-assessment-copy h2,
+  .removal-product-copy h2 {
+    max-width: 780px;
+    font-size: clamp(2.55rem, 4.45vw, 5rem);
+    font-weight: 780;
+    line-height: 0.98;
+    letter-spacing: -0.078em;
+  }
+
+  .removal-assessment-copy p:not(.section-kicker),
+  .removal-product-copy p:not(.section-kicker),
+  .removal-section-heading p,
+  .removal-knowledge-heading p,
+  .removal-price-card p,
+  .removal-final-card p:not(.signature) {
+    color: var(--color-muted, #6e6670);
+    font-weight: 450;
+    line-height: 1.65;
+  }
+
+  .removal-assessment-copy p:not(.section-kicker),
+  .removal-product-copy p:not(.section-kicker) {
+    max-width: 760px;
+    margin: 24px 0 0;
+    font-size: clamp(1.04rem, 1.28vw, 1.22rem);
+    line-height: 1.72;
+  }
+
+  .removal-section-heading {
+    max-width: 1040px;
+    margin-bottom: 38px;
+  }
+
+  .removal-section-heading h2 { max-width: 1020px; }
+  .removal-section-heading p { max-width: 900px; font-size: 1.05rem; }
+
+  .removal-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .removal-method-card {
+    overflow: hidden;
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 94% 10%, rgba(201, 127, 143, 0.10), transparent 18rem),
+      linear-gradient(145deg, rgba(255,255,255,0.96), rgba(255,249,251,0.92));
+  }
+
+  .removal-method-card-turquoise {
+    background:
+      radial-gradient(circle at 94% 10%, rgba(56, 187, 181, 0.12), transparent 18rem),
+      linear-gradient(145deg, rgba(255,255,255,0.96), rgba(246,255,253,0.92));
+  }
+
+  .removal-method-copy { padding: clamp(28px, 3.2vw, 42px); }
+
+  .removal-method-copy h3 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    font-weight: 780;
+    line-height: 1;
+    letter-spacing: -0.074em;
+  }
+
+  .removal-method-copy p:not(.section-kicker) {
+    margin: 18px 0 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.65;
+  }
+
+  .removal-knowledge-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
+  }
+
+  .removal-knowledge-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
     gap: 54px;
     align-items: start;
   }
 
-  .removal-two-column h2,
-  .removal-section-heading h2,
-  .removal-safety-card h2,
-  .removal-final-card h2 {
-    margin: 0;
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
-    font-weight: 740;
-    line-height: 1;
-    letter-spacing: -0.078em;
-  }
-
-  .removal-text-card,
-  .removal-safety-card,
-  .removal-list-card {
+  .removal-knowledge-heading,
+  .removal-price-card {
     padding: 34px;
+    border: 1px solid rgba(183, 101, 118, 0.14);
     border-radius: 34px;
-    background: rgba(255, 255, 255, 0.78);
+    background:
+      radial-gradient(circle at 92% 20%, rgba(56, 187, 181, 0.14), transparent 16rem),
+      rgba(255, 255, 255, 0.82);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
   }
 
-  .removal-text-card p:first-child,
-  .removal-safety-card p:first-child {
-    margin-top: 0;
+  .premium-points-list {
+    overflow: hidden;
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
   }
 
-  .removal-section-heading {
-    max-width: 900px;
-    margin-bottom: 38px;
+  .premium-point {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    padding: 24px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.14);
+    transition: background 180ms ease, transform 180ms ease;
   }
 
-  .removal-section-heading p {
-    color: var(--color-muted);
-    font-size: 1.05rem;
+  .premium-point:last-child { border-bottom: 0; }
+  .premium-point:hover { background: rgba(246, 220, 227, 0.62); transform: translateX(3px); }
+
+  .premium-point__dot {
+    width: 28px;
+    height: 28px;
+    margin-top: 3px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(56, 187, 181, 0.88) 0 22%, rgba(56, 187, 181, 0.18) 23% 100%);
+    box-shadow: 0 0 0 11px rgba(56, 187, 181, 0.10);
   }
 
-  .removal-reason-grid,
-  .removal-method-grid,
+  .premium-point:hover .premium-point__dot {
+    background: radial-gradient(circle, rgba(183, 101, 118, 0.88) 0 22%, rgba(183, 101, 118, 0.18) 23% 100%);
+    box-shadow: 0 0 0 11px rgba(201, 127, 143, 0.12);
+  }
+
+  .premium-point__title {
+    display: block;
+    color: var(--color-text, #17151d);
+    font-size: 1rem;
+    font-weight: 780;
+    letter-spacing: -0.04em;
+  }
+
+  .premium-point__text {
+    display: block;
+    margin-top: 7px;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.55;
+  }
+
+  .removal-indications-grid,
+  .removal-process-grid,
   .removal-related-grid,
   .removal-faq-grid {
     display: grid;
     gap: 18px;
   }
 
-  .removal-reason-grid,
-  .removal-related-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .removal-indications-grid,
+  .removal-process-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .removal-related-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .removal-faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-  .removal-reason-card,
-  .removal-method-grid article,
+  .removal-mini-card,
+  .removal-process-grid article,
   .removal-related-card,
   .removal-faq-grid article {
     position: relative;
-    min-height: 275px;
-    padding: 28px;
+    min-height: 236px;
     overflow: hidden;
+    padding: 28px;
     border-radius: 32px;
     background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 252, 0.8));
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
   }
 
-  .removal-reason-card::before,
-  .removal-method-grid article::before,
-  .removal-related-card::before {
+  .removal-mini-card::before,
+  .removal-process-grid article::before,
+  .removal-related-card::before,
+  .removal-faq-grid article::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -799,8 +1082,11 @@ const structuredData = [
     pointer-events: none;
   }
 
-  .removal-reason-card::after,
-  .removal-method-grid article::after,
+  .removal-related-card-rose::before,
+  .removal-faq-grid article::before { border-top-color: rgba(201, 127, 143, 0.28); }
+
+  .removal-mini-card::after,
+  .removal-process-grid article::after,
   .removal-related-card::after {
     content: "";
     position: absolute;
@@ -813,131 +1099,100 @@ const structuredData = [
     pointer-events: none;
   }
 
-  .removal-reason-card-rose::before {
-    border-top-color: rgba(201, 127, 143, 0.34);
-  }
+  .removal-related-card-rose::after { background: rgba(246, 220, 227, 0.76); }
 
-  .removal-reason-card-rose::after {
-    background: rgba(246, 220, 227, 0.76);
-  }
-
-  .removal-related-card-turquoise {
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.88), rgba(255, 255, 255, 0.92));
-    border-color: rgba(56, 187, 181, 0.3);
-  }
-
-  .removal-reason-card span,
-  .removal-method-grid span,
+  .removal-mini-card span,
+  .removal-process-grid span,
   .removal-related-card span {
     position: relative;
     z-index: 2;
     display: inline-flex;
     margin-bottom: 44px;
-    color: var(--color-turquoise-dark);
+    color: var(--color-turquoise-dark, #0f7773);
     font-size: 0.72rem;
-    font-weight: 700;
+    font-weight: 850;
     text-transform: uppercase;
     letter-spacing: 0.18em;
   }
 
-  .removal-reason-card h3,
-  .removal-method-grid h3,
+  .removal-mini-card h3,
+  .removal-process-grid h3,
   .removal-related-card h3,
   .removal-faq-grid h3 {
     position: relative;
     z-index: 2;
     margin: 0;
+    color: var(--color-text, #17151d);
     font-size: clamp(1.45rem, 1.9vw, 2.1rem);
-    font-weight: 740;
+    font-weight: 760;
     line-height: 1;
     letter-spacing: -0.065em;
   }
 
-  .removal-reason-card p,
-  .removal-method-grid p,
+  .removal-mini-card p,
+  .removal-process-grid p,
   .removal-related-card p,
   .removal-faq-grid p {
     position: relative;
     z-index: 2;
     margin: 14px 0 0;
-    color: var(--color-muted);
+    color: var(--color-muted, #6e6670);
     font-size: 0.95rem;
     line-height: 1.62;
   }
 
-  .removal-methods-intro {
-    margin-bottom: 38px;
+  .removal-related-card {
+    min-height: 275px;
+    color: inherit;
+    text-decoration: none;
   }
 
-  .removal-method-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .removal-related-card-turquoise {
+    border-color: rgba(56, 187, 181, 0.3);
+    background: linear-gradient(145deg, rgba(219, 246, 243, 0.88), rgba(255, 255, 255, 0.92));
   }
 
-  .removal-method-grid article {
-    min-height: 255px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
-  .removal-safety-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
-  }
-
-  .removal-safety-card {
-    background:
-      radial-gradient(circle at 92% 20%, rgba(56, 187, 181, 0.14), transparent 16rem),
-      rgba(255, 255, 255, 0.82);
-  }
-
-  .removal-list-card {
+  .removal-price-card {
     display: grid;
-    gap: 0;
-    padding: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+    gap: 34px;
+    align-items: center;
+  }
+
+  .removal-price-list {
     overflow: hidden;
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.78);
   }
 
-  .removal-list-card div {
-    padding: 24px;
-    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+  .removal-price-list div {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.14);
   }
 
-  .removal-list-card div:last-child {
-    border-bottom: 0;
-  }
+  .removal-price-list div:last-child { border-bottom: 0; }
 
-  .removal-list-card strong {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 1rem;
-    font-weight: 740;
+  .removal-price-list strong {
+    color: var(--color-text, #17151d);
+    font-weight: 780;
     letter-spacing: -0.04em;
   }
 
-  .removal-list-card span {
-    display: block;
-    color: var(--color-muted);
-    font-size: 0.92rem;
-    line-height: 1.55;
+  .removal-price-list span {
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.78rem;
+    font-weight: 850;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
   }
 
-  .removal-faq-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .removal-faq-grid article {
-    min-height: auto;
-  }
-
-  .removal-faq-grid article::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-top: 4px solid rgba(201, 127, 143, 0.24);
-  }
+  .removal-faq-grid article { min-height: auto; }
 
   .removal-final-card {
     padding: clamp(34px, 6vw, 70px);
@@ -949,108 +1204,139 @@ const structuredData = [
   }
 
   .removal-final-card p:not(.signature) {
-    max-width: 720px;
+    max-width: 760px;
     margin-left: auto;
     margin-right: auto;
-    color: var(--color-muted);
   }
 
-  .removal-final-card .button-primary {
-    margin-top: 18px;
-  }
-
-  @keyframes removal-panel-shine {
-    0% {
-      transform: translateX(-72%);
-      opacity: 0.28;
-    }
-
-    45% {
-      opacity: 0.88;
-    }
-
-    100% {
-      transform: translateX(88%);
-      opacity: 0.28;
-    }
-  }
-
-  @keyframes removal-gold-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
+  .removal-final-card .button-primary { margin-top: 18px; }
 
   @media (max-width: 1260px) {
-    .removal-proof-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .removal-proof-grid div:nth-child(2) {
-      border-right: 0;
-    }
+    .removal-proof-grid { grid-template-columns: repeat(2, 1fr); }
+    .removal-proof-grid div:nth-child(2) { border-right: 0; }
+    .removal-related-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 1080px) {
     .removal-hero-grid,
-    .removal-two-column,
-    .removal-safety-grid {
+    .removal-assessment-card,
+    .removal-product-card,
+    .removal-methods-grid,
+    .removal-knowledge-grid,
+    .removal-price-card {
       grid-template-columns: 1fr;
     }
 
-    .removal-reason-grid,
-    .removal-method-grid,
-    .removal-related-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .removal-hero-card { min-height: 520px; }
+    .removal-assessment-media, .removal-assessment-media img { min-height: 520px; }
+    .removal-product-media, .removal-product-media img { min-height: 420px; }
+    .removal-indications-grid, .removal-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
   @media (max-width: 760px) {
-    .removal-hero {
-      padding: 112px 0 58px;
+    .removal-hero { padding: 112px 0 58px; }
+
+    .removal-hero-grid {
+      gap: 16px;
+      padding-left: 8px;
+      padding-right: 8px;
+      box-sizing: border-box;
     }
 
     .removal-hero-copy,
     .removal-hero-card,
-    .removal-text-card,
-    .removal-reason-card,
-    .removal-method-grid article,
-    .removal-safety-card,
-    .removal-list-card,
+    .removal-assessment-card,
+    .removal-method-card,
+    .removal-mini-card,
+    .removal-product-card,
+    .removal-process-grid article,
+    .removal-price-card,
     .removal-related-card,
     .removal-faq-grid article,
-    .removal-final-card {
+    .removal-final-card,
+    .removal-knowledge-heading,
+    .premium-points-list {
       border-radius: 28px;
     }
 
-    .removal-hero-copy h1 {
-      font-size: clamp(2.95rem, 13vw, 4.3rem);
-      line-height: 0.94;
+    .removal-hero-copy {
+      min-height: auto;
+      padding: 28px 22px;
     }
 
+    .removal-hero-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem);
+      line-height: 1.04;
+      letter-spacing: -0.068em;
+    }
+
+    .removal-hero-lead { font-size: 1rem; }
+
+    .removal-hero-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .removal-hero-actions a {
+      width: 100%;
+      text-align: center;
+    }
+
+    .removal-hero-card {
+      min-height: 430px;
+      padding: 30px 24px;
+    }
+
+    .removal-card-label {
+      top: 24px;
+      left: 24px;
+      font-size: clamp(4.7rem, 22vw, 7rem);
+    }
+
+    .removal-hero-card h2 { font-size: clamp(2rem, 9vw, 2.8rem); }
+    .removal-hero-card p:not(.removal-card-label) { font-size: 1rem; }
+
     .removal-intro-section,
-    .removal-reasons-section,
     .removal-methods-section,
-    .removal-safety-section,
+    .removal-knowledge-section,
+    .removal-indications-section,
+    .removal-product-section,
+    .removal-process-section,
+    .removal-price-section,
     .removal-related-section,
     .removal-faq-section,
     .removal-final-cta {
       padding: 58px 0;
     }
 
-    .removal-two-column h2,
-    .removal-section-heading h2,
-    .removal-safety-card h2,
-    .removal-final-card h2 {
-      font-size: clamp(2.35rem, 11vw, 3.4rem);
+    .removal-assessment-card,
+    .removal-product-card {
+      gap: 24px;
+      padding: 16px;
     }
 
-    .removal-reason-grid,
-    .removal-method-grid,
+    .removal-assessment-media, .removal-assessment-media img { min-height: 430px; }
+    .removal-product-media, .removal-product-media img { min-height: 320px; }
+
+    .removal-assessment-copy h2,
+    .removal-product-copy h2,
+    .removal-section-heading h2,
+    .removal-knowledge-heading h2,
+    .removal-price-card h2,
+    .removal-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .removal-method-copy h3 {
+      font-size: clamp(1.9rem, 8.6vw, 2.7rem);
+      line-height: 1.03;
+      letter-spacing: -0.066em;
+    }
+
+    .removal-indications-grid,
+    .removal-process-grid,
     .removal-related-grid,
     .removal-faq-grid,
     .removal-proof-grid {
@@ -1063,450 +1349,152 @@ const structuredData = [
       border-bottom: 1px solid rgba(183, 101, 118, 0.12);
     }
 
-    .removal-proof-grid div:last-child {
-      border-bottom: 0;
-    }
+    .removal-proof-grid div:last-child { border-bottom: 0; }
 
-    .removal-reason-card,
-    .removal-method-grid article,
+    .removal-mini-card,
+    .removal-process-grid article,
     .removal-related-card {
       min-height: auto;
       padding: 26px;
     }
+
+    .removal-mini-card span,
+    .removal-process-grid span,
+    .removal-related-card span { margin-bottom: 32px; }
+
+    .removal-price-list div { display: block; }
+    .removal-price-list span { display: block; margin-top: 8px; text-align: left; }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .removal-hero-card,
-    .removal-hero-card::before {
-      animation: none;
-    }
-  }
-
-  /* V2 — ujednolicenie podstrony usuwania PMU ze standardem strony */
-  .removal-page {
-    background:
-      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.11), transparent 28rem),
-      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.10), transparent 26rem),
-      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%) !important;
-  }
-
-  .removal-hero-copy h1,
-  .removal-two-column h2,
-  .removal-section-heading h2,
-  .removal-safety-card h2,
-  .removal-final-card h2,
-  .removal-hero-card h2,
-  .removal-reason-card h3,
-  .removal-method-grid h3,
-  .removal-related-card h3,
-  .removal-faq-grid h3 {
-    color: var(--color-text) !important;
-    font-family: inherit !important;
-    font-weight: 760 !important;
-  }
-
-  .removal-hero-copy h1 {
-    max-width: 1080px !important;
-    font-size: clamp(3.05rem, 5.45vw, 6.35rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.074em !important;
-  }
-
-  .removal-two-column h2,
-  .removal-section-heading h2,
-  .removal-safety-card h2,
-  .removal-final-card h2 {
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.074em !important;
-  }
-
-  .removal-reason-card h3,
-  .removal-method-grid h3,
-  .removal-related-card h3,
-  .removal-faq-grid h3 {
-    line-height: 1.02 !important;
-    letter-spacing: -0.06em !important;
-  }
-
-  .section-kicker,
-  .removal-reason-card span,
-  .removal-method-grid span,
-  .removal-related-card span,
-  .removal-proof-grid span,
-  .removal-card-label {
-    color: var(--color-turquoise-dark) !important;
-    font-weight: 820 !important;
-    letter-spacing: 0.18em !important;
-  }
-
-  .removal-hero-lead,
-  .removal-text-card p,
-  .removal-section-heading p,
-  .removal-reason-card p,
-  .removal-method-grid p,
-  .removal-related-card p,
-  .removal-faq-grid p,
-  .removal-list-card span,
-  .removal-final-card p:not(.signature),
-  .removal-hero-card p:not(.removal-card-label) {
-    color: var(--color-muted) !important;
-    font-weight: 450 !important;
-  }
-
-  .removal-hero-card {
-    color: #ffffff !important;
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%) !important;
-    background-size: 100% 100%, 100% 100%, 240% 240% !important;
-    animation: removal-turquoise-flow 13s ease-in-out infinite alternate !important;
-    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22) !important;
-  }
-
-  .removal-hero-card h2 {
-    color: #ffffff !important;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
-  }
-
-  .removal-hero-card p:not(.removal-card-label) {
-    color: rgba(255, 255, 255, 0.88) !important;
-  }
-
-  .removal-card-label {
-    color: rgba(255, 255, 255, 0.18) !important;
-  }
-
-  .removal-hero-copy,
-  .removal-text-card,
-  .removal-safety-card,
-  .removal-list-card,
-  .removal-reason-card,
-  .removal-method-grid article,
-  .removal-related-card,
-  .removal-faq-grid article,
-  .removal-final-card {
-    border-color: rgba(183, 101, 118, 0.14) !important;
-  }
-
-  .removal-text-card,
-  .removal-safety-card,
-  .removal-list-card,
-  .removal-reason-card,
-  .removal-method-grid article,
-  .removal-related-card,
-  .removal-faq-grid article {
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
-  }
-
-  .removal-reason-card::before,
-  .removal-method-grid article::before,
-  .removal-related-card::before {
-    border-top-color: rgba(56, 187, 181, 0.34) !important;
-  }
-
-  .removal-reason-card-rose::before {
-    border-top-color: rgba(201, 127, 143, 0.34) !important;
-  }
-
-  .removal-reason-card::after,
-  .removal-method-grid article::after,
-  .removal-related-card::after {
-    background: rgba(219, 246, 243, 0.68) !important;
-  }
-
-  .removal-reason-card-rose::after {
-    background: rgba(246, 220, 227, 0.76) !important;
-  }
-
-  .removal-related-card-turquoise {
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.16), transparent 14rem),
-      linear-gradient(145deg, rgba(219, 246, 243, 0.86), rgba(255, 255, 255, 0.92)) !important;
-  }
-
-  .removal-proof-section {
-    background: rgba(255, 255, 255, 0.72) !important;
-    border-top-color: rgba(183, 101, 118, 0.10) !important;
-    border-bottom-color: rgba(183, 101, 118, 0.10) !important;
-  }
-
-  .removal-proof-grid strong,
-  .removal-list-card strong {
-    color: var(--color-text) !important;
-    font-weight: 780 !important;
-  }
-
-  .removal-safety-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 24rem),
-      radial-gradient(circle at 90% 72%, rgba(201, 127, 143, 0.08), transparent 24rem),
-      rgba(255, 255, 255, 0.62) !important;
-  }
-
-  .removal-list-card div {
-    border-bottom-color: rgba(56, 187, 181, 0.14) !important;
-  }
-
-  .removal-faq-grid article::before {
-    border-top-color: rgba(201, 127, 143, 0.24) !important;
-  }
-
-  .removal-final-card {
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
-      rgba(255, 255, 255, 0.7) !important;
-  }
-
-  @keyframes removal-turquoise-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .removal-hero {
-      padding: 112px 0 58px !important;
-    }
-
-    .removal-hero-copy h1 {
-      font-size: clamp(2.55rem, 11.6vw, 3.85rem) !important;
-      line-height: 1.04 !important;
-      letter-spacing: -0.068em !important;
-    }
-
-    .removal-two-column h2,
-    .removal-section-heading h2,
-    .removal-safety-card h2,
-    .removal-final-card h2 {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
-      line-height: 1.04 !important;
-      letter-spacing: -0.066em !important;
-    }
-
-    .removal-hero-card h2 {
-      font-size: clamp(1.85rem, 8.6vw, 2.5rem) !important;
-      line-height: 1.06 !important;
-      letter-spacing: -0.058em !important;
+  @media (max-width: 420px) {
+    .removal-hero-grid {
+      padding-left: 6px;
+      padding-right: 6px;
     }
 
     .removal-hero-copy,
-    .removal-hero-card,
-    .removal-text-card,
-    .removal-reason-card,
-    .removal-method-grid article,
-    .removal-safety-card,
-    .removal-list-card,
-    .removal-related-card,
-    .removal-faq-grid article,
-    .removal-final-card {
-      border-radius: 28px !important;
-    }
-
-    .removal-reason-card h3,
-    .removal-method-grid h3,
-    .removal-related-card h3,
-    .removal-faq-grid h3 {
-      font-size: clamp(1.45rem, 7.4vw, 2rem) !important;
-      line-height: 1.05 !important;
-      letter-spacing: -0.055em !important;
-    }
-
-    .removal-reason-card span,
-    .removal-method-grid span,
-    .removal-related-card span {
-      margin-bottom: 30px !important;
+    .removal-hero-card {
+      width: calc(100% - 10px);
+      max-width: calc(100% - 10px);
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
-
-  /* V3 — naprawa małych nagłówków sekcji: Najczęstsze powody / Oferta PMU / Najczęstsze pytania */
-  .removal-section-heading > .section-kicker,
-  .removal-two-column > div > .section-kicker,
-  .removal-safety-card > .section-kicker,
-  .removal-final-card > .section-kicker {
-    display: inline-flex !important;
-    width: fit-content !important;
-    min-height: 32px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 0 18px !important;
-    padding: 0 13px !important;
-    border-radius: 999px !important;
-    color: var(--color-turquoise-dark, #0f7773) !important;
-    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
-    background: rgba(219, 246, 243, 0.72) !important;
-    border: 1px solid rgba(56, 187, 181, 0.16) !important;
-    font-size: 0.7rem !important;
-    font-weight: 850 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.17em !important;
-    text-transform: uppercase !important;
+  @media (prefers-reduced-motion: reduce) {
+    .removal-hero-card::before { animation: none; }
+  }
+    /* Poprawka kadrowania zdjęcia Bogusławy Herda w sekcji kwalifikacji */
+  .removal-assessment-media img {
+    object-fit: contain !important;
+    object-position: center center !important;
+    padding: clamp(10px, 1.4vw, 18px) !important;
+    background:
+      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.08), transparent 18rem),
+      linear-gradient(145deg, #ffffff 0%, #fff8fa 100%) !important;
   }
 
-  .removal-section-heading h2,
-  .removal-two-column h2,
-  .removal-safety-card h2,
-  .removal-final-card h2 {
+  @media (max-width: 760px) {
+    .removal-assessment-media,
+    .removal-assessment-media img {
+      min-height: 520px !important;
+    }
+  }
+    /* Poprawka: napis PMU w głównym różowym kafelku ma być w lewym górnym rogu */
+  .removal-hero-card {
+    position: relative !important;
+  }
+
+  .removal-hero-card .removal-card-label,
+  .removal-hero-card .removal-hero-label,
+  .removal-hero-card .pmu-card-label {
+    position: absolute !important;
+    top: clamp(26px, 3vw, 46px) !important;
+    left: clamp(30px, 4vw, 58px) !important;
+    z-index: 1 !important;
     margin: 0 !important;
-    color: var(--color-text, #17151d) !important;
-    -webkit-text-fill-color: var(--color-text, #17151d) !important;
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
-    font-weight: 760 !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.074em !important;
-  }
-
-  .removal-section-heading > p:not(.section-kicker),
-  .removal-two-column p:not(.section-kicker),
-  .removal-safety-card p:not(.section-kicker),
-  .removal-final-card p:not(.section-kicker):not(.signature) {
-    color: var(--color-muted, #6e6670) !important;
-    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
-    font-weight: 450 !important;
-    line-height: 1.65 !important;
-  }
-
-  .removal-section-heading {
-    max-width: 980px !important;
-    margin-bottom: 38px !important;
-  }
-
-  @media (max-width: 760px) {
-    .removal-section-heading > .section-kicker,
-    .removal-two-column > div > .section-kicker,
-    .removal-safety-card > .section-kicker,
-    .removal-final-card > .section-kicker {
-      min-height: 30px !important;
-      margin-bottom: 16px !important;
-      padding: 0 11px !important;
-      font-size: 0.64rem !important;
-      letter-spacing: 0.13em !important;
-    }
-
-    .removal-section-heading h2,
-    .removal-two-column h2,
-    .removal-safety-card h2,
-    .removal-final-card h2 {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
-      line-height: 1.04 !important;
-      letter-spacing: -0.066em !important;
-    }
-  }
-
-
-  /* V4 — finalny standard małych turkusowych nagłówków */
-
-  .removal-page .section-kicker {
-    display: inline-flex !important;
-    width: fit-content !important;
-    max-width: 100% !important;
-    min-height: 32px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 0 18px !important;
-    padding: 0 13px !important;
-    border-radius: 999px !important;
-    color: var(--color-turquoise-dark, #0f7773) !important;
-    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
-    background: rgba(219, 246, 243, 0.72) !important;
-    border: 1px solid rgba(56, 187, 181, 0.16) !important;
-    font-size: 0.7rem !important;
+    color: rgba(255, 255, 255, 0.24) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.24) !important;
+    font-size: clamp(6.2rem, 9vw, 11.8rem) !important;
     font-weight: 850 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.17em !important;
-    text-transform: uppercase !important;
+    line-height: 0.78 !important;
+    letter-spacing: -0.085em !important;
+    text-transform: none !important;
+    pointer-events: none !important;
   }
 
-  .removal-page .removal-section-heading h2,
-  .removal-page .removal-two-column h2,
-  .removal-page .removal-safety-card h2,
-  .removal-page .removal-final-card h2,
-  .removal-page .removal-note-card h2,
-  .removal-page .removal-location-card h2,
-  .removal-page .removal-before-card h2,
-  .removal-page .removal-standard-card h2,
-  .removal-page .removal-remover-card h2,
-  .removal-page .removal-rules-card h2 {
-    color: var(--color-text, #17151d) !important;
-    font-family: inherit !important;
-    font-weight: 760 !important;
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.074em !important;
-  }
-
-  .removal-page .removal-section-heading > p:not(.section-kicker),
-  .removal-page .removal-two-column p:not(.section-kicker),
-  .removal-page .removal-safety-card p:not(.section-kicker),
-  .removal-page .removal-final-card p:not(.section-kicker):not(.signature),
-  .removal-page .removal-note-card p:not(.section-kicker),
-  .removal-page .removal-location-card p:not(.section-kicker),
-  .removal-page .removal-before-card p:not(.section-kicker),
-  .removal-page .removal-standard-card p:not(.section-kicker),
-  .removal-page .removal-remover-card p:not(.section-kicker),
-  .removal-page .removal-rules-card p:not(.section-kicker) {
-    color: var(--color-muted, #6e6670) !important;
-    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
-    font-weight: 450 !important;
-    line-height: 1.65 !important;
+  .removal-hero-card > *:not(.removal-card-label):not(.removal-hero-label):not(.pmu-card-label) {
+    position: relative !important;
+    z-index: 2 !important;
   }
 
   @media (max-width: 760px) {
-    .removal-page .section-kicker {
-      min-height: 30px !important;
-      margin-bottom: 16px !important;
-      padding: 0 11px !important;
-      font-size: 0.64rem !important;
-      letter-spacing: 0.13em !important;
-      line-height: 1 !important;
-    }
-
-    .removal-page .removal-section-heading h2,
-    .removal-page .removal-two-column h2,
-    .removal-page .removal-safety-card h2,
-    .removal-page .removal-final-card h2,
-    .removal-page .removal-note-card h2,
-    .removal-page .removal-location-card h2,
-    .removal-page .removal-before-card h2,
-    .removal-page .removal-standard-card h2,
-    .removal-page .removal-remover-card h2,
-    .removal-page .removal-rules-card h2 {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
-      line-height: 1.04 !important;
-      letter-spacing: -0.066em !important;
+    .removal-hero-card .removal-card-label,
+    .removal-hero-card .removal-hero-label,
+    .removal-hero-card .pmu-card-label {
+      top: 24px !important;
+      left: 24px !important;
+      font-size: clamp(4.7rem, 22vw, 7rem) !important;
     }
   }
-  /* Hero — turkusowy akcent w pierwszym nagłówku */
+    /* FINAL — usuwanie PMU: turkusowy kafel hero + turkusowe słowo rozjaśnić */
+  .removal-page .removal-hero-card {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.26) !important;
+    background:
+      radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.32), transparent 13rem),
+      radial-gradient(circle at 82% 84%, rgba(219, 246, 243, 0.28), transparent 18rem),
+      linear-gradient(145deg, #38bbb5 0%, #159a96 42%, #0f7773 72%, #0a5f5c 100%) !important;
+    box-shadow: 0 28px 76px rgba(56, 187, 181, 0.24) !important;
+  }
+
+  .removal-page .removal-hero-card::before {
+    background:
+      linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.06) 22%,
+        rgba(255, 255, 255, 0.24) 47%,
+        rgba(255, 255, 255, 0.06) 72%,
+        transparent 100%
+      ) !important;
+  }
+
+  .removal-page .removal-card-label {
+    position: absolute !important;
+    top: clamp(26px, 3vw, 46px) !important;
+    left: clamp(30px, 4vw, 58px) !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+    color: rgba(255, 255, 255, 0.24) !important;
+    font-size: clamp(6.2rem, 9vw, 11.8rem) !important;
+    font-weight: 850 !important;
+    line-height: 0.78 !important;
+    letter-spacing: -0.085em !important;
+    z-index: 1 !important;
+  }
+
+  .removal-page .removal-hero-card h2,
+  .removal-page .removal-hero-card p:not(.removal-card-label) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
 
   .pmu-hero-turquoise-text {
-    display: inline;
-    color: #0f7773;
+    display: inline !important;
+    color: #159a96 !important;
     background:
       linear-gradient(
         120deg,
-        #0d6a67 0%,
-        #0f7773 22%,
-        #1aa5a0 46%,
-        #74e0d7 68%,
-        #138a86 86%,
-        #0d6a67 100%
-      );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  @media (max-width: 760px) {
-    .pmu-hero-turquoise-text {
-      display: inline;
-    }
+        #0f7773 0%,
+        #159a96 30%,
+        #38bbb5 58%,
+        #0f7773 100%
+      ) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
   }
 </style>
