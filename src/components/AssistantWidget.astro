@@ -1,0 +1,518 @@
+---
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+const phoneHref = "tel:+48730900125";
+
+const starters = [
+  "Chcę dobrać zabieg",
+  "Brwi permanentne",
+  "Usta permanentne",
+  "Kreski permanentne",
+  "Mam stary makijaż permanentny",
+  "Cena i rezerwacja",
+  "Przeciwwskazania",
+  "Szkolenia PMU",
+];
+---
+
+<div class="pmu-assistant" data-pmu-assistant>
+  <button class="pmu-assistant__launcher" type="button" aria-expanded="false" aria-controls="pmu-assistant-panel">
+    <span class="pmu-assistant__launcher-icon">AI</span>
+    <span>
+      <strong>Zapytaj o PMU</strong>
+      <small>Asystent Bogusława Herda</small>
+    </span>
+  </button>
+
+  <section class="pmu-assistant__panel" id="pmu-assistant-panel" aria-hidden="true">
+    <header class="pmu-assistant__header">
+      <div>
+        <p>AI Asystent PMU</p>
+        <h2>Bogusława Herda</h2>
+      </div>
+      <button class="pmu-assistant__close" type="button" aria-label="Zamknij asystenta">×</button>
+    </header>
+
+    <div class="pmu-assistant__body">
+      <div class="pmu-assistant__message pmu-assistant__message--assistant">
+        <p>
+          Dzień dobry. Pomogę Pani dobrać kierunek zabiegu, znaleźć właściwą podstronę
+          albo przejść do rezerwacji przez Booksy.
+        </p>
+      </div>
+
+      <div class="pmu-assistant__starters" aria-label="Szybkie tematy">
+        {starters.map((starter) => (
+          <button type="button" data-starter={starter}>{starter}</button>
+        ))}
+      </div>
+
+      <div class="pmu-assistant__messages" data-messages></div>
+    </div>
+
+    <form class="pmu-assistant__form" data-form>
+      <label class="sr-only" for="pmu-assistant-input">Wpisz pytanie do asystenta PMU</label>
+      <textarea
+        id="pmu-assistant-input"
+        name="message"
+        rows="2"
+        maxlength="1200"
+        placeholder="Np. mam stare brwi permanentne — co wybrać?"
+        data-input
+      ></textarea>
+
+      <button type="submit">Wyślij</button>
+    </form>
+
+    <footer class="pmu-assistant__footer">
+      <a href={booksyUrl} target="_blank" rel="noopener noreferrer" data-track="assistant_booksy_click">
+        Booksy
+      </a>
+      <a href={phoneHref} data-track="assistant_phone_click">
+        Zadzwoń
+      </a>
+    </footer>
+  </section>
+</div>
+
+<style>
+  .pmu-assistant {
+    --pmu-turquoise: #23a9bb;
+    --pmu-turquoise-dark: #0c6f7d;
+    --pmu-pink: #d85e95;
+    --pmu-soft: #fff7fb;
+    --pmu-ink: #173137;
+    --pmu-muted: #668086;
+    --pmu-line: rgba(12, 111, 125, 0.18);
+    --pmu-shadow: 0 24px 70px rgba(16, 61, 72, 0.2);
+
+    position: fixed;
+    right: clamp(16px, 2vw, 28px);
+    bottom: clamp(16px, 2vw, 28px);
+    z-index: 10000;
+    font-family: inherit;
+  }
+
+  .pmu-assistant * {
+    box-sizing: border-box;
+  }
+
+  .pmu-assistant__launcher {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 999px;
+    padding: 10px 16px 10px 10px;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,247,251,0.94)),
+      radial-gradient(circle at 20% 0%, rgba(35,169,187,0.25), transparent 38%);
+    color: var(--pmu-ink);
+    box-shadow: 0 16px 44px rgba(14, 80, 92, 0.2);
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .pmu-assistant__launcher:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 52px rgba(14, 80, 92, 0.26);
+  }
+
+  .pmu-assistant__launcher-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--pmu-turquoise), var(--pmu-pink));
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .pmu-assistant__launcher strong,
+  .pmu-assistant__launcher small {
+    display: block;
+    line-height: 1.15;
+    text-align: left;
+  }
+
+  .pmu-assistant__launcher strong {
+    font-size: 0.92rem;
+  }
+
+  .pmu-assistant__launcher small {
+    margin-top: 2px;
+    color: var(--pmu-muted);
+    font-size: 0.72rem;
+  }
+
+  .pmu-assistant__panel {
+    position: absolute;
+    right: 0;
+    bottom: 72px;
+    display: none;
+    width: min(390px, calc(100vw - 32px));
+    max-height: min(720px, calc(100vh - 108px));
+    overflow: hidden;
+    border: 1px solid var(--pmu-line);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--pmu-shadow);
+  }
+
+  .pmu-assistant.is-open .pmu-assistant__panel {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+  }
+
+  .pmu-assistant.is-open .pmu-assistant__launcher {
+    display: none;
+  }
+
+  .pmu-assistant__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 18px 14px;
+    background:
+      radial-gradient(circle at 8% 0%, rgba(35, 169, 187, 0.23), transparent 42%),
+      linear-gradient(135deg, #ffffff, #fff5fa);
+    border-bottom: 1px solid var(--pmu-line);
+  }
+
+  .pmu-assistant__header p {
+    margin: 0 0 4px;
+    color: var(--pmu-turquoise-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .pmu-assistant__header h2 {
+    margin: 0;
+    color: var(--pmu-ink);
+    font-size: 1.08rem;
+    line-height: 1.15;
+  }
+
+  .pmu-assistant__close {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--pmu-line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--pmu-ink);
+    cursor: pointer;
+    font-size: 1.45rem;
+    line-height: 1;
+  }
+
+  .pmu-assistant__body {
+    overflow-y: auto;
+    padding: 16px;
+    background:
+      radial-gradient(circle at 100% 24%, rgba(35,169,187,0.08), transparent 32%),
+      #fff;
+  }
+
+  .pmu-assistant__message {
+    max-width: 92%;
+    margin: 0 0 12px;
+    padding: 12px 14px;
+    border-radius: 18px;
+    font-size: 0.92rem;
+    line-height: 1.48;
+  }
+
+  .pmu-assistant__message p {
+    margin: 0;
+  }
+
+  .pmu-assistant__message--assistant {
+    border-top-left-radius: 8px;
+    background: #f5fbfc;
+    color: var(--pmu-ink);
+    border: 1px solid rgba(35, 169, 187, 0.14);
+  }
+
+  .pmu-assistant__message--user {
+    margin-left: auto;
+    border-top-right-radius: 8px;
+    background: linear-gradient(135deg, var(--pmu-turquoise-dark), var(--pmu-turquoise));
+    color: #fff;
+  }
+
+  .pmu-assistant__message--loading {
+    color: var(--pmu-muted);
+    font-style: italic;
+  }
+
+  .pmu-assistant__starters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 16px;
+  }
+
+  .pmu-assistant__starters button {
+    border: 1px solid rgba(35, 169, 187, 0.24);
+    border-radius: 999px;
+    padding: 8px 11px;
+    background: #fff;
+    color: var(--pmu-turquoise-dark);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .pmu-assistant__starters button:hover {
+    background: #f3fbfc;
+  }
+
+  .pmu-assistant__form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 12px;
+    border-top: 1px solid var(--pmu-line);
+    background: #fff;
+  }
+
+  .pmu-assistant__form textarea {
+    width: 100%;
+    resize: none;
+    border: 1px solid var(--pmu-line);
+    border-radius: 18px;
+    padding: 11px 12px;
+    color: var(--pmu-ink);
+    font: inherit;
+    line-height: 1.35;
+    outline: none;
+  }
+
+  .pmu-assistant__form textarea:focus {
+    border-color: rgba(35, 169, 187, 0.7);
+    box-shadow: 0 0 0 4px rgba(35, 169, 187, 0.12);
+  }
+
+  .pmu-assistant__form button {
+    align-self: end;
+    min-height: 44px;
+    border: 0;
+    border-radius: 16px;
+    padding: 0 15px;
+    background: linear-gradient(135deg, var(--pmu-turquoise), var(--pmu-pink));
+    color: #fff;
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .pmu-assistant__form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+
+  .pmu-assistant__footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0 12px 12px;
+    background: #fff;
+  }
+
+  .pmu-assistant__footer a {
+    display: grid;
+    place-items: center;
+    min-height: 42px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 800;
+  }
+
+  .pmu-assistant__footer a:first-child {
+    background: var(--pmu-ink);
+    color: #fff;
+  }
+
+  .pmu-assistant__footer a:last-child {
+    border: 1px solid var(--pmu-line);
+    color: var(--pmu-turquoise-dark);
+    background: #f7fcfd;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .pmu-assistant {
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+    }
+
+    .pmu-assistant__launcher {
+      margin-left: auto;
+    }
+
+    .pmu-assistant__panel {
+      right: 0;
+      left: 0;
+      width: 100%;
+      bottom: 0;
+      max-height: min(680px, calc(100vh - 24px));
+      border-radius: 26px;
+    }
+
+    .pmu-assistant.is-open .pmu-assistant__panel {
+      display: grid;
+    }
+  }
+</style>
+
+<script>
+  const root = document.querySelector("[data-pmu-assistant]");
+  const launcher = root?.querySelector(".pmu-assistant__launcher");
+  const closeButton = root?.querySelector(".pmu-assistant__close");
+  const panel = root?.querySelector(".pmu-assistant__panel");
+  const form = root?.querySelector("[data-form]");
+  const input = root?.querySelector("[data-input]");
+  const messages = root?.querySelector("[data-messages]");
+  const starterButtons = root?.querySelectorAll("[data-starter]") ?? [];
+
+  const history = [];
+
+  function track(eventName, payload = {}) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...payload });
+
+    if (window.va?.track) {
+      window.va.track(eventName, payload);
+    }
+  }
+
+  function setOpen(isOpen) {
+    root?.classList.toggle("is-open", isOpen);
+    launcher?.setAttribute("aria-expanded", String(isOpen));
+    panel?.setAttribute("aria-hidden", String(!isOpen));
+
+    if (isOpen) {
+      track("assistant_open");
+      setTimeout(() => input?.focus(), 100);
+    }
+  }
+
+  function addMessage(role, text, extraClass = "") {
+    const item = document.createElement("div");
+    item.className = `pmu-assistant__message pmu-assistant__message--${role} ${extraClass}`.trim();
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent = text;
+
+    item.appendChild(paragraph);
+    messages?.appendChild(item);
+    item.scrollIntoView({ behavior: "smooth", block: "end" });
+
+    return item;
+  }
+
+  async function askAssistant(question) {
+    const cleanQuestion = question.trim();
+
+    if (!cleanQuestion) return;
+
+    addMessage("user", cleanQuestion);
+    history.push({ role: "user", content: cleanQuestion });
+    track("assistant_question_sent", { question_length: cleanQuestion.length });
+
+    const loading = addMessage("assistant", "Piszę odpowiedź…", "pmu-assistant__message--loading");
+
+    try {
+      const response = await fetch("/api/assistant", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: cleanQuestion,
+          history: history.slice(-6),
+        }),
+      });
+
+      const data = await response.json();
+
+      loading.remove();
+
+      if (!response.ok) {
+        const errorMessage =
+          data?.error ||
+          "Asystent chwilowo nie może odpowiedzieć. Proszę skorzystać z Booksy albo zadzwonić do gabinetu.";
+
+        addMessage("assistant", errorMessage);
+        track("assistant_error");
+        return;
+      }
+
+      const answer = data?.answer || "Nie udało mi się przygotować odpowiedzi.";
+      addMessage("assistant", answer);
+      history.push({ role: "assistant", content: answer });
+      track("assistant_answer_received");
+    } catch (error) {
+      loading.remove();
+      addMessage(
+        "assistant",
+        "Asystent chwilowo nie może odpowiedzieć. Proszę skorzystać z Booksy albo zadzwonić do gabinetu."
+      );
+      track("assistant_error");
+    }
+  }
+
+  launcher?.addEventListener("click", () => setOpen(true));
+  closeButton?.addEventListener("click", () => setOpen(false));
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const question = input?.value || "";
+    input.value = "";
+
+    const submitButton = form.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+
+    await askAssistant(question);
+
+    submitButton.disabled = false;
+    input?.focus();
+  });
+
+  input?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      form?.requestSubmit();
+    }
+  });
+
+  starterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const question = button.getAttribute("data-starter") || button.textContent || "";
+      askAssistant(question);
+    });
+  });
+
+  root?.querySelectorAll("[data-track]").forEach((element) => {
+    element.addEventListener("click", () => {
+      const eventName = element.getAttribute("data-track");
+      if (eventName) track(eventName);
+    });
+  });
+</script>

@@ -1,0 +1,42 @@
+{
+  "primary_cta": {
+    "booksy": "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala",
+    "phone": "+48 730 900 125",
+    "email": "bogusia@permanentnybielsko.com"
+  },
+  "routes": {
+    "brwi": "/makijaz-permanentny-brwi/",
+    "silky": "/makijaz-permanentny-brwi/",
+    "usta": "/makijaz-permanentny-ust/",
+    "kreski": "/makijaz-permanentny-oczu/",
+    "oczy": "/makijaz-permanentny-oczu/",
+    "usuwanie": "/usuwanie-makijazu-permanentnego/",
+    "korekta_starego_pmu": "/usuwanie-makijazu-permanentnego/",
+    "cennik": "/cennik-makijaz-permanentny/",
+    "galeria": "/galeria/",
+    "kontakt": "/kontakt/",
+    "szkolenia": "/szkolenia/",
+    "sercem_malowane": "/sercemmalowane/",
+    "kosmetologia": "https://kosmetologiabielsko.com"
+  },
+  "tracking_events": [
+    "assistant_open",
+    "assistant_question_sent",
+    "assistant_answer_received",
+    "assistant_booksy_click",
+    "assistant_phone_click",
+    "assistant_service_link_click",
+    "assistant_medical_safety_case",
+    "assistant_unknown_case"
+  ],
+  "quick_starters": [
+    "Chcę dobrać zabieg",
+    "Brwi permanentne",
+    "Usta permanentne",
+    "Kreski permanentne",
+    "Mam stary makijaż permanentny",
+    "Cena i rezerwacja",
+    "Przeciwwskazania",
+    "Szkolenia PMU"
+  ]
+}

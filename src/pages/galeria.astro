@@ -233,41 +233,43 @@ const lipGalleryImages = [
 
 const eyeGalleryImages = [
   {
-    src: "/images/kreski-permanentne-dla-kogo-glowne-zdjecie.webp",
-    alt: "Kreski permanentne — zdjęcie główne",
+    src: "/images/makijaz-permanentny-oczu-kreska-klasyczna-brazowe-oko-01.webp",
+    alt: "Makijaż permanentny oczu Bielsko-Biała — kreska klasyczna, brązowe oko",
   },
   {
-    src: "/images/kreski-permanentne-sekcja-kolorowa-zdjecie.webp",
-    alt: "Kreski permanentne — sekcja kolorowa",
+    src: "/images/makijaz-permanentny-oczu-kreska-dekoracyjna-niebieskie-oko-02.webp",
+    alt: "Makijaż permanentny oczu Bielsko-Biała — kreska dekoracyjna, niebieskie oko",
   },
   {
-    src: "/images/kreski-permanentne-zakres-kolaz.webp",
-    alt: "Kreski permanentne — zakres efektów",
+    src: "/images/makijaz-permanentny-oczu-zageszczenie-linii-rzes-zamkniete-oko-03.webp",
+    alt: "Makijaż permanentny oczu Bielsko-Biała — zagęszczenie linii rzęs, zamknięte oko",
+  },
+  {
+    src: "/images/makijaz-permanentny-oczu-kreska-z-boku-niebiesko-zielone-oko-04.webp",
+    alt: "Makijaż permanentny oczu Bielsko-Biała — kreska z boku, niebiesko-zielone oko",
+  },
+  {
+    src: "/images/makijaz-permanentny-oczu-przydymiona-kreska-zielone-oko-05.webp",
+    alt: "Makijaż permanentny oczu Bielsko-Biała — przydymiona kreska, zielone oko",
+  },
+  {
+    src: "/images/makijaz-permanentny-oczu-kreska-w-trakcie-zabiegu-06.webp",
+    alt: "Makijaż permanentny oczu Bielsko-Biała — kreska permanentna w trakcie zabiegu",
+  },
+  {
+    src: "/images/makijaz-permanentny-oczu-efekt-softliner-zielone-oko-07.webp",
+    alt: "Makijaż permanentny oczu Bielsko-Biała — efekt softliner, zielone oko",
+  },
+  {
+    src: "/images/makijaz-permanentny-oczu-kolaz-dwie-kreski-zielone-oczy-08.webp",
+    alt: "Makijaż permanentny oczu Bielsko-Biała — kolaż dwóch kresek, zielone oczy",
     wide: true,
   },
   {
-    src: "/images/kreski-permanentne-zdjecie-koncowe-boguslawa-herda.webp",
-    alt: "Kreski permanentne — Bogusława Herda",
-  },
-  {
-    src: "/images/makijaz-permanentny-oczu-metody-kolaz.webp",
-    alt: "Makijaż permanentny oczu — kolaż metod",
+    src: "/images/makijaz-permanentny-oczu-kolaz-dwie-kreski-brazowe-oczy-09.webp",
+    alt: "Makijaż permanentny oczu Bielsko-Biała — kolaż dwóch kresek, brązowe oczy",
     wide: true,
   },
-  {
-    src: "/images/makijaz-permanentny-oczu-proces-boguslawa-herda.webp",
-    alt: "Makijaż permanentny oczu — proces zabiegu",
-  },
-  ...makeNumberedGallery(
-    "kreski-permanentne-efekt-",
-    10,
-    "Kreski permanentne — efekt"
-  ),
-  ...makeNumberedGallery(
-    "makijaz-permanentny-oczu-bielsko-biala-efekt-",
-    12,
-    "Makijaż permanentny oczu Bielsko-Biała — efekt"
-  ),
 ];
 
 const trainingGalleryImages = [
@@ -396,12 +398,12 @@ const gallerySliderSections = [
   items: lipGalleryImages,
   },
   {
-    id: "galeria-kreski",
-    trackId: "gallery-track-kreski",
-    kicker: "Kreski permanentne",
-    title: "Kreski i zagęszczenie linii rzęs w różnych wariantach.",
-    text: "Zebrane efekty oczu, kresek, zbliżeń i kolaży pokazujących kierunki pracy przy makijażu permanentnym oczu.",
-    items: eyeGalleryImages,
+  id: "galeria-kreski",
+  trackId: "gallery-track-kreski",
+  kicker: "Kreski permanentne",
+  title: "Kreski, softliner i zagęszczenie linii rzęs.",
+  text: "Sekcja pokazuje makijaż permanentny oczu w różnych wariantach — od subtelnego zagęszczenia linii rzęs, przez klasyczną kreskę, po mocniejszy efekt dekoracyjny i softliner. To galeria zbliżeń, detali i efektów dopasowanych do kształtu oka.",
+  items: eyeGalleryImages,
   },
   {
     id: "galeria-szkolenia",
@@ -652,7 +654,7 @@ const structuredData = [
                 class="gallery-live-arrow"
                 type="button"
                 aria-label="Przewiń w lewo"
-                onclick={`document.getElementById('${section.trackId}')?.scrollBy({ left: -430, behavior: 'smooth' })`}
+                onclick={`document.getElementById('${section.trackId}')?.parentElement?.scrollBy({ left: -430, behavior: 'smooth' })`}
               >
                 ←
               </button>
@@ -661,7 +663,7 @@ const structuredData = [
                 class="gallery-live-arrow"
                 type="button"
                 aria-label="Przewiń w prawo"
-                onclick={`document.getElementById('${section.trackId}')?.scrollBy({ left: 430, behavior: 'smooth' })`}
+                onclick={`document.getElementById('${section.trackId}')?.parentElement?.scrollBy({ left: 430, behavior: 'smooth' })`}
               >
                 →
               </button>
@@ -709,7 +711,7 @@ const structuredData = [
               class="gallery-live-arrow"
               type="button"
               aria-label="Przewiń filmy w lewo"
-              onclick="document.getElementById('gallery-track-wideo')?.scrollBy({ left: -430, behavior: 'smooth' })"
+              onclick="document.getElementById('gallery-track-wideo')?.parentElement?.scrollBy({ left: -430, behavior: 'smooth' })"
             >
               ←
             </button>
@@ -718,7 +720,7 @@ const structuredData = [
               class="gallery-live-arrow"
               type="button"
               aria-label="Przewiń filmy w prawo"
-              onclick="document.getElementById('gallery-track-wideo')?.scrollBy({ left: 430, behavior: 'smooth' })"
+              onclick="document.getElementById('gallery-track-wideo')?.parentElement?.scrollBy({ left: 430, behavior: 'smooth' })"
             >
               →
             </button>
