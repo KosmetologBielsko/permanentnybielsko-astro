@@ -91,7 +91,274 @@ const relatedPages = [
     href: "/cennik-makijaz-permanentny/"
   }
 ];
+const makeNumberedGallery = (prefix, count, altBase) =>
+  Array.from({ length: count }, (_, index) => {
+    const number = String(index + 1).padStart(2, "0");
 
+    return {
+      src: `/images/${prefix}${number}.webp`,
+      alt: `${altBase} ${number}`,
+    };
+  });
+
+const browGalleryImages = [
+  {
+    src: "/images/brwi-permanentne-konsultacja.webp",
+    alt: "Brwi permanentne Bielsko-Biała — konsultacja przed zabiegiem",
+  },
+  {
+    src: "/images/brwi-permanentne-rysunek-wstepny.webp",
+    alt: "Brwi permanentne Bielsko-Biała — rysunek wstępny",
+  },
+  {
+    src: "/images/brwi-permanentne-pigmentacja.webp",
+    alt: "Brwi permanentne Bielsko-Biała — pigmentacja brwi",
+  },
+  {
+    src: "/images/brwi-permanentne-naturalny-wlos-zblizenie.webp",
+    alt: "Brwi permanentne Bielsko-Biała — naturalny włos w zbliżeniu",
+  },
+  {
+    src: "/images/silky-hairstroke-brows-efekt-01.webp",
+    alt: "Silky Hairstroke Brows — efekt brwi permanentnych 01",
+  },
+  {
+    src: "/images/silky-hairstroke-brows-efekt-02.webp",
+    alt: "Silky Hairstroke Brows — efekt brwi permanentnych 02",
+  },
+  {
+    src: "/images/silky-hairstroke-brows-efekt-03.webp",
+    alt: "Silky Hairstroke Brows — efekt brwi permanentnych 03",
+  },
+  {
+    src: "/images/silky-hairstroke-brows-efekt-04.webp",
+    alt: "Silky Hairstroke Brows — efekt brwi permanentnych 04",
+  },
+  {
+    src: "/images/silky-hairstroke-brows-detal-01.webp",
+    alt: "Silky Hairstroke Brows — detal włosa maszynowego 01",
+  },
+  {
+    src: "/images/silky-hairstroke-brows-detal-02.webp",
+    alt: "Silky Hairstroke Brows — detal włosa maszynowego 02",
+  },
+  {
+    src: "/images/silky-hairstroke-brows-boguslawa-herda.webp",
+    alt: "Silky Hairstroke Brows — Bogusława Herda",
+  },
+  {
+    src: "/images/metody-brwi-permanentnych-kolaz-poziomy.webp",
+    alt: "Metody brwi permanentnych — kolaż poziomy",
+    wide: true,
+  },
+  {
+    src: "/images/metody-brwi-permanentnych-kolaz-pionowy.webp",
+    alt: "Metody brwi permanentnych — kolaż pionowy",
+  },
+];
+
+const lipsGalleryImages = [
+  {
+    src: "/images/makijaz-permanentny-ust-naturalny-kolor.webp",
+    alt: "Makijaż permanentny ust — naturalny kolor",
+  },
+  {
+    src: "/images/makijaz-permanentny-ust-metody-kolaz.webp",
+    alt: "Makijaż permanentny ust — kolaż metod pigmentacji",
+    wide: true,
+  },
+  {
+    src: "/images/makijaz-permanentny-ust-boguslawa-herda.webp",
+    alt: "Makijaż permanentny ust — Bogusława Herda",
+  },
+  ...makeNumberedGallery(
+    "makijaz-permanentny-ust-bielsko-biala-efekt-",
+    18,
+    "Makijaż permanentny ust Bielsko-Biała — efekt pigmentacji"
+  ),
+];
+
+const eyeGalleryImages = [
+  {
+    src: "/images/kreski-permanentne-dla-kogo-glowne-zdjecie.webp",
+    alt: "Kreski permanentne — zdjęcie główne",
+  },
+  {
+    src: "/images/kreski-permanentne-sekcja-kolorowa-zdjecie.webp",
+    alt: "Kreski permanentne — sekcja kolorowa",
+  },
+  {
+    src: "/images/kreski-permanentne-zakres-kolaz.webp",
+    alt: "Kreski permanentne — zakres efektów",
+    wide: true,
+  },
+  {
+    src: "/images/kreski-permanentne-zdjecie-koncowe-boguslawa-herda.webp",
+    alt: "Kreski permanentne — Bogusława Herda",
+  },
+  {
+    src: "/images/makijaz-permanentny-oczu-metody-kolaz.webp",
+    alt: "Makijaż permanentny oczu — kolaż metod",
+    wide: true,
+  },
+  {
+    src: "/images/makijaz-permanentny-oczu-proces-boguslawa-herda.webp",
+    alt: "Makijaż permanentny oczu — proces zabiegu",
+  },
+  ...makeNumberedGallery(
+    "kreski-permanentne-efekt-",
+    10,
+    "Kreski permanentne — efekt"
+  ),
+  ...makeNumberedGallery(
+    "makijaz-permanentny-oczu-bielsko-biala-efekt-",
+    12,
+    "Makijaż permanentny oczu Bielsko-Biała — efekt"
+  ),
+];
+
+const trainingGalleryImages = [
+  {
+    src: "/images/szkolenia-pmu-hero-boguslawa-herda-elite-top-linergist.webp",
+    alt: "Szkolenia PMU — Bogusława Herda Elite Top Linergist",
+  },
+  {
+    src: "/images/szkolenia-pmu-boguslawa-herda-elite-top-linergist-studio.webp",
+    alt: "Szkolenia PMU — Bogusława Herda w studio",
+  },
+  {
+    src: "/images/szkolenia-pmu-dla-kogo-efekt-natural.webp",
+    alt: "Szkolenia PMU — naturalny efekt",
+  },
+  {
+    src: "/images/szkolenia-pmu-long-time-liner-boguslawa-herda.webp",
+    alt: "Szkolenia PMU — Long-Time-Liner i Bogusława Herda",
+  },
+  {
+    src: "/images/szkolenia-pmu-masterclass-certyfikat.webp",
+    alt: "Szkolenia PMU — Masterclass i certyfikat",
+  },
+  {
+    src: "/images/szkolenia-pmu-praktyka-zabieg-pion.webp",
+    alt: "Szkolenia PMU — praktyka zabiegowa pion",
+  },
+  {
+    src: "/images/szkolenia-pmu-praktyka-zabieg-poziom.webp",
+    alt: "Szkolenia PMU — praktyka zabiegowa poziom",
+    wide: true,
+  },
+  {
+    src: "/images/long-time-liner-zespol-boguslawa-herda.webp",
+    alt: "Long-Time-Liner — zespół i Bogusława Herda",
+    wide: true,
+  },
+  {
+    src: "/images/long-time-liner-boguslawa-herda-trener-regionalny.webp",
+    alt: "Long-Time-Liner — Bogusława Herda trener regionalny",
+  },
+  {
+    src: "/images/long-time-liner-elite-top-linergist-button.webp",
+    alt: "Long-Time-Liner — Elite Top Linergist",
+  },
+];
+
+const videoGalleryItems = [
+  {
+    src: "/video/brwi-permanentne-silky-zblizenie-bez-dzwieku.mp4",
+    poster: "/video/brwi-permanentne-silky-zblizenie-poster.webp",
+    title: "Brwi permanentne — zbliżenie techniki Silky",
+  },
+  {
+    src: "/video/makijaz-permanentny-ust-efekt-01.mp4",
+    poster: "/video/makijaz-permanentny-ust-efekt-01-poster.webp",
+    title: "Makijaż permanentny ust — efekt 01",
+  },
+  {
+    src: "/video/makijaz-permanentny-ust-efekt-02.mp4",
+    poster: "/video/makijaz-permanentny-ust-efekt-02-poster.webp",
+    title: "Makijaż permanentny ust — efekt 02",
+  },
+  {
+    src: "/video/makijaz-permanentny-oczu-efekt-01.mp4",
+    poster: "/video/makijaz-permanentny-oczu-efekt-01-poster.webp",
+    title: "Makijaż permanentny oczu — efekt kreski",
+  },
+  {
+    src: "/video/metamorfozy-pmu-boguslawa-herda.mp4",
+    poster: "/video/metamorfozy-pmu-boguslawa-herda-poster.webp",
+    title: "Metamorfozy PMU Bogusława Herda",
+  },
+  {
+    src: "/video/proces-makijazu-permanentnego-boguslawa-herda.mp4",
+    poster: "/video/proces-makijazu-permanentnego-boguslawa-herda-poster.webp",
+    title: "Proces makijażu permanentnego",
+  },
+  {
+    src: "/video/metoda-pracy-makijaz-permanentny-home.mp4",
+    poster: "/video/metoda-pracy-makijaz-permanentny-home-poster.webp",
+    title: "Metoda pracy w makijażu permanentnym",
+  },
+  {
+    src: "/video/szkolenia-pmu-boguslawa-herda-trener-long-time-liner.mp4",
+    poster: "/video/szkolenia-pmu-boguslawa-herda-trener-long-time-liner-poster.webp",
+    title: "Szkolenia PMU — trener Long-Time-Liner",
+  },
+  {
+    src: "/video/szkolenia-pmu-autorska-metoda-natural.mp4",
+    poster: "/video/szkolenia-pmu-autorska-metoda-natural-poster.webp",
+    title: "Szkolenia PMU — autorska metoda natural",
+  },
+  {
+    src: "/video/szkolenia-pmu-autorska-metoda-soft-glam.mp4",
+    poster: "/video/szkolenia-pmu-autorska-metoda-soft-glam-poster.webp",
+    title: "Szkolenia PMU — autorska metoda soft glam",
+  },
+  {
+    src: "/video/szkolenia-pmu-silky-technika-01.mp4",
+    poster: "/video/brwi-permanentne-efekt-naturalny-poster.webp",
+    title: "Szkolenia PMU — technika Silky 01",
+  },
+  {
+    src: "/video/szkolenia-pmu-silky-technika-02.mp4",
+    poster: "/video/brwi-permanentne-efekt-soft-glam-poster.webp",
+    title: "Szkolenia PMU — technika Silky 02",
+  },
+];
+
+const gallerySliderSections = [
+  {
+    id: "galeria-brwi",
+    trackId: "gallery-track-brwi",
+    kicker: "Brwi permanentne",
+    title: "Brwi, włos maszynowy i detale naturalnej pigmentacji.",
+    text: "Sekcja łączy zdjęcia konsultacji, rysunku, pigmentacji, detale Silky Hairstroke Brows oraz kolaże metod brwi permanentnych.",
+    items: browGalleryImages,
+  },
+  {
+    id: "galeria-usta",
+    trackId: "gallery-track-usta",
+    kicker: "Usta permanentne",
+    title: "Usta permanentne — kolory, odcienie i naturalne odświeżenie.",
+    text: "Różne typy ust, różne odcienie i różny poziom nasycenia. Zdjęcia są inspiracją, a finalny kolor zawsze dobierany jest indywidualnie.",
+    items: lipsGalleryImages,
+  },
+  {
+    id: "galeria-kreski",
+    trackId: "gallery-track-kreski",
+    kicker: "Kreski permanentne",
+    title: "Kreski i zagęszczenie linii rzęs w różnych wariantach.",
+    text: "Zebrane efekty oczu, kresek, zbliżeń i kolaży pokazujących kierunki pracy przy makijażu permanentnym oczu.",
+    items: eyeGalleryImages,
+  },
+  {
+    id: "galeria-szkolenia",
+    trackId: "gallery-track-szkolenia",
+    kicker: "Szkolenia PMU",
+    title: "Szkolenia, praktyka i standard Long-Time-Liner®.",
+    text: "Materiały pokazujące zaplecze szkoleniowe, certyfikację, praktykę zabiegową i drogę edukacyjną Bogusława Herda.",
+    items: trainingGalleryImages,
+  },
+];
 const pageUrl = "https://permanentnybielsko.com/galeria/";
 const pageTitle = "Galeria makijażu permanentnego Bielsko-Biała | Bogusława Herda";
 const pageDescription =
@@ -308,25 +575,123 @@ const structuredData = [
           </div>
         </div>
       </section>
-
-      <section class="gallery-coming-section">
-        <div class="container gallery-coming-card">
-          <span class="gallery-big-mark gallery-big-mark-natural" aria-hidden="true">NATURAL</span>
-
-          <div>
-            <p class="section-kicker">Metamorfozy</p>
-            <h2>Zdjęcia dodamy wtedy, gdy wybierzemy najlepszy materiał.</h2>
-          </div>
-
-          <p>
-            Na stronie nie będziemy publikować przypadkowych zdjęć tylko po to, aby zapełnić galerię.
-            Najlepszy efekt da spokojna selekcja: dobre światło, dobre kadry, zgody klientek
-            i prace pokazujące rzeczywisty styl gabinetu.
-          </p>
+      <section class="gallery-live-nav-section">
+        <div class="container gallery-live-nav">
+          <a href="#galeria-brwi">Brwi</a>
+          <a href="#galeria-usta">Usta</a>
+          <a href="#galeria-kreski">Kreski</a>
+          <a href="#galeria-szkolenia">Szkolenia</a>
+          <a href="#galeria-wideo">Wideo</a>
         </div>
       </section>
 
+      {gallerySliderSections.map((section) => (
+        <section class="gallery-live-section" id={section.id}>
+          <div class="container gallery-live-heading-row">
+            <div class="gallery-live-heading">
+              <p class="section-kicker">{section.kicker}</p>
+              <h2>{section.title}</h2>
+              <p>{section.text}</p>
+            </div>
 
+            <div class="gallery-live-controls" aria-label={`Przewijanie: ${section.kicker}`}>
+              <button
+                class="gallery-live-arrow"
+                type="button"
+                aria-label="Przewiń w lewo"
+                onclick={`document.getElementById('${section.trackId}')?.scrollBy({ left: -430, behavior: 'smooth' })`}
+              >
+                ←
+              </button>
+
+              <button
+                class="gallery-live-arrow"
+                type="button"
+                aria-label="Przewiń w prawo"
+                onclick={`document.getElementById('${section.trackId}')?.scrollBy({ left: 430, behavior: 'smooth' })`}
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-live-viewport" aria-label={section.title}>
+            <div class="gallery-live-track" id={section.trackId}>
+              {section.items.map((image) => (
+                <figure
+                  class:list={[
+                    "gallery-live-card",
+                    "gallery-media-frame-live",
+                    { "gallery-live-card-wide": image.wide },
+                  ]}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    width={image.wide ? "1400" : "900"}
+                    height={image.wide ? "900" : "1200"}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
+
+      <section class="gallery-live-section gallery-live-video-section" id="galeria-wideo">
+        <div class="container gallery-live-heading-row">
+          <div class="gallery-live-heading">
+            <p class="section-kicker">Wideo PMU</p>
+            <h2>Filmy z efektami, procesem pracy i szkoleniami PMU.</h2>
+            <p>
+              Materiały wideo pokazują ruch, detale pracy, efekty pigmentacji oraz szkoleniowy standard pracy.
+              Na telefonie przewijasz palcem, a na komputerze możesz używać strzałek.
+            </p>
+          </div>
+
+          <div class="gallery-live-controls" aria-label="Przewijanie filmów PMU">
+            <button
+              class="gallery-live-arrow"
+              type="button"
+              aria-label="Przewiń filmy w lewo"
+              onclick="document.getElementById('gallery-track-wideo')?.scrollBy({ left: -430, behavior: 'smooth' })"
+            >
+              ←
+            </button>
+
+            <button
+              class="gallery-live-arrow"
+              type="button"
+              aria-label="Przewiń filmy w prawo"
+              onclick="document.getElementById('gallery-track-wideo')?.scrollBy({ left: 430, behavior: 'smooth' })"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <div class="gallery-live-viewport" aria-label="Galeria wideo PMU">
+          <div class="gallery-live-track gallery-live-video-track" id="gallery-track-wideo">
+            {videoGalleryItems.map((item) => (
+              <figure class="gallery-live-card gallery-live-video-card gallery-media-frame-live">
+                <video
+                  controls
+                  playsinline
+                  preload="metadata"
+                  poster={item.poster}
+                  aria-label={item.title}
+                >
+                  <source src={item.src} type="video/mp4" />
+                </video>
+
+                <figcaption>{item.title}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
       <section class="gallery-face-section">
         <div class="container">
           <div class="gallery-section-heading">
@@ -1425,4 +1790,311 @@ const structuredData = [
       display: inline;
     }
   }
+  /* =========================================================
+   FINAL — aktywna galeria PMU: slidery zdjęć i filmów
+========================================================= */
+
+.gallery-live-nav-section {
+  padding: 34px 0 12px !important;
+  background: rgba(255, 255, 255, 0.42) !important;
+}
+
+.gallery-live-nav {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+}
+
+.gallery-live-nav a {
+  display: inline-flex !important;
+  min-height: 42px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 16px !important;
+  border: 1px solid rgba(56, 187, 181, 0.18) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: var(--color-turquoise-dark, #0f7773) !important;
+  font-size: 0.78rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.13em !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 14px 34px rgba(89, 53, 67, 0.06) !important;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease !important;
+}
+
+.gallery-live-nav a:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(56, 187, 181, 0.42) !important;
+  background: #159a96 !important;
+  color: #ffffff !important;
+}
+
+.gallery-live-section {
+  padding: 76px 0 82px !important;
+  overflow: hidden !important;
+}
+
+.gallery-live-section:nth-of-type(even) {
+  background:
+    radial-gradient(circle at 88% 14%, rgba(56, 187, 181, 0.08), transparent 24rem),
+    rgba(255, 255, 255, 0.42) !important;
+}
+
+.gallery-live-heading-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  gap: 24px !important;
+  align-items: end !important;
+  margin-bottom: 26px !important;
+}
+
+.gallery-live-heading {
+  max-width: 980px !important;
+}
+
+.gallery-live-heading h2 {
+  max-width: 980px !important;
+  margin: 0 !important;
+  color: var(--color-text, #17151d) !important;
+  font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
+  font-weight: 760 !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.074em !important;
+}
+
+.gallery-live-heading p:not(.section-kicker) {
+  max-width: 880px !important;
+  margin: 18px 0 0 !important;
+  color: var(--color-muted, #6e6670) !important;
+  font-size: 1.05rem !important;
+  line-height: 1.68 !important;
+}
+
+.gallery-live-controls {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin-bottom: 8px !important;
+}
+
+.gallery-live-arrow {
+  display: inline-flex !important;
+  width: 64px !important;
+  height: 64px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(56, 187, 181, 0.28) !important;
+  border-radius: 999px !important;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.76)) !important;
+  color: #0f7773 !important;
+  font-size: 1.45rem !important;
+  font-weight: 760 !important;
+  line-height: 1 !important;
+  box-shadow:
+    0 18px 46px rgba(89, 53, 67, 0.10),
+    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+  cursor: pointer !important;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease !important;
+}
+
+.gallery-live-arrow:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(56, 187, 181, 0.46) !important;
+  background: #159a96 !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 22px 52px rgba(56, 187, 181, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.58) inset !important;
+}
+
+.gallery-live-viewport {
+  width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 8px max(18px, calc((100vw - 1440px) / 2)) 28px !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth !important;
+}
+
+.gallery-live-viewport::-webkit-scrollbar {
+  height: 10px !important;
+}
+
+.gallery-live-viewport::-webkit-scrollbar-thumb {
+  border-radius: 999px !important;
+  background: rgba(21, 154, 150, 0.28) !important;
+}
+
+.gallery-live-track {
+  display: grid !important;
+  width: max-content !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: minmax(250px, 330px) !important;
+  gap: 16px !important;
+}
+
+.gallery-live-video-track {
+  grid-auto-columns: minmax(280px, 390px) !important;
+}
+
+.gallery-media-frame-live {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 8px !important;
+  border: 1px solid rgba(183, 101, 118, 0.16) !important;
+  border-radius: 32px !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow:
+    0 18px 54px rgba(89, 53, 67, 0.075),
+    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+}
+
+.gallery-media-frame-live::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.54) !important;
+  border-radius: 24px !important;
+  pointer-events: none !important;
+}
+
+.gallery-live-card {
+  margin: 0 !important;
+  aspect-ratio: 4 / 5 !important;
+  scroll-snap-align: start !important;
+}
+
+.gallery-live-card-wide {
+  aspect-ratio: 16 / 10 !important;
+  width: min(520px, 80vw) !important;
+}
+
+.gallery-live-card img,
+.gallery-live-card video {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 24px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  background: #f5f5f5 !important;
+}
+
+.gallery-live-video-card {
+  aspect-ratio: auto !important;
+  min-height: 500px !important;
+}
+
+.gallery-live-video-card video {
+  height: 430px !important;
+}
+
+.gallery-live-video-card figcaption {
+  position: relative !important;
+  z-index: 2 !important;
+  padding: 14px 8px 4px !important;
+  color: var(--color-text, #17151d) !important;
+  font-size: 0.95rem !important;
+  font-weight: 720 !important;
+  line-height: 1.45 !important;
+}
+
+@media (max-width: 760px) {
+  .gallery-live-nav-section {
+    padding: 24px 0 6px !important;
+  }
+
+  .gallery-live-nav {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding-bottom: 10px !important;
+    scroll-snap-type: x mandatory !important;
+  }
+
+  .gallery-live-nav a {
+    flex: 0 0 auto !important;
+    scroll-snap-align: start !important;
+  }
+
+  .gallery-live-section {
+    padding: 58px 0 62px !important;
+  }
+
+  .gallery-live-heading-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .gallery-live-heading h2 {
+    font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.066em !important;
+  }
+
+  .gallery-live-heading p:not(.section-kicker) {
+    font-size: 1rem !important;
+    line-height: 1.66 !important;
+  }
+
+  .gallery-live-controls {
+    justify-content: flex-end !important;
+    margin-bottom: 8px !important;
+    padding-right: 4px !important;
+  }
+
+  .gallery-live-arrow {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 1.2rem !important;
+  }
+
+  .gallery-live-track {
+    grid-auto-columns: minmax(218px, 74vw) !important;
+  }
+
+  .gallery-live-card-wide {
+    width: min(82vw, 380px) !important;
+  }
+
+  .gallery-live-video-track {
+    grid-auto-columns: minmax(260px, 82vw) !important;
+  }
+
+  .gallery-live-video-card {
+    min-height: 410px !important;
+  }
+
+  .gallery-live-video-card video {
+    height: 350px !important;
+  }
+
+  .gallery-media-frame-live {
+    padding: 7px !important;
+    border-radius: 28px !important;
+  }
+
+  .gallery-media-frame-live::after {
+    inset: 7px !important;
+    border-radius: 20px !important;
+  }
+
+  .gallery-live-card img,
+  .gallery-live-card video {
+    border-radius: 20px !important;
+  }
+}
 </style>

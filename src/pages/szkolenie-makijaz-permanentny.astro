@@ -1156,25 +1156,50 @@ const relatedPages = [
         </div>
       </section>
 
-      <section class="training-gallery-section">
+            <section class="training-bottom-gallery-section">
         <div class="container">
           <div class="training-section-heading">
             <p class="section-kicker">Szkolenia w praktyce</p>
-            <h2>Zdjęcia, które pokazują charakter pracy szkoleniowej.</h2>
+            <h2>Trzy zdjęcia, które pokazują szkolenie, praktykę i certyfikację.</h2>
             <p>
-              Materiały wizualne wzmacniają przekaz: edukacja PMU to praktyka, precyzja, certyfikacja i osobisty standard
-              pracy Bogusława Herda.
+              Zostawiamy tylko wybrane materiały: zdjęcie z certyfikatem Masterclass oraz dwa ujęcia praktycznej pracy przy zabiegu.
+              Układ jest lekki, stabilny na telefonie i bez rozjeżdżania na większych ekranach.
             </p>
           </div>
-        </div>
 
-        <div class="training-gallery-viewport" aria-label="Galeria szkoleniowa PMU">
-          <div class="training-gallery-track">
-            {galleryImages.map((image) => (
-              <figure class="training-gallery-card">
-                <img src={image.src} alt={image.alt} width="900" height="1200" loading="lazy" decoding="async" />
-              </figure>
-            ))}
+          <div class="training-bottom-gallery-grid" aria-label="Zdjęcia ze szkoleń makijażu permanentnego">
+            <figure class="training-bottom-gallery-card">
+              <img
+                src="/images/szkolenia-pmu-masterclass-certyfikat.webp"
+                alt="Bogusława Herda po szkoleniu PMU Masterclass z kursantką i certyfikatem"
+                width="1024"
+                height="1536"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
+            <figure class="training-bottom-gallery-card">
+              <img
+                src="/images/szkolenia-pmu-praktyka-zabieg-pion.webp"
+                alt="Praktyczna praca podczas szkolenia makijażu permanentnego pod okiem Bogusławy Herda"
+                width="1024"
+                height="1536"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
+            <figure class="training-bottom-gallery-card training-bottom-gallery-card--wide">
+              <img
+                src="/images/szkolenia-pmu-praktyka-zabieg-poziom.webp"
+                alt="Praktyka zabiegowa podczas szkolenia PMU w gabinecie Bogusławy Herda"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
           </div>
         </div>
       </section>
@@ -4010,6 +4035,110 @@ const relatedPages = [
     box-shadow:
       0 0 0 9px rgba(56, 187, 181, 0.10),
       0 10px 22px rgba(21, 154, 150, 0.12) !important;
+  }
+}
+/* =========================================================
+   FINAL: dolna galeria szkoleń — tylko 3 zdjęcia, bez rozjeżdżania
+========================================================= */
+
+.training-bottom-gallery-section {
+  position: relative !important;
+  padding: 92px 0 96px !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 86% 8%, rgba(56, 187, 181, 0.10), transparent 24rem),
+    radial-gradient(circle at 12% 80%, rgba(201, 127, 143, 0.08), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 248, 251, 0.76)) !important;
+}
+
+.training-bottom-gallery-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.16fr) !important;
+  gap: clamp(16px, 2vw, 26px) !important;
+  align-items: start !important;
+}
+
+.training-bottom-gallery-card {
+  position: relative !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  padding: clamp(7px, 0.9vw, 11px) !important;
+  border: 1px solid rgba(56, 187, 181, 0.18) !important;
+  border-radius: clamp(24px, 2.4vw, 38px) !important;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(219, 246, 243, 0.54), transparent 14rem),
+    rgba(255, 255, 255, 0.94) !important;
+  box-shadow:
+    0 24px 68px rgba(89, 53, 67, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.76) inset !important;
+}
+
+.training-bottom-gallery-card::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: clamp(14px, 1.4vw, 20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.66) !important;
+  border-radius: clamp(18px, 2vw, 29px) !important;
+  pointer-events: none !important;
+}
+
+.training-bottom-gallery-card img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  border-radius: clamp(18px, 2vw, 29px) !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+.training-bottom-gallery-card--wide {
+  align-self: start !important;
+}
+
+@media (max-width: 1180px) {
+  .training-bottom-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .training-bottom-gallery-card--wide {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .training-bottom-gallery-section {
+    padding: 62px 0 68px !important;
+  }
+
+  .training-bottom-gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .training-bottom-gallery-card--wide {
+    grid-column: auto !important;
+  }
+
+  .training-bottom-gallery-card {
+    padding: 7px !important;
+    border-radius: 26px !important;
+  }
+
+  .training-bottom-gallery-card::after {
+    inset: 15px !important;
+    border-radius: 19px !important;
+  }
+
+  .training-bottom-gallery-card img {
+    border-radius: 19px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .training-bottom-gallery-section .container {
+    width: min(100% - 20px, var(--container-width, 1180px)) !important;
   }
 }
 </style>

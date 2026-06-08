@@ -49,9 +49,54 @@ const pages = [
   },
   {
     path: "/poradnik/",
-    priority: "0.72",
+    priority: "0.82",
+    changefreq: "weekly"
+  },
+
+  /*
+    Poradnik PMU — artykuły fundamenty
+  */
+  {
+    path: "/poradnik/jak-przygotowac-sie-do-makijazu-permanentnego-brwi/",
+    priority: "0.78",
     changefreq: "monthly"
   },
+  {
+    path: "/poradnik/jak-goja-sie-brwi-permanentne/",
+    priority: "0.76",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/silky-hairstroke-brows-naturalny-wlos-maszynowy/",
+    priority: "0.76",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/rysunek-wstepny-przed-makijazem-permanentnym/",
+    priority: "0.74",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/kiedy-usuwac-stary-makijaz-permanentny/",
+    priority: "0.74",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/makijaz-permanentny-ust-jak-wybrac-kolor/",
+    priority: "0.74",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/kreska-permanentna-jak-wybrac-rodzaj/",
+    priority: "0.74",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/jak-wybrac-szkolenie-pmu/",
+    priority: "0.7",
+    changefreq: "monthly"
+  },
+
   {
     path: "/sercemmalowane/",
     priority: "0.6",

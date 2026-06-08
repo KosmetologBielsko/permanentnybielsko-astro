@@ -10,28 +10,63 @@ const phone = "+48 730 900 125";
 const email = "bogusia@permanentnybielsko.com";
 const mapUrl = "https://share.google/r1H8ZLwSZMdRIflO9";
 
+const contactProofCards = [
+  {
+    number: "01",
+    label: "Lokalizacja",
+    title: "Centrum Bielska-Białej",
+    text: "ul. Barlickiego 5/23",
+    href: mapUrl,
+    cta: "Zobacz mapę",
+  },
+  {
+    number: "02",
+    label: "Rezerwacja",
+    title: "Booksy",
+    text: "Aktualne terminy i rezerwacja online",
+    href: booksyUrl,
+    cta: "Umów wizytę",
+  },
+  {
+    number: "03",
+    label: "Telefon",
+    title: phone,
+    text: "Kontakt w sprawach organizacyjnych",
+    href: "tel:+48730900125",
+    cta: "Zadzwoń",
+  },
+  {
+    number: "04",
+    label: "E-mail",
+    title: email,
+    text: "Pytania przed wizytą i kwalifikacją",
+    href: `mailto:${email}`,
+    cta: "Napisz",
+  },
+];
+
 const contactCards = [
   {
     label: "Rezerwacja",
     title: "Booksy",
     text: "Najwygodniejszy sposób sprawdzenia aktualnych terminów i zapisania się na konsultację lub zabieg.",
     href: booksyUrl,
-    cta: "Umów wizytę"
+    cta: "Umów wizytę",
   },
   {
     label: "Telefon",
     title: phone,
     text: "Kontakt telefoniczny w sprawach pilnych, organizacyjnych i przy pytaniach przed wizytą.",
     href: "tel:+48730900125",
-    cta: "Zadzwoń"
+    cta: "Zadzwoń",
   },
   {
     label: "E-mail",
     title: email,
     text: "Dobry wybór, jeśli chcesz opisać sytuację, przesłać pytanie lub zapytać o kwalifikację.",
     href: `mailto:${email}`,
-    cta: "Napisz"
-  }
+    cta: "Napisz",
+  },
 ];
 
 const visitRules = [
@@ -39,7 +74,7 @@ const visitRules = [
   "Przy korektach i usuwaniu PMU najlepszym pierwszym krokiem jest konsultacja.",
   "Rysunek wstępny omawiany jest przed pigmentacją.",
   "Aktualne terminy i dostępność usług sprawdzisz przez Booksy.",
-  "W przypadku przeciwwskazań zabieg może zostać odłożony dla bezpieczeństwa skóry."
+  "W przypadku przeciwwskazań zabieg może zostać odłożony dla bezpieczeństwa skóry.",
 ];
 
 const pageUrl = "https://permanentnybielsko.com/kontakt/";
@@ -49,21 +84,25 @@ const pageDescription =
 
 const faqItems = [
   {
-    "question": "Czy najlepiej umawiać wizytę przez Booksy?",
-    "answer": "Tak. Booksy pokazuje aktualne terminy i pozwala wygodnie zarezerwować wizytę. To najprostsza forma zapisu."
+    question: "Czy najlepiej umawiać wizytę przez Booksy?",
+    answer:
+      "Tak. Booksy pokazuje aktualne terminy i pozwala wygodnie zarezerwować wizytę. To najprostsza forma zapisu.",
   },
   {
-    "question": "Czy mogę zadzwonić przed rezerwacją?",
-    "answer": "Tak. Telefon sprawdzi się przy pytaniach organizacyjnych lub wtedy, gdy nie wiesz, od jakiej usługi zacząć."
+    question: "Czy mogę zadzwonić przed rezerwacją?",
+    answer:
+      "Tak. Telefon sprawdzi się przy pytaniach organizacyjnych lub wtedy, gdy nie wiesz, od jakiej usługi zacząć.",
   },
   {
-    "question": "Czy przy starym PMU potrzebna jest konsultacja?",
-    "answer": "Tak. Stary makijaż permanentny wymaga oceny koloru, nasycenia, kształtu i stanu skóry. Czasem najpierw potrzebne jest rozjaśnienie lub usuwanie."
+    question: "Czy przy starym PMU potrzebna jest konsultacja?",
+    answer:
+      "Tak. Stary makijaż permanentny wymaga oceny koloru, nasycenia, kształtu i stanu skóry. Czasem najpierw potrzebne jest rozjaśnienie lub usuwanie.",
   },
   {
-    "question": "Czy gabinet wykonuje też kosmetologię?",
-    "answer": "Tak, ale nowa komunikacja kosmetologiczna jest prowadzona osobno na stronie kosmetologiabielsko.com. PermanentnyBielsko pozostaje stroną PMU."
-  }
+    question: "Czy gabinet wykonuje też kosmetologię?",
+    answer:
+      "Tak, ale nowa komunikacja kosmetologiczna jest prowadzona osobno na stronie kosmetologiabielsko.com. PermanentnyBielsko pozostaje stroną PMU.",
+  },
 ];
 
 const structuredData = [
@@ -71,63 +110,62 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "@id": `${pageUrl}#webpage`,
-    "url": pageUrl,
-    "name": pageTitle,
-    "description": pageDescription,
-    "inLanguage": "pl-PL",
-    "isPartOf": {
-      "@id": "https://permanentnybielsko.com/#website"
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+    inLanguage: "pl-PL",
+    isPartOf: {
+      "@id": "https://permanentnybielsko.com/#website",
     },
-    "about": {
-      "@id": "https://permanentnybielsko.com/#localbusiness"
+    about: {
+      "@id": "https://permanentnybielsko.com/#localbusiness",
     },
-    "mainEntity": {
-      "@id": "https://permanentnybielsko.com/#localbusiness"
-    }
+    mainEntity: {
+      "@id": "https://permanentnybielsko.com/#localbusiness",
+    },
   },
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "@id": `${pageUrl}#breadcrumb`,
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Strona główna",
-        "item": "https://permanentnybielsko.com/"
+        position: 1,
+        name: "Strona główna",
+        item: "https://permanentnybielsko.com/",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Kontakt",
-        "item": pageUrl
-      }
-    ]
+        position: 2,
+        name: "Kontakt",
+        item: pageUrl,
+      },
+    ],
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
-    "mainEntity": faqItems.map((item) => ({
+    mainEntity: faqItems.map((item) => ({
       "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
+      name: item.question,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": item.answer
-      }
-    }))
+        text: item.answer,
+      },
+    })),
   },
   {
     "@context": "https://schema.org",
     "@type": "PostalAddress",
     "@id": `${pageUrl}#address`,
-    "streetAddress": "ul. Barlickiego 5/23",
-    "postalCode": "43-300",
-    "addressLocality": "Bielsko-Biała",
-    "addressCountry": "PL"
-  }
+    streetAddress: "ul. Barlickiego 5/23",
+    postalCode: "43-300",
+    addressLocality: "Bielsko-Biała",
+    addressCountry: "PL",
+  },
 ];
-
 ---
 
 <Layout
@@ -149,7 +187,7 @@ const structuredData = [
             <p class="section-kicker">Kontakt</p>
 
             <h1>
-                <span class="pmu-hero-turquoise-text">Umów konsultację</span> lub wizytę w gabinecie Bogusława Herda.
+              <span class="pmu-hero-turquoise-text">Umów konsultację</span> lub wizytę w gabinecie Bogusława Herda.
             </h1>
 
             <p class="contact-hero-lead">
@@ -169,38 +207,36 @@ const structuredData = [
             </div>
           </div>
 
-          <aside class="contact-hero-card" aria-label="Najważniejsze informacje kontaktowe">
+          <aside class="contact-hero-card contact-shine-card" aria-label="Najważniejsze informacje kontaktowe">
             <p class="contact-card-label">PMU</p>
-            <h2>Najpierw konsultacja. Potem świadoma decyzja.</h2>
-            <p>
-              Przy makijażu permanentnym, korektach i usuwaniu PMU warto zacząć od spokojnej
-              rozmowy, oceny skóry i omówienia realnego efektu.
-            </p>
+
+            <div class="contact-hero-card-content">
+              <h2>Najpierw konsultacja. Potem świadoma decyzja.</h2>
+              <p>
+                Przy makijażu permanentnym, korektach i usuwaniu PMU warto zacząć od spokojnej
+                rozmowy, oceny skóry i omówienia realnego efektu.
+              </p>
+            </div>
           </aside>
         </div>
       </section>
 
-      <section class="contact-proof-section">
+      <section class="contact-proof-section" aria-label="Szybkie dane kontaktowe">
         <div class="container contact-proof-grid">
-          <div>
-            <strong>Centrum Bielska-Białej</strong>
-            <span>ul. Barlickiego 5/23</span>
-          </div>
-
-          <div>
-            <strong>Rezerwacja online</strong>
-            <span>Booksy</span>
-          </div>
-
-          <div>
-            <strong>Telefon</strong>
-            <span>{phone}</span>
-          </div>
-
-          <div>
-            <strong>E-mail</strong>
-            <span>{email}</span>
-          </div>
+          {contactProofCards.map((card) => (
+            <a
+              class="contact-proof-card"
+              href={card.href}
+              target={card.href.startsWith("http") ? "_blank" : undefined}
+              rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            >
+              <span>{card.number}</span>
+              <p>{card.label}</p>
+              <strong>{card.title}</strong>
+              <em>{card.text}</em>
+              <small>{card.cta}</small>
+            </a>
+          ))}
         </div>
       </section>
 
@@ -217,7 +253,12 @@ const structuredData = [
 
           <div class="contact-card-grid">
             {contactCards.map((card) => (
-              <a href={card.href} class="contact-method-card" target={card.href.startsWith("http") ? "_blank" : undefined} rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}>
+              <a
+                href={card.href}
+                class="contact-method-card"
+                target={card.href.startsWith("http") ? "_blank" : undefined}
+                rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              >
                 <span>{card.label}</span>
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>
@@ -363,10 +404,10 @@ const structuredData = [
             </p>
           </div>
 
-          <div class="contact-rules-card">
+          <div class="contact-rules-card premium-points-list" aria-label="Informacje przed wizytą PMU">
             {visitRules.map((rule) => (
-              <div>
-                <span></span>
+              <div class="premium-point">
+                <span class="premium-point__dot" aria-hidden="true"></span>
                 <p>{rule}</p>
               </div>
             ))}
@@ -417,37 +458,12 @@ const structuredData = [
           </div>
 
           <div class="contact-faq-grid">
-            <article>
-              <h3>Czy najlepiej umawiać wizytę przez Booksy?</h3>
-              <p>
-                Tak. Booksy pokazuje aktualne terminy i pozwala wygodnie zarezerwować wizytę.
-                To najprostsza forma zapisu.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy mogę zadzwonić przed rezerwacją?</h3>
-              <p>
-                Tak. Telefon sprawdzi się przy pytaniach organizacyjnych lub wtedy, gdy nie wiesz,
-                od jakiej usługi zacząć.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy przy starym PMU potrzebna jest konsultacja?</h3>
-              <p>
-                Tak. Stary makijaż permanentny wymaga oceny koloru, nasycenia, kształtu i stanu skóry.
-                Czasem najpierw potrzebne jest rozjaśnienie lub usuwanie.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy gabinet wykonuje też kosmetologię?</h3>
-              <p>
-                Tak, ale nowa komunikacja kosmetologiczna jest prowadzona osobno na stronie
-                kosmetologiabielsko.com. PermanentnyBielsko pozostaje stroną PMU.
-              </p>
-            </article>
+            {faqItems.map((item) => (
+              <article>
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -477,9 +493,30 @@ const structuredData = [
     min-height: 100vh;
     overflow-x: hidden;
     background:
-      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.12), transparent 28rem),
-      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.12), transparent 26rem),
+      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.11), transparent 28rem),
+      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.10), transparent 26rem),
       linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
+  }
+
+  .contact-page .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 32px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 18px;
+    padding: 0 13px;
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.72);
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.7rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
   }
 
   .contact-hero {
@@ -507,7 +544,7 @@ const structuredData = [
     bottom: -12rem;
     width: 38rem;
     height: 38rem;
-    background: radial-gradient(circle, rgba(201, 127, 143, 0.18), transparent 68%);
+    background: radial-gradient(circle, rgba(201, 127, 143, 0.16), transparent 68%);
   }
 
   .contact-hero-grid {
@@ -521,6 +558,7 @@ const structuredData = [
 
   .contact-hero-copy,
   .contact-hero-card,
+  .contact-proof-card,
   .contact-method-card,
   .contact-location-card,
   .contact-hours-card,
@@ -529,1350 +567,31 @@ const structuredData = [
   .contact-offer-card,
   .contact-faq-grid article,
   .contact-final-card {
-    border: 1px solid rgba(183, 101, 118, 0.16);
+    border: 1px solid rgba(183, 101, 118, 0.14);
     box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
   }
 
   .contact-hero-copy {
-    padding: clamp(38px, 5vw, 72px);
-    border-radius: 42px;
-    background: rgba(255, 255, 255, 0.76);
-  }
-
-  .contact-hero-copy h1 {
-    max-width: 1040px;
-    margin: 0;
-    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
-    font-weight: 750;
-    line-height: 1.02;
-    letter-spacing: -0.078em;
-  }
-
-  .contact-hero-lead {
-    max-width: 760px;
-    margin: 28px 0 0;
-    color: var(--color-muted);
-    font-size: 1.12rem;
-  }
-
-  .contact-hero-actions {
     display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 34px;
-  }
-
-  .contact-hero-card {
-    position: relative;
-    overflow: hidden;
-    min-height: 430px;
-    display: flex;
+    min-height: 620px;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: clamp(34px, 4vw, 56px);
-    border-radius: 42px;
-    color: #ffffff;
+    justify-content: center;
+    padding: clamp(38px, 5vw, 72px);
+    border-radius: 44px;
     background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
-      linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%);
-    background-size: 100% 100%, 100% 100%, 240% 240%;
-    animation: contact-gold-flow 14s ease-in-out infinite alternate;
-    box-shadow: 0 28px 76px rgba(125, 95, 45, 0.24);
-  }
-
-  .contact-hero-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.26) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
-    transform: translateX(-72%);
-    animation: contact-panel-shine 8.5s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .contact-card-label {
-    position: relative;
-    z-index: 2;
-    margin: 0 0 auto;
-    color: rgba(255, 248, 230, 0.22);
-    font-size: clamp(4.5rem, 7vw, 7.8rem);
-    font-weight: 800;
-    line-height: 0.8;
-    letter-spacing: -0.09em;
-  }
-
-  .contact-hero-card h2,
-  .contact-hero-card p:not(.contact-card-label) {
-    position: relative;
-    z-index: 2;
-  }
-
-  .contact-hero-card h2 {
-    margin: 40px 0 0;
-    font-size: clamp(2rem, 3vw, 3.2rem);
-    font-weight: 740;
-    line-height: 0.96;
-    letter-spacing: -0.075em;
-  }
-
-  .contact-hero-card p:not(.contact-card-label) {
-    margin: 18px 0 0;
-    color: rgba(255, 255, 255, 0.88);
-  }
-
-  .contact-proof-section {
-    border-top: 1px solid rgba(183, 101, 118, 0.1);
-    border-bottom: 1px solid rgba(183, 101, 118, 0.1);
-    background: rgba(255, 255, 255, 0.72);
-  }
-
-  .contact-proof-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .contact-proof-grid div {
-    min-height: 112px;
-    padding: 24px 22px;
-    border-right: 1px solid rgba(183, 101, 118, 0.12);
-  }
-
-  .contact-proof-grid div:last-child {
-    border-right: 0;
-  }
-
-  .contact-proof-grid strong {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 0.92rem;
-    font-weight: 750;
-    letter-spacing: -0.02em;
-  }
-
-  .contact-proof-grid span {
-    display: block;
-    color: var(--color-muted);
-    font-size: 0.72rem;
-    font-weight: 600;
-    line-height: 1.55;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-  }
-
-  .contact-data-section,
-  .contact-social-section,
-
-  .contact-social-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 24rem),
-      radial-gradient(circle at 90% 72%, rgba(201, 127, 143, 0.1), transparent 24rem),
-      rgba(255, 255, 255, 0.62);
-  }
-
-  .contact-social-card {
-    position: relative;
-    min-height: 215px;
-    padding: 24px;
-    overflow: hidden;
-    border-radius: 30px;
-    color: #ffffff;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    box-shadow: 0 24px 68px rgba(89, 53, 67, 0.12);
-  }
-
-  .contact-social-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.08) 22%, rgba(255, 255, 255, 0.3) 47%, rgba(255, 255, 255, 0.08) 72%, transparent 100%);
-    transform: none;
-    animation: none;
-    opacity: 0.36;
-    pointer-events: none;
-  }
-
-  .contact-social-card::after {
-    content: "";
-    position: absolute;
-    right: -54px;
-    top: -54px;
-    width: 132px;
-    height: 132px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.2);
-    pointer-events: none;
-  }
-
-  .contact-social-card-instagram {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 10rem),
-      linear-gradient(145deg, #405de6 0%, #833ab4 27%, #c13584 48%, #e1306c 66%, #fd1d1d 82%, #fcb045 100%);
-  }
-
-  .contact-social-card-facebook {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.26), transparent 10rem),
-      linear-gradient(145deg, #0f4fb3 0%, #1877f2 42%, #4a9dff 68%, #063f91 100%);
-  }
-
-  .contact-social-card-booksy {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 10rem),
-      linear-gradient(145deg, #067046 0%, #13a268 42%, #59e0a5 70%, #07583a 100%);
-  }
-
-  .contact-social-card-google {
-    color: var(--color-text);
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
-    border-color: rgba(66, 133, 244, 0.22);
-  }
-
-  .contact-social-card-google::before {
-    background:
-      linear-gradient(90deg, #4285f4 0 24%, #34a853 24% 50%, #fbbc05 50% 74%, #ea4335 74% 100%);
-    height: 6px;
-    transform: none;
-    animation: none;
-    opacity: 1;
-  }
-
-  .contact-social-card-google::after {
-    background:
-      conic-gradient(from 210deg, rgba(66, 133, 244, 0.24), rgba(52, 168, 83, 0.24), rgba(251, 188, 5, 0.24), rgba(234, 67, 53, 0.24), rgba(66, 133, 244, 0.24));
-  }
-
-  .contact-social-card em,
-  .contact-social-card span,
-  .contact-social-card h3,
-  .contact-social-card p,
-  .contact-social-card strong {
-    position: relative;
-    z-index: 2;
-  }
-
-  .contact-social-card em {
-    position: absolute;
-    right: 20px;
-    top: 16px;
-    z-index: 2;
-    color: rgba(255, 255, 255, 0.2);
-    font-size: clamp(2.7rem, 4.2vw, 4.4rem);
-    font-style: normal;
-    font-weight: 850;
-    line-height: 0.9;
-    letter-spacing: -0.1em;
-  }
-
-  .contact-social-card-booksy em {
-    right: 18px;
-    font-size: clamp(1.9rem, 2.8vw, 2.8rem);
-    letter-spacing: -0.08em;
-  }
-
-  .contact-social-card-google em {
-    background: linear-gradient(90deg, #4285f4 0%, #34a853 30%, #fbbc05 58%, #ea4335 86%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    opacity: 0.2;
-  }
-
-  .contact-social-card span {
-    display: inline-flex;
-    margin-bottom: 34px;
-    color: rgba(255, 255, 255, 0.84);
-    font-size: 0.72rem;
-    font-weight: 760;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .contact-social-card-google span {
-    color: var(--color-turquoise-dark);
-  }
-
-  .contact-social-card h3 {
-    margin: 0;
-    font-size: clamp(1.35rem, 1.7vw, 1.9rem);
-    font-weight: 740;
-    line-height: 1;
-    letter-spacing: -0.065em;
-  }
-
-  .contact-social-card p {
-    margin: 12px 0 0;
-    color: rgba(255, 255, 255, 0.86);
-    font-size: 0.9rem;
-    line-height: 1.55;
-  }
-
-  .contact-social-card-google p {
-    color: var(--color-muted);
-  }
-
-  .contact-social-card strong {
-    display: inline-flex;
-    margin-top: 18px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.78rem;
-    font-weight: 780;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-  }
-
-  .contact-social-card-google strong {
-    color: var(--color-text);
-  }
-
-  .contact-location-section,
-  .contact-before-section,
-  .contact-offer-section,
-  .contact-faq-section,
-  .contact-final-cta {
-    padding: 88px 0;
-  }
-
-  .contact-section-heading {
-    max-width: 940px;
-    margin-bottom: 38px;
-  }
-
-  .contact-section-heading h2,
-  .contact-location-card h2,
-  .contact-before-card h2,
-  .contact-final-card h2 {
-    margin: 0;
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
-    font-weight: 740;
-    line-height: 1;
-    letter-spacing: -0.078em;
-  }
-
-  .contact-section-heading p,
-  .contact-location-card p,
-  .contact-before-card p {
-    color: var(--color-muted);
-    font-size: 1.05rem;
-  }
-
-  .contact-card-grid,
-  .contact-social-grid,
-  .contact-offer-grid,
-  .contact-faq-grid {
-    display: grid;
-    gap: 18px;
-  }
-
-  .contact-card-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .contact-social-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .contact-offer-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .contact-method-card,
-  .contact-offer-card,
-  .contact-faq-grid article {
-    position: relative;
-    min-height: 255px;
-    padding: 28px;
-    overflow: hidden;
-    border-radius: 32px;
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 252, 0.8));
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .contact-method-card::before,
-  .contact-offer-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-top: 4px solid rgba(56, 187, 181, 0.34);
-    pointer-events: none;
-  }
-
-  .contact-method-card::after,
-  .contact-offer-card::after {
-    content: "";
-    position: absolute;
-    right: -58px;
-    top: -58px;
-    width: 138px;
-    height: 138px;
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.68);
-    pointer-events: none;
-  }
-
-  .contact-offer-card-turquoise {
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.88), rgba(255, 255, 255, 0.92));
-    border-color: rgba(56, 187, 181, 0.3);
-  }
-
-  .contact-offer-card-rose::before {
-    border-top-color: rgba(201, 127, 143, 0.34);
-  }
-
-  .contact-offer-card-rose::after {
-    background: rgba(246, 220, 227, 0.76);
-  }
-
-  .contact-method-card span,
-  .contact-offer-card span {
-    position: relative;
-    z-index: 2;
-    display: inline-flex;
-    margin-bottom: 44px;
-    color: var(--color-turquoise-dark);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .contact-method-card h3,
-  .contact-offer-card h3,
-  .contact-faq-grid h3 {
-    position: relative;
-    z-index: 2;
-    margin: 0;
-    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
-    font-weight: 740;
-    line-height: 1;
-    letter-spacing: -0.065em;
-  }
-
-  .contact-method-card p,
-  .contact-offer-card p,
-  .contact-faq-grid p {
-    position: relative;
-    z-index: 2;
-    margin: 14px 0 0;
-    color: var(--color-muted);
-    font-size: 0.95rem;
-    line-height: 1.62;
-  }
-
-  .contact-method-card strong {
-    position: relative;
-    z-index: 2;
-    display: inline-flex;
-    margin-top: 22px;
-    color: var(--color-text);
-    font-size: 0.86rem;
-    font-weight: 760;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-
-  .contact-social-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 24rem),
-      radial-gradient(circle at 90% 72%, rgba(201, 127, 143, 0.1), transparent 24rem),
-      rgba(255, 255, 255, 0.62);
-  }
-
-  .contact-social-card {
-    position: relative;
-    min-height: 215px;
-    padding: 24px;
-    overflow: hidden;
-    border-radius: 30px;
-    color: #ffffff;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    box-shadow: 0 24px 68px rgba(89, 53, 67, 0.12);
-  }
-
-  .contact-social-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.08) 22%, rgba(255, 255, 255, 0.3) 47%, rgba(255, 255, 255, 0.08) 72%, transparent 100%);
-    transform: none;
-    animation: none;
-    opacity: 0.36;
-    pointer-events: none;
-  }
-
-  .contact-social-card::after {
-    content: "";
-    position: absolute;
-    right: -54px;
-    top: -54px;
-    width: 132px;
-    height: 132px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.2);
-    pointer-events: none;
-  }
-
-  .contact-social-card-instagram {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 10rem),
-      linear-gradient(145deg, #405de6 0%, #833ab4 27%, #c13584 48%, #e1306c 66%, #fd1d1d 82%, #fcb045 100%);
-  }
-
-  .contact-social-card-facebook {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.26), transparent 10rem),
-      linear-gradient(145deg, #0f4fb3 0%, #1877f2 42%, #4a9dff 68%, #063f91 100%);
-  }
-
-  .contact-social-card-booksy {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 10rem),
-      linear-gradient(145deg, #067046 0%, #13a268 42%, #59e0a5 70%, #07583a 100%);
-  }
-
-  .contact-social-card-google {
-    color: var(--color-text);
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
-    border-color: rgba(66, 133, 244, 0.22);
-  }
-
-  .contact-social-card-google::before {
-    background:
-      linear-gradient(90deg, #4285f4 0 24%, #34a853 24% 50%, #fbbc05 50% 74%, #ea4335 74% 100%);
-    height: 6px;
-    transform: none;
-    animation: none;
-    opacity: 1;
-  }
-
-  .contact-social-card-google::after {
-    background:
-      conic-gradient(from 210deg, rgba(66, 133, 244, 0.24), rgba(52, 168, 83, 0.24), rgba(251, 188, 5, 0.24), rgba(234, 67, 53, 0.24), rgba(66, 133, 244, 0.24));
-  }
-
-  .contact-social-card em,
-  .contact-social-card span,
-  .contact-social-card h3,
-  .contact-social-card p,
-  .contact-social-card strong {
-    position: relative;
-    z-index: 2;
-  }
-
-  .contact-social-card em {
-    position: absolute;
-    right: 20px;
-    top: 16px;
-    z-index: 2;
-    color: rgba(255, 255, 255, 0.2);
-    font-size: clamp(2.7rem, 4.2vw, 4.4rem);
-    font-style: normal;
-    font-weight: 850;
-    line-height: 0.9;
-    letter-spacing: -0.1em;
-  }
-
-  .contact-social-card-booksy em {
-    right: 18px;
-    font-size: clamp(1.9rem, 2.8vw, 2.8rem);
-    letter-spacing: -0.08em;
-  }
-
-  .contact-social-card-google em {
-    background: linear-gradient(90deg, #4285f4 0%, #34a853 30%, #fbbc05 58%, #ea4335 86%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    opacity: 0.2;
-  }
-
-  .contact-social-card span {
-    display: inline-flex;
-    margin-bottom: 34px;
-    color: rgba(255, 255, 255, 0.84);
-    font-size: 0.72rem;
-    font-weight: 760;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .contact-social-card-google span {
-    color: var(--color-turquoise-dark);
-  }
-
-  .contact-social-card h3 {
-    margin: 0;
-    font-size: clamp(1.35rem, 1.7vw, 1.9rem);
-    font-weight: 740;
-    line-height: 1;
-    letter-spacing: -0.065em;
-  }
-
-  .contact-social-card p {
-    margin: 12px 0 0;
-    color: rgba(255, 255, 255, 0.86);
-    font-size: 0.9rem;
-    line-height: 1.55;
-  }
-
-  .contact-social-card-google p {
-    color: var(--color-muted);
-  }
-
-  .contact-social-card strong {
-    display: inline-flex;
-    margin-top: 18px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.78rem;
-    font-weight: 780;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-  }
-
-  .contact-social-card-google strong {
-    color: var(--color-text);
-  }
-
-  .contact-location-section,
-  .contact-before-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
-  }
-
-  .contact-location-grid,
-  .contact-before-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
-    gap: 24px;
-    align-items: stretch;
-  }
-
-  .contact-location-card,
-  .contact-hours-card,
-  .contact-before-card,
-  .contact-rules-card {
-    padding: clamp(32px, 4vw, 52px);
-    border-radius: 38px;
-    background: rgba(255, 255, 255, 0.78);
-  }
-
-  .contact-address {
-    margin-top: 28px;
-  }
-
-  .contact-address p:first-child {
-    color: var(--color-text);
-    font-size: 1.2rem;
-    font-weight: 730;
-    letter-spacing: -0.04em;
-  }
-
-  .contact-location-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 30px;
-  }
-
-  .contact-hours-card {
-    background:
-      radial-gradient(circle at 92% 20%, rgba(56, 187, 181, 0.14), transparent 16rem),
-      rgba(255, 255, 255, 0.82);
-  }
-
-  .contact-hours-list {
-    display: grid;
-    gap: 0;
-    overflow: hidden;
-    margin-top: 24px;
-    border-radius: 26px;
-    border: 1px solid rgba(56, 187, 181, 0.15);
-  }
-
-  .contact-hours-list div {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
-    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
-    background: rgba(255, 255, 255, 0.68);
-  }
-
-  .contact-hours-list div:last-child {
-    border-bottom: 0;
-  }
-
-  .contact-hours-list strong {
-    font-weight: 740;
-    letter-spacing: -0.035em;
-  }
-
-  .contact-hours-list span {
-    color: var(--color-muted);
-  }
-
-  .contact-hours-note {
-    margin-top: 22px;
-    color: var(--color-muted);
-    font-size: 0.95rem;
-  }
-
-  .contact-rules-card {
-    display: grid;
-    gap: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .contact-rules-card div {
-    display: grid;
-    grid-template-columns: 18px 1fr;
-    gap: 14px;
-    padding: 22px 24px;
-    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
-  }
-
-  .contact-rules-card div:last-child {
-    border-bottom: 0;
-  }
-
-  .contact-rules-card span {
-    width: 10px;
-    height: 10px;
-    margin-top: 7px;
-    border-radius: 999px;
-    background: var(--color-turquoise);
-  }
-
-  .contact-rules-card p {
-    margin: 0;
-    color: var(--color-muted);
-    font-size: 0.96rem;
-    line-height: 1.58;
-  }
-
-  .contact-faq-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .contact-faq-grid article {
-    min-height: auto;
-  }
-
-  .contact-faq-grid article::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-top: 4px solid rgba(201, 127, 143, 0.24);
-  }
-
-  .contact-final-card {
-    padding: clamp(34px, 6vw, 70px);
-    border-radius: 42px;
-    text-align: center;
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
-      rgba(255, 255, 255, 0.7);
-  }
-
-  .contact-final-card p:not(.signature) {
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--color-muted);
-  }
-
-  .contact-final-card .button-primary {
-    margin-top: 18px;
-  }
-
-
-  @keyframes contact-panel-shine {
-    0% {
-      transform: translateX(-72%);
-      opacity: 0.28;
-    }
-
-    45% {
-      opacity: 0.88;
-    }
-
-    100% {
-      transform: translateX(88%);
-      opacity: 0.28;
-    }
-  }
-
-  @keyframes contact-gold-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
-
-  @media (max-width: 1260px) {
-    .contact-proof-grid,
-    .contact-social-grid,
-    .contact-offer-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-proof-grid div:nth-child(2) {
-      border-right: 0;
-    }
-  }
-
-  @media (max-width: 1080px) {
-    .contact-hero-grid,
-    .contact-location-grid,
-    .contact-before-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-card-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .contact-hero {
-      padding: 112px 0 58px;
-    }
-
-    .contact-hero-copy,
-    .contact-hero-card,
-    .contact-method-card,
-    .contact-social-card,
-    .contact-location-card,
-    .contact-hours-card,
-    .contact-before-card,
-    .contact-rules-card,
-    .contact-offer-card,
-    .contact-faq-grid article,
-    .contact-final-card {
-      border-radius: 28px;
-    }
-
-    .contact-hero-copy h1 {
-      font-size: clamp(2.75rem, 12.2vw, 4rem);
-      line-height: 1.02;
-      letter-spacing: -0.074em;
-    }
-
-    .contact-data-section,
-  
-  .contact-social-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 24rem),
-      radial-gradient(circle at 90% 72%, rgba(201, 127, 143, 0.1), transparent 24rem),
-      rgba(255, 255, 255, 0.62);
-  }
-
-  .contact-social-card {
-    position: relative;
-    min-height: 215px;
-    padding: 24px;
-    overflow: hidden;
-    border-radius: 30px;
-    color: #ffffff;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    box-shadow: 0 24px 68px rgba(89, 53, 67, 0.12);
-  }
-
-  .contact-social-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.08) 22%, rgba(255, 255, 255, 0.3) 47%, rgba(255, 255, 255, 0.08) 72%, transparent 100%);
-    transform: none;
-    animation: none;
-    opacity: 0.36;
-    pointer-events: none;
-  }
-
-  .contact-social-card::after {
-    content: "";
-    position: absolute;
-    right: -54px;
-    top: -54px;
-    width: 132px;
-    height: 132px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.2);
-    pointer-events: none;
-  }
-
-  .contact-social-card-instagram {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 10rem),
-      linear-gradient(145deg, #405de6 0%, #833ab4 27%, #c13584 48%, #e1306c 66%, #fd1d1d 82%, #fcb045 100%);
-  }
-
-  .contact-social-card-facebook {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.26), transparent 10rem),
-      linear-gradient(145deg, #0f4fb3 0%, #1877f2 42%, #4a9dff 68%, #063f91 100%);
-  }
-
-  .contact-social-card-booksy {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 10rem),
-      linear-gradient(145deg, #067046 0%, #13a268 42%, #59e0a5 70%, #07583a 100%);
-  }
-
-  .contact-social-card-google {
-    color: var(--color-text);
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
-    border-color: rgba(66, 133, 244, 0.22);
-  }
-
-  .contact-social-card-google::before {
-    background:
-      linear-gradient(90deg, #4285f4 0 24%, #34a853 24% 50%, #fbbc05 50% 74%, #ea4335 74% 100%);
-    height: 6px;
-    transform: none;
-    animation: none;
-    opacity: 1;
-  }
-
-  .contact-social-card-google::after {
-    background:
-      conic-gradient(from 210deg, rgba(66, 133, 244, 0.24), rgba(52, 168, 83, 0.24), rgba(251, 188, 5, 0.24), rgba(234, 67, 53, 0.24), rgba(66, 133, 244, 0.24));
-  }
-
-  .contact-social-card em,
-  .contact-social-card span,
-  .contact-social-card h3,
-  .contact-social-card p,
-  .contact-social-card strong {
-    position: relative;
-    z-index: 2;
-  }
-
-  .contact-social-card em {
-    position: absolute;
-    right: 20px;
-    top: 16px;
-    z-index: 2;
-    color: rgba(255, 255, 255, 0.2);
-    font-size: clamp(2.7rem, 4.2vw, 4.4rem);
-    font-style: normal;
-    font-weight: 850;
-    line-height: 0.9;
-    letter-spacing: -0.1em;
-  }
-
-  .contact-social-card-booksy em {
-    right: 18px;
-    font-size: clamp(1.9rem, 2.8vw, 2.8rem);
-    letter-spacing: -0.08em;
-  }
-
-  .contact-social-card-google em {
-    background: linear-gradient(90deg, #4285f4 0%, #34a853 30%, #fbbc05 58%, #ea4335 86%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    opacity: 0.2;
-  }
-
-  .contact-social-card span {
-    display: inline-flex;
-    margin-bottom: 34px;
-    color: rgba(255, 255, 255, 0.84);
-    font-size: 0.72rem;
-    font-weight: 760;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .contact-social-card-google span {
-    color: var(--color-turquoise-dark);
-  }
-
-  .contact-social-card h3 {
-    margin: 0;
-    font-size: clamp(1.35rem, 1.7vw, 1.9rem);
-    font-weight: 740;
-    line-height: 1;
-    letter-spacing: -0.065em;
-  }
-
-  .contact-social-card p {
-    margin: 12px 0 0;
-    color: rgba(255, 255, 255, 0.86);
-    font-size: 0.9rem;
-    line-height: 1.55;
-  }
-
-  .contact-social-card-google p {
-    color: var(--color-muted);
-  }
-
-  .contact-social-card strong {
-    display: inline-flex;
-    margin-top: 18px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.78rem;
-    font-weight: 780;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-  }
-
-  .contact-social-card-google strong {
-    color: var(--color-text);
-  }
-
-  .contact-location-section,
-    .contact-before-section,
-    .contact-offer-section,
-    .contact-faq-section,
-    .contact-final-cta {
-      padding: 58px 0;
-    }
-
-    .contact-section-heading h2,
-    .contact-location-card h2,
-    .contact-before-card h2,
-    .contact-final-card h2 {
-      font-size: clamp(2.35rem, 11vw, 3.4rem);
-    }
-
-    .contact-proof-grid,
-    .contact-social-grid,
-    .contact-offer-grid,
-    .contact-faq-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-proof-grid div,
-    .contact-proof-grid div:nth-child(2) {
-      border-right: 0;
-      border-bottom: 1px solid rgba(183, 101, 118, 0.12);
-    }
-
-    .contact-proof-grid div:last-child {
-      border-bottom: 0;
-    }
-
-    .contact-method-card,
-    .contact-social-card,
-    .contact-offer-card {
-      min-height: auto;
-      padding: 26px;
-    }
-
-    .contact-hours-list div {
-      display: grid;
-      gap: 6px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .contact-hero-card,
-    .contact-hero-card::before,
-    .contact-social-card,
-    .contact-social-card::before {
-      animation: none;
-    }
-
-    .contact-social-card {
-      transform: none;
-    }
-  }
-
-  /* V5 — ujednolicenie kontaktu ze standardem strony PMU */
-  .contact-page {
-    background:
-      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.11), transparent 28rem),
-      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.10), transparent 26rem),
-      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%) !important;
-  }
-
-  .contact-hero-copy h1,
-  .contact-section-heading h2,
-  .contact-location-card h2,
-  .contact-before-card h2,
-  .contact-final-card h2,
-  .contact-hero-card h2,
-  .contact-method-card h3,
-  .contact-offer-card h3,
-  .contact-faq-grid h3 {
-    color: var(--color-text) !important;
-    font-family: inherit !important;
-    font-weight: 760 !important;
-    letter-spacing: -0.074em !important;
+      radial-gradient(circle at 92% 14%, rgba(56, 187, 181, 0.10), transparent 16rem),
+      rgba(255, 255, 255, 0.78);
   }
 
   .contact-hero-copy h1 {
-    max-width: 1080px !important;
-    font-size: clamp(3.05rem, 5.45vw, 6.35rem) !important;
-    line-height: 1.02 !important;
+    max-width: 1080px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
   }
-
-  .contact-section-heading h2,
-  .contact-location-card h2,
-  .contact-before-card h2,
-  .contact-final-card h2 {
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
-    line-height: 1.02 !important;
-  }
-
-  .section-kicker,
-  .contact-section-heading .section-kicker,
-  .contact-location-card .section-kicker,
-  .contact-before-card .section-kicker,
-  .contact-final-card .section-kicker,
-  .contact-method-card span,
-  .contact-offer-card span,
-  .contact-proof-grid span {
-    color: var(--color-turquoise-dark) !important;
-    font-weight: 820 !important;
-    letter-spacing: 0.18em !important;
-  }
-
-  .contact-hero-lead,
-  .contact-section-heading p,
-  .contact-location-card p,
-  .contact-before-card p,
-  .contact-method-card p,
-  .contact-offer-card p,
-  .contact-faq-grid p,
-  .contact-hero-card p:not(.contact-card-label) {
-    color: var(--color-muted) !important;
-    font-weight: 450 !important;
-  }
-
-  .contact-hero-card {
-    color: #ffffff !important;
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%) !important;
-    background-size: 100% 100%, 100% 100%, 240% 240% !important;
-    animation: contact-turquoise-flow 13s ease-in-out infinite alternate !important;
-    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22) !important;
-  }
-
-  .contact-hero-card h2 {
-    color: #ffffff !important;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
-  }
-
-  .contact-hero-card p:not(.contact-card-label) {
-    color: rgba(255, 255, 255, 0.88) !important;
-  }
-
-  .contact-card-label {
-    color: rgba(255, 255, 255, 0.18) !important;
-  }
-
-  .contact-proof-grid strong,
-  .contact-method-card h3,
-  .contact-offer-card h3,
-  .contact-faq-grid h3 {
-    color: var(--color-text) !important;
-  }
-
-  .contact-method-card,
-  .contact-offer-card,
-  .contact-faq-grid article,
-  .contact-location-card,
-  .contact-hours-card,
-  .contact-before-card,
-  .contact-rules-card {
-    border-color: rgba(183, 101, 118, 0.14) !important;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
-  }
-
-  .contact-method-card::before,
-  .contact-offer-card::before {
-    border-top-color: rgba(56, 187, 181, 0.34) !important;
-  }
-
-  .contact-offer-card-rose::before {
-    border-top-color: rgba(201, 127, 143, 0.34) !important;
-  }
-
-  .contact-social-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 24rem),
-      radial-gradient(circle at 90% 72%, rgba(201, 127, 143, 0.08), transparent 24rem),
-      rgba(255, 255, 255, 0.62) !important;
-  }
-
-  .contact-social-card h3 {
-    font-weight: 760 !important;
-    letter-spacing: -0.06em !important;
-  }
-
-  .contact-social-card span,
-  .contact-social-card strong {
-    letter-spacing: 0.15em !important;
-    font-weight: 780 !important;
-  }
-
-  .contact-final-card {
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
-      rgba(255, 255, 255, 0.7) !important;
-  }
-
-  @keyframes contact-turquoise-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .contact-hero {
-      padding: 112px 0 58px !important;
-    }
-
-    .contact-hero-copy h1 {
-      font-size: clamp(2.55rem, 11.6vw, 3.85rem) !important;
-      line-height: 1.04 !important;
-      letter-spacing: -0.068em !important;
-    }
-
-    .contact-section-heading h2,
-    .contact-location-card h2,
-    .contact-before-card h2,
-    .contact-final-card h2 {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
-      line-height: 1.04 !important;
-      letter-spacing: -0.066em !important;
-    }
-
-    .contact-hero-card h2 {
-      font-size: clamp(1.85rem, 8.6vw, 2.5rem) !important;
-      line-height: 1.06 !important;
-      letter-spacing: -0.058em !important;
-    }
-
-    .contact-hero-copy,
-    .contact-hero-card,
-    .contact-method-card,
-    .contact-social-card,
-    .contact-location-card,
-    .contact-hours-card,
-    .contact-before-card,
-    .contact-rules-card,
-    .contact-offer-card,
-    .contact-faq-grid article,
-    .contact-final-card {
-      border-radius: 28px !important;
-    }
-  }
-
-
-  /* V6 — finalny standard małych turkusowych nagłówków */
-
-  .contact-page .section-kicker {
-    display: inline-flex !important;
-    width: fit-content !important;
-    max-width: 100% !important;
-    min-height: 32px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 0 18px !important;
-    padding: 0 13px !important;
-    border-radius: 999px !important;
-    color: var(--color-turquoise-dark, #0f7773) !important;
-    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
-    background: rgba(219, 246, 243, 0.72) !important;
-    border: 1px solid rgba(56, 187, 181, 0.16) !important;
-    font-size: 0.7rem !important;
-    font-weight: 850 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.17em !important;
-    text-transform: uppercase !important;
-  }
-
-  .contact-page .contact-section-heading h2,
-  .contact-page .contact-two-column h2,
-  .contact-page .contact-safety-card h2,
-  .contact-page .contact-final-card h2,
-  .contact-page .contact-note-card h2,
-  .contact-page .contact-location-card h2,
-  .contact-page .contact-before-card h2,
-  .contact-page .contact-standard-card h2,
-  .contact-page .contact-remover-card h2,
-  .contact-page .contact-rules-card h2 {
-    color: var(--color-text, #17151d) !important;
-    font-family: inherit !important;
-    font-weight: 760 !important;
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.074em !important;
-  }
-
-  .contact-page .contact-section-heading > p:not(.section-kicker),
-  .contact-page .contact-two-column p:not(.section-kicker),
-  .contact-page .contact-safety-card p:not(.section-kicker),
-  .contact-page .contact-final-card p:not(.section-kicker):not(.signature),
-  .contact-page .contact-note-card p:not(.section-kicker),
-  .contact-page .contact-location-card p:not(.section-kicker),
-  .contact-page .contact-before-card p:not(.section-kicker),
-  .contact-page .contact-standard-card p:not(.section-kicker),
-  .contact-page .contact-remover-card p:not(.section-kicker),
-  .contact-page .contact-rules-card p:not(.section-kicker) {
-    color: var(--color-muted, #6e6670) !important;
-    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
-    font-weight: 450 !important;
-    line-height: 1.65 !important;
-  }
-
-  @media (max-width: 760px) {
-    .contact-page .section-kicker {
-      min-height: 30px !important;
-      margin-bottom: 16px !important;
-      padding: 0 11px !important;
-      font-size: 0.64rem !important;
-      letter-spacing: 0.13em !important;
-      line-height: 1 !important;
-    }
-
-    .contact-page .contact-section-heading h2,
-    .contact-page .contact-two-column h2,
-    .contact-page .contact-safety-card h2,
-    .contact-page .contact-final-card h2,
-    .contact-page .contact-note-card h2,
-    .contact-page .contact-location-card h2,
-    .contact-page .contact-before-card h2,
-    .contact-page .contact-standard-card h2,
-    .contact-page .contact-remover-card h2,
-    .contact-page .contact-rules-card h2 {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
-      line-height: 1.04 !important;
-      letter-spacing: -0.066em !important;
-    }
-  }
-  /* Hero — turkusowy akcent w pierwszym nagłówku */
 
   .pmu-hero-turquoise-text {
     display: inline;
@@ -1892,9 +611,912 @@ const structuredData = [
     -webkit-text-fill-color: transparent;
   }
 
+  .contact-hero-lead {
+    max-width: 760px;
+    margin: 28px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 1.12rem;
+    line-height: 1.68;
+  }
+
+  .contact-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .contact-hero-card {
+    position: relative;
+    display: flex;
+    min-height: 620px;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: clamp(38px, 5vw, 72px);
+    border-radius: 44px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
+    background-size: 100% 100%, 100% 100%, 240% 240%;
+    animation: contact-turquoise-flow 13s ease-in-out infinite alternate;
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
+  }
+
+  .contact-shine-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.05) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.05) 72%, transparent 100%);
+    transform: translateX(-72%);
+    animation: contact-panel-shine 8.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .contact-card-label {
+    position: absolute;
+    top: clamp(26px, 3vw, 46px);
+    left: clamp(30px, 4vw, 58px);
+    z-index: 1;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.18);
+    font-size: clamp(5.6rem, 9vw, 11rem);
+    font-weight: 850;
+    line-height: 0.78;
+    letter-spacing: -0.085em;
+    pointer-events: none;
+  }
+
+  .contact-hero-card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-hero-card h2 {
+    max-width: 620px;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2.15rem, 3.7vw, 4.35rem);
+    font-weight: 780;
+    line-height: 1;
+    letter-spacing: -0.075em;
+    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
+  }
+
+  .contact-hero-card p:not(.contact-card-label) {
+    max-width: 620px;
+    margin: 22px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  .contact-proof-section {
+    padding: 22px 0;
+    border-top: 1px solid rgba(183, 101, 118, 0.10);
+    border-bottom: 1px solid rgba(183, 101, 118, 0.10);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .contact-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .contact-proof-card {
+    position: relative;
+    min-height: 178px;
+    overflow: hidden;
+    padding: 24px;
+    border-radius: 28px;
+    color: inherit;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 12rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .contact-proof-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+    transition: border-color 180ms ease;
+  }
+
+  .contact-proof-card::after {
+    content: "";
+    position: absolute;
+    right: -58px;
+    top: -58px;
+    width: 138px;
+    height: 138px;
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.68);
+    pointer-events: none;
+    transition: background 180ms ease;
+  }
+
+  .contact-proof-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 127, 143, 0.26);
+    background:
+      radial-gradient(circle at 94% 12%, rgba(246, 220, 227, 0.76), transparent 12rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 251, 0.94));
+    box-shadow: 0 24px 62px rgba(89, 53, 67, 0.095);
+  }
+
+  .contact-proof-card:hover::before {
+    border-top-color: rgba(201, 127, 143, 0.38);
+  }
+
+  .contact-proof-card:hover::after {
+    background: rgba(246, 220, 227, 0.76);
+  }
+
+  .contact-proof-card span,
+  .contact-proof-card p,
+  .contact-proof-card strong,
+  .contact-proof-card em,
+  .contact-proof-card small {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-proof-card span {
+    display: inline-flex;
+    margin-bottom: 30px;
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.72rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.18em;
+  }
+
+  .contact-proof-card p {
+    display: inline-flex;
+    min-height: 30px;
+    align-items: center;
+    margin: 0 0 14px;
+    padding: 0 11px;
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.72);
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.66rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .contact-proof-card strong {
+    display: block;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.25rem, 1.55vw, 1.75rem);
+    font-weight: 760;
+    line-height: 1.05;
+    letter-spacing: -0.055em;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-proof-card em {
+    display: block;
+    margin-top: 10px;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.92rem;
+    font-style: normal;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-proof-card small {
+    display: inline-flex;
+    margin-top: 18px;
+    color: var(--color-text, #17151d);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .contact-data-section,
+  .contact-social-section,
+  .contact-location-section,
+  .contact-before-section,
+  .contact-offer-section,
+  .contact-faq-section,
+  .contact-final-cta {
+    padding: 88px 0;
+  }
+
+  .contact-social-section,
+  .contact-location-section,
+  .contact-before-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 24rem),
+      radial-gradient(circle at 90% 72%, rgba(201, 127, 143, 0.08), transparent 24rem),
+      rgba(255, 255, 255, 0.62);
+  }
+
+  .contact-section-heading {
+    max-width: 940px;
+    margin-bottom: 38px;
+  }
+
+  .contact-section-heading h2,
+  .contact-location-card h2,
+  .contact-before-card h2,
+  .contact-final-card h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .contact-section-heading p,
+  .contact-location-card p,
+  .contact-before-card p,
+  .contact-final-card p:not(.signature) {
+    color: var(--color-muted, #6e6670);
+    font-size: 1.05rem;
+    font-weight: 450;
+    line-height: 1.65;
+  }
+
+  .contact-card-grid,
+  .contact-social-grid,
+  .contact-offer-grid,
+  .contact-faq-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .contact-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-social-grid,
+  .contact-offer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contact-method-card,
+  .contact-offer-card,
+  .contact-faq-grid article {
+    position: relative;
+    min-height: 255px;
+    overflow: hidden;
+    padding: 28px;
+    border-radius: 32px;
+    color: inherit;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
+  }
+
+  .contact-method-card::before,
+  .contact-offer-card::before,
+  .contact-faq-grid article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(56, 187, 181, 0.34);
+    pointer-events: none;
+  }
+
+  .contact-method-card::after,
+  .contact-offer-card::after {
+    content: "";
+    position: absolute;
+    right: -58px;
+    top: -58px;
+    width: 138px;
+    height: 138px;
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.68);
+    pointer-events: none;
+    transition: background 180ms ease;
+  }
+
+  .contact-method-card:hover::before,
+  .contact-offer-card:hover::before {
+    border-top-color: rgba(201, 127, 143, 0.38);
+  }
+
+  .contact-method-card:hover::after,
+  .contact-offer-card:hover::after {
+    background: rgba(246, 220, 227, 0.76);
+  }
+
+  .contact-offer-card-turquoise {
+    border-color: rgba(56, 187, 181, 0.3);
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.88), rgba(255, 255, 255, 0.92));
+  }
+
+  .contact-offer-card-rose::before,
+  .contact-faq-grid article::before {
+    border-top-color: rgba(201, 127, 143, 0.28);
+  }
+
+  .contact-offer-card-rose::after {
+    background: rgba(246, 220, 227, 0.76);
+  }
+
+  .contact-method-card span,
+  .contact-offer-card span {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    margin-bottom: 44px;
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.72rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .contact-method-card h3,
+  .contact-offer-card h3,
+  .contact-faq-grid h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
+    font-weight: 760;
+    line-height: 1;
+    letter-spacing: -0.065em;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-method-card p,
+  .contact-offer-card p,
+  .contact-faq-grid p {
+    position: relative;
+    z-index: 2;
+    margin: 14px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.95rem;
+    line-height: 1.62;
+  }
+
+  .contact-method-card strong {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    margin-top: 22px;
+    color: var(--color-text, #17151d);
+    font-size: 0.86rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .contact-social-card {
+    position: relative;
+    min-height: 215px;
+    overflow: hidden;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 30px;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 24px 68px rgba(89, 53, 67, 0.12);
+  }
+
+  .contact-social-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.08) 22%, rgba(255, 255, 255, 0.3) 47%, rgba(255, 255, 255, 0.08) 72%, transparent 100%);
+    opacity: 0.36;
+    pointer-events: none;
+  }
+
+  .contact-social-card::after {
+    content: "";
+    position: absolute;
+    right: -54px;
+    top: -54px;
+    width: 132px;
+    height: 132px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+  }
+
+  .contact-social-card-instagram {
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 10rem),
+      linear-gradient(145deg, #405de6 0%, #833ab4 27%, #c13584 48%, #e1306c 66%, #fd1d1d 82%, #fcb045 100%);
+  }
+
+  .contact-social-card-facebook {
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.26), transparent 10rem),
+      linear-gradient(145deg, #0f4fb3 0%, #1877f2 42%, #4a9dff 68%, #063f91 100%);
+  }
+
+  .contact-social-card-booksy {
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 10rem),
+      linear-gradient(145deg, #067046 0%, #13a268 42%, #59e0a5 70%, #07583a 100%);
+  }
+
+  .contact-social-card-google {
+    color: var(--color-text, #17151d);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
+    border-color: rgba(66, 133, 244, 0.22);
+  }
+
+  .contact-social-card-google::before {
+    height: 6px;
+    background:
+      linear-gradient(90deg, #4285f4 0 24%, #34a853 24% 50%, #fbbc05 50% 74%, #ea4335 74% 100%);
+    opacity: 1;
+  }
+
+  .contact-social-card-google::after {
+    background:
+      conic-gradient(from 210deg, rgba(66, 133, 244, 0.24), rgba(52, 168, 83, 0.24), rgba(251, 188, 5, 0.24), rgba(234, 67, 53, 0.24), rgba(66, 133, 244, 0.24));
+  }
+
+  .contact-social-card em,
+  .contact-social-card span,
+  .contact-social-card h3,
+  .contact-social-card p,
+  .contact-social-card strong {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-social-card em {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: clamp(2.7rem, 4.2vw, 4.4rem);
+    font-style: normal;
+    font-weight: 850;
+    line-height: 0.9;
+    letter-spacing: -0.1em;
+  }
+
+  .contact-social-card-booksy em {
+    right: 18px;
+    font-size: clamp(1.9rem, 2.8vw, 2.8rem);
+    letter-spacing: -0.08em;
+  }
+
+  .contact-social-card-google em {
+    background: linear-gradient(90deg, #4285f4 0%, #34a853 30%, #fbbc05 58%, #ea4335 86%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.2;
+  }
+
+  .contact-social-card span {
+    display: inline-flex;
+    margin-bottom: 34px;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 0.72rem;
+    font-weight: 780;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .contact-social-card-google span {
+    color: var(--color-turquoise-dark, #0f7773);
+  }
+
+  .contact-social-card h3 {
+    margin: 0;
+    font-size: clamp(1.35rem, 1.7vw, 1.9rem);
+    font-weight: 760;
+    line-height: 1;
+    letter-spacing: -0.06em;
+  }
+
+  .contact-social-card p {
+    margin: 12px 0 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .contact-social-card-google p {
+    color: var(--color-muted, #6e6670);
+  }
+
+  .contact-social-card strong {
+    display: inline-flex;
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.78rem;
+    font-weight: 780;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  .contact-social-card-google strong {
+    color: var(--color-text, #17151d);
+  }
+
+  .contact-location-grid,
+  .contact-before-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .contact-location-card,
+  .contact-hours-card,
+  .contact-before-card,
+  .contact-rules-card {
+    padding: clamp(32px, 4vw, 52px);
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
+  }
+
+  .contact-address {
+    margin-top: 28px;
+  }
+
+  .contact-address p:first-child {
+    color: var(--color-text, #17151d);
+    font-size: 1.2rem;
+    font-weight: 730;
+    letter-spacing: -0.04em;
+  }
+
+  .contact-location-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .contact-hours-list {
+    display: grid;
+    gap: 0;
+    overflow: hidden;
+    margin-top: 24px;
+    border: 1px solid rgba(56, 187, 181, 0.15);
+    border-radius: 26px;
+  }
+
+  .contact-hours-list div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+    background: rgba(255, 255, 255, 0.68);
+  }
+
+  .contact-hours-list div:last-child {
+    border-bottom: 0;
+  }
+
+  .contact-hours-list strong {
+    color: var(--color-text, #17151d);
+    font-weight: 740;
+    letter-spacing: -0.035em;
+  }
+
+  .contact-hours-list span,
+  .contact-hours-note {
+    color: var(--color-muted, #6e6670);
+  }
+
+  .contact-hours-note {
+    margin-top: 22px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .contact-rules-card {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .premium-point {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    padding: 24px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+    background: rgba(255, 255, 255, 0.62);
+    transition:
+      background 180ms ease,
+      transform 180ms ease;
+  }
+
+  .premium-point:last-child {
+    border-bottom: 0;
+  }
+
+  .premium-point:hover {
+    background: rgba(255, 242, 246, 0.84);
+    transform: translateX(3px);
+  }
+
+  .premium-point__dot {
+    width: 28px;
+    height: 28px;
+    margin-top: 3px;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle, rgba(21, 154, 150, 0.92) 0 22%, rgba(21, 154, 150, 0.18) 23% 100%);
+    box-shadow: 0 0 0 11px rgba(56, 187, 181, 0.10);
+    transition:
+      background 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .premium-point:hover .premium-point__dot {
+    background:
+      radial-gradient(circle, rgba(183, 101, 118, 0.92) 0 22%, rgba(183, 101, 118, 0.18) 23% 100%);
+    box-shadow: 0 0 0 11px rgba(201, 127, 143, 0.12);
+  }
+
+  .premium-point p {
+    margin: 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.98rem;
+    line-height: 1.58;
+  }
+
+  .contact-faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-faq-grid article {
+    min-height: auto;
+  }
+
+  .contact-final-card {
+    padding: clamp(34px, 6vw, 70px);
+    border-radius: 42px;
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .contact-final-card p:not(.signature) {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-final-card .button-primary {
+    margin-top: 18px;
+  }
+
+  @keyframes contact-panel-shine {
+    0%,
+    45% {
+      transform: translateX(-72%);
+      opacity: 0.28;
+    }
+
+    100% {
+      transform: translateX(88%);
+      opacity: 0.88;
+    }
+  }
+
+  @keyframes contact-turquoise-flow {
+    0% {
+      background-position: 0% 50%, 0% 50%, 0% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%, 0% 50%, 100% 50%;
+    }
+  }
+
+  @media (max-width: 1260px) {
+    .contact-proof-grid,
+    .contact-social-grid,
+    .contact-offer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .contact-hero-grid,
+    .contact-location-grid,
+    .contact-before-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-hero-copy,
+    .contact-hero-card {
+      min-height: auto;
+    }
+  }
+
   @media (max-width: 760px) {
-    .pmu-hero-turquoise-text {
-      display: inline;
+    .contact-hero {
+      padding: 112px 0 58px;
+    }
+
+    .contact-hero-grid {
+      gap: 16px;
+      padding-left: 8px;
+      padding-right: 8px;
+      box-sizing: border-box;
+    }
+
+    .contact-hero-copy,
+    .contact-hero-card,
+    .contact-proof-card,
+    .contact-method-card,
+    .contact-social-card,
+    .contact-location-card,
+    .contact-hours-card,
+    .contact-before-card,
+    .contact-rules-card,
+    .contact-offer-card,
+    .contact-faq-grid article,
+    .contact-final-card {
+      border-radius: 28px;
+    }
+
+    .contact-hero-copy {
+      padding: 28px 22px;
+    }
+
+    .contact-hero-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem);
+      line-height: 1.04;
+      letter-spacing: -0.068em;
+    }
+
+    .contact-hero-lead {
+      font-size: 1rem;
+    }
+
+    .contact-hero-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .contact-hero-actions a {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .contact-hero-card {
+      min-height: 430px;
+      padding: 30px 24px;
+    }
+
+    .contact-card-label {
+      top: 24px;
+      left: 24px;
+      font-size: clamp(5.2rem, 24vw, 7.8rem);
+    }
+
+    .contact-hero-card h2 {
+      font-size: clamp(1.95rem, 8.6vw, 2.8rem);
+      line-height: 1.04;
+      letter-spacing: -0.06em;
+    }
+
+    .contact-page .section-kicker {
+      min-height: 30px;
+      margin-bottom: 16px;
+      padding: 0 11px;
+      font-size: 0.64rem;
+      letter-spacing: 0.13em;
+    }
+
+    .contact-data-section,
+    .contact-social-section,
+    .contact-location-section,
+    .contact-before-section,
+    .contact-offer-section,
+    .contact-faq-section,
+    .contact-final-cta {
+      padding: 58px 0;
+    }
+
+    .contact-section-heading h2,
+    .contact-location-card h2,
+    .contact-before-card h2,
+    .contact-final-card h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .contact-proof-grid,
+    .contact-social-grid,
+    .contact-offer-grid,
+    .contact-faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-proof-card,
+    .contact-method-card,
+    .contact-social-card,
+    .contact-offer-card {
+      min-height: auto;
+      padding: 26px;
+    }
+
+    .contact-method-card span,
+    .contact-offer-card span {
+      margin-bottom: 32px;
+    }
+
+    .contact-location-card,
+    .contact-hours-card,
+    .contact-before-card {
+      padding: 28px 22px;
+    }
+
+    .contact-hours-list div {
+      display: grid;
+      gap: 6px;
+    }
+
+    .premium-point {
+      padding: 22px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .contact-hero-grid {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    .contact-hero-copy,
+    .contact-hero-card {
+      width: calc(100% - 10px);
+      max-width: calc(100% - 10px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-hero-card,
+    .contact-shine-card::before {
+      animation: none;
     }
   }
 </style>
