@@ -141,19 +141,49 @@ function getLocalAnswer(message: string) {
     q === "brwi permanentne" ||
     q.includes("naturalne brwi") ||
     q.includes("brwi permanentne") ||
+    q.includes("brwi permanente") ||
+    q.includes("brwi permanetne") ||
+    q.includes("brwi permanetny") ||
+    q.includes("brwi permamentne") ||
+    q.includes("brwi permanenty") ||
     q.includes("makijaz permanentny brwi") ||
-    q.includes("makijaż permanentny brwi")
+    q.includes("makijaż permanentny brwi") ||
+    q.includes("jakie brwi") ||
+    q.includes("jakie brwi mozna") ||
+    q.includes("jakie brwi można") ||
+    q.includes("metody brwi") ||
+    q.includes("rodzaje brwi")
   ) {
-    return "Makijaż permanentny brwi dobiera się do twarzy, skóry, naturalnych włosków i oczekiwanego efektu. Przy naturalnym efekcie najważniejsze jest, aby brwi nie były przerysowane i nie dominowały urody.\n\nNajlepszy kolejny krok to zapoznanie się z metodami brwi permanentnych albo konsultacja. /makijaz-permanentny-brwi/";
+    return "Brwi permanentne można wykonać w różnym kierunku: bardzo naturalnie, miękko cieniowane, z efektem włosa maszynowego albo jako połączenie włosa i delikatnego cienia. Dobór metody zależy od skóry, naturalnych włosków, starego pigmentu i oczekiwanego efektu.\n\nNajlepszy kolejny krok to zobaczenie metod brwi permanentnych albo konsultacja. /makijaz-permanentny-brwi/";
   }
 
   if (
     q === "usta permanentne" ||
     q.includes("makijaz permanentny ust") ||
     q.includes("makijaż permanentny ust") ||
-    q.includes("usta permanentne")
+    q.includes("usta permanentne") ||
+    q.includes("usta permanente") ||
+    q.includes("usta nude") ||
+    q.includes("nude usta") ||
+    q.includes("kolor nude") ||
+    q.includes("naturalne usta") ||
+    q.includes("delikatne usta")
   ) {
-    return "Makijaż permanentny ust służy odświeżeniu koloru, delikatnemu podkreśleniu konturu i poprawie wizualnej harmonii czerwieni wargowej. Nie jest zabiegiem powiększania ust jak modelowanie kwasem hialuronowym.\n\nNajlepszy kolejny krok to sprawdzenie podstrony o ustach permanentnych albo konsultacja. /makijaz-permanentny-ust/";
+    return "Makijaż permanentny ust może dać bardzo naturalny efekt, także w kierunku nude — bardziej jako odświeżenie czerwieni wargowej, wyrównanie koloru i subtelne podkreślenie konturu niż mocny makijaż. Kolor dobiera się indywidualnie do naturalnego odcienia ust i urody.\n\nNajlepszy kolejny krok to sprawdzenie podstrony o ustach permanentnych albo konsultacja. /makijaz-permanentny-ust/";
+  }
+
+  if (
+    q.includes("jakie kolory") ||
+    q.includes("kolory mozna") ||
+    q.includes("kolory można") ||
+    q.includes("kolor ust") ||
+    q.includes("kolory ust") ||
+    q.includes("pigmenty ust") ||
+    q.includes("jaki kolor") ||
+    q.includes("salonie makijazu") ||
+    q.includes("salonie makijażu")
+  ) {
+    return "Kolor w makijażu permanentnym dobiera się indywidualnie — nie tylko do życzenia klientki, ale też do naturalnego odcienia ust, brwi, skóry i tego, jak pigment będzie wyglądał po wygojeniu. Przy ustach można iść w stronę delikatnych odcieni nude, różu, świeżej czerwieni wargowej albo bardziej wyrazistego efektu, jeśli pasuje do urody.\n\nNajlepszy kolejny krok to konsultacja albo sprawdzenie podstrony o ustach permanentnych. /makijaz-permanentny-ust/";
   }
 
   if (
@@ -214,10 +244,7 @@ function getLocalAnswer(message: string) {
     return "Po chorobie onkologicznej makijaż permanentny można rozważać tylko indywidualnie i bardzo ostrożnie. Znaczenie ma etap leczenia, aktualny stan zdrowia, wyniki, przyjmowane leki, odporność, gojenie skóry oraz ewentualna zgoda lekarza prowadzącego.\n\nNajbezpieczniejszym kolejnym krokiem będzie kontakt z gabinetem i konsultacja przed zapisem na zabieg.";
   }
 
-  if (
-    q === "przeciwwskazania" ||
-    q.includes("przeciwwskazania")
-  ) {
+  if (q === "przeciwwskazania" || q.includes("przeciwwskazania")) {
     return "Najważniejsze przeciwwskazania to m.in. ciąża, karmienie piersią, aktywne infekcje, gorączka, opryszczka przy pigmentacji ust, świeże rany lub stany zapalne skóry w miejscu zabiegu oraz niektóre choroby i leki wpływające na gojenie.\n\nOstateczna kwalifikacja zawsze wymaga indywidualnej oceny. W razie wątpliwości najlepiej skontaktować się z gabinetem przed rezerwacją.";
   }
 
@@ -432,7 +459,7 @@ export const POST: APIRoute = async ({ request }) => {
     return jsonResponse({
       answer,
       cta: {
-        booksyUrl,
+                booksyUrl,
         phone,
       },
     });
