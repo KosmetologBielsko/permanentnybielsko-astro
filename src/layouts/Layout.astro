@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { siteConfig, getCanonicalUrl, getOgImageUrl } from "../config/site";
+import AssistantWidget from "../components/AssistantWidget.astro";
 
 interface Props {
   title?: string;
@@ -124,5 +125,7 @@ const structuredDataJson = JSON.stringify(allStructuredData).replaceAll("<", "\\
   </head>
   <body>
     <slot />
+
+    <AssistantWidget />
   </body>
 </html>

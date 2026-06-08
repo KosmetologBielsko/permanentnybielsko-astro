@@ -17,34 +17,48 @@ const starters = [
 
 <div class="pmu-assistant" data-pmu-assistant>
   <button class="pmu-assistant__launcher" type="button" aria-expanded="false" aria-controls="pmu-assistant-panel">
+    <span class="pmu-assistant__launcher-glow"></span>
     <span class="pmu-assistant__launcher-icon">AI</span>
-    <span>
-      <strong>Zapytaj o PMU</strong>
-      <small>Asystent Bogusława Herda</small>
+    <span class="pmu-assistant__launcher-copy">
+      <strong>Dobierz zabieg</strong>
+      <small>AI Asystent PMU</small>
     </span>
   </button>
 
   <section class="pmu-assistant__panel" id="pmu-assistant-panel" aria-hidden="true">
     <header class="pmu-assistant__header">
-      <div>
+      <div class="pmu-assistant__header-main">
         <p>AI Asystent PMU</p>
-        <h2>Bogusława Herda</h2>
+        <h2>Dobierz właściwy kierunek</h2>
+        <span>Brwi · Usta · Kreski · Korekta PMU</span>
       </div>
-      <button class="pmu-assistant__close" type="button" aria-label="Zamknij asystenta">×</button>
+
+      <div class="pmu-assistant__header-actions">
+        <button class="pmu-assistant__clear" type="button" data-clear aria-label="Wyczyść rozmowę">
+          Wyczyść
+        </button>
+        <button class="pmu-assistant__close" type="button" aria-label="Zamknij asystenta">
+          ×
+        </button>
+      </div>
     </header>
 
-    <div class="pmu-assistant__body">
-      <div class="pmu-assistant__message pmu-assistant__message--assistant">
-        <p>
-          Dzień dobry. Pomogę Pani dobrać kierunek zabiegu, znaleźć właściwą podstronę
-          albo przejść do rezerwacji przez Booksy.
-        </p>
-      </div>
+    <div class="pmu-assistant__body" data-body>
+      <div class="pmu-assistant__intro">
+        <div class="pmu-assistant__consult-card">
+          <div class="pmu-assistant__consult-kicker">Konsultacyjny pomocnik</div>
+          <p>
+            Pomogę Pani wybrać kierunek zabiegu, znaleźć właściwą podstronę
+            i przejść do rezerwacji lub kontaktu z gabinetem.
+          </p>
+          <small>Na podstawie standardu gabinetu Bogusława Herda.</small>
+        </div>
 
-      <div class="pmu-assistant__starters" aria-label="Szybkie tematy">
-        {starters.map((starter) => (
-          <button type="button" data-starter={starter}>{starter}</button>
-        ))}
+        <div class="pmu-assistant__starters" aria-label="Szybkie tematy">
+          {starters.map((starter) => (
+            <button type="button" data-starter={starter}>{starter}</button>
+          ))}
+        </div>
       </div>
 
       <div class="pmu-assistant__messages" data-messages></div>
@@ -75,16 +89,21 @@ const starters = [
   </section>
 </div>
 
-<style>
+<style is:global>
   .pmu-assistant {
-    --pmu-turquoise: #23a9bb;
-    --pmu-turquoise-dark: #0c6f7d;
-    --pmu-pink: #d85e95;
-    --pmu-soft: #fff7fb;
-    --pmu-ink: #173137;
-    --pmu-muted: #668086;
-    --pmu-line: rgba(12, 111, 125, 0.18);
-    --pmu-shadow: 0 24px 70px rgba(16, 61, 72, 0.2);
+    --pmu-turquoise: #26a9ba;
+    --pmu-turquoise-deep: #0f7773;
+    --pmu-turquoise-soft: #eefbfc;
+    --pmu-pink: #d46d9b;
+    --pmu-pink-soft: #fff4f8;
+    --pmu-gold: #c9a46a;
+    --pmu-ink: #182d31;
+    --pmu-muted: #667a80;
+    --pmu-line: rgba(15, 119, 115, 0.14);
+    --pmu-line-strong: rgba(15, 119, 115, 0.24);
+    --pmu-white: rgba(255, 255, 255, 0.97);
+    --pmu-shadow: 0 26px 76px rgba(24, 45, 49, 0.18);
+    --pmu-soft-shadow: 0 14px 34px rgba(24, 45, 49, 0.08);
 
     position: fixed;
     right: clamp(16px, 2vw, 28px);
@@ -98,24 +117,39 @@ const starters = [
   }
 
   .pmu-assistant__launcher {
-    display: flex;
+    position: relative;
+    display: inline-flex;
     align-items: center;
     gap: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.72);
+    isolation: isolate;
+    min-height: 62px;
+    padding: 10px 18px 10px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.74);
     border-radius: 999px;
-    padding: 10px 16px 10px 10px;
     background:
-      linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,247,251,0.94)),
-      radial-gradient(circle at 20% 0%, rgba(35,169,187,0.25), transparent 38%);
+      linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,247,250,0.96)),
+      radial-gradient(circle at 0% 0%, rgba(38,169,186,0.16), transparent 42%);
     color: var(--pmu-ink);
-    box-shadow: 0 16px 44px rgba(14, 80, 92, 0.2);
+    box-shadow: 0 16px 38px rgba(24, 45, 49, 0.13);
     cursor: pointer;
     transition: transform 180ms ease, box-shadow 180ms ease;
   }
 
   .pmu-assistant__launcher:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 52px rgba(14, 80, 92, 0.26);
+    box-shadow: 0 20px 48px rgba(24, 45, 49, 0.18);
+  }
+
+  .pmu-assistant__launcher-glow {
+    position: absolute;
+    inset: -10px;
+    z-index: -1;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at 16% 8%, rgba(38,169,186,0.18), transparent 42%),
+      radial-gradient(circle at 90% 78%, rgba(212,109,155,0.18), transparent 45%);
+    filter: blur(10px);
+    opacity: 0.72;
   }
 
   .pmu-assistant__launcher-icon {
@@ -123,43 +157,61 @@ const starters = [
     place-items: center;
     width: 42px;
     height: 42px;
+    flex-shrink: 0;
     border-radius: 999px;
-    background: linear-gradient(135deg, var(--pmu-turquoise), var(--pmu-pink));
+    background: linear-gradient(135deg, var(--pmu-turquoise-deep), var(--pmu-pink));
     color: #fff;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
+    font-size: 0.76rem;
+    font-weight: 850;
+    letter-spacing: 0.09em;
+    box-shadow: 0 10px 20px rgba(38, 169, 186, 0.18);
   }
 
-  .pmu-assistant__launcher strong,
-  .pmu-assistant__launcher small {
+  .pmu-assistant__launcher-copy strong,
+  .pmu-assistant__launcher-copy small {
     display: block;
-    line-height: 1.15;
     text-align: left;
+    line-height: 1.12;
   }
 
-  .pmu-assistant__launcher strong {
-    font-size: 0.92rem;
+  .pmu-assistant__launcher-copy strong {
+    color: var(--pmu-ink);
+    font-size: 0.94rem;
+    font-weight: 850;
   }
 
-  .pmu-assistant__launcher small {
-    margin-top: 2px;
+  .pmu-assistant__launcher-copy small {
+    margin-top: 4px;
     color: var(--pmu-muted);
     font-size: 0.72rem;
+    font-weight: 650;
   }
 
   .pmu-assistant__panel {
     position: absolute;
     right: 0;
-    bottom: 72px;
+    bottom: 78px;
     display: none;
-    width: min(390px, calc(100vw - 32px));
-    max-height: min(720px, calc(100vh - 108px));
+    width: min(456px, calc(100vw - 32px));
+    max-height: min(780px, calc(100vh - 110px));
     overflow: hidden;
-    border: 1px solid var(--pmu-line);
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(255,255,255,0.76);
+    border-radius: 34px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96)),
+      radial-gradient(circle at 0% 0%, rgba(38,169,186,0.09), transparent 34%),
+      radial-gradient(circle at 100% 10%, rgba(212,109,155,0.10), transparent 36%);
     box-shadow: var(--pmu-shadow);
+    backdrop-filter: blur(16px);
+  }
+
+  .pmu-assistant__panel::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    pointer-events: none;
+    border: 1px solid rgba(15, 119, 115, 0.10);
+    border-radius: 26px;
   }
 
   .pmu-assistant.is-open .pmu-assistant__panel {
@@ -172,78 +224,223 @@ const starters = [
   }
 
   .pmu-assistant__header {
+    position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 16px;
-    padding: 18px 18px 14px;
+    padding: 24px 24px 18px;
     background:
-      radial-gradient(circle at 8% 0%, rgba(35, 169, 187, 0.23), transparent 42%),
-      linear-gradient(135deg, #ffffff, #fff5fa);
+      radial-gradient(circle at 0% 0%, rgba(38, 169, 186, 0.14), transparent 38%),
+      linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,247,250,0.92));
     border-bottom: 1px solid var(--pmu-line);
   }
 
-  .pmu-assistant__header p {
-    margin: 0 0 4px;
-    color: var(--pmu-turquoise-dark);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.13em;
+  .pmu-assistant__header::after {
+    content: "";
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(38,169,186,0.32), rgba(212,109,155,0.18), transparent);
+  }
+
+  .pmu-assistant__header-main p {
+    margin: 0 0 8px;
+    color: var(--pmu-turquoise-deep);
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
   }
 
-  .pmu-assistant__header h2 {
+  .pmu-assistant__header-main h2 {
     margin: 0;
     color: var(--pmu-ink);
-    font-size: 1.08rem;
-    line-height: 1.15;
+    font-size: clamp(1.15rem, 2vw, 1.34rem);
+    line-height: 1.12;
+    font-weight: 850;
+    letter-spacing: -0.03em;
+  }
+
+  .pmu-assistant__header-main span {
+    display: block;
+    margin-top: 9px;
+    color: var(--pmu-muted);
+    font-size: 0.78rem;
+    line-height: 1.25;
+    font-weight: 650;
+  }
+
+  .pmu-assistant__header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .pmu-assistant__clear,
+  .pmu-assistant__close {
+    border: 1px solid var(--pmu-line);
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--pmu-turquoise-deep);
+    cursor: pointer;
+    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  }
+
+  .pmu-assistant__clear:hover,
+  .pmu-assistant__close:hover {
+    background: #fff;
+    border-color: var(--pmu-line-strong);
+    transform: translateY(-1px);
+  }
+
+  .pmu-assistant__clear {
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 850;
   }
 
   .pmu-assistant__close {
-    width: 38px;
-    height: 38px;
-    border: 1px solid var(--pmu-line);
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
     border-radius: 999px;
-    background: #fff;
-    color: var(--pmu-ink);
-    cursor: pointer;
-    font-size: 1.45rem;
+    font-size: 1.5rem;
     line-height: 1;
   }
 
   .pmu-assistant__body {
     overflow-y: auto;
-    padding: 16px;
+    padding: 18px;
     background:
-      radial-gradient(circle at 100% 24%, rgba(35,169,187,0.08), transparent 32%),
-      #fff;
+      radial-gradient(circle at 100% 22%, rgba(38,169,186,0.045), transparent 26%),
+      linear-gradient(180deg, rgba(255,255,255,0.95), rgba(252,253,253,0.96));
+  }
+
+  .pmu-assistant__body::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  .pmu-assistant__body::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    border-radius: 999px;
+    background-clip: content-box;
+    background-color: rgba(15, 119, 115, 0.28);
+  }
+
+  .pmu-assistant__intro {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .pmu-assistant__consult-card {
+    position: relative;
+    overflow: hidden;
+    padding: 18px;
+    border: 1px solid rgba(15, 119, 115, 0.12);
+    border-radius: 26px;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,246,250,0.82)),
+      radial-gradient(circle at 100% 0%, rgba(38,169,186,0.10), transparent 36%);
+    box-shadow: var(--pmu-soft-shadow);
+  }
+
+  .pmu-assistant__consult-card::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    right: -80px;
+    bottom: -92px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(212,109,155,0.12), transparent 64%);
+  }
+
+  .pmu-assistant__consult-kicker {
+    margin-bottom: 9px;
+    color: var(--pmu-turquoise-deep);
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .pmu-assistant__consult-card p {
+    position: relative;
+    margin: 0;
+    color: var(--pmu-ink);
+    font-size: 0.9rem;
+    line-height: 1.52;
+  }
+
+  .pmu-assistant__consult-card small {
+    position: relative;
+    display: block;
+    margin-top: 11px;
+    color: var(--pmu-muted);
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+
+  .pmu-assistant__starters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pmu-assistant__starters button {
+    min-height: 36px;
+    border: 1px solid rgba(15, 119, 115, 0.13);
+    border-radius: 999px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--pmu-turquoise-deep);
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 780;
+    line-height: 1.1;
+    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  }
+
+  .pmu-assistant__starters button:hover {
+    background: #fff;
+    border-color: rgba(15, 119, 115, 0.24);
+    transform: translateY(-1px);
+  }
+
+  .pmu-assistant__messages {
+    display: grid;
+    gap: 12px;
   }
 
   .pmu-assistant__message {
     max-width: 92%;
-    margin: 0 0 12px;
-    padding: 12px 14px;
-    border-radius: 18px;
-    font-size: 0.92rem;
-    line-height: 1.48;
-  }
-
-  .pmu-assistant__message p {
-    margin: 0;
+    border-radius: 24px;
+    padding: 15px 16px;
+    font-size: 0.88rem;
+    line-height: 1.58;
   }
 
   .pmu-assistant__message--assistant {
-    border-top-left-radius: 8px;
-    background: #f5fbfc;
+    border-top-left-radius: 11px;
+    background: #fff;
+    border: 1px solid rgba(15, 119, 115, 0.12);
+    box-shadow: 0 9px 22px rgba(24, 45, 49, 0.055);
     color: var(--pmu-ink);
-    border: 1px solid rgba(35, 169, 187, 0.14);
   }
 
   .pmu-assistant__message--user {
     margin-left: auto;
-    border-top-right-radius: 8px;
-    background: linear-gradient(135deg, var(--pmu-turquoise-dark), var(--pmu-turquoise));
+    border-top-right-radius: 11px;
+    background: linear-gradient(135deg, rgba(15,119,115,0.97), rgba(38,169,186,0.96));
     color: #fff;
+    box-shadow: 0 12px 24px rgba(15, 119, 115, 0.18);
   }
 
   .pmu-assistant__message--loading {
@@ -251,98 +448,178 @@ const starters = [
     font-style: italic;
   }
 
-  .pmu-assistant__starters {
-    display: flex;
-    flex-wrap: wrap;
+  .pmu-assistant__text {
+    display: grid;
+    gap: 10px;
+  }
+
+  .pmu-assistant__text p {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.58;
+    color: inherit;
+  }
+
+  .pmu-assistant__message--assistant .pmu-assistant__text strong {
+    color: var(--pmu-turquoise-deep);
+    font-weight: 850;
+  }
+
+  .pmu-assistant__message--user .pmu-assistant__text strong {
+    color: #fff;
+    font-weight: 850;
+  }
+
+  .pmu-assistant__text a {
+    color: var(--pmu-pink);
+    font-weight: 850;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(212, 109, 155, 0.34);
+  }
+
+  .pmu-assistant__text a:hover {
+    border-bottom-color: currentColor;
+  }
+
+  .pmu-assistant__actions {
+    display: grid;
     gap: 8px;
-    margin: 12px 0 16px;
+    margin-top: 14px;
   }
 
-  .pmu-assistant__starters button {
-    border: 1px solid rgba(35, 169, 187, 0.24);
+  .pmu-assistant__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 14px;
     border-radius: 999px;
-    padding: 8px 11px;
     background: #fff;
-    color: var(--pmu-turquoise-dark);
-    cursor: pointer;
-    font-size: 0.78rem;
-    font-weight: 700;
+    color: var(--pmu-turquoise-deep);
+    font-size: 0.8rem;
+    font-weight: 850;
+    line-height: 1.15;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid rgba(15, 119, 115, 0.14);
+    box-shadow: 0 7px 16px rgba(24, 45, 49, 0.05);
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
   }
 
-  .pmu-assistant__starters button:hover {
-    background: #f3fbfc;
+  .pmu-assistant__action:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(24, 45, 49, 0.08);
+    background: #fbfefe;
+  }
+
+  .pmu-assistant__action--primary {
+    border: 0;
+    background: linear-gradient(135deg, var(--pmu-turquoise), var(--pmu-pink));
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(212, 109, 155, 0.17);
+  }
+
+  .pmu-assistant__action--dark {
+    border: 0;
+    background: var(--pmu-ink);
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(24, 45, 49, 0.16);
   }
 
   .pmu-assistant__form {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 10px;
-    padding: 12px;
+    padding: 14px 16px 12px;
     border-top: 1px solid var(--pmu-line);
-    background: #fff;
+    background: rgba(255,255,255,0.96);
   }
 
   .pmu-assistant__form textarea {
     width: 100%;
+    min-height: 56px;
     resize: none;
-    border: 1px solid var(--pmu-line);
-    border-radius: 18px;
-    padding: 11px 12px;
+    border: 1px solid rgba(38, 169, 186, 0.32);
+    border-radius: 22px;
+    padding: 12px 14px;
     color: var(--pmu-ink);
+    background: #fff;
     font: inherit;
+    font-size: 0.88rem;
     line-height: 1.35;
     outline: none;
+    box-shadow: inset 0 1px 2px rgba(24, 45, 49, 0.02);
+  }
+
+  .pmu-assistant__form textarea::placeholder {
+    color: rgba(102, 122, 128, 0.92);
   }
 
   .pmu-assistant__form textarea:focus {
-    border-color: rgba(35, 169, 187, 0.7);
-    box-shadow: 0 0 0 4px rgba(35, 169, 187, 0.12);
+    border-color: rgba(38, 169, 186, 0.72);
+    box-shadow: 0 0 0 4px rgba(38, 169, 186, 0.11);
   }
 
   .pmu-assistant__form button {
     align-self: end;
-    min-height: 44px;
+    min-height: 48px;
+    padding: 0 18px;
     border: 0;
-    border-radius: 16px;
-    padding: 0 15px;
+    border-radius: 18px;
     background: linear-gradient(135deg, var(--pmu-turquoise), var(--pmu-pink));
     color: #fff;
     cursor: pointer;
-    font-weight: 800;
+    font-size: 0.94rem;
+    font-weight: 850;
+    box-shadow: 0 12px 22px rgba(212, 109, 155, 0.14);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .pmu-assistant__form button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 15px 26px rgba(212, 109, 155, 0.18);
   }
 
   .pmu-assistant__form button:disabled {
-    cursor: wait;
     opacity: 0.7;
+    cursor: wait;
+    transform: none;
   }
 
   .pmu-assistant__footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    padding: 0 12px 12px;
-    background: #fff;
+    gap: 9px;
+    padding: 0 16px 16px;
+    background: rgba(255,255,255,0.96);
   }
 
   .pmu-assistant__footer a {
     display: grid;
     place-items: center;
     min-height: 42px;
-    border-radius: 16px;
+    border-radius: 999px;
     text-decoration: none;
-    font-size: 0.86rem;
-    font-weight: 800;
+    font-size: 0.84rem;
+    font-weight: 850;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .pmu-assistant__footer a:hover {
+    transform: translateY(-1px);
   }
 
   .pmu-assistant__footer a:first-child {
     background: var(--pmu-ink);
     color: #fff;
+    box-shadow: 0 10px 18px rgba(24, 45, 49, 0.14);
   }
 
   .pmu-assistant__footer a:last-child {
-    border: 1px solid var(--pmu-line);
-    color: var(--pmu-turquoise-dark);
-    background: #f7fcfd;
+    background: #fff;
+    color: var(--pmu-turquoise-deep);
+    border: 1px solid rgba(15, 119, 115, 0.14);
+    box-shadow: 0 8px 18px rgba(24, 45, 49, 0.05);
   }
 
   .sr-only {
@@ -357,8 +634,8 @@ const starters = [
   @media (max-width: 640px) {
     .pmu-assistant {
       right: 12px;
-      bottom: 12px;
       left: 12px;
+      bottom: 12px;
     }
 
     .pmu-assistant__launcher {
@@ -370,35 +647,582 @@ const starters = [
       left: 0;
       width: 100%;
       bottom: 0;
-      max-height: min(680px, calc(100vh - 24px));
-      border-radius: 26px;
+      max-height: min(700px, calc(100vh - 24px));
+      border-radius: 28px;
     }
 
-    .pmu-assistant.is-open .pmu-assistant__panel {
-      display: grid;
+    .pmu-assistant__header {
+      padding: 18px 18px 15px;
     }
+
+    .pmu-assistant__header-main h2 {
+      font-size: 1.12rem;
+    }
+
+    .pmu-assistant__header-main span {
+      display: none;
+    }
+
+    .pmu-assistant__clear {
+      display: none;
+    }
+
+    .pmu-assistant__body {
+      padding: 14px;
+    }
+
+    .pmu-assistant__form {
+      grid-template-columns: 1fr;
+      padding: 12px 14px;
+    }
+
+    .pmu-assistant__form button {
+      width: 100%;
+    }
+
+    .pmu-assistant__message {
+      max-width: 96%;
+    }
+  }
+    /* PREMIUM COLOR OVERRIDE — v3 */
+  .pmu-assistant {
+    --pmu-gold: #c8a35f;
+    --pmu-gold-light: #e7d19a;
+    --pmu-gold-deep: #9d7331;
+    --pmu-turquoise: #22a8b7;
+    --pmu-turquoise-deep: #0f7773;
+    --pmu-pink: #d46d9b;
+    --pmu-pink-deep: #bd527f;
+  }
+
+  .pmu-assistant__panel {
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(255, 247, 250, 0.76)),
+      radial-gradient(circle at 0% 0%, rgba(34, 168, 183, 0.12), transparent 38%),
+      radial-gradient(circle at 100% 12%, rgba(212, 109, 155, 0.12), transparent 40%),
+      radial-gradient(circle at 50% 100%, rgba(200, 163, 95, 0.11), transparent 38%);
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    box-shadow:
+      0 34px 90px rgba(24, 45, 49, 0.22),
+      0 0 0 1px rgba(15, 119, 115, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(22px) saturate(1.12);
+    -webkit-backdrop-filter: blur(22px) saturate(1.12);
+  }
+
+  .pmu-assistant__panel::before {
+    inset: 9px;
+    border-color: rgba(255, 255, 255, 0.52);
+    box-shadow:
+      inset 0 0 0 1px rgba(15, 119, 115, 0.07),
+      inset 0 20px 60px rgba(255, 255, 255, 0.34);
+  }
+
+  .pmu-assistant__header {
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(255, 245, 249, 0.62)),
+      radial-gradient(circle at 0% 0%, rgba(34, 168, 183, 0.14), transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(200, 163, 95, 0.13), transparent 42%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .pmu-assistant__launcher {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 248, 236, 0.9)),
+      radial-gradient(circle at 8% 0%, rgba(231, 209, 154, 0.38), transparent 45%),
+      radial-gradient(circle at 100% 100%, rgba(34, 168, 183, 0.18), transparent 42%);
+    border-color: rgba(231, 209, 154, 0.58);
+    box-shadow:
+      0 18px 42px rgba(24, 45, 49, 0.15),
+      0 0 0 1px rgba(200, 163, 95, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .pmu-assistant__launcher:hover {
+    box-shadow:
+      0 22px 52px rgba(24, 45, 49, 0.2),
+      0 0 0 1px rgba(200, 163, 95, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  }
+
+  .pmu-assistant__launcher-icon {
+    background: linear-gradient(135deg, var(--pmu-gold-deep), var(--pmu-gold-light));
+    color: #fff;
+    box-shadow:
+      0 12px 24px rgba(200, 163, 95, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  }
+
+  .pmu-assistant__launcher-copy strong {
+    color: var(--pmu-ink);
+  }
+
+  .pmu-assistant__launcher-copy small {
+    color: var(--pmu-turquoise-deep);
+    font-weight: 750;
+  }
+
+  .pmu-assistant__consult-card,
+  .pmu-assistant__message--assistant {
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 251, 253, 0.84)),
+      radial-gradient(circle at 100% 0%, rgba(34, 168, 183, 0.08), transparent 38%);
+    border-color: rgba(255, 255, 255, 0.74);
+    box-shadow:
+      0 14px 34px rgba(24, 45, 49, 0.08),
+      0 0 0 1px rgba(15, 119, 115, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.84);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .pmu-assistant__message--user {
+    background: linear-gradient(135deg, var(--pmu-turquoise-deep), var(--pmu-turquoise));
+    box-shadow:
+      0 14px 30px rgba(15, 119, 115, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .pmu-assistant__form {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .pmu-assistant__form textarea {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(34, 168, 183, 0.28);
+    box-shadow:
+      inset 0 1px 2px rgba(24, 45, 49, 0.03),
+      0 0 0 1px rgba(255, 255, 255, 0.52);
+  }
+
+  .pmu-assistant__form button {
+    background: linear-gradient(135deg, var(--pmu-gold-deep), var(--pmu-gold-light));
+    color: #fff;
+    box-shadow:
+      0 14px 28px rgba(200, 163, 95, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  }
+
+  .pmu-assistant__form button:hover {
+    box-shadow:
+      0 18px 34px rgba(200, 163, 95, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  }
+
+  .pmu-assistant__footer {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .pmu-assistant__footer a:first-child {
+    background: linear-gradient(135deg, var(--pmu-turquoise-deep), var(--pmu-turquoise));
+    color: #fff;
+    box-shadow:
+      0 12px 24px rgba(15, 119, 115, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+
+  .pmu-assistant__footer a:last-child {
+    background: linear-gradient(135deg, var(--pmu-pink), var(--pmu-pink-deep));
+    color: #fff;
+    border: 0;
+    box-shadow:
+      0 12px 24px rgba(212, 109, 155, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+
+  .pmu-assistant__action--primary {
+    background: linear-gradient(135deg, var(--pmu-turquoise-deep), var(--pmu-turquoise));
+    color: #fff;
+    box-shadow:
+      0 12px 24px rgba(15, 119, 115, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+
+  .pmu-assistant__action--dark {
+    background: linear-gradient(135deg, var(--pmu-pink), var(--pmu-pink-deep));
+    color: #fff;
+    box-shadow:
+      0 12px 24px rgba(212, 109, 155, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+
+  .pmu-assistant__action:not(.pmu-assistant__action--primary):not(.pmu-assistant__action--dark) {
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--pmu-turquoise-deep);
+    border-color: rgba(15, 119, 115, 0.14);
+  }
+
+  .pmu-assistant__clear,
+  .pmu-assistant__close {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(15, 119, 115, 0.12);
+    box-shadow:
+      0 8px 18px rgba(24, 45, 49, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+    /* PREMIUM HOVER FIX — zachowuje kolory przy najechaniu */
+  .pmu-assistant .pmu-assistant__launcher:hover {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 248, 236, 0.9)),
+      radial-gradient(circle at 8% 0%, rgba(231, 209, 154, 0.42), transparent 45%),
+      radial-gradient(circle at 100% 100%, rgba(34, 168, 183, 0.22), transparent 42%);
+    transform: translateY(-2px);
+  }
+
+  .pmu-assistant .pmu-assistant__form button:hover {
+    background: linear-gradient(135deg, var(--pmu-gold-deep), var(--pmu-gold-light));
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .pmu-assistant .pmu-assistant__footer a:first-child:hover {
+    background: linear-gradient(135deg, var(--pmu-turquoise-deep), var(--pmu-turquoise));
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .pmu-assistant .pmu-assistant__footer a:last-child:hover {
+    background: linear-gradient(135deg, var(--pmu-pink), var(--pmu-pink-deep));
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .pmu-assistant .pmu-assistant__action--primary:hover {
+    background: linear-gradient(135deg, var(--pmu-turquoise-deep), var(--pmu-turquoise));
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .pmu-assistant .pmu-assistant__action--dark:hover {
+    background: linear-gradient(135deg, var(--pmu-pink), var(--pmu-pink-deep));
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .pmu-assistant .pmu-assistant__action:not(.pmu-assistant__action--primary):not(.pmu-assistant__action--dark):hover {
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--pmu-turquoise-deep);
+    border-color: rgba(15, 119, 115, 0.24);
+    transform: translateY(-1px);
+  }
+
+  .pmu-assistant .pmu-assistant__starters button:hover {
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--pmu-turquoise-deep);
+    border-color: rgba(15, 119, 115, 0.24);
+    transform: translateY(-1px);
+  }
+
+  .pmu-assistant .pmu-assistant__clear:hover,
+  .pmu-assistant .pmu-assistant__close:hover {
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--pmu-turquoise-deep);
+    border-color: rgba(15, 119, 115, 0.24);
+    transform: translateY(-1px);
+  }
+    /* MESSAGE ACTIONS — tylko mały przycisk kontekstowy */
+  .pmu-assistant .pmu-assistant__actions {
+    display: flex;
+    margin-top: 12px;
+  }
+
+  .pmu-assistant .pmu-assistant__action {
+    min-height: 34px;
+    width: auto;
+    display: inline-flex;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--pmu-turquoise-deep);
+    border: 1px solid rgba(15, 119, 115, 0.16);
+    box-shadow: none;
+    font-size: 0.74rem;
+    font-weight: 800;
+  }
+
+  .pmu-assistant .pmu-assistant__action:hover {
+    background: rgba(255, 255, 255, 0.98);
+    color: var(--pmu-turquoise-deep);
+    border-color: rgba(15, 119, 115, 0.28);
+    transform: translateY(-1px);
   }
 </style>
 
-<script>
+<script is:inline>
+  // @ts-nocheck
+
+  const STORAGE_KEY = "pmu_assistant_messages_v1";
+
   const root = document.querySelector("[data-pmu-assistant]");
   const launcher = root?.querySelector(".pmu-assistant__launcher");
   const closeButton = root?.querySelector(".pmu-assistant__close");
+  const clearButton = root?.querySelector("[data-clear]");
   const panel = root?.querySelector(".pmu-assistant__panel");
+  const body = root?.querySelector("[data-body]");
   const form = root?.querySelector("[data-form]");
   const input = root?.querySelector("[data-input]");
   const messages = root?.querySelector("[data-messages]");
   const starterButtons = root?.querySelectorAll("[data-starter]") ?? [];
 
-  const history = [];
+  const booksyUrl =
+    "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+  const serviceLinks = [
+    {
+      path: "/makijaz-permanentny-brwi/",
+      label: "Zobacz brwi permanentne",
+    },
+    {
+      path: "/makijaz-permanentny-ust/",
+      label: "Zobacz usta permanentne",
+    },
+    {
+      path: "/makijaz-permanentny-oczu/",
+      label: "Zobacz kreski permanentne",
+    },
+    {
+      path: "/usuwanie-makijazu-permanentnego/",
+      label: "Zobacz usuwanie PMU",
+    },
+    {
+      path: "/cennik-makijaz-permanentny/",
+      label: "Zobacz cennik",
+    },
+    {
+      path: "/galeria/",
+      label: "Zobacz galerię",
+    },
+    {
+      path: "/kontakt/",
+      label: "Kontakt z gabinetem",
+    },
+    {
+      path: "/szkolenia/",
+      label: "Zobacz szkolenia",
+    },
+    {
+      path: "/sercemmalowane/",
+      label: "Sercem Malowane",
+    },
+    {
+      path: "https://kosmetologiabielsko.com",
+      label: "Kosmetologia Bielsko",
+      external: true,
+    },
+  ];
+
+  let history = [];
+  let savedMessages = [];
 
   function track(eventName, payload = {}) {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: eventName, ...payload });
 
-    if (window.va?.track) {
+    if (window.va && typeof window.va.track === "function") {
       window.va.track(eventName, payload);
     }
+  }
+
+  function saveMessages() {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(savedMessages.slice(-20)));
+    } catch (error) {}
+  }
+
+  function loadMessages() {
+    try {
+      const raw = sessionStorage.getItem(STORAGE_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function escapeRegExp(value) {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function getServiceLinkFromText(text) {
+    return serviceLinks.find((item) => text.includes(item.path)) || null;
+  }
+
+    function getParagraphs(text) {
+    let clean = String(text || "").trim();
+
+    clean = clean
+      .replace(booksyUrl, "")
+      .replace(/https:\/\/booksy\.com\/[^\s)]+/g, "")
+      .replace(/https:\/\/kosmetologiabielsko\.com\/?/g, "")
+      .replace(/\bPodstrona:\s*/gi, "")
+      .replace(/\bTelefon:\s*/gi, "")
+      .replace(/\bBooksy:\s*/gi, "")
+      .replace(
+        /\bAktualną cenę najlepiej sprawdzić w cenniku lub przy usłudze w Booksy\.\s*/gi,
+        "Aktualną cenę najlepiej sprawdzić w cenniku lub przy usłudze w Booksy."
+      )
+      .trim();
+
+    for (const item of serviceLinks) {
+      clean = clean.replaceAll(item.path, "");
+    }
+
+    clean = clean
+      .replace(/\s+([,.!?;:])/g, "$1")
+      .replace(/\s{2,}/g, " ")
+      .replace(/\s+\./g, ".")
+      .replace(/\s+,/g, ",")
+      .trim();
+
+    clean = clean.replace(
+      /([.!?])\s+(Najlepiej|Może Pani|Warto|Ostateczną|Przy|Jeżeli|Jeśli|Ten kierunek|Najwłaściwszy|To dobry moment|W takiej sytuacji|Jeśli nie jest|Aktualne ceny)/g,
+      "$1\n\n$2"
+    );
+
+    return clean
+      .split(/\n{2,}/)
+      .map((part) => part.trim())
+      .filter(Boolean)
+      .slice(0, 4);
+  }
+
+  function createSafeAssistantHtml(text) {
+    const paragraphs = getParagraphs(text);
+
+    return paragraphs
+      .map((paragraph) => {
+        let html = escapeHtml(paragraph);
+        html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+        html = html.replace(
+          /\bBooksy\b/g,
+          `<a href="${booksyUrl}" target="_blank" rel="noopener noreferrer" data-assistant-link="booksy">Booksy</a>`
+        );
+
+        html = html.replace(
+          /\+48 730 900 125|730 900 125/g,
+          `<a href="tel:+48730900125" data-assistant-link="phone">+48 730 900 125</a>`
+        );
+
+        return `<p>${html}</p>`;
+      })
+      .join("");
+  }
+
+  function createSafeAssistantHtml(text) {
+    const paragraphs = getParagraphs(text);
+
+    return paragraphs
+      .map((paragraph) => {
+        let html = escapeHtml(paragraph);
+        html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+        for (const item of serviceLinks) {
+          if (!item.path.startsWith("/")) continue;
+
+          const pathRegex = new RegExp(escapeRegExp(item.path), "g");
+
+          html = html.replace(
+            pathRegex,
+            `<a href="${item.path}" data-assistant-link="service">${item.label}</a>`
+          );
+        }
+
+        html = html.replace(
+          /\bBooksy\b/g,
+          `<a href="${booksyUrl}" target="_blank" rel="noopener noreferrer" data-assistant-link="booksy">Booksy</a>`
+        );
+
+        html = html.replace(
+          /\+48 730 900 125|730 900 125/g,
+          `<a href="tel:+48730900125" data-assistant-link="phone">+48 730 900 125</a>`
+        );
+
+        html = html.replace(
+          /https:\/\/kosmetologiabielsko\.com/g,
+          `<a href="https://kosmetologiabielsko.com" target="_blank" rel="noopener noreferrer" data-assistant-link="service">kosmetologiabielsko.com</a>`
+        );
+
+        return `<p>${html}</p>`;
+      })
+      .join("");
+  }
+
+     function createActionsForAnswer(text) {
+    const actions = [];
+    const serviceLink = getServiceLinkFromText(text);
+
+    if (serviceLink) {
+      actions.push({
+        href: serviceLink.path,
+        label: serviceLink.label,
+        external: Boolean(serviceLink.external),
+        kind: "service",
+      });
+    }
+
+    return actions.slice(0, 1);
+  }
+
+  function appendActions(messageElement, actions) {
+    if (!actions.length) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "pmu-assistant__actions";
+
+    for (const action of actions) {
+      const link = document.createElement("a");
+      link.className = "pmu-assistant__action";
+
+      if (action.primary) {
+        link.classList.add("pmu-assistant__action--primary");
+      }
+
+      if (action.dark) {
+        link.classList.add("pmu-assistant__action--dark");
+      }
+
+      link.href = action.href;
+      link.textContent = action.label;
+
+      if (action.external) {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+
+      link.addEventListener("click", () => {
+        if (action.kind === "booksy") {
+          track("assistant_booksy_click");
+          return;
+        }
+
+        if (action.kind === "phone") {
+          track("assistant_phone_click");
+          return;
+        }
+
+        track("assistant_service_link_click", { href: action.href });
+      });
+
+      wrapper.appendChild(link);
+    }
+
+    messageElement.appendChild(wrapper);
   }
 
   function setOpen(isOpen) {
@@ -412,22 +1236,52 @@ const starters = [
     }
   }
 
-  function addMessage(role, text, extraClass = "") {
+  function addMessage(role, text, extraClass = "", shouldSave = true) {
     const item = document.createElement("div");
     item.className = `pmu-assistant__message pmu-assistant__message--${role} ${extraClass}`.trim();
 
-    const paragraph = document.createElement("p");
-    paragraph.textContent = text;
+    const content = document.createElement("div");
+    content.className = "pmu-assistant__text";
 
-    item.appendChild(paragraph);
+    if (role === "assistant") {
+      content.innerHTML = createSafeAssistantHtml(text);
+    } else {
+      content.innerHTML = `<p>${escapeHtml(text)}</p>`;
+    }
+
+    item.appendChild(content);
+
+    if (role === "assistant" && !extraClass.includes("loading")) {
+      appendActions(item, createActionsForAnswer(text));
+    }
+
     messages?.appendChild(item);
-    item.scrollIntoView({ behavior: "smooth", block: "end" });
+    body?.scrollTo({ top: body.scrollHeight, behavior: "smooth" });
+
+    item.querySelectorAll("[data-assistant-link='booksy']").forEach((link) => {
+      link.addEventListener("click", () => track("assistant_booksy_click"));
+    });
+
+    item.querySelectorAll("[data-assistant-link='phone']").forEach((link) => {
+      link.addEventListener("click", () => track("assistant_phone_click"));
+    });
+
+    item.querySelectorAll("[data-assistant-link='service']").forEach((link) => {
+      link.addEventListener("click", () =>
+        track("assistant_service_link_click", { href: link.getAttribute("href") })
+      );
+    });
+
+    if (shouldSave && !extraClass.includes("loading")) {
+      savedMessages.push({ role, text });
+      saveMessages();
+    }
 
     return item;
   }
 
   async function askAssistant(question) {
-    const cleanQuestion = question.trim();
+    const cleanQuestion = String(question || "").trim();
 
     if (!cleanQuestion) return;
 
@@ -435,7 +1289,7 @@ const starters = [
     history.push({ role: "user", content: cleanQuestion });
     track("assistant_question_sent", { question_length: cleanQuestion.length });
 
-    const loading = addMessage("assistant", "Piszę odpowiedź…", "pmu-assistant__message--loading");
+    const loading = addMessage("assistant", "Piszę odpowiedź…", "pmu-assistant__message--loading", false);
 
     try {
       const response = await fetch("/api/assistant", {
@@ -445,7 +1299,7 @@ const starters = [
         },
         body: JSON.stringify({
           message: cleanQuestion,
-          history: history.slice(-6),
+          history: history.slice(-4),
         }),
       });
 
@@ -477,8 +1331,30 @@ const starters = [
     }
   }
 
+  function restoreConversation() {
+    savedMessages = loadMessages();
+
+    for (const message of savedMessages) {
+      if (!message || !message.role || !message.text) continue;
+
+      addMessage(message.role, message.text, "", false);
+
+      if (message.role === "user" || message.role === "assistant") {
+        history.push({ role: message.role, content: message.text });
+      }
+    }
+  }
+
   launcher?.addEventListener("click", () => setOpen(true));
   closeButton?.addEventListener("click", () => setOpen(false));
+
+  clearButton?.addEventListener("click", () => {
+    savedMessages = [];
+    history = [];
+    sessionStorage.removeItem(STORAGE_KEY);
+    if (messages) messages.innerHTML = "";
+    track("assistant_clear");
+  });
 
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -487,11 +1363,11 @@ const starters = [
     input.value = "";
 
     const submitButton = form.querySelector("button[type='submit']");
-    submitButton.disabled = true;
+    if (submitButton) submitButton.disabled = true;
 
     await askAssistant(question);
 
-    submitButton.disabled = false;
+    if (submitButton) submitButton.disabled = false;
     input?.focus();
   });
 
@@ -515,4 +1391,6 @@ const starters = [
       if (eventName) track(eventName);
     });
   });
+
+  restoreConversation();
 </script>

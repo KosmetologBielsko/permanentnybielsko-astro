@@ -1,3 +1,4 @@
+import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
@@ -10,9 +11,11 @@ const allowedExtensions = new Set([".md", ".txt", ".json"]);
 
 function requireEnv(name) {
   const value = process.env[name];
+
   if (!value || value.trim() === "") {
     throw new Error(`Brakuje zmiennej środowiskowej: ${name}`);
   }
+
   return value;
 }
 
@@ -35,10 +38,9 @@ async function waitForVectorFile(openai, vectorStoreId, vectorStoreFileId, label
   const maxAttempts = 40;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-    const file = await openai.vectorStores.files.retrieve(
-      vectorStoreId,
-      vectorStoreFileId
-    );
+    const file = await openai.vectorStores.files.retrieve(vectorStoreFileId, {
+      vector_store_id: vectorStoreId,
+    });
 
     if (file.status === "completed") {
       console.log(`✅ Przetworzono: ${label}`);
@@ -46,7 +48,9 @@ async function waitForVectorFile(openai, vectorStoreId, vectorStoreFileId, label
     }
 
     if (file.status === "failed" || file.status === "cancelled") {
-      throw new Error(`Nie udało się przetworzyć pliku ${label}. Status: ${file.status}`);
+      throw new Error(
+        `Nie udało się przetworzyć pliku ${label}. Status: ${file.status}`
+      );
     }
 
     console.log(`⏳ Czekam na przetworzenie: ${label} (${file.status})`);
@@ -71,13 +75,22 @@ async function main() {
     );
   }
 
-  console.log("Tworzę Vector Store...");
-  const vectorStore = await openai.vectorStores.create({
-    name: VECTOR_STORE_NAME,
-  });
+  let vectorStoreId = process.env.OPENAI_VECTOR_STORE_ID?.trim();
 
-  console.log(`✅ Vector Store ID: ${vectorStore.id}`);
-  console.log("");
+  if (vectorStoreId) {
+    console.log(`Używam istniejącego Vector Store: ${vectorStoreId}`);
+  } else {
+    console.log("Tworzę Vector Store...");
+
+    const vectorStore = await openai.vectorStores.create({
+      name: VECTOR_STORE_NAME,
+    });
+
+    vectorStoreId = vectorStore.id;
+
+    console.log(`✅ Vector Store ID: ${vectorStoreId}`);
+    console.log("");
+  }
 
   for (const filePath of files) {
     const fileName = path.basename(filePath);
@@ -90,7 +103,7 @@ async function main() {
     });
 
     const vectorStoreFile = await openai.vectorStores.files.create(
-      vectorStore.id,
+      vectorStoreId,
       {
         file_id: uploadedFile.id,
       }
@@ -98,7 +111,7 @@ async function main() {
 
     await waitForVectorFile(
       openai,
-      vectorStore.id,
+      vectorStoreId,
       vectorStoreFile.id,
       fileName
     );
@@ -107,10 +120,11 @@ async function main() {
   console.log("");
   console.log("========================================");
   console.log("GOTOWE ✅");
-  console.log("Skopiuj ten identyfikator do Vercel i lokalnego .env:");
+  console.log("Baza wiedzy została wgrana do Vector Store:");
   console.log("");
-  console.log(`OPENAI_VECTOR_STORE_ID=${vectorStore.id}`);
+  console.log(`OPENAI_VECTOR_STORE_ID=${vectorStoreId}`);
   console.log("");
+  console.log("Ten identyfikator zostaje w .env lokalnie i później dodamy go do Vercel.");
   console.log("========================================");
 }
 
