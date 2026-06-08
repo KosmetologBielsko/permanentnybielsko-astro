@@ -951,6 +951,35 @@ const starters = [
     border-color: rgba(15, 119, 115, 0.28);
     transform: translateY(-1px);
   }
+    /* MOBILE POSITION FIX — przycisk po prawej i wyżej */
+  @media (max-width: 640px) {
+    .pmu-assistant {
+      left: auto;
+      right: 14px;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 84px);
+      width: auto;
+    }
+
+    .pmu-assistant__launcher {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .pmu-assistant.is-open {
+      left: 12px;
+      right: 12px;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+      width: auto;
+    }
+
+    .pmu-assistant.is-open .pmu-assistant__panel {
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      max-height: min(700px, calc(100svh - 28px));
+    }
+  }
 </style>
 
 <script is:inline>
