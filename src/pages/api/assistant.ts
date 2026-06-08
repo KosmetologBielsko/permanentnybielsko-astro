@@ -56,10 +56,10 @@ ZASADY BEZPIECZEŃSTWA:
 - Nie obiecuj trwałości pigmentu.
 - Nie mów, że zabieg „na pewno można wykonać”.
 - Przy ciąży, karmieniu, lekach, chorobach, alergiach, opryszczce, świeżych zabiegach, aktywnych zmianach skórnych albo problemach z gojeniem kieruj do kontaktu z gabinetem lub lekarzem.
+- Przy leczeniu onkologicznym lub po chorobie onkologicznej zawsze podkreśl indywidualną kwalifikację, aktualny stan zdrowia, etap leczenia, gojenie skóry i ewentualną zgodę lekarza.
 
 FORMAT ODPOWIEDZI:
 - Maksymalnie 2 krótkie akapity.
-- Nie pisz długich odpowiedzi.
 - Nie używaj słowa „widget”.
 - Nie pisz: „widget powinien pokazać przycisk”.
 - Nie pisz: „kliknij przycisk poniżej”.
@@ -69,14 +69,8 @@ FORMAT ODPOWIEDZI:
 - Jeśli warto pokazać podstronę, podaj tylko ścieżkę, np. /usuwanie-makijazu-permanentnego/.
 - Nie kończ każdej odpowiedzi pełną listą: podstrona, telefon, Booksy.
 
-ODPOWIEDZI:
-- Najpierw odpowiedz na pytanie.
-- Potem dodaj jedno ważne zastrzeżenie, jeśli temat tego wymaga.
-- Na końcu wskaż jeden najwłaściwszy następny krok.
-- Jeśli nie masz pewności, powiedz uczciwie, że ostateczna decyzja wymaga konsultacji w gabinecie.
-
 USTA I MODELOWANIE:
-Jeżeli klientka pyta o kolejność makijażu permanentnego ust i powiększania/modelowania ust, odpowiedz ostrożnie:
+Jeżeli klientka pyta o kolejność makijażu permanentnego ust i powiększania/modelowania ust:
 - jeśli planowane jest modelowanie lub powiększanie ust, najczęściej najpierw warto ustabilizować kształt i objętość, a dopiero po wygojeniu i ustabilizowaniu efektu planować pigmentację,
 - jeśli celem jest tylko kolor i odświeżenie czerwieni wargowej, można omawiać sam makijaż permanentny ust,
 - ostateczna kolejność powinna być ustalona po konsultacji.
@@ -133,6 +127,117 @@ function normalizeText(value: string) {
 function getLocalAnswer(message: string) {
   const q = normalizeText(message);
 
+  if (
+    q === "chce dobrac zabieg" ||
+    q.includes("chce dobrac zabieg") ||
+    q.includes("chcę dobrać zabieg") ||
+    q.includes("nie wiem co wybrac") ||
+    q.includes("nie wiem co wybrać")
+  ) {
+    return "Oczywiście. Najpierw warto określić, czy chodzi o brwi, usta, kreski, odświeżenie starego makijażu permanentnego czy korektę/usuwanie pigmentu.\n\nJeśli nie jest Pani pewna, najbezpieczniejszym pierwszym krokiem będzie konsultacja w gabinecie, żeby ocenić skórę, oczekiwania i dobrać właściwy kierunek.";
+  }
+
+  if (
+    q === "brwi permanentne" ||
+    q.includes("naturalne brwi") ||
+    q.includes("brwi permanentne") ||
+    q.includes("makijaz permanentny brwi") ||
+    q.includes("makijaż permanentny brwi")
+  ) {
+    return "Makijaż permanentny brwi dobiera się do twarzy, skóry, naturalnych włosków i oczekiwanego efektu. Przy naturalnym efekcie najważniejsze jest, aby brwi nie były przerysowane i nie dominowały urody.\n\nNajlepszy kolejny krok to zapoznanie się z metodami brwi permanentnych albo konsultacja. /makijaz-permanentny-brwi/";
+  }
+
+  if (
+    q === "usta permanentne" ||
+    q.includes("makijaz permanentny ust") ||
+    q.includes("makijaż permanentny ust") ||
+    q.includes("usta permanentne")
+  ) {
+    return "Makijaż permanentny ust służy odświeżeniu koloru, delikatnemu podkreśleniu konturu i poprawie wizualnej harmonii czerwieni wargowej. Nie jest zabiegiem powiększania ust jak modelowanie kwasem hialuronowym.\n\nNajlepszy kolejny krok to sprawdzenie podstrony o ustach permanentnych albo konsultacja. /makijaz-permanentny-ust/";
+  }
+
+  if (
+    q === "kreski permanentne" ||
+    q.includes("kreski permanentne") ||
+    q.includes("makijaz permanentny oczu") ||
+    q.includes("makijaż permanentny oczu") ||
+    q.includes("linia rzes") ||
+    q.includes("linia rzęs")
+  ) {
+    return "Przy oczach dobiera się kreskę do budowy powieki, typu urody i oczekiwanego efektu. Dla subtelnego podkreślenia najlepszym kierunkiem jest zwykle zagęszczenie linii rzęs, a nie mocna dekoracyjna kreska.\n\nNajlepszy kolejny krok to sprawdzenie podstrony o kreskach permanentnych. /makijaz-permanentny-oczu/";
+  }
+
+  if (
+    q === "mam stary makijaz permanentny" ||
+    q === "mam stary makijaż permanentny" ||
+    q.includes("stare brwi") ||
+    q.includes("stary makijaz") ||
+    q.includes("stary makijaż") ||
+    q.includes("sine brwi") ||
+    q.includes("sinie brwi")
+  ) {
+    return "Przy starym makijażu permanentnym najpierw trzeba ocenić kolor, nasycenie pigmentu, kształt oraz stan skóry. Nie zawsze najlepszym rozwiązaniem jest od razu nowa pigmentacja — czasem bezpieczniej najpierw rozjaśnić albo usunąć stary pigment.\n\nNajwłaściwszy kolejny krok to konsultacja lub sprawdzenie informacji o korekcie i usuwaniu PMU. /usuwanie-makijazu-permanentnego/";
+  }
+
+  if (
+    q === "szkolenia pmu" ||
+    q.includes("szkolenia") ||
+    q.includes("szkolenie") ||
+    q.includes("kurs makijazu permanentnego") ||
+    q.includes("kurs pmu")
+  ) {
+    return "Tak, w ofercie są szkolenia z makijażu permanentnego prowadzone w oparciu o doświadczenie i standard pracy Bogusława Herda. To kierunek dla osób, które chcą uczyć się techniki, estetyki i odpowiedzialnego podejścia do pigmentacji.\n\nNajlepszy kolejny krok to sprawdzenie podstrony szkoleń PMU. /szkolenia/";
+  }
+
+  if (
+    q.includes("sercem malowane") ||
+    q.includes("sercemmalowane") ||
+    (q.includes("darm") && q.includes("makijaz")) ||
+    (q.includes("bezplat") && q.includes("makijaz")) ||
+    (q.includes("bezpłat") && q.includes("makijaż")) ||
+    (q.includes("onkolog") && q.includes("darm")) ||
+    (q.includes("onkolog") && q.includes("bezplat")) ||
+    (q.includes("onkolog") && q.includes("bezpłat"))
+  ) {
+    return "Może Pani zapytać o możliwość udziału w akcji Sercem Malowane. To inicjatywa pomocowa związana z makijażem permanentnym, ale nie mogę potwierdzić automatycznie, że zabieg będzie bezpłatny ani że od razu będzie można go wykonać.\n\nPo chorobie onkologicznej najważniejsza jest indywidualna kwalifikacja, aktualny stan zdrowia, gojenie skóry i ewentualna zgoda lekarza. Szczegóły akcji są na osobnej podstronie. /sercemmalowane/";
+  }
+
+  if (
+    q.includes("chorobie onkologicznej") ||
+    q.includes("leczeniu onkologicznym") ||
+    q.includes("jestem po chemii") ||
+    q.includes("jestem po chemioterapii") ||
+    q.includes("nowotwor") ||
+    q.includes("nowotwór") ||
+    q.includes("onkolog")
+  ) {
+    return "Po chorobie onkologicznej makijaż permanentny można rozważać tylko indywidualnie i bardzo ostrożnie. Znaczenie ma etap leczenia, aktualny stan zdrowia, wyniki, przyjmowane leki, odporność, gojenie skóry oraz ewentualna zgoda lekarza prowadzącego.\n\nNajbezpieczniejszym kolejnym krokiem będzie kontakt z gabinetem i konsultacja przed zapisem na zabieg.";
+  }
+
+  if (
+    q === "przeciwwskazania" ||
+    q.includes("przeciwwskazania")
+  ) {
+    return "Najważniejsze przeciwwskazania to m.in. ciąża, karmienie piersią, aktywne infekcje, gorączka, opryszczka przy pigmentacji ust, świeże rany lub stany zapalne skóry w miejscu zabiegu oraz niektóre choroby i leki wpływające na gojenie.\n\nOstateczna kwalifikacja zawsze wymaga indywidualnej oceny. W razie wątpliwości najlepiej skontaktować się z gabinetem przed rezerwacją.";
+  }
+
+  if (
+    q.includes("ciazy") ||
+    q.includes("ciąży") ||
+    q.includes("w ciazy") ||
+    q.includes("w ciąży")
+  ) {
+    return "W ciąży nie wykonuje się makijażu permanentnego. To czas, w którym organizm może inaczej reagować na pigmentację, gojenie i stres zabiegowy, dlatego zabieg należy odłożyć.\n\nNajlepiej wrócić do tematu po ciąży i okresie karmienia oraz wcześniej skontaktować się z gabinetem w sprawie bezpiecznego terminu konsultacji.";
+  }
+
+  if (
+    q.includes("opryszczka") ||
+    q.includes("opryszczke") ||
+    q.includes("opryszczkę")
+  ) {
+    return "Przy aktywnej opryszczce nie wykonuje się makijażu permanentnego ust. Zabieg trzeba przełożyć do pełnego wygojenia zmian, ponieważ skóra jest wtedy podrażniona i może gorzej się goić.\n\nJeśli ma Pani skłonność do opryszczki, warto wcześniej skonsultować z lekarzem ewentualną profilaktykę przeciwwirusową.";
+  }
+
   if (q.includes("opini") && q.includes("booksy")) {
     return "Nie mam w tej chwili pewnego, aktualnego podglądu liczby opinii na Booksy, więc nie chcę podawać Pani nieaktualnej wartości.\n\nNajlepiej sprawdzić to bezpośrednio w profilu Booksy gabinetu Bogusława Herda, gdzie liczba opinii i komentarze są aktualizowane na bieżąco.";
   }
@@ -143,7 +248,7 @@ function getLocalAnswer(message: string) {
     q.includes("cennik") ||
     (q.includes("cena") && q.includes("rezerw"))
   ) {
-    return "Aktualne ceny najlepiej sprawdzić w cenniku oraz przy konkretnej usłudze w Booksy. Jeśli nie jest Pani pewna, którą usługę wybrać, najbezpieczniej zacząć od konsultacji.\n\n/cennik-makijaz-permanentny/";
+    return "Aktualne ceny najlepiej sprawdzić w cenniku oraz przy konkretnej usłudze w Booksy.\n\nJeśli nie jest Pani pewna, którą usługę wybrać, najbezpieczniej zacząć od konsultacji. /cennik-makijaz-permanentny/";
   }
 
   if (q.includes("lip light")) {
