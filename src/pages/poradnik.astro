@@ -9,92 +9,259 @@ const booksyUrl =
 const pageUrl = "https://permanentnybielsko.com/poradnik/";
 const pageTitle = "Poradnik PMU | Makijaż permanentny Bielsko-Biała — Bogusława Herda";
 const pageDescription =
-  "Poradnik PMU Bogusława Herda: ważne zagadnienia makijażu permanentnego, brwi, ust, kresek, usuwania PMU, gojenia, rysunku wstępnego, szkoleń i wydarzeń branżowych.";
+  "Poradnik PMU Bogusława Herda: brwi permanentne, usta, kreski, usuwanie PMU, gojenie, rysunek wstępny, szkolenia i świadoma pigmentacja.";
 
-const guideAreas = [
+const guideCategories = [
   {
     number: "01",
     label: "Brwi",
-    title: "Brwi permanentne i naturalny efekt",
-    text: "Przygotowanie do zabiegu, metoda włosa, cieniowanie, Silky Hairstroke Brows, gojenie i odświeżenie pigmentacji.",
+    title: "Brwi permanentne",
+    text: "Przygotowanie do zabiegu, rysunek wstępny, metoda włosa, cieniowanie, Silky Hairstroke Brows, gojenie i dopigmentowanie.",
     href: "/makijaz-permanentny-brwi/",
-    featured: true
+    featured: true,
   },
   {
     number: "02",
     label: "Usta",
     title: "Makijaż permanentny ust",
-    text: "Jak wygląda pigmentacja ust, dla kogo sprawdza się subtelny kolor i czego można oczekiwać po wygojeniu.",
-    href: "/makijaz-permanentny-ust/"
+    text: "Dobór koloru, kontur bez przerysowania, opryszczka, pielęgnacja po zabiegu, gojenie i naturalne odświeżenie czerwieni wargowej.",
+    href: "/makijaz-permanentny-ust/",
   },
   {
     number: "03",
     label: "Kreski",
     title: "Makijaż permanentny oczu",
-    text: "Zagęszczenie linii rzęs, kreski permanentne, kwalifikacja i dobór efektu do budowy oka.",
-    href: "/makijaz-permanentny-oczu/"
+    text: "Zagęszczenie linii rzęs, kreska górna, kreska dekoracyjna, kwalifikacja powieki i efekt dopasowany do spojrzenia.",
+    href: "/makijaz-permanentny-oczu/",
   },
   {
     number: "04",
     label: "Usuwanie",
     title: "Korekta i usuwanie PMU",
-    text: "Kiedy lepiej najpierw rozjaśnić stary makijaż permanentny, a kiedy możliwa jest korekta.",
-    href: "/usuwanie-makijazu-permanentnego/"
+    text: "Stary pigment, zbyt ciemne brwi, chłodny odcień, laser, remover i decyzja, kiedy nie przykrywać problemu nowym zabiegiem.",
+    href: "/usuwanie-makijazu-permanentnego/",
   },
   {
     number: "05",
-    label: "Szkolenia",
-    title: "Edukacja PMU i technika pracy",
-    text: "Ścieżki szkoleniowe, warsztat pracy linergistki, Long-Time-Liner® i rozwój techniczny w PMU.",
-    href: "/szkolenie-makijaz-permanentny/"
+    label: "Cennik",
+    title: "Cena i zakres zabiegu",
+    text: "Co wpływa na cenę makijażu permanentnego, co obejmuje wizyta, kiedy potrzebne jest dopigmentowanie i dlaczego najtańsza decyzja nie zawsze jest najlepsza.",
+    href: "/cennik-makijaz-permanentny/",
   },
   {
     number: "06",
-    label: "Eventy",
-    title: "Wydarzenia, mistrzostwa i scena PMU",
-    text: "Speaker, juror, mistrzostwa, międzynarodowe doświadczenia i obecność marki Bogusława Herda w branży PMU.",
-    href: "/"
-  }
+    label: "Szkolenia",
+    title: "Szkolenia PMU",
+    text: "Rysunek wstępny, technika włosa, praca ze skórą, Long-Time-Liner®, Step by Step, Masterclass i świadome budowanie warsztatu linergistki.",
+    href: "/szkolenie-makijaz-permanentny/",
+  },
 ];
 
-const plannedTopics = [
-  "Jak przygotować się do makijażu permanentnego brwi?",
-  "Jak goją się brwi permanentne i czego nie robić po zabiegu?",
-  "Silky Hairstroke Brows — czym wyróżnia się naturalny włos maszynowy?",
-  "Rysunek wstępny przed pigmentacją — dlaczego jest tak ważny?",
-  "Makijaż permanentny ust — jak wygląda gojenie i odświeżenie koloru?",
-  "Kreska permanentna czy zagęszczenie linii rzęs?",
-  "Kiedy nie poprawiać starego PMU, tylko najpierw je rozjaśnić?",
-  "Usuwanie makijażu permanentnego — laser, remover i decyzja kwalifikacyjna.",
-  "Jak wybrać linergistkę i na co zwrócić uwagę przed zabiegiem?",
-  "Szkolenia PMU — jak świadomie rozwijać technikę pracy?"
+const mainArticleIdeas = [
+  {
+    number: "01",
+    category: "Brwi permanentne",
+    title: "Jak przygotować się do makijażu permanentnego brwi?",
+    text: "Konsultacja, przeciwwskazania, skóra przed zabiegiem, rysunek wstępny, kawa, alkohol, oczekiwania i naturalny efekt bez przerysowania.",
+    relatedHref: "/makijaz-permanentny-brwi/",
+    relatedLabel: "Zobacz brwi permanentne",
+  },
+  {
+    number: "02",
+    category: "Gojenie brwi",
+    title: "Jak goją się brwi permanentne dzień po dniu?",
+    text: "Etapy gojenia, ciemnienie koloru po zabiegu, łuszczenie, strupki, jaśniejszy efekt po wygojeniu i moment, kiedy warto ocenić pigment.",
+    relatedHref: "/makijaz-permanentny-brwi/",
+    relatedLabel: "Zobacz brwi permanentne",
+  },
+  {
+    number: "03",
+    category: "Pielęgnacja po PMU",
+    title: "Kiedy można myć brwi po makijażu permanentnym i czym je smarować?",
+    text: "Praktyczny temat o myciu, smarowaniu, natłuszczaniu, dotykaniu skóry, ochronie przed słońcem i najczęstszych błędach po zabiegu.",
+    relatedHref: "/makijaz-permanentny-brwi/",
+    relatedLabel: "Zobacz zalecenia przy brwiach",
+  },
+  {
+    number: "04",
+    category: "Metody brwi",
+    title: "Metoda włoskowa, cieniowanie czy włos z cieniem — co wybrać?",
+    text: "Różnice między technikami, dobór metody do skóry, naturalnego włosa, oczekiwań klientki i efektu, który ma dobrze wyglądać po czasie.",
+    relatedHref: "/makijaz-permanentny-brwi/",
+    relatedLabel: "Zobacz metody brwi",
+  },
+  {
+    number: "05",
+    category: "Silky Hairstroke Brows",
+    title: "Silky Hairstroke Brows — czym wyróżnia się naturalny włos maszynowy?",
+    text: "Autorska technika, kierunek włosa, miękkość linii, praca ze skórą i efekt brwi bez ciężkiej ramy.",
+    relatedHref: "/makijaz-permanentny-brwi/",
+    relatedLabel: "Zobacz Silky Hairstroke Brows",
+  },
+  {
+    number: "06",
+    category: "Makijaż permanentny ust",
+    title: "Makijaż permanentny ust — ile trwa, jak się goi i kiedy uważać na opryszczkę?",
+    text: "Dobór koloru, naturalne odświeżenie czerwieni wargowej, gojenie ust, pielęgnacja i przygotowanie przy skłonności do opryszczki.",
+    relatedHref: "/makijaz-permanentny-ust/",
+    relatedLabel: "Zobacz usta permanentne",
+  },
+  {
+    number: "07",
+    category: "Kreski permanentne",
+    title: "Zagęszczenie linii rzęs czy kreska dekoracyjna — co pasuje do oka?",
+    text: "Budowa powieki, kształt oka, opadająca skóra, subtelny efekt przy linii rzęs i sytuacje, w których mocna kreska nie jest dobrym wyborem.",
+    relatedHref: "/makijaz-permanentny-oczu/",
+    relatedLabel: "Zobacz kreski permanentne",
+  },
+  {
+    number: "08",
+    category: "Usuwanie PMU",
+    title: "Kiedy nie poprawiać starego PMU, tylko najpierw je rozjaśnić?",
+    text: "Stary pigment, zbyt ciemne brwi, niekorzystny kształt, chłodny odcień, laser, remover i plan etapowy przed nową pigmentacją.",
+    relatedHref: "/usuwanie-makijazu-permanentnego/",
+    relatedLabel: "Zobacz usuwanie PMU",
+  },
+  {
+    number: "09",
+    category: "Przeciwwskazania",
+    title: "Kiedy przełożyć makijaż permanentny i najpierw zadbać o bezpieczeństwo?",
+    text: "Stan skóry, infekcje, opryszczka, ciąża, świeże zabiegi, leki, choroby i sytuacje, w których konsultacja jest ważniejsza niż szybki termin.",
+    relatedHref: "/makijaz-permanentny-bielsko/",
+    relatedLabel: "Zobacz konsultację PMU",
+  },
+  {
+    number: "10",
+    category: "Cena PMU",
+    title: "Ile kosztuje makijaż permanentny i co naprawdę obejmuje cena?",
+    text: "Nie tylko pigmentacja, ale konsultacja, analiza twarzy, rysunek wstępny, doświadczenie, bezpieczeństwo, gojenie i dopigmentowanie.",
+    relatedHref: "/cennik-makijaz-permanentny/",
+    relatedLabel: "Zobacz cennik PMU",
+  },
+  {
+    number: "11",
+    category: "Wybór linergistki",
+    title: "Jak wybrać linergistkę i nie kierować się tylko zdjęciem po zabiegu?",
+    text: "Portfolio, naturalne efekty po wygojeniu, doświadczenie, standard pracy, higiena, komunikacja i spokojna kwalifikacja przed zabiegiem.",
+    relatedHref: "/makijaz-permanentny-bielsko/",
+    relatedLabel: "Zobacz ofertę PMU",
+  },
+  {
+    number: "12",
+    category: "Szkolenia PMU",
+    title: "Jak wybrać szkolenie PMU i nie zgubić najważniejszych podstaw?",
+    text: "Rysunek wstępny, praca ze skórą, technika włosa, pigment, kolorymetria, praktyka i standard, który można powtarzać w gabinecie.",
+    relatedHref: "/szkolenie-makijaz-permanentny/",
+    relatedLabel: "Zobacz szkolenia PMU",
+  },
 ];
 
-const eventNotes = [
+const articleTemplateSteps = [
   {
-    country: "TR",
-    place: "Ankara",
-    role: "SPEAKER",
-    text: "Workshop i pokaz techniki Silky Hairstroke Brows jako międzynarodowy trener Long-Time-Liner®."
+    number: "01",
+    title: "Przed decyzją",
+    text: "Dowiesz się, czy dany zabieg pasuje do Twojej sytuacji, skóry, oczekiwań i dotychczasowego makijażu permanentnego.",
   },
   {
-    country: "FR",
-    place: "Lyon",
-    role: "JUROR",
-    text: "Speaker i juror Mistrzostw Francji PMU — obecność na scenie branżowej."
+    number: "02",
+    title: "Przed wizytą",
+    text: "Sprawdzisz, jak przygotować się do zabiegu, czego unikać i dlaczego rysunek wstępny jest jednym z najważniejszych etapów.",
   },
   {
-    country: "DE",
-    place: "Monachium",
-    role: "VICE",
-    text: "Wicemistrzostwo świata PMU i potwierdzenie jakości techniki włosa."
+    number: "03",
+    title: "Po zabiegu",
+    text: "Znajdziesz odpowiedzi o gojeniu, pielęgnacji, myciu, smarowaniu, kolorze po wygojeniu i dopigmentowaniu.",
   },
   {
-    country: "ID",
-    place: "PMU 2026",
-    role: "WORLD",
-    text: "Speaker i juror wydarzenia PMU o międzynarodowej randze."
-  }
+    number: "04",
+    title: "Przy korekcie lub usuwaniu",
+    text: "Zrozumiesz, kiedy można poprawiać stary PMU, a kiedy bezpieczniej najpierw rozjaśnić pigment laserem albo removerem.",
+  },
+];
+
+const authorityNotes = [
+  {
+    label: "Long-Time-Liner®",
+    title: "Standard pracy",
+    text: "Technika, pigment, urządzenie, higiena, rysunek wstępny i sposób prowadzenia ręki wpływają na jakość efektu.",
+  },
+  {
+    label: "Silky Hairstroke Brows",
+    title: "Autorska technika",
+    text: "Naturalny włos maszynowy wymaga analizy kierunku włosa, skóry, proporcji twarzy i miękkości całej oprawy oka.",
+  },
+  {
+    label: "Doświadczenie PMU",
+    title: "Spokojna decyzja",
+    text: "Wiedza z gabinetu, szkoleń, mistrzostw i pracy z klientkami pomaga jasno wyjaśniać, kiedy zabieg ma sens, a kiedy lepiej poczekać.",
+  },
+];
+
+
+const searchIntentGroups = [
+  {
+    number: "01",
+    title: "Zastanawiam się nad zabiegiem",
+    text: "Sprawdzisz, czym różnią się brwi permanentne, usta permanentne i kreski, kiedy warto przyjść na konsultację oraz jak wygląda rysunek wstępny.",
+  },
+  {
+    number: "02",
+    title: "Chcę dobrze przygotować skórę",
+    text: "Znajdziesz odpowiedzi o kawie, alkoholu, lekach, opryszczce, przeciwwskazaniach, pielęgnacji przed wizytą i tym, czego nie robić przed pigmentacją.",
+  },
+  {
+    number: "03",
+    title: "Jestem po zabiegu i chcę wiedzieć, czy wszystko jest normalne",
+    text: "Porządkujemy tematy gojenia: mycie, smarowanie, natłuszczanie, strupki, kolor po zabiegu, blaknięcie, stabilizacja pigmentu i dopigmentowanie.",
+  },
+  {
+    number: "04",
+    title: "Mam stary albo nieudany makijaż permanentny",
+    text: "Tłumaczymy, kiedy możliwa jest korekta, a kiedy bezpieczniej zacząć od rozjaśniania laserem lub removerem, żeby nie pogłębić problemu.",
+  },
+];
+
+const guideFaqItems = [
+  {
+    question: "Od czego zacząć, jeśli myślę o pierwszym makijażu permanentnym?",
+    answer:
+      "Najlepiej zacząć od tematu, który dotyczy planowanego zabiegu: brwi, ust albo kresek. Warto też przeczytać o przygotowaniu do wizyty, rysunku wstępnym, przeciwwskazaniach i gojeniu.",
+  },
+  {
+    question: "Czy poradnik pomoże mi po zabiegu, kiedy skóra się goi?",
+    answer:
+      "Tak. W poradniku będą rozwijane tematy o gojeniu, myciu, smarowaniu, natłuszczaniu, strupkach, zmianie koloru po zabiegu i tym, kiedy efekt można oceniać spokojnie.",
+  },
+  {
+    question: "Czy makijaż permanentny zawsze może wyglądać naturalnie?",
+    answer:
+      "Naturalny efekt zależy od skóry, techniki, rysunku wstępnego, pigmentu, wcześniejszych pigmentacji i oczekiwań klientki. Dlatego tak ważna jest konsultacja i indywidualna kwalifikacja.",
+  },
+  {
+    question: "Co zrobić, jeśli mam stary albo nieudany makijaż permanentny?",
+    answer:
+      "Nie zawsze warto od razu przykrywać stary pigment. Przy zbyt ciemnym, chłodnym lub nierównym PMU bezpieczniejszym pierwszym krokiem może być rozjaśnianie laserem albo removerem.",
+  },
+  {
+    question: "Czy dopigmentowanie jest zawsze potrzebne?",
+    answer:
+      "Dopigmentowanie zależy od efektu po wygojeniu, reakcji skóry i oczekiwanego nasycenia. To etap dopracowania, a nie poprawianie zabiegu na siłę.",
+  },
+  {
+    question: "Czy w poradniku będą tematy o ustach i opryszczce?",
+    answer:
+      "Tak. Makijaż permanentny ust wymaga osobnych odpowiedzi o przygotowaniu, skłonności do opryszczki, pielęgnacji, gojeniu, kolorze i odświeżeniu pigmentacji.",
+  },
+  {
+    question: "Czy poradnik jest też dla linergistek?",
+    answer:
+      "Tak. Część treści będzie dotyczyć szkoleń PMU, rysunku wstępnego, techniki włosa, pracy ze skórą, Long-Time-Liner® i budowania świadomego standardu pracy.",
+  },
+  {
+    question: "Gdzie wykonywane są zabiegi Bogusława Herda?",
+    answer:
+      "Zabiegi wykonywane są w gabinecie Bogusława Herda w Bielsku-Białej. Aktualne terminy, ceny i rezerwacje dostępne są przez Booksy.",
+  },
 ];
 
 const structuredData = [
@@ -102,47 +269,60 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": `${pageUrl}#collection`,
-    "url": pageUrl,
-    "name": pageTitle,
-    "description": pageDescription,
-    "inLanguage": "pl-PL",
-    "isPartOf": {
-      "@id": "https://permanentnybielsko.com/#website"
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+    inLanguage: "pl-PL",
+    isPartOf: {
+      "@id": "https://permanentnybielsko.com/#website",
     },
-    "about": {
-      "@id": "https://permanentnybielsko.com/#localbusiness"
-    }
+    about: {
+      "@id": "https://permanentnybielsko.com/#localbusiness",
+    },
   },
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "@id": `${pageUrl}#breadcrumb`,
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Strona główna",
-        "item": "https://permanentnybielsko.com/"
+        position: 1,
+        name: "Strona główna",
+        item: "https://permanentnybielsko.com/",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Poradnik PMU",
-        "item": pageUrl
-      }
-    ]
+        position: 2,
+        name: "Poradnik PMU",
+        item: pageUrl,
+      },
+    ],
   },
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "@id": `${pageUrl}#topics`,
-    "name": "Planowane tematy poradnika PMU",
-    "itemListElement": plannedTopics.map((topic, index) => ({
+    "@id": `${pageUrl}#article-plan`,
+    name: "Najczęściej szukane tematy poradnika PMU",
+    itemListElement: mainArticleIdeas.map((item, index) => ({
       "@type": "ListItem",
-      "position": index + 1,
-      "name": topic
-    }))
-  }
+      position: index + 1,
+      name: item.title,
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: guideFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  },
 ];
 ---
 
@@ -157,74 +337,134 @@ const structuredData = [
 
     <main>
       <section class="guide-hero">
-        <div class="guide-hero-orb guide-hero-orb-one"></div>
-        <div class="guide-hero-orb guide-hero-orb-two"></div>
+        <div class="guide-orb guide-orb-one"></div>
+        <div class="guide-orb guide-orb-two"></div>
 
         <div class="container guide-hero-grid">
           <div class="guide-hero-copy">
             <p class="section-kicker">Poradnik PMU</p>
 
             <h1>
-                <span class="pmu-hero-turquoise-text">Wiedza, decyzje</span> i ważne tematy makijażu permanentnego.
+              <span class="pmu-hero-turquoise-text">Poradnik PMU</span> dla osób, które chcą podjąć spokojną i świadomą decyzję.
             </h1>
 
             <p class="guide-lead">
-              To miejsce na poradnik typowo PMU: przygotowanie do zabiegu, gojenie, rysunek wstępny,
-              naturalny efekt, korekty, usuwanie makijażu permanentnego, szkolenia, wydarzenia branżowe
-              i doświadczenia ze sceny międzynarodowej.
+              Zanim zdecydujesz się na makijaż permanentny brwi, ust, kresek albo korektę starej pigmentacji,
+              warto wiedzieć, co naprawdę wpływa na efekt: skóra, rysunek wstępny, technika, pigment,
+              gojenie, pielęgnacja po zabiegu i spokojna kwalifikacja.
             </p>
 
             <p class="guide-lead guide-lead-small">
-              Pełne artykuły uzupełnimy na końcu prac nad stroną. Już teraz porządkujemy strukturę,
-              aby poradnik miał swoje miejsce w menu, mapie strony i strategii SEO nowego serwisu.
+              Tutaj znajdziesz odpowiedzi na pytania, które najczęściej pojawiają się przed wizytą i po zabiegu:
+              jak przygotować się do PMU, kiedy można myć brwi, czym je smarować, jak wygląda gojenie,
+              co zrobić przy opryszczce ust i kiedy starego pigmentu nie warto przykrywać kolejną pigmentacją.
             </p>
 
             <div class="guide-actions">
-              <a class="button-primary" href="/makijaz-permanentny-bielsko/">
-                Poznaj ofertę PMU
+              <a class="button-primary" href="#plan-artykulow">
+                Zobacz najważniejsze tematy
               </a>
 
-              <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-                Umów wizytę przez Booksy
+              <a class="button-secondary" href="/makijaz-permanentny-bielsko/">
+                Wróć do oferty PMU
               </a>
             </div>
           </div>
 
-          <aside class="guide-hero-card" aria-label="Poradnik PMU">
+          <aside class="guide-hero-card guide-shine-card" aria-label="Poradnik PMU">
             <span class="guide-big-mark" aria-hidden="true">PMU</span>
-            <p class="guide-card-label">W przygotowaniu</p>
-            <h2>Poradnik ekspercki Bogusława Herda</h2>
-            <p>
-              Docelowo znajdą się tu artykuły dla klientek i linergistek: o brwiach, ustach, kreskach,
-              usuwaniu PMU, szkoleniach i wydarzeniach branżowych.
-            </p>
+
+            <div class="guide-hero-card-content">
+              <p class="section-kicker section-kicker-light">Ekspercki hub</p>
+              <h2>Jedno miejsce na pytania, które warto zadać przed zabiegiem.</h2>
+              <p>
+                Brwi, usta, kreski, gojenie, dopigmentowanie, usuwanie PMU i szkolenia — wszystko opisane spokojnie, po ludzku i z perspektywy praktyki gabinetowej.
+              </p>
+            </div>
           </aside>
         </div>
       </section>
 
-      <section class="guide-areas-section">
-        <div class="container">
-          <div class="guide-section-heading">
-            <p class="section-kicker">Zakres poradnika</p>
-            <h2>Tematy, które będą wzmacniać eksperckość strony PMU.</h2>
+      <section class="guide-proof-section" aria-label="Zakres poradnika PMU">
+        <div class="container guide-proof-grid">
+          <div>
+            <strong>PMU</strong>
+            <span>brwi, usta, kreski i naturalny efekt</span>
+          </div>
+
+          <div>
+            <strong>Gojenie</strong>
+            <span>pielęgnacja, dopigmentowanie i realne oczekiwania</span>
+          </div>
+
+          <div>
+            <strong>Usuwanie</strong>
+            <span>laser, remover, korekta i plan etapowy</span>
+          </div>
+
+          <div>
+            <strong>Szkolenia</strong>
+            <span>technika, rysunek wstępny i standard pracy</span>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="guide-intent-section">
+        <div class="container guide-intent-grid">
+          <div class="guide-intent-copy">
+            <p class="section-kicker">Najczęstsze sytuacje</p>
+            <h2>Jedno pytanie zwykle prowadzi do kolejnego: przed zabiegiem, w czasie gojenia albo przy korekcie.</h2>
             <p>
-              Poradnik nie będzie mieszał kosmetologii z makijażem permanentnym. Jego zadaniem jest
-              wzmacniać obszar PMU: zabiegi, kwalifikację, bezpieczeństwo, technikę pracy i autorytet marki.
+              Jedna osoba chce wiedzieć, czy makijaż permanentny brwi będzie wyglądał naturalnie.
+              Druga martwi się gojeniem, strupkami albo tym, kiedy można umyć brwi po zabiegu.
+              Ktoś inny ma stary, zbyt ciemny pigment i nie wie, czy można go poprawić,
+              czy najpierw trzeba go rozjaśnić.
+            </p>
+            <p>
+              Dlatego poradnik prowadzi przez konkretne sytuacje krok po kroku.
+              Pomaga zrozumieć, kiedy potrzebna jest konsultacja, kiedy wystarczy spokojnie poczekać
+              na wygojenie, kiedy warto zaplanować dopigmentowanie, a kiedy przy starym PMU
+              bezpieczniejszy będzie laser, remover albo plan etapowy.
             </p>
           </div>
 
-          <div class="guide-area-grid">
-            {guideAreas.map((item) => (
+          <div class="guide-intent-list">
+            {searchIntentGroups.map((item) => (
+              <article class="guide-intent-item">
+                <span>{item.number}</span>
+                <div>
+                  <strong>{item.title}</strong>
+                  <p>{item.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-categories-section">
+        <div class="container">
+          <div class="guide-section-heading">
+            <p class="section-kicker">Kategorie poradnika</p>
+            <h2>Wybierz temat, który najlepiej pasuje do Twojej sytuacji.</h2>
+            <p>
+              Makijaż permanentny to nie tylko sam zabieg. To także przygotowanie, rysunek wstępny,
+              gojenie, pielęgnacja po pigmentacji, dopigmentowanie, korekta albo decyzja,
+              czy stary pigment można przykryć, czy najpierw trzeba go rozjaśnić.
+            </p>
+          </div>
+        </div>
+
+        <div class="guide-category-viewport" aria-label="Kategorie poradnika PMU">
+          <div class="guide-category-track">
+            {guideCategories.map((item) => (
               <a
-                class:list={["guide-area-card", { "guide-area-card-featured": item.featured }]}
+                class:list={["guide-category-card", { "guide-category-card--strong": item.featured }]}
                 href={item.href}
               >
-                {item.featured && (
-                  <span class="guide-card-mark" aria-hidden="true">PMU</span>
-                )}
-
-                <span class="guide-area-number">{item.number}</span>
-                <p class="guide-area-label">{item.label}</p>
+                <span class="guide-category-number">{item.number}</span>
+                <p class="guide-category-label">{item.label}</p>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </a>
@@ -233,50 +473,125 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="guide-topics-section">
-        <div class="container guide-topics-grid">
-          <article class="guide-topics-copy">
-            <p class="section-kicker">Plan artykułów</p>
-            <h2>Najpierw budujemy miejsce. Artykuły dodamy etapami.</h2>
+      <section class="guide-articles-section" id="plan-artykulow">
+        <div class="container guide-articles-heading-row">
+          <div class="guide-section-heading">
+            <p class="section-kicker">Najczęściej szukane tematy</p>
+            <h2>Tu zaczynają się pytania, które naprawdę wpisują klientki przed wizytą i po zabiegu.</h2>
             <p>
-              Po domknięciu głównych podstron i mostów SEO poradnik można uzupełniać spokojnie,
-              po jednym mocnym tekście. Każdy wpis powinien prowadzić do właściwej podstrony usługi:
-              brwi, ust, kresek, usuwania albo szkoleń.
+              Przygotowanie do makijażu permanentnego brwi, gojenie brwi dzień po dniu, mycie i smarowanie po zabiegu,
+              opryszczka przy pigmentacji ust, kreski permanentne, usuwanie starego PMU, przeciwwskazania,
+              cena oraz wybór dobrej linergistki — to tematy, które będą prowadzić cały poradnik.
             </p>
-          </article>
+          </div>
 
-          <div class="guide-topic-list">
-            {plannedTopics.map((topic, index) => (
-              <div class="guide-topic-item">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <p>{topic}</p>
+          <div class="guide-articles-controls" aria-label="Przewijanie planu artykułów">
+            <button
+              class="guide-articles-arrow"
+              type="button"
+              aria-label="Przewiń artykuły w lewo"
+              onclick="document.querySelector('[data-guide-article-track]')?.scrollBy({ left: -560, behavior: 'smooth' })"
+            >
+              ←
+            </button>
+
+            <button
+              class="guide-articles-arrow"
+              type="button"
+              aria-label="Przewiń artykuły w prawo"
+              onclick="document.querySelector('[data-guide-article-track]')?.scrollBy({ left: 560, behavior: 'smooth' })"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <div class="guide-article-viewport" data-guide-article-track aria-label="Planowane artykuły poradnika PMU">
+          <div class="guide-article-track">
+            {mainArticleIdeas.map((article, index) => (
+              <article class:list={["guide-article-card", { "guide-article-card--rose": index === 2 || index === 4, "guide-article-card--strong": index === 0 }]}>
+                <span>{article.number}</span>
+                <p class="guide-article-category">{article.category}</p>
+                <h3>{article.title}</h3>
+                <p>{article.text}</p>
+
+                <a href={article.relatedHref}>
+                  {article.relatedLabel}
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-template-section">
+        <div class="container guide-template-grid">
+          <div class="guide-template-copy">
+            <p class="section-kicker">Jak czytać poradnik?</p>
+            <h2>Najpierw znajdź pytanie, które najbardziej dotyczy Twojej sytuacji.</h2>
+            <p>
+              Jeśli jesteś przed zabiegiem, zacznij od przygotowania, przeciwwskazań, rysunku wstępnego
+              i wyboru odpowiedniej techniki. Jeśli jesteś po zabiegu, najważniejsze będą tematy o gojeniu,
+              myciu, smarowaniu, strupkach, kolorze po wygojeniu i dopigmentowaniu.
+            </p>
+          </div>
+
+          <div class="guide-template-list" aria-label="Standard artykułu poradnika PMU">
+            {articleTemplateSteps.map((item) => (
+              <div class="guide-template-item">
+                <span>{item.number}</span>
+                <div>
+                  <strong>{item.title}</strong>
+                  <p>{item.text}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section class="guide-events-section">
+      <section class="guide-authority-section">
         <div class="container">
           <div class="guide-section-heading">
-            <p class="section-kicker">Eventy i scena PMU</p>
-            <h2>Poradnik może pokazywać nie tylko zabiegi, ale też rangę doświadczenia.</h2>
+            <p class="section-kicker">Autorytet i doświadczenie</p>
+            <h2>Za każdą odpowiedzią stoi praktyka, nie przypadkowa teoria.</h2>
             <p>
-              W tej części docelowo można opisywać ważne wydarzenia, wystąpienia, jurorowanie,
-              mistrzostwa, szkolenia i międzynarodowe doświadczenia, które budują autorytet gabinetu.
+              Poradnik opiera się na doświadczeniu Bogusława Herda w makijażu permanentnym,
+              pracy trenerskiej Long-Time-Liner®, autorskiej technice Silky Hairstroke Brows
+              oraz wieloletniej obserwacji skóry, pigmentu i efektów po wygojeniu.
             </p>
           </div>
 
-          <div class="guide-event-grid">
-            {eventNotes.map((event) => (
-              <article class="guide-event-card">
-                <div>
-                  <span>{event.country}</span>
-                  <h3>{event.place}</h3>
-                </div>
+          <div class="guide-authority-grid">
+            {authorityNotes.map((item) => (
+              <article class="guide-authority-card">
+                <span>{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <strong>{event.role}</strong>
-                <p>{event.text}</p>
+
+      <section class="guide-faq-section">
+        <div class="container">
+          <div class="guide-section-heading">
+            <p class="section-kicker">Najczęstsze pytania</p>
+            <h2>Krótko i konkretnie: od czego zacząć w poradniku PMU?</h2>
+            <p>
+              Poniżej znajdziesz odpowiedzi, które porządkują najważniejsze tematy:
+              pierwszy zabieg, gojenie, korektę, usuwanie starego pigmentu, dopigmentowanie,
+              usta, opryszczkę i szkolenia PMU.
+            </p>
+          </div>
+
+          <div class="guide-faq-grid">
+            {guideFaqItems.map((item) => (
+              <article class="guide-faq-card">
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
               </article>
             ))}
           </div>
@@ -285,15 +600,16 @@ const structuredData = [
 
       <section class="guide-final-cta">
         <div class="container guide-final-card">
-          <p class="section-kicker">Makijaż permanentny Bielsko-Biała</p>
-          <h2>Poradnik będzie rozwijany wokół realnych pytań klientek i linergistek.</h2>
+          <p class="signature cta-signature">Powrót do natury</p>
+          <h2>Nie wiesz, od którego tematu zacząć?</h2>
           <p>
-            Na ten moment tworzymy strukturę poradnika. Pełne wpisy dodamy później — tak, aby każdy
-            temat był dopracowany, merytoryczny i połączony z odpowiednią podstroną oferty PMU.
+            Jeśli planujesz pierwszy zabieg, zacznij od przygotowania do makijażu permanentnego brwi.
+            Jeśli jesteś już po pigmentacji, wybierz temat o gojeniu. A jeśli masz stary makijaż permanentny,
+            sprawdź najpierw, kiedy korekta jest możliwa, a kiedy lepiej rozpocząć od rozjaśniania pigmentu.
           </p>
 
-          <a class="button-primary" href="/makijaz-permanentny-bielsko/">
-            Wróć do oferty PMU
+          <a class="button-primary" href="/makijaz-permanentny-brwi/">
+            Zacznij od brwi permanentnych
           </a>
         </div>
       </section>
@@ -305,73 +621,15 @@ const structuredData = [
 
 <style>
   .guide-page {
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
     background:
-      radial-gradient(circle at 8% 12%, rgba(56, 187, 181, 0.11), transparent 27rem),
-      radial-gradient(circle at 92% 14%, rgba(243, 199, 211, 0.20), transparent 29rem),
-      linear-gradient(180deg, #ffffff 0%, #fff9fb 46%, #ffffff 100%);
+      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.12), transparent 28rem),
+      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.12), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
   }
 
-  .guide-hero {
-    position: relative;
-    min-height: 74vh;
-    padding: 154px 0 86px;
-  }
-
-  .guide-hero-orb {
-    position: absolute;
-    z-index: 0;
-    border-radius: 999px;
-    filter: blur(12px);
-    pointer-events: none;
-  }
-
-  .guide-hero-orb-one {
-    top: 10%;
-    left: -9%;
-    width: 34vw;
-    height: 34vw;
-    background: rgba(56, 187, 181, 0.12);
-  }
-
-  .guide-hero-orb-two {
-    right: -8%;
-    bottom: 3%;
-    width: 38vw;
-    height: 38vw;
-    background: rgba(243, 199, 211, 0.24);
-  }
-
-  .guide-hero-grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr);
-    gap: clamp(26px, 4vw, 54px);
-    align-items: stretch;
-  }
-
-  .guide-hero-copy,
-  .guide-hero-card,
-  .guide-area-card,
-  .guide-topics-copy,
-  .guide-topic-item,
-  .guide-event-card,
-  .guide-final-card {
-    border: 1px solid rgba(183, 101, 118, 0.13);
-    box-shadow: 0 24px 70px rgba(51, 31, 44, 0.07);
-  }
-
-  .guide-hero-copy {
-    padding: clamp(30px, 5vw, 58px);
-    border-radius: 42px;
-    background:
-      radial-gradient(circle at 90% 10%, rgba(56, 187, 181, 0.08), transparent 15rem),
-      rgba(255, 255, 255, 0.84);
-    backdrop-filter: blur(16px);
-  }
-
-  .section-kicker {
+  .guide-page .section-kicker {
     display: inline-flex;
     width: fit-content;
     max-width: 100%;
@@ -380,605 +638,95 @@ const structuredData = [
     justify-content: center;
     margin: 0 0 18px;
     padding: 0 13px;
+    border: 1px solid rgba(56, 187, 181, 0.18);
     border-radius: 999px;
+    background: rgba(219, 246, 243, 0.76);
     color: var(--color-turquoise-dark, #0f7773);
     -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
-    background: rgba(219, 246, 243, 0.72);
-    border: 1px solid rgba(56, 187, 181, 0.16);
     font-size: 0.7rem;
     font-weight: 850;
     line-height: 1;
     letter-spacing: 0.17em;
     text-transform: uppercase;
+  }
+
+  .guide-page .section-kicker-light {
+    border-color: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .guide-hero {
+    position: relative;
+    padding: 150px 0 88px;
+    overflow: hidden;
+  }
+
+  .guide-orb {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 999px;
+  }
+
+  .guide-orb-one {
+    right: -12rem;
+    top: 4rem;
+    width: 42rem;
+    height: 42rem;
+    background: radial-gradient(circle, rgba(56, 187, 181, 0.2), transparent 68%);
+  }
+
+  .guide-orb-two {
+    left: -10rem;
+    bottom: -12rem;
+    width: 38rem;
+    height: 38rem;
+    background: radial-gradient(circle, rgba(201, 127, 143, 0.18), transparent 68%);
+  }
+
+  .guide-hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .guide-hero-copy,
+  .guide-hero-card,
+  .guide-category-card,
+  .guide-article-card,
+  .guide-template-copy,
+  .guide-template-list,
+  .guide-authority-card,
+  .guide-final-card {
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .guide-hero-copy {
+    display: flex;
+    min-height: 640px;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(38px, 5vw, 72px);
+    border-radius: 44px;
+    background:
+      radial-gradient(circle at 92% 14%, rgba(56, 187, 181, 0.10), transparent 16rem),
+      rgba(255, 255, 255, 0.78);
   }
 
   .guide-hero-copy h1 {
     max-width: 1080px;
     margin: 0;
-    color: var(--color-text);
-    font-size: clamp(3.05rem, 5.45vw, 6.25rem);
+    color: var(--color-text, #17151d);
+    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
     font-weight: 760;
     line-height: 1.02;
     letter-spacing: -0.074em;
   }
-
-  .guide-lead {
-    max-width: 840px;
-    margin: 24px 0 0;
-    color: var(--color-muted);
-    font-size: 1.08rem;
-    line-height: 1.72;
-  }
-
-  .guide-lead-small {
-    margin-top: 14px;
-    font-size: 1.02rem;
-  }
-
-  .guide-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 30px;
-  }
-
-  .guide-hero-card {
-    position: relative;
-    overflow: hidden;
-    min-height: 430px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: clamp(34px, 4vw, 56px);
-    border-radius: 42px;
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
-    background-size: 100% 100%, 100% 100%, 240% 240%;
-    animation: guide-turquoise-flow 13s ease-in-out infinite alternate;
-    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
-  }
-
-  .guide-hero-card::before,
-  .guide-area-card-featured::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
-    transform: translateX(-72%);
-    animation: guide-panel-shine 8s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .guide-big-mark {
-    position: absolute;
-    right: 22px;
-    top: 22px;
-    z-index: 1;
-    color: rgba(255, 255, 255, 0.16);
-    font-size: clamp(5.2rem, 8vw, 9rem);
-    font-weight: 900;
-    line-height: 0.78;
-    letter-spacing: -0.12em;
-    pointer-events: none;
-  }
-
-  .guide-card-label,
-  .guide-hero-card h2,
-  .guide-hero-card p {
-    position: relative;
-    z-index: 2;
-  }
-
-  .guide-card-label {
-    display: inline-flex;
-    width: fit-content;
-    min-height: 32px;
-    align-items: center;
-    margin: 0 0 auto;
-    padding: 0 13px;
-    border-radius: 999px;
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
-    font-size: 0.7rem;
-    font-weight: 850;
-    line-height: 1;
-    letter-spacing: 0.17em;
-    text-transform: uppercase;
-    background: rgba(255, 255, 255, 0.16);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-  }
-
-  .guide-hero-card h2 {
-    margin: 58px 0 0;
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
-    font-size: clamp(1.9rem, 2.6vw, 2.85rem);
-    font-weight: 740;
-    line-height: 1;
-    letter-spacing: -0.067em;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
-  }
-
-  .guide-hero-card p:not(.guide-card-label) {
-    margin: 18px 0 0;
-    color: rgba(255, 255, 255, 0.88);
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.88);
-    line-height: 1.62;
-  }
-
-  .guide-areas-section,
-  .guide-topics-section,
-  .guide-events-section,
-  .guide-final-cta {
-    padding: 88px 0;
-  }
-
-  .guide-section-heading {
-    max-width: 980px;
-    margin-bottom: 38px;
-  }
-
-  .guide-section-heading h2,
-  .guide-topics-copy h2,
-  .guide-final-card h2 {
-    margin: 0;
-    color: var(--color-text);
-    font-size: clamp(2.35rem, 4vw, 4.2rem);
-    font-weight: 760;
-    line-height: 1.02;
-    letter-spacing: -0.074em;
-  }
-
-  .guide-section-heading p,
-  .guide-topics-copy p,
-  .guide-final-card p {
-    color: var(--color-muted);
-    font-size: 1.04rem;
-    line-height: 1.68;
-  }
-
-  .guide-area-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-
-  .guide-area-card {
-    position: relative;
-    overflow: hidden;
-    min-height: 290px;
-    padding: 30px;
-    border-radius: 34px;
-    color: inherit;
-    text-decoration: none;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
-  }
-
-  .guide-area-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-top: 4px solid rgba(56, 187, 181, 0.34);
-    pointer-events: none;
-  }
-
-  .guide-area-card-featured {
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
-    background-size: 100% 100%, 100% 100%, 240% 240%;
-    animation: guide-turquoise-flow 13s ease-in-out infinite alternate;
-  }
-
-  .guide-area-card > *:not(.guide-card-mark) {
-    position: relative;
-    z-index: 2;
-  }
-
-  .guide-card-mark {
-    position: absolute;
-    right: 18px;
-    top: 16px;
-    z-index: 1;
-    color: rgba(255, 255, 255, 0.16);
-    font-size: clamp(4.2rem, 7vw, 7.2rem);
-    font-weight: 900;
-    line-height: 0.78;
-    letter-spacing: -0.12em;
-    pointer-events: none;
-  }
-
-  .guide-area-number {
-    display: inline-flex;
-    margin-bottom: 18px;
-    color: var(--color-turquoise-dark);
-    font-size: 0.72rem;
-    font-weight: 860;
-    letter-spacing: 0.18em;
-  }
-
-  .guide-area-label {
-    display: inline-flex;
-    width: fit-content;
-    min-height: 30px;
-    align-items: center;
-    margin: 0 0 18px;
-    padding: 0 11px;
-    border-radius: 999px;
-    color: var(--color-turquoise-dark);
-    -webkit-text-fill-color: var(--color-turquoise-dark);
-    font-size: 0.66rem;
-    font-weight: 850;
-    line-height: 1;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    background: rgba(219, 246, 243, 0.72);
-    border: 1px solid rgba(56, 187, 181, 0.16);
-  }
-
-  .guide-area-card h3 {
-    margin: 0;
-    color: var(--color-text);
-    font-size: 1.52rem;
-    font-weight: 760;
-    line-height: 1.02;
-    letter-spacing: -0.055em;
-  }
-
-  .guide-area-card p:not(.guide-area-label) {
-    margin: 16px 0 0;
-    color: var(--color-muted);
-    font-size: 0.94rem;
-    line-height: 1.58;
-  }
-
-  .guide-area-card-featured,
-  .guide-area-card-featured * {
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
-  }
-
-  .guide-area-card-featured .guide-area-label {
-    background: rgba(255, 255, 255, 0.16);
-    border-color: rgba(255, 255, 255, 0.22);
-  }
-
-  .guide-area-card-featured p:not(.guide-area-label) {
-    color: rgba(255, 255, 255, 0.86);
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.86);
-  }
-
-  .guide-topics-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-    gap: 18px;
-    align-items: start;
-  }
-
-  .guide-topics-copy,
-  .guide-topic-item,
-  .guide-final-card {
-    padding: clamp(28px, 4vw, 46px);
-    border-radius: 36px;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-      rgba(255, 255, 255, 0.9);
-  }
-
-  .guide-topic-list {
-    display: grid;
-    gap: 12px;
-  }
-
-  .guide-topic-item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 16px;
-    align-items: start;
-    padding: 20px 22px;
-  }
-
-  .guide-topic-item span {
-    color: var(--color-turquoise-dark);
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 0.16em;
-  }
-
-  .guide-topic-item p {
-    margin: 0;
-    color: var(--color-text);
-    font-size: 1rem;
-    font-weight: 640;
-    line-height: 1.42;
-  }
-
-  .guide-event-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-  }
-
-  .guide-event-card {
-    min-height: 240px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 28px;
-    border-radius: 34px;
-    color: #ffffff;
-    background: linear-gradient(145deg, #17151d, #473944);
-  }
-
-  .guide-event-card span,
-  .guide-event-card h3,
-  .guide-event-card strong,
-  .guide-event-card p {
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
-  }
-
-  .guide-event-card span {
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 0.18em;
-  }
-
-  .guide-event-card h3 {
-    margin: 8px 0 0;
-    font-size: 1.65rem;
-    font-weight: 800;
-    line-height: 0.95;
-    letter-spacing: -0.06em;
-  }
-
-  .guide-event-card strong {
-    display: block;
-    margin-top: 36px;
-    font-size: clamp(2.4rem, 4vw, 4rem);
-    font-weight: 950;
-    line-height: 0.78;
-    letter-spacing: -0.12em;
-  }
-
-  .guide-event-card p {
-    margin: 22px 0 0;
-    font-size: 0.9rem;
-    line-height: 1.48;
-    opacity: 0.84;
-  }
-
-  .guide-final-card .button-primary {
-    margin-top: 18px;
-  }
-
-  @keyframes guide-turquoise-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
-
-  @keyframes guide-panel-shine {
-    0%,
-    35% {
-      transform: translateX(-72%);
-      opacity: 0;
-    }
-
-    52% {
-      opacity: 1;
-    }
-
-    100% {
-      transform: translateX(72%);
-      opacity: 0;
-    }
-  }
-
-  @media (max-width: 1080px) {
-    .guide-hero-grid,
-    .guide-topics-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .guide-area-grid,
-    .guide-event-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 760px) {
-    .guide-page,
-    .guide-page * {
-      box-sizing: border-box;
-    }
-
-    .guide-page {
-      overflow-x: clip;
-    }
-
-    .guide-page .container {
-      width: 100%;
-      max-width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 18px;
-      padding-right: 18px;
-    }
-
-    .guide-hero {
-      padding: 112px 0 58px;
-    }
-
-    .guide-hero-grid,
-    .guide-area-grid,
-    .guide-topics-grid,
-    .guide-event-grid {
-      width: 100%;
-      grid-template-columns: minmax(0, 1fr) !important;
-      justify-items: stretch;
-    }
-
-    .guide-hero-copy,
-    .guide-hero-card,
-    .guide-area-card,
-    .guide-topics-copy,
-    .guide-topic-item,
-    .guide-event-card,
-    .guide-final-card {
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      margin-left: auto;
-      margin-right: auto;
-      overflow: hidden;
-      border-radius: 28px;
-    }
-
-    .guide-hero-copy,
-    .guide-hero-card,
-    .guide-area-card,
-    .guide-topics-copy,
-    .guide-topic-item,
-    .guide-event-card,
-    .guide-final-card {
-      padding-left: 22px;
-      padding-right: 22px;
-    }
-
-    .guide-hero-copy h1 {
-      font-size: clamp(2rem, 9vw, 2.95rem);
-      line-height: 1.08;
-      letter-spacing: -0.052em;
-    }
-
-    .guide-hero-card {
-      min-height: 340px;
-    }
-
-    .guide-hero-card h2 {
-      font-size: clamp(1.45rem, 7.4vw, 2.28rem);
-      line-height: 1.06;
-      letter-spacing: -0.048em;
-    }
-
-    .guide-section-heading h2,
-    .guide-topics-copy h2,
-    .guide-final-card h2 {
-      font-size: clamp(1.82rem, 8.2vw, 2.62rem);
-      line-height: 1.08;
-      letter-spacing: -0.052em;
-    }
-
-    .guide-area-card h3 {
-      font-size: clamp(1.28rem, 6.4vw, 1.72rem);
-      line-height: 1.08;
-      letter-spacing: -0.038em;
-    }
-
-    .guide-lead,
-    .guide-section-heading p,
-    .guide-topics-copy p,
-    .guide-final-card p,
-    .guide-area-card p:not(.guide-area-label) {
-      font-size: 0.98rem;
-      line-height: 1.62;
-    }
-
-    .guide-areas-section,
-    .guide-topics-section,
-    .guide-events-section,
-    .guide-final-cta {
-      padding: 58px 0;
-    }
-
-    .guide-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-      width: 100%;
-    }
-
-    .guide-actions a,
-    .guide-final-card .button-primary {
-      width: 100%;
-      max-width: 100%;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .section-kicker,
-    .guide-area-label,
-    .guide-card-label {
-      max-width: 100%;
-      white-space: normal;
-      min-height: 30px;
-      height: auto;
-      padding-top: 8px;
-      padding-bottom: 8px;
-      line-height: 1.15;
-      text-align: center;
-    }
-  }
-
-  @media (max-width: 380px) {
-    .guide-page .container {
-      padding-left: 14px;
-      padding-right: 14px;
-    }
-
-    .guide-hero-copy,
-    .guide-hero-card,
-    .guide-area-card,
-    .guide-topics-copy,
-    .guide-topic-item,
-    .guide-event-card,
-    .guide-final-card {
-      padding-left: 18px;
-      padding-right: 18px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .guide-hero-card,
-    .guide-hero-card::before,
-    .guide-area-card-featured,
-    .guide-area-card-featured::after {
-      animation: none;
-    }
-  }
-
-
-  /* V2 — poradnik: stonowany znak PMU w wyróżnionym kafelku */
-  .guide-area-card-featured .guide-card-mark {
-    color: rgba(255, 255, 255, 0.13) !important;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.13) !important;
-    font-size: clamp(4.8rem, 7.2vw, 7.8rem) !important;
-    font-weight: 900 !important;
-    letter-spacing: -0.12em !important;
-    text-shadow: none !important;
-  }
-
-  @media (max-width: 760px) {
-    .guide-area-card-featured .guide-card-mark {
-      right: 14px !important;
-      top: 16px !important;
-      font-size: clamp(4rem, 20vw, 5.8rem) !important;
-      opacity: 0.92 !important;
-    }
-  }
-  /* Hero — turkusowy akcent w pierwszym nagłówku */
 
   .pmu-hero-turquoise-text {
     display: inline;
@@ -998,9 +746,860 @@ const structuredData = [
     -webkit-text-fill-color: transparent;
   }
 
-  @media (max-width: 760px) {
-    .pmu-hero-turquoise-text {
-      display: inline;
+  .guide-lead {
+    max-width: 800px;
+    margin: 28px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 1.12rem;
+    line-height: 1.68;
+  }
+
+  .guide-lead-small {
+    margin-top: 14px;
+    font-size: 1.02rem;
+  }
+
+  .guide-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .guide-hero-card {
+    position: relative;
+    display: flex;
+    min-height: 640px;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: clamp(38px, 5vw, 72px);
+    border-radius: 44px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.34), transparent 13rem),
+      radial-gradient(circle at 86% 86%, rgba(13, 106, 103, 0.28), transparent 20rem),
+      linear-gradient(145deg, #74e0d7 0%, #38bbb5 26%, #159a96 58%, #0f7773 100%);
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.24);
+  }
+
+  .guide-shine-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.28) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
+    transform: translateX(-72%);
+    animation: guide-panel-shine 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .guide-big-mark {
+    position: absolute;
+    top: clamp(24px, 3vw, 46px);
+    left: clamp(28px, 4vw, 58px);
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.18);
+    font-size: clamp(5.6rem, 9vw, 11rem);
+    font-weight: 850;
+    line-height: 0.78;
+    letter-spacing: -0.085em;
+    pointer-events: none;
+  }
+
+  .guide-hero-card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .guide-hero-card h2 {
+    max-width: 680px;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2.2rem, 3.8vw, 4.55rem);
+    font-weight: 780;
+    line-height: 0.98;
+    letter-spacing: -0.078em;
+    text-shadow: 0 16px 42px rgba(5, 53, 51, 0.24);
+  }
+
+  .guide-hero-card p:not(.section-kicker) {
+    max-width: 650px;
+    margin: 22px 0 0;
+    color: rgba(255, 255, 255, 0.90);
+    font-size: 1.06rem;
+    line-height: 1.66;
+  }
+
+  .guide-proof-section {
+    border-top: 1px solid rgba(183, 101, 118, 0.10);
+    border-bottom: 1px solid rgba(183, 101, 118, 0.10);
+    background: rgba(255, 255, 255, 0.74);
+  }
+
+  .guide-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .guide-proof-grid div {
+    min-height: 112px;
+    padding: 24px 22px;
+    border-right: 1px solid rgba(183, 101, 118, 0.12);
+  }
+
+  .guide-proof-grid div:last-child {
+    border-right: 0;
+  }
+
+  .guide-proof-grid strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-text, #17151d);
+    font-size: 0.92rem;
+    font-weight: 780;
+    letter-spacing: -0.02em;
+  }
+
+  .guide-proof-grid span {
+    display: block;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.72rem;
+    font-weight: 650;
+    line-height: 1.55;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  .guide-categories-section,
+  .guide-articles-section,
+  .guide-template-section,
+  .guide-authority-section,
+  .guide-final-cta {
+    padding: 88px 0;
+    overflow: hidden;
+  }
+
+  .guide-section-heading {
+    max-width: 980px;
+    margin-bottom: 38px;
+  }
+
+  .guide-section-heading h2,
+  .guide-template-copy h2,
+  .guide-final-card h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .guide-section-heading p,
+  .guide-template-copy p,
+  .guide-final-card p:not(.signature) {
+    color: var(--color-muted, #6e6670);
+    line-height: 1.65;
+    font-size: 1.04rem;
+  }
+
+  .guide-category-viewport,
+  .guide-article-viewport {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px max(18px, calc((100vw - 1440px) / 2)) 34px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .guide-category-viewport::-webkit-scrollbar,
+  .guide-article-viewport::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .guide-category-viewport::-webkit-scrollbar-thumb,
+  .guide-article-viewport::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(56, 187, 181, 0.38);
+  }
+
+  .guide-category-track,
+  .guide-article-track {
+    display: grid;
+    width: max-content;
+    grid-auto-flow: column;
+    gap: 22px;
+  }
+
+  .guide-category-track {
+    grid-auto-columns: minmax(360px, 480px);
+  }
+
+  .guide-article-track {
+    grid-auto-columns: minmax(390px, 540px);
+  }
+
+  .guide-category-card,
+  .guide-article-card {
+    position: relative;
+    min-height: 360px;
+    overflow: hidden;
+    padding: clamp(30px, 3vw, 44px);
+    border-radius: 38px;
+    color: inherit;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 92% 0%, rgba(219, 246, 243, 0.78), transparent 8rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94));
+    scroll-snap-align: start;
+  }
+
+  .guide-category-card::before,
+  .guide-article-card::before,
+  .guide-authority-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 5px solid rgba(56, 187, 181, 0.42);
+    pointer-events: none;
+  }
+
+  .guide-category-card--strong,
+  .guide-article-card--strong {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.26);
+    background:
+      radial-gradient(circle at 88% 10%, rgba(255, 255, 255, 0.22), transparent 12rem),
+      radial-gradient(circle at 14% 86%, rgba(56, 187, 181, 0.26), transparent 16rem),
+      linear-gradient(145deg, #38bbb5 0%, #159a96 48%, #0f7773 100%);
+    box-shadow:
+      0 26px 72px rgba(56, 187, 181, 0.22),
+      0 0 0 1px rgba(255, 255, 255, 0.20) inset;
+  }
+
+  .guide-article-card--rose {
+    border-color: rgba(201, 127, 143, 0.18);
+    background:
+      radial-gradient(circle at 92% 0%, rgba(246, 220, 227, 0.84), transparent 8rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94));
+  }
+
+  .guide-article-card--rose::before {
+    border-top-color: rgba(201, 127, 143, 0.40);
+  }
+
+  .guide-category-card > *,
+  .guide-article-card > *,
+  .guide-authority-card > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .guide-category-number,
+  .guide-article-card span,
+  .guide-authority-card span {
+    display: inline-flex;
+    margin-bottom: 56px;
+    color: #0f7773;
+    font-size: 0.86rem;
+    font-weight: 850;
+    letter-spacing: 0.18em;
+  }
+
+  .guide-category-label,
+  .guide-article-category {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 30px;
+    align-items: center;
+    margin: 0 0 18px;
+    padding: 0 11px;
+    border-radius: 999px;
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.66rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    background: rgba(219, 246, 243, 0.72);
+    border: 1px solid rgba(56, 187, 181, 0.16);
+  }
+
+  .guide-category-card h3,
+  .guide-article-card h3,
+  .guide-authority-card h3 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.65rem, 2.4vw, 2.7rem);
+    font-weight: 780;
+    line-height: 0.98;
+    letter-spacing: -0.072em;
+  }
+
+  .guide-category-card p:not(.guide-category-label),
+  .guide-article-card p:not(.guide-article-category),
+  .guide-authority-card p {
+    margin: 18px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .guide-category-card--strong,
+  .guide-category-card--strong *,
+  .guide-article-card--strong,
+  .guide-article-card--strong * {
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .guide-category-card--strong .guide-category-label,
+  .guide-article-card--strong .guide-article-category {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+
+  .guide-article-card a {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+    padding: 0 15px;
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.8);
+    color: #0f7773;
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .guide-article-card--strong a {
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+  }
+
+  .guide-articles-heading-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px;
+    align-items: end;
+  }
+
+  .guide-articles-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    padding-bottom: 42px;
+  }
+
+  .guide-articles-arrow {
+    display: inline-flex;
+    width: 68px;
+    height: 68px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(56, 187, 181, 0.30);
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.76));
+    color: #0f7773;
+    font-size: 1.45rem;
+    font-weight: 760;
+    line-height: 1;
+    box-shadow:
+      0 18px 46px rgba(89, 53, 67, 0.10),
+      0 0 0 1px rgba(255, 255, 255, 0.72) inset;
+    cursor: pointer;
+  }
+
+  .guide-template-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(28px, 4vw, 58px);
+    align-items: start;
+  }
+
+  .guide-template-copy,
+  .guide-template-list {
+    padding: clamp(28px, 3.4vw, 46px);
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 92% 12%, rgba(56, 187, 181, 0.11), transparent 18rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.92));
+  }
+
+  .guide-template-list {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .guide-template-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    padding: 24px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+  }
+
+  .guide-template-item:last-child {
+    border-bottom: 0;
+  }
+
+  .guide-template-item span {
+    color: #0f7773;
+    font-size: 0.82rem;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+  }
+
+  .guide-template-item strong {
+    display: block;
+    color: var(--color-text, #17151d);
+    font-size: 1.05rem;
+    font-weight: 780;
+    letter-spacing: -0.04em;
+  }
+
+  .guide-template-item p {
+    margin: 7px 0 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.58;
+  }
+
+  .guide-authority-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .guide-authority-card {
+    position: relative;
+    min-height: 275px;
+    overflow: hidden;
+    padding: 30px;
+    border-radius: 34px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
+  }
+
+  .guide-final-card {
+    padding: clamp(34px, 6vw, 70px);
+    border-radius: 42px;
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .guide-final-card p:not(.signature) {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .guide-final-card .button-primary {
+    margin-top: 18px;
+  }
+
+  @keyframes guide-panel-shine {
+    0%, 45% {
+      transform: translateX(-72%);
+      opacity: 0.28;
+    }
+
+    100% {
+      transform: translateX(88%);
+      opacity: 0.88;
     }
   }
+
+  @media (max-width: 1260px) {
+    .guide-proof-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guide-proof-grid div:nth-child(2) {
+      border-right: 0;
+    }
+
+    .guide-authority-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .guide-hero-grid,
+    .guide-template-grid,
+    .guide-articles-heading-row {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-hero-copy,
+    .guide-hero-card {
+      min-height: auto;
+    }
+
+    .guide-articles-controls {
+      justify-content: flex-end;
+      padding-bottom: 0;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .guide-hero {
+      padding: 112px 0 58px;
+    }
+
+    .guide-hero-grid {
+      gap: 16px;
+      padding-left: 8px;
+      padding-right: 8px;
+      box-sizing: border-box;
+    }
+
+    .guide-hero-copy,
+    .guide-hero-card,
+    .guide-category-card,
+    .guide-article-card,
+    .guide-template-copy,
+    .guide-template-list,
+    .guide-authority-card,
+    .guide-final-card {
+      border-radius: 28px;
+    }
+
+    .guide-hero-copy,
+    .guide-hero-card {
+      padding: 28px 22px;
+    }
+
+    .guide-hero-card {
+      min-height: 430px;
+    }
+
+    .guide-big-mark {
+      top: 24px;
+      left: 24px;
+      font-size: clamp(5.2rem, 24vw, 7.8rem);
+    }
+
+    .guide-hero-copy h1 {
+      font-size: clamp(2.55rem, 11.6vw, 3.85rem);
+      line-height: 1.04;
+      letter-spacing: -0.068em;
+    }
+
+    .guide-hero-card h2,
+    .guide-section-heading h2,
+    .guide-template-copy h2,
+    .guide-final-card h2 {
+      font-size: clamp(2.05rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .guide-lead,
+    .guide-section-heading p,
+    .guide-template-copy p,
+    .guide-final-card p:not(.signature) {
+      font-size: 1rem;
+      line-height: 1.66;
+    }
+
+    .guide-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .guide-actions a {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .guide-categories-section,
+    .guide-articles-section,
+    .guide-template-section,
+    .guide-authority-section,
+    .guide-final-cta {
+      padding: 58px 0;
+    }
+
+    .guide-proof-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-proof-grid div,
+    .guide-proof-grid div:nth-child(2) {
+      border-right: 0;
+      border-bottom: 1px solid rgba(183, 101, 118, 0.12);
+    }
+
+    .guide-proof-grid div:last-child {
+      border-bottom: 0;
+    }
+
+    .guide-category-track,
+    .guide-article-track {
+      grid-auto-columns: minmax(280px, 86vw);
+      gap: 16px;
+    }
+
+    .guide-category-card,
+    .guide-article-card {
+      min-height: 390px;
+      padding: 28px;
+    }
+
+    .guide-category-number,
+    .guide-article-card span,
+    .guide-authority-card span {
+      margin-bottom: 44px;
+    }
+
+    .guide-category-card h3,
+    .guide-article-card h3,
+    .guide-authority-card h3 {
+      font-size: clamp(1.75rem, 8vw, 2.55rem);
+    }
+
+    .guide-articles-arrow {
+      width: 54px;
+      height: 54px;
+      font-size: 1.22rem;
+    }
+
+    .guide-template-copy {
+      padding: 26px 22px;
+    }
+
+    .guide-template-item {
+      padding: 22px;
+    }
+
+    .guide-authority-card {
+      min-height: auto;
+      padding: 26px;
+    }
+
+    .guide-final-card {
+      padding: 34px 22px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .guide-hero-grid {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    .guide-hero-copy,
+    .guide-hero-card {
+      width: calc(100% - 10px);
+      max-width: calc(100% - 10px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .guide-shine-card::after {
+      animation: none;
+    }
+  }
+  /* Konsumenckie sekcje poradnika PMU — sytuacje + FAQ */
+  .guide-intent-section,
+  .guide-faq-section {
+    padding: 88px 0;
+    overflow: hidden;
+  }
+
+  .guide-intent-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(28px, 4vw, 58px);
+    align-items: start;
+  }
+
+  .guide-intent-copy,
+  .guide-intent-list,
+  .guide-faq-card {
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .guide-intent-copy {
+    padding: clamp(28px, 3.4vw, 46px);
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 92% 12%, rgba(56, 187, 181, 0.11), transparent 18rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.92));
+  }
+
+  .guide-intent-copy h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .guide-intent-copy p {
+    color: var(--color-muted, #6e6670);
+    line-height: 1.65;
+    font-size: 1.04rem;
+  }
+
+  .guide-intent-list {
+    display: grid;
+    gap: 0;
+    overflow: hidden;
+    padding: 0;
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 92% 12%, rgba(219, 246, 243, 0.55), transparent 18rem),
+      rgba(255, 255, 255, 0.92);
+  }
+
+  .guide-intent-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    padding: 24px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .guide-intent-item:last-child {
+    border-bottom: 0;
+  }
+
+  .guide-intent-item:hover {
+    background: rgba(255, 248, 251, 0.82);
+    transform: translateX(3px);
+  }
+
+  .guide-intent-item span {
+    color: #0f7773;
+    font-size: 0.82rem;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+  }
+
+  .guide-intent-item strong {
+    display: block;
+    color: var(--color-text, #17151d);
+    font-size: 1.05rem;
+    font-weight: 780;
+    letter-spacing: -0.04em;
+  }
+
+  .guide-intent-item p {
+    margin: 7px 0 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.58;
+  }
+
+  .guide-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .guide-faq-card {
+    position: relative;
+    min-height: auto;
+    overflow: hidden;
+    padding: 30px;
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 92% 0%, rgba(246, 220, 227, 0.48), transparent 8rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94));
+  }
+
+  .guide-faq-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 5px solid rgba(201, 127, 143, 0.28);
+    pointer-events: none;
+  }
+
+  .guide-faq-card h3,
+  .guide-faq-card p {
+    position: relative;
+    z-index: 2;
+  }
+
+  .guide-faq-card h3 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.35rem, 1.8vw, 2rem);
+    font-weight: 780;
+    line-height: 1.02;
+    letter-spacing: -0.062em;
+  }
+
+  .guide-faq-card p {
+    margin: 16px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  @media (max-width: 1080px) {
+    .guide-intent-grid,
+    .guide-faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .guide-intent-section,
+    .guide-faq-section {
+      padding: 58px 0;
+    }
+
+    .guide-intent-copy,
+    .guide-intent-list,
+    .guide-faq-card {
+      border-radius: 28px;
+    }
+
+    .guide-intent-copy,
+    .guide-faq-card {
+      padding: 26px 22px;
+    }
+
+    .guide-intent-copy h2 {
+      font-size: clamp(2.05rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .guide-intent-copy p {
+      font-size: 1rem;
+      line-height: 1.66;
+    }
+
+    .guide-intent-item {
+      padding: 22px;
+    }
+
+    .guide-faq-card h3 {
+      font-size: clamp(1.45rem, 7.4vw, 2.2rem);
+    }
+  }
+
 </style>
