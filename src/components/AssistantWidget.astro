@@ -743,6 +743,96 @@ const starters = [
       max-width: 96%;
     }
   }
+    /* V2 mobile assistant launcher: circle only + hide under hamburger menu */
+  @media (max-width: 640px) {
+    .pmu-assistant {
+      transition:
+        opacity 180ms ease,
+        visibility 180ms ease,
+        transform 180ms ease;
+    }
+
+    .pmu-assistant:not(.is-open) {
+      right: 14px;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 84px);
+      width: auto;
+    }
+
+    .pmu-assistant:not(.is-open) .pmu-assistant__launcher {
+      width: 58px;
+      height: 58px;
+      min-height: 58px;
+      justify-content: center;
+      gap: 0;
+      padding: 0;
+      border-radius: 999px;
+    }
+
+    .pmu-assistant:not(.is-open) .pmu-assistant__launcher-copy {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      clip-path: inset(50%) !important;
+      white-space: nowrap !important;
+    }
+
+    .pmu-assistant:not(.is-open) .pmu-assistant__launcher-icon {
+      width: 48px;
+      height: 48px;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+    }
+
+    .pmu-assistant:not(.is-open) .pmu-assistant__launcher-glow {
+      inset: -8px;
+      opacity: 0.58;
+      filter: blur(9px);
+    }
+
+    .pmu-assistant.is-mobile-menu-open:not(.is-open) {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(8px) scale(0.94);
+    }
+  }
+    /* V3 mobile assistant under hamburger menu */
+  @media (max-width: 900px) {
+    .pmu-assistant:not(.is-open) {
+      z-index: 30 !important;
+    }
+
+    .pmu-assistant.is-open {
+      z-index: 9999 !important;
+    }
+
+    .pmu-assistant:not(.is-open) .pmu-assistant__launcher {
+      z-index: 30 !important;
+    }
+  }
+    /* V4 mobile assistant hidden when hamburger menu is open */
+  @media (max-width: 900px) {
+    .pmu-assistant.is-mobile-menu-open {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: translateY(12px) scale(0.88) !important;
+    }
+
+    .pmu-assistant.is-mobile-menu-open .pmu-assistant__launcher {
+      pointer-events: none !important;
+    }
+
+    .pmu-assistant.is-open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: none !important;
+      z-index: 10000 !important;
+    }
+  }
 </style>
 
 <script is:inline>
@@ -1121,6 +1211,208 @@ const starters = [
       if (eventName) track(eventName);
     });
   });
+  function isMobileAssistantViewport() {
+    return window.matchMedia?.("(max-width: 900px)").matches ?? window.innerWidth <= 900;
+  }
+
+  function hasOpenMobileMenuBySelector() {
+    const selectors = [
+      "body.menu-open",
+      "body.nav-open",
+      "body.is-menu-open",
+      "body.mobile-menu-open",
+      "html.menu-open",
+      "html.nav-open",
+      "html.is-menu-open",
+      "html.mobile-menu-open",
+      ".mobile-menu.is-open",
+      ".mobile-menu[aria-hidden='false']",
+      ".mobile-nav.is-open",
+      ".mobile-nav[aria-hidden='false']",
+      ".nav-drawer.is-open",
+      ".menu-drawer.is-open",
+      ".site-header.is-open",
+      "[data-mobile-menu].is-open",
+      "[data-menu].is-open",
+      "[data-nav].is-open",
+      "[data-menu-open='true']",
+      "[data-state='open'][data-mobile-menu]",
+      "[data-state='open'][data-menu]",
+    ];
+
+    return selectors.some((selector) => {
+      try {
+        const element = document.querySelector(selector);
+        return Boolean(element && !root?.contains(element));
+      } catch (error) {
+        return false;
+      }
+    });
+  }
+
+  function hasExpandedMobileMenuButton() {
+    const buttons = Array.from(
+      document.querySelectorAll("button[aria-expanded='true'], [role='button'][aria-expanded='true']")
+    );
+
+    return buttons.some((button) => {
+      if (root?.contains(button)) return false;
+
+      const text = [
+        button.id,
+        button.className,
+        button.getAttribute("aria-controls"),
+        button.getAttribute("aria-label"),
+        button.getAttribute("data-menu-button"),
+        button.getAttribute("data-mobile-menu-button"),
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+
+      return /menu|nav|hamburger|nawigac|mobile|header/.test(text);
+    });
+  }
+
+  function isMobileMenuOpen() {
+    if (!isMobileAssistantViewport()) return false;
+    return hasOpenMobileMenuBySelector() || hasExpandedMobileMenuButton();
+  }
+
+  function syncAssistantWithMobileMenu() {
+    const menuOpen = isMobileMenuOpen();
+
+    if (menuOpen && root?.classList.contains("is-open")) {
+      setOpen(false);
+    }
+
+    root?.classList.toggle("is-mobile-menu-open", menuOpen);
+  }
+
+    function setupMobileMenuWatcher() {
+    const mobileMenuLabels = new Set([
+      "PMU",
+      "BRWI",
+      "USTA",
+      "KRESKI",
+      "USUWANIE",
+      "SZKOLENIA",
+      "PORADNIK",
+      "GALERIA",
+      "CENNIK",
+      "KONTAKT",
+    ]);
+
+    function isMobileViewport() {
+      return window.matchMedia?.("(max-width: 900px)").matches ?? window.innerWidth <= 900;
+    }
+
+    function normalizeText(value) {
+      return String(value || "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toUpperCase();
+    }
+
+    function isElementVisible(element) {
+      if (!element || root?.contains(element)) return false;
+
+      const style = window.getComputedStyle(element);
+      if (
+        style.display === "none" ||
+        style.visibility === "hidden" ||
+        Number(style.opacity) < 0.05
+      ) {
+        return false;
+      }
+
+      const rect = element.getBoundingClientRect();
+
+      return (
+        rect.width > 100 &&
+        rect.height > 40 &&
+        rect.bottom > 0 &&
+        rect.top < window.innerHeight
+      );
+    }
+
+    function visibleMobileMenuCardsCount() {
+      const elements = Array.from(document.querySelectorAll("a, button"));
+
+      return elements.filter((element) => {
+        const text = normalizeText(element.textContent);
+        if (!mobileMenuLabels.has(text)) return false;
+        if (!isElementVisible(element)) return false;
+
+        const rect = element.getBoundingClientRect();
+
+        return rect.width > 140 && rect.height > 55;
+      }).length;
+    }
+
+    function hasExpandedHeaderButton() {
+      const buttons = Array.from(document.querySelectorAll("button[aria-expanded='true']"));
+
+      return buttons.some((button) => {
+        if (root?.contains(button)) return false;
+
+        const rect = button.getBoundingClientRect();
+
+        return (
+          rect.width > 20 &&
+          rect.height > 20 &&
+          rect.top >= 0 &&
+          rect.top < 160 &&
+          rect.right > window.innerWidth - 180
+        );
+      });
+    }
+
+    function isMobileMenuOpenNow() {
+      if (!isMobileViewport()) return false;
+
+      return visibleMobileMenuCardsCount() >= 4 || hasExpandedHeaderButton();
+    }
+
+    function syncAssistantWithMobileMenu() {
+      const menuOpen = isMobileMenuOpenNow();
+
+      if (menuOpen && root?.classList.contains("is-open")) {
+        setOpen(false);
+      }
+
+      root?.classList.toggle("is-mobile-menu-open", menuOpen);
+    }
+
+    syncAssistantWithMobileMenu();
+
+    const observer = new MutationObserver(() => {
+      window.requestAnimationFrame(syncAssistantWithMobileMenu);
+    });
+
+    observer.observe(document.documentElement, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ["class", "style", "aria-expanded", "aria-hidden", "data-state", "data-open"],
+    });
+
+    document.addEventListener("click", () => {
+      window.setTimeout(syncAssistantWithMobileMenu, 80);
+      window.setTimeout(syncAssistantWithMobileMenu, 220);
+    });
+
+    document.addEventListener("touchend", () => {
+      window.setTimeout(syncAssistantWithMobileMenu, 80);
+      window.setTimeout(syncAssistantWithMobileMenu, 220);
+    });
+
+    window.addEventListener("resize", syncAssistantWithMobileMenu);
+    window.addEventListener("scroll", syncAssistantWithMobileMenu, { passive: true });
+
+        window.setInterval(syncAssistantWithMobileMenu, 350);
+  }
 
   restoreConversation();
+  setupMobileMenuWatcher();
 </script>
