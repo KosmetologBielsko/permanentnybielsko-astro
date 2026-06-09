@@ -365,16 +365,16 @@ const structuredData = [
 
       <section class="lips-intro-section">
         <div class="container lips-natural-look-card">
-          <figure class="lips-natural-look-media">
-            <img
-              src="/images/makijaz-permanentny-ust-bielsko-biala-efekt-17.webp"
-              alt="Makijaż permanentny ust Bielsko-Biała — naturalny kolor, miękki kontur i świeży efekt"
-              width="1400"
-              height="1400"
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
+        <figure class="lips-natural-look-media">
+              <img
+                   src="/images/makijaz-permanentny-ust-naturalny-kolor.webp"
+                   alt="Makijaż permanentny ust Bielsko-Biała — naturalny kolor, miękki kontur i świeży efekt"
+                   width="800"
+                   height="800"
+                   loading="lazy"
+                   decoding="async"
+        />
+        </figure>
 
           <div class="lips-natural-look-copy">
             <p class="section-kicker">Naturalny kolor</p>
@@ -519,16 +519,23 @@ const structuredData = [
             </p>
           </div>
 
-          <figure class="lips-signature-media lips-media-frame">
-            <img
-              src="/images/makijaz-permanentny-ust-bielsko-biala-efekt-03.webp"
-              alt="Naturalny kolor ust po makijażu permanentnym"
-              width="900"
-              height="1200"
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
+          <figure class="lips-signature-media lips-media-frame lips-signature-video-frame">
+          <video
+                class="lips-signature-video"
+                poster="/video/makijaz-permanentny-ust-efekt-01-poster.webp"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Naturalny kolor ust po makijażu permanentnym"
+            >
+          <source
+                src="/video/makijaz-permanentny-ust-efekt-01.mp4"
+                type="video/mp4"
+          />
+          </video>
+        </figure>
 
           <div class="lips-signature-points" aria-label="Cechy naturalnego makijażu permanentnego ust">
             <div>
@@ -559,57 +566,93 @@ const structuredData = [
       </section>
 
       <section class="lips-gallery-section" id="efekty-ust">
-        <div class="container">
-          <div class="lips-section-heading lips-gallery-heading">
-            <p class="section-kicker">Efekty ust</p>
-            <h2>Różne odcienie, jeden standard: usta mają pasować do twarzy.</h2>
-            <p>
-              Galeria pokazuje różne kierunki pigmentacji ust: od delikatnego odświeżenia
-              po bardziej widoczny kolor. Zdjęcia traktujemy jako inspirację — finalny efekt
-              zawsze dobierany jest indywidualnie.
-            </p>
-          </div>
-        </div>
+  <div class="container lips-gallery-heading-row">
+    <div class="lips-section-heading lips-gallery-heading">
+      <p class="section-kicker">Efekty ust</p>
+      <h2>Różne odcienie, jeden standard: usta mają pasować do twarzy.</h2>
+      <p>
+        Galeria pokazuje różne kierunki pigmentacji ust: od delikatnego odświeżenia
+        po bardziej widoczny kolor. Zdjęcia traktujemy jako inspirację — finalny efekt
+        zawsze dobierany jest indywidualnie.
+      </p>
+    </div>
 
-        <div class="lips-gallery-viewport" aria-label="Galeria efektów makijażu permanentnego ust">
-          <div class="lips-gallery-track">
-            {lipsGalleryImages.map((image) => (
-              <figure class="lips-gallery-card lips-media-frame">
-                <img src={image.src} alt={image.alt} width="900" height="1200" loading="lazy" decoding="async" />
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
+    <div class="lips-gallery-controls" aria-label="Przewijanie galerii efektów ust">
+      <button
+        class="lips-gallery-arrow lips-gallery-arrow-prev"
+        type="button"
+        aria-label="Przewiń efekty ust w lewo"
+        onclick="document.querySelector('.lips-gallery-viewport')?.scrollBy({ left: -430, behavior: 'smooth' })"
+      >
+        ←
+      </button>
+
+      <button
+        class="lips-gallery-arrow lips-gallery-arrow-next"
+        type="button"
+        aria-label="Przewiń efekty ust w prawo"
+        onclick="document.querySelector('.lips-gallery-viewport')?.scrollBy({ left: 430, behavior: 'smooth' })"
+      >
+        →
+      </button>
+    </div>
+  </div>
+
+  <div class="lips-gallery-viewport" aria-label="Galeria efektów makijażu permanentnego ust">
+    <div class="lips-gallery-track">
+      {lipsGalleryImages.map((image) => (
+        <figure class="lips-gallery-card lips-media-frame">
+          <img src={image.src} alt={image.alt} width="900" height="1200" loading="lazy" decoding="async" />
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
 
       <section class="lips-process-section">
-        <div class="container">
-          <div class="lips-two-column lips-process-intro">
-            <div>
-              <p class="section-kicker">Proces zabiegu</p>
-              <h2>Najpierw rysunek wstępny i dobór koloru. Dopiero później pigmentacja.</h2>
-            </div>
+  <div class="container">
+    <div class="lips-process-visual-intro">
+      <div class="lips-process-visual-copy">
+        <p class="section-kicker">Proces zabiegu</p>
 
-            <div class="lips-text-card">
-              <p>
-                Usta wymagają szczególnej ostrożności, ponieważ ich kolor, kontur i symetria
-                wpływają na odbiór całej twarzy. Przed zabiegiem omawiany jest rysunek wstępny,
-                zakres pigmentacji i intensywność efektu.
-              </p>
-            </div>
-          </div>
+        <h2>Najpierw rysunek wstępny i dobór koloru. Dopiero później pigmentacja.</h2>
 
-          <div class="lips-process-grid">
-            {processItems.map((item, index) => (
-              <article>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+        <p>
+          Usta wymagają szczególnej ostrożności, ponieważ ich kolor, kontur i symetria
+          wpływają na odbiór całej twarzy. Przed zabiegiem omawiany jest rysunek wstępny,
+          zakres pigmentacji i intensywność efektu.
+        </p>
+
+        <p>
+          Dopiero po analizie naturalnej czerwieni wargowej, skóry, proporcji ust i oczekiwań
+          dobierany jest kolor oraz sposób pigmentacji. W makijażu permanentnym ust liczy się
+          nie tylko sam zabieg, ale każda decyzja podjęta przed nim.
+        </p>
+      </div>
+
+      <figure class="lips-process-visual-photo">
+        <img
+          src="/images/makijaz-permanentny-ust-boguslawa-herda.webp"
+          alt="Bogusława Herda — makijaż permanentny ust Bielsko-Biała"
+          width="1000"
+          height="1500"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+
+    <div class="lips-process-grid">
+      {processItems.map((item, index) => (
+        <article>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
 
       <section class="lips-avoid-section">
         <div class="container lips-avoid-grid">
@@ -2246,6 +2289,557 @@ const structuredData = [
 
     .lips-page .lips-method-premium-card h3 {
       font-size: clamp(1.8rem, 8.2vw, 2.6rem) !important;
+    }
+  }
+    /* FINAL — usta: video zamiast zdjęcia w kafelku Naturalny kolor */
+  .lips-natural-look-video-frame {
+    background: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  .lips-natural-look-video {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: clamp(420px, 42vw, 620px) !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 34px !important;
+  }
+
+  @media (max-width: 760px) {
+    .lips-natural-look-video {
+      min-height: 320px !important;
+      border-radius: 24px !important;
+    }
+  }
+  /* FINAL — usta: proces zabiegu jak w brwiach */
+
+.lips-process-section {
+  padding: 96px 0 104px !important;
+}
+
+.lips-process-top {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr) !important;
+  gap: 44px !important;
+  align-items: stretch !important;
+  margin-bottom: 28px !important;
+}
+
+.lips-process-intro-card {
+  min-height: 100% !important;
+  padding: clamp(28px, 3vw, 42px) !important;
+  border: 1px solid rgba(56, 187, 181, 0.16) !important;
+  border-radius: 38px !important;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(219, 246, 243, 0.68), transparent 14rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 251, 0.96)) !important;
+  box-shadow:
+    0 22px 64px rgba(89, 53, 67, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.78) inset !important;
+}
+
+.lips-process-intro-card h2 {
+  max-width: 760px !important;
+  margin: 0 !important;
+  color: var(--color-text, #17151d) !important;
+  font-size: clamp(2.4rem, 4.6vw, 5rem) !important;
+  font-weight: 790 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.078em !important;
+}
+
+.lips-process-intro-card p:not(.section-kicker) {
+  max-width: 740px !important;
+  margin: 22px 0 0 !important;
+  color: var(--color-muted, #6e6670) !important;
+  font-size: clamp(1rem, 1.22vw, 1.14rem) !important;
+  line-height: 1.72 !important;
+}
+
+.lips-process-photo-card {
+  position: relative !important;
+  min-height: 100% !important;
+  overflow: hidden !important;
+  padding: 16px !important;
+  border: 1px solid rgba(56, 187, 181, 0.16) !important;
+  border-radius: 38px !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 251, 0.96)) !important;
+  box-shadow:
+    0 22px 64px rgba(89, 53, 67, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.78) inset !important;
+}
+
+.lips-process-photo-card::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 18px !important;
+  border: 1px solid rgba(218, 242, 240, 0.92) !important;
+  border-radius: 28px !important;
+  pointer-events: none !important;
+}
+
+.lips-process-photo-card img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 680px !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  border-radius: 28px !important;
+}
+
+.lips-process-steps-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+.lips-process-step-card {
+  position: relative !important;
+  min-height: 220px !important;
+  padding: 28px 24px 26px !important;
+  border: 1px solid rgba(183, 101, 118, 0.14) !important;
+  border-radius: 30px !important;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(219, 246, 243, 0.72), transparent 7rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
+  box-shadow: 0 18px 44px rgba(89, 53, 67, 0.06) !important;
+}
+
+.lips-process-step-card span {
+  display: inline-flex !important;
+  margin: 0 0 22px !important;
+  color: var(--color-turquoise-dark, #0f7773) !important;
+  font-size: 0.84rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.18em !important;
+}
+
+.lips-process-step-card h3 {
+  margin: 0 !important;
+  color: var(--color-text, #17151d) !important;
+  font-size: clamp(1.45rem, 2vw, 2.1rem) !important;
+  font-weight: 770 !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.06em !important;
+}
+
+.lips-process-step-card p {
+  margin: 16px 0 0 !important;
+  color: var(--color-muted, #6e6670) !important;
+  font-size: clamp(0.98rem, 1.04vw, 1.08rem) !important;
+  line-height: 1.62 !important;
+}
+
+@media (max-width: 1100px) {
+  .lips-process-top {
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+  }
+
+  .lips-process-photo-card img {
+    min-height: 560px !important;
+    object-position: center top !important;
+  }
+
+  .lips-process-steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .lips-process-section {
+    padding: 64px 0 72px !important;
+  }
+
+  .lips-process-top {
+    gap: 20px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .lips-process-intro-card,
+  .lips-process-photo-card {
+    padding: 12px !important;
+    border-radius: 26px !important;
+  }
+
+  .lips-process-intro-card {
+    padding: 24px !important;
+  }
+
+  .lips-process-intro-card h2 {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.068em !important;
+  }
+
+  .lips-process-intro-card p:not(.section-kicker) {
+    font-size: 1rem !important;
+    line-height: 1.68 !important;
+  }
+
+  .lips-process-photo-card::after {
+    inset: 14px !important;
+    border-radius: 18px !important;
+  }
+
+  .lips-process-photo-card img {
+    min-height: 420px !important;
+    border-radius: 18px !important;
+  }
+
+  .lips-process-steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .lips-process-step-card {
+    min-height: auto !important;
+    padding: 24px 20px 22px !important;
+    border-radius: 24px !important;
+  }
+
+  .lips-process-step-card h3 {
+    font-size: 1.55rem !important;
+  }
+
+  .lips-process-step-card p {
+    font-size: 1rem !important;
+  }
+}
+/* FINAL FIX — usta: proces zabiegu ze zdjęciem, klasy zgodne z aktualnym HTML */
+
+.lips-process-section {
+  padding: 96px 0 104px !important;
+}
+
+.lips-process-visual-intro {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr) !important;
+  gap: 44px !important;
+  align-items: stretch !important;
+  margin-bottom: 38px !important;
+}
+
+.lips-process-visual-copy {
+  min-height: 100% !important;
+  padding: clamp(32px, 4vw, 52px) !important;
+  border: 1px solid rgba(183, 101, 118, 0.14) !important;
+  border-radius: 38px !important;
+  background:
+    radial-gradient(circle at 92% 12%, rgba(56, 187, 181, 0.10), transparent 16rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
+  box-shadow:
+    0 22px 64px rgba(89, 53, 67, 0.07),
+    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+}
+
+.lips-process-visual-copy h2 {
+  max-width: 780px !important;
+  margin: 0 !important;
+  color: var(--color-text, #17151d) !important;
+  font-size: clamp(2.45rem, 4.4vw, 5rem) !important;
+  font-weight: 780 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.078em !important;
+}
+
+.lips-process-visual-copy p:not(.section-kicker) {
+  max-width: 760px !important;
+  margin: 22px 0 0 !important;
+  color: var(--color-muted, #6e6670) !important;
+  font-size: clamp(1rem, 1.18vw, 1.12rem) !important;
+  line-height: 1.72 !important;
+}
+
+.lips-process-visual-photo {
+  position: relative !important;
+  display: block !important;
+  min-height: 100% !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  padding: 16px !important;
+  border: 1px solid rgba(56, 187, 181, 0.18) !important;
+  border-radius: 38px !important;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(56, 187, 181, 0.08), transparent 14rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
+  box-shadow:
+    0 22px 64px rgba(89, 53, 67, 0.07),
+    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+}
+
+.lips-process-visual-photo::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 18px !important;
+  border: 1px solid rgba(255, 255, 255, 0.72) !important;
+  border-radius: 28px !important;
+  pointer-events: none !important;
+}
+
+.lips-process-visual-photo img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 680px !important;
+  border-radius: 28px !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+.lips-process-section .lips-process-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+.lips-process-section .lips-process-grid article {
+  position: relative !important;
+  min-height: 255px !important;
+  overflow: hidden !important;
+  padding: 28px !important;
+  border: 1px solid rgba(183, 101, 118, 0.14) !important;
+  border-radius: 32px !important;
+  background:
+    radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
+  box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075) !important;
+}
+
+.lips-process-section .lips-process-grid article::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-top: 4px solid rgba(56, 187, 181, 0.34) !important;
+  pointer-events: none !important;
+}
+
+.lips-process-section .lips-process-grid article::after {
+  content: "" !important;
+  position: absolute !important;
+  right: -58px !important;
+  top: -58px !important;
+  width: 138px !important;
+  height: 138px !important;
+  border-radius: 999px !important;
+  background: rgba(219, 246, 243, 0.68) !important;
+  pointer-events: none !important;
+}
+
+.lips-process-section .lips-process-grid span {
+  position: relative !important;
+  z-index: 2 !important;
+  display: inline-flex !important;
+  margin-bottom: 44px !important;
+  color: var(--color-turquoise-dark, #0f7773) !important;
+  font-size: 0.72rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.18em !important;
+}
+
+.lips-process-section .lips-process-grid h3 {
+  position: relative !important;
+  z-index: 2 !important;
+  margin: 0 !important;
+  color: var(--color-text, #17151d) !important;
+  font-size: clamp(1.45rem, 1.9vw, 2.1rem) !important;
+  font-weight: 760 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.065em !important;
+}
+
+.lips-process-section .lips-process-grid p {
+  position: relative !important;
+  z-index: 2 !important;
+  margin: 14px 0 0 !important;
+  color: var(--color-muted, #6e6670) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.62 !important;
+}
+
+@media (max-width: 1080px) {
+  .lips-process-visual-intro {
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+  }
+
+  .lips-process-visual-photo img {
+    min-height: 560px !important;
+  }
+
+  .lips-process-section .lips-process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .lips-process-section {
+    padding: 64px 0 72px !important;
+  }
+
+  .lips-process-visual-intro {
+    gap: 20px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .lips-process-visual-copy {
+    padding: 26px 22px !important;
+    border-radius: 28px !important;
+  }
+
+  .lips-process-visual-copy h2 {
+    font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.066em !important;
+  }
+
+  .lips-process-visual-copy p:not(.section-kicker) {
+    font-size: 1rem !important;
+    line-height: 1.68 !important;
+  }
+
+  .lips-process-visual-photo {
+    padding: 10px !important;
+    border-radius: 28px !important;
+  }
+
+  .lips-process-visual-photo::after {
+    inset: 14px !important;
+    border-radius: 20px !important;
+  }
+
+  .lips-process-visual-photo img {
+    min-height: 430px !important;
+    border-radius: 20px !important;
+  }
+
+  .lips-process-section .lips-process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .lips-process-section .lips-process-grid article {
+    min-height: auto !important;
+    padding: 26px !important;
+    border-radius: 28px !important;
+  }
+
+  .lips-process-section .lips-process-grid span {
+    margin-bottom: 32px !important;
+  }
+}
+/* FINAL FIX — usta: film w sekcji Kolor i kształt */
+
+.lips-signature-video-frame {
+  aspect-ratio: 4 / 5 !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+.lips-signature-video {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 24px !important;
+}
+
+@media (max-width: 760px) {
+  .lips-signature-video {
+    border-radius: 20px !important;
+  }
+}
+  /* FIX — strzałki przewijania w sekcji Efekty ust */
+  .lips-page .lips-gallery-heading-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 24px !important;
+    align-items: end !important;
+  }
+
+  .lips-page .lips-gallery-heading {
+    margin-bottom: 22px !important;
+  }
+
+  .lips-page .lips-gallery-controls {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin-bottom: 28px !important;
+  }
+
+  .lips-page .lips-gallery-arrow {
+    display: inline-flex !important;
+    width: 64px !important;
+    height: 64px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid rgba(56, 187, 181, 0.28) !important;
+    border-radius: 999px !important;
+    background:
+      radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.76)) !important;
+    color: #0f7773 !important;
+    font-size: 1.45rem !important;
+    font-weight: 760 !important;
+    line-height: 1 !important;
+    box-shadow:
+      0 18px 46px rgba(89, 53, 67, 0.10),
+      0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+    cursor: pointer !important;
+    transition:
+      transform 180ms ease,
+      background 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease !important;
+  }
+
+  .lips-page .lips-gallery-arrow:hover {
+    transform: translateY(-2px) !important;
+    border-color: rgba(56, 187, 181, 0.46) !important;
+    background: #159a96 !important;
+    color: #ffffff !important;
+    box-shadow:
+      0 22px 52px rgba(56, 187, 181, 0.18),
+      0 0 0 1px rgba(255, 255, 255, 0.58) inset !important;
+  }
+
+  .lips-page .lips-gallery-arrow-prev {
+    opacity: 0.72 !important;
+  }
+
+  .lips-page .lips-gallery-arrow-next {
+    opacity: 1 !important;
+  }
+
+  .lips-page .lips-gallery-viewport {
+    scroll-behavior: smooth !important;
+  }
+
+  @media (max-width: 760px) {
+    .lips-page .lips-gallery-heading-row {
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+    }
+
+    .lips-page .lips-gallery-controls {
+      justify-content: flex-end !important;
+      margin-bottom: 18px !important;
+      padding-right: 4px !important;
+    }
+
+    .lips-page .lips-gallery-arrow {
+      width: 52px !important;
+      height: 52px !important;
+      font-size: 1.2rem !important;
     }
   }
 </style>

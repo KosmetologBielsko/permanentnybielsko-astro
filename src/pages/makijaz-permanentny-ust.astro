@@ -519,23 +519,17 @@ const structuredData = [
             </p>
           </div>
 
-          <figure class="lips-signature-media lips-media-frame lips-signature-video-frame">
-          <video
-                class="lips-signature-video"
-                poster="/video/makijaz-permanentny-ust-efekt-01-poster.webp"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="metadata"
-                aria-label="Naturalny kolor ust po makijażu permanentnym"
-            >
-          <source
-                src="/video/makijaz-permanentny-ust-efekt-01.mp4"
-                type="video/mp4"
-          />
-          </video>
-        </figure>
+          <figure class="lips-signature-media lips-media-frame lips-signature-photo-frame">
+            <img
+              class="lips-signature-photo"
+              src="/images/makijaz-permanentny-ust-bielsko-biala-efekt-06.webp"
+              alt="Makijaż permanentny ust Bielsko-Biała — naturalny kolor ust, miękki kontur i świeży efekt"
+              width="941"
+              height="1672"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
 
           <div class="lips-signature-points" aria-label="Cechy naturalnego makijażu permanentnego ust">
             <div>
@@ -2734,14 +2728,14 @@ const structuredData = [
     margin-bottom: 32px !important;
   }
 }
-/* FINAL FIX — usta: film w sekcji Kolor i kształt */
+/* FINAL FIX — usta: zdjęcie w sekcji Kolor i kształt */
 
-.lips-signature-video-frame {
+.lips-signature-photo-frame {
   aspect-ratio: 4 / 5 !important;
   background: rgba(255, 255, 255, 0.16) !important;
 }
 
-.lips-signature-video {
+.lips-signature-photo {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
@@ -2752,7 +2746,7 @@ const structuredData = [
 }
 
 @media (max-width: 760px) {
-  .lips-signature-video {
+  .lips-signature-photo {
     border-radius: 20px !important;
   }
 }
