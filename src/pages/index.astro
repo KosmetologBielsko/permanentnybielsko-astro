@@ -3742,6 +3742,137 @@ const structuredData = [
       letter-spacing: -0.066em !important;
     }
   }
+  /* FINAL — tablet / Fold / iPad fix: strona główna bez pustych samotnych kafelków */
+@media (min-width: 761px) and (max-width: 1180px) {
+  :global(.home-page) {
+    overflow-x: hidden !important;
+  }
+
+  :global(.home-page main),
+  :global(.home-page section) {
+    overflow-x: hidden !important;
+  }
+
+  :global(.home-page .philosophy-photo-grid) {
+    grid-template-columns: 1fr !important;
+    gap: 34px !important;
+  }
+
+  :global(.home-page .philosophy-photo-content) {
+    max-width: 880px !important;
+    margin-inline: auto !important;
+  }
+
+  :global(.home-page .philosophy-photo-card) {
+    width: min(100%, 560px) !important;
+    max-width: 560px !important;
+    margin-inline: auto !important;
+  }
+
+  :global(.home-page .philosophy-photo-card img) {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 680px !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+  }
+
+  :global(.home-page .services-tile-grid),
+  :global(.home-page .master-proof-grid),
+  :global(.home-page .ltl-values-grid),
+  :global(.home-page .training-path-grid),
+  :global(.home-page .mission-support-grid) {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 22px !important;
+  }
+
+  :global(.home-page .services-tile-grid > *),
+  :global(.home-page .master-proof-grid > *),
+  :global(.home-page .ltl-values-grid > *),
+  :global(.home-page .training-path-grid > *),
+  :global(.home-page .mission-support-grid > *) {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  :global(.home-page .services-tile-grid .service-tile-feature) {
+    grid-column: 1 / -1 !important;
+  }
+
+  :global(.home-page .services-tile-grid .service-tile-small:last-child),
+  :global(.home-page .master-proof-grid > *:last-child),
+  :global(.home-page .ltl-values-grid > *:last-child),
+  :global(.home-page .training-path-grid > *:last-child),
+  :global(.home-page .mission-support-grid > *:last-child) {
+    grid-column: 1 / -1 !important;
+  }
+
+  :global(.home-page .service-tile),
+  :global(.home-page .master-proof-card),
+  :global(.home-page .ltl-value-card),
+  :global(.home-page .training-path-card),
+  :global(.home-page .mission-support-card) {
+    min-height: auto !important;
+    padding: clamp(28px, 4vw, 44px) !important;
+  }
+
+  :global(.home-page .service-tile h3),
+  :global(.home-page .master-proof-card h3),
+  :global(.home-page .ltl-value-card h3),
+  :global(.home-page .training-path-card h3),
+  :global(.home-page .mission-support-card h3) {
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  :global(.home-page .service-tile p),
+  :global(.home-page .master-proof-card p),
+  :global(.home-page .ltl-value-card p),
+  :global(.home-page .training-path-card p),
+  :global(.home-page .mission-support-card p) {
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  :global(.home-page .home-big-mark) {
+    max-width: 100% !important;
+    right: 22px !important;
+    font-size: clamp(4.2rem, 12vw, 7.2rem) !important;
+  }
+}
+
+/* FINAL — mniejszy tablet / Fold pionowo: jedna kolumna jak mobile, ale bez ruszania telefonu */
+@media (min-width: 761px) and (max-width: 860px) {
+  :global(.home-page .services-tile-grid),
+  :global(.home-page .master-proof-grid),
+  :global(.home-page .ltl-values-grid),
+  :global(.home-page .training-path-grid),
+  :global(.home-page .mission-support-grid) {
+    grid-template-columns: 1fr !important;
+  }
+
+  :global(.home-page .services-tile-grid .service-tile-feature),
+  :global(.home-page .services-tile-grid .service-tile-small:last-child),
+  :global(.home-page .master-proof-grid > *:last-child),
+  :global(.home-page .ltl-values-grid > *:last-child),
+  :global(.home-page .training-path-grid > *:last-child),
+  :global(.home-page .mission-support-grid > *:last-child) {
+    grid-column: auto !important;
+  }
+
+  :global(.home-page .philosophy-photo-card) {
+    width: min(100%, 520px) !important;
+    max-width: 520px !important;
+  }
+}
 </style>
 
 
