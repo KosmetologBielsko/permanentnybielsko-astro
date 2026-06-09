@@ -91,15 +91,7 @@ const relatedPages = [
     href: "/cennik-makijaz-permanentny/"
   }
 ];
-const makeNumberedGallery = (prefix, count, altBase) =>
-  Array.from({ length: count }, (_, index) => {
-    const number = String(index + 1).padStart(2, "0");
-
-    return {
-      src: `/images/${prefix}${number}.webp`,
-      alt: `${altBase} ${number}`,
-    };
-  });
+;
 
 const browGalleryImages = [
   {
@@ -621,23 +613,23 @@ const structuredData = [
           <div class="gallery-live-viewport" aria-label={section.title}>
             <div class="gallery-live-track" id={section.trackId}>
               {section.items.map((image) => (
-                <figure
-                  class:list={[
-                    "gallery-live-card",
-                    "gallery-media-frame-live",
-                    { "gallery-live-card-wide": image.wide },
-                  ]}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    width={image.wide ? "1400" : "900"}
-                    height={image.wide ? "900" : "1200"}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
-              ))}
+  <figure
+    class:list={[
+      "gallery-live-card",
+      "gallery-media-frame-live",
+      { "gallery-live-card-wide": "wide" in image && image.wide },
+    ]}
+  >
+    <img
+      src={image.src}
+      alt={image.alt}
+      width={"wide" in image && image.wide ? "1400" : "900"}
+      height={"wide" in image && image.wide ? "900" : "1200"}
+      loading="lazy"
+      decoding="async"
+    />
+  </figure>
+))}
             </div>
           </div>
         </section>
