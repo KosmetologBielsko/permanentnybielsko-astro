@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -10,118 +10,118 @@ const priceGroups = [
   {
     label: "Konsultacja",
     title: "Konsultacja",
-    note: "Pierwszy krok przed decyzją o zabiegu, korekcie albo usuwaniu PMU.",
+    note: "Pierwszy krok przed decyzjÄ… o zabiegu, korekcie albo usuwaniu PMU.",
     items: [
       {
-        name: "Konsultacja makijażu permanentnego",
+        name: "Konsultacja makijaĹĽu permanentnego",
         time: "30 min",
-        price: "50 zł",
+        price: "50 zĹ‚",
         highlight: false
       }
     ]
   },
   {
     label: "Brwi",
-    title: "Makijaż permanentny brwi",
-    note: "Cena zawiera zabieg główny wraz z korektą w terminie 1–3 miesiące.",
+    title: "MakijaĹĽ permanentny brwi",
+    note: "Cena zawiera zabieg gĹ‚Ăłwny wraz z korektÄ… w terminie 1â€“3 miesiÄ…ce.",
     items: [
       {
-        name: "Makijaż permanentny brwi — cieniowanie*",
+        name: "MakijaĹĽ permanentny brwi â€” cieniowanie*",
         time: "120 min",
-        price: "1200 zł",
+        price: "1200 zĹ‚",
         highlight: false
       },
       {
-        name: "Makijaż permanentny brwi — metoda włoskowa*",
+        name: "MakijaĹĽ permanentny brwi â€” metoda wĹ‚oskowa*",
         time: "130 min",
-        price: "1400 zł",
+        price: "1400 zĹ‚",
         highlight: true
       },
       {
-        name: "Makijaż permanentny brwi — włoski + cień*",
+        name: "MakijaĹĽ permanentny brwi â€” wĹ‚oski + cieĹ„*",
         time: "130 min",
-        price: "1400 zł",
+        price: "1400 zĹ‚",
         highlight: true
       }
     ]
   },
   {
     label: "Oczy",
-    title: "Makijaż permanentny oczu",
-    note: "Kreska dobierana jest do budowy oka, powieki, linii rzęs i oczekiwanego efektu.",
+    title: "MakijaĹĽ permanentny oczu",
+    note: "Kreska dobierana jest do budowy oka, powieki, linii rzÄ™s i oczekiwanego efektu.",
     items: [
       {
-        name: "Kreska zagęszczająca*",
+        name: "Kreska zagÄ™szczajÄ…ca*",
         time: "120 min",
-        price: "800 zł",
+        price: "800 zĹ‚",
         highlight: false
       },
       {
-        name: "Kreska dekoracyjna — eyeliner lub cieniowana*",
+        name: "Kreska dekoracyjna â€” eyeliner lub cieniowana*",
         time: "120 min",
-        price: "1100 zł",
+        price: "1100 zĹ‚",
         highlight: true
       },
       {
         name: "Kreska dolna*",
         time: "90 min",
-        price: "500 zł",
+        price: "500 zĹ‚",
         highlight: false
       },
       {
-        name: "Kreska dolna + górna zagęszczająca*",
+        name: "Kreska dolna + gĂłrna zagÄ™szczajÄ…ca*",
         time: "120 min",
-        price: "1100 zł",
+        price: "1100 zĹ‚",
         highlight: false
       },
       {
         name: "Kreska dolna + kreska dekoracyjna*",
         time: "120 min",
-        price: "1400 zł",
+        price: "1400 zĹ‚",
         highlight: true
       }
     ]
   },
   {
     label: "Usta",
-    title: "Makijaż permanentny ust",
-    note: "Pigmentacja ust odświeża kolor i kontur. Nie jest zabiegiem powiększania ust.",
+    title: "MakijaĹĽ permanentny ust",
+    note: "Pigmentacja ust odĹ›wieĹĽa kolor i kontur. Nie jest zabiegiem powiÄ™kszania ust.",
     items: [
       {
-        name: "Makijaż permanentny ust*",
+        name: "MakijaĹĽ permanentny ust*",
         time: "120 min",
-        price: "1400 zł",
+        price: "1400 zĹ‚",
         highlight: true
       },
       {
         name: "LIP LIGHT",
         time: "20 min",
-        price: "150 zł",
+        price: "150 zĹ‚",
         highlight: false
       }
     ]
   },
   {
-    label: "Odświeżenie",
-    title: "Odświeżenie makijażu permanentnego",
-    note: "Cena dotyczy odświeżenia makijażu wykonanego w naszym gabinecie do 2 lat.",
+    label: "OdĹ›wieĹĽenie",
+    title: "OdĹ›wieĹĽenie makijaĹĽu permanentnego",
+    note: "Cena dotyczy odĹ›wieĹĽenia makijaĹĽu wykonanego w naszym gabinecie do 2 lat.",
     items: [
       {
-        name: "Odświeżenie makijażu permanentnego brwi**",
+        name: "OdĹ›wieĹĽenie makijaĹĽu permanentnego brwi**",
         time: "60 min",
-        price: "500–700 zł",
+        price: "500â€“700 zĹ‚",
         highlight: false
       },
       {
-        name: "Odświeżenie makijażu permanentnego oczu**",
+        name: "OdĹ›wieĹĽenie makijaĹĽu permanentnego oczu**",
         time: "60 min",
-        price: "350–600 zł",
+        price: "350â€“600 zĹ‚",
         highlight: false
       },
       {
-        name: "Odświeżenie makijażu permanentnego ust**",
+        name: "OdĹ›wieĹĽenie makijaĹĽu permanentnego ust**",
         time: "60 min",
-        price: "700 zł",
+        price: "700 zĹ‚",
         highlight: false
       }
     ]
@@ -129,22 +129,22 @@ const priceGroups = [
   {
     label: "Usuwanie",
     title: "Usuwanie i naprawa PMU",
-    note: "Przy starych pigmentacjach najważniejsza jest kwalifikacja i realny plan pracy.",
+    note: "Przy starych pigmentacjach najwaĹĽniejsza jest kwalifikacja i realny plan pracy.",
     items: [
       {
-        name: "Laserowe usuwanie makijażu permanentnego",
+        name: "Laserowe usuwanie makijaĹĽu permanentnego",
         time: "40 min",
-        price: "200–400 zł",
+        price: "200â€“400 zĹ‚",
         highlight: false
       },
       {
-        name: "Bye-Bye pigment remover — usuwanie makijażu",
+        name: "Bye-Bye pigment remover â€” usuwanie makijaĹĽu",
         time: "60 min",
-        price: "200–400 zł",
+        price: "200â€“400 zĹ‚",
         highlight: false
       },
       {
-        name: "Naprawa makijażu po innym gabinecie",
+        name: "Naprawa makijaĹĽu po innym gabinecie",
         time: "wycena po konsultacji",
         price: "indywidualna wycena",
         highlight: true
@@ -153,18 +153,18 @@ const priceGroups = [
   },
   {
     label: "Specjalne",
-    title: "Usługi specjalne",
-    note: "Pozycje dodatkowe, wymagające indywidualnej kwalifikacji lub dostępności terminu.",
+    title: "UsĹ‚ugi specjalne",
+    note: "Pozycje dodatkowe, wymagajÄ…ce indywidualnej kwalifikacji lub dostÄ™pnoĹ›ci terminu.",
     items: [
       {
         name: "Sercem malowane",
         time: "misja gabinetu",
-        price: "0 zł",
+        price: "0 zĹ‚",
         highlight: true
       },
       {
-        name: "Usługa VIP* — przyjęcie bez wcześniejszej rezerwacji",
-        time: "według dostępności",
+        name: "UsĹ‚uga VIP* â€” przyjÄ™cie bez wczeĹ›niejszej rezerwacji",
+        time: "wedĹ‚ug dostÄ™pnoĹ›ci",
         price: "150% ceny podstawowej",
         highlight: false
       }
@@ -175,59 +175,59 @@ const priceGroups = [
 const featuredPrices = [
   {
     label: "Brwi",
-    title: "Makijaż permanentny brwi",
-    price: "od 1200 zł",
+    title: "MakijaĹĽ permanentny brwi",
+    price: "od 1200 zĹ‚",
     href: "/makijaz-permanentny-brwi/"
   },
   {
     label: "Oczy",
     title: "Kreski permanentne",
-    price: "od 500 zł",
+    price: "od 500 zĹ‚",
     href: "/makijaz-permanentny-oczu/"
   },
   {
     label: "Usta",
-    title: "Makijaż permanentny ust",
-    price: "1400 zł",
+    title: "MakijaĹĽ permanentny ust",
+    price: "1400 zĹ‚",
     href: "/makijaz-permanentny-ust/"
   },
   {
     label: "Usuwanie",
     title: "Usuwanie PMU",
-    price: "200–400 zł",
+    price: "200â€“400 zĹ‚",
     href: "/usuwanie-makijazu-permanentnego/"
   }
 ];
 
 const pageUrl = "https://permanentnybielsko.com/cennik-makijaz-permanentny/";
-const pageTitle = "Cennik makijażu permanentnego Bielsko-Biała | Bogusława Herda";
+const pageTitle = "Cennik makijaĹĽu permanentnego Bielsko-BiaĹ‚a | BogusĹ‚awa Herda";
 const pageDescription =
-  "Cennik makijażu permanentnego Bielsko-Biała: brwi permanentne, metoda włoskowa, kreski permanentne, makijaż permanentny ust, odświeżenie PMU, usuwanie laserowe i remover.";
+  "Cennik makijaĹĽu permanentnego Bielsko-BiaĹ‚a: brwi permanentne, metoda wĹ‚oskowa, kreski permanentne, makijaĹĽ permanentny ust, odĹ›wieĹĽenie PMU, usuwanie laserowe i remover.";
 
 const faqItems = [
   {
-    "question": "Czy cena makijażu permanentnego obejmuje korektę?",
-    "answer": "Tak, ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące."
+    "question": "Czy cena makijaĹĽu permanentnego obejmuje korektÄ™?",
+    "answer": "Tak, ceny oznaczone gwiazdkÄ… obejmujÄ… zabieg gĹ‚Ăłwny wraz z korektÄ… w terminie 1â€“3 miesiÄ…ce."
   },
   {
-    "question": "Czy konsultacja jest płatna?",
-    "answer": "Tak. Konsultacja makijażu permanentnego trwa 30 minut i kosztuje 50 zł."
+    "question": "Czy konsultacja jest pĹ‚atna?",
+    "answer": "Tak. Konsultacja makijaĹĽu permanentnego trwa 30 minut i kosztuje 50 zĹ‚."
   },
   {
-    "question": "Dlaczego naprawa po innym gabinecie ma indywidualną wycenę?",
-    "answer": "Ponieważ wymaga oceny starego pigmentu, jego koloru, nasycenia, kształtu oraz możliwości wykonania korekty lub wcześniejszego rozjaśnienia."
+    "question": "Dlaczego naprawa po innym gabinecie ma indywidualnÄ… wycenÄ™?",
+    "answer": "PoniewaĹĽ wymaga oceny starego pigmentu, jego koloru, nasycenia, ksztaĹ‚tu oraz moĹĽliwoĹ›ci wykonania korekty lub wczeĹ›niejszego rozjaĹ›nienia."
   },
   {
-    "question": "Czy usługa VIP ma stałą cenę?",
-    "answer": "Usługa VIP, czyli przyjęcie bez wcześniejszej rezerwacji, wynosi 150% ceny podstawowej i zależy od dostępności terminu."
+    "question": "Czy usĹ‚uga VIP ma staĹ‚Ä… cenÄ™?",
+    "answer": "UsĹ‚uga VIP, czyli przyjÄ™cie bez wczeĹ›niejszej rezerwacji, wynosi 150% ceny podstawowej i zaleĹĽy od dostÄ™pnoĹ›ci terminu."
   },
   {
-    "question": "Czy odświeżenie PMU dotyczy każdej pigmentacji?",
-    "answer": "Podane ceny odświeżenia dotyczą makijażu wykonanego w naszym gabinecie do 2 lat. Inne przypadki wymagają indywidualnej oceny."
+    "question": "Czy odĹ›wieĹĽenie PMU dotyczy kaĹĽdej pigmentacji?",
+    "answer": "Podane ceny odĹ›wieĹĽenia dotyczÄ… makijaĹĽu wykonanego w naszym gabinecie do 2 lat. Inne przypadki wymagajÄ… indywidualnej oceny."
   },
   {
-    "question": "Gdzie sprawdzić dostępne terminy?",
-    "answer": "Aktualne terminy, rezerwacje i dostępność usług można sprawdzić przez Booksy."
+    "question": "Gdzie sprawdziÄ‡ dostÄ™pne terminy?",
+    "answer": "Aktualne terminy, rezerwacje i dostÄ™pnoĹ›Ä‡ usĹ‚ug moĹĽna sprawdziÄ‡ przez Booksy."
   }
 ];
 
@@ -255,13 +255,13 @@ const structuredData = [
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "Strona główna",
+        "name": "Strona gĹ‚Ăłwna",
         "item": "https://permanentnybielsko.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Cennik makijażu permanentnego",
+        "name": "Cennik makijaĹĽu permanentnego",
         "item": pageUrl
       }
     ]
@@ -270,7 +270,7 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
     "@id": `${pageUrl}#offer-catalog`,
-    "name": "Cennik makijażu permanentnego Bielsko-Biała",
+    "name": "Cennik makijaĹĽu permanentnego Bielsko-BiaĹ‚a",
     "url": pageUrl,
     "itemListElement": priceGroups.map((group) => ({
       "@type": "OfferCatalog",
@@ -279,7 +279,7 @@ const structuredData = [
       "itemListElement": group.items.map((item) => ({
         "@type": "Offer",
         "name": item.name,
-        "price": item.price.replace(" zł", "").replace("od ", "").replace(",", "."),
+        "price": item.price.replace(" zĹ‚", "").replace("od ", "").replace(",", "."),
         "priceCurrency": "PLN",
         "availability": "https://schema.org/InStock",
         "itemOffered": {
@@ -326,21 +326,21 @@ const structuredData = [
 
         <div class="container price-hero-grid">
           <div class="price-hero-copy">
-            <p class="section-kicker">Cennik makijażu permanentnego</p>
+            <p class="section-kicker">Cennik makijaĹĽu permanentnego</p>
 
             <h1>
-                <span class="pmu-hero-turquoise-text">Ceny zabiegów PMU</span> w gabinecie Bogusława Herda.
+                <span class="pmu-hero-turquoise-text">Ceny zabiegĂłw PMU</span> w gabinecie BogusĹ‚awa Herda.
             </h1>
 
             <p class="price-hero-lead">
-              Cennik obejmuje konsultację, makijaż permanentny brwi, oczu i ust, odświeżenie,
-              usuwanie PMU oraz usługi specjalne. Przy części usług ostateczna decyzja zależy
-              od kwalifikacji, stanu skóry i zakresu pracy.
+              Cennik obejmuje konsultacjÄ™, makijaĹĽ permanentny brwi, oczu i ust, odĹ›wieĹĽenie,
+              usuwanie PMU oraz usĹ‚ugi specjalne. Przy czÄ™Ĺ›ci usĹ‚ug ostateczna decyzja zaleĹĽy
+              od kwalifikacji, stanu skĂłry i zakresu pracy.
             </p>
 
             <div class="price-hero-actions">
               <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-                Sprawdź terminy w Booksy
+                SprawdĹş terminy w Booksy
               </a>
 
               <a class="button-secondary" href="#cennik-pmu">
@@ -349,9 +349,9 @@ const structuredData = [
             </div>
           </div>
 
-          <aside class="price-hero-card" aria-label="Najważniejsze informacje o cenniku">
+          <aside class="price-hero-card" aria-label="NajwaĹĽniejsze informacje o cenniku">
             <p class="price-card-label">PMU</p>
-            <h2>Transparentnie, ale z kwalifikacją.</h2>
+            <h2>Transparentnie, ale z kwalifikacjÄ….</h2>
             <p>
               Cennik pokazuje ceny podstawowe. Przy korektach, starych pigmentacjach,
               usuwaniu i naprawie PMU zakres pracy ustalany jest indywidualnie po konsultacji.
@@ -360,26 +360,49 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="price-proof-section">
-        <div class="container price-proof-grid">
-          <div>
-            <strong>Konsultacja</strong>
-            <span>50 zł / 30 min</span>
+      <section class="price-proof-section" aria-label="NajwaĹĽniejsze ceny makijaĹĽu permanentnego">
+        <div class="container price-proof-wrap">
+          <div class="price-proof-heading">
+            <p class="section-kicker">Szybki podglÄ…d cen</p>
+            <h2>NajwaĹĽniejsze pozycje cennika PMU.</h2>
+            <p>
+              KrĂłtki przeglÄ…d najczÄ™Ĺ›ciej sprawdzanych cen. PeĹ‚ny zakres usĹ‚ug,
+              odĹ›wieĹĽenia i zasady dopigmentowania znajdujÄ… siÄ™ niĹĽej w peĹ‚nym cenniku.
+            </p>
           </div>
 
-          <div>
-            <strong>Brwi permanentne</strong>
-            <span>od 1200 zł</span>
-          </div>
+          <div class="price-proof-grid">
+            <a href="#cennik-pmu" class="price-proof-card">
+              <span>Konsultacja</span>
+              <strong>Konsultacja PMU</strong>
+              <b>50 zĹ‚</b>
+              <em>30 minut</em>
+              <p>Pierwszy krok przed zabiegiem, korektÄ… albo usuwaniem starego pigmentu.</p>
+            </a>
 
-          <div>
-            <strong>Usta permanentne</strong>
-            <span>1400 zł</span>
-          </div>
+            <a href="/makijaz-permanentny-brwi/" class="price-proof-card">
+              <span>Brwi</span>
+              <strong>Brwi permanentne</strong>
+              <b>od 1200 zĹ‚</b>
+              <em>z korektÄ…*</em>
+              <p>Cieniowanie, metoda wĹ‚oskowa oraz wĹ‚oski z cieniem dobierane do urody.</p>
+            </a>
 
-          <div>
-            <strong>Usuwanie PMU</strong>
-            <span>200–400 zł</span>
+            <a href="/makijaz-permanentny-ust/" class="price-proof-card">
+              <span>Usta</span>
+              <strong>Usta permanentne</strong>
+              <b>1400 zĹ‚</b>
+              <em>z korektÄ…*</em>
+              <p>OdĹ›wieĹĽenie koloru, miÄ™kki kontur i naturalne podkreĹ›lenie czerwieni wargowej.</p>
+            </a>
+
+            <a href="/usuwanie-makijazu-permanentnego/" class="price-proof-card">
+              <span>Usuwanie</span>
+              <strong>Usuwanie PMU</strong>
+              <b>200â€“400 zĹ‚</b>
+              <em>po kwalifikacji</em>
+              <p>Laser lub remover wybierany po ocenie koloru, gĹ‚Ä™bokoĹ›ci i nasycenia pigmentu.</p>
+            </a>
           </div>
         </div>
       </section>
@@ -387,8 +410,8 @@ const structuredData = [
       <section class="price-featured-section">
         <div class="container">
           <div class="price-section-heading">
-            <p class="section-kicker">Najczęściej wybierane zakresy</p>
-            <h2>Najważniejsze ceny makijażu permanentnego.</h2>
+            <p class="section-kicker">NajczÄ™Ĺ›ciej wybierane zakresy</p>
+            <h2>NajwaĹĽniejsze ceny makijaĹĽu permanentnego.</h2>
           </div>
 
           <div class="price-featured-grid">
@@ -406,11 +429,11 @@ const structuredData = [
       <section class="price-list-section" id="cennik-pmu">
         <div class="container">
           <div class="price-section-heading">
-            <p class="section-kicker">Pełny cennik PMU</p>
-            <h2>Cennik makijażu permanentnego, odświeżeń i usuwania PMU.</h2>
+            <p class="section-kicker">PeĹ‚ny cennik PMU</p>
+            <h2>Cennik makijaĹĽu permanentnego, odĹ›wieĹĽeĹ„ i usuwania PMU.</h2>
             <p>
-              Ceny z gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące.
-              Ceny odświeżeń dotyczą makijażu wykonanego w naszym gabinecie.
+              Ceny z gwiazdkÄ… obejmujÄ… zabieg gĹ‚Ăłwny wraz z korektÄ… w terminie 1â€“3 miesiÄ…ce.
+              Ceny odĹ›wieĹĽeĹ„ dotyczÄ… makijaĹĽu wykonanego w naszym gabinecie.
             </p>
           </div>
 
@@ -447,34 +470,34 @@ const structuredData = [
       <section class="price-notes-section">
         <div class="container price-notes-grid">
           <div class="price-note-card">
-            <p class="section-kicker">Ważne informacje</p>
+            <p class="section-kicker">WaĹĽne informacje</p>
             <h2>Co obejmuje cena zabiegu?</h2>
             <p>
-              Cena oznaczona gwiazdką obejmuje zabieg główny wraz z korektą wykonywaną
-              w terminie 1–3 miesiące. Korekta pozwala dopracować kolor, nasycenie i równowagę
-              efektu po wygojeniu skóry.
+              Cena oznaczona gwiazdkÄ… obejmuje zabieg gĹ‚Ăłwny wraz z korektÄ… wykonywanÄ…
+              w terminie 1â€“3 miesiÄ…ce. Korekta pozwala dopracowaÄ‡ kolor, nasycenie i rĂłwnowagÄ™
+              efektu po wygojeniu skĂłry.
             </p>
           </div>
 
           <div class="price-rules-card">
             <div>
-              <strong>* Zabieg główny + korekta</strong>
-              <span>Cena zawiera zabieg główny wraz z korektą w terminie 1–3 miesiące.</span>
+              <strong>* Zabieg gĹ‚Ăłwny + korekta</strong>
+              <span>Cena zawiera zabieg gĹ‚Ăłwny wraz z korektÄ… w terminie 1â€“3 miesiÄ…ce.</span>
             </div>
 
             <div>
-              <strong>** Odświeżenie do 2 lat</strong>
-              <span>Cena dotyczy odświeżenia makijażu wykonanego w naszym gabinecie.</span>
+              <strong>** OdĹ›wieĹĽenie do 2 lat</strong>
+              <span>Cena dotyczy odĹ›wieĹĽenia makijaĹĽu wykonanego w naszym gabinecie.</span>
             </div>
 
             <div>
               <strong>Naprawa po innym gabinecie</strong>
-              <span>Wycena jest indywidualna, ponieważ zależy od koloru, kształtu i nasycenia starego pigmentu.</span>
+              <span>Wycena jest indywidualna, poniewaĹĽ zaleĹĽy od koloru, ksztaĹ‚tu i nasycenia starego pigmentu.</span>
             </div>
 
             <div>
               <strong>Charakter informacyjny</strong>
-              <span>Przedstawiona oferta ma charakter informacyjny i nie stanowi oferty handlowej w rozumieniu art. 66 § 1 KC.</span>
+              <span>Przedstawiona oferta ma charakter informacyjny i nie stanowi oferty handlowej w rozumieniu art. 66 Â§ 1 KC.</span>
             </div>
           </div>
         </div>
@@ -484,32 +507,32 @@ const structuredData = [
         <div class="container">
           <div class="price-section-heading">
             <p class="section-kicker">Oferta PMU</p>
-            <h2>Zobacz szczegóły zabiegów makijażu permanentnego.</h2>
+            <h2>Zobacz szczegĂłĹ‚y zabiegĂłw makijaĹĽu permanentnego.</h2>
           </div>
 
           <div class="price-related-grid">
             <a href="/makijaz-permanentny-bielsko/" class="price-related-card">
               <span>PMU</span>
-              <h3>Makijaż permanentny Bielsko-Biała</h3>
-              <p>Główna podstrona o makijażu permanentnym, konsultacji, rysunku wstępnym i naturalnym efekcie.</p>
+              <h3>MakijaĹĽ permanentny Bielsko-BiaĹ‚a</h3>
+              <p>GĹ‚Ăłwna podstrona o makijaĹĽu permanentnym, konsultacji, rysunku wstÄ™pnym i naturalnym efekcie.</p>
             </a>
 
             <a href="/makijaz-permanentny-brwi/" class="price-related-card price-related-card-turquoise">
               <span>Brwi</span>
               <h3>Brwi permanentne</h3>
-              <p>Naturalne brwi, metoda włoskowa, włos z cieniem i Silky Hairstroke Brows.</p>
+              <p>Naturalne brwi, metoda wĹ‚oskowa, wĹ‚os z cieniem i Silky Hairstroke Brows.</p>
             </a>
 
             <a href="/makijaz-permanentny-oczu/" class="price-related-card">
               <span>Oczy</span>
-              <h3>Makijaż permanentny oczu</h3>
-              <p>Kreski permanentne, zagęszczenie linii rzęs i subtelne podkreślenie spojrzenia.</p>
+              <h3>MakijaĹĽ permanentny oczu</h3>
+              <p>Kreski permanentne, zagÄ™szczenie linii rzÄ™s i subtelne podkreĹ›lenie spojrzenia.</p>
             </a>
 
             <a href="/makijaz-permanentny-ust/" class="price-related-card price-related-card-rose">
               <span>Usta</span>
-              <h3>Makijaż permanentny ust</h3>
-              <p>Odświeżenie koloru, wyrównanie czerwieni wargowej i miękki kontur ust.</p>
+              <h3>MakijaĹĽ permanentny ust</h3>
+              <p>OdĹ›wieĹĽenie koloru, wyrĂłwnanie czerwieni wargowej i miÄ™kki kontur ust.</p>
             </a>
           </div>
         </div>
@@ -518,54 +541,54 @@ const structuredData = [
       <section class="price-faq-section">
         <div class="container">
           <div class="price-section-heading">
-            <p class="section-kicker">Najczęstsze pytania</p>
-            <h2>Co warto wiedzieć o cenach makijażu permanentnego?</h2>
+            <p class="section-kicker">NajczÄ™stsze pytania</p>
+            <h2>Co warto wiedzieÄ‡ o cenach makijaĹĽu permanentnego?</h2>
           </div>
 
           <div class="price-faq-grid">
             <article>
-              <h3>Czy cena makijażu permanentnego obejmuje korektę?</h3>
+              <h3>Czy cena makijaĹĽu permanentnego obejmuje korektÄ™?</h3>
               <p>
-                Tak, ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą
-                w terminie 1–3 miesiące.
+                Tak, ceny oznaczone gwiazdkÄ… obejmujÄ… zabieg gĹ‚Ăłwny wraz z korektÄ…
+                w terminie 1â€“3 miesiÄ…ce.
               </p>
             </article>
 
             <article>
-              <h3>Czy konsultacja jest płatna?</h3>
+              <h3>Czy konsultacja jest pĹ‚atna?</h3>
               <p>
-                Tak. Konsultacja makijażu permanentnego trwa 30 minut i kosztuje 50 zł.
+                Tak. Konsultacja makijaĹĽu permanentnego trwa 30 minut i kosztuje 50 zĹ‚.
               </p>
             </article>
 
             <article>
-              <h3>Dlaczego naprawa po innym gabinecie ma indywidualną wycenę?</h3>
+              <h3>Dlaczego naprawa po innym gabinecie ma indywidualnÄ… wycenÄ™?</h3>
               <p>
-                Ponieważ wymaga oceny starego pigmentu, jego koloru, nasycenia, kształtu
-                oraz możliwości wykonania korekty lub wcześniejszego rozjaśnienia.
+                PoniewaĹĽ wymaga oceny starego pigmentu, jego koloru, nasycenia, ksztaĹ‚tu
+                oraz moĹĽliwoĹ›ci wykonania korekty lub wczeĹ›niejszego rozjaĹ›nienia.
               </p>
             </article>
 
             <article>
-              <h3>Czy usługa VIP ma stałą cenę?</h3>
+              <h3>Czy usĹ‚uga VIP ma staĹ‚Ä… cenÄ™?</h3>
               <p>
-                Usługa VIP, czyli przyjęcie bez wcześniejszej rezerwacji, wynosi 150% ceny podstawowej
-                i zależy od dostępności terminu.
+                UsĹ‚uga VIP, czyli przyjÄ™cie bez wczeĹ›niejszej rezerwacji, wynosi 150% ceny podstawowej
+                i zaleĹĽy od dostÄ™pnoĹ›ci terminu.
               </p>
             </article>
 
             <article>
-              <h3>Czy odświeżenie PMU dotyczy każdej pigmentacji?</h3>
+              <h3>Czy odĹ›wieĹĽenie PMU dotyczy kaĹĽdej pigmentacji?</h3>
               <p>
-                Podane ceny odświeżenia dotyczą makijażu wykonanego w naszym gabinecie do 2 lat.
-                Inne przypadki wymagają indywidualnej oceny.
+                Podane ceny odĹ›wieĹĽenia dotyczÄ… makijaĹĽu wykonanego w naszym gabinecie do 2 lat.
+                Inne przypadki wymagajÄ… indywidualnej oceny.
               </p>
             </article>
 
             <article>
-              <h3>Gdzie sprawdzić dostępne terminy?</h3>
+              <h3>Gdzie sprawdziÄ‡ dostÄ™pne terminy?</h3>
               <p>
-                Aktualne terminy, rezerwacje i dostępność usług można sprawdzić przez Booksy.
+                Aktualne terminy, rezerwacje i dostÄ™pnoĹ›Ä‡ usĹ‚ug moĹĽna sprawdziÄ‡ przez Booksy.
               </p>
             </article>
           </div>
@@ -574,15 +597,15 @@ const structuredData = [
 
       <section class="price-final-cta" id="kontakt">
         <div class="container price-final-card">
-          <p class="signature cta-signature">Powrót do natury</p>
-          <h2>Chcesz sprawdzić, który zabieg będzie najlepszy dla Ciebie?</h2>
+          <p class="signature cta-signature">PowrĂłt do natury</p>
+          <h2>Chcesz sprawdziÄ‡, ktĂłry zabieg bÄ™dzie najlepszy dla Ciebie?</h2>
           <p>
-            Umów konsultację i zobacz, jaki zakres pracy będzie odpowiedni dla Twojej urody,
-            skóry, wcześniejszej pigmentacji i oczekiwanego efektu.
+            UmĂłw konsultacjÄ™ i zobacz, jaki zakres pracy bÄ™dzie odpowiedni dla Twojej urody,
+            skĂłry, wczeĹ›niejszej pigmentacji i oczekiwanego efektu.
           </p>
 
           <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-            Umów wizytę przez Booksy
+            UmĂłw wizytÄ™ przez Booksy
           </a>
         </div>
       </section>
@@ -1205,7 +1228,7 @@ const structuredData = [
     }
   }
 
-  /* V2 — ujednolicenie cennika ze standardem strony PMU */
+  /* V2 â€” ujednolicenie cennika ze standardem strony PMU */
   .price-page {
     background:
       radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.11), transparent 28rem),
@@ -1450,7 +1473,7 @@ const structuredData = [
   }
 
 
-  /* V3 — poprawka wszystkich nagłówków i etykiet w cenniku */
+  /* V3 â€” poprawka wszystkich nagĹ‚ĂłwkĂłw i etykiet w cenniku */
   .price-section-heading {
     max-width: 980px !important;
   }
@@ -1632,7 +1655,7 @@ const structuredData = [
   }
 
 
-  /* V4 — cennik: finalne ujednolicenie nagłówków grup, sekcji i etykiet */
+  /* V4 â€” cennik: finalne ujednolicenie nagĹ‚ĂłwkĂłw grup, sekcji i etykiet */
   .price-section-heading {
     max-width: 980px !important;
     margin-bottom: 38px !important;
@@ -1847,7 +1870,7 @@ const structuredData = [
   }
 
 
-  /* V5 — naprawa brakujących etykiet USTA / USUWANIE / SPECJALNE oraz etykiety Ważne informacje */
+  /* V5 â€” naprawa brakujÄ…cych etykiet USTA / USUWANIE / SPECJALNE oraz etykiety WaĹĽne informacje */
   .price-group-head .price-group-label,
   .price-note-card > .section-kicker,
   .price-section-heading > .section-kicker,
@@ -1938,7 +1961,7 @@ const structuredData = [
   }
 
 
-  /* V6 — finalny standard małych turkusowych nagłówków */
+  /* V6 â€” finalny standard maĹ‚ych turkusowych nagĹ‚ĂłwkĂłw */
 
   .price-page .section-kicker {
     display: inline-flex !important;
@@ -2057,7 +2080,7 @@ const structuredData = [
       letter-spacing: 0.13em !important;
     }
   }
-  /* Hero — turkusowy akcent w pierwszym nagłówku */
+  /* Hero â€” turkusowy akcent w pierwszym nagĹ‚Ăłwku */
 
   .pmu-hero-turquoise-text {
     display: inline;
@@ -2082,4 +2105,409 @@ const structuredData = [
       display: inline;
     }
   }
+    /* V7 â€” poprawa gĂłrnej sekcji cennika: eleganckie kafelki zamiast pustej tabeli */
+  .price-proof-section {
+    padding: 78px 0 !important;
+    border: 0 !important;
+    background:
+      radial-gradient(circle at 88% 18%, rgba(56, 187, 181, 0.12), transparent 24rem),
+      radial-gradient(circle at 10% 78%, rgba(201, 127, 143, 0.10), transparent 24rem),
+      rgba(255, 255, 255, 0.68) !important;
+  }
+
+  .price-proof-wrap {
+    display: grid !important;
+    gap: 30px !important;
+  }
+
+  .price-proof-heading {
+    max-width: 880px !important;
+  }
+
+  .price-proof-heading h2 {
+    margin: 0 !important;
+    color: var(--color-text, #17151d) !important;
+    font-size: clamp(2.35rem, 4vw, 4.2rem) !important;
+    font-weight: 760 !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.074em !important;
+  }
+
+  .price-proof-heading p:not(.section-kicker) {
+    max-width: 780px !important;
+    margin: 16px 0 0 !important;
+    color: var(--color-muted, #6e6670) !important;
+    font-size: 1.04rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .price-proof-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+
+  .price-proof-card {
+    position: relative !important;
+    min-height: 250px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    overflow: hidden !important;
+    padding: 28px !important;
+    border: 1px solid rgba(183, 101, 118, 0.14) !important;
+    border-radius: 32px !important;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(56, 187, 181, 0.13), transparent 8rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.055) !important;
+    color: inherit !important;
+    text-decoration: none !important;
+    transition:
+      transform 0.22s ease,
+      border-color 0.22s ease,
+      box-shadow 0.22s ease,
+      background 0.22s ease !important;
+  }
+
+  .price-proof-card::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-top: 4px solid rgba(56, 187, 181, 0.36) !important;
+    pointer-events: none !important;
+  }
+
+  .price-proof-card::after {
+    content: "" !important;
+    position: absolute !important;
+    right: -64px !important;
+    top: -64px !important;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 999px !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    pointer-events: none !important;
+    transition: background 0.22s ease, transform 0.22s ease !important;
+  }
+
+  .price-proof-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(201, 127, 143, 0.24) !important;
+    box-shadow: 0 24px 70px rgba(89, 53, 67, 0.09) !important;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(255, 226, 234, 0.52), transparent 8rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 246, 249, 0.92)) !important;
+  }
+
+  .price-proof-card:hover::before {
+    border-top-color: rgba(201, 127, 143, 0.38) !important;
+  }
+
+  .price-proof-card:hover::after {
+    background: rgba(255, 226, 234, 0.78) !important;
+    transform: scale(1.08) !important;
+  }
+
+  .price-proof-card span,
+  .price-proof-card strong,
+  .price-proof-card b,
+  .price-proof-card em,
+  .price-proof-card p {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .price-proof-card span {
+    display: inline-flex !important;
+    width: fit-content !important;
+    min-height: 30px !important;
+    align-items: center !important;
+    margin: 0 0 26px !important;
+    padding: 0 12px !important;
+    border: 1px solid rgba(56, 187, 181, 0.14) !important;
+    border-radius: 999px !important;
+    background: rgba(219, 246, 243, 0.66) !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    font-size: 0.68rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+  }
+
+  .price-proof-card strong {
+    display: block !important;
+    margin: 0 !important;
+    color: var(--color-text, #17151d) !important;
+    -webkit-text-fill-color: var(--color-text, #17151d) !important;
+    font-size: clamp(1.35rem, 1.8vw, 2rem) !important;
+    font-weight: 760 !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.06em !important;
+  }
+
+  .price-proof-card b {
+    display: block !important;
+    margin-top: 18px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
+    font-size: clamp(1.7rem, 2.45vw, 2.55rem) !important;
+    font-weight: 850 !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.07em !important;
+  }
+
+  .price-proof-card em {
+    display: block !important;
+    margin-top: 8px !important;
+    color: rgba(15, 119, 115, 0.78) !important;
+    -webkit-text-fill-color: rgba(15, 119, 115, 0.78) !important;
+    font-size: 0.72rem !important;
+    font-style: normal !important;
+    font-weight: 820 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+  }
+
+  .price-proof-card p {
+    margin: 18px 0 0 !important;
+    color: var(--color-muted, #6e6670) !important;
+    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+  }
+
+  @media (max-width: 1260px) {
+    .price-proof-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .price-proof-section {
+      padding: 58px 0 !important;
+    }
+
+    .price-proof-heading h2 {
+      font-size: clamp(2.1rem, 9.2vw, 3.1rem) !important;
+      line-height: 1.04 !important;
+      letter-spacing: -0.066em !important;
+    }
+
+    .price-proof-grid {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
+
+    .price-proof-card {
+      min-height: auto !important;
+      padding: 24px !important;
+      border-radius: 28px !important;
+    }
+
+    .price-proof-card span {
+      min-height: 30px !important;
+      margin-bottom: 18px !important;
+      padding: 0 11px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+    }
+
+    .price-proof-card strong {
+      font-size: clamp(1.45rem, 7.2vw, 2rem) !important;
+      line-height: 1.05 !important;
+    }
+
+    .price-proof-card b {
+      font-size: clamp(1.85rem, 9vw, 2.5rem) !important;
+    }
+  }
+
+  /* V8 — górna sekcja cennika jako premium kafelki */
+  .price-proof-section {
+    padding: 78px 0 !important;
+    border-top: 1px solid rgba(183, 101, 118, 0.10) !important;
+    border-bottom: 1px solid rgba(183, 101, 118, 0.10) !important;
+    background:
+      radial-gradient(circle at 88% 18%, rgba(56, 187, 181, 0.12), transparent 24rem),
+      radial-gradient(circle at 10% 78%, rgba(201, 127, 143, 0.10), transparent 24rem),
+      rgba(255, 255, 255, 0.78) !important;
+  }
+
+  .price-proof-wrap {
+    display: grid !important;
+    gap: 30px !important;
+  }
+
+  .price-proof-heading {
+    max-width: 920px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .price-proof-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+
+  .price-proof-card {
+    position: relative !important;
+    min-height: 255px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    padding: 28px !important;
+    border: 1px solid rgba(183, 101, 118, 0.14) !important;
+    border-radius: 32px !important;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(56, 187, 181, 0.13), transparent 8rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.055) !important;
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease !important;
+  }
+
+  .price-proof-card::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-top: 4px solid rgba(56, 187, 181, 0.36) !important;
+    pointer-events: none !important;
+  }
+
+  .price-proof-card::after {
+    content: "" !important;
+    position: absolute !important;
+    right: -64px !important;
+    top: -64px !important;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 999px !important;
+    background: rgba(219, 246, 243, 0.72) !important;
+    pointer-events: none !important;
+    transition: background 0.22s ease, transform 0.22s ease !important;
+  }
+
+  .price-proof-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(201, 127, 143, 0.24) !important;
+    box-shadow: 0 24px 70px rgba(89, 53, 67, 0.09) !important;
+  }
+
+  .price-proof-card:hover::before {
+    border-top-color: rgba(201, 127, 143, 0.38) !important;
+  }
+
+  .price-proof-card:hover::after {
+    background: rgba(255, 226, 234, 0.78) !important;
+    transform: scale(1.08) !important;
+  }
+
+  .price-proof-card span,
+  .price-proof-card strong,
+  .price-proof-card b,
+  .price-proof-card em,
+  .price-proof-card p {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .price-proof-card span {
+    display: inline-flex !important;
+    width: fit-content !important;
+    min-height: 30px !important;
+    align-items: center !important;
+    margin: 0 0 26px !important;
+    padding: 0 12px !important;
+    border: 1px solid rgba(56, 187, 181, 0.14) !important;
+    border-radius: 999px !important;
+    background: rgba(219, 246, 243, 0.66) !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    font-size: 0.68rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+  }
+
+  .price-proof-card strong {
+    display: block !important;
+    margin: 0 !important;
+    color: var(--color-text, #17151d) !important;
+    font-size: clamp(1.35rem, 1.8vw, 2rem) !important;
+    font-weight: 760 !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.06em !important;
+  }
+
+  .price-proof-card b {
+    display: block !important;
+    margin-top: 18px !important;
+    color: var(--color-turquoise-dark, #0f7773) !important;
+    font-size: clamp(1.7rem, 2.45vw, 2.55rem) !important;
+    font-weight: 850 !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.07em !important;
+  }
+
+  .price-proof-card em {
+    display: block !important;
+    margin-top: 8px !important;
+    color: rgba(15, 119, 115, 0.78) !important;
+    font-size: 0.72rem !important;
+    font-style: normal !important;
+    font-weight: 820 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+  }
+
+  .price-proof-card p {
+    margin: 18px 0 0 !important;
+    color: var(--color-muted, #6e6670) !important;
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+  }
+
+  @media (max-width: 1260px) {
+    .price-proof-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .price-proof-section {
+      padding: 58px 0 !important;
+    }
+
+    .price-proof-grid {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
+
+    .price-proof-card {
+      min-height: auto !important;
+      padding: 24px !important;
+      border-radius: 28px !important;
+    }
+
+    .price-proof-card span {
+      margin-bottom: 18px !important;
+      font-size: 0.64rem !important;
+      letter-spacing: 0.13em !important;
+    }
+
+    .price-proof-card strong {
+      font-size: clamp(1.45rem, 7.2vw, 2rem) !important;
+    }
+
+    .price-proof-card b {
+      font-size: clamp(1.85rem, 9vw, 2.5rem) !important;
+    }
+  }
 </style>
+
