@@ -2402,4 +2402,205 @@ const structuredData = [
     border-radius: 20px !important;
   }
 }
+/* Mobile fix — zabezpieczenie kafelków galerii przed ucinaniem po prawej */
+@media (max-width: 768px) {
+  .gallery-page,
+  .gallery-section,
+  .gallery-wrap,
+  .gallery-grid,
+  .gallery-slider,
+  .gallery-track {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .gallery-page * {
+    box-sizing: border-box;
+  }
+
+  .gallery-card,
+  .gallery-feature,
+  .gallery-highlight,
+  .gallery-cta,
+  .premium-card,
+  .turquoise-card,
+  .aqua-card,
+  .cyan-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .gallery-card,
+  .gallery-feature,
+  .gallery-highlight,
+  .gallery-cta,
+  .premium-card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .gallery-card::before,
+  .gallery-card::after,
+  .gallery-feature::before,
+  .gallery-feature::after,
+  .gallery-highlight::before,
+  .gallery-highlight::after,
+  .premium-card::before,
+  .premium-card::after {
+    max-width: 100%;
+  }
+}
+/* GALERIA — mobile fix: turkusowy kafel nie może wypychać strony */
+@media (max-width: 768px) {
+  :global(html),
+  :global(body) {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  main {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  section {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .gallery-hero,
+  .gallery-hero-section,
+  .gallery-intro,
+  .gallery-intro-section,
+  .gallery-premium,
+  .gallery-premium-section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .gallery-hero-card,
+  .gallery-intro-card,
+  .gallery-premium-card,
+  .gallery-feature-card,
+  .gallery-highlight-card,
+  .hero-card,
+  .intro-card,
+  .premium-card,
+  .turquoise-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .gallery-hero-card h1,
+  .gallery-intro-card h1,
+  .gallery-premium-card h1,
+  .hero-card h1,
+  .intro-card h1,
+  .premium-card h1 {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .gallery-hero-card::before,
+  .gallery-hero-card::after,
+  .gallery-intro-card::before,
+  .gallery-intro-card::after,
+  .gallery-premium-card::before,
+  .gallery-premium-card::after,
+  .hero-card::before,
+  .hero-card::after,
+  .intro-card::before,
+  .intro-card::after,
+  .premium-card::before,
+  .premium-card::after {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+/* FINAL FIX — Galeria hero card mobile: kafel nie może być ucięty */
+@media (max-width: 760px) {
+  .gallery-hero {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .gallery-hero-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+    overflow: hidden !important;
+  }
+
+  .gallery-hero-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 360px !important;
+    margin: 0 !important;
+    padding: 26px 22px !important;
+    border-radius: 30px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .gallery-card-label {
+    max-width: 100% !important;
+    margin: 0 0 auto !important;
+    font-size: clamp(3.2rem, 18vw, 4.8rem) !important;
+    line-height: 0.82 !important;
+    letter-spacing: -0.08em !important;
+    white-space: nowrap !important;
+  }
+
+  .gallery-hero-card h2 {
+    max-width: 100% !important;
+    margin-top: 34px !important;
+    font-size: clamp(2rem, 10vw, 2.65rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.065em !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  .gallery-hero-card p:not(.gallery-card-label) {
+    max-width: 100% !important;
+    margin-top: 16px !important;
+    font-size: 1rem !important;
+    line-height: 1.58 !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  .gallery-hero-card::before {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .gallery-hero-card {
+    padding: 24px 20px !important;
+    min-height: 350px !important;
+  }
+
+  .gallery-hero-card h2 {
+    font-size: clamp(1.85rem, 9.4vw, 2.3rem) !important;
+    letter-spacing: -0.058em !important;
+  }
+
+  .gallery-hero-card p:not(.gallery-card-label) {
+    font-size: 0.96rem !important;
+  }
+}
 </style>
