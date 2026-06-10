@@ -119,9 +119,19 @@ const structuredDataJson = JSON.stringify(allStructuredData).replaceAll("<", "\\
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
-    <meta name="theme-color" content="#0f7773" />
+    <meta name="twitter:image" content={ogImageUrl} />
 
-    <script type="application/ld+json" set:html={structuredDataJson} />
+<meta name="theme-color" content="#0f7773" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HYD7Z8E003"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-HYD7Z8E003");
+</script>
+
+<script type="application/ld+json" set:html={structuredDataJson} />
   </head>
   <body>
     <slot />
