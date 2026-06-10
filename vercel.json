@@ -1,15 +1,1 @@
-{
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "permanentnybielsko.com"
-        }
-      ],
-      "destination": "https://www.permanentnybielsko.com/:path*",
-      "permanent": true
-    }
-  ]
-}
+{}
