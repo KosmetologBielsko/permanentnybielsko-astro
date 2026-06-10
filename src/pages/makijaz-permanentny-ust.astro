@@ -9,7 +9,7 @@ const booksyUrl =
 const pageUrl = "https://permanentnybielsko.com/makijaz-permanentny-ust/";
 const pageTitle = "Makijaż permanentny ust Bielsko-Biała | Naturalny kolor ust";
 const pageDescription =
-  "Makijaż permanentny ust Bielsko-Biała: naturalne odświeżenie koloru, wyrównanie czerwieni wargowej, miękki kontur i subtelny efekt bez przerysowania u Bogusława Herda.";
+  "Makijaż permanentny ust Bielsko-Biała: naturalne odświeżenie koloru, wyrównanie czerwieni wargowej, miękki kontur i subtelny efekt bez przerysowania u  Herda.";
 
 const lipsGalleryImages = Array.from({ length: 18 }, (_, index) => {
   const number = String(index + 1).padStart(2, "0");
@@ -163,7 +163,7 @@ const faqItems = [
   {
     question: "Gdzie wykonywany jest makijaż permanentny ust?",
     answer:
-      "Zabieg wykonywany jest w gabinecie Bogusława Herda w Bielsku-Białej. Aktualne terminy i rezerwacje dostępne są przez Booksy.",
+      "Zabieg wykonywany jest w gabinecie Bogusławy Herda w Bielsku-Białej. Aktualne terminy i rezerwacje dostępne są przez Booksy.",
   },
 ];
 
@@ -332,7 +332,7 @@ const structuredData = [
             <p class="lips-card-label">Lips</p>
             <h2>Naturalny kolor, miękki kontur i spokojny efekt.</h2>
             <p>
-              W gabinecie Bogusława Herda makijaż permanentny ust planowany jest indywidualnie:
+              W gabinecie Bogusławy Herda makijaż permanentny ust planowany jest indywidualnie:
               od bardzo delikatnego odświeżenia po bardziej widoczne, ale nadal eleganckie podkreślenie.
             </p>
           </aside>
@@ -2836,4 +2836,21 @@ const structuredData = [
       font-size: 1.2rem !important;
     }
   }
+  /* SAFE FIX — tylko kadrowanie 4 zdjęć w galerii ust, bez zmiany layoutu */
+
+.lips-gallery-card img[src*="makijaz-permanentny-ust-bielsko-biala-efekt-01"] {
+  object-position: 50% 62% !important;
+}
+
+.lips-gallery-card img[src*="makijaz-permanentny-ust-bielsko-biala-efekt-03"] {
+  object-position: 50% 64% !important;
+}
+
+.lips-gallery-card img[src*="makijaz-permanentny-ust-bielsko-biala-efekt-04"] {
+  object-position: 50% 62% !important;
+}
+
+.lips-gallery-card img[src*="makijaz-permanentny-ust-bielsko-biala-efekt-05"] {
+  object-position: 50% 63% !important;
+}
 </style>
