@@ -46,7 +46,7 @@ export const siteConfig = {
   // WAŻNE:
   // Na roboczej wersji Vercel zostawiamy false, żeby Google nie indeksował strony przed migracją.
   // Przed finalnym przepięciem domeny permanentnybielsko.com zmienimy na true.
-  indexingEnabled: false
+  indexingEnabled: true
 } as const;
 
 export const getCanonicalUrl = (path = "/") => {
