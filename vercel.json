@@ -1,1 +1,17 @@
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "permanentnybielsko.com"
+        }
+      ],
+      "destination": "https://www.permanentnybielsko.com/:path*",
+      "permanent": true
+    }
+  ]
+}
