@@ -1,5 +1,5 @@
 export const siteConfig = {
-  siteUrl: "https://permanentnybielsko.com",
+  siteUrl: "https://www.permanentnybielsko.com",
   previewUrl: "https://permanentnybielsko-astro.vercel.app",
   name: "Bogusława Herda Makijaż Permanentny",
   alternateName: "PermanentnyBielsko",
