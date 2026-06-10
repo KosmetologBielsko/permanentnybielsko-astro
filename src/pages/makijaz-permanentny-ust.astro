@@ -11,14 +11,27 @@ const pageTitle = "Makijaż permanentny ust Bielsko-Biała | Naturalny kolor ust
 const pageDescription =
   "Makijaż permanentny ust Bielsko-Biała: naturalne odświeżenie koloru, wyrównanie czerwieni wargowej, miękki kontur i subtelny efekt bez przerysowania u  Herda.";
 
-const lipsGalleryImages = Array.from({ length: 18 }, (_, index) => {
-  const number = String(index + 1).padStart(2, "0");
+const lipsGalleryNumbers = [
+  "02",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+];
 
-  return {
-    src: `/images/makijaz-permanentny-ust-bielsko-biala-efekt-${number}.webp`,
-    alt: `Makijaż permanentny ust Bielsko-Biała — efekt pigmentacji ust ${number}`,
-  };
-});
+const lipsGalleryImages = lipsGalleryNumbers.map((number) => ({
+  src: `/images/makijaz-permanentny-ust-bielsko-biala-efekt-${number}.webp`,
+  alt: `Makijaż permanentny ust Bielsko-Biała — efekt pigmentacji ust ${number}`,
+}));
 
 const forWhoItems = [
   {
@@ -2837,11 +2850,6 @@ const structuredData = [
     }
   }
   /* SAFE FIX — tylko kadrowanie 4 zdjęć w galerii ust, bez zmiany layoutu */
-
-.lips-gallery-card img[src*="makijaz-permanentny-ust-bielsko-biala-efekt-01"] {
-  object-position: 50% 62% !important;
-}
-
 .lips-gallery-card img[src*="makijaz-permanentny-ust-bielsko-biala-efekt-03"] {
   object-position: 50% 64% !important;
 }
