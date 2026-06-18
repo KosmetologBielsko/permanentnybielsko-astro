@@ -9,7 +9,7 @@ const booksyUrl =
 const pageUrl = "https://permanentnybielsko.com/poradnik/";
 const pageTitle = "Poradnik PMU Bielsko-Biała | Makijaż permanentny brwi, ust i oczu";
 const pageDescription =
-  "Poradnik PMU Bogusława Herda: makijaż permanentny brwi, ust i oczu, gojenie, rysunek wstępny, dopigmentowanie, usuwanie PMU i szkolenia PMU.";
+  "Poradnik PMU Bogusława Herda: brwi, usta, kreski, gojenie, pielęgnacja po zabiegu, opryszczka, metody brwi, usuwanie PMU i szkolenia PMU.";
 
 const articleCards = [
   {
@@ -24,12 +24,20 @@ const articleCards = [
     "number": "02",
     "category": "Gojenie PMU",
     "title": "Jak goją się brwi permanentne?",
-    "text": "Kolor po zabiegu, łuszczenie, strupki, jaśniejszy efekt po wygojeniu i moment, w którym można spokojnie ocenić pigment.",
+    "text": "Etapy gojenia dzień po dniu, kolor po zabiegu, łuszczenie, strupki i moment, w którym można ocenić pigment.",
     "href": "/poradnik/jak-goja-sie-brwi-permanentne/",
     "featured": false
   },
   {
     "number": "03",
+    "category": "Pielęgnacja po PMU",
+    "title": "Czego nie wolno po makijażu permanentnym brwi?",
+    "text": "Mycie brwi, smarowanie, strupki, sauna, basen, słońce i najważniejsze zasady pielęgnacji po pigmentacji.",
+    "href": "/poradnik/czego-nie-wolno-po-makijazu-permanentnym-brwi/",
+    "featured": true
+  },
+  {
+    "number": "04",
     "category": "Silky Hairstroke Brows",
     "title": "Silky Hairstroke Brows — naturalny włos maszynowy",
     "text": "Autorska technika, kierunek włosa, miękkość linii, praca ze skórą i efekt brwi bez ciężkiej ramy.",
@@ -37,7 +45,15 @@ const articleCards = [
     "featured": false
   },
   {
-    "number": "04",
+    "number": "05",
+    "category": "Metody brwi PMU",
+    "title": "Metody brwi permanentnych — ombre, pudrowe, włoskowe i microblading",
+    "text": "Porównanie metod brwi permanentnych i wyjaśnienie, dlaczego technikę dobiera się do skóry, nie do samej nazwy.",
+    "href": "/poradnik/metody-brwi-permanentnych-ombre-pudrowe-wloskowe/",
+    "featured": false
+  },
+  {
+    "number": "06",
     "category": "Rysunek wstępny",
     "title": "Rysunek wstępny przed makijażem permanentnym",
     "text": "Dlaczego projekt brwi, ust albo kreski jest jednym z najważniejszych etapów przed pigmentacją.",
@@ -45,7 +61,7 @@ const articleCards = [
     "featured": false
   },
   {
-    "number": "05",
+    "number": "07",
     "category": "Usuwanie PMU",
     "title": "Kiedy nie poprawiać starego PMU, tylko najpierw je rozjaśnić?",
     "text": "Stary pigment, zbyt ciemne brwi, chłodny odcień, laser, remover i plan etapowy przed nową pigmentacją.",
@@ -53,7 +69,15 @@ const articleCards = [
     "featured": false
   },
   {
-    "number": "06",
+    "number": "08",
+    "category": "Nieudany PMU",
+    "title": "Nieudany makijaż permanentny brwi — co zrobić?",
+    "text": "Kiedy korygować, kiedy rozjaśniać, czego nie robić domowymi sposobami i jak zaplanować bezpieczną poprawę.",
+    "href": "/poradnik/nieudany-makijaz-permanentny-brwi-co-zrobic/",
+    "featured": true
+  },
+  {
+    "number": "09",
     "category": "Usta permanentne",
     "title": "Makijaż permanentny ust — jak wybrać kolor?",
     "text": "Naturalne odświeżenie czerwieni wargowej, dobór pigmentu, opryszczka, gojenie i pielęgnacja po zabiegu.",
@@ -61,7 +85,23 @@ const articleCards = [
     "featured": false
   },
   {
-    "number": "07",
+    "number": "10",
+    "category": "Gojenie ust",
+    "title": "Makijaż permanentny ust — gojenie dzień po dniu",
+    "text": "Etapy gojenia ust, pielęgnacja, mycie zębów, suchość, złuszczanie i ocena koloru po wygojeniu.",
+    "href": "/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/",
+    "featured": false
+  },
+  {
+    "number": "11",
+    "category": "Opryszczka i PMU ust",
+    "title": "Opryszczka a makijaż permanentny ust",
+    "text": "Kiedy przełożyć zabieg, co powiedzieć przed wizytą i dlaczego profilaktykę lekową ustala się z lekarzem.",
+    "href": "/poradnik/opryszczka-a-makijaz-permanentny-ust/",
+    "featured": false
+  },
+  {
+    "number": "12",
     "category": "Kreski permanentne",
     "title": "Kreska permanentna — jak wybrać rodzaj?",
     "text": "Zagęszczenie linii rzęs, kreska górna, dolna, dekoracyjna i decyzja dopasowana do budowy oka.",
@@ -69,7 +109,15 @@ const articleCards = [
     "featured": false
   },
   {
-    "number": "08",
+    "number": "13",
+    "category": "Opadająca powieka",
+    "title": "Kreska permanentna przy opadającej powiece",
+    "text": "Kiedy wybrać zagęszczenie linii rzęs, kiedy unikać ciężkiej kreski i jak dobrać efekt do oka.",
+    "href": "/poradnik/kreska-permanentna-przy-opadajacej-powiece/",
+    "featured": false
+  },
+  {
+    "number": "14",
     "category": "Szkolenia PMU",
     "title": "Jak wybrać szkolenie PMU?",
     "text": "Rysunek wstępny, technika włosa, praca ze skórą, praktyka, Long-Time-Liner® i świadomy rozwój linergistki.",
@@ -80,79 +128,75 @@ const articleCards = [
 
 const situationCards = [
   {
-    number: "01",
-    title: "Przed pierwszym zabiegiem",
-    text: "Dowiesz się, jak przygotować skórę, o czym powiedzieć przed wizytą, czego unikać i dlaczego rysunek wstępny jest tak ważny.",
+    "number": "01",
+    "title": "Przed pierwszym zabiegiem",
+    "text": "Przygotowanie skóry, przeciwwskazania, rysunek wstępny, wybór metody i świadoma decyzja."
   },
   {
-    number: "02",
-    title: "W czasie gojenia",
-    text: "Znajdziesz odpowiedzi o kolorze po zabiegu, strupkach, myciu, smarowaniu, pielęgnacji i momencie, w którym można oceniać efekt.",
+    "number": "02",
+    "title": "W czasie gojenia",
+    "text": "Gojenie brwi i ust, mycie, smarowanie, strupki, łuszczenie, pielęgnacja oraz moment oceny efektu."
   },
   {
-    number: "03",
-    title: "Przy starym PMU",
-    text: "Sprawdzisz, kiedy można poprawiać wcześniejszą pigmentację, a kiedy rozsądniej zacząć od rozjaśniania laserem albo removerem.",
+    "number": "03",
+    "title": "Przy starym lub nieudanym PMU",
+    "text": "Korekta, rozjaśnianie, laser, remover, zbyt ciemny pigment i decyzja, kiedy nie przykrywać problemu."
   },
   {
-    number: "04",
-    title: "Dla osób z branży",
-    text: "Poradnik prowadzi też przez tematy szkoleniowe: technikę, rysunek, standard pracy, praktykę i świadomy rozwój linergistki.",
-  },
+    "number": "04",
+    "title": "Przy kreskach i powiece",
+    "text": "Zagęszczenie linii rzęs, kreska dekoracyjna, opadająca powieka i dobór efektu do anatomii oka."
+  }
 ];
 
 const categoryCards = [
   {
-    number: "01",
-    label: "Brwi",
-    title: "Brwi permanentne",
-    text: "Przygotowanie, metoda włosa, cieniowanie, Silky Hairstroke Brows, gojenie i dopigmentowanie.",
-    href: "/makijaz-permanentny-brwi/",
+    "number": "01",
+    "label": "Brwi",
+    "title": "Brwi permanentne",
+    "text": "Przygotowanie, metody, gojenie, pielęgnacja, Silky Hairstroke Brows i korekta starego pigmentu.",
+    "href": "/makijaz-permanentny-brwi/"
   },
   {
-    number: "02",
-    label: "Usta",
-    title: "Makijaż permanentny ust",
-    text: "Kolor, kontur, opryszczka, gojenie, pielęgnacja i naturalne odświeżenie czerwieni wargowej.",
-    href: "/makijaz-permanentny-ust/",
+    "number": "02",
+    "label": "Usta",
+    "title": "Makijaż permanentny ust",
+    "text": "Kolor, gojenie, opryszczka, pielęgnacja i naturalne odświeżenie czerwieni wargowej.",
+    "href": "/makijaz-permanentny-ust/"
   },
   {
-    number: "03",
-    label: "Kreski",
-    title: "Makijaż permanentny oczu",
-    text: "Zagęszczenie linii rzęs, kreska dekoracyjna, analiza powieki i subtelne podkreślenie spojrzenia.",
-    href: "/makijaz-permanentny-oczu/",
+    "number": "03",
+    "label": "Kreski",
+    "title": "Makijaż permanentny oczu",
+    "text": "Zagęszczenie linii rzęs, kreska dekoracyjna, opadająca powieka i analiza oka.",
+    "href": "/makijaz-permanentny-oczu/"
   },
   {
-    number: "04",
-    label: "Usuwanie",
-    title: "Usuwanie i korekta PMU",
-    text: "Stary pigment, laser, remover, rozjaśnianie i decyzja, kiedy nie przykrywać problemu nową pigmentacją.",
-    href: "/usuwanie-makijazu-permanentnego/",
-  },
+    "number": "04",
+    "label": "Usuwanie",
+    "title": "Usuwanie i korekta PMU",
+    "text": "Stary pigment, laser, remover, rozjaśnianie i etapowy plan korekty.",
+    "href": "/usuwanie-makijazu-permanentnego/"
+  }
 ];
 
 const faqItems = [
   {
-    question: "Od którego poradnika najlepiej zacząć?",
-    answer:
-      "Jeśli planujesz pierwszy zabieg, zacznij od przygotowania do makijażu permanentnego brwi. Jeśli jesteś po zabiegu, wybierz temat o gojeniu. Przy starym PMU najlepiej zacząć od tekstu o rozjaśnianiu pigmentu.",
+    "question": "Od którego poradnika najlepiej zacząć?",
+    "answer": "Jeśli planujesz pierwszy zabieg, zacznij od przygotowania do makijażu permanentnego brwi. Jeśli jesteś po zabiegu, wybierz temat o gojeniu albo pielęgnacji. Przy starym lub nieudanym PMU zacznij od tekstu o rozjaśnianiu pigmentu."
   },
   {
-    question: "Czy poradnik dotyczy tylko brwi permanentnych?",
-    answer:
-      "Nie. Poradnik obejmuje brwi, usta, kreski, gojenie, dopigmentowanie, przeciwwskazania, usuwanie starego PMU oraz szkolenia makijażu permanentnego.",
+    "question": "Czy poradnik dotyczy tylko brwi permanentnych?",
+    "answer": "Nie. Poradnik obejmuje brwi, usta, kreski, gojenie, pielęgnację po zabiegu, opryszczkę, metody brwi, usuwanie starego PMU oraz szkolenia PMU."
   },
   {
-    question: "Czy makijaż permanentny może wyglądać naturalnie?",
-    answer:
-      "Tak, ale naturalny efekt zależy od skóry, rysunku wstępnego, techniki, pigmentu, doświadczenia linergistki i tego, jak efekt wygoi się po zabiegu.",
+    "question": "Czy makijaż permanentny może wyglądać naturalnie?",
+    "answer": "Tak, ale naturalny efekt zależy od skóry, rysunku wstępnego, techniki, pigmentu, doświadczenia linergistki i tego, jak efekt wygoi się po zabiegu."
   },
   {
-    question: "Co zrobić, jeśli mam stary makijaż permanentny?",
-    answer:
-      "Nie zawsze warto od razu przykrywać stary pigment. Przy zbyt ciemnym, chłodnym lub nierównym PMU bezpieczniejszym pierwszym krokiem może być rozjaśnianie laserem albo removerem.",
-  },
+    "question": "Co zrobić, jeśli mam stary makijaż permanentny?",
+    "answer": "Nie zawsze warto od razu przykrywać stary pigment. Przy zbyt ciemnym, chłodnym lub nierównym PMU bezpieczniejszym pierwszym krokiem może być rozjaśnianie laserem albo removerem."
+  }
 ];
 
 const structuredData = [
@@ -164,12 +208,8 @@ const structuredData = [
     name: pageTitle,
     description: pageDescription,
     inLanguage: "pl-PL",
-    isPartOf: {
-      "@id": "https://permanentnybielsko.com/#website",
-    },
-    about: {
-      "@id": "https://permanentnybielsko.com/#localbusiness",
-    },
+    isPartOf: { "@id": "https://permanentnybielsko.com/#website" },
+    about: { "@id": "https://permanentnybielsko.com/#localbusiness" },
   },
   {
     "@context": "https://schema.org",
@@ -229,76 +269,43 @@ const structuredData = [
 
     <main>
       <section class="guide-hero">
-        <div class="guide-orb guide-orb-one"></div>
-        <div class="guide-orb guide-orb-two"></div>
-
         <div class="container guide-hero-grid">
           <div class="guide-hero-copy">
             <p class="section-kicker">Poradnik PMU</p>
-
-            <h1>
-              <span class="pmu-hero-turquoise-text">Poradnik PMU</span> dla osób, które chcą podjąć spokojną i świadomą decyzję.
-            </h1>
-
+            <h1><span>Poradnik PMU</span> dla osób, które chcą podjąć spokojną i świadomą decyzję.</h1>
             <p class="guide-lead">
               Zanim zdecydujesz się na makijaż permanentny brwi, ust, kresek albo korektę starej pigmentacji,
               warto wiedzieć, co naprawdę wpływa na efekt: skóra, rysunek wstępny, technika, pigment,
               gojenie, pielęgnacja po zabiegu i spokojna kwalifikacja.
             </p>
-
             <p class="guide-lead guide-lead-small">
-              Ten poradnik porządkuje najważniejsze pytania przed wizytą i po zabiegu:
-              jak przygotować się do PMU, jak wygląda gojenie, kiedy potrzebne jest dopigmentowanie,
-              jak dobrać kolor ust, jaka kreska pasuje do oka i kiedy starego pigmentu nie warto przykrywać kolejną pigmentacją.
+              Ten poradnik porządkuje najważniejsze pytania przed wizytą i po zabiegu: jak przygotować się do PMU,
+              jak wygląda gojenie brwi i ust, czego nie wolno po zabiegu, co zrobić przy opryszczce,
+              jak dobrać metodę brwi, jaka kreska pasuje do oka i kiedy starego pigmentu nie warto przykrywać kolejną pigmentacją.
             </p>
-
             <div class="guide-actions">
-              <a class="button-primary" href="#poradniki-pmu">
-                Zobacz poradniki
-              </a>
-
-              <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-                Umów wizytę przez Booksy
-              </a>
+              <a class="button-primary" href="#poradniki-pmu">Zobacz poradniki</a>
+              <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów wizytę przez Booksy</a>
             </div>
           </div>
 
-          <aside class="guide-hero-card guide-shine-card" aria-label="Poradnik PMU">
+          <aside class="guide-hero-card">
             <span class="guide-big-mark" aria-hidden="true">PMU</span>
-
-            <div class="guide-hero-card-content">
+            <div>
               <p class="section-kicker section-kicker-light">Centrum wiedzy</p>
               <h2>Jedno miejsce na pytania, które warto zadać przed zabiegiem.</h2>
-              <p>
-                Brwi, usta, kreski, gojenie, dopigmentowanie, usuwanie PMU i szkolenia —
-                wszystko opisane spokojnie, po ludzku i z perspektywy praktyki gabinetowej.
-              </p>
+              <p>Brwi, usta, kreski, gojenie, pielęgnacja, usuwanie PMU i szkolenia — opisane spokojnie, po ludzku i z perspektywy praktyki gabinetowej.</p>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="guide-proof-section" aria-label="Zakres poradnika PMU">
+      <section class="guide-proof-section">
         <div class="container guide-proof-grid">
-          <div>
-            <strong>Brwi</strong>
-            <span>przygotowanie, metody i gojenie</span>
-          </div>
-
-          <div>
-            <strong>Usta</strong>
-            <span>kolor, opryszczka i pielęgnacja</span>
-          </div>
-
-          <div>
-            <strong>Kreski</strong>
-            <span>zagęszczenie rzęs i analiza powieki</span>
-          </div>
-
-          <div>
-            <strong>Usuwanie</strong>
-            <span>laser, remover i plan etapowy</span>
-          </div>
+          <div><strong>Brwi</strong><span>przygotowanie, metody i gojenie</span></div>
+          <div><strong>Usta</strong><span>kolor, opryszczka i pielęgnacja</span></div>
+          <div><strong>Kreski</strong><span>zagęszczenie rzęs i analiza powieki</span></div>
+          <div><strong>Usuwanie</strong><span>laser, remover i plan etapowy</span></div>
         </div>
       </section>
 
@@ -306,13 +313,8 @@ const structuredData = [
         <div class="container guide-situation-grid">
           <div class="guide-situation-copy">
             <p class="section-kicker">Najczęstsze sytuacje</p>
-            <h2>Jedno pytanie zwykle prowadzi do kolejnego: przed zabiegiem, w czasie gojenia albo przy korekcie.</h2>
-            <p>
-              Jedna osoba chce wiedzieć, czy brwi permanentne będą wyglądały naturalnie.
-              Druga martwi się strupkami, myciem albo smarowaniem po zabiegu.
-              Ktoś inny ma stary, zbyt ciemny pigment i nie wie, czy można go poprawić,
-              czy najpierw trzeba go rozjaśnić.
-            </p>
+            <h2>Jedno pytanie zwykle prowadzi do kolejnego.</h2>
+            <p>Jedna osoba chce wiedzieć, czy brwi permanentne będą wyglądały naturalnie. Druga martwi się strupkami, myciem albo smarowaniem po zabiegu. Ktoś inny ma stary, zbyt ciemny pigment i nie wie, czy można go poprawić, czy najpierw trzeba go rozjaśnić.</p>
           </div>
 
           <div class="guide-situation-list">
@@ -334,19 +336,12 @@ const structuredData = [
           <div class="guide-section-heading">
             <p class="section-kicker">Najważniejsze poradniki PMU</p>
             <h2>Wybierz temat, który najlepiej pasuje do Twojej sytuacji.</h2>
-            <p>
-              Każdy poradnik prowadzi przez konkretny problem: przygotowanie do zabiegu,
-              gojenie brwi, naturalny włos maszynowy, rysunek wstępny, rozjaśnianie starego PMU,
-              kolor ust, kreski permanentne albo wybór szkolenia PMU.
-            </p>
+            <p>Każdy poradnik prowadzi przez konkretny problem: przygotowanie do zabiegu, gojenie i pielęgnację, metody brwi, opryszczkę, kreski, opadającą powiekę, usuwanie starego PMU albo wybór szkolenia PMU.</p>
           </div>
 
           <div class="guide-article-grid">
             {articleCards.map((article) => (
-              <a
-                class:list={["guide-article-card", { "guide-article-card--strong": article.featured }]}
-                href={article.href}
-              >
+              <a class:list={["guide-article-card", { "guide-article-card--strong": article.featured }]} href={article.href}>
                 <span class="guide-article-number">{article.number}</span>
                 <p class="guide-article-category">{article.category}</p>
                 <h3>{article.title}</h3>
@@ -363,10 +358,7 @@ const structuredData = [
           <div class="guide-section-heading">
             <p class="section-kicker">Oferta i tematy powiązane</p>
             <h2>Poradnik prowadzi dalej do konkretnych usług i decyzji.</h2>
-            <p>
-              Jeśli po przeczytaniu poradnika chcesz zobaczyć pełny opis zabiegu, metody pracy,
-              zakres usuwania PMU albo szkolenia — przejdź do odpowiedniej podstrony.
-            </p>
+            <p>Po przeczytaniu poradnika możesz przejść do pełnego opisu zabiegu, metody pracy, usuwania PMU albo szkoleń.</p>
           </div>
 
           <div class="guide-category-grid">
@@ -404,16 +396,8 @@ const structuredData = [
         <div class="container guide-final-card">
           <p class="signature cta-signature">Powrót do natury</p>
           <h2>Nie wiesz, od którego tematu zacząć?</h2>
-          <p>
-            Jeśli planujesz pierwszy zabieg, zacznij od przygotowania do makijażu permanentnego brwi.
-            Jeśli jesteś już po pigmentacji, wybierz temat o gojeniu.
-            A jeśli masz stary makijaż permanentny, sprawdź najpierw, kiedy korekta jest możliwa,
-            a kiedy lepiej rozpocząć od rozjaśniania pigmentu.
-          </p>
-
-          <a class="button-primary" href="/poradnik/jak-przygotowac-sie-do-makijazu-permanentnego-brwi/">
-            Zacznij od przygotowania do brwi
-          </a>
+          <p>Jeśli planujesz pierwszy zabieg, zacznij od przygotowania do makijażu permanentnego brwi. Jeśli jesteś już po pigmentacji, wybierz temat o gojeniu albo pielęgnacji. A jeśli masz stary makijaż permanentny, sprawdź najpierw, kiedy korekta jest możliwa, a kiedy lepiej rozpocząć od rozjaśniania pigmentu.</p>
+          <a class="button-primary" href="/poradnik/jak-przygotowac-sie-do-makijazu-permanentnego-brwi/">Zacznij od przygotowania do brwi</a>
         </div>
       </section>
     </main>
@@ -435,7 +419,6 @@ const structuredData = [
   .guide-page .section-kicker {
     display: inline-flex;
     width: fit-content;
-    max-width: 100%;
     min-height: 32px;
     align-items: center;
     justify-content: center;
@@ -448,51 +431,24 @@ const structuredData = [
     -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
     font-size: 0.7rem;
     font-weight: 850;
-    line-height: 1;
     letter-spacing: 0.17em;
     text-transform: uppercase;
   }
 
   .guide-page .section-kicker-light {
-    border-color: rgba(255, 255, 255, 0.24);
-    background: rgba(255, 255, 255, 0.14);
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
+    border-color: rgba(255,255,255,0.24);
+    background: rgba(255,255,255,0.14);
+    color: #fff;
+    -webkit-text-fill-color: #fff;
   }
 
   .guide-hero {
-    position: relative;
     padding: 150px 0 88px;
-    overflow: hidden;
-  }
-
-  .guide-orb {
-    position: absolute;
-    pointer-events: none;
-    border-radius: 999px;
-  }
-
-  .guide-orb-one {
-    right: -12rem;
-    top: 4rem;
-    width: 42rem;
-    height: 42rem;
-    background: radial-gradient(circle, rgba(56, 187, 181, 0.2), transparent 68%);
-  }
-
-  .guide-orb-two {
-    left: -10rem;
-    bottom: -12rem;
-    width: 38rem;
-    height: 38rem;
-    background: radial-gradient(circle, rgba(201, 127, 143, 0.18), transparent 68%);
   }
 
   .guide-hero-grid {
-    position: relative;
-    z-index: 2;
     display: grid;
-    grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
     gap: 24px;
     align-items: stretch;
   }
@@ -510,15 +466,10 @@ const structuredData = [
   }
 
   .guide-hero-copy {
-    display: flex;
-    min-height: 640px;
-    flex-direction: column;
-    justify-content: center;
+    min-height: 620px;
     padding: clamp(38px, 5vw, 72px);
     border-radius: 44px;
-    background:
-      radial-gradient(circle at 92% 14%, rgba(56, 187, 181, 0.10), transparent 16rem),
-      rgba(255, 255, 255, 0.78);
+    background: rgba(255,255,255,0.78);
   }
 
   .guide-hero-copy h1 {
@@ -531,26 +482,15 @@ const structuredData = [
     letter-spacing: -0.074em;
   }
 
-  .pmu-hero-turquoise-text {
-    display: inline;
-    color: #0f7773;
-    background:
-      linear-gradient(
-        120deg,
-        #0d6a67 0%,
-        #0f7773 22%,
-        #1aa5a0 46%,
-        #74e0d7 68%,
-        #138a86 86%,
-        #0d6a67 100%
-      );
+  .guide-hero-copy h1 span {
+    background: linear-gradient(120deg, #0d6a67 0%, #0f7773 22%, #1aa5a0 46%, #74e0d7 68%, #138a86 86%, #0d6a67 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .guide-lead {
-    max-width: 820px;
+    max-width: 840px;
     margin: 28px 0 0;
     color: var(--color-muted, #6e6670);
     font-size: 1.12rem;
@@ -572,7 +512,7 @@ const structuredData = [
   .guide-hero-card {
     position: relative;
     display: flex;
-    min-height: 640px;
+    min-height: 620px;
     flex-direction: column;
     justify-content: flex-end;
     overflow: hidden;
@@ -580,63 +520,54 @@ const structuredData = [
     border-radius: 44px;
     color: #ffffff;
     background:
-      radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.34), transparent 13rem),
-      radial-gradient(circle at 86% 86%, rgba(13, 106, 103, 0.28), transparent 20rem),
+      radial-gradient(circle at 18% 14%, rgba(255,255,255,0.34), transparent 13rem),
       linear-gradient(145deg, #74e0d7 0%, #38bbb5 26%, #159a96 58%, #0f7773 100%);
-    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.24);
-  }
-
-  .guide-shine-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.28) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
-    transform: translateX(-72%);
-    animation: guide-panel-shine 8s ease-in-out infinite;
-    pointer-events: none;
   }
 
   .guide-big-mark {
     position: absolute;
     top: clamp(24px, 3vw, 46px);
     left: clamp(28px, 4vw, 58px);
-    z-index: 1;
-    color: rgba(255, 255, 255, 0.18);
+    color: rgba(255,255,255,0.18);
     font-size: clamp(5.6rem, 9vw, 11rem);
     font-weight: 850;
     line-height: 0.78;
     letter-spacing: -0.085em;
-    pointer-events: none;
   }
 
-  .guide-hero-card-content {
+  .guide-hero-card > div {
     position: relative;
     z-index: 2;
   }
 
-  .guide-hero-card h2 {
-    max-width: 680px;
+  .guide-hero-card h2,
+  .guide-situation-copy h2,
+  .guide-section-heading h2,
+  .guide-final-card h2 {
     margin: 0;
-    color: #ffffff;
-    font-size: clamp(2.2rem, 3.8vw, 4.55rem);
-    font-weight: 780;
-    line-height: 0.98;
-    letter-spacing: -0.078em;
-    text-shadow: 0 16px 42px rgba(5, 53, 51, 0.24);
+    font-size: clamp(2.35rem, 4vw, 4.45rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .guide-hero-card h2 {
+    color: #fff;
+    text-shadow: 0 16px 42px rgba(5,53,51,0.24);
   }
 
   .guide-hero-card p:not(.section-kicker) {
     max-width: 650px;
     margin: 22px 0 0;
-    color: rgba(255, 255, 255, 0.90);
+    color: rgba(255,255,255,0.90);
     font-size: 1.06rem;
     line-height: 1.66;
   }
 
   .guide-proof-section {
-    border-top: 1px solid rgba(183, 101, 118, 0.10);
-    border-bottom: 1px solid rgba(183, 101, 118, 0.10);
-    background: rgba(255, 255, 255, 0.74);
+    border-top: 1px solid rgba(183,101,118,0.10);
+    border-bottom: 1px solid rgba(183,101,118,0.10);
+    background: rgba(255,255,255,0.74);
   }
 
   .guide-proof-grid {
@@ -647,31 +578,12 @@ const structuredData = [
   .guide-proof-grid div {
     min-height: 112px;
     padding: 24px 22px;
-    border-right: 1px solid rgba(183, 101, 118, 0.12);
+    border-right: 1px solid rgba(183,101,118,0.12);
   }
 
-  .guide-proof-grid div:last-child {
-    border-right: 0;
-  }
-
-  .guide-proof-grid strong {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--color-text, #17151d);
-    font-size: 0.92rem;
-    font-weight: 780;
-    letter-spacing: -0.02em;
-  }
-
-  .guide-proof-grid span {
-    display: block;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.72rem;
-    font-weight: 650;
-    line-height: 1.55;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-  }
+  .guide-proof-grid div:last-child { border-right: 0; }
+  .guide-proof-grid strong { display: block; margin-bottom: 8px; color: var(--color-text,#17151d); font-weight: 780; }
+  .guide-proof-grid span { display: block; color: var(--color-muted,#6e6670); font-size: .72rem; font-weight: 650; line-height: 1.55; text-transform: uppercase; letter-spacing: .16em; }
 
   .guide-situation-section,
   .guide-articles-section,
@@ -679,43 +591,31 @@ const structuredData = [
   .guide-faq-section,
   .guide-final-cta {
     padding: 88px 0;
-    overflow: hidden;
   }
 
   .guide-situation-grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
     gap: clamp(28px, 4vw, 58px);
     align-items: start;
   }
 
   .guide-situation-copy,
-  .guide-situation-list {
+  .guide-situation-list,
+  .guide-final-card {
     border-radius: 38px;
-    background:
-      radial-gradient(circle at 92% 12%, rgba(56, 187, 181, 0.10), transparent 18rem),
-      rgba(255, 255, 255, 0.86);
+    background: rgba(255,255,255,0.86);
   }
 
-  .guide-situation-copy {
+  .guide-situation-copy,
+  .guide-final-card {
     padding: clamp(28px, 3.4vw, 46px);
-  }
-
-  .guide-situation-copy h2,
-  .guide-section-heading h2,
-  .guide-final-card h2 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
-    font-weight: 760;
-    line-height: 1.02;
-    letter-spacing: -0.074em;
   }
 
   .guide-situation-copy p,
   .guide-section-heading p,
   .guide-final-card p:not(.signature) {
-    color: var(--color-muted, #6e6670);
+    color: var(--color-muted,#6e6670);
     font-size: 1.04rem;
     line-height: 1.66;
   }
@@ -730,42 +630,29 @@ const structuredData = [
     grid-template-columns: auto 1fr;
     gap: 18px;
     padding: 24px;
-    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
+    border-bottom: 1px solid rgba(56,187,181,0.15);
   }
 
-  .guide-situation-item:last-child {
-    border-bottom: 0;
-  }
-
-  .guide-situation-item span {
-    color: #0f7773;
-    font-size: 0.82rem;
-    font-weight: 850;
-    letter-spacing: 0.16em;
-  }
-
-  .guide-situation-item strong {
-    display: block;
-    color: var(--color-text, #17151d);
-    font-size: 1.05rem;
-    font-weight: 780;
-    letter-spacing: -0.04em;
-  }
-
-  .guide-situation-item p {
-    margin: 7px 0 0;
-    color: var(--color-muted, #6e6670);
-    line-height: 1.58;
-  }
+  .guide-situation-item:last-child { border-bottom: 0; }
+  .guide-situation-item span { color: #0f7773; font-size: .82rem; font-weight: 850; letter-spacing: .16em; }
+  .guide-situation-item strong { display: block; color: var(--color-text,#17151d); font-weight: 780; }
+  .guide-situation-item p { margin: 7px 0 0; color: var(--color-muted,#6e6670); line-height: 1.58; }
 
   .guide-section-heading {
     max-width: 1060px;
     margin-bottom: 38px;
   }
 
-  .guide-article-grid {
+  .guide-article-grid,
+  .guide-category-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .guide-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 18px;
   }
 
@@ -777,14 +664,14 @@ const structuredData = [
     border-radius: 32px;
     color: inherit;
     text-decoration: none;
+    padding: 28px;
     background:
-      radial-gradient(circle at 92% 0%, rgba(219, 246, 243, 0.72), transparent 8rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94));
+      radial-gradient(circle at 92% 0%, rgba(219,246,243,0.72), transparent 8rem),
+      linear-gradient(145deg, rgba(255,255,255,0.98), rgba(255,249,251,0.94));
   }
 
   .guide-article-card {
     min-height: 360px;
-    padding: 28px;
   }
 
   .guide-article-card::before,
@@ -793,35 +680,29 @@ const structuredData = [
     content: "";
     position: absolute;
     inset: 0;
-    border-top: 5px solid rgba(56, 187, 181, 0.38);
+    border-top: 5px solid rgba(56,187,181,0.38);
     pointer-events: none;
   }
 
   .guide-article-card--strong {
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 88% 10%, rgba(255, 255, 255, 0.22), transparent 12rem),
-      radial-gradient(circle at 14% 86%, rgba(56, 187, 181, 0.26), transparent 16rem),
-      linear-gradient(145deg, #38bbb5 0%, #159a96 48%, #0f7773 100%);
-    box-shadow:
-      0 26px 72px rgba(56, 187, 181, 0.22),
-      0 0 0 1px rgba(255, 255, 255, 0.20) inset;
+    color: #fff;
+    background: linear-gradient(145deg, #38bbb5 0%, #159a96 48%, #0f7773 100%);
   }
 
-  .guide-article-card > *,
-  .guide-category-card > *,
-  .guide-faq-card > * {
-    position: relative;
-    z-index: 2;
+  .guide-article-card--strong,
+  .guide-article-card--strong * {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
   }
 
-  .guide-article-number {
+  .guide-article-number,
+  .guide-category-card span {
     display: inline-flex;
-    margin-bottom: 42px;
+    margin-bottom: 38px;
     color: #0f7773;
-    font-size: 0.86rem;
+    font-size: .86rem;
     font-weight: 850;
-    letter-spacing: 0.18em;
+    letter-spacing: .18em;
   }
 
   .guide-article-category,
@@ -833,22 +714,20 @@ const structuredData = [
     margin: 0 0 18px;
     padding: 0 11px;
     border-radius: 999px;
-    color: var(--color-turquoise-dark, #0f7773);
-    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.66rem;
+    color: #0f7773;
+    -webkit-text-fill-color: #0f7773;
+    font-size: .66rem;
     font-weight: 850;
-    line-height: 1;
-    letter-spacing: 0.13em;
+    letter-spacing: .13em;
     text-transform: uppercase;
-    background: rgba(219, 246, 243, 0.72);
-    border: 1px solid rgba(56, 187, 181, 0.16);
+    background: rgba(219,246,243,.72);
   }
 
   .guide-article-card h3,
   .guide-category-card h3,
   .guide-faq-card h3 {
     margin: 0;
-    color: var(--color-text, #17151d);
+    color: var(--color-text,#17151d);
     font-size: clamp(1.45rem, 1.9vw, 2.15rem);
     font-weight: 780;
     line-height: 1.02;
@@ -860,8 +739,8 @@ const structuredData = [
   .guide-faq-card p {
     display: block;
     margin: 16px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.96rem;
+    color: var(--color-muted,#6e6670);
+    font-size: .96rem;
     font-style: normal;
     line-height: 1.6;
   }
@@ -875,68 +754,18 @@ const structuredData = [
     margin-top: 22px;
     padding: 0 14px;
     border-radius: 999px;
-    background: rgba(219, 246, 243, 0.82);
+    background: rgba(219,246,243,.82);
     color: #0f7773;
     -webkit-text-fill-color: #0f7773;
-    font-size: 0.72rem;
+    font-size: .72rem;
     font-weight: 850;
-    letter-spacing: 0.12em;
+    letter-spacing: .12em;
     text-transform: uppercase;
   }
 
-  .guide-article-card--strong,
-  .guide-article-card--strong * {
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
-  }
-
-  .guide-article-card--strong .guide-article-category,
-  .guide-article-card--strong strong {
-    border-color: rgba(255, 255, 255, 0.24);
-    background: rgba(255, 255, 255, 0.16);
-  }
-
-  .guide-category-grid,
-  .guide-faq-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-  }
-
-  .guide-category-card {
-    min-height: 280px;
-    padding: 28px;
-  }
-
-  .guide-category-card span {
-    display: inline-flex;
-    margin-bottom: 38px;
-    color: #0f7773;
-    font-size: 0.82rem;
-    font-weight: 850;
-    letter-spacing: 0.16em;
-  }
-
-  .guide-faq-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .guide-faq-card {
-    min-height: auto;
-    padding: 30px;
-  }
-
-  .guide-faq-card::before {
-    border-top-color: rgba(201, 127, 143, 0.28);
-  }
-
   .guide-final-card {
-    padding: clamp(34px, 6vw, 70px);
-    border-radius: 42px;
     text-align: center;
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.70), rgba(255, 242, 246, 0.82)),
-      rgba(255, 255, 255, 0.7);
+    background: linear-gradient(145deg, rgba(219,246,243,.70), rgba(255,242,246,.82)), rgba(255,255,255,.7);
   }
 
   .guide-final-card p:not(.signature) {
@@ -949,30 +778,11 @@ const structuredData = [
     margin-top: 18px;
   }
 
-  @keyframes guide-panel-shine {
-    0%, 45% {
-      transform: translateX(-72%);
-      opacity: 0.28;
-    }
-
-    100% {
-      transform: translateX(88%);
-      opacity: 0.88;
-    }
-  }
-
   @media (max-width: 1260px) {
     .guide-article-grid,
-    .guide-category-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
+    .guide-category-grid,
     .guide-proof-grid {
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    .guide-proof-grid div:nth-child(2) {
-      border-right: 0;
     }
   }
 
@@ -981,14 +791,9 @@ const structuredData = [
     .guide-situation-grid {
       grid-template-columns: 1fr;
     }
-
     .guide-hero-copy,
     .guide-hero-card {
       min-height: auto;
-    }
-
-    .guide-faq-grid {
-      grid-template-columns: 1fr;
     }
   }
 
@@ -996,14 +801,12 @@ const structuredData = [
     .guide-hero {
       padding: 112px 0 58px;
     }
-
     .guide-hero-grid {
       gap: 16px;
       padding-left: 8px;
       padding-right: 8px;
       box-sizing: border-box;
     }
-
     .guide-hero-copy,
     .guide-hero-card,
     .guide-situation-copy,
@@ -1014,118 +817,28 @@ const structuredData = [
     .guide-final-card {
       border-radius: 28px;
     }
-
     .guide-hero-copy,
     .guide-hero-card,
     .guide-situation-copy,
     .guide-final-card {
       padding: 28px 22px;
     }
-
-    .guide-hero-card {
-      min-height: 430px;
-    }
-
-    .guide-big-mark {
-      top: 24px;
-      left: 24px;
-      font-size: clamp(5.2rem, 24vw, 7.8rem);
-    }
-
     .guide-hero-copy h1 {
       font-size: clamp(2.55rem, 11.6vw, 3.85rem);
       line-height: 1.04;
       letter-spacing: -0.068em;
     }
-
-    .guide-hero-card h2,
-    .guide-situation-copy h2,
-    .guide-section-heading h2,
-    .guide-final-card h2 {
-      font-size: clamp(2.05rem, 9.4vw, 3.15rem);
-      line-height: 1.04;
-      letter-spacing: -0.066em;
-    }
-
-    .guide-lead,
-    .guide-situation-copy p,
-    .guide-section-heading p,
-    .guide-final-card p:not(.signature) {
-      font-size: 1rem;
-      line-height: 1.66;
-    }
-
-    .guide-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    .guide-actions a {
-      width: 100%;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .guide-situation-section,
-    .guide-articles-section,
-    .guide-categories-section,
-    .guide-faq-section,
-    .guide-final-cta {
-      padding: 58px 0;
-    }
-
-    .guide-proof-grid,
     .guide-article-grid,
     .guide-category-grid,
-    .guide-faq-grid {
+    .guide-faq-grid,
+    .guide-proof-grid {
       grid-template-columns: 1fr;
     }
-
-    .guide-proof-grid div,
-    .guide-proof-grid div:nth-child(2) {
-      border-right: 0;
-      border-bottom: 1px solid rgba(183, 101, 118, 0.12);
-    }
-
-    .guide-proof-grid div:last-child {
-      border-bottom: 0;
-    }
-
     .guide-article-card,
     .guide-category-card,
     .guide-faq-card {
       min-height: auto;
       padding: 26px 22px;
-    }
-
-    .guide-article-number,
-    .guide-category-card span {
-      margin-bottom: 32px;
-    }
-
-    .guide-situation-item {
-      padding: 22px;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .guide-hero-grid {
-      padding-left: 6px;
-      padding-right: 6px;
-    }
-
-    .guide-hero-copy,
-    .guide-hero-card {
-      width: calc(100% - 10px);
-      max-width: calc(100% - 10px);
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .guide-shine-card::after {
-      animation: none;
     }
   }
 </style>

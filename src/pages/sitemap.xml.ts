@@ -49,7 +49,7 @@ const pages = [
   },
   {
     path: "/poradnik/",
-    priority: "0.82",
+    priority: "0.86",
     changefreq: "weekly"
   },
 
@@ -63,12 +63,22 @@ const pages = [
   },
   {
     path: "/poradnik/jak-goja-sie-brwi-permanentne/",
-    priority: "0.76",
+    priority: "0.78",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/czego-nie-wolno-po-makijazu-permanentnym-brwi/",
+    priority: "0.78",
     changefreq: "monthly"
   },
   {
     path: "/poradnik/silky-hairstroke-brows-naturalny-wlos-maszynowy/",
     priority: "0.76",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/metody-brwi-permanentnych-ombre-pudrowe-wloskowe/",
+    priority: "0.77",
     changefreq: "monthly"
   },
   {
@@ -82,13 +92,33 @@ const pages = [
     changefreq: "monthly"
   },
   {
+    path: "/poradnik/nieudany-makijaz-permanentny-brwi-co-zrobic/",
+    priority: "0.77",
+    changefreq: "monthly"
+  },
+  {
     path: "/poradnik/makijaz-permanentny-ust-jak-wybrac-kolor/",
     priority: "0.74",
     changefreq: "monthly"
   },
   {
+    path: "/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/",
+    priority: "0.77",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/opryszczka-a-makijaz-permanentny-ust/",
+    priority: "0.75",
+    changefreq: "monthly"
+  },
+  {
     path: "/poradnik/kreska-permanentna-jak-wybrac-rodzaj/",
-    priority: "0.74",
+    priority: "0.76",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/kreska-permanentna-przy-opadajacej-powiece/",
+    priority: "0.76",
     changefreq: "monthly"
   },
   {
