@@ -30,7 +30,7 @@ const article = {
   "eyebrow": "Poradnik PMU",
   "category": "Gojenie PMU",
   "datePublished": "2026-06-08",
-  "dateModified": "2026-06-08",
+  "dateModified": "2026-06-18",
   "readingTime": "7–9 minut",
   "description": "Jak goją się brwi permanentne? Zobacz etapy gojenia, pielęgnację po zabiegu, czego unikać i kiedy oceniać finalny efekt makijażu permanentnego brwi.",
   "lead": "Gojenie brwi permanentnych to proces, który wymaga cierpliwości. Bezpośrednio po zabiegu brwi mogą być ciemniejsze i bardziej wyraźne, później skóra może się łuszczyć, a kolor chwilowo wydawać się nierówny. To, co najważniejsze, ocenia się dopiero po wygojeniu i stabilizacji pigmentu.",
@@ -55,6 +55,10 @@ const tableOfContents = [
   {
     "href": "#najkrocej",
     "title": "Najkrócej"
+  },
+  {
+    "href": "#etapy-gojenia",
+    "title": "Etapy gojenia"
   },
   {
     "href": "#pierwsze-dni",
@@ -84,8 +88,34 @@ const keyPoints = [
   "Pielęgnacja po zabiegu powinna być prosta i zgodna z zaleceniami gabinetu.",
   "Dopigmentowanie planuje się po wygojeniu, kiedy widać realną reakcję skóry."
 ];
-
 const sections = [
+  {
+    "id": "etapy-gojenia",
+    "eyebrow": "Etapy gojenia",
+    "title": "Etapy gojenia brwi permanentnych dzień po dniu.",
+    "paragraphs": [
+      "Brwi permanentne nie goją się w jeden dzień. To proces, w którym kolor, nasycenie i wygląd skóry mogą się zmieniać. Dlatego nie warto oceniać efektu ani po pierwszej dobie, ani w momencie złuszczania.",
+      "Najczęstszy błąd to panika w połowie gojenia. Brwi mogą najpierw wydawać się zbyt ciemne, później zbyt jasne albo nierówne. Dopiero po stabilizacji skóry można ocenić, jak pigment przyjął się naprawdę."
+    ],
+    "cards": [
+      {
+        "title": "Dzień 1–2",
+        "text": "Kolor zwykle jest mocniejszy, a brwi mogą wyglądać intensywniej niż finalny efekt."
+      },
+      {
+        "title": "Dzień 3–5",
+        "text": "Skóra może być sucha, napięta albo lekko tkliwa. To moment, w którym trzeba zachować delikatność."
+      },
+      {
+        "title": "Dzień 5–10",
+        "text": "Może pojawić się łuszczenie. Nie wolno odrywać strupków, drapać ani przyspieszać złuszczania."
+      },
+      {
+        "title": "Po 4–8 tygodniach",
+        "text": "Dopiero wtedy ocenia się efekt i podejmuje decyzję o ewentualnym dopigmentowaniu."
+      }
+    ]
+  },
   {
     "id": "pierwsze-dni",
     "eyebrow": "Pierwsze dni",
@@ -189,20 +219,36 @@ const relatedLinks = [
 
 const faqItems = [
   {
+    "question": "Jak długo goją się brwi permanentne?",
+    "answer": "Pierwszy etap gojenia trwa zwykle kilkanaście dni, ale pełniejszą ocenę efektu wykonuje się dopiero po stabilizacji skóry. W praktyce dopigmentowanie planuje się najczęściej po kilku tygodniach, kiedy widać, jak pigment przyjął się w skórze."
+  },
+  {
     "question": "Czy brwi permanentne po zabiegu zawsze są bardzo ciemne?",
-    "answer": "Często są wyraźniejsze niż efekt końcowy, ale intensywność zależy od techniki, skóry i koloru pigmentu. Finalny wygląd ocenia się po wygojeniu."
+    "answer": "Często są wyraźniejsze niż efekt końcowy, ale intensywność zależy od techniki, skóry i koloru pigmentu. Świeży kolor nie jest ostatecznym rezultatem, dlatego brwi ocenia się dopiero po wygojeniu."
+  },
+  {
+    "question": "Kiedy zaczyna się łuszczenie brwi permanentnych?",
+    "answer": "Łuszczenie może pojawić się po kilku dniach od zabiegu. U każdej osoby przebiega trochę inaczej. Najważniejsze jest to, aby nie odrywać łusek ani strupków i nie przyspieszać procesu gojenia."
+  },
+  {
+    "question": "Czy łuszczenie się brwi permanentnych jest normalne?",
+    "answer": "Tak, delikatne łuszczenie może być naturalnym etapem gojenia. W tym czasie kolor może wyglądać nierówno albo wydawać się jaśniejszy. Nie zawsze oznacza to problem z pigmentacją."
   },
   {
     "question": "Czy podczas gojenia pigment może wyglądać nierówno?",
-    "answer": "Tak, w trakcie złuszczania kolor może wydawać się nierówny lub jaśniejszy. To nie zawsze oznacza problem. Pełniejsza ocena możliwa jest po wygojeniu."
+    "answer": "Tak, w trakcie złuszczania kolor może wydawać się nierówny lub jaśniejszy. To nie zawsze oznacza problem. Pełniejsza ocena możliwa jest dopiero po wygojeniu."
   },
   {
     "question": "Czy można odrywać strupki z brwi permanentnych?",
-    "answer": "Nie. Odrywanie strupków może naruszyć skórę i wpłynąć na przyjęcie pigmentu."
+    "answer": "Nie. Odrywanie strupków może naruszyć skórę i wpłynąć na przyjęcie pigmentu. Strupki i łuski powinny odejść samoistnie."
+  },
+  {
+    "question": "Jak wygląda gojenie brwi po korekcie?",
+    "answer": "Gojenie po korekcie może być łagodniejsze lub podobne do pierwszego zabiegu, ale nadal wymaga ostrożności. Skórę trzeba traktować delikatnie i stosować się do zaleceń pozabiegowych."
   },
   {
     "question": "Kiedy można zrobić dopigmentowanie brwi?",
-    "answer": "Dopigmentowanie wykonuje się po wygojeniu, zgodnie z zaleceniami gabinetu i po ocenie efektu."
+    "answer": "Dopigmentowanie wykonuje się po wygojeniu, zgodnie z zaleceniami gabinetu i po ocenie efektu. Nie powinno się go robić zbyt wcześnie, bo skóra musi zakończyć pierwszy etap regeneracji."
   },
   {
     "question": "Czy po zabiegu można malować brwi?",
