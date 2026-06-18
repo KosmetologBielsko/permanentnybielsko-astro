@@ -6,32 +6,14 @@ import Footer from "../../components/Footer.astro";
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
-/*
-  SZABLON ARTYKUŁU PORADNIKA PMU
-
-  Jak używać:
-  1. Skopiuj ten plik.
-  2. Zmień nazwę pliku na docelowy adres, np.
-     jak-przygotowac-sie-do-makijazu-permanentnego-brwi.astro
-  3. Wklej do:
-     src/pages/poradnik/
-  4. Uzupełnij dane poniżej: title, description, slug, lead, sekcje, FAQ, zdjęcia.
-
-  Założenie:
-  - tekst jest najważniejszy,
-  - układ jest spokojny, czytelny i powtarzalny,
-  - zdjęcia są opcjonalne: 0, 1 albo 2,
-  - kafelki są proste, bez ciężkich efektów.
-*/
-
 const article = {
   "slug": "kreska-permanentna-jak-wybrac-rodzaj",
   "title": "Kreska permanentna — jak wybrać rodzaj kreski do oka?",
   "eyebrow": "Poradnik PMU",
   "category": "Kreski permanentne",
   "datePublished": "2026-06-08",
-  "dateModified": "2026-06-08",
-  "readingTime": "7–9 minut",
+  "dateModified": "2026-06-18",
+  "readingTime": "8–10 minut",
   "description": "Jak wybrać kreskę permanentną? Zobacz różnicę między zagęszczeniem linii rzęs, kreską górną, dekoracyjną i dolną oraz dlaczego budowa powieki ma znaczenie.",
   "lead": "Makijaż permanentny oczu może delikatnie zagęścić linię rzęs albo stworzyć bardziej widoczną kreskę. Najważniejsze jest jednak to, żeby rodzaj kreski wynikał z budowy oka, powieki, rzęs, skóry i oczekiwanego efektu. Nie każda powieka dobrze wygląda z mocną kreską dekoracyjną.",
   "shortAnswer": "Rodzaj kreski permanentnej wybiera się po analizie oka i powieki. Najsubtelniejsze jest zagęszczenie linii rzęs, bardziej widoczna może być kreska górna lub dekoracyjna, a kreska dolna wymaga szczególnej ostrożności. Celem jest podkreślenie oka, a nie jego optyczne obciążenie.",
@@ -55,6 +37,10 @@ const tableOfContents = [
   {
     "href": "#najkrocej",
     "title": "Najkrócej"
+  },
+  {
+    "href": "#porownanie",
+    "title": "Porównanie"
   },
   {
     "href": "#rodzaje",
@@ -86,6 +72,33 @@ const keyPoints = [
 ];
 
 const sections = [
+  {
+    "id": "porownanie",
+    "eyebrow": "Porównanie",
+    "title": "Rodzaje kresek permanentnych — najprostsze porównanie.",
+    "paragraphs": [
+      "Kreska permanentna nie oznacza jednego konkretnego efektu. U jednej osoby najlepszym wyborem będzie niemal niewidoczne zagęszczenie linii rzęs, u innej cienka kreska górna, a u kolejnej bardziej dekoracyjny efekt.",
+      "Najważniejsze jest dopasowanie kreski do oka, powieki i codziennego stylu. Przy makijażu permanentnym oczu nie warto kierować się wyłącznie zdjęciem inspiracji, bo ta sama kreska może zupełnie inaczej wyglądać na innej powiece."
+    ],
+    "cards": [
+      {
+        "title": "Zagęszczenie linii rzęs",
+        "text": "Najdelikatniejszy wariant. Optycznie wzmacnia nasadę rzęs i daje naturalne podkreślenie oka."
+      },
+      {
+        "title": "Cienka kreska górna",
+        "text": "Bardziej widoczna niż samo zagęszczenie, ale nadal może wyglądać lekko i elegancko."
+      },
+      {
+        "title": "Kreska dekoracyjna",
+        "text": "Mocniejszy efekt przypominający eyeliner. Wymaga dobrej budowy powieki i świadomej decyzji."
+      },
+      {
+        "title": "Kreska dolna",
+        "text": "Nie jest dla każdego. Może podkreślić oko, ale źle dobrana potrafi je optycznie obciążyć."
+      }
+    ]
+  },
   {
     "id": "rodzaje",
     "eyebrow": "Rodzaje kresek",
@@ -189,20 +202,36 @@ const relatedLinks = [
 
 const faqItems = [
   {
+    "question": "Jaki rodzaj kreski permanentnej wybrać?",
+    "answer": "Rodzaj kreski wybiera się po analizie oka, powieki, rzęs, skóry i oczekiwanego efektu. Najbezpieczniejszym kierunkiem dla wielu osób jest subtelne zagęszczenie linii rzęs, ale u części klientek można rozważyć cienką kreskę górną lub bardziej dekoracyjny efekt."
+  },
+  {
     "question": "Czym różni się zagęszczenie linii rzęs od kreski dekoracyjnej?",
-    "answer": "Zagęszczenie jest subtelniejsze i pracuje przy nasadzie rzęs. Kreska dekoracyjna jest bardziej widoczna i przypomina efekt eyelinera."
+    "answer": "Zagęszczenie jest subtelniejsze i pracuje przy nasadzie rzęs. Nie musi wyglądać jak eyeliner. Kreska dekoracyjna jest bardziej widoczna i przypomina efekt klasycznej kreski makijażowej."
+  },
+  {
+    "question": "Czy zagęszczenie linii rzęs wygląda naturalnie?",
+    "answer": "Tak, to zwykle najbardziej naturalny wariant makijażu permanentnego oczu. Daje efekt optycznie gęstszych rzęs i delikatnie mocniejszej oprawy oka, bez wrażenia ciężkiej kreski."
   },
   {
     "question": "Czy kreska permanentna pasuje do każdej powieki?",
-    "answer": "Nie każdy rodzaj kreski pasuje do każdej budowy oka. Dlatego ważna jest kwalifikacja przed zabiegiem."
+    "answer": "Nie każdy rodzaj kreski pasuje do każdej budowy oka. Przy opadającej, wiotkiej lub mało widocznej powiece trzeba bardzo ostrożnie planować grubość, długość i kierunek kreski."
+  },
+  {
+    "question": "Czy kreska dekoracyjna pasuje do opadającej powieki?",
+    "answer": "Nie zawsze. Przy opadającej powiece zbyt gruba lub zbyt długa kreska może optycznie zamykać oko. Czasem lepszym wyborem jest cienka kreska albo samo zagęszczenie linii rzęs."
   },
   {
     "question": "Czy można zrobić kreskę dolną?",
-    "answer": "Można ją rozważyć, ale wymaga ostrożności, bo u niektórych osób może optycznie obciążyć lub pomniejszyć oko."
+    "answer": "Można ją rozważyć, ale wymaga ostrożności. U niektórych osób kreska dolna może optycznie obciążyć lub pomniejszyć oko, dlatego nie powinna być wykonywana automatycznie u każdej klientki."
   },
   {
     "question": "Czy kreska po zabiegu będzie bardzo czarna?",
-    "answer": "Świeża pigmentacja może być intensywna. Efekt po wygojeniu zależy od techniki, pigmentu i reakcji skóry."
+    "answer": "Świeża pigmentacja może być intensywna. Efekt po wygojeniu zależy od techniki, pigmentu i reakcji skóry. Finalny wygląd ocenia się po uspokojeniu skóry."
+  },
+  {
+    "question": "Jak goi się kreska permanentna na powiece?",
+    "answer": "Okolica oka jest delikatna, dlatego po zabiegu może pojawić się wrażliwość, napięcie lub czasowa intensywność koloru. W trakcie gojenia nie należy pocierać powiek ani nakładać przypadkowych kosmetyków w okolicy pigmentacji."
   },
   {
     "question": "Czy oczy mogą być wrażliwe po zabiegu?",
@@ -276,6 +305,7 @@ const structuredData = [
   },
 ];
 ---
+
 
 <Layout
   title={`${article.title} | Poradnik PMU Bogusława Herda`}
