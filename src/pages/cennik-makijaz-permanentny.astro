@@ -199,35 +199,67 @@ const featuredPrices = [
   }
 ];
 
-const pageUrl = "https://permanentnybielsko.com/cennik-makijaz-permanentny/";
-const pageTitle = "Cennik makijażu permanentnego Bielsko-Biała | Bogusława Herda";
+const pageUrl = "https://www.permanentnybielsko.com/cennik-makijaz-permanentny/";
+const pageTitle = "Cennik makijażu permanentnego Bielsko-Biała | Brwi, usta, kreski";
 const pageDescription =
-  "Cennik makijażu permanentnego Bielsko-Biała: brwi permanentne, metoda włoskowa, kreski permanentne, makijaż permanentny ust, odświeżenie PMU, usuwanie laserowe i remover.";
+  "Cennik makijażu permanentnego Bielsko-Biała: brwi permanentne cena, metoda włoskowa, kreski permanentne, makijaż permanentny ust, odświeżenie PMU, korekta i usuwanie.";
 
 const faqItems = [
   {
-    "question": "Czy cena makijażu permanentnego obejmuje korektę?",
-    "answer": "Tak, ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące."
+    question: "Ile kosztuje makijaż permanentny brwi w Bielsku-Białej?",
+    answer: "Makijaż permanentny brwi w gabinecie Bogusława Herda kosztuje od 1200 zł przy cieniowaniu. Metoda włoskowa oraz połączenie włoska z cieniem kosztują 1400 zł. Cena obejmuje zabieg główny wraz z korektą w terminie 1–3 miesiące."
   },
   {
-    "question": "Czy konsultacja jest płatna?",
-    "answer": "Tak. Konsultacja makijażu permanentnego trwa 30 minut i kosztuje 50 zł."
+    question: "Ile kosztują brwi permanentne metodą włoskową?",
+    answer: "Brwi permanentne metodą włoskową kosztują 1400 zł. Jest to technika wymagająca bardzo precyzyjnej pracy, odpowiedniego rysunku wstępnego i indywidualnego dopasowania do skóry, naturalnego włosa oraz oczekiwanego efektu."
   },
   {
-    "question": "Dlaczego naprawa po innym gabinecie ma indywidualną wycenę?",
-    "answer": "Ponieważ wymaga oceny starego pigmentu, jego koloru, nasycenia, kształtu oraz możliwości wykonania korekty lub wcześniejszego rozjaśnienia."
+    question: "Dlaczego metoda włoskowa jest droższa niż cieniowanie brwi?",
+    answer: "Metoda włoskowa jest bardziej wymagająca technicznie i czasowo. Wymaga precyzyjnego prowadzenia pojedynczych włosków, analizy kierunku naturalnego owłosienia, skóry i proporcji twarzy. Dlatego jej cena jest wyższa niż klasycznego cieniowania."
   },
   {
-    "question": "Czy usługa VIP ma stałą cenę?",
-    "answer": "Usługa VIP, czyli przyjęcie bez wcześniejszej rezerwacji, wynosi 150% ceny podstawowej i zależy od dostępności terminu."
+    question: "Czy cena makijażu permanentnego obejmuje korektę?",
+    answer: "Tak, ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące. Korekta pozwala dopracować kolor, nasycenie i równowagę efektu po wygojeniu skóry."
   },
   {
-    "question": "Czy odświeżenie PMU dotyczy każdej pigmentacji?",
-    "answer": "Podane ceny odświeżenia dotyczą makijażu wykonanego w naszym gabinecie do 2 lat. Inne przypadki wymagają indywidualnej oceny."
+    question: "Czym różni się korekta od odświeżenia makijażu permanentnego?",
+    answer: "Korekta jest etapem dopracowania świeżo wykonanego zabiegu po wygojeniu skóry. Odświeżenie dotyczy starszego makijażu permanentnego, najczęściej wykonanego wcześniej w gabinecie, gdy kolor po czasie wymaga ponownego nasycenia."
   },
   {
-    "question": "Gdzie sprawdzić dostępne terminy?",
-    "answer": "Aktualne terminy, rezerwacje i dostępność usług można sprawdzić przez Booksy."
+    question: "Ile kosztuje odświeżenie brwi permanentnych?",
+    answer: "Odświeżenie brwi permanentnych wykonanych w naszym gabinecie do 2 lat kosztuje 500–700 zł. Ostateczna cena zależy od techniki, aktualnego nasycenia pigmentu i zakresu pracy potrzebnej do przywrócenia estetycznego efektu."
+  },
+  {
+    question: "Ile kosztuje makijaż permanentny ust?",
+    answer: "Makijaż permanentny ust kosztuje 1400 zł. Zabieg jest ukierunkowany na odświeżenie koloru, wyrównanie czerwieni wargowej i subtelne podkreślenie konturu. Nie jest to zabieg powiększania ust."
+  },
+  {
+    question: "Ile kosztuje kreska permanentna?",
+    answer: "Cena kreski permanentnej zależy od rodzaju kreski. Kreska zagęszczająca kosztuje 800 zł, kreska dekoracyjna 1100 zł, kreska dolna 500 zł, a wybrane połączenia kreski górnej i dolnej kosztują od 1100 do 1400 zł."
+  },
+  {
+    question: "Czy konsultacja jest płatna?",
+    answer: "Tak. Konsultacja makijażu permanentnego trwa 30 minut i kosztuje 50 zł. To ważny etap przed decyzją o zabiegu, korekcie, usuwaniu albo naprawie starego makijażu permanentnego."
+  },
+  {
+    question: "Dlaczego naprawa po innym gabinecie ma indywidualną wycenę?",
+    answer: "Naprawa makijażu permanentnego po innym gabinecie wymaga oceny starego pigmentu, koloru, nasycenia, kształtu, głębokości pracy i możliwości bezpiecznej korekty. Czasem przed nową pigmentacją potrzebne jest wcześniejsze rozjaśnienie lub usuwanie."
+  },
+  {
+    question: "Ile kosztuje usuwanie makijażu permanentnego?",
+    answer: "Laserowe usuwanie makijażu permanentnego oraz usuwanie removerem kosztuje 200–400 zł za wizytę. Liczba spotkań zależy od koloru, nasycenia, głębokości pigmentu i reakcji skóry."
+  },
+  {
+    question: "Czy usługa VIP ma stałą cenę?",
+    answer: "Usługa VIP, czyli przyjęcie bez wcześniejszej rezerwacji, wynosi 150% ceny podstawowej i zależy od dostępności terminu."
+  },
+  {
+    question: "Czy odświeżenie PMU dotyczy każdej pigmentacji?",
+    answer: "Podane ceny odświeżenia dotyczą makijażu wykonanego w naszym gabinecie do 2 lat. Pigmentacje wykonane w innych miejscach, bardzo stare prace albo makijaż wymagający zmiany kształtu trzeba ocenić indywidualnie."
+  },
+  {
+    question: "Gdzie sprawdzić dostępne terminy?",
+    answer: "Aktualne terminy, rezerwacje i dostępność usług można sprawdzić przez Booksy."
   }
 ];
 
@@ -241,10 +273,10 @@ const structuredData = [
     "description": pageDescription,
     "inLanguage": "pl-PL",
     "isPartOf": {
-      "@id": "https://permanentnybielsko.com/#website"
+      "@id": "https://www.permanentnybielsko.com/#website"
     },
     "about": {
-      "@id": "https://permanentnybielsko.com/#localbusiness"
+      "@id": "https://www.permanentnybielsko.com/#localbusiness"
     }
   },
   {
@@ -256,7 +288,7 @@ const structuredData = [
         "@type": "ListItem",
         "position": 1,
         "name": "Strona główna",
-        "item": "https://permanentnybielsko.com/"
+        "item": "https://www.permanentnybielsko.com/"
       },
       {
         "@type": "ListItem",
@@ -287,7 +319,7 @@ const structuredData = [
           "name": item.name,
           "serviceType": group.title,
           "provider": {
-            "@id": "https://permanentnybielsko.com/#localbusiness"
+            "@id": "https://www.permanentnybielsko.com/#localbusiness"
           }
         }
       }))
@@ -537,51 +569,12 @@ const structuredData = [
           </div>
 
           <div class="price-faq-grid">
-            <article>
-              <h3>Czy cena makijażu permanentnego obejmuje korektę?</h3>
-              <p>
-                Tak, ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą
-                w terminie 1–3 miesiące.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy konsultacja jest płatna?</h3>
-              <p>
-                Tak. Konsultacja makijażu permanentnego trwa 30 minut i kosztuje 50 zł.
-              </p>
-            </article>
-
-            <article>
-              <h3>Dlaczego naprawa po innym gabinecie ma indywidualną wycenę?</h3>
-              <p>
-                Ponieważ wymaga oceny starego pigmentu, jego koloru, nasycenia, kształtu
-                oraz możliwości wykonania korekty lub wcześniejszego rozjaśnienia.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy usługa VIP ma stałą cenę?</h3>
-              <p>
-                Usługa VIP, czyli przyjęcie bez wcześniejszej rezerwacji, wynosi 150% ceny podstawowej
-                i zależy od dostępności terminu.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy odświeżenie PMU dotyczy każdej pigmentacji?</h3>
-              <p>
-                Podane ceny odświeżenia dotyczą makijażu wykonanego w naszym gabinecie do 2 lat.
-                Inne przypadki wymagają indywidualnej oceny.
-              </p>
-            </article>
-
-            <article>
-              <h3>Gdzie sprawdzić dostępne terminy?</h3>
-              <p>
-                Aktualne terminy, rezerwacje i dostępność usług można sprawdzić przez Booksy.
-              </p>
-            </article>
+            {faqItems.map((item) => (
+              <article>
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
