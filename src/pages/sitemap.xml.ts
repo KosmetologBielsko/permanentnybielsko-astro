@@ -54,6 +54,30 @@ const pages = [
   },
 
   /*
+    Poradnik PMU — wpisy cenowe / Senuto
+  */
+  {
+    path: "/poradnik/makijaz-permanentny-brwi-cena/",
+    priority: "0.82",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/kreska-permanentna-cena/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/odswiezenie-makijazu-permanentnego-cena/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/kurs-makijazu-permanentnego-cena/",
+    priority: "0.78",
+    changefreq: "monthly"
+  },
+
+  /*
     Poradnik PMU — artykuły fundamenty
   */
   {

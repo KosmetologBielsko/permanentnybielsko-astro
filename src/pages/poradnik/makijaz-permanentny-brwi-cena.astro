@@ -1,0 +1,1051 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const article = {
+  slug: "makijaz-permanentny-brwi-cena",
+  title: "Makijaż permanentny brwi cena 2026 — ile kosztują brwi permanentne?",
+  eyebrow: "Poradnik PMU",
+  category: "Ceny PMU",
+  datePublished: "2026-06-21",
+  dateModified: "2026-06-21",
+  readingTime: "8–10 minut",
+  description:
+    "Makijaż permanentny brwi cena 2026. Sprawdź, ile kosztują brwi permanentne w Bielsku-Białej, co obejmuje cena, czym różni się cieniowanie od metody włoskowej i ile kosztuje odświeżenie PMU.",
+  lead:
+    "Cena makijażu permanentnego brwi nie powinna być oceniana wyłącznie jako koszt samego zabiegu. To również konsultacja, rysunek wstępny, dobór techniki, praca ze skórą, korekta po wygojeniu oraz doświadczenie osoby, która wykonuje pigmentację.",
+  shortAnswer:
+    "Makijaż permanentny brwi w gabinecie Bogusława Herda w Bielsku-Białej kosztuje od 1200 zł za cieniowanie do 1400 zł za metodę włoskową lub włoski z cieniem. Cena zabiegu głównego obejmuje korektę w terminie 1–3 miesiące. Odświeżenie brwi wykonanych w gabinecie do 2 lat kosztuje zwykle 500–700 zł, a naprawa po innym gabinecie wymaga indywidualnej wyceny.",
+  canonicalPath: "/poradnik/makijaz-permanentny-brwi-cena/",
+  heroImage: {
+    src: "",
+    alt: ""
+  },
+  secondaryImage: {
+    src: "",
+    alt: ""
+  },
+  mainService: {
+    href: "/makijaz-permanentny-brwi/",
+    title: "Brwi permanentne"
+  },
+  faqHeading: "Pytania o cenę makijażu permanentnego brwi"
+};
+
+const tableOfContents = [
+  {
+    href: "#najkrocej",
+    title: "Najkrócej"
+  },
+  {
+    href: "#ceny-brwi",
+    title: "Ceny brwi PMU"
+  },
+  {
+    href: "#co-obejmuje-cena",
+    title: "Co obejmuje cena?"
+  },
+  {
+    href: "#doswiadczenie",
+    title: "Autorytet"
+  },
+  {
+    href: "#metoda-wloskowa",
+    title: "Metoda włoskowa"
+  },
+  {
+    href: "#korekta-odswiezenie",
+    title: "Korekta i odświeżenie"
+  },
+  {
+    href: "#faq",
+    title: "FAQ"
+  }
+];
+
+const keyPoints = [
+  "Cieniowanie brwi permanentnych kosztuje 1200 zł, a metoda włoskowa lub włoski z cieniem 1400 zł.",
+  "Cena zabiegu głównego obejmuje korektę w terminie 1–3 miesiące.",
+  "Odświeżenie brwi wykonanych w gabinecie do 2 lat kosztuje zwykle 500–700 zł.",
+  "Przy starym lub nieudanym makijażu permanentnym cena zależy od konsultacji i planu pracy."
+];
+
+const sections = [
+  {
+    id: "ceny-brwi",
+    eyebrow: "Ceny brwi PMU",
+    title: "Ile kosztuje makijaż permanentny brwi w 2026 roku?",
+    paragraphs: [
+      "W gabinecie Bogusława Herda w Bielsku-Białej cena makijażu permanentnego brwi zależy przede wszystkim od wybranej techniki, zakresu pracy oraz tego, czy wykonywany jest pierwszy zabieg, odświeżenie czy naprawa po wcześniejszej pigmentacji.",
+      "Najważniejsze ceny warto rozumieć nie jako przypadkowe pozycje w cenniku, ale jako różne poziomy precyzji, czasu pracy i odpowiedzialności za efekt, który ma być dopasowany do twarzy, skóry i naturalnej urody klientki."
+    ],
+    cards: [
+      {
+        title: "Cieniowanie brwi",
+        text: "1200 zł — technika dająca miękki, pudrowy lub bardziej wycieniowany efekt, dobierany do urody i oczekiwań."
+      },
+      {
+        title: "Metoda włoskowa",
+        text: "1400 zł — technika wymagająca bardzo precyzyjnej pracy i kwalifikacji skóry, ukierunkowana na naturalny efekt włosa."
+      },
+      {
+        title: "Włoski + cień",
+        text: "1400 zł — połączenie efektu włosa z delikatnym cieniem, gdy skóra i oczekiwany efekt pozwalają na takie rozwiązanie."
+      },
+      {
+        title: "Odświeżenie brwi",
+        text: "500–700 zł — dotyczy makijażu permanentnego wykonanego w gabinecie do 2 lat."
+      }
+    ]
+  },
+  {
+    id: "co-obejmuje-cena",
+    eyebrow: "Zakres ceny",
+    title: "Co obejmuje cena makijażu permanentnego brwi?",
+    paragraphs: [
+      "Cena zabiegu głównego obejmuje nie tylko sam moment pigmentacji. W profesjonalnym gabinecie bardzo ważny jest cały proces: rozmowa, analiza skóry, kwalifikacja, rysunek wstępny, dobór koloru, dobór techniki, wykonanie zabiegu, zalecenia pozabiegowe oraz kontrola efektu po wygojeniu.",
+      "W cenie zabiegu głównego brwi permanentnych ujęta jest również korekta wykonywana w terminie 1–3 miesiące. Korekta nie jest poprawką po błędzie, tylko etapem oceny wygojonego efektu i ewentualnego dopracowania nasycenia, koloru lub drobnych detali."
+    ],
+    cards: [
+      {
+        title: "Konsultacja i kwalifikacja",
+        text: "Przed pigmentacją trzeba ocenić skórę, wcześniejsze zabiegi, oczekiwania i możliwe przeciwwskazania."
+      },
+      {
+        title: "Rysunek wstępny",
+        text: "Projekt brwi jest podstawą zabiegu. To moment, w którym ustala się kształt, proporcje i kierunek efektu."
+      },
+      {
+        title: "Pigmentacja",
+        text: "Technika dobierana jest do skóry, naturalnych brwi i oczekiwanego rezultatu."
+      },
+      {
+        title: "Korekta po wygojeniu",
+        text: "Po czasie można ocenić, jak pigment przyjął się w skórze i czy efekt wymaga dopracowania."
+      }
+    ]
+  },
+  {
+    id: "doswiadczenie",
+    eyebrow: "Autorytet",
+    title: "Cena to nie tylko pigmentacja — to doświadczenie osoby, która wykonuje zabieg.",
+    paragraphs: [
+      "Przy makijażu permanentnym brwi cena nie powinna być oceniana wyłącznie jako koszt samego zabiegu. To również doświadczenie linergistki, jakość kwalifikacji, sposób prowadzenia klientki, rysunek wstępny, dobór techniki, praca ze skórą oraz odpowiedzialność za efekt, który pozostaje na długo.",
+      "Bogusława Herda to dyplomowana linergistka i trenerka makijażu permanentnego, Elite Top Linergist Long-Time-Liner®, trenerka i prelegentka międzynarodowa, wicemistrzyni świata oraz mistrzyni Polski. Wieloletnie doświadczenie w pracy zabiegowej i szkoleniowej ma znaczenie szczególnie wtedy, gdy efekt ma być naturalny, dopasowany do twarzy i bezpieczny dla skóry.",
+      "Dlatego cena makijażu permanentnego brwi w profesjonalnym gabinecie obejmuje nie tylko pigmentację, ale cały proces: rozmowę, analizę skóry, rysunek wstępny, dobór metody, wykonanie zabiegu, zalecenia pozabiegowe oraz kontrolę efektu po wygojeniu."
+    ],
+    cards: [
+      {
+        title: "Doświadczenie zabiegowe",
+        text: "Praca z różnymi typami skóry, naturalnymi brwiami, starymi pigmentacjami i oczekiwaniami klientek wymaga praktyki."
+      },
+      {
+        title: "Szkolenia i edukacja",
+        text: "Trenerka PMU patrzy na zabieg nie tylko wykonawczo, ale także metodycznie: przez technikę, bezpieczeństwo i przewidywalność efektu."
+      }
+    ]
+  },
+  {
+    id: "metoda-wloskowa",
+    eyebrow: "Technika",
+    title: "Dlaczego metoda włoskowa kosztuje więcej niż cieniowanie?",
+    paragraphs: [
+      "Metoda włoskowa wymaga bardzo precyzyjnej pracy i nie zawsze jest odpowiednia dla każdej skóry. Jej celem jest uzyskanie efektu delikatnych włosków, które mają współgrać z naturalnym kierunkiem brwi, rysami twarzy i jakością skóry.",
+      "Wyższa cena metody włoskowej wynika z czasu, poziomu trudności, doświadczenia, kontroli nacisku, kierunku pracy i kwalifikacji skóry. To technika, w której naturalny efekt zależy od bardzo wielu szczegółów."
+    ],
+    cards: [
+      {
+        title: "Większa precyzja",
+        text: "Każdy włosek musi być przemyślany pod kątem kierunku, długości, zagęszczenia i naturalnego układu brwi."
+      },
+      {
+        title: "Kwalifikacja skóry",
+        text: "Nie każda skóra jest najlepszym wyborem do efektu włoskowego. Czasem bezpieczniejszym kierunkiem jest cień lub połączenie technik."
+      }
+    ]
+  },
+  {
+    id: "korekta-odswiezenie",
+    eyebrow: "Korekta i odświeżenie",
+    title: "Korekta, dopigmentowanie i odświeżenie — czym się różnią?",
+    paragraphs: [
+      "Korekta po pierwszym zabiegu jest częścią procesu i w przypadku cen oznaczonych gwiazdką jest wliczona w cenę zabiegu głównego. Wykonuje się ją po wygojeniu, zwykle w terminie 1–3 miesiące, kiedy można ocenić realne przyjęcie pigmentu.",
+      "Odświeżenie to osobna usługa wykonywana po dłuższym czasie, gdy makijaż permanentny naturalnie traci intensywność. W przypadku brwi wykonanych w gabinecie do 2 lat odświeżenie kosztuje zwykle 500–700 zł. Naprawa lub przykrycie makijażu po innym gabinecie wymaga indywidualnej wyceny."
+    ],
+    cards: [
+      {
+        title: "Korekta",
+        text: "Etap po pierwszym zabiegu, wykonywany po wygojeniu, gdy można ocenić przyjęcie pigmentu."
+      },
+      {
+        title: "Odświeżenie",
+        text: "Zabieg po czasie, gdy pigment słabnie i klientka chce przywrócić większą świeżość efektu."
+      },
+      {
+        title: "Naprawa po innym gabinecie",
+        text: "Wymaga oceny koloru, kształtu, nasycenia pigmentu i możliwości bezpiecznego działania."
+      },
+      {
+        title: "Usuwanie lub rozjaśnianie",
+        text: "Przy mocnych, niepożądanych lub źle położonych pigmentach czasem najpierw potrzebne jest usuwanie."
+      }
+    ]
+  },
+  {
+    id: "wybor-gabinetu",
+    eyebrow: "Bezpieczeństwo",
+    title: "Czy warto wybierać makijaż permanentny brwi tylko po cenie?",
+    paragraphs: [
+      "Cena jest ważna, ale przy makijażu permanentnym nie powinna być jedynym kryterium wyboru. Efekt zostaje na długo, wpływa na rysy twarzy i codzienny wygląd, dlatego najtańsza oferta nie zawsze oznacza najlepszą decyzję.",
+      "Dobrze wykonany makijaż permanentny brwi powinien być poprzedzony rozmową, rysunkiem wstępnym, oceną skóry i realnym omówieniem efektu. Naprawa nieudanej pigmentacji może być trudniejsza, dłuższa i droższa niż dobrze zaplanowany zabieg od początku."
+    ],
+    cards: [
+      {
+        title: "Naturalny efekt",
+        text: "Brwi powinny podkreślać urodę, a nie dominować nad twarzą."
+      },
+      {
+        title: "Odpowiedzialna decyzja",
+        text: "Warto zapytać nie tylko o cenę, ale też o doświadczenie, technikę, gojenie i plan po zabiegu."
+      }
+    ]
+  }
+];
+
+const warningBox = {
+  title: "Kiedy cena może wymagać indywidualnej oceny?",
+  text: "Indywidualna wycena jest potrzebna szczególnie wtedy, gdy klientka ma stary makijaż permanentny, niepożądany kolor, mocne nasycenie pigmentu, asymetrię, blizny albo efekt wykonany w innym gabinecie. W takich sytuacjach najpierw trzeba ocenić, czy możliwa jest korekta, przykrycie, odświeżenie czy wcześniejsze rozjaśnianie pigmentu."
+};
+
+const relatedLinks = [
+  {
+    href: "/cennik-makijaz-permanentny/",
+    title: "Cennik makijażu permanentnego",
+    text: "Zobacz aktualne ceny brwi, ust, kresek, odświeżeń i usuwania PMU."
+  },
+  {
+    href: "/makijaz-permanentny-brwi/",
+    title: "Brwi permanentne",
+    text: "Poznaj ofertę makijażu permanentnego brwi w Bielsku-Białej."
+  },
+  {
+    href: "/poradnik/jak-goja-sie-brwi-permanentne/",
+    title: "Jak goją się brwi permanentne?",
+    text: "Sprawdź etapy gojenia, strupki, pielęgnację i dopigmentowanie."
+  },
+  {
+    href: "/poradnik/nieudany-makijaz-permanentny-brwi-co-zrobic/",
+    title: "Nieudany makijaż permanentny brwi",
+    text: "Zobacz, kiedy możliwa jest korekta, a kiedy potrzebne jest usuwanie."
+  },
+  {
+    href: "/poradnik/czego-nie-wolno-po-makijazu-permanentnym-brwi/",
+    title: "Czego nie wolno po PMU brwi?",
+    text: "Najważniejsze zasady po zabiegu makijażu permanentnego brwi."
+  }
+];
+
+const faqItems = [
+  {
+    question: "Ile kosztuje makijaż permanentny brwi?",
+    answer:
+      "W gabinecie Bogusława Herda makijaż permanentny brwi kosztuje od 1200 zł za cieniowanie do 1400 zł za metodę włoskową lub włoski z cieniem. Cena zabiegu głównego obejmuje korektę w terminie 1–3 miesiące."
+  },
+  {
+    question: "Ile kosztują brwi permanentne metodą włoskową?",
+    answer:
+      "Brwi permanentne metodą włoskową kosztują 1400 zł. Jest to technika wymagająca bardzo precyzyjnej pracy, odpowiedniej kwalifikacji skóry i indywidualnego zaprojektowania kierunku włosa."
+  },
+  {
+    question: "Czy korekta brwi permanentnych jest w cenie?",
+    answer:
+      "Tak. Przy zabiegu głównym cena obejmuje korektę wykonywaną w terminie 1–3 miesiące. Korekta pozwala ocenić wygojony efekt i dopracować nasycenie, kolor lub drobne detale."
+  },
+  {
+    question: "Ile kosztuje odświeżenie brwi permanentnych?",
+    answer:
+      "Odświeżenie makijażu permanentnego brwi wykonanego w gabinecie do 2 lat kosztuje zwykle 500–700 zł. Inne przypadki, zwłaszcza pigmentacje po innym gabinecie, wymagają indywidualnej oceny."
+  },
+  {
+    question: "Dlaczego metoda włoskowa jest droższa od cieniowania?",
+    answer:
+      "Metoda włoskowa wymaga większej precyzji, doświadczenia, kontroli kierunku pracy i kwalifikacji skóry. Celem jest naturalny efekt włosa, który musi współgrać z naturalnymi brwiami i rysami twarzy."
+  },
+  {
+    question: "Czy cena zależy od rodzaju skóry?",
+    answer:
+      "Rodzaj skóry wpływa przede wszystkim na dobór techniki i plan zabiegu. Nie każda skóra nadaje się do każdej metody, dlatego przed zabiegiem ważna jest konsultacja i kwalifikacja."
+  },
+  {
+    question: "Czy można poprawić brwi permanentne po innym gabinecie?",
+    answer:
+      "Czasem tak, ale wymaga to indywidualnej oceny starego pigmentu, koloru, nasycenia, kształtu i stanu skóry. W niektórych przypadkach przed nową pigmentacją potrzebne jest rozjaśnianie lub usuwanie."
+  },
+  {
+    question: "Czy tańszy makijaż permanentny brwi to dobry wybór?",
+    answer:
+      "Nie zawsze. Przy makijażu permanentnym ważne są doświadczenie linergistki, rysunek wstępny, bezpieczeństwo, jakość pigmentacji i przewidywalność gojenia. Naprawa źle wykonanego PMU może być droższa niż dobrze zaplanowany zabieg od początku."
+  },
+  {
+    question: "Czy konsultacja przed makijażem permanentnym brwi jest płatna?",
+    answer:
+      "Tak. Konsultacja makijażu permanentnego trwa 30 minut i kosztuje 50 zł. Pozwala ocenić skórę, omówić oczekiwania, przeciwwskazania i możliwy kierunek zabiegu."
+  },
+  {
+    question: "Gdzie sprawdzić aktualne terminy zabiegu?",
+    answer:
+      "Aktualne terminy i możliwość rezerwacji wizyty dostępne są w Booksy. Strona opisuje ceny i zasady, ale dostępność wizyt najlepiej sprawdzić bezpośrednio w systemie rezerwacji."
+  }
+];
+
+const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${pageUrl}#article`,
+    url: pageUrl,
+    headline: article.title,
+    description: article.description,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
+    inLanguage: "pl-PL",
+    author: {
+      "@type": "Person",
+      name: "Bogusława Herda",
+      url: "https://www.permanentnybielsko.com/"
+    },
+    publisher: {
+      "@id": "https://www.permanentnybielsko.com/#localbusiness"
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Strona główna",
+        item: "https://www.permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Poradnik PMU",
+        item: "https://www.permanentnybielsko.com/poradnik/"
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.title,
+        item: pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  }
+];
+---
+
+<Layout
+  title={`${article.title} | Poradnik PMU Bogusława Herda`}
+  description={article.description}
+  canonicalPath={article.canonicalPath}
+  structuredData={structuredData}
+>
+  <div class="article-page">
+    <Header />
+
+    <main>
+      <section class="article-hero">
+        <div class="container article-hero-grid">
+          <div class="article-hero-copy">
+            <p class="section-kicker">{article.eyebrow}</p>
+
+            <div class="article-meta">
+              <span>{article.category}</span>
+              <span>{article.readingTime}</span>
+            </div>
+
+            <h1>{article.title}</h1>
+
+            <p class="article-lead">{article.lead}</p>
+          </div>
+
+          <aside class="article-hero-summary" aria-label="Krótka odpowiedź">
+            <p class="summary-label">Najkrócej</p>
+            <h2>Co warto wiedzieć?</h2>
+            <p>{article.shortAnswer}</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="article-content-section">
+        <div class="container article-layout">
+          <aside class="article-sidebar" aria-label="Spis treści">
+            <div class="article-sidebar-card">
+              <p>W artykule</p>
+              <nav>
+                {tableOfContents.map((item) => (
+                  <a href={item.href}>{item.title}</a>
+                ))}
+              </nav>
+            </div>
+
+            <div class="article-sidebar-card article-sidebar-card-soft">
+              <p>Powiązane</p>
+              <a href="/poradnik/">Poradnik PMU</a>
+              <a href={article.mainService.href}>{article.mainService.title}</a>
+              <a href="/cennik-makijaz-permanentny/">Cennik PMU</a>
+              <a href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów wizytę</a>
+            </div>
+          </aside>
+
+          <article class="article-main">
+            <section class="article-answer-card" id="najkrocej">
+              <p class="section-kicker">Krótka odpowiedź</p>
+              <h2>Najważniejsze w kilku zdaniach</h2>
+              <p>{article.shortAnswer}</p>
+            </section>
+
+            <section class="article-keypoints" aria-label="Najważniejsze punkty">
+              {keyPoints.map((point) => (
+                <div>
+                  <span></span>
+                  <p>{point}</p>
+                </div>
+              ))}
+            </section>
+
+            {article.heroImage.src && (
+              <figure class="article-image article-image-wide">
+                <img
+                  src={article.heroImage.src}
+                  alt={article.heroImage.alt}
+                  width="1400"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            )}
+
+            {sections.map((section, index) => (
+              <section class="article-text-block" id={section.id}>
+                <p class="section-kicker">{section.eyebrow}</p>
+                <h2>{section.title}</h2>
+
+                {section.paragraphs.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+
+                {section.cards && (
+                  <div class="article-simple-cards">
+                    {section.cards.map((card) => (
+                      <article>
+                        <h3>{card.title}</h3>
+                        <p>{card.text}</p>
+                      </article>
+                    ))}
+                  </div>
+                )}
+
+                {index === 1 && article.secondaryImage.src && (
+                  <figure class="article-image">
+                    <img
+                      src={article.secondaryImage.src}
+                      alt={article.secondaryImage.alt}
+                      width="1200"
+                      height="900"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                )}
+              </section>
+            ))}
+
+            <section class="article-warning-card">
+              <h2>{warningBox.title}</h2>
+              <p>{warningBox.text}</p>
+            </section>
+
+            <section class="article-related-section">
+              <p class="section-kicker">Powiązane tematy</p>
+              <h2>Co warto przeczytać dalej?</h2>
+
+              <div class="article-related-grid">
+                {relatedLinks.map((item) => (
+                  <a href={item.href}>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </a>
+                ))}
+              </div>
+            </section>
+
+            <section class="article-faq-section" id="faq">
+              <p class="section-kicker">Najczęstsze pytania</p>
+              <h2>{article.faqHeading}</h2>
+
+              <div class="article-faq-list">
+                {faqItems.map((item) => (
+                  <article>
+                    <h3>{item.question}</h3>
+                    <p>{item.answer}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section class="article-final-cta">
+              <p class="signature cta-signature">Powrót do natury</p>
+              <h2>Chcesz sprawdzić, jaka metoda brwi będzie najlepsza dla Ciebie?</h2>
+              <p>
+                Zacznij od konsultacji. Przy makijażu permanentnym brwi najważniejsze są spokojna decyzja,
+                analiza skóry, rysunek wstępny i dobór metody, która będzie pasować do Twojej urody.
+              </p>
+
+              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Umów konsultację przez Booksy
+              </a>
+            </section>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .article-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 82% 10%, rgba(56, 187, 181, 0.10), transparent 28rem),
+      radial-gradient(circle at 12% 42%, rgba(201, 127, 143, 0.10), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 48%, #ffffff 100%);
+  }
+
+  .article-page .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 16px;
+    padding: 0 12px;
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.76);
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.68rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .article-hero {
+    padding: 150px 0 72px;
+  }
+
+  .article-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .article-hero-copy,
+  .article-hero-summary,
+  .article-sidebar-card,
+  .article-answer-card,
+  .article-keypoints,
+  .article-text-block,
+  .article-warning-card,
+  .article-related-section,
+  .article-faq-section,
+  .article-final-cta,
+  .article-image {
+    border: 1px solid rgba(183, 101, 118, 0.14);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.065);
+  }
+
+  .article-hero-copy {
+    padding: clamp(34px, 5vw, 64px);
+    border-radius: 38px;
+    background: rgba(255, 255, 255, 0.80);
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .article-meta span {
+    display: inline-flex;
+    min-height: 30px;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(255, 248, 251, 0.92);
+    color: var(--color-muted, #6e6670);
+    font-size: 0.72rem;
+    font-weight: 760;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .article-hero-copy h1 {
+    max-width: 1050px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.8rem, 5vw, 5.6rem);
+    font-weight: 780;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .article-lead {
+    max-width: 920px;
+    margin: 26px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1.06rem, 1.35vw, 1.24rem);
+    line-height: 1.72;
+  }
+
+  .article-hero-summary {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(30px, 4vw, 48px);
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.26), transparent 13rem),
+      linear-gradient(145deg, #38bbb5 0%, #159a96 48%, #0f7773 100%);
+    color: #ffffff;
+  }
+
+  .summary-label {
+    margin: 0 auto auto 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .article-hero-summary h2 {
+    margin: 58px 0 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 3.3vw, 3.7rem);
+    font-weight: 780;
+    line-height: 1;
+    letter-spacing: -0.072em;
+  }
+
+  .article-hero-summary p:not(.summary-label) {
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.02rem;
+    line-height: 1.66;
+  }
+
+  .article-content-section {
+    padding: 28px 0 88px;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 34px;
+    align-items: start;
+  }
+
+  .article-sidebar {
+    position: sticky;
+    top: 112px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .article-sidebar-card {
+    padding: 22px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .article-sidebar-card p {
+    margin: 0 0 14px;
+    color: var(--color-text, #17151d);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .article-sidebar-card nav,
+  .article-sidebar-card {
+    display: grid;
+    gap: 8px;
+  }
+
+  .article-sidebar-card a {
+    display: block;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.94rem;
+    line-height: 1.45;
+    text-decoration: none;
+  }
+
+  .article-sidebar-card a:hover {
+    color: #0f7773;
+  }
+
+  .article-sidebar-card-soft {
+    background: rgba(219, 246, 243, 0.46);
+  }
+
+  .article-main {
+    display: grid;
+    gap: 22px;
+    min-width: 0;
+  }
+
+  .article-answer-card,
+  .article-text-block,
+  .article-warning-card,
+  .article-related-section,
+  .article-faq-section,
+  .article-final-cta {
+    padding: clamp(28px, 4vw, 46px);
+    border-radius: 32px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.07), transparent 14rem),
+      rgba(255, 255, 255, 0.86);
+  }
+
+  .article-answer-card h2,
+  .article-text-block h2,
+  .article-warning-card h2,
+  .article-related-section h2,
+  .article-faq-section h2,
+  .article-final-cta h2 {
+    max-width: 900px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2rem, 3.2vw, 3.55rem);
+    font-weight: 780;
+    line-height: 1.03;
+    letter-spacing: -0.068em;
+  }
+
+  .article-answer-card p:not(.section-kicker),
+  .article-text-block p:not(.section-kicker),
+  .article-warning-card p,
+  .article-related-section p,
+  .article-faq-section p,
+  .article-final-cta p:not(.signature) {
+    max-width: 900px;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1rem, 1.12vw, 1.1rem);
+    line-height: 1.74;
+  }
+
+  .article-answer-card p:not(.section-kicker),
+  .article-text-block p:not(.section-kicker) {
+    margin: 20px 0 0;
+  }
+
+  .article-keypoints {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .article-keypoints div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    padding: 22px;
+    border-right: 1px solid rgba(56, 187, 181, 0.13);
+    border-bottom: 1px solid rgba(56, 187, 181, 0.13);
+  }
+
+  .article-keypoints div:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .article-keypoints div:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .article-keypoints span {
+    width: 22px;
+    height: 22px;
+    margin-top: 4px;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle, rgba(21, 154, 150, 0.95) 0 24%, rgba(21, 154, 150, 0.16) 25% 100%);
+    box-shadow: 0 0 0 9px rgba(56, 187, 181, 0.10);
+  }
+
+  .article-keypoints p {
+    margin: 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.58;
+  }
+
+  .article-simple-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .article-simple-cards article,
+  .article-related-grid a,
+  .article-faq-list article {
+    padding: 22px;
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.74);
+  }
+
+  .article-simple-cards h3,
+  .article-related-grid h3,
+  .article-faq-list h3 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.25rem, 1.65vw, 1.75rem);
+    font-weight: 760;
+    line-height: 1.05;
+    letter-spacing: -0.052em;
+  }
+
+  .article-simple-cards p,
+  .article-related-grid p,
+  .article-faq-list p {
+    margin: 12px 0 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.62;
+  }
+
+  .article-image {
+    overflow: hidden;
+    margin: 0;
+    padding: 10px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.84);
+  }
+
+  .article-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  .article-warning-card {
+    border-color: rgba(201, 127, 143, 0.20);
+    background:
+      radial-gradient(circle at 92% 10%, rgba(246, 220, 227, 0.54), transparent 15rem),
+      rgba(255, 255, 255, 0.88);
+  }
+
+  .article-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .article-related-grid a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .article-related-grid a:hover {
+    border-color: rgba(201, 127, 143, 0.28);
+    background: rgba(255, 248, 251, 0.9);
+  }
+
+  .article-faq-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .article-final-cta {
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.72), rgba(255, 242, 246, 0.84)),
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .article-final-cta p:not(.signature) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-final-cta .button-primary {
+    margin-top: 18px;
+  }
+
+  @media (max-width: 1080px) {
+    .article-hero-grid,
+    .article-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .article-sidebar {
+      position: relative;
+      top: auto;
+      order: -1;
+    }
+
+    .article-sidebar-card nav {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .article-related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .article-hero {
+      padding: 112px 0 54px;
+    }
+
+    .article-hero-grid {
+      gap: 16px;
+      padding-left: 8px;
+      padding-right: 8px;
+      box-sizing: border-box;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary,
+    .article-sidebar-card,
+    .article-answer-card,
+    .article-keypoints,
+    .article-text-block,
+    .article-warning-card,
+    .article-related-section,
+    .article-faq-section,
+    .article-final-cta,
+    .article-image {
+      border-radius: 26px;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary,
+    .article-answer-card,
+    .article-text-block,
+    .article-warning-card,
+    .article-related-section,
+    .article-faq-section,
+    .article-final-cta {
+      padding: 26px 22px;
+    }
+
+    .article-hero-copy h1 {
+      font-size: clamp(2.35rem, 10.5vw, 3.55rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .article-lead {
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .article-hero-summary h2,
+    .article-answer-card h2,
+    .article-text-block h2,
+    .article-warning-card h2,
+    .article-related-section h2,
+    .article-faq-section h2,
+    .article-final-cta h2 {
+      font-size: clamp(2rem, 9vw, 3rem);
+      line-height: 1.04;
+      letter-spacing: -0.064em;
+    }
+
+    .article-sidebar-card nav {
+      grid-template-columns: 1fr;
+    }
+
+    .article-keypoints,
+    .article-simple-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .article-keypoints div,
+    .article-keypoints div:nth-child(2n),
+    .article-keypoints div:nth-last-child(-n + 2) {
+      border-right: 0;
+      border-bottom: 1px solid rgba(56, 187, 181, 0.13);
+    }
+
+    .article-keypoints div:last-child {
+      border-bottom: 0;
+    }
+
+    .article-simple-cards article,
+    .article-related-grid a,
+    .article-faq-list article {
+      padding: 20px;
+      border-radius: 20px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .article-hero-grid {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary {
+      width: calc(100% - 10px);
+      max-width: calc(100% - 10px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
