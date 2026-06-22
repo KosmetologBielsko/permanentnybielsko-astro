@@ -1,0 +1,945 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const article = {
+  "slug": "kiedy-mozna-myc-brwi-po-makijazu-permanentnym",
+  "title": "Kiedy można myć brwi po makijażu permanentnym i jak robić to bezpiecznie?",
+  "eyebrow": "Poradnik PMU",
+  "category": "Gojenie brwi",
+  "datePublished": "2026-06-22",
+  "dateModified": "2026-06-22",
+  "readingTime": "9–12 minut",
+  "description": "Czy można myć brwi po makijażu permanentnym? Zobacz, jak delikatnie dbać o higienę brwi po PMU, czego unikać i kiedy skontaktować się z gabinetem.",
+  "lead": "Jedno z najczęstszych pytań po makijażu permanentnym brzmi: kiedy można myć brwi i czy woda nie wypłucze pigmentu. Odpowiedź wymaga spokoju: świeżą pigmentację trzeba traktować delikatnie, ale higiena jest ważna dla prawidłowego gojenia.",
+  "shortAnswer": "Brwi po makijażu permanentnym należy traktować delikatnie i zgodnie z zaleceniami gabinetu. Nie chodzi o intensywne moczenie, tarcie ani długie kąpiele, ale o spokojną higienę bez drażnienia skóry. Woda sama w sobie nie jest „wrogiem pigmentu”, natomiast problemem może być pocieranie, rozmaczanie strupków, kosmetyki aktywne i niestosowanie zaleceń pozabiegowych.",
+  "canonicalPath": "/poradnik/kiedy-mozna-myc-brwi-po-makijazu-permanentnym/",
+  "heroImage": {
+    "src": "",
+    "alt": ""
+  },
+  "secondaryImage": {
+    "src": "",
+    "alt": ""
+  },
+  "mainService": {
+    "href": "/makijaz-permanentny-brwi/",
+    "title": "Brwi permanentne"
+  },
+  "faqHeading": "Pytania: mycie brwi po makijażu permanentnym"
+};
+
+const tableOfContents = [
+  {
+    "href": "#najkrocej",
+    "title": "Najkrócej"
+  },
+  {
+    "href": "#czy-mozna",
+    "title": "Czy można myć?"
+  },
+  {
+    "href": "#jak-myc",
+    "title": "Jak myć?"
+  },
+  {
+    "href": "#czego-unikac",
+    "title": "Czego unikać?"
+  },
+  {
+    "href": "#objawy",
+    "title": "Kiedy reagować?"
+  },
+  {
+    "href": "#faq",
+    "title": "FAQ"
+  }
+];
+
+const keyPoints = [
+  "Higiena po zabiegu jest ważna, ale musi być bardzo delikatna.",
+  "Największym błędem jest tarcie, rozmaczanie i odrywanie złuszczającej się skóry.",
+  "Nie stosuj przypadkowych pianek, peelingów, kwasów, retinoidów ani ciężkich kremów na świeże brwi.",
+  "Zawsze kieruj się zaleceniami pozabiegowymi gabinetu."
+];
+
+const sections = [
+  {
+    "id": "czy-mozna",
+    "eyebrow": "Higiena po PMU",
+    "title": "Czy można myć brwi po makijażu permanentnym?",
+    "paragraphs": [
+      "Po pigmentacji skóra potrzebuje spokoju, ale nie oznacza to, że należy ją zostawić bez higieny. Świeża pigmentacja to kontrolowana praca w naskórku, dlatego okolica brwi powinna być czysta, ale nie drażniona.",
+      "W praktyce największe ryzyko nie wynika z samego kontaktu z wodą, tylko z mocnego pocierania, rozmaczania strupków, używania przypadkowych kosmetyków i mechanicznego naruszania procesu gojenia. To dlatego zalecenia gabinetu są ważniejsze niż internetowe skróty typu „nie wolno dotknąć wodą”."
+    ],
+    "cards": [
+      {
+        "title": "Czysto, ale delikatnie",
+        "text": "Higiena powinna wspierać gojenie, a nie podrażniać skórę."
+      },
+      {
+        "title": "Bez rozmaczania",
+        "text": "Nie mocz brwi długo i nie pozwalaj, żeby strupki były rozpulchniane."
+      }
+    ]
+  },
+  {
+    "id": "jak-myc",
+    "eyebrow": "Praktyka",
+    "title": "Jak myć brwi po PMU, żeby nie zaszkodzić gojeniu?",
+    "paragraphs": [
+      "Najbezpieczniejsza zasada to delikatność. Ręce powinny być czyste, ruchy spokojne, bez tarcia i bez dociskania ręcznika. Skórę można osuszać przez lekkie przykładanie czystego materiału, a nie przez wycieranie.",
+      "Nie stosuj na świeże brwi produktów aktywnych, peelingujących, perfumowanych ani takich, których skóra wcześniej nie znała. Jeśli gabinet przekazał konkretny schemat pielęgnacji, trzymaj się go, zamiast mieszać kilka porad z internetu."
+    ],
+    "cards": [
+      {
+        "title": "Czyste ręce",
+        "text": "Przed dotknięciem okolicy brwi zawsze zadbaj o higienę dłoni."
+      },
+      {
+        "title": "Bez ręcznika z tarciem",
+        "text": "Osuszaj przez przykładanie, nie przez pocieranie."
+      }
+    ]
+  },
+  {
+    "id": "czego-unikac",
+    "eyebrow": "Błędy",
+    "title": "Czego nie robić przy myciu brwi permanentnych?",
+    "paragraphs": [
+      "Nie wolno szorować brwi, odrywać skórek, rozmaczać pigmentacji w wannie, saunie czy basenie, nakładać peelingów enzymatycznych, kwasów, retinoidów ani mocnych kosmetyków oczyszczających. Takie działanie może zaburzyć gojenie i zwiększyć ryzyko nierównego przyjęcia pigmentu.",
+      "W pierwszych dniach warto uważać także przy myciu włosów i twarzy. Strumień wody, szampon lub piana nie powinny intensywnie spływać po świeżo pigmentowanej okolicy."
+    ],
+    "cards": [
+      {
+        "title": "Nie odrywaj skórek",
+        "text": "Skórki i strupki powinny odejść naturalnie."
+      },
+      {
+        "title": "Nie stosuj aktywnych składników",
+        "text": "Kwasy, retinoidy i peelingi zostaw do czasu pełnego wygojenia."
+      }
+    ]
+  },
+  {
+    "id": "objawy",
+    "eyebrow": "Kiedy reagować?",
+    "title": "Kiedy mycie nie wystarcza i trzeba skontaktować się z gabinetem?",
+    "paragraphs": [
+      "Delikatne napięcie, suchość i łuszczenie mogą być normalną częścią gojenia. Niepokojące są natomiast objawy narastające: silny ból, ropienie, intensywne zaczerwienienie, sączenie, duży obrzęk lub reakcja alergiczna.",
+      "W takiej sytuacji nie należy dokładać kolejnych kosmetyków na własną rękę. Najpierw skontaktuj się z gabinetem, a przy objawach medycznych również z lekarzem."
+    ],
+    "cards": [
+      {
+        "title": "Normalne",
+        "text": "Suchość, delikatne złuszczanie i chwilowa intensywność koloru."
+      },
+      {
+        "title": "Niepokojące",
+        "text": "Narastający ból, ropienie, sączenie lub silny obrzęk."
+      }
+    ]
+  }
+];
+
+const warningBox = {
+  "title": "Nie mieszaj kilku sprzecznych zaleceń naraz",
+  "text": "Największy chaos po zabiegu powstaje wtedy, gdy klientka łączy zalecenia z gabinetu z przypadkowymi poradami z internetu. W makijażu permanentnym lepsza jest prosta, konsekwentna pielęgnacja niż eksperymenty."
+};
+
+const relatedLinks = [
+  {
+    "href": "/poradnik/jak-goja-sie-brwi-permanentne/",
+    "title": "Jak goją się brwi?",
+    "text": "Zobacz pełny opis etapów gojenia brwi permanentnych."
+  },
+  {
+    "href": "/poradnik/czego-nie-wolno-po-makijazu-permanentnym-brwi/",
+    "title": "Czego nie wolno po PMU brwi?",
+    "text": "Sprawdź najważniejsze zakazy po pigmentacji."
+  },
+  {
+    "href": "/poradnik/czym-smarowac-brwi-po-makijazu-permanentnym/",
+    "title": "Czym smarować brwi?",
+    "text": "Przeczytaj o kremie, cienkiej warstwie i składnikach ochronnych."
+  }
+];
+
+const faqItems = [
+  {
+    "question": "Kiedy można myć brwi po makijażu permanentnym?",
+    "answer": "Należy stosować się do zaleceń gabinetu. Zwykle ważna jest spokojna higiena bez tarcia, długiego moczenia i aktywnych kosmetyków na świeżą pigmentację."
+  },
+  {
+    "question": "Czy woda wypłukuje pigment z brwi?",
+    "answer": "Sama woda nie działa jak zmywacz pigmentu, ale długie moczenie, pocieranie i rozmaczanie strupków może zaburzyć gojenie i wpłynąć na nierówne przyjęcie koloru."
+  },
+  {
+    "question": "Czy można myć twarz po PMU brwi?",
+    "answer": "Tak, ale ostrożnie. Trzeba uważać, żeby nie trzeć okolicy brwi i nie nakładać na nią przypadkowych kosmetyków."
+  },
+  {
+    "question": "Czy można myć włosy po makijażu permanentnym brwi?",
+    "answer": "Można, ale najlepiej tak, aby szampon i silny strumień wody nie spływały intensywnie po świeżo pigmentowanej okolicy."
+  },
+  {
+    "question": "Czy można osuszać brwi ręcznikiem?",
+    "answer": "Tak, ale przez delikatne przykładanie czystego materiału. Nie należy pocierać ani zdrapywać złuszczającej się skóry."
+  },
+  {
+    "question": "Czego nie używać do mycia brwi po PMU?",
+    "answer": "Unikaj peelingów, kwasów, retinoidów, mocno perfumowanych kosmetyków, produktów aktywnych i wszystkiego, co podrażnia skórę."
+  }
+];
+
+const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${pageUrl}#article`,
+    url: pageUrl,
+    headline: article.title,
+    description: article.description,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
+    inLanguage: "pl-PL",
+    author: {
+      "@type": "Person",
+      name: "Bogusława Herda",
+      url: "https://www.permanentnybielsko.com/",
+    },
+    publisher: {
+      "@id": "https://www.permanentnybielsko.com/#localbusiness",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Strona główna",
+        item: "https://www.permanentnybielsko.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Poradnik PMU",
+        item: "https://www.permanentnybielsko.com/poradnik/",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.title,
+        item: pageUrl,
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  },
+];
+---
+
+<Layout
+  title={`${article.title} | Poradnik PMU Bogusławy Herda`}
+  description={article.description}
+  canonicalPath={article.canonicalPath}
+  structuredData={structuredData}
+>
+  <div class="article-page">
+    <Header />
+
+    <main>
+      <section class="article-hero">
+        <div class="container article-hero-grid">
+          <div class="article-hero-copy">
+            <p class="section-kicker">{article.eyebrow}</p>
+
+            <div class="article-meta">
+              <span>{article.category}</span>
+              <span>{article.readingTime}</span>
+            </div>
+
+            <h1>{article.title}</h1>
+
+            <p class="article-lead">{article.lead}</p>
+          </div>
+
+          <aside class="article-hero-summary" aria-label="Krótka odpowiedź">
+            <p class="summary-label">Najkrócej</p>
+            <h2>Co warto wiedzieć?</h2>
+            <p>{article.shortAnswer}</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="article-content-section">
+        <div class="container article-layout">
+          <aside class="article-sidebar" aria-label="Spis treści">
+            <div class="article-sidebar-card">
+              <p>W artykule</p>
+              <nav>
+                {tableOfContents.map((item) => (
+                  <a href={item.href}>{item.title}</a>
+                ))}
+              </nav>
+            </div>
+
+            <div class="article-sidebar-card article-sidebar-card-soft">
+              <p>Powiązane</p>
+              <a href="/poradnik/">Poradnik PMU</a>
+              <a href={article.mainService.href}>{article.mainService.title}</a>
+              <a href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów wizytę</a>
+            </div>
+          </aside>
+
+          <article class="article-main">
+            <section class="article-answer-card" id="najkrocej">
+              <p class="section-kicker">Krótka odpowiedź</p>
+              <h2>Najważniejsze w kilku zdaniach</h2>
+              <p>{article.shortAnswer}</p>
+            </section>
+
+            <section class="article-keypoints" aria-label="Najważniejsze punkty">
+              {keyPoints.map((point) => (
+                <div>
+                  <span></span>
+                  <p>{point}</p>
+                </div>
+              ))}
+            </section>
+
+            {article.heroImage.src && (
+              <figure class="article-image article-image-wide">
+                <img
+                  src={article.heroImage.src}
+                  alt={article.heroImage.alt}
+                  width="1400"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            )}
+
+            {sections.map((section, index) => (
+              <section class="article-text-block" id={section.id}>
+                <p class="section-kicker">{section.eyebrow}</p>
+                <h2>{section.title}</h2>
+
+                {section.paragraphs.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+
+                {section.cards && (
+                  <div class="article-simple-cards">
+                    {section.cards.map((card) => (
+                      <article>
+                        <h3>{card.title}</h3>
+                        <p>{card.text}</p>
+                      </article>
+                    ))}
+                  </div>
+                )}
+
+                {index === 1 && article.secondaryImage.src && (
+                  <figure class="article-image">
+                    <img
+                      src={article.secondaryImage.src}
+                      alt={article.secondaryImage.alt}
+                      width="1200"
+                      height="900"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                )}
+              </section>
+            ))}
+
+            <section class="article-warning-card">
+              <h2>{warningBox.title}</h2>
+              <p>{warningBox.text}</p>
+            </section>
+
+            <section class="article-related-section">
+              <p class="section-kicker">Powiązane tematy</p>
+              <h2>Co warto przeczytać dalej?</h2>
+
+              <div class="article-related-grid">
+                {relatedLinks.map((item) => (
+                  <a href={item.href}>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </a>
+                ))}
+              </div>
+            </section>
+
+            <section class="article-faq-section" id="faq">
+              <p class="section-kicker">Najczęstsze pytania</p>
+              <h2>{article.faqHeading}</h2>
+
+              <div class="article-faq-list">
+                {faqItems.map((item) => (
+                  <article>
+                    <h3>{item.question}</h3>
+                    <p>{item.answer}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section class="article-final-cta">
+              <p class="signature cta-signature">Powrót do natury</p>
+              <h2>Nie masz pewności, czy zabieg jest dla Ciebie?</h2>
+              <p>
+                Zacznij od konsultacji. Przy makijażu permanentnym najważniejsza jest spokojna decyzja:
+                analiza skóry, oczekiwań, naturalnej urody i możliwości uzyskania dobrego efektu po wygojeniu.
+              </p>
+
+              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Umów konsultację przez Booksy
+              </a>
+            </section>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .article-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 82% 10%, rgba(56, 187, 181, 0.10), transparent 28rem),
+      radial-gradient(circle at 12% 42%, rgba(201, 127, 143, 0.10), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 48%, #ffffff 100%);
+  }
+
+  .article-page .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 16px;
+    padding: 0 12px;
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.76);
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.68rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .article-hero {
+    padding: 150px 0 72px;
+  }
+
+  .article-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .article-hero-copy,
+  .article-hero-summary,
+  .article-sidebar-card,
+  .article-answer-card,
+  .article-keypoints,
+  .article-text-block,
+  .article-warning-card,
+  .article-related-section,
+  .article-faq-section,
+  .article-final-cta,
+  .article-image {
+    border: 1px solid rgba(183, 101, 118, 0.14);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.065);
+  }
+
+  .article-hero-copy {
+    padding: clamp(34px, 5vw, 64px);
+    border-radius: 38px;
+    background: rgba(255, 255, 255, 0.80);
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .article-meta span {
+    display: inline-flex;
+    min-height: 30px;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(255, 248, 251, 0.92);
+    color: var(--color-muted, #6e6670);
+    font-size: 0.72rem;
+    font-weight: 760;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .article-hero-copy h1 {
+    max-width: 1050px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.8rem, 5vw, 5.6rem);
+    font-weight: 780;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .article-lead {
+    max-width: 920px;
+    margin: 26px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1.06rem, 1.35vw, 1.24rem);
+    line-height: 1.72;
+  }
+
+  .article-hero-summary {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(30px, 4vw, 48px);
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.26), transparent 13rem),
+      linear-gradient(145deg, #38bbb5 0%, #159a96 48%, #0f7773 100%);
+    color: #ffffff;
+  }
+
+  .summary-label {
+    margin: 0 auto auto 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .article-hero-summary h2 {
+    margin: 58px 0 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 3.3vw, 3.7rem);
+    font-weight: 780;
+    line-height: 1;
+    letter-spacing: -0.072em;
+  }
+
+  .article-hero-summary p:not(.summary-label) {
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.02rem;
+    line-height: 1.66;
+  }
+
+  .article-content-section {
+    padding: 28px 0 88px;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 34px;
+    align-items: start;
+  }
+
+  .article-sidebar {
+    position: sticky;
+    top: 112px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .article-sidebar-card {
+    padding: 22px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .article-sidebar-card p {
+    margin: 0 0 14px;
+    color: var(--color-text, #17151d);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .article-sidebar-card nav,
+  .article-sidebar-card {
+    display: grid;
+    gap: 8px;
+  }
+
+  .article-sidebar-card a {
+    display: block;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.94rem;
+    line-height: 1.45;
+    text-decoration: none;
+  }
+
+  .article-sidebar-card a:hover {
+    color: #0f7773;
+  }
+
+  .article-sidebar-card-soft {
+    background: rgba(219, 246, 243, 0.46);
+  }
+
+  .article-main {
+    display: grid;
+    gap: 22px;
+    min-width: 0;
+  }
+
+  .article-answer-card,
+  .article-text-block,
+  .article-warning-card,
+  .article-related-section,
+  .article-faq-section,
+  .article-final-cta {
+    padding: clamp(28px, 4vw, 46px);
+    border-radius: 32px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.07), transparent 14rem),
+      rgba(255, 255, 255, 0.86);
+  }
+
+  .article-answer-card h2,
+  .article-text-block h2,
+  .article-warning-card h2,
+  .article-related-section h2,
+  .article-faq-section h2,
+  .article-final-cta h2 {
+    max-width: 900px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2rem, 3.2vw, 3.55rem);
+    font-weight: 780;
+    line-height: 1.03;
+    letter-spacing: -0.068em;
+  }
+
+  .article-answer-card p:not(.section-kicker),
+  .article-text-block p:not(.section-kicker),
+  .article-warning-card p,
+  .article-related-section p,
+  .article-faq-section p,
+  .article-final-cta p:not(.signature) {
+    max-width: 900px;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1rem, 1.12vw, 1.1rem);
+    line-height: 1.74;
+  }
+
+  .article-answer-card p:not(.section-kicker),
+  .article-text-block p:not(.section-kicker) {
+    margin: 20px 0 0;
+  }
+
+  .article-keypoints {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .article-keypoints div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    padding: 22px;
+    border-right: 1px solid rgba(56, 187, 181, 0.13);
+    border-bottom: 1px solid rgba(56, 187, 181, 0.13);
+  }
+
+  .article-keypoints div:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .article-keypoints div:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .article-keypoints span {
+    width: 22px;
+    height: 22px;
+    margin-top: 4px;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle, rgba(21, 154, 150, 0.95) 0 24%, rgba(21, 154, 150, 0.16) 25% 100%);
+    box-shadow: 0 0 0 9px rgba(56, 187, 181, 0.10);
+  }
+
+  .article-keypoints p {
+    margin: 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.58;
+  }
+
+  .article-simple-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .article-simple-cards article,
+  .article-related-grid a,
+  .article-faq-list article {
+    padding: 22px;
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.74);
+  }
+
+  .article-simple-cards h3,
+  .article-related-grid h3,
+  .article-faq-list h3 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.25rem, 1.65vw, 1.75rem);
+    font-weight: 760;
+    line-height: 1.05;
+    letter-spacing: -0.052em;
+  }
+
+  .article-simple-cards p,
+  .article-related-grid p,
+  .article-faq-list p {
+    margin: 12px 0 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.62;
+  }
+
+  .article-image {
+    overflow: hidden;
+    margin: 0;
+    padding: 10px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.84);
+  }
+
+  .article-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  .article-warning-card {
+    border-color: rgba(201, 127, 143, 0.20);
+    background:
+      radial-gradient(circle at 92% 10%, rgba(246, 220, 227, 0.54), transparent 15rem),
+      rgba(255, 255, 255, 0.88);
+  }
+
+  .article-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .article-related-grid a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .article-related-grid a:hover {
+    border-color: rgba(201, 127, 143, 0.28);
+    background: rgba(255, 248, 251, 0.9);
+  }
+
+  .article-faq-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .article-final-cta {
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.72), rgba(255, 242, 246, 0.84)),
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .article-final-cta p:not(.signature) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-final-cta .button-primary {
+    margin-top: 18px;
+  }
+
+  @media (max-width: 1080px) {
+    .article-hero-grid,
+    .article-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .article-sidebar {
+      position: relative;
+      top: auto;
+      order: -1;
+    }
+
+    .article-sidebar-card nav {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .article-related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .article-hero {
+      padding: 112px 0 54px;
+    }
+
+    .article-hero-grid {
+      gap: 16px;
+      padding-left: 8px;
+      padding-right: 8px;
+      box-sizing: border-box;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary,
+    .article-sidebar-card,
+    .article-answer-card,
+    .article-keypoints,
+    .article-text-block,
+    .article-warning-card,
+    .article-related-section,
+    .article-faq-section,
+    .article-final-cta,
+    .article-image {
+      border-radius: 26px;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary,
+    .article-answer-card,
+    .article-text-block,
+    .article-warning-card,
+    .article-related-section,
+    .article-faq-section,
+    .article-final-cta {
+      padding: 26px 22px;
+    }
+
+    .article-hero-copy h1 {
+      font-size: clamp(2.35rem, 10.5vw, 3.55rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .article-lead {
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .article-hero-summary h2,
+    .article-answer-card h2,
+    .article-text-block h2,
+    .article-warning-card h2,
+    .article-related-section h2,
+    .article-faq-section h2,
+    .article-final-cta h2 {
+      font-size: clamp(2rem, 9vw, 3rem);
+      line-height: 1.04;
+      letter-spacing: -0.064em;
+    }
+
+    .article-sidebar-card nav {
+      grid-template-columns: 1fr;
+    }
+
+    .article-keypoints,
+    .article-simple-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .article-keypoints div,
+    .article-keypoints div:nth-child(2n),
+    .article-keypoints div:nth-last-child(-n + 2) {
+      border-right: 0;
+      border-bottom: 1px solid rgba(56, 187, 181, 0.13);
+    }
+
+    .article-keypoints div:last-child {
+      border-bottom: 0;
+    }
+
+    .article-simple-cards article,
+    .article-related-grid a,
+    .article-faq-list article {
+      padding: 20px;
+      border-radius: 20px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .article-hero-grid {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary {
+      width: calc(100% - 10px);
+      max-width: calc(100% - 10px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
+

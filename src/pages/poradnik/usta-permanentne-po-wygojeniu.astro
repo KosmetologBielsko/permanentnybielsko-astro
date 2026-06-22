@@ -1,0 +1,945 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const article = {
+  "slug": "usta-permanentne-po-wygojeniu",
+  "title": "Usta permanentne po wygojeniu — kiedy ocenić kolor i efekt?",
+  "eyebrow": "Poradnik PMU",
+  "category": "Usta permanentne",
+  "datePublished": "2026-06-22",
+  "dateModified": "2026-06-22",
+  "readingTime": "10–13 minut",
+  "description": "Jak wyglądają usta permanentne po wygojeniu? Zobacz, kiedy ocenić kolor, dlaczego usta mogą chwilowo jaśnieć i kiedy potrzebne jest dopigmentowanie.",
+  "lead": "Makijaż permanentny ust nie kończy się w dniu zabiegu. Świeży kolor może być intensywny, potem usta mogą się złuszczać i chwilowo wyglądać zbyt jasno, a dopiero po czasie pigment stabilizuje się w czerwieni wargowej.",
+  "shortAnswer": "Usta permanentne po wygojeniu zwykle są jaśniejsze i spokojniejsze niż bezpośrednio po zabiegu. W trakcie gojenia kolor może chwilowo wyglądać nierówno, za mocno albo zbyt blado. Finalną ocenę wykonuje się dopiero po stabilizacji skóry i czerwieni wargowej, a dopigmentowanie pozwala dopracować nasycenie oraz miejsca, które przyjęły pigment słabiej.",
+  "canonicalPath": "/poradnik/usta-permanentne-po-wygojeniu/",
+  "heroImage": {
+    "src": "",
+    "alt": ""
+  },
+  "secondaryImage": {
+    "src": "",
+    "alt": ""
+  },
+  "mainService": {
+    "href": "/makijaz-permanentny-ust/",
+    "title": "Makijaż permanentny ust"
+  },
+  "faqHeading": "Pytania: usta permanentne po wygojeniu"
+};
+
+const tableOfContents = [
+  {
+    "href": "#najkrocej",
+    "title": "Najkrócej"
+  },
+  {
+    "href": "#kolor",
+    "title": "Kolor po wygojeniu"
+  },
+  {
+    "href": "#dlaczego-jasnieja",
+    "title": "Dlaczego jaśnieją?"
+  },
+  {
+    "href": "#dopigmentowanie",
+    "title": "Dopigmentowanie"
+  },
+  {
+    "href": "#naturalny-efekt",
+    "title": "Naturalny efekt"
+  },
+  {
+    "href": "#faq",
+    "title": "FAQ"
+  }
+];
+
+const keyPoints = [
+  "Świeży kolor ust nie jest kolorem docelowym.",
+  "Po złuszczeniu usta mogą chwilowo wyglądać bardzo jasno lub nierówno.",
+  "Finalny efekt ocenia się dopiero po stabilizacji pigmentu.",
+  "Dopigmentowanie pozwala dopracować kolor i nasycenie po wygojeniu."
+];
+
+const sections = [
+  {
+    "id": "kolor",
+    "eyebrow": "Kolor po czasie",
+    "title": "Jak wyglądają usta permanentne po wygojeniu?",
+    "paragraphs": [
+      "Po wygojeniu usta zwykle wyglądają spokojniej niż w dniu zabiegu. Kolor nie powinien być oceniany na świeżo, bo bezpośrednio po pigmentacji czerwień wargowa może być mocniejsza, obrzęknięta i bardziej nasycona.",
+      "Docelowo makijaż permanentny ust ma odświeżać kolor, poprawiać optyczną świeżość czerwieni wargowej i podkreślać naturalny kształt. Nie musi wyglądać jak mocna pomadka."
+    ],
+    "cards": [
+      {
+        "title": "Świeży kolor",
+        "text": "Może być intensywniejszy i bardziej wyraźny."
+      },
+      {
+        "title": "Efekt po wygojeniu",
+        "text": "Zwykle jest spokojniejszy, delikatniejszy i bardziej naturalny."
+      }
+    ]
+  },
+  {
+    "id": "dlaczego-jasnieja",
+    "eyebrow": "Chwilowe rozjaśnienie",
+    "title": "Dlaczego usta po PMU mogą chwilowo jaśnieć?",
+    "paragraphs": [
+      "W trakcie gojenia usta mogą się złuszczać, przesuszać i przechodzić etap, w którym kolor wydaje się zbyt jasny. To nie musi oznaczać, że pigment się nie przyjął. Czerwień wargowa potrzebuje czasu na regenerację.",
+      "Największy błąd to ocenianie efektu w połowie gojenia. Kolor może najpierw być mocny, potem słabszy, a następnie stopniowo stabilizować się i wracać optycznie."
+    ],
+    "cards": [
+      {
+        "title": "Etap przejściowy",
+        "text": "Jasny kolor po złuszczeniu bywa normalnym etapem."
+      },
+      {
+        "title": "Nie oceniaj za wcześnie",
+        "text": "Efekt końcowy nie jest widoczny po kilku dniach."
+      }
+    ]
+  },
+  {
+    "id": "dopigmentowanie",
+    "eyebrow": "Drugi etap",
+    "title": "Po co jest dopigmentowanie ust permanentnych?",
+    "paragraphs": [
+      "Dopigmentowanie nie jest porażką pierwszego zabiegu. To etap dopracowania makijażu permanentnego po tym, jak skóra i czerwień wargowa pokażą, jak przyjęły pigment. Usta są delikatne, ruchome i bardzo indywidualne.",
+      "Podczas dopigmentowania można wzmocnić kolor, wyrównać miejsca słabiej przyjęte i dopracować efekt tak, aby wyglądał naturalnie po wygojeniu."
+    ],
+    "cards": [
+      {
+        "title": "Wyrównanie",
+        "text": "Dopigmentowanie pozwala dopracować miejsca słabiej przyjęte."
+      },
+      {
+        "title": "Nasycenie",
+        "text": "Można subtelnie wzmocnić kolor bez efektu ciężkiej pomadki."
+      }
+    ]
+  },
+  {
+    "id": "naturalny-efekt",
+    "eyebrow": "Naturalne usta",
+    "title": "Naturalny efekt ust permanentnych nie oznacza braku różnicy.",
+    "paragraphs": [
+      "Naturalny makijaż permanentny ust powinien poprawiać świeżość i czytelność czerwieni wargowej, ale nadal wyglądać spójnie z twarzą. Nie chodzi o przerysowanie konturu ani o kolor oderwany od urody klientki.",
+      "Dlatego dobór pigmentu, analiza czerwieni wargowej, historia opryszczki, kształt ust i styl codziennego makijażu są omawiane przed zabiegiem. Efekt po wygojeniu powinien być elegancki również bez pełnego makijażu."
+    ],
+    "cards": [
+      {
+        "title": "Bez przerysowania",
+        "text": "Kontur i kolor powinny współpracować z naturalnymi ustami."
+      },
+      {
+        "title": "Dobór koloru",
+        "text": "Odcień dobiera się do czerwieni wargowej i urody klientki."
+      }
+    ]
+  }
+];
+
+const warningBox = {
+  "title": "Kiedy nie czekać do kontroli?",
+  "text": "Jeśli po zabiegu pojawią się pęcherzyki opryszczki, silny ból, ropienie, narastający obrzęk albo nietypowa reakcja, skontaktuj się z gabinetem. Przy objawach medycznych potrzebna może być konsultacja lekarska."
+};
+
+const relatedLinks = [
+  {
+    "href": "/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/",
+    "title": "Gojenie ust dzień po dniu",
+    "text": "Zobacz etapy gojenia ust po PMU."
+  },
+  {
+    "href": "/poradnik/makijaz-permanentny-ust-jak-wybrac-kolor/",
+    "title": "Jak wybrać kolor ust?",
+    "text": "Przeczytaj, jak dobiera się odcień pigmentu."
+  },
+  {
+    "href": "/poradnik/opryszczka-a-makijaz-permanentny-ust/",
+    "title": "Opryszczka a PMU ust",
+    "text": "Sprawdź, co powiedzieć przed zabiegiem."
+  }
+];
+
+const faqItems = [
+  {
+    "question": "Kiedy ocenić kolor ust po makijażu permanentnym?",
+    "answer": "Kolor ocenia się dopiero po wygojeniu i stabilizacji czerwieni wargowej. W połowie gojenia odcień może wyglądać zbyt jasno lub nierówno."
+  },
+  {
+    "question": "Czy usta permanentne po wygojeniu są jaśniejsze?",
+    "answer": "Zwykle tak. Świeży kolor jest mocniejszy, a po wygojeniu efekt staje się spokojniejszy i bardziej naturalny."
+  },
+  {
+    "question": "Dlaczego usta po złuszczeniu wyglądają blado?",
+    "answer": "To może być etap przejściowy. Pigment i skóra potrzebują czasu na stabilizację, dlatego nie należy oceniać efektu po kilku dniach."
+  },
+  {
+    "question": "Czy dopigmentowanie ust jest potrzebne?",
+    "answer": "Często tak. Dopigmentowanie pozwala wyrównać kolor, wzmocnić nasycenie i dopracować miejsca, które przyjęły pigment słabiej."
+  },
+  {
+    "question": "Czy makijaż permanentny ust wygląda jak pomadka?",
+    "answer": "Nie musi. W naturalnym podejściu celem jest odświeżenie czerwieni wargowej i subtelne podkreślenie ust, a nie ciężki efekt szminki."
+  },
+  {
+    "question": "Czy opryszczka wpływa na gojenie ust po PMU?",
+    "answer": "Może wpływać, dlatego skłonność do opryszczki trzeba zgłosić przed zabiegiem i omówić ewentualną profilaktykę z lekarzem."
+  }
+];
+
+const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${pageUrl}#article`,
+    url: pageUrl,
+    headline: article.title,
+    description: article.description,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
+    inLanguage: "pl-PL",
+    author: {
+      "@type": "Person",
+      name: "Bogusława Herda",
+      url: "https://www.permanentnybielsko.com/",
+    },
+    publisher: {
+      "@id": "https://www.permanentnybielsko.com/#localbusiness",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Strona główna",
+        item: "https://www.permanentnybielsko.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Poradnik PMU",
+        item: "https://www.permanentnybielsko.com/poradnik/",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.title,
+        item: pageUrl,
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  },
+];
+---
+
+<Layout
+  title={`${article.title} | Poradnik PMU Bogusława Herda`}
+  description={article.description}
+  canonicalPath={article.canonicalPath}
+  structuredData={structuredData}
+>
+  <div class="article-page">
+    <Header />
+
+    <main>
+      <section class="article-hero">
+        <div class="container article-hero-grid">
+          <div class="article-hero-copy">
+            <p class="section-kicker">{article.eyebrow}</p>
+
+            <div class="article-meta">
+              <span>{article.category}</span>
+              <span>{article.readingTime}</span>
+            </div>
+
+            <h1>{article.title}</h1>
+
+            <p class="article-lead">{article.lead}</p>
+          </div>
+
+          <aside class="article-hero-summary" aria-label="Krótka odpowiedź">
+            <p class="summary-label">Najkrócej</p>
+            <h2>Co warto wiedzieć?</h2>
+            <p>{article.shortAnswer}</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="article-content-section">
+        <div class="container article-layout">
+          <aside class="article-sidebar" aria-label="Spis treści">
+            <div class="article-sidebar-card">
+              <p>W artykule</p>
+              <nav>
+                {tableOfContents.map((item) => (
+                  <a href={item.href}>{item.title}</a>
+                ))}
+              </nav>
+            </div>
+
+            <div class="article-sidebar-card article-sidebar-card-soft">
+              <p>Powiązane</p>
+              <a href="/poradnik/">Poradnik PMU</a>
+              <a href={article.mainService.href}>{article.mainService.title}</a>
+              <a href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów wizytę</a>
+            </div>
+          </aside>
+
+          <article class="article-main">
+            <section class="article-answer-card" id="najkrocej">
+              <p class="section-kicker">Krótka odpowiedź</p>
+              <h2>Najważniejsze w kilku zdaniach</h2>
+              <p>{article.shortAnswer}</p>
+            </section>
+
+            <section class="article-keypoints" aria-label="Najważniejsze punkty">
+              {keyPoints.map((point) => (
+                <div>
+                  <span></span>
+                  <p>{point}</p>
+                </div>
+              ))}
+            </section>
+
+            {article.heroImage.src && (
+              <figure class="article-image article-image-wide">
+                <img
+                  src={article.heroImage.src}
+                  alt={article.heroImage.alt}
+                  width="1400"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            )}
+
+            {sections.map((section, index) => (
+              <section class="article-text-block" id={section.id}>
+                <p class="section-kicker">{section.eyebrow}</p>
+                <h2>{section.title}</h2>
+
+                {section.paragraphs.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+
+                {section.cards && (
+                  <div class="article-simple-cards">
+                    {section.cards.map((card) => (
+                      <article>
+                        <h3>{card.title}</h3>
+                        <p>{card.text}</p>
+                      </article>
+                    ))}
+                  </div>
+                )}
+
+                {index === 1 && article.secondaryImage.src && (
+                  <figure class="article-image">
+                    <img
+                      src={article.secondaryImage.src}
+                      alt={article.secondaryImage.alt}
+                      width="1200"
+                      height="900"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                )}
+              </section>
+            ))}
+
+            <section class="article-warning-card">
+              <h2>{warningBox.title}</h2>
+              <p>{warningBox.text}</p>
+            </section>
+
+            <section class="article-related-section">
+              <p class="section-kicker">Powiązane tematy</p>
+              <h2>Co warto przeczytać dalej?</h2>
+
+              <div class="article-related-grid">
+                {relatedLinks.map((item) => (
+                  <a href={item.href}>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </a>
+                ))}
+              </div>
+            </section>
+
+            <section class="article-faq-section" id="faq">
+              <p class="section-kicker">Najczęstsze pytania</p>
+              <h2>{article.faqHeading}</h2>
+
+              <div class="article-faq-list">
+                {faqItems.map((item) => (
+                  <article>
+                    <h3>{item.question}</h3>
+                    <p>{item.answer}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section class="article-final-cta">
+              <p class="signature cta-signature">Powrót do natury</p>
+              <h2>Nie masz pewności, czy zabieg jest dla Ciebie?</h2>
+              <p>
+                Zacznij od konsultacji. Przy makijażu permanentnym najważniejsza jest spokojna decyzja:
+                analiza skóry, oczekiwań, naturalnej urody i możliwości uzyskania dobrego efektu po wygojeniu.
+              </p>
+
+              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Umów konsultację przez Booksy
+              </a>
+            </section>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .article-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 82% 10%, rgba(56, 187, 181, 0.10), transparent 28rem),
+      radial-gradient(circle at 12% 42%, rgba(201, 127, 143, 0.10), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 48%, #ffffff 100%);
+  }
+
+  .article-page .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 16px;
+    padding: 0 12px;
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.76);
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.68rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .article-hero {
+    padding: 150px 0 72px;
+  }
+
+  .article-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .article-hero-copy,
+  .article-hero-summary,
+  .article-sidebar-card,
+  .article-answer-card,
+  .article-keypoints,
+  .article-text-block,
+  .article-warning-card,
+  .article-related-section,
+  .article-faq-section,
+  .article-final-cta,
+  .article-image {
+    border: 1px solid rgba(183, 101, 118, 0.14);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.065);
+  }
+
+  .article-hero-copy {
+    padding: clamp(34px, 5vw, 64px);
+    border-radius: 38px;
+    background: rgba(255, 255, 255, 0.80);
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .article-meta span {
+    display: inline-flex;
+    min-height: 30px;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(255, 248, 251, 0.92);
+    color: var(--color-muted, #6e6670);
+    font-size: 0.72rem;
+    font-weight: 760;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .article-hero-copy h1 {
+    max-width: 1050px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.8rem, 5vw, 5.6rem);
+    font-weight: 780;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .article-lead {
+    max-width: 920px;
+    margin: 26px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1.06rem, 1.35vw, 1.24rem);
+    line-height: 1.72;
+  }
+
+  .article-hero-summary {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(30px, 4vw, 48px);
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.26), transparent 13rem),
+      linear-gradient(145deg, #38bbb5 0%, #159a96 48%, #0f7773 100%);
+    color: #ffffff;
+  }
+
+  .summary-label {
+    margin: 0 auto auto 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .article-hero-summary h2 {
+    margin: 58px 0 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 3.3vw, 3.7rem);
+    font-weight: 780;
+    line-height: 1;
+    letter-spacing: -0.072em;
+  }
+
+  .article-hero-summary p:not(.summary-label) {
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.02rem;
+    line-height: 1.66;
+  }
+
+  .article-content-section {
+    padding: 28px 0 88px;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 34px;
+    align-items: start;
+  }
+
+  .article-sidebar {
+    position: sticky;
+    top: 112px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .article-sidebar-card {
+    padding: 22px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .article-sidebar-card p {
+    margin: 0 0 14px;
+    color: var(--color-text, #17151d);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .article-sidebar-card nav,
+  .article-sidebar-card {
+    display: grid;
+    gap: 8px;
+  }
+
+  .article-sidebar-card a {
+    display: block;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.94rem;
+    line-height: 1.45;
+    text-decoration: none;
+  }
+
+  .article-sidebar-card a:hover {
+    color: #0f7773;
+  }
+
+  .article-sidebar-card-soft {
+    background: rgba(219, 246, 243, 0.46);
+  }
+
+  .article-main {
+    display: grid;
+    gap: 22px;
+    min-width: 0;
+  }
+
+  .article-answer-card,
+  .article-text-block,
+  .article-warning-card,
+  .article-related-section,
+  .article-faq-section,
+  .article-final-cta {
+    padding: clamp(28px, 4vw, 46px);
+    border-radius: 32px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.07), transparent 14rem),
+      rgba(255, 255, 255, 0.86);
+  }
+
+  .article-answer-card h2,
+  .article-text-block h2,
+  .article-warning-card h2,
+  .article-related-section h2,
+  .article-faq-section h2,
+  .article-final-cta h2 {
+    max-width: 900px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2rem, 3.2vw, 3.55rem);
+    font-weight: 780;
+    line-height: 1.03;
+    letter-spacing: -0.068em;
+  }
+
+  .article-answer-card p:not(.section-kicker),
+  .article-text-block p:not(.section-kicker),
+  .article-warning-card p,
+  .article-related-section p,
+  .article-faq-section p,
+  .article-final-cta p:not(.signature) {
+    max-width: 900px;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1rem, 1.12vw, 1.1rem);
+    line-height: 1.74;
+  }
+
+  .article-answer-card p:not(.section-kicker),
+  .article-text-block p:not(.section-kicker) {
+    margin: 20px 0 0;
+  }
+
+  .article-keypoints {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .article-keypoints div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    padding: 22px;
+    border-right: 1px solid rgba(56, 187, 181, 0.13);
+    border-bottom: 1px solid rgba(56, 187, 181, 0.13);
+  }
+
+  .article-keypoints div:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .article-keypoints div:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .article-keypoints span {
+    width: 22px;
+    height: 22px;
+    margin-top: 4px;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle, rgba(21, 154, 150, 0.95) 0 24%, rgba(21, 154, 150, 0.16) 25% 100%);
+    box-shadow: 0 0 0 9px rgba(56, 187, 181, 0.10);
+  }
+
+  .article-keypoints p {
+    margin: 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.58;
+  }
+
+  .article-simple-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .article-simple-cards article,
+  .article-related-grid a,
+  .article-faq-list article {
+    padding: 22px;
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.74);
+  }
+
+  .article-simple-cards h3,
+  .article-related-grid h3,
+  .article-faq-list h3 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.25rem, 1.65vw, 1.75rem);
+    font-weight: 760;
+    line-height: 1.05;
+    letter-spacing: -0.052em;
+  }
+
+  .article-simple-cards p,
+  .article-related-grid p,
+  .article-faq-list p {
+    margin: 12px 0 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.62;
+  }
+
+  .article-image {
+    overflow: hidden;
+    margin: 0;
+    padding: 10px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.84);
+  }
+
+  .article-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  .article-warning-card {
+    border-color: rgba(201, 127, 143, 0.20);
+    background:
+      radial-gradient(circle at 92% 10%, rgba(246, 220, 227, 0.54), transparent 15rem),
+      rgba(255, 255, 255, 0.88);
+  }
+
+  .article-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .article-related-grid a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .article-related-grid a:hover {
+    border-color: rgba(201, 127, 143, 0.28);
+    background: rgba(255, 248, 251, 0.9);
+  }
+
+  .article-faq-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .article-final-cta {
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.72), rgba(255, 242, 246, 0.84)),
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .article-final-cta p:not(.signature) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-final-cta .button-primary {
+    margin-top: 18px;
+  }
+
+  @media (max-width: 1080px) {
+    .article-hero-grid,
+    .article-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .article-sidebar {
+      position: relative;
+      top: auto;
+      order: -1;
+    }
+
+    .article-sidebar-card nav {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .article-related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .article-hero {
+      padding: 112px 0 54px;
+    }
+
+    .article-hero-grid {
+      gap: 16px;
+      padding-left: 8px;
+      padding-right: 8px;
+      box-sizing: border-box;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary,
+    .article-sidebar-card,
+    .article-answer-card,
+    .article-keypoints,
+    .article-text-block,
+    .article-warning-card,
+    .article-related-section,
+    .article-faq-section,
+    .article-final-cta,
+    .article-image {
+      border-radius: 26px;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary,
+    .article-answer-card,
+    .article-text-block,
+    .article-warning-card,
+    .article-related-section,
+    .article-faq-section,
+    .article-final-cta {
+      padding: 26px 22px;
+    }
+
+    .article-hero-copy h1 {
+      font-size: clamp(2.35rem, 10.5vw, 3.55rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .article-lead {
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .article-hero-summary h2,
+    .article-answer-card h2,
+    .article-text-block h2,
+    .article-warning-card h2,
+    .article-related-section h2,
+    .article-faq-section h2,
+    .article-final-cta h2 {
+      font-size: clamp(2rem, 9vw, 3rem);
+      line-height: 1.04;
+      letter-spacing: -0.064em;
+    }
+
+    .article-sidebar-card nav {
+      grid-template-columns: 1fr;
+    }
+
+    .article-keypoints,
+    .article-simple-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .article-keypoints div,
+    .article-keypoints div:nth-child(2n),
+    .article-keypoints div:nth-last-child(-n + 2) {
+      border-right: 0;
+      border-bottom: 1px solid rgba(56, 187, 181, 0.13);
+    }
+
+    .article-keypoints div:last-child {
+      border-bottom: 0;
+    }
+
+    .article-simple-cards article,
+    .article-related-grid a,
+    .article-faq-list article {
+      padding: 20px;
+      border-radius: 20px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .article-hero-grid {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary {
+      width: calc(100% - 10px);
+      max-width: calc(100% - 10px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
+

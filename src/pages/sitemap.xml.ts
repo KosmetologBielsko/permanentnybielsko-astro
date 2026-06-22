@@ -78,6 +78,50 @@ const pages = [
   },
 
   /*
+    Poradnik PMU — zaawansowane wpisy edukacyjne / Senuto
+  */
+  {
+    path: "/poradnik/brwi-permanentne-dzien-po-dniu/",
+    priority: "0.82",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/kiedy-mozna-myc-brwi-po-makijazu-permanentnym/",
+    priority: "0.79",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/czym-smarowac-brwi-po-makijazu-permanentnym/",
+    priority: "0.79",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/microblading-a-makijaz-permanentny-brwi/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/metoda-piorkowa-brwi/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/laserowe-usuwanie-brwi-permanentnych/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/kreska-permanentna-gojenie/",
+    priority: "0.78",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/usta-permanentne-po-wygojeniu/",
+    priority: "0.78",
+    changefreq: "monthly"
+  },
+
+  /*
     Poradnik PMU — artykuły fundamenty
   */
   {
