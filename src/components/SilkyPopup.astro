@@ -31,15 +31,9 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
       </video>
     </div>
 
-    <div class="shb-popup__content">
-      <p class="shb-popup__eyebrow">NOWOŚĆ / METODA AUTORSKA</p>
-      <h2 id="shb-popup-title">Silky Hairstroke Brows Plus</h2>
-      <p class="shb-popup__lead">
-        Autorska metoda naturalnych brwi permanentnych — włos po włosie, z analizą twarzy, skóry i mimiki.
-      </p>
-      <p class="shb-popup__text">
-        Zobacz, jak powstaje miękki, naturalny efekt brwi dopasowany do urody klientki.
-      </p>
+    <p class="shb-popup__lead">
+  Autorska metoda naturalnych brwi permanentnych — włos po włosie, z analizą twarzy, skóry i mimiki.
+</p>
 
       <ul class="shb-popup__points" aria-label="Najważniejsze zalety metody">
         <li>Naturalny efekt</li>
@@ -522,7 +516,7 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
   .shb-popup {
     align-items: flex-end;
     justify-content: center;
-    padding: 10px;
+    padding: 8px;
   }
 
   .shb-popup__panel,
@@ -530,8 +524,8 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    width: min(430px, calc(100vw - 20px));
-    max-height: calc(100svh - 20px);
+    width: min(430px, calc(100vw - 16px));
+    max-height: calc(100svh - 18px);
     overflow: hidden;
     border-radius: 26px;
   }
@@ -539,17 +533,17 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
   .shb-popup__close {
     top: 10px;
     right: 10px;
-    z-index: 40;
+    z-index: 50;
     width: 38px;
     height: 38px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.96);
   }
 
   .shb-popup__media {
     width: 100%;
     min-height: 0;
-    height: min(50svh, 420px);
-    max-height: 50svh;
+    height: min(40svh, 355px);
+    max-height: 40svh;
     overflow: hidden;
   }
 
@@ -565,24 +559,24 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
   .shb-popup__content,
   .shb-popup__copy {
     min-height: auto;
-    padding: 16px 17px 18px;
+    padding: 14px 16px 16px;
   }
 
   .shb-popup__eyebrow {
-    min-height: 26px;
+    min-height: 25px;
     margin: 0 0 8px;
-    padding: 0 9px;
+    padding: 0 10px;
     font-size: 0.58rem;
-    letter-spacing: 0.11em;
+    letter-spacing: 0.12em;
   }
 
   .shb-popup__title,
   .shb-popup__content h2,
   .shb-popup__copy h2 {
     margin: 0 0 8px;
-    font-size: clamp(1.65rem, 8vw, 2.25rem);
-    line-height: 1.03;
-    letter-spacing: -0.06em;
+    font-size: clamp(1.65rem, 8vw, 2.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.065em;
   }
 
   .shb-popup__lead,
@@ -590,13 +584,13 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
   .shb-popup__description,
   .shb-popup__note {
     margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.38;
+    font-size: 0.88rem;
+    line-height: 1.34;
   }
 
   .shb-popup__description,
   .shb-popup__note {
-    margin-top: 6px;
+    margin-top: 5px;
   }
 
   .shb-popup__points {
@@ -604,38 +598,60 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
   }
 
   .shb-popup__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-top: 12px;
   }
 
   .shb-popup__actions a,
   .shb-popup__actions button {
-    min-height: 40px;
-    font-size: 0.72rem;
+    min-height: 38px;
+    padding: 0 16px;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  .shb-popup__dismiss,
+  .shb-popup__later {
+    font-size: 0.68rem;
   }
 }
 
 @media (max-width: 380px) {
   .shb-popup__media {
-    height: 45svh;
-    max-height: 45svh;
+    height: 36svh;
+    max-height: 36svh;
   }
 
   .shb-popup__content,
   .shb-popup__copy {
-    padding: 14px 15px 16px;
+    padding: 13px 15px 15px;
   }
 
   .shb-popup__title,
   .shb-popup__content h2,
   .shb-popup__copy h2 {
-    font-size: 1.65rem;
+    font-size: 1.58rem;
   }
 
   .shb-popup__lead,
   .shb-popup__text,
   .shb-popup__description,
   .shb-popup__note {
-    font-size: 0.84rem;
+    font-size: 0.82rem;
+  }
+
+  .shb-popup__actions {
+    margin-top: 10px;
+    gap: 9px;
+  }
+
+  .shb-popup__actions a,
+  .shb-popup__actions button {
+    min-height: 36px;
+    padding: 0 13px;
+    font-size: 0.63rem;
   }
 }
 </style>
