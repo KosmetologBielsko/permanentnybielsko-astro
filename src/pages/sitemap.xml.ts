@@ -52,6 +52,29 @@ const pages = [
     priority: "0.86",
     changefreq: "weekly"
   },
+    /*
+    Poradnik PMU — regionalne wpisy Bielsko-Biała
+  */
+  {
+    path: "/poradnik/makijaz-permanentny-bielsko-biala/",
+    priority: "0.9",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/makijaz-permanentny-brwi-bielsko-biala/",
+    priority: "0.9",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/makijaz-permanentny-ust-bielsko-biala/",
+    priority: "0.85",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/makijaz-permanentny-oczu-bielsko-biala/",
+    priority: "0.85",
+    changefreq: "monthly"
+  },
 
   /*
     Poradnik PMU — wpisy cenowe / Senuto
