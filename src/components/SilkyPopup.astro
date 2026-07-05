@@ -1,0 +1,521 @@
+---
+const videoSrc = "/videos/silky-hairstroke-brows-popup.mp4";
+const posterSrc = "/images/silky-hairstroke-brows-popup-poster.webp";
+const ctaHref = "/poradnik/silky-hairstroke-brows-naturalny-wlos-maszynowy/";
+---
+
+<div
+  id="shb-popup"
+  class="shb-popup"
+  data-video-src={videoSrc}
+  data-storage-key="shb-popup-dismissed-until"
+  hidden
+  aria-live="polite"
+>
+  <article class="shb-popup__card" aria-labelledby="shb-popup-title">
+    <button class="shb-popup__close" type="button" data-shb-close aria-label="Zamknij panel Silky Hairstroke Brows Plus">
+      <span aria-hidden="true">×</span>
+    </button>
+
+    <div class="shb-popup__media" aria-hidden="true">
+      <video
+        class="shb-popup__video"
+        muted
+        autoplay
+        loop
+        playsinline
+        preload="none"
+        poster={posterSrc}
+      >
+        <source data-src={videoSrc} type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="shb-popup__content">
+      <p class="shb-popup__eyebrow">NOWOŚĆ / METODA AUTORSKA</p>
+      <h2 id="shb-popup-title">Silky Hairstroke Brows Plus</h2>
+      <p class="shb-popup__lead">
+        Autorska metoda naturalnych brwi permanentnych — włos po włosie, z analizą twarzy, skóry i mimiki.
+      </p>
+      <p class="shb-popup__text">
+        Zobacz, jak powstaje miękki, naturalny efekt brwi dopasowany do urody klientki.
+      </p>
+
+      <ul class="shb-popup__points" aria-label="Najważniejsze zalety metody">
+        <li>Naturalny efekt</li>
+        <li>Indywidualny projekt</li>
+        <li>Miękkość włosa</li>
+        <li>Komfort pracy</li>
+      </ul>
+
+      <div class="shb-popup__actions">
+        <a class="shb-popup__cta" href={ctaHref} data-shb-cta>Zobacz metodę SHB</a>
+        <button class="shb-popup__later" type="button" data-shb-close>Nie teraz</button>
+      </div>
+    </div>
+  </article>
+</div>
+
+<script is:inline>
+  (() => {
+    const popup = document.getElementById("shb-popup");
+
+    if (!popup || typeof window === "undefined") {
+      return;
+    }
+
+    const storageKey = popup.dataset.storageKey || "shb-popup-dismissed-until";
+    const dismissMs = 7 * 24 * 60 * 60 * 1000;
+    const showDelayMs = 4000;
+    const scrollThreshold = 0.3;
+
+    const safeLocalStorage = {
+      get(key) {
+        try {
+          return window.localStorage.getItem(key);
+        } catch {
+          return null;
+        }
+      },
+      set(key, value) {
+        try {
+          window.localStorage.setItem(key, value);
+        } catch {
+          // localStorage can be blocked in private mode; popup still works for the session.
+        }
+      }
+    };
+
+    const dismissedUntil = Number(safeLocalStorage.get(storageKey) || 0);
+
+    if (dismissedUntil && dismissedUntil > Date.now()) {
+      return;
+    }
+
+    let hasShown = false;
+    let delayTimer = null;
+
+    const video = popup.querySelector("video");
+    const source = video?.querySelector("source[data-src]");
+    const closeButtons = popup.querySelectorAll("[data-shb-close]");
+    const cta = popup.querySelector("[data-shb-cta]");
+
+    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const saveData = Boolean(navigator.connection?.saveData);
+    const shouldLoadVideo = !prefersReducedMotion && !saveData;
+
+    const rememberDismiss = () => {
+      safeLocalStorage.set(storageKey, String(Date.now() + dismissMs));
+    };
+
+    const cleanupTriggers = () => {
+      if (delayTimer) {
+        window.clearTimeout(delayTimer);
+        delayTimer = null;
+      }
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("keydown", handleKeydown);
+    };
+
+    const loadVideo = () => {
+      if (!video || !source || !shouldLoadVideo) {
+        popup.classList.add("shb-popup--static");
+        return;
+      }
+
+      if (!source.getAttribute("src")) {
+        source.setAttribute("src", source.dataset.src || popup.dataset.videoSrc || "");
+        video.load();
+      }
+
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {
+          popup.classList.add("shb-popup--static");
+        });
+      }
+    };
+
+    const showPopup = () => {
+      if (hasShown) {
+        return;
+      }
+
+      hasShown = true;
+      cleanupTriggers();
+      popup.hidden = false;
+
+      window.requestAnimationFrame(() => {
+        popup.classList.add("shb-popup--visible");
+        loadVideo();
+      });
+    };
+
+    const closePopup = () => {
+      rememberDismiss();
+      popup.classList.remove("shb-popup--visible");
+
+      if (video) {
+        video.pause();
+      }
+
+      window.setTimeout(() => {
+        popup.hidden = true;
+      }, 260);
+    };
+
+    function handleScroll() {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      if (scrollableHeight <= 0) {
+        return;
+      }
+
+      const progress = window.scrollY / scrollableHeight;
+
+      if (progress >= scrollThreshold) {
+        showPopup();
+      }
+    }
+
+    function handleKeydown(event) {
+      if (event.key === "Escape" && !popup.hidden) {
+        closePopup();
+      }
+    }
+
+    delayTimer = window.setTimeout(showPopup, showDelayMs);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    document.addEventListener("keydown", handleKeydown);
+
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", closePopup);
+    });
+
+    cta?.addEventListener("click", rememberDismiss);
+  })();
+</script>
+
+<style>
+  .shb-popup[hidden] {
+    display: none;
+  }
+
+  .shb-popup {
+    position: fixed;
+    z-index: 1200;
+    top: 50%;
+    right: 24px;
+    width: min(560px, calc(100vw - 32px));
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(24px, -50%, 0) scale(0.98);
+    transition:
+      opacity 260ms ease,
+      transform 260ms ease;
+  }
+
+  .shb-popup--visible {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translate3d(0, -50%, 0) scale(1);
+  }
+
+  .shb-popup__card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 178px minmax(0, 1fr);
+    gap: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(191, 146, 86, 0.24);
+    border-radius: 32px;
+    background:
+      radial-gradient(circle at 8% 0%, rgba(116, 224, 215, 0.22), transparent 11rem),
+      radial-gradient(circle at 96% 14%, rgba(231, 180, 192, 0.24), transparent 12rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 247, 0.94));
+    box-shadow:
+      0 26px 70px rgba(73, 45, 54, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(18px);
+  }
+
+  .shb-popup__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255,255,255,0.78), transparent 34%, rgba(207, 166, 92, 0.12));
+  }
+
+  .shb-popup__close {
+    position: absolute;
+    z-index: 4;
+    top: 12px;
+    right: 12px;
+    display: inline-grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 1px solid rgba(191, 146, 86, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: #7d5d3f;
+    cursor: pointer;
+    font-size: 1.24rem;
+    line-height: 1;
+    box-shadow: 0 10px 28px rgba(73, 45, 54, 0.1);
+    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+  }
+
+  .shb-popup__close:hover {
+    transform: translateY(-1px);
+    border-color: rgba(15, 119, 115, 0.32);
+    background: rgba(255, 255, 255, 0.96);
+  }
+
+  .shb-popup__media {
+    position: relative;
+    z-index: 2;
+    min-height: 330px;
+    margin: 12px 0 12px 12px;
+    overflow: hidden;
+    border-radius: 24px;
+    background:
+      linear-gradient(180deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.72));
+  }
+
+  .shb-popup__video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 330px;
+    object-fit: cover;
+  }
+
+  .shb-popup__content {
+    position: relative;
+    z-index: 2;
+    padding: 32px 30px 28px 0;
+  }
+
+  .shb-popup__eyebrow {
+    display: inline-flex;
+    min-height: 28px;
+    align-items: center;
+    margin: 0 42px 12px 0;
+    padding: 0 11px;
+    border: 1px solid rgba(15, 119, 115, 0.16);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.72);
+    color: #0f7773;
+    font-size: 0.64rem;
+    font-weight: 850;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .shb-popup__content h2 {
+    margin: 0;
+    color: #17151d;
+    font-size: clamp(1.72rem, 2.1vw, 2.28rem);
+    font-weight: 780;
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+  }
+
+  .shb-popup__lead {
+    margin: 14px 0 0;
+    color: #4f474f;
+    font-size: 0.96rem;
+    font-weight: 650;
+    line-height: 1.5;
+  }
+
+  .shb-popup__text {
+    margin: 10px 0 0;
+    color: #756b73;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .shb-popup__points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .shb-popup__points li {
+    display: inline-flex;
+    min-height: 28px;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid rgba(191, 146, 86, 0.2);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.68);
+    color: #7d5d3f;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+
+  .shb-popup__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 18px;
+  }
+
+  .shb-popup__cta,
+  .shb-popup__later {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .shb-popup__cta {
+    padding: 0 18px;
+    border: 1px solid rgba(15, 119, 115, 0.2);
+    background: linear-gradient(135deg, #74e0d7, #38bbb5 52%, #0f7773);
+    color: #ffffff;
+    box-shadow: 0 14px 30px rgba(15, 119, 115, 0.22);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .shb-popup__cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 38px rgba(15, 119, 115, 0.28);
+  }
+
+  .shb-popup__later {
+    border: 0;
+    background: transparent;
+    color: #8a7a82;
+    cursor: pointer;
+    padding: 0 6px;
+  }
+
+  .shb-popup__later:hover {
+    color: #0f7773;
+  }
+
+  @media (max-width: 760px) {
+    .shb-popup {
+      top: auto;
+      right: 10px;
+      bottom: 10px;
+      left: 10px;
+      width: auto;
+      transform: translate3d(0, 22px, 0) scale(0.98);
+    }
+
+    .shb-popup--visible {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    .shb-popup__card {
+      grid-template-columns: 104px minmax(0, 1fr);
+      gap: 12px;
+      border-radius: 26px;
+    }
+
+    .shb-popup__media {
+      min-height: 230px;
+      margin: 10px 0 10px 10px;
+      border-radius: 19px;
+    }
+
+    .shb-popup__video {
+      min-height: 230px;
+    }
+
+    .shb-popup__content {
+      padding: 24px 18px 20px 0;
+    }
+
+    .shb-popup__eyebrow {
+      min-height: 24px;
+      margin-bottom: 9px;
+      padding: 0 9px;
+      font-size: 0.54rem;
+      letter-spacing: 0.12em;
+    }
+
+    .shb-popup__content h2 {
+      max-width: 230px;
+      font-size: 1.42rem;
+      letter-spacing: -0.058em;
+    }
+
+    .shb-popup__lead {
+      margin-top: 10px;
+      font-size: 0.84rem;
+      line-height: 1.42;
+    }
+
+    .shb-popup__text {
+      display: none;
+    }
+
+    .shb-popup__points {
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .shb-popup__points li {
+      min-height: 24px;
+      padding: 0 8px;
+      font-size: 0.58rem;
+    }
+
+    .shb-popup__actions {
+      margin-top: 14px;
+      gap: 8px;
+    }
+
+    .shb-popup__cta {
+      min-height: 38px;
+      padding: 0 14px;
+      font-size: 0.64rem;
+    }
+
+    .shb-popup__later {
+      min-height: 32px;
+      font-size: 0.62rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .shb-popup__card {
+      grid-template-columns: 88px minmax(0, 1fr);
+    }
+
+    .shb-popup__media,
+    .shb-popup__video {
+      min-height: 214px;
+    }
+
+    .shb-popup__points li:nth-child(n + 3) {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shb-popup,
+    .shb-popup__cta,
+    .shb-popup__close {
+      transition: none;
+    }
+  }
+</style>
