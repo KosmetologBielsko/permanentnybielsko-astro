@@ -527,35 +527,39 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
 
   .shb-popup__panel,
   .shb-popup__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     width: min(430px, calc(100vw - 20px));
     max-height: calc(100svh - 20px);
     overflow: hidden;
     border-radius: 26px;
-    display: grid;
-    grid-template-rows: auto auto;
   }
 
   .shb-popup__close {
     top: 10px;
     right: 10px;
-    z-index: 30;
+    z-index: 40;
     width: 38px;
     height: 38px;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.95);
   }
 
   .shb-popup__media {
+    width: 100%;
     min-height: 0;
-    height: min(52svh, 430px);
-    max-height: 52svh;
+    height: min(50svh, 420px);
+    max-height: 50svh;
     overflow: hidden;
   }
 
   .shb-popup__video {
+    display: block;
     width: 100%;
     height: 100%;
     min-height: 0;
     object-fit: cover;
+    object-position: center center;
   }
 
   .shb-popup__content,
@@ -576,23 +580,23 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
   .shb-popup__content h2,
   .shb-popup__copy h2 {
     margin: 0 0 8px;
-    font-size: clamp(1.75rem, 9vw, 2.35rem);
-    line-height: 1.02;
-    letter-spacing: -0.065em;
+    font-size: clamp(1.65rem, 8vw, 2.25rem);
+    line-height: 1.03;
+    letter-spacing: -0.06em;
   }
 
   .shb-popup__lead,
   .shb-popup__text,
-  .shb-popup__description {
+  .shb-popup__description,
+  .shb-popup__note {
     margin: 0;
-    font-size: 0.94rem;
+    font-size: 0.9rem;
     line-height: 1.38;
   }
 
+  .shb-popup__description,
   .shb-popup__note {
-    margin: 6px 0 0;
-    font-size: 0.9rem;
-    line-height: 1.38;
+    margin-top: 6px;
   }
 
   .shb-popup__points {
@@ -602,12 +606,18 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
   .shb-popup__actions {
     margin-top: 12px;
   }
+
+  .shb-popup__actions a,
+  .shb-popup__actions button {
+    min-height: 40px;
+    font-size: 0.72rem;
+  }
 }
 
 @media (max-width: 380px) {
   .shb-popup__media {
-    height: 47svh;
-    max-height: 47svh;
+    height: 45svh;
+    max-height: 45svh;
   }
 
   .shb-popup__content,
@@ -618,14 +628,14 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
   .shb-popup__title,
   .shb-popup__content h2,
   .shb-popup__copy h2 {
-    font-size: 1.72rem;
+    font-size: 1.65rem;
   }
 
   .shb-popup__lead,
   .shb-popup__text,
   .shb-popup__description,
   .shb-popup__note {
-    font-size: 0.86rem;
+    font-size: 0.84rem;
   }
 }
 </style>
