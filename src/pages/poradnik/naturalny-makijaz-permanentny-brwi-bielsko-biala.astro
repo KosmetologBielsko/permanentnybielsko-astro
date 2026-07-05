@@ -1,0 +1,970 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const article = {
+  "slug": "naturalny-makijaz-permanentny-brwi-bielsko-biala",
+  "title": "Naturalny makijaż permanentny brwi Bielsko-Biała — metoda włoskowa czy cieniowanie?",
+  "eyebrow": "Poradnik PMU",
+  "category": "Brwi permanentne Bielsko-Biała",
+  "datePublished": "2026-07-05",
+  "dateModified": "2026-07-05",
+  "readingTime": "9–11 minut",
+  "description": "Naturalny makijaż permanentny brwi Bielsko-Biała: metoda włoskowa, cieniowanie, włos z cieniem, microblading i dobór techniki do skóry. Sprawdź, jak uzyskać naturalny efekt PMU brwi.",
+  "lead": "Naturalny makijaż permanentny brwi w Bielsku-Białej to nie jedna metoda i nie jeden kształt. To świadomy projekt dopasowany do twarzy, skóry, naturalnego układu włosa i oczekiwań klientki. Czasem najlepsza będzie metoda włoskowa, czasem miękkie cieniowanie, a czasem połączenie włosa z cieniem.",
+  "shortAnswer": "Naturalne brwi permanentne wymagają rysunku wstępnego, oceny skóry i dobrania techniki do konkretnej osoby. Metoda włoskowa, cieniowanie i włos z cieniem mogą wyglądać naturalnie, jeśli są dobrze zakwalifikowane i oceniane po wygojeniu.",
+  "canonicalPath": "/poradnik/naturalny-makijaz-permanentny-brwi-bielsko-biala/",
+  "heroImage": {
+    "src": "",
+    "alt": ""
+  },
+  "secondaryImage": {
+    "src": "",
+    "alt": ""
+  },
+  "mainService": {
+    "href": "/makijaz-permanentny-brwi/",
+    "title": "Brwi permanentne"
+  },
+  "faqHeading": "Najczęstsze pytania — brwi permanentne bielsko-biała"
+};
+
+const tableOfContents = [
+  {
+    "href": "#najkrocej",
+    "title": "Najkrócej"
+  },
+  {
+    "href": "#naturalny-efekt",
+    "title": "Naturalne brwi"
+  },
+  {
+    "href": "#metoda-wloskowa-cieniowanie",
+    "title": "Metody"
+  },
+  {
+    "href": "#dla-kogo",
+    "title": "Dla kogo?"
+  },
+  {
+    "href": "#bielsko-biala",
+    "title": "Bielsko-Biała"
+  },
+  {
+    "href": "#faq",
+    "title": "FAQ"
+  }
+];
+
+const keyPoints = [
+  "Naturalny efekt brwi zależy od rysunku, skóry, techniki i doświadczenia linergistki.",
+  "Metoda włoskowa nie jest automatycznie najlepsza dla każdej skóry.",
+  "Cieniowanie może być subtelne i lekkie, jeśli jest dobrze wykonane.",
+  "Przy starym pigmencie często najpierw potrzebna jest konsultacja albo rozjaśnianie."
+];
+
+const sections = [
+  {
+    "id": "naturalny-efekt",
+    "eyebrow": "Naturalne brwi",
+    "title": "Naturalny efekt brwi permanentnych zaczyna się od projektu, nie od pigmentu.",
+    "paragraphs": [
+      "Naturalny makijaż permanentny brwi w Bielsku-Białej nie polega na tym, żeby brwi były prawie niewidoczne. Chodzi o to, żeby pasowały do twarzy, mimiki, naturalnych włosków, wieku, urody i stylu życia. Brwi mają porządkować rysy, a nie dominować nad całą twarzą.",
+      "Najważniejszy etap to rysunek wstępny. To wtedy ustala się proporcję, wysokość, łuk, grubość, kierunek i granice efektu. Dopiero później dobiera się technikę: metodę włoskową, cieniowanie albo połączenie włosa z cieniem."
+    ],
+    "cards": [
+      {
+        "title": "Rysunek wstępny",
+        "text": "Decyduje o proporcji i kierunku efektu przed pigmentacją."
+      },
+      {
+        "title": "Naturalny układ włosa",
+        "text": "Technika powinna respektować to, jak brwi rosną naprawdę."
+      },
+      {
+        "title": "Miękkość koloru",
+        "text": "Brwi po wygojeniu powinny współgrać z urodą, nie wyglądać jak ciężka rama."
+      },
+      {
+        "title": "Ocena po wygojeniu",
+        "text": "Finalny efekt ocenia się dopiero po stabilizacji pigmentu."
+      }
+    ]
+  },
+  {
+    "id": "metoda-wloskowa-cieniowanie",
+    "eyebrow": "Metody",
+    "title": "Metoda włoskowa, cieniowanie czy włos z cieniem?",
+    "paragraphs": [
+      "Metoda włoskowa daje bardzo naturalny kierunek wtedy, gdy skóra i naturalne brwi pozwalają na taki efekt. Wymaga precyzji, kontroli nacisku i świadomego prowadzenia linii. Nie jest jednak automatycznie najlepsza dla każdej osoby.",
+      "Cieniowanie może wyglądać miękko i naturalnie, jeśli jest dobrze dobrane. Nie musi oznaczać ciężkich, przerysowanych brwi. Włos z cieniem łączy lekkość z delikatnym wypełnieniem, ale również wymaga kwalifikacji skóry. Dlatego nazwa metody jest mniej ważna niż decyzja podjęta po analizie."
+    ],
+    "cards": [
+      {
+        "title": "Metoda włoskowa",
+        "text": "Dobra przy odpowiedniej skórze i oczekiwaniu naturalnego efektu włosa."
+      },
+      {
+        "title": "Cieniowanie",
+        "text": "Może dać miękki, pudrowy efekt bez ciężkiej ramy."
+      },
+      {
+        "title": "Włos z cieniem",
+        "text": "Łączy strukturę włosa z delikatnym wypełnieniem."
+      },
+      {
+        "title": "Microblading",
+        "text": "Nie zawsze jest najlepszym wyborem. Warto porównać go z włosem maszynowym i technikami pigmentacji."
+      }
+    ]
+  },
+  {
+    "id": "dla-kogo",
+    "eyebrow": "Dla kogo?",
+    "title": "Dla kogo naturalne brwi permanentne będą dobrym wyborem?",
+    "paragraphs": [
+      "Naturalne brwi permanentne są dobrym rozwiązaniem dla osób, które mają ubytki, nieregularny kształt, jasne włoski, asymetrię albo codziennie tracą czas na dorysowywanie brwi. Sprawdzają się także wtedy, gdy klientka nie chce efektu mocnego makijażu, tylko subtelnego uporządkowania.",
+      "Szczególnej ostrożności wymagają osoby ze starym PMU. Jeśli pigment jest zbyt ciemny, szary, czerwony lub nierówny, nowa pigmentacja nie zawsze da naturalny efekt. Czasem najpierw trzeba rozjaśnić stare brwi, a dopiero później zaplanować nową technikę."
+    ],
+    "cards": [
+      {
+        "title": "Ubytki w brwiach",
+        "text": "PMU może optycznie uzupełnić brakujące miejsca."
+      },
+      {
+        "title": "Asymetria",
+        "text": "Rysunek pozwala uporządkować proporcję, ale bez sztucznego wyrównywania twarzy na siłę."
+      },
+      {
+        "title": "Jasne włoski",
+        "text": "Delikatny kolor może nadać brwiom większą czytelność."
+      },
+      {
+        "title": "Stary PMU",
+        "text": "Wymaga konsultacji i często rozjaśnienia przed naturalnym efektem."
+      }
+    ]
+  },
+  {
+    "id": "bielsko-biala",
+    "eyebrow": "Bielsko-Biała",
+    "title": "Naturalne brwi permanentne w Bielsku-Białej — co sprawdzić przed wizytą?",
+    "paragraphs": [
+      "Szukając naturalnych brwi permanentnych w Bielsku-Białej, warto sprawdzić, czy gabinet pokazuje różne typy efektów: włoskowe, cieniowane, subtelne i bardziej widoczne. To ważne, bo naturalność nie wygląda identycznie u każdej osoby.",
+      "Dobrze, jeśli przed zabiegiem można omówić nie tylko kształt, ale też skórę, pielęgnację, poprzednie pigmentacje, oczekiwania i ograniczenia. Naturalny efekt jest wynikiem decyzji, a nie przypadku."
+    ],
+    "cards": [
+      {
+        "title": "Styl pracy",
+        "text": "Sprawdź, czy brwi na zdjęciach są lekkie, miękkie i dopasowane do twarzy."
+      },
+      {
+        "title": "Konsultacja",
+        "text": "To najlepszy moment na wybór metody, koloru i realnego kierunku efektu."
+      }
+    ]
+  }
+];
+
+const warningBox = {
+  "title": "Nie każda metoda daje naturalny efekt na każdej skórze.",
+  "text": "Dobór techniki powinien wynikać z konsultacji. Skóra tłusta, porowata, cienka, naczyniowa albo z dawnym pigmentem może wymagać innego planu niż zdjęcie inspiracyjne."
+};
+
+const relatedLinks = [
+  {
+    "href": "/poradnik/makijaz-permanentny-bielsko-biala/",
+    "title": "Makijaż permanentny Bielsko-Biała",
+    "text": "Regionalny przewodnik po brwiach, ustach, kreskach i konsultacji PMU."
+  },
+  {
+    "href": "/poradnik/makijaz-permanentny-brwi-bielsko-biala/",
+    "title": "Makijaż permanentny brwi Bielsko-Biała",
+    "text": "Metoda włoskowa, cieniowanie, włos z cieniem i naturalny efekt brwi."
+  },
+  {
+    "href": "/cennik-makijaz-permanentny/",
+    "title": "Cennik PMU",
+    "text": "Aktualne ceny brwi, ust, kresek, odświeżeń, konsultacji i usuwania."
+  },
+  {
+    "href": "/usuwanie-makijazu-permanentnego/",
+    "title": "Usuwanie i korekta PMU",
+    "text": "Stary pigment, laser, remover, korekta i etapowy plan działania."
+  }
+];
+
+const faqItems = [
+  {
+    "question": "Jaka metoda brwi permanentnych wygląda najbardziej naturalnie?",
+    "answer": "To zależy od skóry i naturalnych brwi. Naturalnie może wyglądać metoda włoskowa, cieniowanie albo włos z cieniem, jeśli technika jest dobrze dobrana."
+  },
+  {
+    "question": "Czy metoda włoskowa jest dla każdego?",
+    "answer": "Nie. Wymaga odpowiedniej skóry, precyzji i kwalifikacji. Przy niektórych typach skóry lepszym wyborem może być miękkie cieniowanie."
+  },
+  {
+    "question": "Czy cieniowanie brwi musi wyglądać mocno?",
+    "answer": "Nie. Cieniowanie może być subtelne, pudrowe i naturalne, jeśli jest wykonane z odpowiednim nasyceniem i kolorem."
+  },
+  {
+    "question": "Czy można zrobić naturalne brwi na starym PMU?",
+    "answer": "Czasem tak, ale nie zawsze od razu. Zbyt ciemny lub nierówny pigment może wymagać rozjaśnienia przed nową pigmentacją."
+  },
+  {
+    "question": "Kiedy ocenić finalny efekt brwi permanentnych?",
+    "answer": "Dopiero po wygojeniu i stabilizacji pigmentu. Bezpośrednio po zabiegu brwi zwykle są ciemniejsze i bardziej wyraźne."
+  }
+];
+
+const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${pageUrl}#article`,
+    url: pageUrl,
+    headline: article.title,
+    description: article.description,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
+    inLanguage: "pl-PL",
+    author: {
+      "@type": "Person",
+      name: "Bogusława Herda",
+      url: "https://www.permanentnybielsko.com/"
+    },
+    publisher: {
+      "@id": "https://www.permanentnybielsko.com/#localbusiness"
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Strona główna",
+        item: "https://www.permanentnybielsko.com/"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Poradnik PMU",
+        item: "https://www.permanentnybielsko.com/poradnik/"
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.title,
+        item: pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  }
+];
+---
+
+<Layout
+  title={`${article.title} | Poradnik PMU Bogusława Herda`}
+  description={article.description}
+  canonicalPath={article.canonicalPath}
+  structuredData={structuredData}
+>
+  <div class="article-page">
+    <Header />
+
+    <main>
+      <section class="article-hero">
+        <div class="container article-hero-grid">
+          <div class="article-hero-copy">
+            <p class="section-kicker">{article.eyebrow}</p>
+
+            <div class="article-meta">
+              <span>{article.category}</span>
+              <span>{article.readingTime}</span>
+            </div>
+
+            <h1>{article.title}</h1>
+
+            <p class="article-lead">{article.lead}</p>
+          </div>
+
+          <aside class="article-hero-summary" aria-label="Krótka odpowiedź">
+            <p class="summary-label">Najkrócej</p>
+            <h2>Co warto wiedzieć?</h2>
+            <p>{article.shortAnswer}</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="article-content-section">
+        <div class="container article-layout">
+          <aside class="article-sidebar" aria-label="Spis treści">
+            <div class="article-sidebar-card">
+              <p>W artykule</p>
+              <nav>
+                {tableOfContents.map((item) => (
+                  <a href={item.href}>{item.title}</a>
+                ))}
+              </nav>
+            </div>
+
+            <div class="article-sidebar-card article-sidebar-card-soft">
+              <p>Powiązane</p>
+              <a href="/poradnik/">Poradnik PMU</a>
+              <a href={article.mainService.href}>{article.mainService.title}</a>
+              <a href="/cennik-makijaz-permanentny/">Cennik PMU</a>
+              <a href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów wizytę</a>
+            </div>
+          </aside>
+
+          <article class="article-main">
+            <section class="article-answer-card" id="najkrocej">
+              <p class="section-kicker">Krótka odpowiedź</p>
+              <h2>Najważniejsze w kilku zdaniach</h2>
+              <p>{article.shortAnswer}</p>
+            </section>
+
+            <section class="article-keypoints" aria-label="Najważniejsze punkty">
+              {keyPoints.map((point) => (
+                <div>
+                  <span></span>
+                  <p>{point}</p>
+                </div>
+              ))}
+            </section>
+
+            {article.heroImage.src && (
+              <figure class="article-image article-image-wide">
+                <img
+                  src={article.heroImage.src}
+                  alt={article.heroImage.alt}
+                  width="1400"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            )}
+
+            {sections.map((section, index) => (
+              <section class="article-text-block" id={section.id}>
+                <p class="section-kicker">{section.eyebrow}</p>
+                <h2>{section.title}</h2>
+
+                {section.paragraphs.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+
+                {section.cards && (
+                  <div class="article-simple-cards">
+                    {section.cards.map((card) => (
+                      <article>
+                        <h3>{card.title}</h3>
+                        <p>{card.text}</p>
+                      </article>
+                    ))}
+                  </div>
+                )}
+
+                {index === 1 && article.secondaryImage.src && (
+                  <figure class="article-image">
+                    <img
+                      src={article.secondaryImage.src}
+                      alt={article.secondaryImage.alt}
+                      width="1200"
+                      height="900"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                )}
+              </section>
+            ))}
+
+            <section class="article-warning-card">
+              <h2>{warningBox.title}</h2>
+              <p>{warningBox.text}</p>
+            </section>
+
+            <section class="article-related-section">
+              <p class="section-kicker">Powiązane tematy</p>
+              <h2>Co warto przeczytać dalej?</h2>
+
+              <div class="article-related-grid">
+                {relatedLinks.map((item) => (
+                  <a href={item.href}>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </a>
+                ))}
+              </div>
+            </section>
+
+            <section class="article-faq-section" id="faq">
+              <p class="section-kicker">Najczęstsze pytania</p>
+              <h2>{article.faqHeading}</h2>
+
+              <div class="article-faq-list">
+                {faqItems.map((item) => (
+                  <article>
+                    <h3>{item.question}</h3>
+                    <p>{item.answer}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section class="article-final-cta">
+              <p class="signature cta-signature">Powrót do natury</p>
+              <h2>Chcesz sprawdzić, jaki makijaż permanentny będzie najlepszy dla Ciebie?</h2>
+              <p>
+                Zacznij od konsultacji. Przy makijażu permanentnym najważniejsze są spokojna decyzja,
+                analiza skóry, rysunek wstępny i dobór efektu, który będzie pasować do Twojej urody.
+              </p>
+
+              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Umów konsultację przez Booksy
+              </a>
+            </section>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .article-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 82% 10%, rgba(56, 187, 181, 0.10), transparent 28rem),
+      radial-gradient(circle at 12% 42%, rgba(201, 127, 143, 0.10), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 48%, #ffffff 100%);
+  }
+
+  .article-page .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 16px;
+    padding: 0 12px;
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.76);
+    color: var(--color-turquoise-dark, #0f7773);
+    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.68rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .article-hero {
+    padding: 150px 0 72px;
+  }
+
+  .article-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .article-hero-copy,
+  .article-hero-summary,
+  .article-sidebar-card,
+  .article-answer-card,
+  .article-keypoints,
+  .article-text-block,
+  .article-warning-card,
+  .article-related-section,
+  .article-faq-section,
+  .article-final-cta,
+  .article-image {
+    border: 1px solid rgba(183, 101, 118, 0.14);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.065);
+  }
+
+  .article-hero-copy {
+    padding: clamp(34px, 5vw, 64px);
+    border-radius: 38px;
+    background: rgba(255, 255, 255, 0.80);
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .article-meta span {
+    display: inline-flex;
+    min-height: 30px;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(255, 248, 251, 0.92);
+    color: var(--color-muted, #6e6670);
+    font-size: 0.72rem;
+    font-weight: 760;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .article-hero-copy h1 {
+    max-width: 1050px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.8rem, 5vw, 5.6rem);
+    font-weight: 780;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .article-lead {
+    max-width: 920px;
+    margin: 26px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1.06rem, 1.35vw, 1.24rem);
+    line-height: 1.72;
+  }
+
+  .article-hero-summary {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(30px, 4vw, 48px);
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.26), transparent 13rem),
+      linear-gradient(145deg, #38bbb5 0%, #159a96 48%, #0f7773 100%);
+    color: #ffffff;
+  }
+
+  .summary-label {
+    margin: 0 auto auto 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .article-hero-summary h2 {
+    margin: 58px 0 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 3.3vw, 3.7rem);
+    font-weight: 780;
+    line-height: 1;
+    letter-spacing: -0.072em;
+  }
+
+  .article-hero-summary p:not(.summary-label) {
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.02rem;
+    line-height: 1.66;
+  }
+
+  .article-content-section {
+    padding: 28px 0 88px;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 34px;
+    align-items: start;
+  }
+
+  .article-sidebar {
+    position: sticky;
+    top: 112px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .article-sidebar-card {
+    padding: 22px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .article-sidebar-card p {
+    margin: 0 0 14px;
+    color: var(--color-text, #17151d);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .article-sidebar-card nav,
+  .article-sidebar-card {
+    display: grid;
+    gap: 8px;
+  }
+
+  .article-sidebar-card a {
+    display: block;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.94rem;
+    line-height: 1.45;
+    text-decoration: none;
+  }
+
+  .article-sidebar-card a:hover {
+    color: #0f7773;
+  }
+
+  .article-sidebar-card-soft {
+    background: rgba(219, 246, 243, 0.46);
+  }
+
+  .article-main {
+    display: grid;
+    gap: 22px;
+    min-width: 0;
+  }
+
+  .article-answer-card,
+  .article-text-block,
+  .article-warning-card,
+  .article-related-section,
+  .article-faq-section,
+  .article-final-cta {
+    padding: clamp(28px, 4vw, 46px);
+    border-radius: 32px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.07), transparent 14rem),
+      rgba(255, 255, 255, 0.86);
+  }
+
+  .article-answer-card h2,
+  .article-text-block h2,
+  .article-warning-card h2,
+  .article-related-section h2,
+  .article-faq-section h2,
+  .article-final-cta h2 {
+    max-width: 900px;
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2rem, 3.2vw, 3.55rem);
+    font-weight: 780;
+    line-height: 1.03;
+    letter-spacing: -0.068em;
+  }
+
+  .article-answer-card p:not(.section-kicker),
+  .article-text-block p:not(.section-kicker),
+  .article-warning-card p,
+  .article-related-section p,
+  .article-faq-section p,
+  .article-final-cta p:not(.signature) {
+    max-width: 900px;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1rem, 1.12vw, 1.1rem);
+    line-height: 1.74;
+  }
+
+  .article-answer-card p:not(.section-kicker),
+  .article-text-block p:not(.section-kicker) {
+    margin: 20px 0 0;
+  }
+
+  .article-keypoints {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .article-keypoints div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    padding: 22px;
+    border-right: 1px solid rgba(56, 187, 181, 0.13);
+    border-bottom: 1px solid rgba(56, 187, 181, 0.13);
+  }
+
+  .article-keypoints div:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .article-keypoints div:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .article-keypoints span {
+    width: 22px;
+    height: 22px;
+    margin-top: 4px;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle, rgba(21, 154, 150, 0.95) 0 24%, rgba(21, 154, 150, 0.16) 25% 100%);
+    box-shadow: 0 0 0 9px rgba(56, 187, 181, 0.10);
+  }
+
+  .article-keypoints p {
+    margin: 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.58;
+  }
+
+  .article-simple-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .article-simple-cards article,
+  .article-related-grid a,
+  .article-faq-list article {
+    padding: 22px;
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.74);
+  }
+
+  .article-simple-cards h3,
+  .article-related-grid h3,
+  .article-faq-list h3 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.25rem, 1.65vw, 1.75rem);
+    font-weight: 760;
+    line-height: 1.05;
+    letter-spacing: -0.052em;
+  }
+
+  .article-simple-cards p,
+  .article-related-grid p,
+  .article-faq-list p {
+    margin: 12px 0 0;
+    color: var(--color-muted, #6e6670);
+    line-height: 1.62;
+  }
+
+  .article-image {
+    overflow: hidden;
+    margin: 0;
+    padding: 10px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.84);
+  }
+
+  .article-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  .article-warning-card {
+    border-color: rgba(201, 127, 143, 0.20);
+    background:
+      radial-gradient(circle at 92% 10%, rgba(246, 220, 227, 0.54), transparent 15rem),
+      rgba(255, 255, 255, 0.88);
+  }
+
+  .article-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .article-related-grid a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .article-related-grid a:hover {
+    border-color: rgba(201, 127, 143, 0.28);
+    background: rgba(255, 248, 251, 0.9);
+  }
+
+  .article-faq-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .article-final-cta {
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(219, 246, 243, 0.72), rgba(255, 242, 246, 0.84)),
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .article-final-cta p:not(.signature) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-final-cta .button-primary {
+    margin-top: 18px;
+  }
+
+  @media (max-width: 1080px) {
+    .article-hero-grid,
+    .article-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .article-sidebar {
+      position: relative;
+      top: auto;
+      order: -1;
+    }
+
+    .article-sidebar-card nav {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .article-related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .article-hero {
+      padding: 112px 0 54px;
+    }
+
+    .article-hero-grid {
+      gap: 16px;
+      padding-left: 8px;
+      padding-right: 8px;
+      box-sizing: border-box;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary,
+    .article-sidebar-card,
+    .article-answer-card,
+    .article-keypoints,
+    .article-text-block,
+    .article-warning-card,
+    .article-related-section,
+    .article-faq-section,
+    .article-final-cta,
+    .article-image {
+      border-radius: 26px;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary,
+    .article-answer-card,
+    .article-text-block,
+    .article-warning-card,
+    .article-related-section,
+    .article-faq-section,
+    .article-final-cta {
+      padding: 26px 22px;
+    }
+
+    .article-hero-copy h1 {
+      font-size: clamp(2.35rem, 10.5vw, 3.55rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .article-lead {
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .article-hero-summary h2,
+    .article-answer-card h2,
+    .article-text-block h2,
+    .article-warning-card h2,
+    .article-related-section h2,
+    .article-faq-section h2,
+    .article-final-cta h2 {
+      font-size: clamp(2rem, 9vw, 3rem);
+      line-height: 1.04;
+      letter-spacing: -0.064em;
+    }
+
+    .article-sidebar-card nav {
+      grid-template-columns: 1fr;
+    }
+
+    .article-keypoints,
+    .article-simple-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .article-keypoints div,
+    .article-keypoints div:nth-child(2n),
+    .article-keypoints div:nth-last-child(-n + 2) {
+      border-right: 0;
+      border-bottom: 1px solid rgba(56, 187, 181, 0.13);
+    }
+
+    .article-keypoints div:last-child {
+      border-bottom: 0;
+    }
+
+    .article-simple-cards article,
+    .article-related-grid a,
+    .article-faq-list article {
+      padding: 20px;
+      border-radius: 20px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .article-hero-grid {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    .article-hero-copy,
+    .article-hero-summary {
+      width: calc(100% - 10px);
+      max-width: calc(100% - 10px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
