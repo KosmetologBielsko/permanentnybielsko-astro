@@ -2,38 +2,65 @@
 const videoSrc = "/videos/silky-hairstroke-brows-popup.mp4";
 const posterSrc = "/images/silky-hairstroke-brows-popup-poster.webp";
 const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
+const storageKey = "shb-popup-dismissed-until";
+const daysHidden = 7;
+const showDelay = 4000;
+const scrollThreshold = 0.3;
 ---
 
 <div
   id="shb-popup"
   class="shb-popup"
   data-video-src={videoSrc}
-  data-storage-key="shb-popup-dismissed-until"
+  data-storage-key={storageKey}
+  data-days-hidden={daysHidden}
+  data-show-delay={showDelay}
+  data-scroll-threshold={scrollThreshold}
   hidden
   aria-live="polite"
 >
-  <article class="shb-popup__card" aria-labelledby="shb-popup-title">
-    <button class="shb-popup__close" type="button" data-shb-close aria-label="Zamknij panel Silky Hairstroke Brows Plus">
+  <article
+    class="shb-popup__card"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="shb-popup-title"
+  >
+    <button
+      class="shb-popup__close"
+      type="button"
+      data-shb-close
+      aria-label="Zamknij panel Silky Hairstroke Brows Plus"
+    >
       <span aria-hidden="true">×</span>
     </button>
 
-    <div class="shb-popup__media" aria-hidden="true">
+    <div class="shb-popup__media" aria-label="Silky Hairstroke Brows Plus — naturalny efekt brwi permanentnych">
       <video
         class="shb-popup__video"
         muted
-        autoplay
         loop
         playsinline
+        webkit-playsinline
         preload="none"
         poster={posterSrc}
-      >
-        <source data-src={videoSrc} type="video/mp4" />
-      </video>
+        data-shb-video
+        data-src={videoSrc}
+      ></video>
     </div>
 
-    <p class="shb-popup__lead">
-  Autorska metoda naturalnych brwi permanentnych — włos po włosie, z analizą twarzy, skóry i mimiki.
-</p>
+    <div class="shb-popup__content">
+      <p class="shb-popup__eyebrow">Nowość / metoda autorska</p>
+
+      <h2 id="shb-popup-title">Silky Hairstroke Brows Plus</h2>
+
+      <p class="shb-popup__lead">
+        Autorska metoda naturalnych brwi permanentnych — włos po włosie,
+        z analizą twarzy, skóry i mimiki.
+      </p>
+
+      <p class="shb-popup__text">
+        Zobacz, jak powstaje miękki, naturalny efekt brwi dopasowany do urody klientki.
+      </p>
 
       <ul class="shb-popup__points" aria-label="Najważniejsze zalety metody">
         <li>Naturalny efekt</li>
@@ -52,16 +79,16 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
 
 <script is:inline>
   (() => {
-    const popup = document.getElementById("shb-popup");
+    if (typeof window === "undefined") return;
 
-    if (!popup || typeof window === "undefined") {
-      return;
-    }
+    const popup = document.getElementById("shb-popup");
+    if (!popup) return;
 
     const storageKey = popup.dataset.storageKey || "shb-popup-dismissed-until";
-    const dismissMs = 7 * 24 * 60 * 60 * 1000;
-    const showDelayMs = 4000;
-    const scrollThreshold = 0.3;
+    const daysHidden = Number(popup.dataset.daysHidden || "7");
+    const showDelayMs = Number(popup.dataset.showDelay || "4000");
+    const scrollThreshold = Number(popup.dataset.scrollThreshold || "0.3");
+    const dismissMs = daysHidden * 24 * 60 * 60 * 1000;
 
     const safeLocalStorage = {
       get(key) {
@@ -75,28 +102,24 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
         try {
           window.localStorage.setItem(key, value);
         } catch {
-          // localStorage can be blocked in private mode; popup still works for the session.
+          // localStorage może być zablokowany — popup nadal działa w tej sesji.
         }
       }
     };
 
     const dismissedUntil = Number(safeLocalStorage.get(storageKey) || 0);
+    if (dismissedUntil && dismissedUntil > Date.now()) return;
 
-    if (dismissedUntil && dismissedUntil > Date.now()) {
-      return;
-    }
-
-    let hasShown = false;
-    let delayTimer = null;
-
-    const video = popup.querySelector("video");
-    const source = video?.querySelector("source[data-src]");
+    const video = popup.querySelector("[data-shb-video]");
     const closeButtons = popup.querySelectorAll("[data-shb-close]");
     const cta = popup.querySelector("[data-shb-cta]");
 
-    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
     const saveData = Boolean(navigator.connection?.saveData);
     const shouldLoadVideo = !prefersReducedMotion && !saveData;
+
+    let hasShown = false;
+    let delayTimer = null;
 
     const rememberDismiss = () => {
       safeLocalStorage.set(storageKey, String(Date.now() + dismissMs));
@@ -107,33 +130,51 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
         window.clearTimeout(delayTimer);
         delayTimer = null;
       }
+
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("keydown", handleKeydown);
     };
 
     const loadVideo = () => {
-      if (!video || !source || !shouldLoadVideo) {
+      if (!video || !shouldLoadVideo) {
         popup.classList.add("shb-popup--static");
         return;
       }
 
-      if (!source.getAttribute("src")) {
-        source.setAttribute("src", source.dataset.src || popup.dataset.videoSrc || "");
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+
+      if (!video.getAttribute("src")) {
+        const src = video.dataset.src || popup.dataset.videoSrc || "";
+
+        if (!src) {
+          popup.classList.add("shb-popup--static");
+          return;
+        }
+
+        video.setAttribute("src", src);
         video.load();
       }
 
       const playPromise = video.play();
+
       if (playPromise && typeof playPromise.catch === "function") {
         playPromise.catch(() => {
-          popup.classList.add("shb-popup--static");
+          window.setTimeout(() => {
+            video.play().catch(() => {
+              popup.classList.add("shb-popup--static");
+            });
+          }, 180);
         });
       }
     };
 
     const showPopup = () => {
-      if (hasShown) {
-        return;
-      }
+      if (hasShown) return;
 
       hasShown = true;
       cleanupTriggers();
@@ -151,20 +192,16 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
 
       if (video) {
         video.pause();
+        video.muted = true;
       }
 
       window.setTimeout(() => {
         popup.hidden = true;
-      }, 260);
+      }, 280);
     };
 
     function handleScroll() {
-      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-      if (scrollableHeight <= 0) {
-        return;
-      }
-
+      const scrollableHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
       const progress = window.scrollY / scrollableHeight;
 
       if (progress >= scrollThreshold) {
@@ -197,181 +234,216 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
 
   .shb-popup {
     position: fixed;
+    inset: 0;
     z-index: 1200;
-    top: 50%;
-    right: 24px;
-    width: min(560px, calc(100vw - 32px));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: clamp(18px, 3vw, 36px);
     pointer-events: none;
     opacity: 0;
-    transform: translate3d(24px, -50%, 0) scale(0.98);
+    transform: translate3d(22px, 0, 0) scale(0.985);
     transition:
-      opacity 260ms ease,
-      transform 260ms ease;
+      opacity 280ms ease,
+      transform 280ms ease;
   }
 
   .shb-popup--visible {
-    pointer-events: auto;
     opacity: 1;
-    transform: translate3d(0, -50%, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 
   .shb-popup__card {
     position: relative;
     display: grid;
-    grid-template-columns: 178px minmax(0, 1fr);
-    gap: 18px;
+    grid-template-columns: minmax(260px, 0.86fr) minmax(310px, 1fr);
+    width: min(900px, calc(100vw - 48px));
+    min-height: 520px;
+    max-height: calc(100svh - 72px);
     overflow: hidden;
-    border: 1px solid rgba(191, 146, 86, 0.24);
-    border-radius: 32px;
+    border: 1px solid rgba(191, 146, 86, 0.26);
+    border-radius: 38px;
     background:
-      radial-gradient(circle at 8% 0%, rgba(116, 224, 215, 0.22), transparent 11rem),
-      radial-gradient(circle at 96% 14%, rgba(231, 180, 192, 0.24), transparent 12rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 247, 0.94));
+      radial-gradient(circle at 4% 2%, rgba(116, 224, 215, 0.22), transparent 15rem),
+      radial-gradient(circle at 96% 10%, rgba(231, 180, 192, 0.26), transparent 16rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 244, 0.96));
     box-shadow:
-      0 26px 70px rgba(73, 45, 54, 0.18),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      0 30px 90px rgba(73, 45, 54, 0.18),
+      0 12px 34px rgba(15, 119, 115, 0.10),
+      inset 0 1px 0 rgba(255, 255, 255, 0.84);
     backdrop-filter: blur(18px);
+    pointer-events: auto;
   }
 
   .shb-popup__card::before {
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.72);
     border-radius: inherit;
     pointer-events: none;
-    background: linear-gradient(135deg, rgba(255,255,255,0.78), transparent 34%, rgba(207, 166, 92, 0.12));
+  }
+
+  .shb-popup__card::after {
+    content: "";
+    position: absolute;
+    right: -52px;
+    bottom: -60px;
+    width: 180px;
+    height: 180px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(116, 224, 215, 0.2), transparent 68%);
+    pointer-events: none;
   }
 
   .shb-popup__close {
     position: absolute;
-    z-index: 4;
-    top: 12px;
-    right: 12px;
+    z-index: 20;
+    top: 16px;
+    right: 16px;
     display: inline-grid;
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
     place-items: center;
     border: 1px solid rgba(191, 146, 86, 0.22);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.9);
     color: #7d5d3f;
     cursor: pointer;
-    font-size: 1.24rem;
+    font-size: 1.5rem;
     line-height: 1;
-    box-shadow: 0 10px 28px rgba(73, 45, 54, 0.1);
-    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    box-shadow: 0 12px 28px rgba(73, 45, 54, 0.12);
+    backdrop-filter: blur(14px);
+    transition:
+      transform 180ms ease,
+      background 180ms ease,
+      border-color 180ms ease;
   }
 
   .shb-popup__close:hover {
     transform: translateY(-1px);
     border-color: rgba(15, 119, 115, 0.32);
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.98);
   }
 
-.shb-popup__media {
-  width: 100%;
-  min-height: 0;
-  height: min(47svh, 420px);
-  max-height: 47svh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    linear-gradient(180deg, rgba(244, 238, 234, 0.96), rgba(236, 226, 220, 0.96));
-}
+  .shb-popup__media {
+    position: relative;
+    min-height: 520px;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(250, 241, 236, 0.96), rgba(237, 224, 218, 0.96));
+  }
+
+  .shb-popup__media::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 32%;
+    background: linear-gradient(180deg, transparent, rgba(42, 24, 29, 0.16));
+    pointer-events: none;
+  }
 
   .shb-popup__video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  object-fit: contain;
-  object-position: center center;
-  background: transparent;
-}
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+    object-fit: cover;
+    object-position: center 42%;
+    background: #f7eee9;
+    cursor: default;
+  }
 
   .shb-popup__content {
     position: relative;
-    z-index: 2;
-    padding: 32px 30px 28px 0;
+    z-index: 3;
+    display: flex;
+    min-height: 520px;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(34px, 4vw, 62px) clamp(34px, 4vw, 58px) clamp(32px, 4vw, 56px);
   }
 
   .shb-popup__eyebrow {
     display: inline-flex;
-    min-height: 28px;
+    width: fit-content;
+    min-height: 30px;
     align-items: center;
-    margin: 0 42px 12px 0;
-    padding: 0 11px;
+    margin: 0 48px 16px 0;
+    padding: 0 12px;
     border: 1px solid rgba(15, 119, 115, 0.16);
     border-radius: 999px;
-    background: rgba(219, 246, 243, 0.72);
+    background: rgba(219, 246, 243, 0.76);
     color: #0f7773;
-    font-size: 0.64rem;
+    font-size: 0.66rem;
     font-weight: 850;
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
 
   .shb-popup__content h2 {
+    max-width: 520px;
     margin: 0;
     color: #17151d;
-    font-size: clamp(1.72rem, 2.1vw, 2.28rem);
-    font-weight: 780;
-    line-height: 0.98;
-    letter-spacing: -0.065em;
+    font-size: clamp(2.4rem, 4.15vw, 4.85rem);
+    font-weight: 820;
+    line-height: 0.94;
+    letter-spacing: -0.078em;
   }
 
   .shb-popup__lead {
-    margin: 14px 0 0;
+    max-width: 520px;
+    margin: 20px 0 0;
     color: #4f474f;
-    font-size: 0.96rem;
-    font-weight: 650;
-    line-height: 1.5;
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    font-weight: 660;
+    line-height: 1.52;
   }
 
   .shb-popup__text {
-    margin: 10px 0 0;
+    max-width: 500px;
+    margin: 12px 0 0;
     color: #756b73;
-    font-size: 0.88rem;
-    line-height: 1.55;
+    font-size: 0.94rem;
+    line-height: 1.56;
   }
 
   .shb-popup__points {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin: 16px 0 0;
+    gap: 9px;
+    margin: 20px 0 0;
     padding: 0;
     list-style: none;
   }
 
   .shb-popup__points li {
     display: inline-flex;
-    min-height: 28px;
+    min-height: 30px;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 11px;
     border: 1px solid rgba(191, 146, 86, 0.2);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.68);
+    background: rgba(255, 255, 255, 0.7);
     color: #7d5d3f;
-    font-size: 0.68rem;
-    font-weight: 800;
+    font-size: 0.7rem;
+    font-weight: 820;
     letter-spacing: 0.06em;
   }
 
   .shb-popup__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 14px;
     align-items: center;
-    margin-top: 18px;
+    margin-top: 26px;
   }
 
   .shb-popup__cta,
   .shb-popup__later {
     display: inline-flex;
-    min-height: 42px;
+    min-height: 46px;
     align-items: center;
     justify-content: center;
     border-radius: 999px;
@@ -380,15 +452,18 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
     letter-spacing: 0.12em;
     text-decoration: none;
     text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .shb-popup__cta {
-    padding: 0 18px;
+    padding: 0 22px;
     border: 1px solid rgba(15, 119, 115, 0.2);
     background: linear-gradient(135deg, #74e0d7, #38bbb5 52%, #0f7773);
     color: #ffffff;
     box-shadow: 0 14px 30px rgba(15, 119, 115, 0.22);
-    transition: transform 180ms ease, box-shadow 180ms ease;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
   }
 
   .shb-popup__cta:hover {
@@ -408,14 +483,11 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
     color: #0f7773;
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 1080px) {
     .shb-popup {
-      top: auto;
-      right: 10px;
-      bottom: 10px;
-      left: 10px;
-      width: auto;
-      transform: translate3d(0, 22px, 0) scale(0.98);
+      justify-content: center;
+      padding: 22px;
+      transform: translate3d(0, 18px, 0) scale(0.985);
     }
 
     .shb-popup--visible {
@@ -423,43 +495,92 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
     }
 
     .shb-popup__card {
-      grid-template-columns: 104px minmax(0, 1fr);
-      gap: 12px;
-      border-radius: 26px;
+      grid-template-columns: minmax(240px, 0.78fr) minmax(300px, 1fr);
+      width: min(780px, calc(100vw - 44px));
+      min-height: 500px;
     }
 
-    .shb-popup__media {
-      min-height: 230px;
-      margin: 10px 0 10px 10px;
-      border-radius: 19px;
-    }
-
-    .shb-popup__video {
-      min-height: 230px;
+    .shb-popup__media,
+    .shb-popup__video,
+    .shb-popup__content {
+      min-height: 500px;
     }
 
     .shb-popup__content {
-      padding: 24px 18px 20px 0;
-    }
-
-    .shb-popup__eyebrow {
-      min-height: 24px;
-      margin-bottom: 9px;
-      padding: 0 9px;
-      font-size: 0.54rem;
-      letter-spacing: 0.12em;
+      padding: 44px 36px 38px;
     }
 
     .shb-popup__content h2 {
-      max-width: 230px;
-      font-size: 1.42rem;
-      letter-spacing: -0.058em;
+      font-size: clamp(2.2rem, 5vw, 3.7rem);
+    }
+
+    .shb-popup__points li:nth-child(n + 4) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .shb-popup {
+      align-items: center;
+      justify-content: center;
+      padding: 16px 12px;
+    }
+
+    .shb-popup__card {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      width: min(440px, calc(100vw - 24px));
+      min-height: auto;
+      max-height: calc(100svh - 32px);
+      border-radius: 32px;
+    }
+
+    .shb-popup__close {
+      top: 12px;
+      right: 12px;
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .shb-popup__media {
+      height: clamp(255px, 42svh, 370px);
+      min-height: 255px;
+      max-height: 370px;
+      border-radius: 32px 32px 20px 20px;
+    }
+
+    .shb-popup__video {
+      height: 100%;
+      min-height: 255px;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+
+    .shb-popup__content {
+      min-height: auto;
+      padding: 20px 20px 22px;
+    }
+
+    .shb-popup__eyebrow {
+      min-height: 27px;
+      margin: 0 0 10px;
+      padding: 0 10px;
+      font-size: 0.6rem;
+      letter-spacing: 0.13em;
+    }
+
+    .shb-popup__content h2 {
+      max-width: 365px;
+      font-size: clamp(2rem, 9vw, 2.75rem);
+      line-height: 0.96;
     }
 
     .shb-popup__lead {
-      margin-top: 10px;
-      font-size: 0.84rem;
-      line-height: 1.42;
+      max-width: 365px;
+      margin-top: 12px;
+      font-size: 0.96rem;
+      line-height: 1.38;
     }
 
     .shb-popup__text {
@@ -467,45 +588,95 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
     }
 
     .shb-popup__points {
-      gap: 6px;
-      margin-top: 12px;
-    }
-
-    .shb-popup__points li {
-      min-height: 24px;
-      padding: 0 8px;
-      font-size: 0.58rem;
+      display: none;
     }
 
     .shb-popup__actions {
-      margin-top: 14px;
-      gap: 8px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      margin-top: 18px;
     }
 
     .shb-popup__cta {
-      min-height: 38px;
-      padding: 0 14px;
-      font-size: 0.64rem;
+      width: 100%;
+      min-height: 46px;
+      padding: 0 16px;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
     }
 
     .shb-popup__later {
-      min-height: 32px;
-      font-size: 0.62rem;
+      min-width: 92px;
+      min-height: 46px;
+      justify-content: center;
+      padding: 0 2px;
+      font-size: 0.68rem;
+      letter-spacing: 0.11em;
     }
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 390px) {
+    .shb-popup {
+      padding: 12px 9px;
+    }
+
     .shb-popup__card {
-      grid-template-columns: 88px minmax(0, 1fr);
+      width: min(420px, calc(100vw - 18px));
+      max-height: calc(100svh - 24px);
+      border-radius: 28px;
     }
 
-    .shb-popup__media,
+    .shb-popup__media {
+      height: clamp(230px, 38svh, 320px);
+      min-height: 230px;
+      max-height: 320px;
+      border-radius: 28px 28px 18px 18px;
+    }
+
     .shb-popup__video {
-      min-height: 214px;
+      min-height: 230px;
+      object-position: center 38%;
     }
 
-    .shb-popup__points li:nth-child(n + 3) {
-      display: none;
+    .shb-popup__content {
+      padding: 17px 17px 18px;
+    }
+
+    .shb-popup__eyebrow {
+      min-height: 25px;
+      margin-bottom: 8px;
+      font-size: 0.56rem;
+      letter-spacing: 0.12em;
+    }
+
+    .shb-popup__content h2 {
+      font-size: clamp(1.72rem, 8.5vw, 2.18rem);
+    }
+
+    .shb-popup__lead {
+      margin-top: 10px;
+      font-size: 0.86rem;
+      line-height: 1.32;
+    }
+
+    .shb-popup__actions {
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .shb-popup__cta {
+      min-height: 42px;
+      padding: 0 12px;
+      font-size: 0.64rem;
+      letter-spacing: 0.1em;
+    }
+
+    .shb-popup__later {
+      min-width: 78px;
+      min-height: 42px;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
     }
   }
 
@@ -516,156 +687,4 @@ const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
       transition: none;
     }
   }
-  @media (max-width: 820px) {
-  .shb-popup {
-    align-items: flex-end;
-    justify-content: center;
-    padding: 8px;
-  }
-
-  .shb-popup__panel,
-  .shb-popup__card {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    width: min(430px, calc(100vw - 16px));
-    max-height: calc(100svh - 18px);
-    overflow: hidden;
-    border-radius: 26px;
-  }
-
-  .shb-popup__close {
-    top: 10px;
-    right: 10px;
-    z-index: 50;
-    width: 38px;
-    height: 38px;
-    background: rgba(255, 255, 255, 0.96);
-  }
-
-  .shb-popup__media {
-    width: 100%;
-    min-height: 0;
-    height: min(40svh, 355px);
-    max-height: 40svh;
-    overflow: hidden;
-  }
-
-  .shb-popup__video {
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    object-fit: contain;
-    object-position: center center;
-  }
-
-  .shb-popup__content,
-  .shb-popup__copy {
-    min-height: auto;
-    padding: 14px 16px 16px;
-  }
-
-  .shb-popup__eyebrow {
-    min-height: 25px;
-    margin: 0 0 8px;
-    padding: 0 10px;
-    font-size: 0.58rem;
-    letter-spacing: 0.12em;
-  }
-
-  .shb-popup__title,
-  .shb-popup__content h2,
-  .shb-popup__copy h2 {
-    margin: 0 0 8px;
-    font-size: clamp(1.65rem, 8vw, 2.2rem);
-    line-height: 1.02;
-    letter-spacing: -0.065em;
-  }
-
-  .shb-popup__lead,
-  .shb-popup__text,
-  .shb-popup__description,
-  .shb-popup__note {
-    margin: 0;
-    font-size: 0.88rem;
-    line-height: 1.34;
-  }
-
-  .shb-popup__description,
-  .shb-popup__note {
-    margin-top: 5px;
-  }
-
-  .shb-popup__points {
-    display: none;
-  }
-
-  .shb-popup__actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 12px;
-  }
-
-  .shb-popup__actions a,
-  .shb-popup__actions button {
-    min-height: 38px;
-    padding: 0 16px;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-  }
-
-  .shb-popup__dismiss,
-  .shb-popup__later {
-    font-size: 0.68rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .shb-popup__media {
-    height: 42svh;
-    max-height: 42svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:
-      linear-gradient(180deg, rgba(244, 238, 234, 0.96), rgba(236, 226, 220, 0.96));
-  }
-
-  .shb-popup__video {
-    object-fit: contain;
-    object-position: center center;
-  }
-
-  .shb-popup__content,
-  .shb-popup__copy {
-    padding: 13px 15px 15px;
-  }
-
-  .shb-popup__title,
-  .shb-popup__content h2,
-  .shb-popup__copy h2 {
-    font-size: 1.58rem;
-  }
-
-  .shb-popup__lead,
-  .shb-popup__text,
-  .shb-popup__description,
-  .shb-popup__note {
-    font-size: 0.82rem;
-  }
-
-  .shb-popup__actions {
-    margin-top: 10px;
-    gap: 9px;
-  }
-
-  .shb-popup__actions a,
-  .shb-popup__actions button {
-    min-height: 36px;
-    padding: 0 13px;
-    font-size: 0.63rem;
-  }
-}
 </style>
