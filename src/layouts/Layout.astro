@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { siteConfig, getCanonicalUrl, getOgImageUrl } from "../config/site";
 import AssistantWidget from "../components/AssistantWidget.astro";
 import SilkyPopup from "../components/SilkyPopup.astro";
+import GoogleAdsTag from '../components/GoogleAdsTag.astro';
 
 interface Props {
   title?: string;
@@ -143,5 +144,6 @@ const structuredDataJson = JSON.stringify(allStructuredData).replaceAll("<", "\\
 
     <AssistantWidget />
     <SilkyPopup />
+     <GoogleAdsTag />
   </body>
 </html>
