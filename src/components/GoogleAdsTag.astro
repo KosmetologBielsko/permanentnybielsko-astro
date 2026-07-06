@@ -9,8 +9,30 @@
 
   window.gtag = window.gtag || gtag;
 
+  var storedConsent = null;
+
+  try {
+    storedConsent = window.localStorage.getItem('pb_cookie_consent');
+  } catch (error) {
+    storedConsent = null;
+  }
+
+  var consentGranted = storedConsent === 'accepted';
+
+  gtag('consent', 'default', {
+    ad_storage: consentGranted ? 'granted' : 'denied',
+    ad_user_data: consentGranted ? 'granted' : 'denied',
+    ad_personalization: consentGranted ? 'granted' : 'denied',
+    analytics_storage: consentGranted ? 'granted' : 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted',
+    wait_for_update: 500
+  });
+
   gtag('js', new Date());
+
   gtag('config', 'AW-18200277713');
+  gtag('config', 'G-X7CDYMK811');
 
   function gtag_report_conversion(url) {
     var hasUrl = typeof url !== 'undefined' && url;

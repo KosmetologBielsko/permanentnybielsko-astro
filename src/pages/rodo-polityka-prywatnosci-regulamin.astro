@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
-const updatedAt = "28 maja 2026 r.";
+const updatedAt = "6 lipca 2026 r.";
 
 const tableOfContents = [
   "Administrator danych",
@@ -15,8 +15,8 @@ const tableOfContents = [
   "Cele i podstawy przetwarzania",
   "Dokumentacja zabiegowa PMU",
   "Booksy i rezerwacje",
-  "Analityka i pomiar strony",
-  "Cookies",
+  "Analityka, reklamy i pomiar strony",
+  "Cookies i zgody",
   "Social media, Google Maps i opinie",
   "Hosting i infrastruktura",
   "Prawa użytkownika",
@@ -47,7 +47,7 @@ const privacySections = [
       "Podczas korzystania ze strony mogą być przetwarzane różne kategorie danych, zależnie od sposobu korzystania ze strony i wybranej formy kontaktu.",
       "Mogą to być dane techniczne, takie jak adres IP, typ urządzenia, informacje o przeglądarce, podstawowe dane dotyczące wizyty i działania strony.",
       "Mogą to być dane kontaktowe, jeżeli użytkownik sam skontaktuje się telefonicznie, mailowo, przez Booksy, social media lub inne zewnętrzne narzędzie.",
-      "Mogą to być dane statystyczne, czyli zanonimizowane informacje o odsłonach strony, kliknięciach w przyciski i ogólnej wydajności strony.",
+      "Mogą to być dane statystyczne i analityczne, czyli informacje o odsłonach strony, kliknięciach w przyciski, przejściach do systemu rezerwacji, źródłach wejścia oraz ogólnej wydajności strony.",
       "Strona nie posiada obecnie formularza kontaktowego zapisującego dane bezpośrednio w bazie strony. Kontakt odbywa się przez telefon, e-mail, Booksy, media społecznościowe lub linki zewnętrzne."
     ]
   },
@@ -55,8 +55,8 @@ const privacySections = [
     number: "04",
     title: "Cele i podstawy przetwarzania danych",
     paragraphs: [
-      "Dane mogą być przetwarzane w celu udzielenia odpowiedzi na kontakt telefoniczny lub mailowy, obsługi zapytań związanych z ofertą gabinetu, umożliwienia przejścia do rezerwacji wizyty przez Booksy, zapewnienia prawidłowego działania strony internetowej, pomiaru statystycznego odwiedzin i podstawowej skuteczności strony, zabezpieczenia strony, diagnostyki błędów, utrzymania infrastruktury technicznej oraz dochodzenia lub obrony przed ewentualnymi roszczeniami.",
-      "Podstawą przetwarzania danych może być w szczególności prawnie uzasadniony interes administratora, konieczność podjęcia działań na żądanie osoby, której dane dotyczą, obowiązek prawny albo zgoda — jeżeli w przyszłości zostaną wdrożone narzędzia wymagające zgody."
+      "Dane mogą być przetwarzane w celu udzielenia odpowiedzi na kontakt telefoniczny lub mailowy, obsługi zapytań związanych z ofertą gabinetu, umożliwienia przejścia do rezerwacji wizyty przez Booksy, zapewnienia prawidłowego działania strony internetowej, pomiaru statystycznego odwiedzin, pomiaru skuteczności strony i kampanii reklamowych, zabezpieczenia strony, diagnostyki błędów, utrzymania infrastruktury technicznej oraz dochodzenia lub obrony przed ewentualnymi roszczeniami.",
+      "Podstawą przetwarzania danych może być w szczególności prawnie uzasadniony interes administratora, konieczność podjęcia działań na żądanie osoby, której dane dotyczą, obowiązek prawny albo zgoda użytkownika — w szczególności w zakresie cookies analitycznych i marketingowych, jeżeli taka zgoda jest wymagana."
     ]
   },
   {
@@ -75,7 +75,8 @@ const privacySections = [
     title: "Booksy i rezerwacje",
     paragraphs: [
       "Strona zawiera linki prowadzące do platformy Booksy, gdzie użytkownik może sprawdzić aktualną ofertę, ceny, dostępne terminy oraz dokonać rezerwacji wizyty.",
-      "Po kliknięciu w link Booksy użytkownik przechodzi do zewnętrznego serwisu, który działa według własnych zasad, regulaminu i polityki prywatności. Administrator strony nie zarządza technicznie platformą Booksy."
+      "Po kliknięciu w link Booksy użytkownik przechodzi do zewnętrznego serwisu, który działa według własnych zasad, regulaminu i polityki prywatności. Administrator strony nie zarządza technicznie platformą Booksy.",
+      "Kliknięcia w linki prowadzące do Booksy mogą być mierzone statystycznie i reklamowo, w szczególności w celu sprawdzenia skuteczności strony oraz kampanii Google Ads."
     ],
     cta: {
       label: "Przejdź do Booksy",
@@ -84,21 +85,23 @@ const privacySections = [
   },
   {
     number: "07",
-    title: "Analityka, pomiar kliknięć i wydajność strony",
+    title: "Analityka, reklamy Google i pomiar kliknięć",
     paragraphs: [
-      "Strona może korzystać z narzędzi Vercel Analytics oraz Vercel Speed Insights, które pomagają sprawdzać liczbę odwiedzin, odsłony podstron, podstawowe zdarzenia na stronie oraz techniczną wydajność serwisu.",
-      "Na stronie mogą być mierzone m.in. kliknięcia w przyciski prowadzące do Booksy, telefonu, e-maila, Instagrama, Facebooka, Google Maps/opinii oraz podstrony kontaktowej. Pomiar ten ma charakter statystyczny i służy ocenie skuteczności strony.",
-      "Strona nie wykorzystuje obecnie Google Analytics, Google Ads ani Meta Pixel. Jeżeli takie narzędzia zostaną dodane w przyszłości, polityka prywatności zostanie uzupełniona, a użytkownik otrzyma możliwość zarządzania zgodami."
+      "Strona może korzystać z narzędzi analitycznych i reklamowych Google, w szczególności Google Analytics oraz Google Ads, w celu pomiaru działania strony, analizy ruchu, mierzenia skuteczności kampanii reklamowych oraz lepszego zrozumienia, które treści i przyciski są użyteczne dla odwiedzających.",
+      "Na stronie mogą być mierzone m.in. odsłony podstron, podstawowe zdarzenia techniczne, kliknięcia w przyciski prowadzące do Booksy, telefonu, e-maila, Instagrama, Facebooka, Google Maps/opinii oraz podstrony kontaktowej. Pomiar ten służy ocenie skuteczności strony i kampanii reklamowych.",
+      "Strona może korzystać także z narzędzi Vercel Analytics oraz Vercel Speed Insights, które pomagają sprawdzać liczbę odwiedzin, odsłony podstron, podstawowe zdarzenia na stronie oraz techniczną wydajność serwisu.",
+      "Pomiar marketingowy i analityczny realizowany przez narzędzia Google działa z uwzględnieniem mechanizmu zgody użytkownika. Użytkownik może zaakceptować cookies analityczne i marketingowe albo pozostać przy ustawieniach niezbędnych."
     ]
   },
   {
     number: "08",
-    title: "Pliki cookies i podobne technologie",
+    title: "Pliki cookies, zgody i podobne technologie",
     paragraphs: [
-      "Pliki cookies to niewielkie informacje zapisywane w urządzeniu użytkownika przez stronę internetową lub narzędzia zewnętrzne. Mogą być wykorzystywane m.in. do prawidłowego działania strony, zapamiętywania ustawień, analityki lub działań marketingowych.",
-      "Na dzień ostatniej aktualizacji dokumentu strona nie korzysta z marketingowych cookies Google Ads, Meta Pixel ani z reklamowego profilowania użytkowników. Strona może jednak korzystać z technicznych mechanizmów niezbędnych do działania serwisu, bezpieczeństwa i podstawowego pomiaru statystycznego.",
-      "Użytkownik może samodzielnie zarządzać plikami cookies w ustawieniach swojej przeglądarki, w tym blokować je, usuwać lub ograniczać. Ograniczenie cookies może wpływać na działanie niektórych funkcji stron internetowych.",
-      "Jeżeli w przyszłości zostaną wdrożone narzędzia reklamowe lub analityczne wymagające zgody, na stronie zostanie dodany mechanizm zarządzania zgodami, np. „Akceptuję wszystkie”, „Odrzucam nieobowiązkowe” oraz „Ustawienia”."
+      "Pliki cookies to niewielkie informacje zapisywane w urządzeniu użytkownika przez stronę internetową lub narzędzia zewnętrzne. Mogą być wykorzystywane m.in. do prawidłowego działania strony, zapamiętywania ustawień, analityki, pomiaru konwersji lub działań marketingowych.",
+      "Strona może wykorzystywać cookies techniczne niezbędne do działania serwisu, bezpieczeństwa i zapamiętania decyzji użytkownika dotyczącej zgód. Tego typu cookies lub podobne mechanizmy mogą działać niezależnie od zgody marketingowej.",
+      "Za zgodą użytkownika strona może wykorzystywać cookies analityczne i marketingowe, w szczególności związane z Google Analytics oraz Google Ads. Mogą one pomagać w analizie ruchu, mierzeniu kliknięć w linki rezerwacji Booksy, ocenie skuteczności kampanii reklamowych oraz poprawie komunikacji marketingowej.",
+      "Użytkownik może wybrać opcję akceptacji pomiaru analitycznego i marketingowego albo pozostać przy ustawieniach niezbędnych. Brak zgody nie blokuje korzystania ze strony, ale może ograniczyć dokładność pomiaru statystyk i skuteczności reklam.",
+      "Użytkownik może również samodzielnie zarządzać plikami cookies w ustawieniach swojej przeglądarki, w tym blokować je, usuwać lub ograniczać. Ograniczenie cookies może wpływać na działanie niektórych funkcji stron internetowych."
     ]
   },
   {
@@ -131,7 +134,7 @@ const privacySections = [
     title: "Czas przechowywania danych",
     paragraphs: [
       "Dane są przechowywane przez okres niezbędny do realizacji celu, dla którego zostały zebrane, a następnie przez czas wymagany przepisami prawa albo uzasadniony ochroną przed roszczeniami.",
-      "Dane techniczne i statystyczne są przechowywane zgodnie z zasadami dostawców narzędzi technicznych i analitycznych wykorzystywanych na stronie.",
+      "Dane techniczne, statystyczne, analityczne i reklamowe są przechowywane zgodnie z zasadami dostawców narzędzi technicznych, analitycznych i reklamowych wykorzystywanych na stronie oraz zgodnie z ustawieniami zgód użytkownika.",
       "Dokumentacja zabiegowa może być przechowywana przez okres potrzebny do zapewnienia bezpieczeństwa, obsługi ewentualnych zgłoszeń, dochodzenia lub obrony przed roszczeniami oraz realizacji obowiązków prawnych."
     ]
   },
@@ -148,7 +151,7 @@ const privacySections = [
 
 <Layout
   title="RODO i polityka prywatności | Bogusława Herda PMU Bielsko-Biała"
-  description="Polityka prywatności i cookies strony permanentnybielsko.com. Informacje o przetwarzaniu danych, Booksy, cookies, dokumentacji zabiegowej PMU, zdjęciach, social mediach i prawach użytkownika."
+  description="Polityka prywatności i cookies strony permanentnybielsko.com. Informacje o przetwarzaniu danych, Booksy, cookies, Google Ads, Google Analytics, dokumentacji zabiegowej PMU, zdjęciach, social mediach i prawach użytkownika."
 >
   <div class="privacy-page">
     <Header />
@@ -912,5 +915,4 @@ const privacySections = [
       letter-spacing: -0.066em !important;
     }
   }
-
 </style>
