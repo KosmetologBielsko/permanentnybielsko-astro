@@ -2,19 +2,73 @@
 
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = window.gtag || gtag;
 
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    functionality_storage: 'granted',
-    security_storage: 'granted',
-    wait_for_update: 500
-  });
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  window.gtag = window.gtag || gtag;
 
   gtag('js', new Date());
   gtag('config', 'AW-18200277713');
+
+  function gtag_report_conversion(url) {
+    var hasUrl = typeof url !== 'undefined' && url;
+
+    var callback = function () {
+      if (hasUrl) {
+        window.location.href = url;
+      }
+    };
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-18200277713/B-mQCMzbtL8cENHlyOZD',
+        value: 1.0,
+        currency: 'PLN',
+        event_callback: callback
+      });
+
+      setTimeout(function () {
+        if (hasUrl) {
+          window.location.href = url;
+        }
+      }, 900);
+
+      return false;
+    }
+
+    if (hasUrl) {
+      window.location.href = url;
+    }
+
+    return false;
+  }
+
+  window.gtag_report_conversion = gtag_report_conversion;
+
+  document.addEventListener(
+    'click',
+    function (event) {
+      var link = event.target.closest('a');
+
+      if (!link) return;
+
+      var href = link.getAttribute('href');
+
+      if (!href) return;
+
+      var isBooksyLink =
+        href.includes('booksy.com') ||
+        href.includes('booksy.net') ||
+        href.toLowerCase().includes('booksy');
+
+      if (!isBooksyLink) return;
+
+      event.preventDefault();
+
+      window.gtag_report_conversion(link.href);
+    },
+    true
+  );
 </script>
