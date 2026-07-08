@@ -10,99 +10,93 @@ const phone = "+48 730 900 125";
 const email = "bogusia@permanentnybielsko.com";
 const mapUrl = "https://share.google/r1H8ZLwSZMdRIflO9";
 
-const contactProofCards = [
-  {
-    number: "01",
-    label: "Lokalizacja",
-    title: "Centrum Bielska-Białej",
-    text: "ul. Barlickiego 5/23",
-    href: mapUrl,
-    cta: "Zobacz mapę",
-  },
-  {
-    number: "02",
-    label: "Rezerwacja",
-    title: "Booksy",
-    text: "Aktualne terminy i rezerwacja online",
-    href: booksyUrl,
-    cta: "Umów wizytę",
-  },
-  {
-    number: "03",
-    label: "Telefon",
-    title: phone,
-    text: "Kontakt w sprawach organizacyjnych",
-    href: "tel:+48730900125",
-    cta: "Zadzwoń",
-  },
-  {
-    number: "04",
-    label: "E-mail",
-    title: email,
-    text: "Pytania przed wizytą i kwalifikacją",
-    href: `mailto:${email}`,
-    cta: "Napisz",
-  },
-];
+const pageUrl = "https://www.permanentnybielsko.com/kontakt/";
+const pageTitle = "Kontakt | Bogusława Herda Makijaż Permanentny Bielsko-Biała";
+const pageDescription =
+  "Kontakt do gabinetu Bogusława Herda Permanent Makeup w Bielsku-Białej. Rezerwacja przez Booksy, telefon, e-mail, adres gabinetu i najważniejsze informacje przed wizytą.";
 
 const contactCards = [
   {
+    number: "01",
     label: "Rezerwacja",
     title: "Booksy",
-    text: "Najwygodniejszy sposób sprawdzenia aktualnych terminów i zapisania się na konsultację lub zabieg.",
+    text: "Najszybsza forma sprawdzenia wolnych terminów i umówienia konsultacji lub zabiegu.",
     href: booksyUrl,
     cta: "Umów wizytę",
+    type: "primary"
   },
   {
+    number: "02",
     label: "Telefon",
     title: phone,
-    text: "Kontakt telefoniczny w sprawach pilnych, organizacyjnych i przy pytaniach przed wizytą.",
+    text: "Kontakt w sprawach organizacyjnych, pilnych lub wtedy, gdy nie wiesz, od czego zacząć.",
     href: "tel:+48730900125",
     cta: "Zadzwoń",
+    type: "soft"
   },
   {
+    number: "03",
     label: "E-mail",
     title: email,
-    text: "Dobry wybór, jeśli chcesz opisać sytuację, przesłać pytanie lub zapytać o kwalifikację.",
+    text: "Pytania przed wizytą, kwalifikacją, korektą albo przy starym makijażu permanentnym.",
     href: `mailto:${email}`,
     cta: "Napisz",
+    type: "soft"
   },
+  {
+    number: "04",
+    label: "Mapa",
+    title: "ul. Barlickiego 5/23",
+    text: "Gabinet w centrum Bielska-Białej, blisko deptaku, Galerii Sfera i Ratusza.",
+    href: mapUrl,
+    cta: "Zobacz trasę",
+    type: "map"
+  }
 ];
 
-const visitRules = [
-  "Jeśli masz stary makijaż permanentny, poinformuj o tym przed wizytą.",
-  "Przy korektach i usuwaniu PMU najlepszym pierwszym krokiem jest konsultacja.",
-  "Rysunek wstępny omawiany jest przed pigmentacją.",
-  "Aktualne terminy i dostępność usług sprawdzisz przez Booksy.",
-  "W przypadku przeciwwskazań zabieg może zostać odłożony dla bezpieczeństwa skóry.",
+const socialLinks = [
+  {
+    label: "Instagram",
+    title: "@permanentnybielsko",
+    href: "https://www.instagram.com/permanentnybielsko",
+    short: "IG"
+  },
+  {
+    label: "Facebook",
+    title: "PermanentnyBielsko",
+    href: "https://www.facebook.com/PermanentnyBielsko",
+    short: "FB"
+  },
+  {
+    label: "Booksy",
+    title: "Rezerwacja online",
+    href: booksyUrl,
+    short: "BOOKSY"
+  },
+  {
+    label: "Google",
+    title: "Mapa i opinie",
+    href: mapUrl,
+    short: "G"
+  }
 ];
-
-const pageUrl = "https://permanentnybielsko.com/kontakt/";
-const pageTitle = "Kontakt | Bogusława Herda Makijaż Permanentny Bielsko-Biała";
-const pageDescription =
-  "Kontakt do gabinetu Bogusława Herda w Bielsku-Białej. Rezerwacja przez Booksy, telefon, e-mail, adres gabinetu i informacje przed wizytą.";
 
 const faqItems = [
   {
     question: "Czy najlepiej umawiać wizytę przez Booksy?",
     answer:
-      "Tak. Booksy pokazuje aktualne terminy i pozwala wygodnie zarezerwować wizytę. To najprostsza forma zapisu.",
-  },
-  {
-    question: "Czy mogę zadzwonić przed rezerwacją?",
-    answer:
-      "Tak. Telefon sprawdzi się przy pytaniach organizacyjnych lub wtedy, gdy nie wiesz, od jakiej usługi zacząć.",
+      "Tak. Booksy pokazuje aktualne terminy i pozwala wygodnie zarezerwować konsultację lub zabieg."
   },
   {
     question: "Czy przy starym PMU potrzebna jest konsultacja?",
     answer:
-      "Tak. Stary makijaż permanentny wymaga oceny koloru, nasycenia, kształtu i stanu skóry. Czasem najpierw potrzebne jest rozjaśnienie lub usuwanie.",
+      "Tak. Stary makijaż permanentny wymaga oceny koloru, nasycenia, kształtu i stanu skóry. Czasem najpierw potrzebne jest rozjaśnienie lub usuwanie."
   },
   {
-    question: "Czy gabinet wykonuje też kosmetologię?",
+    question: "Czy mogę zadzwonić przed rezerwacją?",
     answer:
-      "Tak, ale nowa komunikacja kosmetologiczna jest prowadzona osobno na stronie kosmetologiabielsko.com. PermanentnyBielsko pozostaje stroną PMU.",
-  },
+      "Tak. Telefon sprawdzi się przy pytaniach organizacyjnych albo wtedy, gdy nie wiesz, którą usługę wybrać."
+  }
 ];
 
 const structuredData = [
@@ -115,14 +109,14 @@ const structuredData = [
     description: pageDescription,
     inLanguage: "pl-PL",
     isPartOf: {
-      "@id": "https://permanentnybielsko.com/#website",
+      "@id": "https://www.permanentnybielsko.com/#website"
     },
     about: {
-      "@id": "https://permanentnybielsko.com/#localbusiness",
+      "@id": "https://www.permanentnybielsko.com/#localbusiness"
     },
     mainEntity: {
-      "@id": "https://permanentnybielsko.com/#localbusiness",
-    },
+      "@id": "https://www.permanentnybielsko.com/#localbusiness"
+    }
   },
   {
     "@context": "https://schema.org",
@@ -133,15 +127,15 @@ const structuredData = [
         "@type": "ListItem",
         position: 1,
         name: "Strona główna",
-        item: "https://permanentnybielsko.com/",
+        item: "https://www.permanentnybielsko.com/"
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Kontakt",
-        item: pageUrl,
-      },
-    ],
+        item: pageUrl
+      }
+    ]
   },
   {
     "@context": "https://schema.org",
@@ -152,9 +146,9 @@ const structuredData = [
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+        text: item.answer
+      }
+    }))
   },
   {
     "@context": "https://schema.org",
@@ -163,8 +157,8 @@ const structuredData = [
     streetAddress: "ul. Barlickiego 5/23",
     postalCode: "43-300",
     addressLocality: "Bielsko-Biała",
-    addressCountry: "PL",
-  },
+    addressCountry: "PL"
+  }
 ];
 ---
 
@@ -178,22 +172,21 @@ const structuredData = [
     <Header />
 
     <main>
-      <section class="contact-hero">
-        <div class="contact-glow contact-glow-one"></div>
-        <div class="contact-glow contact-glow-two"></div>
+      <section class="contact-hero" id="kontakt">
+        <div class="contact-glow contact-glow-one" aria-hidden="true"></div>
+        <div class="contact-glow contact-glow-two" aria-hidden="true"></div>
 
         <div class="container contact-hero-grid">
           <div class="contact-hero-copy">
             <p class="section-kicker">Kontakt</p>
 
             <h1>
-              <span class="pmu-hero-turquoise-text">Umów konsultację</span> lub wizytę w gabinecie Bogusława Herda.
+              <span>Umów konsultację</span> lub wizytę w gabinecie Bogusława Herda.
             </h1>
 
             <p class="contact-hero-lead">
-              Gabinet znajduje się w centrum Bielska-Białej. Najszybszą ścieżką rezerwacji
-              jest Booksy, a w sprawach organizacyjnych możesz skontaktować się telefonicznie
-              lub mailowo.
+              Najszybszą formą rezerwacji jest Booksy. W sprawach organizacyjnych możesz
+              skontaktować się telefonicznie lub mailowo. Gabinet znajduje się w centrum Bielska-Białej.
             </p>
 
             <div class="contact-hero-actions">
@@ -201,144 +194,54 @@ const structuredData = [
                 Umów wizytę przez Booksy
               </a>
 
-              <a class="button-secondary" href="#dane-kontaktowe">
-                Zobacz dane kontaktowe
+              <a class="button-secondary" href="tel:+48730900125">
+                Zadzwoń
               </a>
             </div>
           </div>
 
-          <aside class="contact-hero-card contact-shine-card" aria-label="Najważniejsze informacje kontaktowe">
-            <p class="contact-card-label">PMU</p>
+          <aside class="contact-hero-panel" aria-label="Najważniejsze dane gabinetu">
+            <p class="contact-hero-mark" aria-hidden="true">PMU</p>
 
-            <div class="contact-hero-card-content">
-              <h2>Najpierw konsultacja. Potem świadoma decyzja.</h2>
+            <div class="contact-hero-panel-content">
+              <p class="section-kicker section-kicker-light">Bielsko-Biała</p>
+              <h2>ul. Barlickiego 5/23</h2>
               <p>
-                Przy makijażu permanentnym, korektach i usuwaniu PMU warto zacząć od spokojnej
-                rozmowy, oceny skóry i omówienia realnego efektu.
+                Naturalny makijaż permanentny, konsultacje, korekty i usuwanie PMU w spokojnej,
+                kameralnej przestrzeni.
               </p>
+
+              <div class="contact-mini-list">
+                <a href={mapUrl} target="_blank" rel="noopener noreferrer">Zobacz mapę</a>
+                <a href={booksyUrl} target="_blank" rel="noopener noreferrer">Rezerwuj online</a>
+              </div>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="contact-proof-section" aria-label="Szybkie dane kontaktowe">
-        <div class="container contact-proof-grid">
-          {contactProofCards.map((card) => (
+      <section class="contact-fast-section" aria-label="Szybki kontakt">
+        <div class="container contact-fast-grid">
+          {contactCards.map((card) => (
             <a
-              class="contact-proof-card"
+              class:list={["contact-fast-card", `contact-fast-card--${card.type}`]}
               href={card.href}
               target={card.href.startsWith("http") ? "_blank" : undefined}
               rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
             >
-              <span>{card.number}</span>
-              <p>{card.label}</p>
-              <strong>{card.title}</strong>
+              <span class="contact-fast-number">{card.number}</span>
+              <p class="contact-fast-label">{card.label}</p>
+              <h2>{card.title}</h2>
               <em>{card.text}</em>
-              <small>{card.cta}</small>
+              <strong>{card.cta}</strong>
             </a>
           ))}
         </div>
       </section>
 
-      <section class="contact-data-section" id="dane-kontaktowe">
-        <div class="container">
-          <div class="contact-section-heading">
-            <p class="section-kicker">Dane kontaktowe</p>
-            <h2>Wybierz najwygodniejszą formę kontaktu.</h2>
-            <p>
-              Rezerwacje zabiegów najlepiej wykonywać przez Booksy. Telefon i e-mail sprawdzą się
-              przy pytaniach, konsultacjach organizacyjnych i sytuacjach wymagających dodatkowego wyjaśnienia.
-            </p>
-          </div>
-
-          <div class="contact-card-grid">
-            {contactCards.map((card) => (
-              <a
-                href={card.href}
-                class="contact-method-card"
-                target={card.href.startsWith("http") ? "_blank" : undefined}
-                rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              >
-                <span>{card.label}</span>
-                <h3>{card.title}</h3>
-                <p>{card.text}</p>
-                <strong>{card.cta}</strong>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-social-section">
-        <div class="container">
-          <div class="contact-section-heading">
-            <p class="section-kicker">Social media i opinie</p>
-            <h2>Obserwuj gabinet i sprawdź najważniejsze miejsca online.</h2>
-            <p>
-              Media społecznościowe pokazują styl pracy, efekty i aktualności, a Booksy oraz Google
-              pomagają szybko umówić wizytę albo sprawdzić lokalizację gabinetu.
-            </p>
-          </div>
-
-          <div class="contact-social-grid">
-            <a
-              href="https://www.instagram.com/permanentnybielsko"
-              class="contact-social-card contact-social-card-instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <em>IG</em>
-              <span>Instagram</span>
-              <h3>@PERMANENTNYBIELSKO</h3>
-              <p>Zdjęcia, efekty, kulisy pracy gabinetu i aktualności z makijażu permanentnego.</p>
-              <strong>Przejdź do Instagram</strong>
-            </a>
-
-            <a
-              href="https://www.facebook.com/PermanentnyBielsko"
-              class="contact-social-card contact-social-card-facebook"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <em>FB</em>
-              <span>Facebook</span>
-              <h3>PERMANENTNYBIELSKO</h3>
-              <p>Aktualności gabinetu, komunikaty, realizacje i bieżące informacje dla klientek.</p>
-              <strong>Przejdź do Facebook</strong>
-            </a>
-
-            <a
-              href={booksyUrl}
-              class="contact-social-card contact-social-card-booksy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <em>BOOKSY</em>
-              <span>Booksy</span>
-              <h3>REZERWACJA ONLINE</h3>
-              <p>Najprostszy sposób sprawdzenia dostępnych terminów i umówienia konsultacji lub zabiegu.</p>
-              <strong>Przejdź do Booksy</strong>
-            </a>
-
-            <a
-              href={mapUrl}
-              class="contact-social-card contact-social-card-google"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <em>G</em>
-              <span>Google</span>
-              <h3>MAPA I OPINIE</h3>
-              <p>Sprawdź lokalizację gabinetu, trasę dojazdu oraz opinie klientek w Google.</p>
-              <strong>Przejdź do Google</strong>
-            </a>
-          </div>
-        </div>
-      </section>
-
       <section class="contact-location-section">
         <div class="container contact-location-grid">
-          <div class="contact-location-card">
+          <article class="contact-location-card">
             <p class="section-kicker">Adres gabinetu</p>
             <h2>Bogusława Herda Permanent Makeup & Kosmetologia Estetyczna</h2>
 
@@ -349,8 +252,8 @@ const structuredData = [
               </p>
 
               <p>
-                Gabinet znajduje się w centrum Bielska-Białej, blisko deptaku, Galerii Sfera
-                i Ratusza.
+                Gabinet znajduje się w centrum miasta. Przed wizytą najlepiej sprawdzić trasę
+                w mapach Google i aktualny termin w Booksy.
               </p>
             </div>
 
@@ -363,10 +266,10 @@ const structuredData = [
                 Rezerwuj przez Booksy
               </a>
             </div>
-          </div>
+          </article>
 
-          <div class="contact-hours-card">
-            <p class="section-kicker">Godziny pracy</p>
+          <article class="contact-hours-card">
+            <p class="section-kicker">Godziny i organizacja</p>
 
             <div class="contact-hours-list">
               <div>
@@ -386,66 +289,30 @@ const structuredData = [
             </div>
 
             <p class="contact-hours-note">
-              Godziny pracy mogą zależeć od zapisów i dostępnych terminów. Najbardziej aktualne
-              terminy wizyt znajdują się w Booksy.
+              Godziny mogą zależeć od zapisów i dostępnych terminów. Najbardziej aktualne informacje
+              o wolnych wizytach znajdziesz w Booksy.
             </p>
-          </div>
+          </article>
         </div>
       </section>
 
-      <section class="contact-before-section">
-        <div class="container contact-before-grid">
-          <div class="contact-before-card">
-            <p class="section-kicker">Przed wizytą</p>
-            <h2>Co warto przygotować przed konsultacją PMU?</h2>
-            <p>
-              Przy pierwszej wizycie najważniejsza jest rozmowa: o oczekiwanym efekcie,
-              wcześniejszych pigmentacjach, skórze, przeciwwskazaniach i codziennym stylu.
-            </p>
+      <section class="contact-social-strip-section">
+        <div class="container contact-social-strip-card">
+          <div>
+            <p class="section-kicker">Online</p>
+            <h2>Social media, opinie i rezerwacja w jednym miejscu.</h2>
           </div>
 
-          <div class="contact-rules-card premium-points-list" aria-label="Informacje przed wizytą PMU">
-            {visitRules.map((rule) => (
-              <div class="premium-point">
-                <span class="premium-point__dot" aria-hidden="true"></span>
-                <p>{rule}</p>
-              </div>
+          <div class="contact-social-strip">
+            {socialLinks.map((item) => (
+              <a href={item.href} target="_blank" rel="noopener noreferrer">
+                <span>{item.short}</span>
+                <div>
+                  <strong>{item.label}</strong>
+                  <p>{item.title}</p>
+                </div>
+              </a>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-offer-section">
-        <div class="container">
-          <div class="contact-section-heading">
-            <p class="section-kicker">Oferta PMU</p>
-            <h2>Najważniejsze podstrony makijażu permanentnego.</h2>
-          </div>
-
-          <div class="contact-offer-grid">
-            <a href="/makijaz-permanentny-bielsko/" class="contact-offer-card">
-              <span>PMU</span>
-              <h3>Makijaż permanentny Bielsko-Biała</h3>
-              <p>Główna podstrona o makijażu permanentnym, konsultacji, rysunku wstępnym i naturalnym efekcie.</p>
-            </a>
-
-            <a href="/makijaz-permanentny-brwi/" class="contact-offer-card contact-offer-card-turquoise">
-              <span>Brwi</span>
-              <h3>Brwi permanentne</h3>
-              <p>Naturalne brwi, metoda włoskowa, włos z cieniem i Silky Hairstroke Brows.</p>
-            </a>
-
-            <a href="/makijaz-permanentny-oczu/" class="contact-offer-card">
-              <span>Oczy</span>
-              <h3>Makijaż permanentny oczu</h3>
-              <p>Kreski permanentne, zagęszczenie linii rzęs i subtelne podkreślenie spojrzenia.</p>
-            </a>
-
-            <a href="/cennik-makijaz-permanentny/" class="contact-offer-card contact-offer-card-rose">
-              <span>Cennik</span>
-              <h3>Cennik PMU</h3>
-              <p>Aktualne ceny makijażu permanentnego, odświeżeń, usuwania i konsultacji.</p>
-            </a>
           </div>
         </div>
       </section>
@@ -454,7 +321,7 @@ const structuredData = [
         <div class="container">
           <div class="contact-section-heading">
             <p class="section-kicker">Najczęstsze pytania</p>
-            <h2>Jak najlepiej umówić wizytę?</h2>
+            <h2>Jak najlepiej zacząć kontakt z gabinetem?</h2>
           </div>
 
           <div class="contact-faq-grid">
@@ -468,13 +335,12 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="contact-final-cta" id="kontakt">
+      <section class="contact-final-cta">
         <div class="container contact-final-card">
           <p class="signature cta-signature">Powrót do natury</p>
-          <h2>Chcesz sprawdzić, jaki makijaż permanentny będzie najlepszy dla Ciebie?</h2>
+          <h2>Chcesz sprawdzić, jaki efekt będzie najlepszy dla Ciebie?</h2>
           <p>
-            Umów konsultację i zobacz, jak może wyglądać naturalny efekt dopasowany
-            do Twojej urody, skóry i codzienności.
+            Umów konsultację i spokojnie omów kształt, kolor, metodę oraz realny efekt makijażu permanentnego.
           </p>
 
           <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
@@ -519,16 +385,23 @@ const structuredData = [
     text-transform: uppercase;
   }
 
+  .contact-page .section-kicker-light {
+    border-color: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+  }
+
   .contact-hero {
     position: relative;
-    padding: 150px 0 88px;
+    padding: 150px 0 72px;
     overflow: hidden;
   }
 
   .contact-glow {
     position: absolute;
-    pointer-events: none;
     border-radius: 999px;
+    pointer-events: none;
   }
 
   .contact-glow-one {
@@ -536,7 +409,7 @@ const structuredData = [
     top: 4rem;
     width: 42rem;
     height: 42rem;
-    background: radial-gradient(circle, rgba(56, 187, 181, 0.2), transparent 68%);
+    background: radial-gradient(circle, rgba(56, 187, 181, 0.18), transparent 68%);
   }
 
   .contact-glow-two {
@@ -544,27 +417,24 @@ const structuredData = [
     bottom: -12rem;
     width: 38rem;
     height: 38rem;
-    background: radial-gradient(circle, rgba(201, 127, 143, 0.16), transparent 68%);
+    background: radial-gradient(circle, rgba(201, 127, 143, 0.14), transparent 68%);
   }
 
   .contact-hero-grid {
     position: relative;
     z-index: 2;
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
     gap: 24px;
     align-items: stretch;
   }
 
   .contact-hero-copy,
-  .contact-hero-card,
-  .contact-proof-card,
-  .contact-method-card,
+  .contact-hero-panel,
+  .contact-fast-card,
   .contact-location-card,
   .contact-hours-card,
-  .contact-before-card,
-  .contact-rules-card,
-  .contact-offer-card,
+  .contact-social-strip-card,
   .contact-faq-grid article,
   .contact-final-card {
     border: 1px solid rgba(183, 101, 118, 0.14);
@@ -573,29 +443,27 @@ const structuredData = [
 
   .contact-hero-copy {
     display: flex;
-    min-height: 620px;
+    min-height: 560px;
     flex-direction: column;
     justify-content: center;
-    padding: clamp(38px, 5vw, 72px);
+    padding: clamp(38px, 5vw, 70px);
     border-radius: 44px;
     background:
       radial-gradient(circle at 92% 14%, rgba(56, 187, 181, 0.10), transparent 16rem),
-      rgba(255, 255, 255, 0.78);
+      rgba(255, 255, 255, 0.80);
   }
 
   .contact-hero-copy h1 {
-    max-width: 1080px;
+    max-width: 980px;
     margin: 0;
     color: var(--color-text, #17151d);
-    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
+    font-size: clamp(3.05rem, 5.45vw, 6.05rem);
     font-weight: 760;
     line-height: 1.02;
     letter-spacing: -0.074em;
   }
 
-  .pmu-hero-turquoise-text {
-    display: inline;
-    color: #0f7773;
+  .contact-hero-copy h1 span {
     background:
       linear-gradient(
         120deg,
@@ -608,55 +476,54 @@ const structuredData = [
       );
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
   .contact-hero-lead {
     max-width: 760px;
     margin: 28px 0 0;
     color: var(--color-muted, #6e6670);
-    font-size: 1.12rem;
+    font-size: 1.1rem;
     line-height: 1.68;
   }
 
-  .contact-hero-actions {
+  .contact-hero-actions,
+  .contact-location-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
     margin-top: 34px;
   }
 
-  .contact-hero-card {
+  .contact-hero-panel {
     position: relative;
     display: flex;
-    min-height: 620px;
+    min-height: 560px;
     flex-direction: column;
     justify-content: flex-end;
     overflow: hidden;
-    padding: clamp(38px, 5vw, 72px);
+    padding: clamp(38px, 5vw, 64px);
     border-radius: 44px;
     color: #ffffff;
     background:
       radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
       radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
-    background-size: 100% 100%, 100% 100%, 240% 240%;
-    animation: contact-turquoise-flow 13s ease-in-out infinite alternate;
+      linear-gradient(140deg, #0f7773 0%, #1aa5a0 26%, #74e0d7 42%, #138a86 66%, #0d6a67 100%);
     box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
   }
 
-  .contact-shine-card::before {
+  .contact-hero-panel::before {
     content: "";
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.05) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.05) 72%, transparent 100%);
+      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
     transform: translateX(-72%);
     animation: contact-panel-shine 8.5s ease-in-out infinite;
     pointer-events: none;
   }
 
-  .contact-card-label {
+  .contact-hero-mark {
     position: absolute;
     top: clamp(26px, 3vw, 46px);
     left: clamp(30px, 4vw, 58px);
@@ -670,54 +537,75 @@ const structuredData = [
     pointer-events: none;
   }
 
-  .contact-hero-card-content {
+  .contact-hero-panel-content {
     position: relative;
     z-index: 2;
   }
 
-  .contact-hero-card h2 {
-    max-width: 620px;
+  .contact-hero-panel h2 {
+    max-width: 640px;
     margin: 0;
     color: #ffffff;
-    font-size: clamp(2.15rem, 3.7vw, 4.35rem);
+    font-size: clamp(2.25rem, 3.9vw, 4.25rem);
     font-weight: 780;
     line-height: 1;
     letter-spacing: -0.075em;
     text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
   }
 
-  .contact-hero-card p:not(.contact-card-label) {
+  .contact-hero-panel p:not(.section-kicker):not(.contact-hero-mark) {
     max-width: 620px;
     margin: 22px 0 0;
     color: rgba(255, 255, 255, 0.88);
-    font-size: 1.05rem;
+    font-size: 1.04rem;
     line-height: 1.65;
   }
 
-  .contact-proof-section {
-    padding: 22px 0;
-    border-top: 1px solid rgba(183, 101, 118, 0.10);
-    border-bottom: 1px solid rgba(183, 101, 118, 0.10);
-    background: rgba(255, 255, 255, 0.72);
+  .contact-mini-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
   }
 
-  .contact-proof-grid {
+  .contact-mini-list a {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .contact-fast-section {
+    padding: 22px 0 68px;
+  }
+
+  .contact-fast-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 14px;
   }
 
-  .contact-proof-card {
+  .contact-fast-card {
     position: relative;
-    min-height: 178px;
+    min-height: 210px;
     overflow: hidden;
     padding: 24px;
-    border-radius: 28px;
+    border-radius: 30px;
     color: inherit;
     text-decoration: none;
     background:
       radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 12rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.9));
     transition:
       transform 180ms ease,
       border-color 180ms ease,
@@ -725,16 +613,15 @@ const structuredData = [
       box-shadow 180ms ease;
   }
 
-  .contact-proof-card::before {
+  .contact-fast-card::before {
     content: "";
     position: absolute;
     inset: 0;
     border-top: 4px solid rgba(56, 187, 181, 0.34);
     pointer-events: none;
-    transition: border-color 180ms ease;
   }
 
-  .contact-proof-card::after {
+  .contact-fast-card::after {
     content: "";
     position: absolute;
     right: -58px;
@@ -744,38 +631,41 @@ const structuredData = [
     border-radius: 999px;
     background: rgba(219, 246, 243, 0.68);
     pointer-events: none;
-    transition: background 180ms ease;
   }
 
-  .contact-proof-card:hover {
+  .contact-fast-card:hover {
     transform: translateY(-4px);
     border-color: rgba(201, 127, 143, 0.26);
-    background:
-      radial-gradient(circle at 94% 12%, rgba(246, 220, 227, 0.76), transparent 12rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 251, 0.94));
     box-shadow: 0 24px 62px rgba(89, 53, 67, 0.095);
   }
 
-  .contact-proof-card:hover::before {
-    border-top-color: rgba(201, 127, 143, 0.38);
+  .contact-fast-card--primary {
+    border-color: rgba(56, 187, 181, 0.28);
+    background:
+      radial-gradient(circle at 96% 8%, rgba(116, 224, 215, 0.24), transparent 12rem),
+      linear-gradient(145deg, rgba(219, 246, 243, 0.88), rgba(255, 255, 255, 0.94));
   }
 
-  .contact-proof-card:hover::after {
-    background: rgba(246, 220, 227, 0.76);
+  .contact-fast-card--map::before {
+    border-top-color: rgba(201, 127, 143, 0.34);
   }
 
-  .contact-proof-card span,
-  .contact-proof-card p,
-  .contact-proof-card strong,
-  .contact-proof-card em,
-  .contact-proof-card small {
+  .contact-fast-card--map::after {
+    background: rgba(246, 220, 227, 0.72);
+  }
+
+  .contact-fast-number,
+  .contact-fast-label,
+  .contact-fast-card h2,
+  .contact-fast-card em,
+  .contact-fast-card strong {
     position: relative;
     z-index: 2;
   }
 
-  .contact-proof-card span {
+  .contact-fast-number {
     display: inline-flex;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     color: var(--color-turquoise-dark, #0f7773);
     font-size: 0.72rem;
     font-weight: 850;
@@ -783,7 +673,7 @@ const structuredData = [
     letter-spacing: 0.18em;
   }
 
-  .contact-proof-card p {
+  .contact-fast-label {
     display: inline-flex;
     min-height: 30px;
     align-items: center;
@@ -800,17 +690,17 @@ const structuredData = [
     text-transform: uppercase;
   }
 
-  .contact-proof-card strong {
-    display: block;
+  .contact-fast-card h2 {
+    margin: 0;
     color: var(--color-text, #17151d);
-    font-size: clamp(1.25rem, 1.55vw, 1.75rem);
+    font-size: clamp(1.25rem, 1.5vw, 1.72rem);
     font-weight: 760;
     line-height: 1.05;
     letter-spacing: -0.055em;
     overflow-wrap: anywhere;
   }
 
-  .contact-proof-card em {
+  .contact-fast-card em {
     display: block;
     margin-top: 10px;
     color: var(--color-muted, #6e6670);
@@ -820,7 +710,7 @@ const structuredData = [
     overflow-wrap: anywhere;
   }
 
-  .contact-proof-card small {
+  .contact-fast-card strong {
     display: inline-flex;
     margin-top: 18px;
     color: var(--color-text, #17151d);
@@ -830,37 +720,50 @@ const structuredData = [
     text-transform: uppercase;
   }
 
-  .contact-data-section,
-  .contact-social-section,
   .contact-location-section,
-  .contact-before-section,
-  .contact-offer-section,
+  .contact-social-strip-section,
   .contact-faq-section,
   .contact-final-cta {
-    padding: 88px 0;
+    padding: 76px 0;
   }
 
-  .contact-social-section,
   .contact-location-section,
-  .contact-before-section {
+  .contact-faq-section {
     background:
       radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 24rem),
       radial-gradient(circle at 90% 72%, rgba(201, 127, 143, 0.08), transparent 24rem),
       rgba(255, 255, 255, 0.62);
   }
 
+  .contact-location-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .contact-location-card,
+  .contact-hours-card,
+  .contact-social-strip-card {
+    padding: clamp(32px, 4vw, 52px);
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.9));
+  }
+
   .contact-section-heading {
-    max-width: 940px;
-    margin-bottom: 38px;
+    max-width: 920px;
+    margin-bottom: 36px;
   }
 
   .contact-section-heading h2,
   .contact-location-card h2,
-  .contact-before-card h2,
-  .contact-final-card h2 {
+  .contact-final-card h2,
+  .contact-social-strip-card h2 {
     margin: 0;
     color: var(--color-text, #17151d);
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
+    font-size: clamp(2.35rem, 4vw, 4.15rem);
     font-weight: 760;
     line-height: 1.02;
     letter-spacing: -0.074em;
@@ -868,316 +771,10 @@ const structuredData = [
 
   .contact-section-heading p,
   .contact-location-card p,
-  .contact-before-card p,
   .contact-final-card p:not(.signature) {
     color: var(--color-muted, #6e6670);
-    font-size: 1.05rem;
-    font-weight: 450;
+    font-size: 1.04rem;
     line-height: 1.65;
-  }
-
-  .contact-card-grid,
-  .contact-social-grid,
-  .contact-offer-grid,
-  .contact-faq-grid {
-    display: grid;
-    gap: 18px;
-  }
-
-  .contact-card-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .contact-social-grid,
-  .contact-offer-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .contact-method-card,
-  .contact-offer-card,
-  .contact-faq-grid article {
-    position: relative;
-    min-height: 255px;
-    overflow: hidden;
-    padding: 28px;
-    border-radius: 32px;
-    color: inherit;
-    text-decoration: none;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
-  }
-
-  .contact-method-card::before,
-  .contact-offer-card::before,
-  .contact-faq-grid article::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-top: 4px solid rgba(56, 187, 181, 0.34);
-    pointer-events: none;
-  }
-
-  .contact-method-card::after,
-  .contact-offer-card::after {
-    content: "";
-    position: absolute;
-    right: -58px;
-    top: -58px;
-    width: 138px;
-    height: 138px;
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.68);
-    pointer-events: none;
-    transition: background 180ms ease;
-  }
-
-  .contact-method-card:hover::before,
-  .contact-offer-card:hover::before {
-    border-top-color: rgba(201, 127, 143, 0.38);
-  }
-
-  .contact-method-card:hover::after,
-  .contact-offer-card:hover::after {
-    background: rgba(246, 220, 227, 0.76);
-  }
-
-  .contact-offer-card-turquoise {
-    border-color: rgba(56, 187, 181, 0.3);
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.88), rgba(255, 255, 255, 0.92));
-  }
-
-  .contact-offer-card-rose::before,
-  .contact-faq-grid article::before {
-    border-top-color: rgba(201, 127, 143, 0.28);
-  }
-
-  .contact-offer-card-rose::after {
-    background: rgba(246, 220, 227, 0.76);
-  }
-
-  .contact-method-card span,
-  .contact-offer-card span {
-    position: relative;
-    z-index: 2;
-    display: inline-flex;
-    margin-bottom: 44px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.72rem;
-    font-weight: 850;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .contact-method-card h3,
-  .contact-offer-card h3,
-  .contact-faq-grid h3 {
-    position: relative;
-    z-index: 2;
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
-    font-weight: 760;
-    line-height: 1;
-    letter-spacing: -0.065em;
-    overflow-wrap: anywhere;
-  }
-
-  .contact-method-card p,
-  .contact-offer-card p,
-  .contact-faq-grid p {
-    position: relative;
-    z-index: 2;
-    margin: 14px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.95rem;
-    line-height: 1.62;
-  }
-
-  .contact-method-card strong {
-    position: relative;
-    z-index: 2;
-    display: inline-flex;
-    margin-top: 22px;
-    color: var(--color-text, #17151d);
-    font-size: 0.86rem;
-    font-weight: 850;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  .contact-social-card {
-    position: relative;
-    min-height: 215px;
-    overflow: hidden;
-    padding: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 30px;
-    color: #ffffff;
-    text-decoration: none;
-    box-shadow: 0 24px 68px rgba(89, 53, 67, 0.12);
-  }
-
-  .contact-social-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.08) 22%, rgba(255, 255, 255, 0.3) 47%, rgba(255, 255, 255, 0.08) 72%, transparent 100%);
-    opacity: 0.36;
-    pointer-events: none;
-  }
-
-  .contact-social-card::after {
-    content: "";
-    position: absolute;
-    right: -54px;
-    top: -54px;
-    width: 132px;
-    height: 132px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.2);
-    pointer-events: none;
-  }
-
-  .contact-social-card-instagram {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 10rem),
-      linear-gradient(145deg, #405de6 0%, #833ab4 27%, #c13584 48%, #e1306c 66%, #fd1d1d 82%, #fcb045 100%);
-  }
-
-  .contact-social-card-facebook {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.26), transparent 10rem),
-      linear-gradient(145deg, #0f4fb3 0%, #1877f2 42%, #4a9dff 68%, #063f91 100%);
-  }
-
-  .contact-social-card-booksy {
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 10rem),
-      linear-gradient(145deg, #067046 0%, #13a268 42%, #59e0a5 70%, #07583a 100%);
-  }
-
-  .contact-social-card-google {
-    color: var(--color-text, #17151d);
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
-    border-color: rgba(66, 133, 244, 0.22);
-  }
-
-  .contact-social-card-google::before {
-    height: 6px;
-    background:
-      linear-gradient(90deg, #4285f4 0 24%, #34a853 24% 50%, #fbbc05 50% 74%, #ea4335 74% 100%);
-    opacity: 1;
-  }
-
-  .contact-social-card-google::after {
-    background:
-      conic-gradient(from 210deg, rgba(66, 133, 244, 0.24), rgba(52, 168, 83, 0.24), rgba(251, 188, 5, 0.24), rgba(234, 67, 53, 0.24), rgba(66, 133, 244, 0.24));
-  }
-
-  .contact-social-card em,
-  .contact-social-card span,
-  .contact-social-card h3,
-  .contact-social-card p,
-  .contact-social-card strong {
-    position: relative;
-    z-index: 2;
-  }
-
-  .contact-social-card em {
-    position: absolute;
-    right: 20px;
-    top: 16px;
-    z-index: 2;
-    color: rgba(255, 255, 255, 0.2);
-    font-size: clamp(2.7rem, 4.2vw, 4.4rem);
-    font-style: normal;
-    font-weight: 850;
-    line-height: 0.9;
-    letter-spacing: -0.1em;
-  }
-
-  .contact-social-card-booksy em {
-    right: 18px;
-    font-size: clamp(1.9rem, 2.8vw, 2.8rem);
-    letter-spacing: -0.08em;
-  }
-
-  .contact-social-card-google em {
-    background: linear-gradient(90deg, #4285f4 0%, #34a853 30%, #fbbc05 58%, #ea4335 86%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    opacity: 0.2;
-  }
-
-  .contact-social-card span {
-    display: inline-flex;
-    margin-bottom: 34px;
-    color: rgba(255, 255, 255, 0.84);
-    font-size: 0.72rem;
-    font-weight: 780;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-  }
-
-  .contact-social-card-google span {
-    color: var(--color-turquoise-dark, #0f7773);
-  }
-
-  .contact-social-card h3 {
-    margin: 0;
-    font-size: clamp(1.35rem, 1.7vw, 1.9rem);
-    font-weight: 760;
-    line-height: 1;
-    letter-spacing: -0.06em;
-  }
-
-  .contact-social-card p {
-    margin: 12px 0 0;
-    color: rgba(255, 255, 255, 0.86);
-    font-size: 0.9rem;
-    line-height: 1.55;
-  }
-
-  .contact-social-card-google p {
-    color: var(--color-muted, #6e6670);
-  }
-
-  .contact-social-card strong {
-    display: inline-flex;
-    margin-top: 18px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.78rem;
-    font-weight: 780;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-  }
-
-  .contact-social-card-google strong {
-    color: var(--color-text, #17151d);
-  }
-
-  .contact-location-grid,
-  .contact-before-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
-    gap: 24px;
-    align-items: stretch;
-  }
-
-  .contact-location-card,
-  .contact-hours-card,
-  .contact-before-card,
-  .contact-rules-card {
-    padding: clamp(32px, 4vw, 52px);
-    border-radius: 38px;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
   }
 
   .contact-address {
@@ -1191,16 +788,8 @@ const structuredData = [
     letter-spacing: -0.04em;
   }
 
-  .contact-location-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 30px;
-  }
-
   .contact-hours-list {
     display: grid;
-    gap: 0;
     overflow: hidden;
     margin-top: 24px;
     border: 1px solid rgba(56, 187, 181, 0.15);
@@ -1237,66 +826,117 @@ const structuredData = [
     line-height: 1.6;
   }
 
-  .contact-rules-card {
+  .contact-social-strip-card {
     display: grid;
-    gap: 0;
-    padding: 0;
-    overflow: hidden;
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+    gap: 24px;
+    align-items: end;
   }
 
-  .premium-point {
+  .contact-social-strip {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 18px;
-    padding: 24px;
-    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
-    background: rgba(255, 255, 255, 0.62);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .contact-social-strip a {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+    min-height: 78px;
+    align-items: center;
+    padding: 14px;
+    border: 1px solid rgba(56, 187, 181, 0.15);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.72);
+    color: inherit;
+    text-decoration: none;
     transition:
+      transform 180ms ease,
       background 180ms ease,
-      transform 180ms ease;
+      border-color 180ms ease;
   }
 
-  .premium-point:last-child {
-    border-bottom: 0;
+  .contact-social-strip a:hover {
+    transform: translateY(-2px);
+    border-color: rgba(201, 127, 143, 0.28);
+    background: rgba(255, 242, 246, 0.82);
   }
 
-  .premium-point:hover {
-    background: rgba(255, 242, 246, 0.84);
-    transform: translateX(3px);
+  .contact-social-strip span {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(219, 246, 243, 0.78);
+    color: #0f7773;
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: -0.03em;
   }
 
-  .premium-point__dot {
-    width: 28px;
-    height: 28px;
-    margin-top: 3px;
-    border-radius: 999px;
-    background:
-      radial-gradient(circle, rgba(21, 154, 150, 0.92) 0 22%, rgba(21, 154, 150, 0.18) 23% 100%);
-    box-shadow: 0 0 0 11px rgba(56, 187, 181, 0.10);
-    transition:
-      background 180ms ease,
-      box-shadow 180ms ease;
+  .contact-social-strip strong {
+    display: block;
+    color: var(--color-text, #17151d);
+    font-size: 0.92rem;
+    font-weight: 800;
+    line-height: 1.1;
   }
 
-  .premium-point:hover .premium-point__dot {
-    background:
-      radial-gradient(circle, rgba(183, 101, 118, 0.92) 0 22%, rgba(183, 101, 118, 0.18) 23% 100%);
-    box-shadow: 0 0 0 11px rgba(201, 127, 143, 0.12);
-  }
-
-  .premium-point p {
-    margin: 0;
+  .contact-social-strip p {
+    margin: 4px 0 0;
     color: var(--color-muted, #6e6670);
-    font-size: 0.98rem;
-    line-height: 1.58;
+    font-size: 0.76rem;
+    line-height: 1.35;
   }
 
   .contact-faq-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
   }
 
   .contact-faq-grid article {
-    min-height: auto;
+    position: relative;
+    min-height: 220px;
+    overflow: hidden;
+    padding: 28px;
+    border-radius: 32px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.9));
+  }
+
+  .contact-faq-grid article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-top: 4px solid rgba(201, 127, 143, 0.28);
+    pointer-events: none;
+  }
+
+  .contact-faq-grid h3,
+  .contact-faq-grid p {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-faq-grid h3 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.35rem, 1.7vw, 1.85rem);
+    font-weight: 760;
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .contact-faq-grid p {
+    margin: 14px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.94rem;
+    line-height: 1.6;
   }
 
   .contact-final-card {
@@ -1304,8 +944,8 @@ const structuredData = [
     border-radius: 42px;
     text-align: center;
     background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
-      rgba(255, 255, 255, 0.7);
+      linear-gradient(145deg, rgba(219, 246, 243, 0.70), rgba(255, 242, 246, 0.82)),
+      rgba(255, 255, 255, 0.72);
   }
 
   .contact-final-card p:not(.signature) {
@@ -1331,44 +971,34 @@ const structuredData = [
     }
   }
 
-  @keyframes contact-turquoise-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
-
   @media (max-width: 1260px) {
-    .contact-proof-grid,
-    .contact-social-grid,
-    .contact-offer-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .contact-fast-grid,
+    .contact-social-strip,
+    .contact-faq-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
   @media (max-width: 1080px) {
     .contact-hero-grid,
     .contact-location-grid,
-    .contact-before-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-card-grid {
+    .contact-social-strip-card {
       grid-template-columns: 1fr;
     }
 
     .contact-hero-copy,
-    .contact-hero-card {
+    .contact-hero-panel {
       min-height: auto;
+    }
+
+    .contact-social-strip-card {
+      align-items: start;
     }
   }
 
   @media (max-width: 760px) {
     .contact-hero {
-      padding: 112px 0 58px;
+      padding: 112px 0 48px;
     }
 
     .contact-hero-grid {
@@ -1379,60 +1009,69 @@ const structuredData = [
     }
 
     .contact-hero-copy,
-    .contact-hero-card,
-    .contact-proof-card,
-    .contact-method-card,
-    .contact-social-card,
+    .contact-hero-panel,
+    .contact-fast-card,
     .contact-location-card,
     .contact-hours-card,
-    .contact-before-card,
-    .contact-rules-card,
-    .contact-offer-card,
+    .contact-social-strip-card,
     .contact-faq-grid article,
     .contact-final-card {
       border-radius: 28px;
     }
 
-    .contact-hero-copy {
+    .contact-hero-copy,
+    .contact-hero-panel,
+    .contact-location-card,
+    .contact-hours-card,
+    .contact-social-strip-card {
       padding: 28px 22px;
     }
 
     .contact-hero-copy h1 {
-      font-size: clamp(2.55rem, 11.6vw, 3.85rem);
+      font-size: clamp(2.55rem, 11.6vw, 3.78rem);
       line-height: 1.04;
       letter-spacing: -0.068em;
     }
 
-    .contact-hero-lead {
+    .contact-hero-panel h2,
+    .contact-section-heading h2,
+    .contact-location-card h2,
+    .contact-final-card h2,
+    .contact-social-strip-card h2 {
+      font-size: clamp(2.05rem, 9.4vw, 3rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .contact-hero-lead,
+    .contact-section-heading p,
+    .contact-location-card p,
+    .contact-final-card p:not(.signature) {
       font-size: 1rem;
     }
 
-    .contact-hero-actions {
+    .contact-hero-actions,
+    .contact-location-actions {
       display: grid;
       grid-template-columns: 1fr;
     }
 
-    .contact-hero-actions a {
+    .contact-hero-actions a,
+    .contact-location-actions a,
+    .contact-final-card .button-primary {
       width: 100%;
       justify-content: center;
       text-align: center;
     }
 
-    .contact-hero-card {
-      min-height: 430px;
-      padding: 30px 24px;
+    .contact-hero-panel {
+      min-height: 360px;
     }
 
-    .contact-card-label {
+    .contact-hero-mark {
       top: 24px;
       left: 24px;
-      font-size: clamp(5.2rem, 24vw, 7.8rem);
-    }
-
-    .contact-hero-card h2 {
-      font-size: clamp(1.95rem, 8.6vw, 2.8rem);
-      line-height: 1.04;
-      letter-spacing: -0.06em;
+      font-size: clamp(5rem, 24vw, 7.6rem);
     }
 
     .contact-page .section-kicker {
@@ -1443,49 +1082,30 @@ const structuredData = [
       letter-spacing: 0.13em;
     }
 
-    .contact-data-section,
-    .contact-social-section,
-    .contact-location-section,
-    .contact-before-section,
-    .contact-offer-section,
-    .contact-faq-section,
-    .contact-final-cta {
-      padding: 58px 0;
+    .contact-fast-section {
+      padding: 18px 0 48px;
     }
 
-    .contact-section-heading h2,
-    .contact-location-card h2,
-    .contact-before-card h2,
-    .contact-final-card h2 {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
-      line-height: 1.04;
-      letter-spacing: -0.066em;
-    }
-
-    .contact-proof-grid,
-    .contact-social-grid,
-    .contact-offer-grid,
+    .contact-fast-grid,
+    .contact-social-strip,
     .contact-faq-grid {
       grid-template-columns: 1fr;
     }
 
-    .contact-proof-card,
-    .contact-method-card,
-    .contact-social-card,
-    .contact-offer-card {
+    .contact-fast-card {
       min-height: auto;
-      padding: 26px;
+      padding: 24px;
     }
 
-    .contact-method-card span,
-    .contact-offer-card span {
-      margin-bottom: 32px;
+    .contact-fast-number {
+      margin-bottom: 24px;
     }
 
-    .contact-location-card,
-    .contact-hours-card,
-    .contact-before-card {
-      padding: 28px 22px;
+    .contact-location-section,
+    .contact-social-strip-section,
+    .contact-faq-section,
+    .contact-final-cta {
+      padding: 54px 0;
     }
 
     .contact-hours-list div {
@@ -1493,8 +1113,21 @@ const structuredData = [
       gap: 6px;
     }
 
-    .premium-point {
-      padding: 22px;
+    .contact-social-strip-card {
+      gap: 20px;
+    }
+
+    .contact-social-strip a {
+      min-height: 72px;
+    }
+
+    .contact-faq-grid article {
+      min-height: auto;
+      padding: 24px;
+    }
+
+    .contact-final-card {
+      padding: 30px 22px;
     }
   }
 
@@ -1505,17 +1138,24 @@ const structuredData = [
     }
 
     .contact-hero-copy,
-    .contact-hero-card {
+    .contact-hero-panel {
       width: calc(100% - 10px);
       max-width: calc(100% - 10px);
       margin-left: auto;
       margin-right: auto;
     }
+
+    .contact-fast-card h2 {
+      font-size: 1.28rem;
+    }
+
+    .contact-fast-card em {
+      font-size: 0.88rem;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .contact-hero-card,
-    .contact-shine-card::before {
+    .contact-hero-panel::before {
       animation: none;
     }
   }
