@@ -423,7 +423,7 @@ const structuredData = [
             <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Brwi cieniowane">
               <figure class="brow-method-graphic-frame">
                 <img
-                  src="/images/metody-brwi-01-cieniowane-naturalny-efekt.webp"
+                  src="/images/brwi-metody-final-01-cieniowane-jednakowy-rozmiar.webp"
                   alt="Graficzny kafelek Brwi cieniowane"
                   loading="lazy"
                   decoding="async"
@@ -436,7 +436,7 @@ const structuredData = [
             <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Metoda włoskowa">
               <figure class="brow-method-graphic-frame">
                 <img
-                  src="/images/metody-brwi-02-metoda-wloskowa-naturalny-efekt.webp"
+                  src="/images/brwi-metody-final-02-metoda-wloskowa-jednakowy-rozmiar.webp"
                   alt="Graficzny kafelek Metoda włoskowa"
                   loading="lazy"
                   decoding="async"
@@ -449,7 +449,7 @@ const structuredData = [
             <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Włos z cieniem">
               <figure class="brow-method-graphic-frame">
                 <img
-                  src="/images/metody-brwi-03-wlos-z-cieniem-naturalny-efekt.webp"
+                  src="/images/brwi-metody-final-03-wlos-z-cieniem-jednakowy-rozmiar.webp"
                   alt="Graficzny kafelek Włos z cieniem"
                   loading="lazy"
                   decoding="async"
@@ -462,7 +462,7 @@ const structuredData = [
             <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Silky Hairstroke Brows">
               <figure class="brow-method-graphic-frame">
                 <img
-                  src="/images/metody-brwi-04-silky-hairstroke-brows-makro.webp"
+                  src="/images/brwi-metody-final-04-silky-hairstroke-jednakowy-rozmiar.webp"
                   alt="Graficzny kafelek Silky Hairstroke Brows"
                   loading="lazy"
                   decoding="async"
@@ -475,7 +475,7 @@ const structuredData = [
             <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Korekta starych brwi">
               <figure class="brow-method-graphic-frame">
                 <img
-                  src="/images/metody-brwi-05-korekta-starych-brwi-zabieg.webp"
+                  src="/images/brwi-metody-final-05-korekta-starych-brwi-jednakowy-rozmiar.webp"
                   alt="Graficzny kafelek Korekta starych brwi"
                   loading="lazy"
                   decoding="async"
@@ -4865,6 +4865,97 @@ const structuredData = [
 @media (max-width: 760px) {
   :global(.brow-page .brow-method-slide-card-graphic .brow-method-graphic-frame) {
     border-radius: 24px;
+  }
+}
+
+
+
+/* FINAL 2026-07-09 — Metody brwi: wszystkie grafiki identyczny format jak kafelek 01 */
+:global(.brow-page .brow-method-scroll) {
+  display: grid !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: clamp(520px, 32vw, 640px) !important;
+  grid-template-columns: none !important;
+  align-items: stretch !important;
+  gap: clamp(18px, 1.8vw, 24px) !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 10px 18px 34px !important;
+  margin: 0 0 30px !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic) {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  scroll-snap-align: start !important;
+  transform: none !important;
+}
+
+:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic::before),
+:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic::after) {
+  content: none !important;
+  display: none !important;
+}
+
+:global(.brow-page .brow-method-slide-card-graphic .brow-method-graphic-frame) {
+  display: block !important;
+  width: 100% !important;
+  aspect-ratio: 1448 / 1086 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: 34px !important;
+  background: rgba(255, 248, 251, 0.96) !important;
+  box-shadow: 0 22px 58px rgba(89, 53, 67, 0.10) !important;
+}
+
+:global(.brow-page .brow-method-slide-card-graphic img) {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 1448 / 1086 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: inherit !important;
+}
+
+@media (min-width: 1500px) {
+  :global(.brow-page .brow-method-scroll) {
+    grid-auto-columns: minmax(600px, 700px) !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  :global(.brow-page .brow-method-scroll) {
+    grid-auto-columns: minmax(430px, 68vw) !important;
+    gap: 18px !important;
+    padding: 8px 16px 30px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.brow-page .brow-method-scroll) {
+    grid-auto-columns: minmax(300px, 88vw) !important;
+    gap: 16px !important;
+    padding: 8px 15px 28px !important;
+    margin-right: -14px !important;
+  }
+
+  :global(.brow-page .brow-method-slide-card-graphic .brow-method-graphic-frame) {
+    border-radius: 24px !important;
+    box-shadow: 0 16px 42px rgba(89, 53, 67, 0.08) !important;
   }
 }
 
