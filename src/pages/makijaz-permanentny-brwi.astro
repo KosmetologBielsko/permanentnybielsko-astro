@@ -420,49 +420,69 @@ const structuredData = [
           </div>
 
           <div class="brow-method-scroll" id="browMethodScroll" aria-label="Metody brwi permanentnych">
-            <article class="brow-method-slide-card">
-              <span>01</span>
-              <h3>Brwi cieniowane</h3>
-              <p>
-                Miękkie wypełnienie brwi, które może przypominać bardzo delikatny makijaż.
-                Dobre rozwiązanie, gdy potrzebna jest większa regularność i uporządkowanie kształtu.
-              </p>
+            <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Brwi cieniowane">
+              <figure class="brow-method-graphic-frame">
+                <img
+                  src="/images/metody-brwi-01-cieniowane-naturalny-efekt.webp"
+                  alt="Graficzny kafelek Brwi cieniowane"
+                  loading="lazy"
+                  decoding="async"
+                  width="1800"
+                  height="1122"
+                />
+              </figure>
             </article>
 
-            <article class="brow-method-slide-card brow-method-slide-card-rose">
-              <span>02</span>
-              <h3>Metoda włoskowa</h3>
-              <p>
-                Technika budująca efekt pojedynczych włosków. Wymaga precyzyjnego kierunku,
-                lekkości i bardzo świadomego prowadzenia linii.
-              </p>
+            <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Metoda włoskowa">
+              <figure class="brow-method-graphic-frame">
+                <img
+                  src="/images/metody-brwi-02-metoda-wloskowa-naturalny-efekt.webp"
+                  alt="Graficzny kafelek Metoda włoskowa"
+                  loading="lazy"
+                  decoding="async"
+                  width="1800"
+                  height="1122"
+                />
+              </figure>
             </article>
 
-            <article class="brow-method-slide-card">
-              <span>03</span>
-              <h3>Włos z cieniem</h3>
-              <p>
-                Połączenie struktury włosa z delikatnym cieniem. Pozwala uzyskać pełniejszy efekt
-                przy zachowaniu miękkości i naturalnego charakteru.
-              </p>
+            <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Włos z cieniem">
+              <figure class="brow-method-graphic-frame">
+                <img
+                  src="/images/metody-brwi-03-wlos-z-cieniem-naturalny-efekt.webp"
+                  alt="Graficzny kafelek Włos z cieniem"
+                  loading="lazy"
+                  decoding="async"
+                  width="1800"
+                  height="1122"
+                />
+              </figure>
             </article>
 
-            <article class="brow-method-slide-card brow-method-slide-card-turquoise">
-              <span>04</span>
-              <h3>Silky Hairstroke Brows</h3>
-              <p>
-                Autorskie podejście Bogusławy Herda do efektu włosa maszynowego: lekkość,
-                naturalny kierunek i praca dopasowana do rysów twarzy.
-              </p>
+            <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Silky Hairstroke Brows">
+              <figure class="brow-method-graphic-frame">
+                <img
+                  src="/images/metody-brwi-04-silky-hairstroke-brows-makro.webp"
+                  alt="Graficzny kafelek Silky Hairstroke Brows"
+                  loading="lazy"
+                  decoding="async"
+                  width="1800"
+                  height="1122"
+                />
+              </figure>
             </article>
 
-            <article class="brow-method-slide-card brow-method-slide-card-gold">
-              <span>05</span>
-              <h3>Korekta starych brwi</h3>
-              <p>
-                Ocena starego pigmentu, koloru i kształtu. Czasem najlepszym pierwszym krokiem
-                jest rozjaśnienie, a dopiero później nowy rysunek wstępny.
-              </p>
+            <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Korekta starych brwi">
+              <figure class="brow-method-graphic-frame">
+                <img
+                  src="/images/metody-brwi-05-korekta-starych-brwi-zabieg.webp"
+                  alt="Graficzny kafelek Korekta starych brwi"
+                  loading="lazy"
+                  decoding="async"
+                  width="1800"
+                  height="1122"
+                />
+              </figure>
             </article>
           </div>
 
@@ -4807,6 +4827,46 @@ const structuredData = [
         0 0 0 1px rgba(255, 255, 255, 0.68) inset !important;
     }
   }
+
+
+/* FINAL — Metody brwi permanentnych jako graficzne kafelki */
+:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic) {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic::before),
+:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic::after) {
+  content: none !important;
+  display: none !important;
+}
+
+:global(.brow-page .brow-method-slide-card-graphic .brow-method-graphic-frame) {
+  margin: 0;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 34px;
+  box-shadow:
+    0 22px 54px rgba(102, 73, 86, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.72) inset;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(252, 247, 249, 0.98));
+}
+
+:global(.brow-page .brow-method-slide-card-graphic img) {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 760px) {
+  :global(.brow-page .brow-method-slide-card-graphic .brow-method-graphic-frame) {
+    border-radius: 24px;
+  }
+}
 
 </style>
 <script>
