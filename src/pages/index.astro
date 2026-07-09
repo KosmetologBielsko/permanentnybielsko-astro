@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -365,20 +365,30 @@ const structuredData = [
             </a>
 
             <a
-              class="service-graphic-tile service-graphic-tile--wide"
+              class="service-graphic-tile service-graphic-tile--wide service-graphic-tile--silky"
               id="metody"
               href="/makijaz-permanentny-brwi/"
               aria-label="Silky Hairstroke Brows - zobacz autorską metodę"
             >
-              <img
-                src="/images/oferta-silky-hairstroke-brows.webp?v=20260709-v2"
-                alt="Silky Hairstroke Brows - autorska metoda włosa maszynowego"
-                width="2048"
-                height="682"
-                loading="lazy"
-                decoding="async"
-                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc(100vw - 48px), 1180px"
-              />
+              <picture>
+                <source
+                  media="(max-width: 760px)"
+                  srcset="/images/oferta-silky-hairstroke-brows-mobile.webp?v=20260709-v3"
+                />
+                <source
+                  media="(max-width: 1180px)"
+                  srcset="/images/oferta-silky-hairstroke-brows-mobile.webp?v=20260709-v3"
+                />
+                <img
+                  src="/images/oferta-silky-hairstroke-brows.webp?v=20260709-v3"
+                  alt="Silky Hairstroke Brows - autorska metoda włosa maszynowego"
+                  width="2048"
+                  height="682"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc(100vw - 48px), 1180px"
+                />
+              </picture>
             </a>
 
             <a
@@ -4046,6 +4056,40 @@ const structuredData = [
       transform: none !important;
     }
   }
+
+
+  /* FINAL — Silky: osobny obraz dla tablet/mobile */
+
+  :global(.home-page .service-graphic-tile--silky picture) {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    border-radius: inherit !important;
+  }
+
+  :global(.home-page .service-graphic-tile--silky picture img) {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    border-radius: inherit !important;
+  }
+
+  @media (min-width: 761px) and (max-width: 1180px) {
+    :global(.home-page .service-graphic-tile--silky img) {
+      aspect-ratio: 4 / 3 !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .service-graphic-tile--silky img) {
+      aspect-ratio: 4 / 3 !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+    }
+  }
+
 
 </style>
 
