@@ -826,36 +826,45 @@ const structuredData = [
             </figure>
           </div>
 
-          <div class="mission-support-grid">
-            <article class="mission-support-card">
-              <span>01</span>
-              <h3>Po rozszczepie wargi</h3>
-              <p>
-                Praca z kolorem i konturem wymaga spokojnej kwalifikacji, cierpliwości
-                oraz bardzo indywidualnego podejścia do tkanki i oczekiwanego efektu.
-              </p>
+          <div class="mission-support-grid mission-support-image-grid" aria-label="Zakres projektu SercemMalowane">
+            <article class="mission-support-image-card">
+              <img
+                src="/images/sercem-malowane-po-rozszczepie-wargi.webp?v=20260709-v1"
+                alt="Po rozszczepie wargi — praca z kolorem i konturem"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc((100vw - 72px) / 2), 31vw"
+              />
             </article>
 
-            <article class="mission-support-card mission-support-card-rose">
-              <span>02</span>
-              <h3>Po leczeniu onkologicznym</h3>
-              <p>
-                Uzupełnienie brwi lub delikatna pigmentacja mogą być częścią powrotu do siebie,
-                zawsze z szacunkiem do historii skóry i aktualnego stanu zdrowia.
-              </p>
+            <article class="mission-support-image-card">
+              <img
+                src="/images/sercem-malowane-po-leczeniu-onkologicznym.webp?v=20260709-v1"
+                alt="Po leczeniu onkologicznym — uzupełnienie brwi lub delikatna pigmentacja"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc((100vw - 72px) / 2), 31vw"
+              />
             </article>
 
-            <article class="mission-support-card">
-              <span>03</span>
-              <h3>Alopecja i utrata brwi</h3>
-              <p>
-                Naturalnie zaprojektowane brwi mogą pomóc odbudować oprawę twarzy bez efektu maski
-                i bez nadmiernego obciążenia rysów.
-              </p>
+            <article class="mission-support-image-card">
+              <img
+                src="/images/sercem-malowane-alopecja-utrata-brwi.webp?v=20260709-v1"
+                alt="Alopecja i utrata brwi — naturalna odbudowa oprawy twarzy"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc((100vw - 72px) / 2), 31vw"
+              />
             </article>
           </div>
 
-          <div class="mission-quote-card mission-quote-heart-card">
+<div class="mission-quote-card mission-quote-heart-card">
             <span class="mission-quote-heart" aria-hidden="true">♥</span>
             <p>
               „Nie każda pigmentacja zaczyna się od potrzeby makijażu. Czasem zaczyna się od potrzeby,
@@ -3882,6 +3891,112 @@ const structuredData = [
       aspect-ratio: 4 / 3 !important;
       object-fit: contain !important;
       object-position: center center !important;
+    }
+  }
+
+  /* FINAL — #SercemMalowane: graficzne kafelki 01/02/03 */
+
+  :global(.home-page .mission-support-image-grid) {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: clamp(16px, 2vw, 26px) !important;
+    align-items: stretch !important;
+    margin-top: 0 !important;
+  }
+
+  :global(.home-page .mission-support-image-card) {
+    position: relative !important;
+    display: block !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: clamp(22px, 2.8vw, 34px) !important;
+    background: rgba(255, 255, 255, 0.84) !important;
+    box-shadow: 0 24px 62px rgba(143, 16, 32, 0.09) !important;
+    transform: translateZ(0) !important;
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease,
+      filter 0.22s ease !important;
+  }
+
+  :global(.home-page .mission-support-image-card::after) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    border-radius: inherit !important;
+    border: 1px solid rgba(255, 255, 255, 0.48) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .mission-support-image-card img) {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    border-radius: inherit !important;
+    background: rgba(255, 255, 255, 0.90) !important;
+  }
+
+  :global(.home-page .mission-support-image-card:hover),
+  :global(.home-page .mission-support-image-card:focus-visible) {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 30px 76px rgba(143, 16, 32, 0.13) !important;
+    filter: saturate(1.02) contrast(1.01) !important;
+  }
+
+  @media (min-width: 761px) and (max-width: 1180px) {
+    :global(.home-page .mission-support-image-grid) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 22px !important;
+    }
+
+    :global(.home-page .mission-support-image-grid > *:last-child) {
+      grid-column: 1 / -1 !important;
+      max-width: min(100%, 620px) !important;
+      margin-inline: auto !important;
+    }
+  }
+
+  @media (min-width: 761px) and (max-width: 860px) {
+    :global(.home-page .mission-support-image-grid) {
+      grid-template-columns: 1fr !important;
+      max-width: 620px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    :global(.home-page .mission-support-image-grid > *:last-child) {
+      grid-column: auto !important;
+      max-width: 100% !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .mission-support-image-grid) {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+      margin-top: 0 !important;
+    }
+
+    :global(.home-page .mission-support-image-card) {
+      border-radius: 24px !important;
+      box-shadow: 0 18px 44px rgba(143, 16, 32, 0.08) !important;
+    }
+
+    :global(.home-page .mission-support-image-card img) {
+      aspect-ratio: 4 / 3 !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+    }
+
+    :global(.home-page .mission-support-image-card:hover),
+    :global(.home-page .mission-support-image-card:focus-visible) {
+      transform: none !important;
     }
   }
 
