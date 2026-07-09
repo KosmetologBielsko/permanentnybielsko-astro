@@ -310,53 +310,77 @@ const structuredData = [
             </p>
           </div>
 
-          <div class="brow-for-grid">
-            <article class="brow-for-card">
-              <span>01</span>
-              <h3>Przerzedzone brwi</h3>
-              <p>
-                gdy brakuje gęstości, kierunku albo regularnej oprawy oka
-              </p>
+          <div class="brow-for-grid brow-for-graphic-grid" aria-label="Kiedy warto wykonać brwi permanentne">
+            <article class="brow-for-image-card">
+              <img
+                src="/images/brwi-kiedy-warto-przerzedzone-brwi.webp?v=20260709-kiedy-warto"
+                alt="Przerzedzone brwi — kiedy brakuje gęstości, kierunku albo regularnej oprawy oka"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1080px) calc((100vw - 56px) / 2), calc((100vw - 96px) / 3)"
+              />
             </article>
 
-            <article class="brow-for-card">
-              <span>02</span>
-              <h3>Asymetria</h3>
-              <p>
-                gdy jedna brew różni się kształtem, wysokością lub długością
-              </p>
+            <article class="brow-for-image-card">
+              <img
+                src="/images/brwi-kiedy-warto-asymetria.webp?v=20260709-kiedy-warto"
+                alt="Asymetria brwi — kiedy jedna brew różni się kształtem, wysokością lub długością"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1080px) calc((100vw - 56px) / 2), calc((100vw - 96px) / 3)"
+              />
             </article>
 
-            <article class="brow-for-card">
-              <span>03</span>
-              <h3>Codzienny makijaż</h3>
-              <p>
-                gdy klientka codziennie dorysowuje brwi i chce skrócić poranną rutynę
-              </p>
+            <article class="brow-for-image-card">
+              <img
+                src="/images/brwi-kiedy-warto-codzienny-makijaz.webp?v=20260709-kiedy-warto"
+                alt="Codzienny makijaż brwi — gdy klientka codziennie dorysowuje brwi i chce skrócić poranną rutynę"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1080px) calc((100vw - 56px) / 2), calc((100vw - 96px) / 3)"
+              />
             </article>
 
-            <article class="brow-for-card">
-              <span>04</span>
-              <h3>Naturalna oprawa oka</h3>
-              <p>
-                gdy celem jest świeży, miękki efekt bez ciężkiej ramy
-              </p>
+            <article class="brow-for-image-card">
+              <img
+                src="/images/brwi-kiedy-warto-naturalna-oprawa-oka.webp?v=20260709-kiedy-warto"
+                alt="Naturalna oprawa oka — kiedy celem jest świeży, miękki efekt bez ciężkiej ramy"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1080px) calc((100vw - 56px) / 2), calc((100vw - 96px) / 3)"
+              />
             </article>
 
-            <article class="brow-for-card brow-for-card-rose">
-              <span>05</span>
-              <h3>Stare PMU</h3>
-              <p>
-                gdy wcześniejsza pigmentacja wymaga oceny, rozjaśnienia albo planu naprawczego
-              </p>
+            <article class="brow-for-image-card">
+              <img
+                src="/images/brwi-kiedy-warto-stare-pmu.webp?v=20260709-kiedy-warto"
+                alt="Stare PMU — gdy wcześniejsza pigmentacja wymaga oceny, rozjaśnienia albo planu naprawczego"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1080px) calc((100vw - 56px) / 2), calc((100vw - 96px) / 3)"
+              />
             </article>
 
-            <article class="brow-for-card">
-              <span>06</span>
-              <h3>Delikatna zmiana</h3>
-              <p>
-                gdy brwi mają uporządkować twarz, ale nie zmienić jej charakteru
-              </p>
+            <article class="brow-for-image-card">
+              <img
+                src="/images/brwi-kiedy-warto-delikatna-zmiana.webp?v=20260709-kiedy-warto"
+                alt="Delikatna zmiana — gdy brwi mają uporządkować twarz, ale nie zmienić jej charakteru"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1080px) calc((100vw - 56px) / 2), calc((100vw - 96px) / 3)"
+              />
             </article>
           </div>
         </div>
@@ -4731,6 +4755,59 @@ const structuredData = [
 #autorska-metoda-boguslawy-herda {
   scroll-margin-top: 110px;
 }
+
+
+  /* FINAL — brwi: graficzne kafelki „Kiedy warto?” */
+  :global(.brow-page .brow-for-grid.brow-for-graphic-grid) {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: clamp(16px, 1.8vw, 22px) !important;
+    align-items: stretch !important;
+  }
+
+  :global(.brow-page .brow-for-image-card) {
+    position: relative !important;
+    display: block !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    border-radius: 34px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    border: 1px solid rgba(183, 101, 118, 0.14) !important;
+    box-shadow:
+      0 20px 58px rgba(89, 53, 67, 0.08),
+      0 0 0 1px rgba(255, 255, 255, 0.70) inset !important;
+  }
+
+  :global(.brow-page .brow-for-image-card img) {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1448 / 1086 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border-radius: inherit !important;
+  }
+
+  @media (max-width: 1080px) {
+    :global(.brow-page .brow-for-grid.brow-for-graphic-grid) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.brow-page .brow-for-grid.brow-for-graphic-grid) {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+
+    :global(.brow-page .brow-for-image-card) {
+      border-radius: 26px !important;
+      box-shadow:
+        0 16px 42px rgba(89, 53, 67, 0.075),
+        0 0 0 1px rgba(255, 255, 255, 0.68) inset !important;
+    }
+  }
+
 </style>
 <script>
   const browMethodScroll = document.querySelector("#browMethodScroll");
