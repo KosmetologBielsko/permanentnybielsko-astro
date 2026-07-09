@@ -3898,41 +3898,9 @@ const structuredData = [
   :global(.brow-page .brow-process-visual-photo figcaption) {
     display: none !important;
   }
-  /* Compact collage under "Metody brwi permanentnych" */
-.methods-collage-frame.methods-collage-frame--compact {
-  width: min(calc(100% - 40px), 940px) !important;
-  margin: clamp(26px, 4vw, 44px) auto clamp(42px, 5vw, 66px) !important;
-  padding: clamp(6px, 1vw, 10px) !important;
-  border: 1px solid rgba(31, 168, 166, 0.22) !important;
-  border-radius: 32px !important;
-  background: rgba(255, 255, 255, 0.94) !important;
-  box-shadow:
-    0 20px 58px rgba(31, 35, 45, 0.10),
-    0 6px 18px rgba(31, 35, 45, 0.06) !important;
-  overflow: visible !important;
-}
-
-.methods-collage-frame.methods-collage-frame--compact img {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  max-height: 590px !important;
-  object-fit: contain !important;
-  border-radius: 24px !important;
-}
 
 @media (max-width: 760px) {
-  .methods-collage-frame.methods-collage-frame--compact {
-    width: min(calc(100% - 30px), 520px) !important;
-    margin: 24px auto 42px !important;
-    padding: 5px !important;
-    border-radius: 24px !important;
-  }
 
-  .methods-collage-frame.methods-collage-frame--compact img {
-    max-height: none !important;
-    border-radius: 19px !important;
-  }
 }
 /* FINAL CLEAN — Silky Hairstroke Brows: video + points responsive */
 :global(.brow-page .brow-silky-signature) {
@@ -4368,41 +4336,6 @@ const structuredData = [
   line-height: 1.72 !important;
 }
 
-/* Kolaż — większy i podobny do sekcji ust */
-:global(.brow-page .methods-collage-frame.methods-collage-frame--compact) {
-  position: relative !important;
-  width: min(100%, 1120px) !important;
-  margin: 0 auto 36px !important;
-  overflow: hidden !important;
-  padding: clamp(14px, 1.8vw, 22px) !important;
-  border: 1px solid rgba(56, 187, 181, 0.22) !important;
-  border-radius: 38px !important;
-  background:
-    radial-gradient(circle at 94% 8%, rgba(56, 187, 181, 0.08), transparent 18rem),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 251, 0.94)) !important;
-  box-shadow:
-    0 24px 72px rgba(89, 53, 67, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
-}
-
-:global(.brow-page .methods-collage-frame.methods-collage-frame--compact::after) {
-  content: "" !important;
-  position: absolute !important;
-  inset: clamp(22px, 2.2vw, 34px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.72) !important;
-  border-radius: 26px !important;
-  pointer-events: none !important;
-}
-
-:global(.brow-page .methods-collage-frame.methods-collage-frame--compact img) {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  border-radius: 26px !important;
-  box-shadow: 0 18px 46px rgba(89, 53, 67, 0.12) !important;
-}
 
 /* Strzałki — większe, czytelniejsze, jak w ustach */
 :global(.brow-page .brow-method-controls) {
@@ -4681,23 +4614,8 @@ const structuredData = [
     line-height: 1.68 !important;
   }
 
-  :global(.brow-page .methods-collage-frame.methods-collage-frame--compact) {
-    width: min(calc(100% - 30px), 560px) !important;
-    margin: 0 auto 24px !important;
-    padding: 10px !important;
-    border-radius: 26px !important;
-  }
 
-  :global(.brow-page .methods-collage-frame.methods-collage-frame--compact::after) {
-    inset: 16px !important;
-    border-radius: 18px !important;
-  }
-
-  :global(.brow-page .methods-collage-frame.methods-collage-frame--compact img) {
-    border-radius: 18px !important;
-  }
-
-  :global(.brow-page .brow-method-controls) {
+:global(.brow-page .brow-method-controls) {
     justify-content: flex-end !important;
     gap: 10px !important;
     width: min(calc(100% - 30px), 560px) !important;
