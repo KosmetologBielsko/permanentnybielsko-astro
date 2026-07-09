@@ -619,89 +619,77 @@ const structuredData = [
             </div>
           </div>
 
-          <div class="international-city-grid international-badge-grid">
-            <article class="international-city-card international-badge-card international-badge-card-turkey">
-              <div class="badge-place">
-                <span>TR</span>
-                <h3>Ankara</h3>
-              </div>
-
-              <strong class="badge-main-word">SPEAKER</strong>
-
-              <div class="badge-caption">
-                <span>Long-Time-Liner®</span>
-                <span>Silky Hairstroke Brows</span>
-              </div>
+          <div class="international-city-grid international-image-grid" aria-label="Doświadczenie międzynarodowe PMU">
+            <article class="international-image-card">
+              <img
+                src="/images/doswiadczenie-ankara.webp?v=20260709-v4"
+                alt="Ankara, Turcja - speaker Long-Time-Liner"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc((100vw - 72px) / 2), 31vw"
+              />
             </article>
 
-            <article class="international-city-card international-badge-card international-badge-card-hungary">
-              <div class="badge-place">
-                <span>HU</span>
-                <h3>Budapeszt</h3>
-              </div>
-
-              <strong class="badge-main-word">LTL</strong>
-
-              <div class="badge-caption">
-                <span>Workshop</span>
-                <span>Speaker</span>
-              </div>
+            <article class="international-image-card">
+              <img
+                src="/images/doswiadczenie-budapeszt.webp?v=20260709-v4"
+                alt="Budapeszt, Węgry - workshop i speaker"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc((100vw - 72px) / 2), 31vw"
+              />
             </article>
 
-            <article class="international-city-card international-badge-card international-badge-card-france">
-              <div class="badge-place">
-                <span>FR</span>
-                <h3>Lyon</h3>
-              </div>
-
-              <strong class="badge-main-word">JUROR</strong>
-
-              <div class="badge-caption">
-                <span>Mistrzostwa Francji PMU</span>
-                <span>Speaker</span>
-              </div>
+            <article class="international-image-card">
+              <img
+                src="/images/doswiadczenie-lyon.webp?v=20260709-v4"
+                alt="Lyon, Francja - juror Mistrzostw Francji PMU"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc((100vw - 72px) / 2), 31vw"
+              />
             </article>
 
-            <article class="international-city-card international-badge-card international-badge-card-germany">
-              <div class="badge-place">
-                <span>DE</span>
-                <h3>Monachium</h3>
-              </div>
-
-              <strong class="badge-main-word">VICE</strong>
-
-              <div class="badge-caption">
-                <span>Wicemistrzostwo świata</span>
-                <span>PMU</span>
-              </div>
+            <article class="international-image-card">
+              <img
+                src="/images/doswiadczenie-monachium.webp?v=20260709-v4"
+                alt="Monachium, Niemcy - wicemistrzostwo świata PMU"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc((100vw - 72px) / 2), 31vw"
+              />
             </article>
 
-            <article class="international-city-card international-badge-card international-badge-card-germany">
-              <div class="badge-place">
-                <span>DE</span>
-                <h3>Düsseldorf</h3>
-              </div>
-
-              <strong class="badge-main-word">LTL</strong>
-
-              <div class="badge-caption">
-                <span>Workshop</span>
-                <span>Speaker · Silky</span>
-              </div>
+            <article class="international-image-card">
+              <img
+                src="/images/doswiadczenie-dusseldorf.webp?v=20260709-v4"
+                alt="Düsseldorf, Niemcy - workshop, speaker i Silky"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc((100vw - 72px) / 2), 31vw"
+              />
             </article>
 
-            <article class="international-city-card international-badge-card international-badge-card-indonesia">
-              <div class="badge-place">
-                <span>ID</span>
-                <h3>PMU 2026</h3>
-              </div>
-
-              <strong class="badge-main-word">WORLD</strong>
-
-              <div class="badge-caption">
-                <span>Speaker</span>
-                <span>Juror</span>
-              </div>
+            <article class="international-image-card">
+              <img
+                src="/images/doswiadczenie-jakarta.webp?v=20260709-v4"
+                alt="Jakarta, Indonezja - PMU 2026, wydarzenie globalne"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1180px) calc((100vw - 72px) / 2), 31vw"
+              />
             </article>
           </div>
         </div>
@@ -3828,6 +3816,97 @@ const structuredData = [
     :global(.home-page .training-cta-only-section) {
       padding-top: 38px !important;
       padding-bottom: 38px !important;
+    }
+  }
+
+
+  /* FINAL — Doświadczenie międzynarodowe: graficzne kafelki miast */
+
+  :global(.home-page .international-image-grid) {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: clamp(16px, 2vw, 26px) !important;
+    align-items: stretch !important;
+    margin-top: clamp(28px, 4vw, 54px) !important;
+  }
+
+  :global(.home-page .international-image-card) {
+    position: relative !important;
+    display: block !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: clamp(22px, 2.8vw, 34px) !important;
+    background: rgba(255, 255, 255, 0.74) !important;
+    box-shadow: 0 24px 62px rgba(23, 21, 29, 0.10) !important;
+    transform: translateZ(0) !important;
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease,
+      filter 0.22s ease !important;
+  }
+
+  :global(.home-page .international-image-card::after) {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    border-radius: inherit !important;
+    border: 1px solid rgba(255, 255, 255, 0.42) !important;
+    pointer-events: none !important;
+  }
+
+  :global(.home-page .international-image-card img) {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    border-radius: inherit !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+  }
+
+  :global(.home-page .international-image-card:hover),
+  :global(.home-page .international-image-card:focus-visible) {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 30px 76px rgba(23, 21, 29, 0.14) !important;
+    filter: saturate(1.02) contrast(1.01) !important;
+  }
+
+  @media (min-width: 761px) and (max-width: 1180px) {
+    :global(.home-page .international-image-grid) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 22px !important;
+    }
+  }
+
+  @media (min-width: 761px) and (max-width: 860px) {
+    :global(.home-page .international-image-grid) {
+      grid-template-columns: 1fr !important;
+      max-width: 620px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .international-image-grid) {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+      margin-top: 24px !important;
+    }
+
+    :global(.home-page .international-image-card) {
+      border-radius: 24px !important;
+      box-shadow: 0 18px 44px rgba(23, 21, 29, 0.08) !important;
+    }
+
+    :global(.home-page .international-image-card img) {
+      aspect-ratio: 4 / 3 !important;
+      object-fit: contain !important;
+      object-position: center center !important;
     }
   }
 
