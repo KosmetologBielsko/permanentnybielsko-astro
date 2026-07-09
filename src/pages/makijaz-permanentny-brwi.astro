@@ -398,17 +398,6 @@ const structuredData = [
               starego makijażu permanentnego.
             </p>
           </div>
-
-          <figure class="methods-collage-frame methods-collage-frame--compact">
-            <img
-              src="/images/metody-brwi-permanentnych-kolaz-poziomy.webp"
-              alt="Kolaż efektów brwi permanentnych pokazujący różne metody pigmentacji brwi"
-              loading="lazy"
-              decoding="async"
-              width="1800"
-              height="1122"
-            />
-          </figure>
           <div class="brow-method-controls" aria-label="Przewijanie metod brwi permanentnych">
             <button class="brow-method-arrow brow-method-arrow-left" type="button" aria-label="Przewiń w lewo">
               ←
@@ -420,69 +409,49 @@ const structuredData = [
           </div>
 
           <div class="brow-method-scroll" id="browMethodScroll" aria-label="Metody brwi permanentnych">
-            <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Brwi cieniowane">
-              <figure class="brow-method-graphic-frame">
-                <img
-                  src="/images/brwi-metody-final-01-cieniowane-jednakowy-rozmiar.webp"
-                  alt="Graficzny kafelek Brwi cieniowane"
-                  loading="lazy"
-                  decoding="async"
-                  width="1800"
-                  height="1122"
-                />
-              </figure>
+            <article class="brow-method-slide-card">
+              <span>01</span>
+              <h3>Brwi cieniowane</h3>
+              <p>
+                Miękkie wypełnienie brwi, które może przypominać bardzo delikatny makijaż.
+                Dobre rozwiązanie, gdy potrzebna jest większa regularność i uporządkowanie kształtu.
+              </p>
             </article>
 
-            <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Metoda włoskowa">
-              <figure class="brow-method-graphic-frame">
-                <img
-                  src="/images/brwi-metody-final-02-metoda-wloskowa-jednakowy-rozmiar.webp"
-                  alt="Graficzny kafelek Metoda włoskowa"
-                  loading="lazy"
-                  decoding="async"
-                  width="1800"
-                  height="1122"
-                />
-              </figure>
+            <article class="brow-method-slide-card brow-method-slide-card-rose">
+              <span>02</span>
+              <h3>Metoda włoskowa</h3>
+              <p>
+                Technika budująca efekt pojedynczych włosków. Wymaga precyzyjnego kierunku,
+                lekkości i bardzo świadomego prowadzenia linii.
+              </p>
             </article>
 
-            <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Włos z cieniem">
-              <figure class="brow-method-graphic-frame">
-                <img
-                  src="/images/brwi-metody-final-03-wlos-z-cieniem-jednakowy-rozmiar.webp"
-                  alt="Graficzny kafelek Włos z cieniem"
-                  loading="lazy"
-                  decoding="async"
-                  width="1800"
-                  height="1122"
-                />
-              </figure>
+            <article class="brow-method-slide-card">
+              <span>03</span>
+              <h3>Włos z cieniem</h3>
+              <p>
+                Połączenie struktury włosa z delikatnym cieniem. Pozwala uzyskać pełniejszy efekt
+                przy zachowaniu miękkości i naturalnego charakteru.
+              </p>
             </article>
 
-            <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Silky Hairstroke Brows">
-              <figure class="brow-method-graphic-frame">
-                <img
-                  src="/images/brwi-metody-final-04-silky-hairstroke-jednakowy-rozmiar.webp"
-                  alt="Graficzny kafelek Silky Hairstroke Brows"
-                  loading="lazy"
-                  decoding="async"
-                  width="1800"
-                  height="1122"
-                />
-              </figure>
+            <article class="brow-method-slide-card brow-method-slide-card-turquoise">
+              <span>04</span>
+              <h3>Silky Hairstroke Brows</h3>
+              <p>
+                Autorskie podejście Bogusławy Herda do efektu włosa maszynowego: lekkość,
+                naturalny kierunek i praca dopasowana do rysów twarzy.
+              </p>
             </article>
 
-            <article class="brow-method-slide-card brow-method-slide-card-graphic" aria-label="Korekta starych brwi">
-              <figure class="brow-method-graphic-frame">
-                <img
-                  src="/images/brwi-metody-final-05-korekta-starych-brwi-jednakowy-rozmiar.webp"
-                  alt="Graficzny kafelek Korekta starych brwi"
-                  loading="lazy"
-                  decoding="async"
-                  width="1800"
-                  height="1122"
-                />
-              </figure>
+            <article class="brow-method-slide-card brow-method-slide-card-gold">
+              <span>05</span>
+              <h3>Korekta starych brwi</h3>
+              <p>
+                Ocena starego pigmentu, koloru i kształtu. Czasem najlepszym pierwszym krokiem
+                jest rozjaśnienie, a dopiero później nowy rysunek wstępny.
+              </p>
             </article>
           </div>
 
@@ -4827,137 +4796,6 @@ const structuredData = [
         0 0 0 1px rgba(255, 255, 255, 0.68) inset !important;
     }
   }
-
-
-/* FINAL — Metody brwi permanentnych jako graficzne kafelki */
-:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic) {
-  padding: 0 !important;
-  border: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  overflow: visible !important;
-}
-
-:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic::before),
-:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic::after) {
-  content: none !important;
-  display: none !important;
-}
-
-:global(.brow-page .brow-method-slide-card-graphic .brow-method-graphic-frame) {
-  margin: 0;
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 34px;
-  box-shadow:
-    0 22px 54px rgba(102, 73, 86, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.72) inset;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(252, 247, 249, 0.98));
-}
-
-:global(.brow-page .brow-method-slide-card-graphic img) {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 760px) {
-  :global(.brow-page .brow-method-slide-card-graphic .brow-method-graphic-frame) {
-    border-radius: 24px;
-  }
-}
-
-
-
-/* FINAL 2026-07-09 — Metody brwi: wszystkie grafiki identyczny format jak kafelek 01 */
-:global(.brow-page .brow-method-scroll) {
-  display: grid !important;
-  grid-auto-flow: column !important;
-  grid-auto-columns: clamp(520px, 32vw, 640px) !important;
-  grid-template-columns: none !important;
-  align-items: stretch !important;
-  gap: clamp(18px, 1.8vw, 24px) !important;
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  padding: 10px 18px 34px !important;
-  margin: 0 0 30px !important;
-  scroll-snap-type: x mandatory !important;
-  scroll-behavior: smooth !important;
-  -webkit-overflow-scrolling: touch !important;
-}
-
-:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic) {
-  display: block !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  overflow: visible !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  scroll-snap-align: start !important;
-  transform: none !important;
-}
-
-:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic::before),
-:global(.brow-page .brow-method-slide-card.brow-method-slide-card-graphic::after) {
-  content: none !important;
-  display: none !important;
-}
-
-:global(.brow-page .brow-method-slide-card-graphic .brow-method-graphic-frame) {
-  display: block !important;
-  width: 100% !important;
-  aspect-ratio: 1448 / 1086 !important;
-  margin: 0 !important;
-  overflow: hidden !important;
-  border-radius: 34px !important;
-  background: rgba(255, 248, 251, 0.96) !important;
-  box-shadow: 0 22px 58px rgba(89, 53, 67, 0.10) !important;
-}
-
-:global(.brow-page .brow-method-slide-card-graphic img) {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  aspect-ratio: 1448 / 1086 !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  border-radius: inherit !important;
-}
-
-@media (min-width: 1500px) {
-  :global(.brow-page .brow-method-scroll) {
-    grid-auto-columns: minmax(600px, 700px) !important;
-  }
-}
-
-@media (max-width: 1080px) {
-  :global(.brow-page .brow-method-scroll) {
-    grid-auto-columns: minmax(430px, 68vw) !important;
-    gap: 18px !important;
-    padding: 8px 16px 30px !important;
-  }
-}
-
-@media (max-width: 760px) {
-  :global(.brow-page .brow-method-scroll) {
-    grid-auto-columns: minmax(300px, 88vw) !important;
-    gap: 16px !important;
-    padding: 8px 15px 28px !important;
-    margin-right: -14px !important;
-  }
-
-  :global(.brow-page .brow-method-slide-card-graphic .brow-method-graphic-frame) {
-    border-radius: 24px !important;
-    box-shadow: 0 16px 42px rgba(89, 53, 67, 0.08) !important;
-  }
-}
 
 </style>
 <script>
