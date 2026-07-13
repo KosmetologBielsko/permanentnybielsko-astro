@@ -64,20 +64,21 @@ const videos = [
   </div>
 
   <div class="silky-video-carousel__track" data-silky-video-track>
-    {videos.map((item) => (
+    {videos.map((item, index) => (
       <article
         class="silky-video-carousel__card"
         data-silky-video-card
+        data-video-index={String(index)}
         data-playing="false"
       >
-        <div class="silky-video-carousel__media" data-silky-video-media>
+        <div class="silky-video-carousel__media">
           <video
             class="silky-video-carousel__video"
             playsinline
             preload="metadata"
             poster={item.poster}
             aria-label={`${item.title} — film Silky Hairstroke Brows`}
-            data-silky-video
+            data-silky-card-video
           >
             <source src={item.src} type="video/mp4" />
             Twoja przeglądarka nie obsługuje odtwarzania filmu.
@@ -87,13 +88,9 @@ const videos = [
             type="button"
             class="silky-video-carousel__hit-area"
             aria-label={`Odtwórz film: ${item.title}`}
-            data-silky-video-toggle
+            data-silky-card-toggle
           >
-            <span
-              class="silky-video-carousel__main-icon"
-              aria-hidden="true"
-              data-silky-main-icon
-            >
+            <span class="silky-video-carousel__main-icon" aria-hidden="true">
               ▶
             </span>
           </button>
@@ -103,29 +100,20 @@ const videos = [
               type="button"
               class="silky-video-carousel__control-button"
               aria-label={`Odtwórz film: ${item.title}`}
-              data-silky-video-toggle
+              data-silky-card-toggle
             >
-              <span aria-hidden="true" data-silky-play-icon>▶</span>
+              <span aria-hidden="true" data-silky-card-play-icon>▶</span>
             </button>
 
             <button
               type="button"
               class="silky-video-carousel__control-button"
-              aria-label={`Włącz tryb pełnoekranowy filmu: ${item.title}`}
-              data-silky-video-fullscreen
+              aria-label={`Otwórz film na pełnym ekranie: ${item.title}`}
+              data-silky-dialog-open
             >
-              <span aria-hidden="true" data-silky-fullscreen-icon>⛶</span>
+              <span aria-hidden="true">⛶</span>
             </button>
           </div>
-
-          <button
-            type="button"
-            class="silky-video-carousel__fullscreen-close"
-            aria-label={`Zamknij tryb pełnoekranowy filmu: ${item.title}`}
-            data-silky-video-close-fullscreen
-          >
-            <span aria-hidden="true">×</span>
-          </button>
         </div>
 
         <div class="silky-video-carousel__copy">
@@ -133,12 +121,79 @@ const videos = [
           <h5>{item.title}</h5>
           <p>{item.text}</p>
         </div>
+
+        <dialog
+          class="silky-video-carousel__dialog"
+          aria-label={`Pełny ekran filmu: ${item.title}`}
+          data-silky-dialog
+        >
+          <div class="silky-video-carousel__dialog-shell">
+            <div class="silky-video-carousel__dialog-media">
+              <video
+                class="silky-video-carousel__dialog-video"
+                playsinline
+                preload="metadata"
+                poster={item.poster}
+                aria-label={`${item.title} — pełny ekran`}
+                data-silky-dialog-video
+              >
+                <source src={item.src} type="video/mp4" />
+                Twoja przeglądarka nie obsługuje odtwarzania filmu.
+              </video>
+
+              <button
+                type="button"
+                class="silky-video-carousel__dialog-hit-area"
+                aria-label={`Odtwórz film: ${item.title}`}
+                data-silky-dialog-toggle
+              >
+                <span class="silky-video-carousel__dialog-main-icon" aria-hidden="true">
+                  ▶
+                </span>
+              </button>
+
+              <button
+                type="button"
+                class="silky-video-carousel__dialog-close"
+                aria-label="Zamknij pełny ekran"
+                data-silky-dialog-close
+              >
+                ×
+              </button>
+
+              <div class="silky-video-carousel__dialog-toolbar">
+                <button
+                  type="button"
+                  class="silky-video-carousel__dialog-control"
+                  aria-label={`Odtwórz film: ${item.title}`}
+                  data-silky-dialog-toggle
+                >
+                  <span aria-hidden="true" data-silky-dialog-play-icon>▶</span>
+                </button>
+
+                <button
+                  type="button"
+                  class="silky-video-carousel__dialog-control"
+                  aria-label="Zamknij pełny ekran"
+                  data-silky-dialog-close
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </dialog>
       </article>
     ))}
   </div>
 </section>
 
 <style>
+  .silky-video-carousel,
+  .silky-video-carousel * {
+    box-sizing: border-box;
+  }
+
   .silky-video-carousel {
     position: relative;
     z-index: 5;
@@ -148,13 +203,6 @@ const videos = [
     margin-top: clamp(30px, 4vw, 52px);
     padding-top: clamp(26px, 3vw, 38px);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    box-sizing: border-box;
-    pointer-events: auto;
-  }
-
-  .silky-video-carousel,
-  .silky-video-carousel * {
-    box-sizing: border-box;
   }
 
   .silky-video-carousel__heading {
@@ -202,8 +250,6 @@ const videos = [
   }
 
   .silky-video-carousel__controls {
-    position: relative;
-    z-index: 20;
     display: flex;
     gap: 10px;
   }
@@ -214,19 +260,24 @@ const videos = [
     font: inherit;
     cursor: pointer;
     touch-action: manipulation;
-    pointer-events: auto;
+  }
+
+  .silky-video-carousel__arrow,
+  .silky-video-carousel__control-button,
+  .silky-video-carousel__dialog-control,
+  .silky-video-carousel__dialog-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: #ffffff;
   }
 
   .silky-video-carousel__arrow {
-    display: inline-flex;
     width: 44px;
     height: 44px;
-    align-items: center;
-    justify-content: center;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 999px;
     background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
     box-shadow:
       0 14px 34px rgba(0, 0, 0, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.22);
@@ -235,21 +286,9 @@ const videos = [
     line-height: 1;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    transition:
-      transform 180ms ease,
-      background 180ms ease,
-      border-color 180ms ease;
-  }
-
-  .silky-video-carousel__arrow:hover {
-    transform: translateY(-1px);
-    border-color: rgba(255, 255, 255, 0.58);
-    background: rgba(255, 255, 255, 0.22);
   }
 
   .silky-video-carousel__track {
-    position: relative;
-    z-index: 10;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: minmax(270px, 320px);
@@ -264,7 +303,6 @@ const videos = [
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    pointer-events: auto;
   }
 
   .silky-video-carousel__track::-webkit-scrollbar {
@@ -272,8 +310,6 @@ const videos = [
   }
 
   .silky-video-carousel__card {
-    position: relative;
-    z-index: 1;
     min-width: 0;
     overflow: hidden;
     scroll-snap-align: start;
@@ -285,19 +321,16 @@ const videos = [
       inset 0 1px 0 rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    pointer-events: auto;
   }
 
   .silky-video-carousel__media {
     position: relative;
-    z-index: 2;
     margin: 8px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.34);
     border-radius: 24px;
     background: rgba(13, 106, 103, 0.82);
     isolation: isolate;
-    pointer-events: auto;
   }
 
   .silky-video-carousel__media::after {
@@ -310,33 +343,37 @@ const videos = [
     pointer-events: none;
   }
 
-  .silky-video-carousel__video {
-    position: relative;
-    z-index: 0;
+  .silky-video-carousel__video,
+  .silky-video-carousel__dialog-video {
     display: block;
     width: 100%;
-    aspect-ratio: 9 / 16;
     object-fit: cover;
     background: #0d6a67;
     pointer-events: none;
     user-select: none;
   }
 
-  .silky-video-carousel__hit-area {
+  .silky-video-carousel__video {
+    aspect-ratio: 9 / 16;
+  }
+
+  .silky-video-carousel__hit-area,
+  .silky-video-carousel__dialog-hit-area {
     position: absolute;
     inset: 0;
     z-index: 4;
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
-    width: 100%;
     padding: 0;
     border: 0;
     background: transparent;
     color: #ffffff;
   }
 
-  .silky-video-carousel__main-icon {
+  .silky-video-carousel__main-icon,
+  .silky-video-carousel__dialog-main-icon {
     display: inline-flex;
     width: 68px;
     height: 68px;
@@ -344,7 +381,7 @@ const videos = [
     justify-content: center;
     border: 1px solid rgba(255, 255, 255, 0.54);
     border-radius: 999px;
-    background: rgba(15, 119, 115, 0.7);
+    background: rgba(15, 119, 115, 0.72);
     color: #ffffff;
     box-shadow:
       0 18px 46px rgba(0, 0, 0, 0.2),
@@ -353,21 +390,13 @@ const videos = [
     line-height: 1;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    transition:
-      opacity 180ms ease,
-      transform 180ms ease,
-      background 180ms ease;
-  }
-
-  .silky-video-carousel__hit-area:hover .silky-video-carousel__main-icon {
-    background: rgba(26, 165, 160, 0.84);
-    transform: scale(1.04);
   }
 
   .silky-video-carousel__card[data-playing="true"]
-    .silky-video-carousel__main-icon {
+    .silky-video-carousel__main-icon,
+  .silky-video-carousel__dialog[data-playing="true"]
+    .silky-video-carousel__dialog-main-icon {
     opacity: 0;
-    transform: scale(0.9);
   }
 
   .silky-video-carousel__toolbar {
@@ -377,49 +406,28 @@ const videos = [
     bottom: 14px;
     z-index: 8;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
     gap: 8px;
     padding: 9px;
     border: 1px solid rgba(255, 255, 255, 0.26);
     border-radius: 999px;
-    background: rgba(9, 69, 68, 0.6);
+    background: rgba(9, 69, 68, 0.62);
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    pointer-events: auto;
   }
 
   .silky-video-carousel__control-button {
-    position: relative;
-    z-index: 9;
-    display: inline-flex;
     width: 38px;
     height: 38px;
     padding: 0;
-    align-items: center;
-    justify-content: center;
     border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: 999px;
     background: rgba(255, 255, 255, 0.14);
-    color: #ffffff;
     font-size: 1rem;
     line-height: 1;
-    transition:
-      transform 160ms ease,
-      background 160ms ease,
-      border-color 160ms ease;
-  }
-
-  .silky-video-carousel__control-button:hover {
-    transform: translateY(-1px);
-    border-color: rgba(255, 255, 255, 0.48);
-    background: rgba(255, 255, 255, 0.24);
   }
 
   .silky-video-carousel__copy {
-    position: relative;
-    z-index: 2;
     padding: 18px 20px 22px;
   }
 
@@ -447,6 +455,99 @@ const videos = [
     color: rgba(255, 255, 255, 0.78);
     font-size: 0.88rem;
     line-height: 1.54;
+  }
+
+  .silky-video-carousel__dialog {
+    width: 100vw;
+    width: 100dvw;
+    max-width: none;
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    background: #031f20;
+  }
+
+  .silky-video-carousel__dialog::backdrop {
+    background: rgba(0, 18, 19, 0.96);
+  }
+
+  .silky-video-carousel__dialog-shell {
+    width: 100%;
+    height: 100%;
+    padding:
+      max(12px, env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left));
+    background:
+      radial-gradient(circle at 50% 20%, rgba(26, 165, 160, 0.24), transparent 34rem),
+      #031f20;
+  }
+
+  .silky-video-carousel__dialog-media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #031f20;
+    isolation: isolate;
+  }
+
+  .silky-video-carousel__dialog-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent;
+  }
+
+  .silky-video-carousel__dialog-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 12;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    background: rgba(4, 48, 49, 0.82);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .silky-video-carousel__dialog-toolbar {
+    position: absolute;
+    left: 50%;
+    bottom: max(18px, calc(env(safe-area-inset-bottom) + 10px));
+    z-index: 12;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    transform: translateX(-50%);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    background: rgba(3, 42, 43, 0.82);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .silky-video-carousel__dialog-control {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.14);
+    font-size: 1.1rem;
+    line-height: 1;
   }
 
   @media (min-width: 1180px) {
@@ -523,265 +624,22 @@ const videos = [
       width: 36px;
       height: 36px;
     }
-  }
 
-  @media (hover: none) {
-    .silky-video-carousel__arrow:hover,
-    .silky-video-carousel__control-button:hover {
-      transform: none;
+    .silky-video-carousel__dialog-close {
+      top: max(12px, env(safe-area-inset-top));
+      right: max(12px, env(safe-area-inset-right));
+      width: 46px;
+      height: 46px;
     }
 
-    .silky-video-carousel__hit-area:hover .silky-video-carousel__main-icon {
-      transform: none;
+    .silky-video-carousel__dialog-control {
+      width: 40px;
+      height: 40px;
     }
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    .silky-video-carousel__track {
-      scroll-behavior: auto;
-    }
-
-    .silky-video-carousel__arrow,
-    .silky-video-carousel__control-button,
-    .silky-video-carousel__main-icon {
-      transition: none;
-    }
-  }
-
-  .silky-video-carousel__fullscreen-close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    z-index: 12;
-    display: none;
-    width: 46px;
-    height: 46px;
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.38);
-    border-radius: 999px;
-    background: rgba(5, 48, 48, 0.68);
-    color: #ffffff;
-    box-shadow:
-      0 16px 38px rgba(0, 0, 0, 0.22),
-      inset 0 1px 0 rgba(255, 255, 255, 0.22);
-    font-size: 2rem;
-    font-weight: 400;
-    line-height: 1;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    pointer-events: auto;
-  }
-
-  .silky-video-carousel__fullscreen-close:hover {
-    background: rgba(15, 119, 115, 0.9);
-  }
-
-  :global(html.silky-video-fullscreen-open),
-  :global(body.silky-video-fullscreen-open) {
-    overflow: hidden !important;
-    overscroll-behavior: none !important;
-  }
-
-  .silky-video-carousel__media[data-silky-fullscreen="true"] {
-    position: fixed !important;
-    inset: 0 !important;
-    z-index: 2147483646 !important;
-    display: flex !important;
-    width: 100vw !important;
-    width: 100dvw !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    max-width: none !important;
-    max-height: none !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 !important;
-    padding:
-      max(12px, env(safe-area-inset-top))
-      max(12px, env(safe-area-inset-right))
-      max(12px, env(safe-area-inset-bottom))
-      max(12px, env(safe-area-inset-left)) !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background:
-      radial-gradient(circle at 50% 24%, rgba(26, 165, 160, 0.24), transparent 34rem),
-      #031f20 !important;
-    box-shadow: none !important;
-    isolation: isolate !important;
-  }
-
-  .silky-video-carousel__media[data-silky-fullscreen="true"]::after {
-    inset:
-      max(12px, env(safe-area-inset-top))
-      max(12px, env(safe-area-inset-right))
-      max(12px, env(safe-area-inset-bottom))
-      max(12px, env(safe-area-inset-left)) !important;
-    z-index: 2 !important;
-    border-radius: 24px !important;
-    pointer-events: none !important;
-  }
-
-  .silky-video-carousel__media[data-silky-fullscreen="true"]
-    .silky-video-carousel__video {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    aspect-ratio: auto !important;
-    object-fit: contain !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-  }
-
-  .silky-video-carousel__media[data-silky-fullscreen="true"]
-    .silky-video-carousel__hit-area {
-    inset:
-      max(12px, env(safe-area-inset-top))
-      max(12px, env(safe-area-inset-right))
-      max(12px, env(safe-area-inset-bottom))
-      max(12px, env(safe-area-inset-left)) !important;
-  }
-
-  .silky-video-carousel__media[data-silky-fullscreen="true"]
-    .silky-video-carousel__toolbar {
-    left: 50% !important;
-    right: auto !important;
-    bottom: max(20px, calc(env(safe-area-inset-bottom) + 12px)) !important;
-    z-index: 14 !important;
-    width: max-content !important;
-    transform: translateX(-50%) !important;
-    background: rgba(3, 42, 43, 0.78) !important;
-  }
-
-  .silky-video-carousel__media[data-silky-fullscreen="true"]
-    .silky-video-carousel__fullscreen-close {
-    display: inline-flex !important;
-    top: max(16px, calc(env(safe-area-inset-top) + 8px)) !important;
-    right: max(16px, calc(env(safe-area-inset-right) + 8px)) !important;
-  }
-
-  .silky-video-carousel__media[data-silky-fullscreen="true"]
-    .silky-video-carousel__main-icon {
-    width: 76px !important;
-    height: 76px !important;
-    font-size: 1.6rem !important;
-  }
-
-  @media (max-width: 760px) {
-    .silky-video-carousel__fullscreen-close {
-      width: 44px;
-      height: 44px;
-      font-size: 1.8rem;
-    }
-
-    .silky-video-carousel__media[data-silky-fullscreen="true"]
-      .silky-video-carousel__toolbar {
-      bottom: max(16px, calc(env(safe-area-inset-bottom) + 8px)) !important;
-    }
-  }
-
 </style>
 
 <script>
-  let activeSilkyFullscreenMedia = null;
-  const silkyFullscreenState = new WeakMap();
-
-  const setSilkyPageLock = (locked) => {
-    document.documentElement.classList.toggle(
-      "silky-video-fullscreen-open",
-      locked
-    );
-    document.body.classList.toggle("silky-video-fullscreen-open", locked);
-  };
-
-  const enterSilkyFullscreen = (media) => {
-    if (!media || media.dataset.silkyFullscreen === "true") return;
-
-    if (
-      activeSilkyFullscreenMedia &&
-      activeSilkyFullscreenMedia !== media
-    ) {
-      exitSilkyFullscreen(activeSilkyFullscreenMedia);
-    }
-
-    const placeholder = document.createElement("span");
-    placeholder.hidden = true;
-    placeholder.setAttribute("data-silky-video-placeholder", "");
-
-    const parent = media.parentNode;
-    if (!parent) return;
-
-    parent.insertBefore(placeholder, media);
-
-    silkyFullscreenState.set(media, {
-      placeholder,
-      scrollX: window.scrollX,
-      scrollY: window.scrollY,
-    });
-
-    document.body.appendChild(media);
-    media.dataset.silkyFullscreen = "true";
-    activeSilkyFullscreenMedia = media;
-    setSilkyPageLock(true);
-
-    const fullscreenButton = media.querySelector(
-      "[data-silky-video-fullscreen]"
-    );
-    const fullscreenIcon = media.querySelector(
-      "[data-silky-fullscreen-icon]"
-    );
-
-    fullscreenButton?.setAttribute(
-      "aria-label",
-      "Zamknij tryb pełnoekranowy filmu"
-    );
-
-    if (fullscreenIcon) {
-      fullscreenIcon.textContent = "×";
-    }
-  };
-
-  const exitSilkyFullscreen = (media = activeSilkyFullscreenMedia) => {
-    if (!media) return;
-
-    const state = silkyFullscreenState.get(media);
-
-    if (state?.placeholder?.parentNode) {
-      state.placeholder.replaceWith(media);
-    }
-
-    delete media.dataset.silkyFullscreen;
-    silkyFullscreenState.delete(media);
-
-    const fullscreenButton = media.querySelector(
-      "[data-silky-video-fullscreen]"
-    );
-    const fullscreenIcon = media.querySelector(
-      "[data-silky-fullscreen-icon]"
-    );
-
-    fullscreenButton?.setAttribute(
-      "aria-label",
-      "Włącz tryb pełnoekranowy filmu"
-    );
-
-    if (fullscreenIcon) {
-      fullscreenIcon.textContent = "⛶";
-    }
-
-    if (activeSilkyFullscreenMedia === media) {
-      activeSilkyFullscreenMedia = null;
-    }
-
-    setSilkyPageLock(false);
-
-    if (state) {
-      window.scrollTo(state.scrollX, state.scrollY);
-    }
-  };
-
   const initializeSilkyVideoCarousels = () => {
     document.querySelectorAll("[data-silky-video-carousel]").forEach((carousel) => {
       if (carousel.dataset.silkyInitialized === "true") return;
@@ -790,139 +648,192 @@ const videos = [
       const track = carousel.querySelector("[data-silky-video-track]");
       const previousButton = carousel.querySelector("[data-silky-video-prev]");
       const nextButton = carousel.querySelector("[data-silky-video-next]");
-      const cards = Array.from(
-        carousel.querySelectorAll("[data-silky-video-card]")
-      );
+      const cards = Array.from(carousel.querySelectorAll("[data-silky-video-card]"));
 
-      const videos = cards
-        .map((card) => card.querySelector("[data-silky-video]"))
-        .filter(Boolean);
+      const allVideos = cards.flatMap((card) => [
+        card.querySelector("[data-silky-card-video]"),
+        card.querySelector("[data-silky-dialog-video]"),
+      ]).filter(Boolean);
 
-      const getScrollAmount = () => {
-        const firstCard = track?.querySelector("[data-silky-video-card]");
-        if (!firstCard) return 320;
-
-        const gap = Number.parseFloat(
-          getComputedStyle(track).columnGap || "16"
-        );
-
-        return firstCard.getBoundingClientRect().width + gap;
-      };
-
-      previousButton?.addEventListener("click", () => {
-        track?.scrollBy({
-          left: -getScrollAmount(),
-          behavior: "smooth",
-        });
-      });
-
-      nextButton?.addEventListener("click", () => {
-        track?.scrollBy({
-          left: getScrollAmount(),
-          behavior: "smooth",
-        });
-      });
-
-      const pauseOtherVideos = (activeVideo) => {
-        videos.forEach((video) => {
+      const pauseAllExcept = (activeVideo) => {
+        allVideos.forEach((video) => {
           if (video !== activeVideo && !video.paused) {
             video.pause();
           }
         });
       };
 
-      const updateCardState = (card, video) => {
+      const setPlaybackState = (container, video, iconSelector) => {
         const playing = !video.paused && !video.ended;
-        const toggleButtons = card.querySelectorAll(
-          "[data-silky-video-toggle]"
-        );
-        const playIcon = card.querySelector("[data-silky-play-icon]");
+        container.dataset.playing = playing ? "true" : "false";
 
-        card.dataset.playing = playing ? "true" : "false";
+        const icon = container.querySelector(iconSelector);
+        if (icon) icon.textContent = playing ? "❚❚" : "▶";
 
-        toggleButtons.forEach((button) => {
+        container.querySelectorAll(
+          container.matches("dialog")
+            ? "[data-silky-dialog-toggle]"
+            : "[data-silky-card-toggle]"
+        ).forEach((button) => {
           button.setAttribute(
             "aria-label",
             playing ? "Wstrzymaj film" : "Odtwórz film"
           );
         });
-
-        if (playIcon) {
-          playIcon.textContent = playing ? "❚❚" : "▶";
-        }
       };
 
-      cards.forEach((card) => {
-        const video = card.querySelector("[data-silky-video]");
-        const toggleButtons = card.querySelectorAll(
-          "[data-silky-video-toggle]"
-        );
-        const fullscreenButton = card.querySelector(
-          "[data-silky-video-fullscreen]"
-        );
-        const closeFullscreenButton = card.querySelector(
-          "[data-silky-video-close-fullscreen]"
-        );
-        const media = card.querySelector("[data-silky-video-media]");
+      const toggleVideo = async (container, video, iconSelector) => {
+        if (video.paused || video.ended) {
+          pauseAllExcept(video);
 
-        if (!video || !media) return;
-
-        const togglePlayback = async () => {
-          if (video.paused || video.ended) {
-            pauseOtherVideos(video);
-
-            try {
-              await video.play();
-            } catch (error) {
-              console.warn("Nie udało się uruchomić filmu Silky:", error);
-            }
-          } else {
-            video.pause();
+          try {
+            await video.play();
+          } catch (error) {
+            console.warn("Nie udało się uruchomić filmu Silky:", error);
           }
+        } else {
+          video.pause();
+        }
 
-          updateCardState(card, video);
-        };
+        setPlaybackState(container, video, iconSelector);
+      };
 
-        toggleButtons.forEach((button) => {
+      const getScrollAmount = () => {
+        const firstCard = track?.querySelector("[data-silky-video-card]");
+        if (!firstCard) return 320;
+
+        const gap = Number.parseFloat(getComputedStyle(track).columnGap || "16");
+        return firstCard.getBoundingClientRect().width + gap;
+      };
+
+      previousButton?.addEventListener("click", () => {
+        track?.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+      });
+
+      nextButton?.addEventListener("click", () => {
+        track?.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+      });
+
+      cards.forEach((card) => {
+        const cardVideo = card.querySelector("[data-silky-card-video]");
+        const dialog = card.querySelector("[data-silky-dialog]");
+        const dialogVideo = card.querySelector("[data-silky-dialog-video]");
+        const openButton = card.querySelector("[data-silky-dialog-open]");
+        const closeButtons = card.querySelectorAll("[data-silky-dialog-close]");
+
+        if (!cardVideo || !dialog || !dialogVideo) return;
+
+        card.querySelectorAll("[data-silky-card-toggle]").forEach((button) => {
           button.addEventListener("click", (event) => {
             event.preventDefault();
             event.stopPropagation();
-            togglePlayback();
+            toggleVideo(card, cardVideo, "[data-silky-card-play-icon]");
           });
         });
 
-        fullscreenButton?.addEventListener("click", (event) => {
+        dialog.querySelectorAll("[data-silky-dialog-toggle]").forEach((button) => {
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            toggleVideo(dialog, dialogVideo, "[data-silky-dialog-play-icon]");
+          });
+        });
+
+        openButton?.addEventListener("click", async (event) => {
           event.preventDefault();
           event.stopPropagation();
 
-          if (media.dataset.silkyFullscreen === "true") {
-            exitSilkyFullscreen(media);
+          const shouldContinuePlaying = !cardVideo.paused && !cardVideo.ended;
+
+          pauseAllExcept(null);
+
+          try {
+            if (Number.isFinite(cardVideo.currentTime)) {
+              dialogVideo.currentTime = cardVideo.currentTime;
+            }
+          } catch {}
+
+          if (typeof dialog.showModal === "function") {
+            dialog.showModal();
           } else {
-            enterSilkyFullscreen(media);
+            dialog.setAttribute("open", "");
           }
+
+          if (shouldContinuePlaying) {
+            try {
+              await dialogVideo.play();
+            } catch {}
+          }
+
+          setPlaybackState(dialog, dialogVideo, "[data-silky-dialog-play-icon]");
         });
 
-        closeFullscreenButton?.addEventListener("click", (event) => {
+        const closeDialog = () => {
+          try {
+            if (Number.isFinite(dialogVideo.currentTime)) {
+              cardVideo.currentTime = dialogVideo.currentTime;
+            }
+          } catch {}
+
+          dialogVideo.pause();
+
+          if (dialog.open && typeof dialog.close === "function") {
+            dialog.close();
+          } else {
+            dialog.removeAttribute("open");
+          }
+
+          setPlaybackState(dialog, dialogVideo, "[data-silky-dialog-play-icon]");
+          setPlaybackState(card, cardVideo, "[data-silky-card-play-icon]");
+        };
+
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            closeDialog();
+          });
+        });
+
+        dialog.addEventListener("cancel", (event) => {
           event.preventDefault();
-          event.stopPropagation();
-          exitSilkyFullscreen(media);
+          closeDialog();
         });
 
-        video.addEventListener("play", () => {
-          pauseOtherVideos(video);
-          updateCardState(card, video);
+        dialog.addEventListener("click", (event) => {
+          if (event.target === dialog) closeDialog();
         });
 
-        video.addEventListener("pause", () => {
-          updateCardState(card, video);
+        cardVideo.addEventListener("play", () => {
+          pauseAllExcept(cardVideo);
+          setPlaybackState(card, cardVideo, "[data-silky-card-play-icon]");
         });
 
-        video.addEventListener("ended", () => {
-          video.currentTime = 0;
-          updateCardState(card, video);
+        cardVideo.addEventListener("pause", () => {
+          setPlaybackState(card, cardVideo, "[data-silky-card-play-icon]");
         });
 
-        updateCardState(card, video);
+        cardVideo.addEventListener("ended", () => {
+          cardVideo.currentTime = 0;
+          setPlaybackState(card, cardVideo, "[data-silky-card-play-icon]");
+        });
+
+        dialogVideo.addEventListener("play", () => {
+          pauseAllExcept(dialogVideo);
+          setPlaybackState(dialog, dialogVideo, "[data-silky-dialog-play-icon]");
+        });
+
+        dialogVideo.addEventListener("pause", () => {
+          setPlaybackState(dialog, dialogVideo, "[data-silky-dialog-play-icon]");
+        });
+
+        dialogVideo.addEventListener("ended", () => {
+          dialogVideo.currentTime = 0;
+          setPlaybackState(dialog, dialogVideo, "[data-silky-dialog-play-icon]");
+        });
+
+        setPlaybackState(card, cardVideo, "[data-silky-card-play-icon]");
+        setPlaybackState(dialog, dialogVideo, "[data-silky-dialog-play-icon]");
       });
 
       if ("IntersectionObserver" in window) {
@@ -930,11 +841,10 @@ const videos = [
           (entries) => {
             entries.forEach((entry) => {
               const video = entry.target;
-
               if (
                 !entry.isIntersecting &&
                 video instanceof HTMLVideoElement &&
-                !video.closest('[data-silky-fullscreen="true"]')
+                !video.closest("dialog[open]")
               ) {
                 video.pause();
               }
@@ -943,30 +853,14 @@ const videos = [
           { threshold: 0.18 }
         );
 
-        videos.forEach((video) => observer.observe(video));
+        cards.forEach((card) => {
+          const video = card.querySelector("[data-silky-card-video]");
+          if (video) observer.observe(video);
+        });
       }
     });
   };
 
-  if (document.documentElement.dataset.silkyFullscreenEvents !== "true") {
-    document.documentElement.dataset.silkyFullscreenEvents = "true";
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && activeSilkyFullscreenMedia) {
-        exitSilkyFullscreen(activeSilkyFullscreenMedia);
-      }
-    });
-
-    document.addEventListener("astro:before-swap", () => {
-      if (activeSilkyFullscreenMedia) {
-        exitSilkyFullscreen(activeSilkyFullscreenMedia);
-      }
-    });
-  }
-
   initializeSilkyVideoCarousels();
-  document.addEventListener(
-    "astro:page-load",
-    initializeSilkyVideoCarousels
-  );
+  document.addEventListener("astro:page-load", initializeSilkyVideoCarousels);
 </script>
