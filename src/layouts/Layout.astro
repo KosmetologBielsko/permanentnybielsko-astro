@@ -3,8 +3,10 @@ import "../styles/global.css";
 import { siteConfig, getCanonicalUrl, getOgImageUrl } from "../config/site";
 import AssistantWidget from "../components/AssistantWidget.astro";
 import SilkyPopup from "../components/SilkyPopup.astro";
-import GoogleAdsTag from '../components/GoogleAdsTag.astro';
-import CookieConsent from '../components/CookieConsent.astro';
+import GoogleAdsTag from "../components/GoogleAdsTag.astro";
+import CookieConsent from "../components/CookieConsent.astro";
+
+type JsonLd = Record<string, unknown>;
 
 interface Props {
   title?: string;
@@ -13,7 +15,7 @@ interface Props {
   ogImage?: string;
   ogType?: "website" | "article";
   robots?: string;
-  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  structuredData?: JsonLd | JsonLd[];
 }
 
 const {
@@ -23,18 +25,26 @@ const {
   ogImage = siteConfig.defaultOgImage,
   ogType = "website",
   robots,
-  structuredData = []
+  structuredData
 } = Astro.props;
 
 const canonicalUrl = getCanonicalUrl(canonicalPath ?? Astro.url.pathname);
 const ogImageUrl = getOgImageUrl(ogImage);
+const ogImageAlt = "Bogusława Herda — makijaż permanentny Bielsko-Biała";
 
 const robotsContent =
-  robots ?? (siteConfig.indexingEnabled ? "index, follow, max-image-preview:large" : "noindex, nofollow, noarchive");
+  robots ??
+  (siteConfig.indexingEnabled
+    ? "index, follow, max-image-preview:large"
+    : "noindex, nofollow, noarchive");
 
-const pageStructuredData = Array.isArray(structuredData) ? structuredData : [structuredData];
+const pageStructuredData: JsonLd[] = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
 
-const defaultStructuredData = [
+const defaultStructuredData: JsonLd[] = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -89,8 +99,8 @@ const defaultStructuredData = [
   }
 ];
 
-const allStructuredData = [...defaultStructuredData, ...pageStructuredData].filter(Boolean);
-const structuredDataJson = JSON.stringify(allStructuredData).replaceAll("<", "\\u003c");
+const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
+const structuredDataJson = JSON.stringify(allStructuredData).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -119,25 +129,24 @@ const structuredDataJson = JSON.stringify(allStructuredData).replaceAll("<", "\\
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:alt" content={siteConfig.defaultOgImageAlt} />
+    <meta property="og:image:alt" content={ogImageAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
-    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="theme-color" content="#0f7773" />
 
-<meta name="theme-color" content="#0f7773" />
-
-<script type="application/ld+json" set:html={structuredDataJson} />
+    <script type="application/ld+json" set:html={structuredDataJson}></script>
   </head>
+
   <body>
     <slot />
 
     <AssistantWidget />
     <SilkyPopup />
-     <GoogleAdsTag />
-     <CookieConsent />
+    <GoogleAdsTag />
+    <CookieConsent />
   </body>
 </html>

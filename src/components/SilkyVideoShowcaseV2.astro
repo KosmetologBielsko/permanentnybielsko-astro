@@ -1,0 +1,846 @@
+---
+const videos = [
+  {
+    number: "01",
+    src: "/video/szkolenia-pmu-autorska-metoda-natural.mp4",
+    poster: "/video/szkolenia-pmu-autorska-metoda-natural-poster.webp",
+    title: "Naturalny kierunek włosa",
+    description:
+      "Lekka, uporządkowana praca nad włosem maszynowym i naturalnym rytmem brwi.",
+  },
+  {
+    number: "02",
+    src: "/video/szkolenia-pmu-autorska-metoda-soft-glam.mp4",
+    poster: "/video/szkolenia-pmu-autorska-metoda-soft-glam-poster.webp",
+    title: "Miękkość efektu Silky",
+    description:
+      "Subtelna oprawa oka bez ciężkiej, graficznej formy i bez efektu maski.",
+  },
+  {
+    number: "03",
+    src: "/video/metamorfozy-pmu-boguslawa-herda.mp4",
+    poster: "/video/metamorfozy-pmu-boguslawa-herda-poster.webp",
+    title: "Silky na twarzy klientki",
+    description:
+      "Efekt oglądany w ruchu: proporcje, lekkość i naturalne współgranie z mimiką.",
+  },
+];
+---
+
+<section class="shbv2" data-shbv2-root aria-labelledby="shbv2-title">
+  <header class="shbv2__header">
+    <div class="shbv2__heading">
+      <p class="shbv2__kicker">Silky w ruchu</p>
+      <h4 id="shbv2-title">
+        Zobacz kierunek włosa, miękkość linii i naturalny efekt w filmie.
+      </h4>
+      <p>
+        Filmy są bez dźwięku. Każdy materiał można zatrzymać, wznowić i otworzyć
+        w dużym widoku z wyraźnym przyciskiem zamknięcia.
+      </p>
+    </div>
+
+    <div class="shbv2__arrows" aria-label="Przewijanie filmów Silky">
+      <button type="button" aria-label="Przewiń filmy w lewo" data-shbv2-prev>←</button>
+      <button type="button" aria-label="Przewiń filmy w prawo" data-shbv2-next>→</button>
+    </div>
+  </header>
+
+  <div class="shbv2__track" data-shbv2-track>
+    {videos.map((item) => (
+      <article class="shbv2__card" data-shbv2-card>
+        <div class="shbv2__media">
+          <video
+            class="shbv2__video"
+            playsinline
+            muted
+            preload="metadata"
+            poster={item.poster}
+            aria-label={`${item.title} — film Silky Hairstroke Brows`}
+            data-shbv2-card-video
+          >
+            <source src={item.src} type="video/mp4" />
+          </video>
+
+          <button
+            type="button"
+            class="shbv2__surface"
+            aria-label={`Odtwórz film: ${item.title}`}
+            data-shbv2-card-toggle
+          >
+            <span aria-hidden="true" data-shbv2-card-big-icon>▶</span>
+          </button>
+
+          <div class="shbv2__toolbar">
+            <button
+              type="button"
+              aria-label={`Odtwórz film: ${item.title}`}
+              data-shbv2-card-toggle
+            >
+              <span aria-hidden="true" data-shbv2-card-small-icon>▶</span>
+            </button>
+
+            <button
+              type="button"
+              aria-label={`Otwórz duży widok: ${item.title}`}
+              data-shbv2-open
+            >
+              ⛶
+            </button>
+          </div>
+        </div>
+
+        <div class="shbv2__copy">
+          <span>{item.number}</span>
+          <h5>{item.title}</h5>
+          <p>{item.description}</p>
+        </div>
+
+        <dialog class="shbv2__dialog" data-shbv2-dialog>
+          <div class="shbv2__dialog-shell">
+            <video
+              class="shbv2__dialog-video"
+              playsinline
+              muted
+              preload="metadata"
+              poster={item.poster}
+              aria-label={`${item.title} — duży widok filmu`}
+              data-shbv2-dialog-video
+            >
+              <source src={item.src} type="video/mp4" />
+            </video>
+
+            <button
+              type="button"
+              class="shbv2__dialog-surface"
+              aria-label={`Odtwórz film: ${item.title}`}
+              data-shbv2-dialog-toggle
+            >
+              <span aria-hidden="true" data-shbv2-dialog-big-icon>▶</span>
+            </button>
+
+            <button
+              type="button"
+              class="shbv2__dialog-close"
+              aria-label="Zamknij duży widok"
+              data-shbv2-close
+            >
+              ×
+            </button>
+
+            <div class="shbv2__dialog-toolbar">
+              <button
+                type="button"
+                aria-label={`Odtwórz film: ${item.title}`}
+                data-shbv2-dialog-toggle
+              >
+                <span aria-hidden="true" data-shbv2-dialog-small-icon>▶</span>
+              </button>
+
+              <button type="button" aria-label="Zamknij duży widok" data-shbv2-close>
+                ×
+              </button>
+            </div>
+          </div>
+        </dialog>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .shbv2,
+  .shbv2 * {
+    box-sizing: border-box;
+  }
+
+  .shbv2 {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    min-width: 0;
+    margin: clamp(34px, 5vw, 66px) auto 0;
+    padding: clamp(30px, 4vw, 48px);
+    overflow: hidden;
+    border: 1px solid rgba(56, 187, 181, 0.14);
+    border-radius: clamp(30px, 4vw, 44px);
+    background:
+      radial-gradient(circle at 10% 8%, rgba(56, 187, 181, 0.10), transparent 22rem),
+      radial-gradient(circle at 92% 90%, rgba(201, 127, 143, 0.10), transparent 24rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 248, 251, 0.94));
+    box-shadow: 0 24px 70px rgba(23, 21, 29, 0.08);
+    color: #17151d;
+    -webkit-text-fill-color: initial;
+  }
+
+  .shbv2__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: end;
+    margin-bottom: 24px;
+  }
+
+  .shbv2__heading {
+    min-width: 0;
+    max-width: 920px;
+  }
+
+  .shbv2__kicker {
+    display: inline-flex;
+    min-height: 32px;
+    align-items: center;
+    margin: 0 0 16px;
+    padding: 0 13px;
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    border-radius: 999px;
+    color: #0f7773;
+    background: rgba(219, 246, 243, 0.76);
+    font-size: 0.68rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    -webkit-text-fill-color: #0f7773;
+  }
+
+  .shbv2__heading h4 {
+    max-width: 880px;
+    margin: 0;
+    color: #17151d;
+    font-size: clamp(2rem, 3.7vw, 4.2rem);
+    font-weight: 780;
+    line-height: 0.98;
+    letter-spacing: -0.074em;
+    -webkit-text-fill-color: #17151d;
+  }
+
+  .shbv2__heading > p:not(.shbv2__kicker) {
+    max-width: 760px;
+    margin: 18px 0 0;
+    color: #6e6670;
+    font-size: 1rem;
+    line-height: 1.68;
+    -webkit-text-fill-color: #6e6670;
+  }
+
+  .shbv2__arrows {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .shbv2__arrows button,
+  .shbv2__toolbar button,
+  .shbv2__dialog-toolbar button,
+  .shbv2__dialog-close {
+    appearance: none;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+    -webkit-text-fill-color: currentColor;
+  }
+
+  .shbv2__arrows button {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(56, 187, 181, 0.22);
+    border-radius: 999px;
+    color: #0f7773;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 12px 30px rgba(23, 21, 29, 0.08);
+    font-size: 1.2rem;
+    font-weight: 800;
+    transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+  }
+
+  .shbv2__arrows button:hover {
+    transform: translateY(-2px);
+    color: #ffffff;
+    background: #159a96;
+  }
+
+  .shbv2__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(300px, 370px);
+    gap: 18px;
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 6px 2px 18px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(56, 187, 181, 0.34) rgba(246, 220, 227, 0.28);
+  }
+
+  .shbv2__track::-webkit-scrollbar {
+    height: 9px;
+  }
+
+  .shbv2__track::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: rgba(246, 220, 227, 0.28);
+  }
+
+  .shbv2__track::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(56, 187, 181, 0.34);
+  }
+
+  .shbv2__card {
+    min-width: 0;
+    overflow: hidden;
+    scroll-snap-align: start;
+    border: 1px solid rgba(183, 101, 118, 0.14);
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 18px 52px rgba(89, 53, 67, 0.08);
+  }
+
+  .shbv2__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 12;
+    overflow: hidden;
+    background: #0d6a67;
+  }
+
+  .shbv2__video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #0d6a67;
+  }
+
+  .shbv2__surface {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    border: 0;
+    color: #ffffff;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.16));
+    cursor: pointer;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .shbv2__surface span {
+    width: 74px;
+    height: 74px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(15, 119, 115, 0.58);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(14px);
+    font-size: 1.65rem;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .shbv2__media.is-playing .shbv2__surface {
+    background: transparent;
+  }
+
+  .shbv2__media.is-playing .shbv2__surface span {
+    opacity: 0;
+  }
+
+  .shbv2__media.is-playing:hover .shbv2__surface span,
+  .shbv2__surface:focus-visible span {
+    opacity: 1;
+  }
+
+  .shbv2__toolbar {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    z-index: 4;
+    display: flex;
+    gap: 8px;
+  }
+
+  .shbv2__toolbar button,
+  .shbv2__dialog-toolbar button {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.40);
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(15, 119, 115, 0.68);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(14px);
+    font-size: 1.05rem;
+    font-weight: 800;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .shbv2__copy {
+    padding: 24px;
+  }
+
+  .shbv2__copy > span {
+    display: inline-flex;
+    margin-bottom: 16px;
+    color: #0f7773;
+    font-size: 0.72rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    -webkit-text-fill-color: #0f7773;
+  }
+
+  .shbv2__copy h5 {
+    margin: 0;
+    color: #17151d;
+    font-size: clamp(1.55rem, 2vw, 2.15rem);
+    font-weight: 780;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    -webkit-text-fill-color: #17151d;
+  }
+
+  .shbv2__copy p {
+    margin: 13px 0 0;
+    color: #6e6670;
+    font-size: 0.94rem;
+    line-height: 1.58;
+    -webkit-text-fill-color: #6e6670;
+  }
+
+  .shbv2__dialog {
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(5, 14, 16, 0.96);
+    overflow: hidden;
+  }
+
+  .shbv2__dialog::backdrop {
+    background: rgba(5, 14, 16, 0.96);
+  }
+
+  .shbv2__dialog-shell {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100dvh;
+    padding: clamp(14px, 3vw, 34px);
+    background: rgba(5, 14, 16, 0.96);
+  }
+
+  .shbv2__dialog-video {
+    display: block;
+    width: min(94vw, 900px);
+    height: min(88dvh, 980px);
+    object-fit: contain;
+    background: #000000;
+    border-radius: 24px;
+  }
+
+  .shbv2__dialog-surface {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    border: 0;
+    color: #ffffff;
+    background: transparent;
+    cursor: pointer;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .shbv2__dialog-surface span {
+    width: 88px;
+    height: 88px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(15, 119, 115, 0.72);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.26);
+    backdrop-filter: blur(14px);
+    font-size: 1.9rem;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .shbv2__dialog-shell.is-playing .shbv2__dialog-surface span {
+    opacity: 0;
+  }
+
+  .shbv2__dialog-shell.is-playing:hover .shbv2__dialog-surface span,
+  .shbv2__dialog-surface:focus-visible span {
+    opacity: 1;
+  }
+
+  .shbv2__dialog-close {
+    position: fixed;
+    top: max(14px, env(safe-area-inset-top));
+    right: max(14px, env(safe-area-inset-right));
+    z-index: 6;
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.44);
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(15, 119, 115, 0.76);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(14px);
+    font-size: 2rem;
+    line-height: 1;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .shbv2__dialog-toolbar {
+    position: fixed;
+    left: 50%;
+    bottom: max(18px, env(safe-area-inset-bottom));
+    z-index: 6;
+    display: flex;
+    gap: 10px;
+    transform: translateX(-50%);
+  }
+
+  .shbv2__dialog-toolbar button {
+    width: 52px;
+    height: 52px;
+    font-size: 1.3rem;
+  }
+
+  @media (min-width: 1180px) {
+    .shbv2__track {
+      grid-auto-columns: minmax(330px, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .shbv2 {
+      margin-top: 30px;
+      padding: 24px 16px 26px;
+      border-radius: 30px;
+    }
+
+    .shbv2__header {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .shbv2__heading h4 {
+      font-size: clamp(1.9rem, 9.2vw, 2.95rem);
+      line-height: 1;
+    }
+
+    .shbv2__arrows {
+      justify-content: flex-end;
+    }
+
+    .shbv2__arrows button {
+      width: 44px;
+      height: 44px;
+    }
+
+    .shbv2__track {
+      grid-auto-columns: minmax(260px, 82vw);
+      gap: 14px;
+      padding-bottom: 16px;
+    }
+
+    .shbv2__card {
+      border-radius: 26px;
+    }
+
+    .shbv2__copy {
+      padding: 22px;
+    }
+
+    .shbv2__surface span {
+      width: 66px;
+      height: 66px;
+    }
+
+    .shbv2__dialog-shell {
+      padding:
+        max(12px, env(safe-area-inset-top))
+        max(10px, env(safe-area-inset-right))
+        max(12px, env(safe-area-inset-bottom))
+        max(10px, env(safe-area-inset-left));
+    }
+
+    .shbv2__dialog-video {
+      width: 100%;
+      height: 100%;
+      max-height: 100dvh;
+      border-radius: 18px;
+    }
+
+    .shbv2__dialog-close,
+    .shbv2__dialog-toolbar button {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  @media (hover: none) {
+    .shbv2__media.is-playing .shbv2__surface span,
+    .shbv2__dialog-shell.is-playing .shbv2__dialog-surface span {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shbv2__arrows button {
+      transition: none;
+    }
+
+    .shbv2__track {
+      scroll-behavior: auto;
+    }
+  }
+</style>
+
+<script>
+  const initSilkyVideoV2 = () => {
+    const roots = document.querySelectorAll("[data-shbv2-root]:not([data-shbv2-ready])");
+
+    roots.forEach((root) => {
+      root.setAttribute("data-shbv2-ready", "true");
+
+      const track = root.querySelector("[data-shbv2-track]");
+      const previous = root.querySelector("[data-shbv2-prev]");
+      const next = root.querySelector("[data-shbv2-next]");
+      const cards = Array.from(root.querySelectorAll("[data-shbv2-card]"));
+
+      const pauseAllCardVideosExcept = (exception) => {
+        cards.forEach((card) => {
+          const video = card.querySelector("[data-shbv2-card-video]");
+          if (video instanceof HTMLVideoElement && video !== exception) {
+            video.pause();
+          }
+        });
+      };
+
+      const updateCardState = (card, video) => {
+        const media = card.querySelector(".shbv2__media");
+        const bigIcon = card.querySelector("[data-shbv2-card-big-icon]");
+        const smallIcon = card.querySelector("[data-shbv2-card-small-icon]");
+        const playing = !video.paused && !video.ended;
+
+        media?.classList.toggle("is-playing", playing);
+
+        if (bigIcon) bigIcon.textContent = playing ? "Ⅱ" : "▶";
+        if (smallIcon) smallIcon.textContent = playing ? "Ⅱ" : "▶";
+
+        card.querySelectorAll("[data-shbv2-card-toggle]").forEach((button) => {
+          button.setAttribute(
+            "aria-label",
+            playing ? "Zatrzymaj film" : "Odtwórz film"
+          );
+        });
+      };
+
+      cards.forEach((card) => {
+        const cardVideo = card.querySelector("[data-shbv2-card-video]");
+        const dialog = card.querySelector("[data-shbv2-dialog]");
+        const dialogVideo = card.querySelector("[data-shbv2-dialog-video]");
+        const dialogShell = card.querySelector(".shbv2__dialog-shell");
+        const dialogBigIcon = card.querySelector("[data-shbv2-dialog-big-icon]");
+        const dialogSmallIcon = card.querySelector("[data-shbv2-dialog-small-icon]");
+
+        if (
+          !(cardVideo instanceof HTMLVideoElement) ||
+          !(dialog instanceof HTMLDialogElement) ||
+          !(dialogVideo instanceof HTMLVideoElement)
+        ) {
+          return;
+        }
+
+        cardVideo.muted = true;
+        dialogVideo.muted = true;
+
+        const toggleCardVideo = async () => {
+          if (cardVideo.paused || cardVideo.ended) {
+            pauseAllCardVideosExcept(cardVideo);
+            try {
+              await cardVideo.play();
+            } catch {
+              // Przeglądarka może zablokować odtwarzanie bez świadomego kliknięcia.
+            }
+          } else {
+            cardVideo.pause();
+          }
+          updateCardState(card, cardVideo);
+        };
+
+        card.querySelectorAll("[data-shbv2-card-toggle]").forEach((button) => {
+          button.addEventListener("click", toggleCardVideo);
+        });
+
+        cardVideo.addEventListener("play", () => updateCardState(card, cardVideo));
+        cardVideo.addEventListener("pause", () => updateCardState(card, cardVideo));
+        cardVideo.addEventListener("ended", () => updateCardState(card, cardVideo));
+
+        const updateDialogState = () => {
+          const playing = !dialogVideo.paused && !dialogVideo.ended;
+          dialogShell?.classList.toggle("is-playing", playing);
+
+          if (dialogBigIcon) dialogBigIcon.textContent = playing ? "Ⅱ" : "▶";
+          if (dialogSmallIcon) dialogSmallIcon.textContent = playing ? "Ⅱ" : "▶";
+
+          card.querySelectorAll("[data-shbv2-dialog-toggle]").forEach((button) => {
+            button.setAttribute(
+              "aria-label",
+              playing ? "Zatrzymaj film" : "Odtwórz film"
+            );
+          });
+        };
+
+        const toggleDialogVideo = async () => {
+          if (dialogVideo.paused || dialogVideo.ended) {
+            try {
+              await dialogVideo.play();
+            } catch {
+              // Przycisk pozostaje widoczny, więc użytkownik może ponowić kliknięcie.
+            }
+          } else {
+            dialogVideo.pause();
+          }
+          updateDialogState();
+        };
+
+        card.querySelectorAll("[data-shbv2-dialog-toggle]").forEach((button) => {
+          button.addEventListener("click", toggleDialogVideo);
+        });
+
+        const openDialog = async () => {
+          const shouldContinuePlaying = !cardVideo.paused && !cardVideo.ended;
+          const currentTime = Number.isFinite(cardVideo.currentTime)
+            ? cardVideo.currentTime
+            : 0;
+
+          cardVideo.pause();
+          updateCardState(card, cardVideo);
+
+          try {
+            dialogVideo.currentTime = currentTime;
+          } catch {
+            // Niektóre przeglądarki pozwolą ustawić czas dopiero po wczytaniu metadanych.
+          }
+
+          if (typeof dialog.showModal === "function") {
+            dialog.showModal();
+          } else {
+            dialog.setAttribute("open", "");
+          }
+
+          document.body.style.overflow = "hidden";
+          updateDialogState();
+
+          if (shouldContinuePlaying) {
+            try {
+              await dialogVideo.play();
+            } catch {
+              // W dużym widoku zawsze pozostaje ręczny przycisk PLAY.
+            }
+            updateDialogState();
+          }
+        };
+
+        const closeDialog = () => {
+          const currentTime = Number.isFinite(dialogVideo.currentTime)
+            ? dialogVideo.currentTime
+            : cardVideo.currentTime;
+
+          dialogVideo.pause();
+          updateDialogState();
+
+          try {
+            cardVideo.currentTime = currentTime;
+          } catch {
+            // Synchronizacja czasu nie jest krytyczna dla działania.
+          }
+
+          if (dialog.open && typeof dialog.close === "function") {
+            dialog.close();
+          } else {
+            dialog.removeAttribute("open");
+          }
+
+          document.body.style.overflow = "";
+        };
+
+        card.querySelector("[data-shbv2-open]")?.addEventListener("click", openDialog);
+
+        card.querySelectorAll("[data-shbv2-close]").forEach((button) => {
+          button.addEventListener("click", closeDialog);
+        });
+
+        dialog.addEventListener("cancel", (event) => {
+          event.preventDefault();
+          closeDialog();
+        });
+
+        dialog.addEventListener("click", (event) => {
+          if (event.target === dialog) closeDialog();
+        });
+
+        dialogVideo.addEventListener("play", updateDialogState);
+        dialogVideo.addEventListener("pause", updateDialogState);
+        dialogVideo.addEventListener("ended", updateDialogState);
+
+        updateCardState(card, cardVideo);
+        updateDialogState();
+      });
+
+      const getScrollDistance = () => {
+        const firstCard = track?.querySelector("[data-shbv2-card]");
+        if (!(firstCard instanceof HTMLElement)) return 340;
+        return firstCard.getBoundingClientRect().width + 18;
+      };
+
+      previous?.addEventListener("click", () => {
+        track?.scrollBy({ left: -getScrollDistance(), behavior: "smooth" });
+      });
+
+      next?.addEventListener("click", () => {
+        track?.scrollBy({ left: getScrollDistance(), behavior: "smooth" });
+      });
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initSilkyVideoV2, { once: true });
+  } else {
+    initSilkyVideoV2();
+  }
+
+  document.addEventListener("astro:page-load", initSilkyVideoV2);
+</script>
