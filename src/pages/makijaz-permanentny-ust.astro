@@ -37,26 +37,32 @@ const forWhoItems = [
   {
     title: "Blade usta",
     text: "gdy naturalna czerwień wargowa jest mało widoczna albo z czasem straciła świeżość",
+    image: "/images/makijaz-permanentny-ust-dla-kogo-01-blade-usta.webp",
   },
   {
     title: "Nierówny kontur",
     text: "gdy granica ust wymaga uporządkowania, ale bez efektu ostrej konturówki",
+    image: "/images/makijaz-permanentny-ust-dla-kogo-02-nierowny-kontur.webp",
   },
   {
     title: "Asymetria",
     text: "gdy usta potrzebują delikatnej korekty proporcji i optycznej równowagi",
+    image: "/images/makijaz-permanentny-ust-dla-kogo-03-asymetria.webp",
   },
   {
     title: "Codzienna pomadka",
     text: "gdy klientka codziennie poprawia kolor ust i chce skrócić poranną rutynę",
+    image: "/images/makijaz-permanentny-ust-dla-kogo-04-codzienna-pomadka.webp",
   },
   {
     title: "Utrata koloru",
     text: "gdy kolor czerwieni wargowej jest nierówny, chłodny, blady albo miejscami zanika",
+    image: "/images/makijaz-permanentny-ust-dla-kogo-05-utrata-koloru.webp",
   },
   {
     title: "Naturalna zmiana",
     text: "gdy celem jest świeży wygląd ust bez przerysowania i bez ciężkiego makijażu",
+    image: "/images/makijaz-permanentny-ust-dla-kogo-06-naturalna-zmiana.webp",
   },
 ];
 
@@ -414,12 +420,17 @@ const structuredData = [
         </div>
 
         <div class="container lips-for-who-grid" aria-label="Dla kogo jest makijaż permanentny ust">
-          {forWhoItems.map((item, index) => (
-            <article class="lips-mini-card">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
+          {forWhoItems.map((item) => (
+            <figure class="lips-for-who-card">
+              <img
+                src={item.image}
+                alt={`${item.title} — ${item.text}`}
+                width="1200"
+                height="754"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
           ))}
         </div>
       </section>
@@ -2861,4 +2872,65 @@ const structuredData = [
 .lips-gallery-card img[src*="makijaz-permanentny-ust-bielsko-biala-efekt-05"] {
   object-position: 50% 63% !important;
 }
+
+
+  /* FINAL — usta: graficzne kafelki w sekcji Dla kogo? */
+  .lips-page .lips-for-who-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+    margin-top: 0 !important;
+  }
+
+  .lips-page .lips-for-who-card {
+    position: relative !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    aspect-ratio: 1200 / 754 !important;
+    border: 1px solid rgba(183, 101, 118, 0.14) !important;
+    border-radius: 32px !important;
+    background: #ffffff !important;
+    box-shadow:
+      0 18px 54px rgba(89, 53, 67, 0.08),
+      0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease !important;
+  }
+
+  .lips-page .lips-for-who-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow:
+      0 26px 68px rgba(89, 53, 67, 0.13),
+      0 0 0 1px rgba(255, 255, 255, 0.78) inset !important;
+  }
+
+  .lips-page .lips-for-who-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  @media (max-width: 1080px) {
+    .lips-page .lips-for-who-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .lips-page .lips-for-who-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+
+    .lips-page .lips-for-who-card {
+      border-radius: 24px !important;
+    }
+
+    .lips-page .lips-for-who-card:hover {
+      transform: none !important;
+    }
+  }
 </style>
