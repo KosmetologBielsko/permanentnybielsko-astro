@@ -74,7 +74,6 @@ const videos = [
           <video
             class="silky-video-carousel__video"
             playsinline
-            muted
             preload="metadata"
             poster={item.poster}
             aria-label={`${item.title} — film Silky Hairstroke Brows`}
@@ -112,21 +111,21 @@ const videos = [
             <button
               type="button"
               class="silky-video-carousel__control-button"
-              aria-label={`Włącz dźwięk filmu: ${item.title}`}
-              data-silky-video-mute
-            >
-              <span aria-hidden="true" data-silky-mute-icon>🔇</span>
-            </button>
-
-            <button
-              type="button"
-              class="silky-video-carousel__control-button"
-              aria-label={`Otwórz film na pełnym ekranie: ${item.title}`}
+              aria-label={`Włącz tryb pełnoekranowy filmu: ${item.title}`}
               data-silky-video-fullscreen
             >
-              <span aria-hidden="true">⛶</span>
+              <span aria-hidden="true" data-silky-fullscreen-icon>⛶</span>
             </button>
           </div>
+
+          <button
+            type="button"
+            class="silky-video-carousel__fullscreen-close"
+            aria-label={`Zamknij tryb pełnoekranowy filmu: ${item.title}`}
+            data-silky-video-close-fullscreen
+          >
+            <span aria-hidden="true">×</span>
+          </button>
         </div>
 
         <div class="silky-video-carousel__copy">
@@ -548,9 +547,241 @@ const videos = [
       transition: none;
     }
   }
+
+  .silky-video-carousel__fullscreen-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 12;
+    display: none;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    border-radius: 999px;
+    background: rgba(5, 48, 48, 0.68);
+    color: #ffffff;
+    box-shadow:
+      0 16px 38px rgba(0, 0, 0, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    pointer-events: auto;
+  }
+
+  .silky-video-carousel__fullscreen-close:hover {
+    background: rgba(15, 119, 115, 0.9);
+  }
+
+  :global(html.silky-video-fullscreen-open),
+  :global(body.silky-video-fullscreen-open) {
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+  }
+
+  .silky-video-carousel__media[data-silky-fullscreen="true"] {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2147483646 !important;
+    display: flex !important;
+    width: 100vw !important;
+    width: 100dvw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-width: none !important;
+    max-height: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding:
+      max(12px, env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left)) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background:
+      radial-gradient(circle at 50% 24%, rgba(26, 165, 160, 0.24), transparent 34rem),
+      #031f20 !important;
+    box-shadow: none !important;
+    isolation: isolate !important;
+  }
+
+  .silky-video-carousel__media[data-silky-fullscreen="true"]::after {
+    inset:
+      max(12px, env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left)) !important;
+    z-index: 2 !important;
+    border-radius: 24px !important;
+    pointer-events: none !important;
+  }
+
+  .silky-video-carousel__media[data-silky-fullscreen="true"]
+    .silky-video-carousel__video {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .silky-video-carousel__media[data-silky-fullscreen="true"]
+    .silky-video-carousel__hit-area {
+    inset:
+      max(12px, env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left)) !important;
+  }
+
+  .silky-video-carousel__media[data-silky-fullscreen="true"]
+    .silky-video-carousel__toolbar {
+    left: 50% !important;
+    right: auto !important;
+    bottom: max(20px, calc(env(safe-area-inset-bottom) + 12px)) !important;
+    z-index: 14 !important;
+    width: max-content !important;
+    transform: translateX(-50%) !important;
+    background: rgba(3, 42, 43, 0.78) !important;
+  }
+
+  .silky-video-carousel__media[data-silky-fullscreen="true"]
+    .silky-video-carousel__fullscreen-close {
+    display: inline-flex !important;
+    top: max(16px, calc(env(safe-area-inset-top) + 8px)) !important;
+    right: max(16px, calc(env(safe-area-inset-right) + 8px)) !important;
+  }
+
+  .silky-video-carousel__media[data-silky-fullscreen="true"]
+    .silky-video-carousel__main-icon {
+    width: 76px !important;
+    height: 76px !important;
+    font-size: 1.6rem !important;
+  }
+
+  @media (max-width: 760px) {
+    .silky-video-carousel__fullscreen-close {
+      width: 44px;
+      height: 44px;
+      font-size: 1.8rem;
+    }
+
+    .silky-video-carousel__media[data-silky-fullscreen="true"]
+      .silky-video-carousel__toolbar {
+      bottom: max(16px, calc(env(safe-area-inset-bottom) + 8px)) !important;
+    }
+  }
+
 </style>
 
 <script>
+  let activeSilkyFullscreenMedia = null;
+  const silkyFullscreenState = new WeakMap();
+
+  const setSilkyPageLock = (locked) => {
+    document.documentElement.classList.toggle(
+      "silky-video-fullscreen-open",
+      locked
+    );
+    document.body.classList.toggle("silky-video-fullscreen-open", locked);
+  };
+
+  const enterSilkyFullscreen = (media) => {
+    if (!media || media.dataset.silkyFullscreen === "true") return;
+
+    if (
+      activeSilkyFullscreenMedia &&
+      activeSilkyFullscreenMedia !== media
+    ) {
+      exitSilkyFullscreen(activeSilkyFullscreenMedia);
+    }
+
+    const placeholder = document.createElement("span");
+    placeholder.hidden = true;
+    placeholder.setAttribute("data-silky-video-placeholder", "");
+
+    const parent = media.parentNode;
+    if (!parent) return;
+
+    parent.insertBefore(placeholder, media);
+
+    silkyFullscreenState.set(media, {
+      placeholder,
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+
+    document.body.appendChild(media);
+    media.dataset.silkyFullscreen = "true";
+    activeSilkyFullscreenMedia = media;
+    setSilkyPageLock(true);
+
+    const fullscreenButton = media.querySelector(
+      "[data-silky-video-fullscreen]"
+    );
+    const fullscreenIcon = media.querySelector(
+      "[data-silky-fullscreen-icon]"
+    );
+
+    fullscreenButton?.setAttribute(
+      "aria-label",
+      "Zamknij tryb pełnoekranowy filmu"
+    );
+
+    if (fullscreenIcon) {
+      fullscreenIcon.textContent = "×";
+    }
+  };
+
+  const exitSilkyFullscreen = (media = activeSilkyFullscreenMedia) => {
+    if (!media) return;
+
+    const state = silkyFullscreenState.get(media);
+
+    if (state?.placeholder?.parentNode) {
+      state.placeholder.replaceWith(media);
+    }
+
+    delete media.dataset.silkyFullscreen;
+    silkyFullscreenState.delete(media);
+
+    const fullscreenButton = media.querySelector(
+      "[data-silky-video-fullscreen]"
+    );
+    const fullscreenIcon = media.querySelector(
+      "[data-silky-fullscreen-icon]"
+    );
+
+    fullscreenButton?.setAttribute(
+      "aria-label",
+      "Włącz tryb pełnoekranowy filmu"
+    );
+
+    if (fullscreenIcon) {
+      fullscreenIcon.textContent = "⛶";
+    }
+
+    if (activeSilkyFullscreenMedia === media) {
+      activeSilkyFullscreenMedia = null;
+    }
+
+    setSilkyPageLock(false);
+
+    if (state) {
+      window.scrollTo(state.scrollX, state.scrollY);
+    }
+  };
+
   const initializeSilkyVideoCarousels = () => {
     document.querySelectorAll("[data-silky-video-carousel]").forEach((carousel) => {
       if (carousel.dataset.silkyInitialized === "true") return;
@@ -571,7 +802,10 @@ const videos = [
         const firstCard = track?.querySelector("[data-silky-video-card]");
         if (!firstCard) return 320;
 
-        const gap = Number.parseFloat(getComputedStyle(track).columnGap || "16");
+        const gap = Number.parseFloat(
+          getComputedStyle(track).columnGap || "16"
+        );
+
         return firstCard.getBoundingClientRect().width + gap;
       };
 
@@ -599,10 +833,10 @@ const videos = [
 
       const updateCardState = (card, video) => {
         const playing = !video.paused && !video.ended;
-        const toggleButtons = card.querySelectorAll("[data-silky-video-toggle]");
+        const toggleButtons = card.querySelectorAll(
+          "[data-silky-video-toggle]"
+        );
         const playIcon = card.querySelector("[data-silky-play-icon]");
-        const muteButton = card.querySelector("[data-silky-video-mute]");
-        const muteIcon = card.querySelector("[data-silky-mute-icon]");
 
         card.dataset.playing = playing ? "true" : "false";
 
@@ -616,29 +850,22 @@ const videos = [
         if (playIcon) {
           playIcon.textContent = playing ? "❚❚" : "▶";
         }
-
-        if (muteButton) {
-          muteButton.setAttribute(
-            "aria-label",
-            video.muted ? "Włącz dźwięk filmu" : "Wycisz film"
-          );
-        }
-
-        if (muteIcon) {
-          muteIcon.textContent = video.muted ? "🔇" : "🔊";
-        }
       };
 
       cards.forEach((card) => {
         const video = card.querySelector("[data-silky-video]");
-        const toggleButtons = card.querySelectorAll("[data-silky-video-toggle]");
-        const muteButton = card.querySelector("[data-silky-video-mute]");
+        const toggleButtons = card.querySelectorAll(
+          "[data-silky-video-toggle]"
+        );
         const fullscreenButton = card.querySelector(
           "[data-silky-video-fullscreen]"
         );
+        const closeFullscreenButton = card.querySelector(
+          "[data-silky-video-close-fullscreen]"
+        );
         const media = card.querySelector("[data-silky-video-media]");
 
-        if (!video) return;
+        if (!video || !media) return;
 
         const togglePlayback = async () => {
           if (video.paused || video.ended) {
@@ -664,31 +891,21 @@ const videos = [
           });
         });
 
-        muteButton?.addEventListener("click", (event) => {
+        fullscreenButton?.addEventListener("click", (event) => {
           event.preventDefault();
           event.stopPropagation();
-          video.muted = !video.muted;
-          updateCardState(card, video);
+
+          if (media.dataset.silkyFullscreen === "true") {
+            exitSilkyFullscreen(media);
+          } else {
+            enterSilkyFullscreen(media);
+          }
         });
 
-        fullscreenButton?.addEventListener("click", async (event) => {
+        closeFullscreenButton?.addEventListener("click", (event) => {
           event.preventDefault();
           event.stopPropagation();
-
-          try {
-            if (video.requestFullscreen) {
-              await video.requestFullscreen();
-            } else if (video.webkitEnterFullscreen) {
-              video.webkitEnterFullscreen();
-            } else if (media?.requestFullscreen) {
-              await media.requestFullscreen();
-            }
-          } catch (error) {
-            console.warn(
-              "Tryb pełnoekranowy filmu Silky jest niedostępny:",
-              error
-            );
-          }
+          exitSilkyFullscreen(media);
         });
 
         video.addEventListener("play", () => {
@@ -705,10 +922,6 @@ const videos = [
           updateCardState(card, video);
         });
 
-        video.addEventListener("volumechange", () => {
-          updateCardState(card, video);
-        });
-
         updateCardState(card, video);
       });
 
@@ -718,7 +931,11 @@ const videos = [
             entries.forEach((entry) => {
               const video = entry.target;
 
-              if (!entry.isIntersecting && video instanceof HTMLVideoElement) {
+              if (
+                !entry.isIntersecting &&
+                video instanceof HTMLVideoElement &&
+                !video.closest('[data-silky-fullscreen="true"]')
+              ) {
                 video.pause();
               }
             });
@@ -730,6 +947,22 @@ const videos = [
       }
     });
   };
+
+  if (document.documentElement.dataset.silkyFullscreenEvents !== "true") {
+    document.documentElement.dataset.silkyFullscreenEvents = "true";
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && activeSilkyFullscreenMedia) {
+        exitSilkyFullscreen(activeSilkyFullscreenMedia);
+      }
+    });
+
+    document.addEventListener("astro:before-swap", () => {
+      if (activeSilkyFullscreenMedia) {
+        exitSilkyFullscreen(activeSilkyFullscreenMedia);
+      }
+    });
+  }
 
   initializeSilkyVideoCarousels();
   document.addEventListener(
