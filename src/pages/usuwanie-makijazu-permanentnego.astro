@@ -416,7 +416,7 @@ const structuredData = [
             aria-label="Kiedy warto rozważyć usuwanie makijażu permanentnego"
           >
             {indicationsItems.map((item) => (
-              <figure class="removal-indication-card">
+              <article class="removal-mini-card removal-mini-card-image">
                 <img
                   src={item.image}
                   alt={`${item.title} — ${item.text}`}
@@ -426,7 +426,7 @@ const structuredData = [
                   loading="lazy"
                   decoding="async"
                 />
-              </figure>
+              </article>
             ))}
           </div>
         </div>
@@ -1072,40 +1072,6 @@ const structuredData = [
   .removal-related-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .removal-faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-  .removal-indication-card {
-    position: relative;
-    aspect-ratio: 3 / 2;
-    margin: 0;
-    overflow: hidden;
-    border: 1px solid rgba(183, 101, 118, 0.14);
-    border-radius: 32px;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 20px 58px rgba(89, 53, 67, 0.09);
-    transition: transform 220ms ease, box-shadow 220ms ease;
-  }
-
-  .removal-indication-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.48);
-    pointer-events: none;
-  }
-
-  .removal-indication-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 28px 70px rgba(89, 53, 67, 0.14);
-  }
-
-  .removal-indication-card img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
   .removal-mini-card,
   .removal-process-grid article,
   .removal-related-card,
@@ -1118,6 +1084,26 @@ const structuredData = [
     background:
       radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
       linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
+  }
+
+  .removal-mini-card-image {
+    aspect-ratio: 3 / 2;
+    min-height: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .removal-mini-card-image::before,
+  .removal-mini-card-image::after {
+    display: none;
+  }
+
+  .removal-mini-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .removal-mini-card::before,
@@ -1392,15 +1378,6 @@ const structuredData = [
       grid-template-columns: 1fr;
     }
 
-    .removal-indication-card {
-      border-radius: 24px;
-      box-shadow: 0 16px 42px rgba(89, 53, 67, 0.09);
-    }
-
-    .removal-indication-card:hover {
-      transform: none;
-    }
-
     .removal-proof-grid div,
     .removal-proof-grid div:nth-child(2) {
       border-right: 0;
@@ -1414,6 +1391,12 @@ const structuredData = [
     .removal-related-card {
       min-height: auto;
       padding: 26px;
+    }
+
+    .removal-mini-card-image {
+      aspect-ratio: 3 / 2;
+      min-height: 0;
+      padding: 0;
     }
 
     .removal-mini-card span,
