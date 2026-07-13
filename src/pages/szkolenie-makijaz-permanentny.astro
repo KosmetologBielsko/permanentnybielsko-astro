@@ -241,16 +241,19 @@ const trainingPaths = [
     number: "01",
     title: "Step by Step",
     text: "Dla osób, które chcą uporządkować podstawy pracy, proces zabiegu, rysunek wstępny, dobór koloru i bezpieczne prowadzenie klientki.",
+    image: "/images/01-step-by-step.webp",
   },
   {
     number: "02",
     title: "Masterclass",
     text: "Dla osób pracujących już w PMU, które chcą poprawić jakość efektów, analizować błędy i świadomiej podejmować decyzje techniczne.",
+    image: "/images/02-masterclass.webp",
   },
   {
     number: "03",
     title: "Silky Hairstroke Brows",
     text: "Szkolenie z autorskiego podejścia do włosa maszynowego, naturalnego kierunku, miękkości linii i realistycznego efektu brwi.",
+    image: "/images/03-silky-hairstroke-brows.webp",
   },
 ];
 
@@ -569,13 +572,22 @@ const relatedPages = [
             </p>
           </div>
 
-          <div class="training-path-grid">
+          <div
+            class="training-path-grid"
+            aria-label="Ścieżki szkoleniowe makijażu permanentnego"
+          >
             {trainingPaths.map((item) => (
-              <article class="training-path-card">
-                <span>{item.number}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
+              <figure class="training-path-card training-path-card-image">
+                <img
+                  src={item.image}
+                  alt={`${item.title} — ${item.text}`}
+                  title={item.title}
+                  width="1536"
+                  height="1024"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
             ))}
           </div>
         </div>
@@ -1700,6 +1712,33 @@ const relatedPages = [
     flex-direction: column;
   }
 
+  .training-path-card-image {
+    aspect-ratio: 3 / 2;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.94);
+  }
+
+  .training-path-card-image::before,
+  .training-path-card-image::after {
+    display: none;
+  }
+
+  .training-path-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 220ms ease;
+  }
+
+  .training-path-card-image:hover img {
+    transform: scale(1.012);
+  }
+
   .training-path-card::before,
   .training-course-card::before,
   .training-masterclass-card::before,
@@ -2387,6 +2426,17 @@ const relatedPages = [
     .training-silky-card {
       min-height: auto;
       padding: 26px;
+    }
+
+
+    .training-path-card-image {
+      aspect-ratio: 3 / 2;
+      min-height: 0;
+      padding: 0;
+    }
+
+    .training-path-card-image:hover img {
+      transform: none;
     }
 
     .training-media-card,
