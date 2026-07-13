@@ -587,14 +587,18 @@ const structuredData = [
         </section>
       ))}
 
-      <section class="gallery-live-section gallery-live-video-section" id="galeria-wideo">
+      <section
+        class="gallery-live-section gallery-live-video-section"
+        id="galeria-wideo"
+        data-gallery-video-root
+      >
         <div class="container gallery-live-heading-row">
           <div class="gallery-live-heading">
             <p class="section-kicker">Wideo PMU</p>
             <h2>Filmy z efektami, procesem pracy i szkoleniami PMU.</h2>
             <p>
               Materiały wideo pokazują ruch, detale pracy, efekty pigmentacji oraz szkoleniowy standard pracy.
-              Na telefonie przewijasz palcem, a na komputerze możesz używać strzałek.
+              Filmy są bez dźwięku. Każdy materiał można zatrzymać, wznowić i otworzyć w dużym widoku.
             </p>
           </div>
 
@@ -603,7 +607,7 @@ const structuredData = [
               class="gallery-live-arrow"
               type="button"
               aria-label="Przewiń filmy w lewo"
-              onclick="document.getElementById('gallery-track-wideo')?.parentElement?.scrollBy({ left: -430, behavior: 'smooth' })"
+              data-gallery-video-prev
             >
               ←
             </button>
@@ -612,28 +616,114 @@ const structuredData = [
               class="gallery-live-arrow"
               type="button"
               aria-label="Przewiń filmy w prawo"
-              onclick="document.getElementById('gallery-track-wideo')?.parentElement?.scrollBy({ left: 430, behavior: 'smooth' })"
+              data-gallery-video-next
             >
               →
             </button>
           </div>
         </div>
 
-        <div class="gallery-live-viewport" aria-label="Galeria wideo PMU">
+        <div class="gallery-live-viewport" aria-label="Galeria wideo PMU" data-gallery-video-viewport>
           <div class="gallery-live-track gallery-live-video-track" id="gallery-track-wideo">
             {videoGalleryItems.map((item) => (
-              <figure class="gallery-live-card gallery-live-video-card gallery-media-frame-live">
-                <video
-                  controls
-                  playsinline
-                  preload="metadata"
-                  poster={item.poster}
-                  aria-label={item.title}
-                >
-                  <source src={item.src} type="video/mp4" />
-                </video>
+              <figure
+                class="gallery-live-card gallery-live-video-card gallery-video-card gallery-media-frame-live"
+                data-gallery-video-card
+              >
+                <div class="gallery-video-v3-media">
+                  <video
+                    class="gallery-video-v3-video"
+                    playsinline
+                    muted
+                    preload="metadata"
+                    poster={item.poster}
+                    aria-label={`${item.title} — film bez dźwięku`}
+                    data-gallery-video-card-video
+                  >
+                    <source src={item.src} type="video/mp4" />
+                  </video>
+
+                  <button
+                    type="button"
+                    class="gallery-video-v3-surface"
+                    aria-label={`Odtwórz film: ${item.title}`}
+                    data-gallery-video-card-toggle
+                  >
+                    <span aria-hidden="true" data-gallery-video-card-big-icon>▶</span>
+                  </button>
+
+                  <div class="gallery-video-v3-toolbar">
+                    <button
+                      type="button"
+                      aria-label={`Odtwórz film: ${item.title}`}
+                      data-gallery-video-card-toggle
+                    >
+                      <span aria-hidden="true" data-gallery-video-card-small-icon>▶</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      aria-label={`Otwórz duży widok: ${item.title}`}
+                      data-gallery-video-open
+                    >
+                      ⛶
+                    </button>
+                  </div>
+                </div>
 
                 <figcaption>{item.title}</figcaption>
+
+                <dialog class="gallery-video-v3-dialog" data-gallery-video-dialog>
+                  <div class="gallery-video-v3-dialog-shell">
+                    <video
+                      class="gallery-video-v3-dialog-video"
+                      playsinline
+                      muted
+                      preload="metadata"
+                      poster={item.poster}
+                      aria-label={`${item.title} — duży widok filmu`}
+                      data-gallery-video-dialog-video
+                    >
+                      <source src={item.src} type="video/mp4" />
+                    </video>
+
+                    <button
+                      type="button"
+                      class="gallery-video-v3-dialog-surface"
+                      aria-label={`Odtwórz film: ${item.title}`}
+                      data-gallery-video-dialog-toggle
+                    >
+                      <span aria-hidden="true" data-gallery-video-dialog-big-icon>▶</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="gallery-video-v3-dialog-close"
+                      aria-label="Zamknij duży widok"
+                      data-gallery-video-close
+                    >
+                      ×
+                    </button>
+
+                    <div class="gallery-video-v3-dialog-toolbar">
+                      <button
+                        type="button"
+                        aria-label={`Odtwórz film: ${item.title}`}
+                        data-gallery-video-dialog-toggle
+                      >
+                        <span aria-hidden="true" data-gallery-video-dialog-small-icon>▶</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        aria-label="Zamknij duży widok"
+                        data-gallery-video-close
+                      >
+                        ×
+                      </button>
+                    </div>
+                  </div>
+                </dialog>
               </figure>
             ))}
           </div>
@@ -2555,4 +2645,576 @@ const structuredData = [
     font-size: 0.96rem !important;
   }
 }
+
+/* GALERIA — własne sterowanie filmami: play/pauza + duży widok */
+.gallery-video-card {
+  position: relative !important;
+  flex: 0 0 clamp(300px, 31vw, 410px) !important;
+  width: clamp(300px, 31vw, 410px) !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  padding: 8px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(183, 101, 118, 0.16) !important;
+  border-radius: 32px !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow:
+    0 18px 54px rgba(89, 53, 67, 0.085),
+    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+  line-height: normal !important;
+}
+
+.gallery-video-v3-media {
+  position: relative !important;
+  width: 100% !important;
+  height: clamp(370px, 31vw, 440px) !important;
+  overflow: hidden !important;
+  border-radius: 24px !important;
+  background: #0d6a67 !important;
+}
+
+.gallery-video-v3-video {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  border-radius: 24px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  background: #0d6a67 !important;
+}
+
+.gallery-video-v3-surface {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  display: grid !important;
+  width: 100% !important;
+  place-items: center !important;
+  border: 0 !important;
+  border-radius: 24px !important;
+  color: #ffffff !important;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.17)) !important;
+  cursor: pointer !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.gallery-video-v3-surface span {
+  display: inline-flex !important;
+  width: 74px !important;
+  height: 74px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-left: 5px !important;
+  border: 1px solid rgba(255, 255, 255, 0.48) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  background: rgba(15, 119, 115, 0.66) !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  font-size: 1.65rem !important;
+  line-height: 1 !important;
+  transition:
+    opacity 160ms ease,
+    visibility 160ms ease,
+    transform 160ms ease !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.gallery-video-v3-media.is-playing .gallery-video-v3-surface {
+  background: transparent !important;
+}
+
+.gallery-video-v3-media.is-playing .gallery-video-v3-surface span,
+.gallery-video-v3-media.is-playing:hover .gallery-video-v3-surface span,
+.gallery-video-v3-media.is-playing .gallery-video-v3-surface:focus-visible span {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: scale(0.82) !important;
+}
+
+.gallery-video-v3-media:not(.is-playing) .gallery-video-v3-surface span {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: scale(1) !important;
+}
+
+.gallery-video-v3-toolbar {
+  position: absolute !important;
+  right: 14px !important;
+  bottom: 14px !important;
+  z-index: 4 !important;
+  display: flex !important;
+  gap: 8px !important;
+}
+
+.gallery-video-v3-toolbar button,
+.gallery-video-v3-dialog-toolbar button,
+.gallery-video-v3-dialog-close {
+  appearance: none !important;
+  border: 0 !important;
+  font: inherit !important;
+  cursor: pointer !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.gallery-video-v3-toolbar button,
+.gallery-video-v3-dialog-toolbar button {
+  display: inline-flex !important;
+  width: 44px !important;
+  height: 44px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.42) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  background: rgba(15, 119, 115, 0.72) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.gallery-video-card figcaption {
+  display: block !important;
+  position: relative !important;
+  z-index: 2 !important;
+  padding: 16px 10px 8px !important;
+  color: var(--color-text, #17151d) !important;
+  font-size: 0.95rem !important;
+  font-weight: 740 !important;
+  line-height: 1.42 !important;
+  -webkit-text-fill-color: var(--color-text, #17151d) !important;
+}
+
+/* Duży widok — bez natywnej ikonki dźwięku, z wyraźnym zamknięciem */
+.gallery-video-v3-dialog {
+  width: 100vw !important;
+  max-width: none !important;
+  height: 100dvh !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: rgba(5, 14, 16, 0.96) !important;
+  overflow: hidden !important;
+}
+
+.gallery-video-v3-dialog::backdrop {
+  background: rgba(5, 14, 16, 0.96) !important;
+}
+
+.gallery-video-v3-dialog-shell {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483000 !important;
+  display: grid !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  place-items: center !important;
+  padding: clamp(14px, 3vw, 34px) !important;
+  background: rgba(5, 14, 16, 0.96) !important;
+}
+
+.gallery-video-v3-dialog-video {
+  display: block !important;
+  width: min(94vw, 960px) !important;
+  height: min(88dvh, 980px) !important;
+  margin: 0 !important;
+  border-radius: 24px !important;
+  object-fit: contain !important;
+  background: #000000 !important;
+}
+
+.gallery-video-v3-dialog-surface {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 0 !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.gallery-video-v3-dialog-surface span {
+  display: inline-flex !important;
+  width: 88px !important;
+  height: 88px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-left: 6px !important;
+  border: 1px solid rgba(255, 255, 255, 0.48) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  background: rgba(15, 119, 115, 0.76) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.26) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  font-size: 1.9rem !important;
+  line-height: 1 !important;
+  transition:
+    opacity 160ms ease,
+    visibility 160ms ease,
+    transform 160ms ease !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.gallery-video-v3-dialog-shell.is-playing .gallery-video-v3-dialog-surface span,
+.gallery-video-v3-dialog-shell.is-playing:hover .gallery-video-v3-dialog-surface span,
+.gallery-video-v3-dialog-shell.is-playing .gallery-video-v3-dialog-surface:focus-visible span {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: scale(0.82) !important;
+}
+
+.gallery-video-v3-dialog-shell:not(.is-playing) .gallery-video-v3-dialog-surface span {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: scale(1) !important;
+}
+
+.gallery-video-v3-dialog-close {
+  position: fixed !important;
+  top: max(14px, env(safe-area-inset-top)) !important;
+  right: max(14px, env(safe-area-inset-right)) !important;
+  z-index: 2147483004 !important;
+  display: inline-flex !important;
+  width: 52px !important;
+  height: 52px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.46) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  background: rgba(15, 119, 115, 0.82) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  font-size: 2rem !important;
+  line-height: 1 !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.gallery-video-v3-dialog-toolbar {
+  position: fixed !important;
+  left: 50% !important;
+  bottom: max(18px, env(safe-area-inset-bottom)) !important;
+  z-index: 2147483004 !important;
+  display: flex !important;
+  gap: 10px !important;
+  transform: translateX(-50%) !important;
+}
+
+.gallery-video-v3-dialog-toolbar button {
+  width: 52px !important;
+  height: 52px !important;
+  font-size: 1.3rem !important;
+}
+
+@media (max-width: 760px) {
+  .gallery-video-card {
+    flex: 0 0 min(82vw, 360px) !important;
+    width: min(82vw, 360px) !important;
+    padding: 7px !important;
+    border-radius: 28px !important;
+  }
+
+  .gallery-video-v3-media {
+    height: 350px !important;
+    border-radius: 20px !important;
+  }
+
+  .gallery-video-v3-video,
+  .gallery-video-v3-surface {
+    border-radius: 20px !important;
+  }
+
+  .gallery-video-v3-surface span {
+    width: 66px !important;
+    height: 66px !important;
+  }
+
+  .gallery-video-v3-dialog-shell {
+    padding:
+      max(12px, env(safe-area-inset-top))
+      max(10px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom))
+      max(10px, env(safe-area-inset-left)) !important;
+  }
+
+  .gallery-video-v3-dialog-video {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100dvh !important;
+    border-radius: 18px !important;
+  }
+
+  .gallery-video-v3-dialog-close,
+  .gallery-video-v3-dialog-toolbar button {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+@media (hover: none) {
+  .gallery-video-v3-media.is-playing .gallery-video-v3-surface span,
+  .gallery-video-v3-dialog-shell.is-playing .gallery-video-v3-dialog-surface span {
+    opacity: 0 !important;
+  }
+}
+
 </style>
+
+<script>
+  const initGalleryVideoControls = () => {
+    const roots = document.querySelectorAll(
+      "[data-gallery-video-root]:not([data-gallery-video-ready])"
+    );
+
+    roots.forEach((root) => {
+      root.setAttribute("data-gallery-video-ready", "true");
+
+      const viewport = root.querySelector("[data-gallery-video-viewport]");
+      const previous = root.querySelector("[data-gallery-video-prev]");
+      const next = root.querySelector("[data-gallery-video-next]");
+      const cards = Array.from(root.querySelectorAll("[data-gallery-video-card]"));
+
+      const pauseAllCardVideosExcept = (exception) => {
+        cards.forEach((card) => {
+          const video = card.querySelector("[data-gallery-video-card-video]");
+          if (video instanceof HTMLVideoElement && video !== exception) {
+            video.pause();
+          }
+        });
+      };
+
+      const updateCardState = (card, video) => {
+        const media = card.querySelector(".gallery-video-v3-media");
+        const bigIcon = card.querySelector("[data-gallery-video-card-big-icon]");
+        const smallIcon = card.querySelector("[data-gallery-video-card-small-icon]");
+        const playing = !video.paused && !video.ended;
+
+        media?.classList.toggle("is-playing", playing);
+
+        if (bigIcon) bigIcon.textContent = playing ? "Ⅱ" : "▶";
+        if (smallIcon) smallIcon.textContent = playing ? "Ⅱ" : "▶";
+
+        card.querySelectorAll("[data-gallery-video-card-toggle]").forEach((button) => {
+          button.setAttribute(
+            "aria-label",
+            playing ? "Zatrzymaj film" : "Odtwórz film"
+          );
+        });
+      };
+
+      cards.forEach((card) => {
+        const cardVideo = card.querySelector("[data-gallery-video-card-video]");
+        const dialog = card.querySelector("[data-gallery-video-dialog]");
+        const dialogVideo = card.querySelector("[data-gallery-video-dialog-video]");
+        const dialogShell = card.querySelector(".gallery-video-v3-dialog-shell");
+        const dialogBigIcon = card.querySelector("[data-gallery-video-dialog-big-icon]");
+        const dialogSmallIcon = card.querySelector("[data-gallery-video-dialog-small-icon]");
+
+        if (
+          !(cardVideo instanceof HTMLVideoElement) ||
+          !(dialog instanceof HTMLDialogElement) ||
+          !(dialogVideo instanceof HTMLVideoElement)
+        ) {
+          return;
+        }
+
+        cardVideo.muted = true;
+        dialogVideo.muted = true;
+
+        const toggleCardVideo = async () => {
+          if (cardVideo.paused || cardVideo.ended) {
+            pauseAllCardVideosExcept(cardVideo);
+
+            try {
+              await cardVideo.play();
+            } catch {
+              // Przeglądarka może wymagać ponownego kliknięcia.
+            }
+          } else {
+            cardVideo.pause();
+          }
+
+          updateCardState(card, cardVideo);
+        };
+
+        card.querySelectorAll("[data-gallery-video-card-toggle]").forEach((button) => {
+          button.addEventListener("click", async () => {
+            await toggleCardVideo();
+            if (button instanceof HTMLElement) button.blur();
+          });
+        });
+
+        cardVideo.addEventListener("play", () => updateCardState(card, cardVideo));
+        cardVideo.addEventListener("pause", () => updateCardState(card, cardVideo));
+        cardVideo.addEventListener("ended", () => updateCardState(card, cardVideo));
+
+        const updateDialogState = () => {
+          const playing = !dialogVideo.paused && !dialogVideo.ended;
+          dialogShell?.classList.toggle("is-playing", playing);
+
+          if (dialogBigIcon) dialogBigIcon.textContent = playing ? "Ⅱ" : "▶";
+          if (dialogSmallIcon) dialogSmallIcon.textContent = playing ? "Ⅱ" : "▶";
+
+          card.querySelectorAll("[data-gallery-video-dialog-toggle]").forEach((button) => {
+            button.setAttribute(
+              "aria-label",
+              playing ? "Zatrzymaj film" : "Odtwórz film"
+            );
+          });
+        };
+
+        const toggleDialogVideo = async () => {
+          if (dialogVideo.paused || dialogVideo.ended) {
+            try {
+              await dialogVideo.play();
+            } catch {
+              // Ręczny przycisk pozostaje dostępny.
+            }
+          } else {
+            dialogVideo.pause();
+          }
+
+          updateDialogState();
+        };
+
+        card.querySelectorAll("[data-gallery-video-dialog-toggle]").forEach((button) => {
+          button.addEventListener("click", async () => {
+            await toggleDialogVideo();
+            if (button instanceof HTMLElement) button.blur();
+          });
+        });
+
+        const openDialog = async () => {
+          const shouldContinuePlaying = !cardVideo.paused && !cardVideo.ended;
+          const currentTime = Number.isFinite(cardVideo.currentTime)
+            ? cardVideo.currentTime
+            : 0;
+
+          pauseAllCardVideosExcept(cardVideo);
+          cardVideo.pause();
+          updateCardState(card, cardVideo);
+
+          try {
+            dialogVideo.currentTime = currentTime;
+          } catch {
+            // Czas zostanie ustawiony po wczytaniu metadanych, jeżeli będzie to konieczne.
+          }
+
+          if (typeof dialog.showModal === "function") {
+            dialog.showModal();
+          } else {
+            dialog.setAttribute("open", "");
+          }
+
+          document.documentElement.style.overflow = "hidden";
+          document.body.style.overflow = "hidden";
+          updateDialogState();
+
+          if (shouldContinuePlaying) {
+            try {
+              await dialogVideo.play();
+            } catch {
+              // W dużym widoku pozostaje ręczny przycisk PLAY.
+            }
+
+            updateDialogState();
+          }
+        };
+
+        const closeDialog = () => {
+          const currentTime = Number.isFinite(dialogVideo.currentTime)
+            ? dialogVideo.currentTime
+            : cardVideo.currentTime;
+
+          dialogVideo.pause();
+          updateDialogState();
+
+          try {
+            cardVideo.currentTime = currentTime;
+          } catch {
+            // Synchronizacja czasu nie jest krytyczna.
+          }
+
+          if (dialog.open && typeof dialog.close === "function") {
+            dialog.close();
+          } else {
+            dialog.removeAttribute("open");
+          }
+
+          document.documentElement.style.overflow = "";
+          document.body.style.overflow = "";
+        };
+
+        card.querySelector("[data-gallery-video-open]")?.addEventListener(
+          "click",
+          openDialog
+        );
+
+        card.querySelectorAll("[data-gallery-video-close]").forEach((button) => {
+          button.addEventListener("click", closeDialog);
+        });
+
+        dialog.addEventListener("cancel", (event) => {
+          event.preventDefault();
+          closeDialog();
+        });
+
+        dialog.addEventListener("click", (event) => {
+          if (event.target === dialog) closeDialog();
+        });
+
+        dialogVideo.addEventListener("play", updateDialogState);
+        dialogVideo.addEventListener("pause", updateDialogState);
+        dialogVideo.addEventListener("ended", updateDialogState);
+
+        updateCardState(card, cardVideo);
+        updateDialogState();
+      });
+
+      const getScrollDistance = () => {
+        const firstCard = root.querySelector("[data-gallery-video-card]");
+        if (!(firstCard instanceof HTMLElement)) return 380;
+        return firstCard.getBoundingClientRect().width + 26;
+      };
+
+      previous?.addEventListener("click", () => {
+        viewport?.scrollBy({
+          left: -getScrollDistance(),
+          behavior: "smooth",
+        });
+      });
+
+      next?.addEventListener("click", () => {
+        viewport?.scrollBy({
+          left: getScrollDistance(),
+          behavior: "smooth",
+        });
+      });
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initGalleryVideoControls, {
+      once: true,
+    });
+  } else {
+    initGalleryVideoControls();
+  }
+
+  document.addEventListener("astro:page-load", initGalleryVideoControls);
+</script>
+
