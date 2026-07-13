@@ -27,11 +27,11 @@ const videos = [
 ];
 ---
 
-<section class="shbv2" data-shbv2-root aria-labelledby="shbv2-title">
-  <header class="shbv2__header">
-    <div class="shbv2__heading">
-      <p class="shbv2__kicker">Silky w ruchu</p>
-      <h4 id="shbv2-title">
+<section class="shbv3" data-shbv3-root aria-labelledby="shbv3-title">
+  <header class="shbv3__header">
+    <div class="shbv3__heading">
+      <p class="shbv3__kicker">Silky w ruchu</p>
+      <h4 id="shbv3-title">
         Zobacz kierunek włosa, miękkość linii i naturalny efekt w filmie.
       </h4>
       <p>
@@ -40,104 +40,104 @@ const videos = [
       </p>
     </div>
 
-    <div class="shbv2__arrows" aria-label="Przewijanie filmów Silky">
-      <button type="button" aria-label="Przewiń filmy w lewo" data-shbv2-prev>←</button>
-      <button type="button" aria-label="Przewiń filmy w prawo" data-shbv2-next>→</button>
+    <div class="shbv3__arrows" aria-label="Przewijanie filmów Silky">
+      <button type="button" aria-label="Przewiń filmy w lewo" data-shbv3-prev>←</button>
+      <button type="button" aria-label="Przewiń filmy w prawo" data-shbv3-next>→</button>
     </div>
   </header>
 
-  <div class="shbv2__track" data-shbv2-track>
+  <div class="shbv3__track" data-shbv3-track>
     {videos.map((item) => (
-      <article class="shbv2__card" data-shbv2-card>
-        <div class="shbv2__media">
+      <article class="shbv3__card" data-shbv3-card>
+        <div class="shbv3__media">
           <video
-            class="shbv2__video"
+            class="shbv3__video"
             playsinline
             muted
             preload="metadata"
             poster={item.poster}
             aria-label={`${item.title} — film Silky Hairstroke Brows`}
-            data-shbv2-card-video
+            data-shbv3-card-video
           >
             <source src={item.src} type="video/mp4" />
           </video>
 
           <button
             type="button"
-            class="shbv2__surface"
+            class="shbv3__surface"
             aria-label={`Odtwórz film: ${item.title}`}
-            data-shbv2-card-toggle
+            data-shbv3-card-toggle
           >
-            <span aria-hidden="true" data-shbv2-card-big-icon>▶</span>
+            <span aria-hidden="true" data-shbv3-card-big-icon>▶</span>
           </button>
 
-          <div class="shbv2__toolbar">
+          <div class="shbv3__toolbar">
             <button
               type="button"
               aria-label={`Odtwórz film: ${item.title}`}
-              data-shbv2-card-toggle
+              data-shbv3-card-toggle
             >
-              <span aria-hidden="true" data-shbv2-card-small-icon>▶</span>
+              <span aria-hidden="true" data-shbv3-card-small-icon>▶</span>
             </button>
 
             <button
               type="button"
               aria-label={`Otwórz duży widok: ${item.title}`}
-              data-shbv2-open
+              data-shbv3-open
             >
               ⛶
             </button>
           </div>
         </div>
 
-        <div class="shbv2__copy">
+        <div class="shbv3__copy">
           <span>{item.number}</span>
           <h5>{item.title}</h5>
           <p>{item.description}</p>
         </div>
 
-        <dialog class="shbv2__dialog" data-shbv2-dialog>
-          <div class="shbv2__dialog-shell">
+        <dialog class="shbv3__dialog" data-shbv3-dialog>
+          <div class="shbv3__dialog-shell">
             <video
-              class="shbv2__dialog-video"
+              class="shbv3__dialog-video"
               playsinline
               muted
               preload="metadata"
               poster={item.poster}
               aria-label={`${item.title} — duży widok filmu`}
-              data-shbv2-dialog-video
+              data-shbv3-dialog-video
             >
               <source src={item.src} type="video/mp4" />
             </video>
 
             <button
               type="button"
-              class="shbv2__dialog-surface"
+              class="shbv3__dialog-surface"
               aria-label={`Odtwórz film: ${item.title}`}
-              data-shbv2-dialog-toggle
+              data-shbv3-dialog-toggle
             >
-              <span aria-hidden="true" data-shbv2-dialog-big-icon>▶</span>
+              <span aria-hidden="true" data-shbv3-dialog-big-icon>▶</span>
             </button>
 
             <button
               type="button"
-              class="shbv2__dialog-close"
+              class="shbv3__dialog-close"
               aria-label="Zamknij duży widok"
-              data-shbv2-close
+              data-shbv3-close
             >
               ×
             </button>
 
-            <div class="shbv2__dialog-toolbar">
+            <div class="shbv3__dialog-toolbar">
               <button
                 type="button"
                 aria-label={`Odtwórz film: ${item.title}`}
-                data-shbv2-dialog-toggle
+                data-shbv3-dialog-toggle
               >
-                <span aria-hidden="true" data-shbv2-dialog-small-icon>▶</span>
+                <span aria-hidden="true" data-shbv3-dialog-small-icon>▶</span>
               </button>
 
-              <button type="button" aria-label="Zamknij duży widok" data-shbv2-close>
+              <button type="button" aria-label="Zamknij duży widok" data-shbv3-close>
                 ×
               </button>
             </div>
@@ -149,12 +149,12 @@ const videos = [
 </section>
 
 <style>
-  .shbv2,
-  .shbv2 * {
+  .shbv3,
+  .shbv3 * {
     box-sizing: border-box;
   }
 
-  .shbv2 {
+  .shbv3 {
     position: relative;
     z-index: 4;
     width: 100%;
@@ -165,15 +165,18 @@ const videos = [
     border: 1px solid rgba(56, 187, 181, 0.14);
     border-radius: clamp(30px, 4vw, 44px);
     background:
-      radial-gradient(circle at 10% 8%, rgba(56, 187, 181, 0.10), transparent 22rem),
-      radial-gradient(circle at 92% 90%, rgba(201, 127, 143, 0.10), transparent 24rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 248, 251, 0.94));
-    box-shadow: 0 24px 70px rgba(23, 21, 29, 0.08);
-    color: #17151d;
+      radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.26), transparent 16rem),
+      radial-gradient(circle at 86% 18%, rgba(191, 246, 241, 0.22), transparent 20rem),
+      radial-gradient(circle at 82% 88%, rgba(255, 224, 232, 0.14), transparent 22rem),
+      linear-gradient(140deg, #0f7773 0%, #159a96 30%, #39beb7 54%, #138a86 76%, #0d6a67 100%);
+    box-shadow:
+      0 30px 82px rgba(35, 156, 150, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.20);
+    color: #ffffff;
     -webkit-text-fill-color: initial;
   }
 
-  .shbv2__header {
+  .shbv3__header {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 24px;
@@ -181,12 +184,12 @@ const videos = [
     margin-bottom: 24px;
   }
 
-  .shbv2__heading {
+  .shbv3__heading {
     min-width: 0;
     max-width: 920px;
   }
 
-  .shbv2__kicker {
+  .shbv3__kicker {
     display: inline-flex;
     min-height: 32px;
     align-items: center;
@@ -194,47 +197,47 @@ const videos = [
     padding: 0 13px;
     border: 1px solid rgba(56, 187, 181, 0.18);
     border-radius: 999px;
-    color: #0f7773;
-    background: rgba(219, 246, 243, 0.76);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.16);
     font-size: 0.68rem;
     font-weight: 850;
     line-height: 1;
     letter-spacing: 0.17em;
     text-transform: uppercase;
-    -webkit-text-fill-color: #0f7773;
+    -webkit-text-fill-color: #ffffff;
   }
 
-  .shbv2__heading h4 {
+  .shbv3__heading h4 {
     max-width: 880px;
     margin: 0;
-    color: #17151d;
+    color: #ffffff;
     font-size: clamp(2rem, 3.7vw, 4.2rem);
     font-weight: 780;
     line-height: 0.98;
     letter-spacing: -0.074em;
-    -webkit-text-fill-color: #17151d;
+    -webkit-text-fill-color: #ffffff;
   }
 
-  .shbv2__heading > p:not(.shbv2__kicker) {
+  .shbv3__heading > p:not(.shbv3__kicker) {
     max-width: 760px;
     margin: 18px 0 0;
-    color: #6e6670;
+    color: rgba(255, 255, 255, 0.86);
     font-size: 1rem;
     line-height: 1.68;
-    -webkit-text-fill-color: #6e6670;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.86);
   }
 
-  .shbv2__arrows {
+  .shbv3__arrows {
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: flex-end;
   }
 
-  .shbv2__arrows button,
-  .shbv2__toolbar button,
-  .shbv2__dialog-toolbar button,
-  .shbv2__dialog-close {
+  .shbv3__arrows button,
+  .shbv3__toolbar button,
+  .shbv3__dialog-toolbar button,
+  .shbv3__dialog-close {
     appearance: none;
     border: 0;
     font: inherit;
@@ -242,29 +245,29 @@ const videos = [
     -webkit-text-fill-color: currentColor;
   }
 
-  .shbv2__arrows button {
+  .shbv3__arrows button {
     width: 48px;
     height: 48px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(56, 187, 181, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.36);
     border-radius: 999px;
-    color: #0f7773;
-    background: rgba(255, 255, 255, 0.88);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.16);
     box-shadow: 0 12px 30px rgba(23, 21, 29, 0.08);
     font-size: 1.2rem;
     font-weight: 800;
     transition: transform 180ms ease, background 180ms ease, color 180ms ease;
   }
 
-  .shbv2__arrows button:hover {
+  .shbv3__arrows button:hover {
     transform: translateY(-2px);
-    color: #ffffff;
-    background: #159a96;
+    color: #0f7773;
+    background: rgba(255, 255, 255, 0.94);
   }
 
-  .shbv2__track {
+  .shbv3__track {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: minmax(300px, 370px);
@@ -280,21 +283,21 @@ const videos = [
     scrollbar-color: rgba(56, 187, 181, 0.34) rgba(246, 220, 227, 0.28);
   }
 
-  .shbv2__track::-webkit-scrollbar {
+  .shbv3__track::-webkit-scrollbar {
     height: 9px;
   }
 
-  .shbv2__track::-webkit-scrollbar-track {
+  .shbv3__track::-webkit-scrollbar-track {
     border-radius: 999px;
     background: rgba(246, 220, 227, 0.28);
   }
 
-  .shbv2__track::-webkit-scrollbar-thumb {
+  .shbv3__track::-webkit-scrollbar-thumb {
     border-radius: 999px;
     background: rgba(56, 187, 181, 0.34);
   }
 
-  .shbv2__card {
+  .shbv3__card {
     min-width: 0;
     overflow: hidden;
     scroll-snap-align: start;
@@ -304,7 +307,7 @@ const videos = [
     box-shadow: 0 18px 52px rgba(89, 53, 67, 0.08);
   }
 
-  .shbv2__media {
+  .shbv3__media {
     position: relative;
     width: 100%;
     aspect-ratio: 9 / 12;
@@ -312,7 +315,7 @@ const videos = [
     background: #0d6a67;
   }
 
-  .shbv2__video {
+  .shbv3__video {
     display: block;
     width: 100%;
     height: 100%;
@@ -320,7 +323,7 @@ const videos = [
     background: #0d6a67;
   }
 
-  .shbv2__surface {
+  .shbv3__surface {
     position: absolute;
     inset: 0;
     z-index: 2;
@@ -334,7 +337,7 @@ const videos = [
     -webkit-text-fill-color: #ffffff;
   }
 
-  .shbv2__surface span {
+  .shbv3__surface span {
     width: 74px;
     height: 74px;
     display: inline-flex;
@@ -348,23 +351,32 @@ const videos = [
     box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
     backdrop-filter: blur(14px);
     font-size: 1.65rem;
+    transition:
+      opacity 160ms ease,
+      visibility 160ms ease,
+      transform 160ms ease;
     -webkit-text-fill-color: #ffffff;
   }
 
-  .shbv2__media.is-playing .shbv2__surface {
+  .shbv3__media.is-playing .shbv3__surface {
     background: transparent;
   }
 
-  .shbv2__media.is-playing .shbv2__surface span {
-    opacity: 0;
+  .shbv3__media.is-playing .shbv3__surface span,
+  .shbv3__media.is-playing:hover .shbv3__surface span,
+  .shbv3__media.is-playing .shbv3__surface:focus-visible span {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: scale(0.82) !important;
   }
 
-  .shbv2__media.is-playing:hover .shbv2__surface span,
-  .shbv2__surface:focus-visible span {
+  .shbv3__media:not(.is-playing) .shbv3__surface span {
     opacity: 1;
+    visibility: visible;
+    transform: scale(1);
   }
 
-  .shbv2__toolbar {
+  .shbv3__toolbar {
     position: absolute;
     right: 14px;
     bottom: 14px;
@@ -373,8 +385,8 @@ const videos = [
     gap: 8px;
   }
 
-  .shbv2__toolbar button,
-  .shbv2__dialog-toolbar button {
+  .shbv3__toolbar button,
+  .shbv3__dialog-toolbar button {
     width: 44px;
     height: 44px;
     display: inline-flex;
@@ -391,11 +403,11 @@ const videos = [
     -webkit-text-fill-color: #ffffff;
   }
 
-  .shbv2__copy {
+  .shbv3__copy {
     padding: 24px;
   }
 
-  .shbv2__copy > span {
+  .shbv3__copy > span {
     display: inline-flex;
     margin-bottom: 16px;
     color: #0f7773;
@@ -406,7 +418,7 @@ const videos = [
     -webkit-text-fill-color: #0f7773;
   }
 
-  .shbv2__copy h5 {
+  .shbv3__copy h5 {
     margin: 0;
     color: #17151d;
     font-size: clamp(1.55rem, 2vw, 2.15rem);
@@ -416,7 +428,7 @@ const videos = [
     -webkit-text-fill-color: #17151d;
   }
 
-  .shbv2__copy p {
+  .shbv3__copy p {
     margin: 13px 0 0;
     color: #6e6670;
     font-size: 0.94rem;
@@ -424,7 +436,7 @@ const videos = [
     -webkit-text-fill-color: #6e6670;
   }
 
-  .shbv2__dialog {
+  .shbv3__dialog {
     width: 100vw;
     max-width: none;
     height: 100dvh;
@@ -436,11 +448,11 @@ const videos = [
     overflow: hidden;
   }
 
-  .shbv2__dialog::backdrop {
+  .shbv3__dialog::backdrop {
     background: rgba(5, 14, 16, 0.96);
   }
 
-  .shbv2__dialog-shell {
+  .shbv3__dialog-shell {
     position: fixed;
     inset: 0;
     display: grid;
@@ -451,7 +463,7 @@ const videos = [
     background: rgba(5, 14, 16, 0.96);
   }
 
-  .shbv2__dialog-video {
+  .shbv3__dialog-video {
     display: block;
     width: min(94vw, 900px);
     height: min(88dvh, 980px);
@@ -460,7 +472,7 @@ const videos = [
     border-radius: 24px;
   }
 
-  .shbv2__dialog-surface {
+  .shbv3__dialog-surface {
     position: absolute;
     inset: 0;
     z-index: 2;
@@ -473,7 +485,7 @@ const videos = [
     -webkit-text-fill-color: #ffffff;
   }
 
-  .shbv2__dialog-surface span {
+  .shbv3__dialog-surface span {
     width: 88px;
     height: 88px;
     display: inline-flex;
@@ -487,19 +499,28 @@ const videos = [
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.26);
     backdrop-filter: blur(14px);
     font-size: 1.9rem;
+    transition:
+      opacity 160ms ease,
+      visibility 160ms ease,
+      transform 160ms ease;
     -webkit-text-fill-color: #ffffff;
   }
 
-  .shbv2__dialog-shell.is-playing .shbv2__dialog-surface span {
-    opacity: 0;
+  .shbv3__dialog-shell.is-playing .shbv3__dialog-surface span,
+  .shbv3__dialog-shell.is-playing:hover .shbv3__dialog-surface span,
+  .shbv3__dialog-shell.is-playing .shbv3__dialog-surface:focus-visible span {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: scale(0.82) !important;
   }
 
-  .shbv2__dialog-shell.is-playing:hover .shbv2__dialog-surface span,
-  .shbv2__dialog-surface:focus-visible span {
+  .shbv3__dialog-shell:not(.is-playing) .shbv3__dialog-surface span {
     opacity: 1;
+    visibility: visible;
+    transform: scale(1);
   }
 
-  .shbv2__dialog-close {
+  .shbv3__dialog-close {
     position: fixed;
     top: max(14px, env(safe-area-inset-top));
     right: max(14px, env(safe-area-inset-right));
@@ -520,7 +541,7 @@ const videos = [
     -webkit-text-fill-color: #ffffff;
   }
 
-  .shbv2__dialog-toolbar {
+  .shbv3__dialog-toolbar {
     position: fixed;
     left: 50%;
     bottom: max(18px, env(safe-area-inset-bottom));
@@ -530,64 +551,64 @@ const videos = [
     transform: translateX(-50%);
   }
 
-  .shbv2__dialog-toolbar button {
+  .shbv3__dialog-toolbar button {
     width: 52px;
     height: 52px;
     font-size: 1.3rem;
   }
 
   @media (min-width: 1180px) {
-    .shbv2__track {
+    .shbv3__track {
       grid-auto-columns: minmax(330px, 1fr);
     }
   }
 
   @media (max-width: 760px) {
-    .shbv2 {
+    .shbv3 {
       margin-top: 30px;
       padding: 24px 16px 26px;
       border-radius: 30px;
     }
 
-    .shbv2__header {
+    .shbv3__header {
       grid-template-columns: 1fr;
       gap: 18px;
     }
 
-    .shbv2__heading h4 {
+    .shbv3__heading h4 {
       font-size: clamp(1.9rem, 9.2vw, 2.95rem);
       line-height: 1;
     }
 
-    .shbv2__arrows {
+    .shbv3__arrows {
       justify-content: flex-end;
     }
 
-    .shbv2__arrows button {
+    .shbv3__arrows button {
       width: 44px;
       height: 44px;
     }
 
-    .shbv2__track {
+    .shbv3__track {
       grid-auto-columns: minmax(260px, 82vw);
       gap: 14px;
       padding-bottom: 16px;
     }
 
-    .shbv2__card {
+    .shbv3__card {
       border-radius: 26px;
     }
 
-    .shbv2__copy {
+    .shbv3__copy {
       padding: 22px;
     }
 
-    .shbv2__surface span {
+    .shbv3__surface span {
       width: 66px;
       height: 66px;
     }
 
-    .shbv2__dialog-shell {
+    .shbv3__dialog-shell {
       padding:
         max(12px, env(safe-area-inset-top))
         max(10px, env(safe-area-inset-right))
@@ -595,53 +616,53 @@ const videos = [
         max(10px, env(safe-area-inset-left));
     }
 
-    .shbv2__dialog-video {
+    .shbv3__dialog-video {
       width: 100%;
       height: 100%;
       max-height: 100dvh;
       border-radius: 18px;
     }
 
-    .shbv2__dialog-close,
-    .shbv2__dialog-toolbar button {
+    .shbv3__dialog-close,
+    .shbv3__dialog-toolbar button {
       width: 48px;
       height: 48px;
     }
   }
 
   @media (hover: none) {
-    .shbv2__media.is-playing .shbv2__surface span,
-    .shbv2__dialog-shell.is-playing .shbv2__dialog-surface span {
+    .shbv3__media.is-playing .shbv3__surface span,
+    .shbv3__dialog-shell.is-playing .shbv3__dialog-surface span {
       opacity: 0;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .shbv2__arrows button {
+    .shbv3__arrows button {
       transition: none;
     }
 
-    .shbv2__track {
+    .shbv3__track {
       scroll-behavior: auto;
     }
   }
 </style>
 
 <script>
-  const initSilkyVideoV2 = () => {
-    const roots = document.querySelectorAll("[data-shbv2-root]:not([data-shbv2-ready])");
+  const initSilkyVideoV3 = () => {
+    const roots = document.querySelectorAll("[data-shbv3-root]:not([data-shbv3-ready])");
 
     roots.forEach((root) => {
-      root.setAttribute("data-shbv2-ready", "true");
+      root.setAttribute("data-shbv3-ready", "true");
 
-      const track = root.querySelector("[data-shbv2-track]");
-      const previous = root.querySelector("[data-shbv2-prev]");
-      const next = root.querySelector("[data-shbv2-next]");
-      const cards = Array.from(root.querySelectorAll("[data-shbv2-card]"));
+      const track = root.querySelector("[data-shbv3-track]");
+      const previous = root.querySelector("[data-shbv3-prev]");
+      const next = root.querySelector("[data-shbv3-next]");
+      const cards = Array.from(root.querySelectorAll("[data-shbv3-card]"));
 
       const pauseAllCardVideosExcept = (exception) => {
         cards.forEach((card) => {
-          const video = card.querySelector("[data-shbv2-card-video]");
+          const video = card.querySelector("[data-shbv3-card-video]");
           if (video instanceof HTMLVideoElement && video !== exception) {
             video.pause();
           }
@@ -649,9 +670,9 @@ const videos = [
       };
 
       const updateCardState = (card, video) => {
-        const media = card.querySelector(".shbv2__media");
-        const bigIcon = card.querySelector("[data-shbv2-card-big-icon]");
-        const smallIcon = card.querySelector("[data-shbv2-card-small-icon]");
+        const media = card.querySelector(".shbv3__media");
+        const bigIcon = card.querySelector("[data-shbv3-card-big-icon]");
+        const smallIcon = card.querySelector("[data-shbv3-card-small-icon]");
         const playing = !video.paused && !video.ended;
 
         media?.classList.toggle("is-playing", playing);
@@ -659,7 +680,7 @@ const videos = [
         if (bigIcon) bigIcon.textContent = playing ? "Ⅱ" : "▶";
         if (smallIcon) smallIcon.textContent = playing ? "Ⅱ" : "▶";
 
-        card.querySelectorAll("[data-shbv2-card-toggle]").forEach((button) => {
+        card.querySelectorAll("[data-shbv3-card-toggle]").forEach((button) => {
           button.setAttribute(
             "aria-label",
             playing ? "Zatrzymaj film" : "Odtwórz film"
@@ -668,12 +689,12 @@ const videos = [
       };
 
       cards.forEach((card) => {
-        const cardVideo = card.querySelector("[data-shbv2-card-video]");
-        const dialog = card.querySelector("[data-shbv2-dialog]");
-        const dialogVideo = card.querySelector("[data-shbv2-dialog-video]");
-        const dialogShell = card.querySelector(".shbv2__dialog-shell");
-        const dialogBigIcon = card.querySelector("[data-shbv2-dialog-big-icon]");
-        const dialogSmallIcon = card.querySelector("[data-shbv2-dialog-small-icon]");
+        const cardVideo = card.querySelector("[data-shbv3-card-video]");
+        const dialog = card.querySelector("[data-shbv3-dialog]");
+        const dialogVideo = card.querySelector("[data-shbv3-dialog-video]");
+        const dialogShell = card.querySelector(".shbv3__dialog-shell");
+        const dialogBigIcon = card.querySelector("[data-shbv3-dialog-big-icon]");
+        const dialogSmallIcon = card.querySelector("[data-shbv3-dialog-small-icon]");
 
         if (
           !(cardVideo instanceof HTMLVideoElement) ||
@@ -700,8 +721,11 @@ const videos = [
           updateCardState(card, cardVideo);
         };
 
-        card.querySelectorAll("[data-shbv2-card-toggle]").forEach((button) => {
-          button.addEventListener("click", toggleCardVideo);
+        card.querySelectorAll("[data-shbv3-card-toggle]").forEach((button) => {
+          button.addEventListener("click", async () => {
+            await toggleCardVideo();
+            if (button instanceof HTMLElement) button.blur();
+          });
         });
 
         cardVideo.addEventListener("play", () => updateCardState(card, cardVideo));
@@ -715,7 +739,7 @@ const videos = [
           if (dialogBigIcon) dialogBigIcon.textContent = playing ? "Ⅱ" : "▶";
           if (dialogSmallIcon) dialogSmallIcon.textContent = playing ? "Ⅱ" : "▶";
 
-          card.querySelectorAll("[data-shbv2-dialog-toggle]").forEach((button) => {
+          card.querySelectorAll("[data-shbv3-dialog-toggle]").forEach((button) => {
             button.setAttribute(
               "aria-label",
               playing ? "Zatrzymaj film" : "Odtwórz film"
@@ -736,8 +760,11 @@ const videos = [
           updateDialogState();
         };
 
-        card.querySelectorAll("[data-shbv2-dialog-toggle]").forEach((button) => {
-          button.addEventListener("click", toggleDialogVideo);
+        card.querySelectorAll("[data-shbv3-dialog-toggle]").forEach((button) => {
+          button.addEventListener("click", async () => {
+            await toggleDialogVideo();
+            if (button instanceof HTMLElement) button.blur();
+          });
         });
 
         const openDialog = async () => {
@@ -797,9 +824,9 @@ const videos = [
           document.body.style.overflow = "";
         };
 
-        card.querySelector("[data-shbv2-open]")?.addEventListener("click", openDialog);
+        card.querySelector("[data-shbv3-open]")?.addEventListener("click", openDialog);
 
-        card.querySelectorAll("[data-shbv2-close]").forEach((button) => {
+        card.querySelectorAll("[data-shbv3-close]").forEach((button) => {
           button.addEventListener("click", closeDialog);
         });
 
@@ -821,7 +848,7 @@ const videos = [
       });
 
       const getScrollDistance = () => {
-        const firstCard = track?.querySelector("[data-shbv2-card]");
+        const firstCard = track?.querySelector("[data-shbv3-card]");
         if (!(firstCard instanceof HTMLElement)) return 340;
         return firstCard.getBoundingClientRect().width + 18;
       };
@@ -837,10 +864,10 @@ const videos = [
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initSilkyVideoV2, { once: true });
+    document.addEventListener("DOMContentLoaded", initSilkyVideoV3, { once: true });
   } else {
-    initSilkyVideoV2();
+    initSilkyVideoV3();
   }
 
-  document.addEventListener("astro:page-load", initSilkyVideoV2);
+  document.addEventListener("astro:page-load", initSilkyVideoV3);
 </script>
