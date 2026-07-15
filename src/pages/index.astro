@@ -157,20 +157,23 @@ const structuredData = [
             <p class="signature">Powrót do natury</p>
 
             <div class="hero-actions">
-              <a class="button-primary" href="#makijaz-permanentny">
-                Poznaj ofertę <span>→</span>
-              </a>
+  <a
+    class="button-primary"
+    href="tel:+48730900125"
+    aria-label="Zadzwoń do gabinetu Bogusławy Herda"
+  >
+    Zadzwoń i zapytaj
+  </a>
 
-              <a
-                class="button-secondary"
-                href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Umów konsultację
-              </a>
-            </div>
-          </div>
+  <a
+    class="button-secondary"
+    href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Umów przez Booksy
+  </a>
+</div>
 
           <div class="hero-visual" aria-label="Bogusława Herda - makijaż permanentny Bielsko-Biała">
             <img
@@ -887,15 +890,24 @@ const structuredData = [
             Wystarczy konsultacja, spokojna rozmowa i projekt dopasowany do Twojej twarzy.
           </p>
 
-          <a
-            class="button-primary"
-            href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Umów wizytę przez Booksy
-          </a>
-        </div>
+          <div class="hero-actions cta-actions">
+  <a
+    class="button-primary"
+    href="tel:+48730900125"
+    aria-label="Zadzwoń i zapytaj o makijaż permanentny"
+  >
+    Zadzwoń i zapytaj
+  </a>
+
+  <a
+    class="button-secondary"
+    href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Umów przez Booksy
+  </a>
+</div>
       </section>
     </main>
 
@@ -3973,7 +3985,23 @@ const structuredData = [
       transform: none !important;
     }
   }
+.cta-actions {
+  justify-content: center;
+  margin-top: 26px;
+}
 
+@media (max-width: 760px) {
+  .cta-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .cta-actions a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
 </style>
 
 

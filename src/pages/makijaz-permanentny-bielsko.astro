@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ProcessVideo from "../components/ProcessVideo.astro";
 
+
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
@@ -207,14 +208,18 @@ const structuredData = [
             </p>
 
             <div class="pmu-hero-actions">
-              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-                Umów konsultację
-              </a>
+  <a class="button-primary" href="tel:+48730900125" aria-label="Zadzwoń i zapytaj o kwalifikację PMU">
+    Zadzwoń i zapytaj
+  </a>
 
-              <a class="button-secondary" href="#zakres-zabiegow">
-                Zobacz zakres
-              </a>
-            </div>
+  <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+    Umów przez Booksy
+  </a>
+</div>
+
+<p class="pmu-hero-contact-note">
+  Nie wiesz, czy wybrać brwi, usta, kreskę czy usuwanie PMU? Zadzwoń — pomożemy dobrać właściwy zabieg przed rezerwacją.
+</p>
           </div>
 
           <aside class="pmu-hero-card" aria-label="Najważniejsze informacje">
@@ -508,13 +513,95 @@ const structuredData = [
         </div>
       </section>
       <!-- Usunięto sekcję: Wybierz obszar PMU -->
-<section class="pmu-faq-section">
+      <section class="pmu-lead-section" id="kwalifikacja-pmu">
+        <div class="container pmu-lead-card">
+          <div class="pmu-lead-copy">
+            <p class="section-kicker">Kwalifikacja PMU</p>
+            <h2>Nie jesteś pewna, jaki zabieg wybrać?</h2>
+            <p>
+              Napisz krótkie zapytanie albo zadzwoń. To szczególnie ważne, jeśli masz stary makijaż permanentny,
+              nie wiesz, czy potrzebujesz brwi, ust, kreski czy usuwania PMU, albo chcesz najpierw omówić efekt.
+            </p>
+
+            <div class="pmu-lead-actions">
+              <a class="button-primary" href="tel:+48730900125" aria-label="Zadzwoń do gabinetu Bogusławy Herda">
+                Zadzwoń: 730 900 125
+              </a>
+
+              <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Umów przez Booksy
+              </a>
+            </div>
+          </div>
+
+          <form class="pmu-lead-form" data-pmu-lead-form>
+            <label>
+              Imię
+              <input type="text" name="name" autocomplete="name" />
+            </label>
+
+            <label>
+              Telefon
+              <input type="tel" name="phone" autocomplete="tel" required />
+            </label>
+
+            <label>
+              Jaki zabieg Cię interesuje?
+              <select name="service">
+                <option value="">Wybierz</option>
+                <option>Brwi permanentne</option>
+                <option>Usta permanentne</option>
+                <option>Kreska permanentna</option>
+                <option>Usuwanie PMU</option>
+                <option>Nie wiem — potrzebuję konsultacji</option>
+              </select>
+            </label>
+
+            <label>
+              Czy był wcześniej makijaż permanentny?
+              <select name="old_pmu">
+                <option value="">Wybierz</option>
+                <option>Tak</option>
+                <option>Nie</option>
+                <option>Nie jestem pewna</option>
+              </select>
+            </label>
+
+            <label>
+              Krótka wiadomość
+              <textarea name="message" rows="4"></textarea>
+            </label>
+
+            <input
+              class="pmu-lead-hidden"
+              type="text"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+
+            <label class="pmu-lead-consent">
+              <input type="checkbox" name="consent" value="yes" required />
+              <span>
+                Wyrażam zgodę na kontakt telefoniczny lub mailowy w odpowiedzi na zapytanie.
+              </span>
+            </label>
+
+            <button class="button-primary" type="submit">
+              Wyślij zapytanie
+            </button>
+
+            <p class="pmu-lead-status" data-pmu-lead-status hidden></p>
+          </form>
+        </div>
+      </section>
+      <section class="pmu-faq-section">
         <div class="container">
           <div class="pmu-section-heading">
             <p class="section-kicker">Najczęstsze pytania</p>
             <h2>Co warto wiedzieć przed makijażem permanentnym?</h2>
           </div>
-
           <div class="pmu-faq-grid">
             <article>
               <h3>Czy makijaż permanentny może wyglądać naturalnie?</h3>
@@ -624,9 +711,15 @@ const structuredData = [
             do Twojej urody, skóry i codzienności.
           </p>
 
-          <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-            Umów wizytę przez Booksy
-          </a>
+          <div class="pmu-final-actions">
+            <a class="button-primary" href="tel:+48730900125" aria-label="Zadzwoń i zapytaj o makijaż permanentny">
+              Zadzwoń i zapytaj
+            </a>
+
+            <a class="button-secondary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+              Umów przez Booksy
+            </a>
+          </div>
         </div>
       </section>
     </main>
@@ -723,6 +816,13 @@ const structuredData = [
     gap: 14px;
     margin-top: 34px;
   }
+  .pmu-hero-contact-note {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: var(--color-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
 
   .pmu-hero-card {
     position: relative;
@@ -3250,4 +3350,290 @@ const structuredData = [
     }
   }
 
+  /* FINAL — formularz kwalifikacji PMU */
+  .pmu-lead-section {
+    padding: 88px 0;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.10), transparent 24rem),
+      radial-gradient(circle at 90% 76%, rgba(201, 127, 143, 0.10), transparent 26rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 248, 250, 0.76));
+  }
+
+  .pmu-lead-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
+    gap: clamp(22px, 4vw, 54px);
+    align-items: stretch;
+    padding: clamp(24px, 4vw, 44px);
+    border: 1px solid rgba(183, 101, 118, 0.16);
+    border-radius: clamp(30px, 4vw, 46px);
+    background:
+      radial-gradient(circle at 8% 12%, rgba(56, 187, 181, 0.10), transparent 18rem),
+      radial-gradient(circle at 94% 88%, rgba(217, 146, 162, 0.10), transparent 20rem),
+      rgba(255, 255, 255, 0.86);
+    box-shadow: 0 24px 70px rgba(23, 21, 29, 0.075);
+  }
+
+  .pmu-lead-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .pmu-lead-copy h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-size: clamp(2.35rem, 4.1vw, 4.35rem);
+    font-weight: 760;
+    line-height: 1.02;
+    letter-spacing: -0.074em;
+  }
+
+  .pmu-lead-copy p:not(.section-kicker) {
+    max-width: 720px;
+    margin: 22px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1rem, 1.18vw, 1.08rem);
+    line-height: 1.7;
+  }
+
+  .pmu-lead-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .pmu-lead-form {
+    display: grid;
+    gap: 14px;
+    padding: clamp(22px, 3vw, 34px);
+    border: 1px solid rgba(56, 187, 181, 0.15);
+    border-radius: 34px;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.9));
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  }
+
+  .pmu-lead-form label:not(.pmu-lead-consent) {
+    display: grid;
+    gap: 7px;
+    color: var(--color-text, #17151d);
+    font-size: 0.82rem;
+    font-weight: 780;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .pmu-lead-form input,
+  .pmu-lead-form select,
+  .pmu-lead-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(183, 101, 118, 0.18);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--color-text, #17151d);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.35;
+    outline: none;
+    transition:
+      border-color 0.18s ease,
+      box-shadow 0.18s ease,
+      background 0.18s ease;
+  }
+
+  .pmu-lead-form input,
+  .pmu-lead-form select {
+    min-height: 50px;
+    padding: 0 15px;
+  }
+
+  .pmu-lead-form textarea {
+    min-height: 118px;
+    resize: vertical;
+    padding: 14px 15px;
+  }
+
+  .pmu-lead-form input:focus,
+  .pmu-lead-form select:focus,
+  .pmu-lead-form textarea:focus {
+    border-color: rgba(56, 187, 181, 0.42);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(56, 187, 181, 0.13);
+  }
+
+  .pmu-lead-form button {
+    justify-content: center;
+    width: fit-content;
+    min-width: 190px;
+    margin-top: 6px;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .pmu-lead-status {
+    margin: 4px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.92rem;
+    font-weight: 560;
+    line-height: 1.5;
+  }
+
+  .pmu-lead-form button[disabled] {
+    opacity: 0.72;
+    cursor: wait;
+  }
+
+  .pmu-lead-hidden {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .pmu-lead-consent {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.86rem;
+    font-weight: 520;
+    line-height: 1.45;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .pmu-lead-consent input {
+    width: auto;
+    min-height: 0;
+    margin-top: 3px;
+    flex: 0 0 auto;
+  }
+
+  .pmu-final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 1080px) {
+    .pmu-lead-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .pmu-lead-section {
+      padding: 58px 0;
+    }
+
+    .pmu-lead-card,
+    .pmu-lead-form {
+      border-radius: 28px;
+    }
+
+    .pmu-lead-card {
+      padding: 20px;
+    }
+
+    .pmu-lead-form {
+      padding: 22px;
+      gap: 13px;
+    }
+
+    .pmu-lead-copy h2 {
+      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.066em;
+    }
+
+    .pmu-lead-actions,
+    .pmu-final-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .pmu-lead-actions a,
+    .pmu-final-actions a,
+    .pmu-lead-form button {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+  }
 </style>
+
+<script is:inline>
+  (() => {
+    const form = document.querySelector('[data-pmu-lead-form]');
+    if (!form) return;
+
+    const status = form.querySelector('[data-pmu-lead-status]');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      payload.page = window.location.href;
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Wysyłanie...';
+      }
+
+      if (status) {
+        status.hidden = false;
+        status.textContent = 'Wysyłamy zapytanie...';
+      }
+
+      try {
+        const response = await fetch('/api/pmu-lead', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Nie udało się wysłać formularza.');
+        }
+
+        if (status) {
+          status.textContent = 'Dziękujemy. Zapytanie zostało wysłane. Gabinet skontaktuje się telefonicznie.';
+        }
+
+        form.reset();
+
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'pmu_lead_submit', {
+            event_category: 'lead',
+            event_label: 'Formularz kwalifikacji PMU',
+          });
+        }
+      } catch (error) {
+        if (status) {
+          status.textContent = error.message || 'Nie udało się wysłać zapytania. Prosimy zadzwonić do gabinetu.';
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Wyślij zapytanie';
+        }
+      }
+    });
+  })();
+</script>
