@@ -1,5 +1,4 @@
 import type { APIRoute } from "astro";
-import nodemailer from "nodemailer";
 
 export const prerender = false;
 
@@ -49,10 +48,16 @@ function escapeHtml(value: string) {
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    const contentType = request.headers.get("content-type") || "";
+
+    if (!contentType.includes("application/json")) {
+      return jsonResponse({ error: "Nieprawidłowy format zapytania." }, 415);
+    }
+
     const body = (await request.json()) as PmuLeadBody;
 
-    // Honeypot antyspamowy — prawdziwa klientka tego nie wypełni.
-    if (body.website) {
+    // Honeypot antyspamowy — prawdziwa klientka tego pola nie wypełni.
+    if (clean(body.website, 200)) {
       return jsonResponse({ ok: true });
     }
 
@@ -77,29 +82,21 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const smtpHost = getEnvValue("SMTP_HOST");
-    const smtpPort = Number(getEnvValue("SMTP_PORT") || "465");
-    const smtpUser = getEnvValue("SMTP_USER");
-    const smtpPass = getEnvValue("SMTP_PASS");
-    const toEmail = getEnvValue("CONTACT_TO_EMAIL") || "bogusia@permanentnybielsko.com";
-    const fromEmail = getEnvValue("CONTACT_FROM_EMAIL") || smtpUser;
+    const resendApiKey = getEnvValue("RESEND_API_KEY");
+    const toEmail =
+      getEnvValue("CONTACT_TO_EMAIL") || "bogusia@permanentnybielsko.com";
+    const fromEmail =
+      getEnvValue("CONTACT_FROM_EMAIL") ||
+      "formularz@send.permanentnybielsko.com";
 
-    if (!smtpHost || !smtpUser || !smtpPass || !fromEmail) {
+    if (!resendApiKey) {
+      console.error("PMU lead form error: missing RESEND_API_KEY");
+
       return jsonResponse(
-        { error: "Brakuje konfiguracji SMTP dla formularza." },
+        { error: "Brakuje konfiguracji wysyłki formularza." },
         500
       );
     }
-
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpPort === 465,
-      auth: {
-        user: smtpUser,
-        pass: smtpPass,
-      },
-    });
 
     const subject = `Nowe zapytanie PMU — ${service || "kwalifikacja"}`;
 
@@ -117,26 +114,100 @@ export const POST: APIRoute = async ({ request }) => {
     ].join("\n");
 
     const html = `
-      <h2>Nowe zapytanie z formularza PMU</h2>
-      <p><strong>Imię:</strong> ${escapeHtml(name || "-")}</p>
-      <p><strong>Telefon:</strong> ${escapeHtml(phone)}</p>
-      <p><strong>Usługa:</strong> ${escapeHtml(service || "-")}</p>
-      <p><strong>Czy był wcześniej PMU:</strong> ${escapeHtml(oldPmu || "-")}</p>
-      <p><strong>Strona:</strong> ${escapeHtml(page || "-")}</p>
-      <hr />
-      <p><strong>Wiadomość:</strong></p>
-      <p>${escapeHtml(message || "-").replace(/\n/g, "<br />")}</p>
+      <div style="margin:0;padding:24px;background:#f7f7f7;font-family:Arial,sans-serif;color:#17151d;">
+        <div style="max-width:680px;margin:0 auto;padding:28px;background:#ffffff;border-radius:20px;border:1px solid #ece7e9;">
+          <p style="margin:0 0 8px;color:#0f7773;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
+            Permanentny Bielsko
+          </p>
+
+          <h2 style="margin:0 0 24px;font-size:26px;line-height:1.2;">
+            Nowe zapytanie z formularza PMU
+          </h2>
+
+          <table style="width:100%;border-collapse:collapse;font-size:15px;line-height:1.6;">
+            <tr>
+              <td style="width:180px;padding:8px 0;font-weight:700;vertical-align:top;">Imię</td>
+              <td style="padding:8px 0;">${escapeHtml(name || "-")}</td>
+            </tr>
+            <tr>
+              <td style="width:180px;padding:8px 0;font-weight:700;vertical-align:top;">Telefon</td>
+              <td style="padding:8px 0;">
+                <a href="tel:${escapeHtml(phone)}" style="color:#0f7773;text-decoration:none;">
+                  ${escapeHtml(phone)}
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:180px;padding:8px 0;font-weight:700;vertical-align:top;">Usługa</td>
+              <td style="padding:8px 0;">${escapeHtml(service || "-")}</td>
+            </tr>
+            <tr>
+              <td style="width:180px;padding:8px 0;font-weight:700;vertical-align:top;">Wcześniejszy PMU</td>
+              <td style="padding:8px 0;">${escapeHtml(oldPmu || "-")}</td>
+            </tr>
+            <tr>
+              <td style="width:180px;padding:8px 0;font-weight:700;vertical-align:top;">Strona</td>
+              <td style="padding:8px 0;">${escapeHtml(page || "-")}</td>
+            </tr>
+          </table>
+
+          <div style="margin-top:24px;padding-top:22px;border-top:1px solid #ece7e9;">
+            <p style="margin:0 0 8px;font-weight:700;">Wiadomość</p>
+            <p style="margin:0;white-space:pre-wrap;line-height:1.65;">
+              ${escapeHtml(message || "-")}
+            </p>
+          </div>
+        </div>
+      </div>
     `;
 
-    await transporter.sendMail({
-      from: `"Permanentny Bielsko" <${fromEmail}>`,
-      to: toEmail,
-      subject,
-      text,
-      html,
+    const resendResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `Permanentny Bielsko <${fromEmail}>`,
+        to: [toEmail],
+        subject,
+        text,
+        html,
+        tags: [
+          {
+            name: "source",
+            value: "pmu_form",
+          },
+        ],
+      }),
     });
 
-    return jsonResponse({ ok: true });
+    const resendData = await resendResponse.json().catch(() => null);
+
+    if (!resendResponse.ok) {
+      console.error("PMU lead Resend error:", {
+        status: resendResponse.status,
+        response: resendData,
+      });
+
+      return jsonResponse(
+        {
+          error:
+            "Nie udało się wysłać zapytania. Prosimy zadzwonić do gabinetu.",
+        },
+        502
+      );
+    }
+
+    return jsonResponse({
+      ok: true,
+      id:
+        resendData &&
+        typeof resendData === "object" &&
+        "id" in resendData
+          ? resendData.id
+          : undefined,
+    });
   } catch (error) {
     console.error("PMU lead form error:", error);
 

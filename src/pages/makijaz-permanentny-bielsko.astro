@@ -534,7 +534,12 @@ const structuredData = [
             </div>
           </div>
 
-          <form class="pmu-lead-form" data-pmu-lead-form>
+          <form
+            class="pmu-lead-form"
+            action="https://formspree.io/f/mjgnwzvp"
+            method="POST"
+            data-pmu-lead-form
+          >
             <label>
               Imię
               <input type="text" name="name" autocomplete="name" />
@@ -575,10 +580,22 @@ const structuredData = [
             <input
               class="pmu-lead-hidden"
               type="text"
-              name="website"
+              name="_gotcha"
               tabindex="-1"
               autocomplete="off"
               aria-hidden="true"
+            />
+
+            <input
+              type="hidden"
+              name="_subject"
+              value="Nowe zapytanie PMU — Permanentny Bielsko"
+            />
+
+            <input
+              type="hidden"
+              name="page"
+              value="https://permanentnybielsko.com/makijaz-permanentny-bielsko/"
             />
 
             <label class="pmu-lead-consent">
@@ -3577,15 +3594,16 @@ const structuredData = [
     if (!form) return;
 
     const status = form.querySelector('[data-pmu-lead-status]');
+    const endpoint = 'https://formspree.io/f/mjgnwzvp';
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       const submitButton = form.querySelector('button[type="submit"]');
       const formData = new FormData(form);
-      const payload = Object.fromEntries(formData.entries());
 
-      payload.page = window.location.href;
+      formData.set('page', window.location.href);
+      formData.set('_subject', 'Nowe zapytanie PMU — Permanentny Bielsko');
 
       if (submitButton) {
         submitButton.disabled = true;
@@ -3598,22 +3616,30 @@ const structuredData = [
       }
 
       try {
-        const response = await fetch('/api/pmu-lead', {
+        const response = await fetch(endpoint, {
           method: 'POST',
+          body: formData,
           headers: {
-            'Content-Type': 'application/json',
+            Accept: 'application/json',
           },
-          body: JSON.stringify(payload),
         });
 
-        const data = await response.json();
+        const data = await response.json().catch(() => ({}));
 
         if (!response.ok) {
-          throw new Error(data.error || 'Nie udało się wysłać formularza.');
+          const formspreeMessage =
+            Array.isArray(data.errors) && data.errors.length
+              ? data.errors.map((item) => item.message).filter(Boolean).join(' ')
+              : '';
+
+          throw new Error(
+            formspreeMessage || 'Nie udało się wysłać formularza.'
+          );
         }
 
         if (status) {
-          status.textContent = 'Dziękujemy. Zapytanie zostało wysłane. Gabinet skontaktuje się telefonicznie.';
+          status.textContent =
+            'Dziękujemy. Zapytanie zostało wysłane. Gabinet skontaktuje się telefonicznie.';
         }
 
         form.reset();
@@ -3626,7 +3652,10 @@ const structuredData = [
         }
       } catch (error) {
         if (status) {
-          status.textContent = error.message || 'Nie udało się wysłać zapytania. Prosimy zadzwonić do gabinetu.';
+          status.textContent =
+            error instanceof Error && error.message
+              ? error.message
+              : 'Nie udało się wysłać zapytania. Prosimy zadzwonić do gabinetu.';
         }
       } finally {
         if (submitButton) {
