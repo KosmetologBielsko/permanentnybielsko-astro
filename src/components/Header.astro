@@ -1,7 +1,7 @@
 ---
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
-
+const pmuLeadUrl = "/makijaz-permanentny-bielsko/#kwalifikacja-pmu";
 const instagramUrl = "https://www.instagram.com/permanentnybielsko";
 const facebookUrl = "https://www.facebook.com/PermanentnyBielsko";
 const googleUrl = "https://share.google/r1H8ZLwSZMdRIflO9";
@@ -109,9 +109,9 @@ const isActive = (href: string) => {
         </a>
       </nav>
 
-      <a class="header-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-        Umów wizytę
-      </a>
+     <a class="header-booksy header-lead-cta" href={pmuLeadUrl}>
+  Zapytaj o PMU
+</a>
 
       <button
         class="mobile-menu-button"
@@ -130,10 +130,14 @@ const isActive = (href: string) => {
   <div class="mobile-menu-backdrop" data-menu-backdrop></div>
 
   <aside class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Menu mobilne" data-mobile-menu>
-    <div class="mobile-menu-head">
-      <p>Menu</p>
-      <span>Naturalny PMU • Bielsko-Biała</span>
-    </div>
+   <div class="mobile-menu-head">
+  <p>Menu</p>
+  <span>Naturalny PMU • Bielsko-Biała</span>
+
+  <a class="mobile-lead-cta" href={pmuLeadUrl}>
+    Wyślij zapytanie PMU
+  </a>
+</div>
 
     <nav class="mobile-nav" aria-label="Menu mobilne">
       {navLinks.map((link, index) => (
@@ -1542,5 +1546,25 @@ const isActive = (href: string) => {
     }
   }
 
+.header-lead-cta {
+  background: linear-gradient(135deg, #0f7773, #1aa5a0, #74e0d7);
+  color: #ffffff;
+  box-shadow: 0 14px 34px rgba(26, 165, 160, 0.22);
+}
 
+.mobile-lead-cta {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.94rem;
+  font-weight: 850;
+  text-decoration: none;
+  background: linear-gradient(135deg, #0f7773, #1aa5a0, #74e0d7);
+  box-shadow: 0 14px 34px rgba(26, 165, 160, 0.22);
+}
 </style>

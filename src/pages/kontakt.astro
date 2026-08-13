@@ -18,40 +18,40 @@ const pageDescription =
 const contactCards = [
   {
     number: "01",
-    label: "Rezerwacja",
-    title: "Booksy",
-    text: "Najszybsza forma sprawdzenia wolnych terminów i umówienia konsultacji lub zabiegu.",
-    href: booksyUrl,
-    cta: "Umów wizytę",
-    type: "primary"
+    label: "Zapytanie PMU",
+    title: "Formularz kwalifikacji",
+    text: "Opisz krótko zabieg, stary PMU albo pytanie przed wizytą",
+    href: "/makijaz-permanentny-bielsko/#kwalifikacja-pmu",
+    cta: "Wyślij zapytanie",
+    type: "primary",
   },
   {
     number: "02",
     label: "Telefon",
     title: phone,
-    text: "Kontakt w sprawach organizacyjnych, pilnych lub wtedy, gdy nie wiesz, od czego zacząć.",
+    text: "Najlepszy kontakt, jeśli nie wiesz, od czego zacząć",
     href: "tel:+48730900125",
     cta: "Zadzwoń",
-    type: "soft"
+    type: "soft",
   },
   {
     number: "03",
-    label: "E-mail",
-    title: email,
-    text: "Pytania przed wizytą, kwalifikacją, korektą albo przy starym makijażu permanentnym.",
-    href: `mailto:${email}`,
-    cta: "Napisz",
-    type: "soft"
+    label: "Rezerwacja",
+    title: "Booksy",
+    text: "Aktualne terminy i rezerwacja online",
+    href: booksyUrl,
+    cta: "Umów wizytę",
+    type: "soft",
   },
   {
     number: "04",
-    label: "Mapa",
-    title: "ul. Barlickiego 5/23",
-    text: "Gabinet w centrum Bielska-Białej, blisko deptaku, Galerii Sfera i Ratusza.",
+    label: "Lokalizacja",
+    title: "Centrum Bielska-Białej",
+    text: "ul. Barlickiego 5/23",
     href: mapUrl,
-    cta: "Zobacz trasę",
-    type: "map"
-  }
+    cta: "Zobacz mapę",
+    type: "map",
+  },
 ];
 
 const socialLinks = [
@@ -189,13 +189,20 @@ const structuredData = [
               skontaktować się telefonicznie lub mailowo. Gabinet znajduje się w centrum Bielska-Białej.
             </p>
 
-            <div class="contact-hero-actions">
-              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-                Umów wizytę przez Booksy
+                      <div class="contact-hero-actions">
+              <a
+                class="button-primary"
+                href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
+              >
+                Wyślij zapytanie PMU
               </a>
 
-              <a class="button-secondary" href="tel:+48730900125">
-                Zadzwoń
+              <a
+                class="button-secondary"
+                href="tel:+48730900125"
+                aria-label="Zadzwoń do gabinetu Bogusławy Herda"
+              >
+                Zadzwoń i zapytaj
               </a>
             </div>
           </div>

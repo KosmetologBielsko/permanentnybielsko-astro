@@ -218,7 +218,9 @@ const structuredData = [
 </div>
 
 <p class="pmu-hero-contact-note">
-  Nie wiesz, czy wybrać brwi, usta, kreskę czy usuwanie PMU? Zadzwoń — pomożemy dobrać właściwy zabieg przed rezerwacją.
+  Nie wiesz, czy wybrać brwi, usta, kreskę czy usuwanie PMU?
+  <a href="#kwalifikacja-pmu">Wyślij krótkie zapytanie PMU</a>
+  albo zadzwoń — pomożemy dobrać właściwy zabieg przed rezerwacją.
 </p>
           </div>
 
@@ -3369,13 +3371,16 @@ const structuredData = [
 
   /* FINAL — formularz kwalifikacji PMU */
   .pmu-lead-section {
+    scroll-margin-top: 120px;
     padding: 88px 0;
     background:
       radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.10), transparent 24rem),
       radial-gradient(circle at 90% 76%, rgba(201, 127, 143, 0.10), transparent 26rem),
       linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 248, 250, 0.76));
   }
-
+  #kwalifikacja-pmu {
+    scroll-margin-top: 120px;
+  }
   .pmu-lead-card {
     display: grid;
     grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
@@ -3586,6 +3591,15 @@ const structuredData = [
       text-align: center;
     }
   }
+  .pmu-hero-contact-note a {
+  color: var(--color-turquoise-dark, #0f7773);
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.pmu-hero-contact-note a:hover {
+  text-decoration: underline;
+}
 </style>
 
 <script is:inline>
