@@ -3645,11 +3645,17 @@ const structuredData = [
         form.reset();
 
         if (typeof window.gtag === 'function') {
-          window.gtag('event', 'pmu_lead_submit', {
-            event_category: 'lead',
-            event_label: 'Formularz kwalifikacji PMU',
-          });
-        }
+  window.gtag('event', 'conversion', {
+    send_to: 'AW-18200277713/3I8RCPuF8NIcENHlyOZD',
+    value: 1.0,
+    currency: 'PLN',
+  });
+
+  window.gtag('event', 'pmu_lead_submit', {
+    event_category: 'lead',
+    event_label: 'Formularz kwalifikacji PMU',
+  });
+}
       } catch (error) {
         if (status) {
           status.textContent =
