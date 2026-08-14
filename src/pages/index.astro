@@ -161,7 +161,7 @@ const structuredData = [
     class="button-primary"
     href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
   >
-    Zapytaj o PMU <span>→</span>
+    Formularz PMU <span>→</span>
   </a>
 
   <a
@@ -169,7 +169,7 @@ const structuredData = [
     href="tel:+48730900125"
     aria-label="Zadzwoń do gabinetu Bogusławy Herda"
   >
-    Zadzwoń i zapytaj
+    Zadzwoń
   </a>
 
   <a
@@ -4161,6 +4161,26 @@ const structuredData = [
       min-height: 54px !important;
       padding-left: 18px !important;
       padding-right: 18px !important;
+    }
+  }
+
+
+  /* HERO CTA TYPO — jedna czcionka i rytm dla wszystkich 3 przycisków */
+  :global(.home-page .hero-section-home .hero-actions .button-primary),
+  :global(.home-page .hero-section-home .hero-actions .button-secondary),
+  :global(.home-page .hero-section-home .hero-actions .button-booksy) {
+    font-family: inherit !important;
+    font-size: 1rem !important;
+    font-weight: 820 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .hero-section-home .hero-actions .button-primary),
+    :global(.home-page .hero-section-home .hero-actions .button-secondary),
+    :global(.home-page .hero-section-home .hero-actions .button-booksy) {
+      font-size: 0.98rem !important;
     }
   }
 
