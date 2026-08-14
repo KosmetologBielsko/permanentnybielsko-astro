@@ -4079,6 +4079,44 @@ const structuredData = [
     }
   }
 
+
+  /* CTA FIX — bez niebieskiej poświaty po kliknięciu / dotknięciu */
+  :global(.home-page .hero-actions a),
+  :global(.home-page .cta-actions a) {
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
+    outline: none !important;
+  }
+
+  :global(.home-page .hero-actions a:focus),
+  :global(.home-page .hero-actions a:active),
+  :global(.home-page .cta-actions a:focus),
+  :global(.home-page .cta-actions a:active) {
+    outline: none !important;
+  }
+
+  /* Zostawiamy czytelny focus z klawiatury, ale w kolorze strony zamiast niebieskiego */
+  :global(.home-page .hero-actions a:focus-visible),
+  :global(.home-page .cta-actions a:focus-visible) {
+    outline: none !important;
+    box-shadow:
+      0 0 0 4px rgba(56, 187, 181, 0.16),
+      0 16px 38px rgba(23, 21, 29, 0.10) !important;
+  }
+
+  :global(.home-page .hero-actions .button-primary:focus-visible),
+  :global(.home-page .cta-actions .button-primary:focus-visible) {
+    box-shadow:
+      0 0 0 4px rgba(201, 127, 143, 0.18),
+      0 16px 38px rgba(199, 119, 136, 0.18) !important;
+  }
+
+  :global(.home-page .hero-actions .button-booksy:focus-visible) {
+    box-shadow:
+      0 0 0 4px rgba(24, 168, 137, 0.16),
+      0 20px 46px rgba(15, 143, 120, 0.28) !important;
+  }
+
 </style>
 
 
