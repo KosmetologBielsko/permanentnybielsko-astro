@@ -109,8 +109,13 @@ const isActive = (href: string) => {
         </a>
       </nav>
 
-     <a class="header-booksy header-lead-cta" href={pmuLeadUrl}>
-  Zapytaj o PMU
+     <a
+  class="header-booksy"
+  href={booksyUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Umów przez Booksy
 </a>
 
       <button
@@ -134,9 +139,18 @@ const isActive = (href: string) => {
   <p>Menu</p>
   <span>Naturalny PMU • Bielsko-Biała</span>
 
-  <a class="mobile-lead-cta" href={pmuLeadUrl}>
-    Wyślij zapytanie PMU
-  </a>
+  <a
+  class="mobile-lead-cta mobile-booksy-cta"
+  href={booksyUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Umów przez Booksy
+</a>
+
+<a class="mobile-form-cta" href={pmuLeadUrl}>
+  Mam pytanie przed wizytą
+</a>
 </div>
 
     <nav class="mobile-nav" aria-label="Menu mobilne">
@@ -1566,5 +1580,27 @@ const isActive = (href: string) => {
   text-decoration: none;
   background: linear-gradient(135deg, #0f7773, #1aa5a0, #74e0d7);
   box-shadow: 0 14px 34px rgba(26, 165, 160, 0.22);
+}
+.mobile-form-cta {
+  display: flex;
+  width: 100%;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border-radius: 999px;
+  color: #0f7773;
+  font-family:
+    "Avenir Next",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  font-size: 0.76rem;
+  font-weight: 820;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: rgba(219, 246, 243, 0.68);
+  border: 1px solid rgba(56, 187, 181, 0.18);
 }
 </style>
