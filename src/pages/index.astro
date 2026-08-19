@@ -128,72 +128,73 @@ const structuredData = [
     <Header />
 
     <main>
-      <section class="home-main-hero">
-        <div class="home-main-hero-glow home-main-hero-glow--one" aria-hidden="true"></div>
-        <div class="home-main-hero-glow home-main-hero-glow--two" aria-hidden="true"></div>
+      <section class="hero-section hero-section-home">
+        <div class="hero-bg-glow hero-bg-glow-one"></div>
+        <div class="hero-bg-glow hero-bg-glow-two"></div>
+        <div class="hero-bg-curve hero-bg-curve-one"></div>
+        <div class="hero-bg-curve hero-bg-curve-two"></div>
 
-        <div class="container home-main-hero-grid">
-          <div class="home-main-hero-copy">
-            <p class="home-main-hero-kicker">Makijaż permanentny · Bielsko-Biała</p>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="hero-line"></div>
 
             <h1>
-              Makijaż permanentny,
-              <span>który nadal wygląda jak Ty.</span>
+              Makijaż
+              <br />
+              permanentny,
+              <br />
+              <span class="hero-light">który podkreśla</span>
+              <br />
+              <span class="hero-pink">naturalne piękno.</span>
             </h1>
 
-            <p class="home-main-hero-lead">
-              Naturalne brwi, usta i kreski projektowane z myślą o proporcjach twarzy,
-              skórze i codziennym komforcie — bez ciężkiego, przerysowanego efektu.
-            </p>
-
-            <div class="home-main-hero-trust" aria-label="Bogusława Herda — doświadczenie PMU">
+            <div class="hero-person">
               <strong>Bogusława Herda</strong>
-              <span>Wicemistrzyni świata PMU</span>
-              <span>Trenerka Long-Time-Liner®</span>
+              <p>Wicemistrzyni świata PMU</p>
+              <p>Trenerka Long-Time-Liner®</p>
             </div>
 
-            <p class="signature home-main-hero-signature">Powrót do natury</p>
+            <p class="signature">Powrót do natury</p>
 
-            <div class="home-main-hero-actions">
-              <a class="button-primary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
-                Formularz PMU <span aria-hidden="true">→</span>
-              </a>
+            <div class="hero-actions">
+  <a
+    class="button-primary"
+    href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
+  >
+    Formularz PMU <span>→</span>
+  </a>
 
-              <a class="button-secondary" href="tel:+48730900125" aria-label="Zadzwoń do gabinetu Bogusławy Herda">
-                Zadzwoń
-              </a>
+  <a
+    class="button-secondary"
+    href="tel:+48730900125"
+    aria-label="Zadzwoń do gabinetu Bogusławy Herda"
+  >
+    Zadzwoń
+  </a>
 
-              <a
-                class="home-main-hero-booksy"
-                href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Zarezerwuj wizytę w Booksy"
-              >
-                Booksy <span aria-hidden="true">→</span>
-              </a>
-            </div>
+  <a
+    class="button-booksy"
+    href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Zarezerwuj wizytę w Booksy"
+  >
+    Booksy <span>→</span>
+  </a>
+</div>
           </div>
 
-          <aside class="home-main-hero-visual" aria-label="Bogusława Herda — makijaż permanentny Bielsko-Biała">
-            <span class="home-main-hero-mark" aria-hidden="true">PMU</span>
-
+          <div class="hero-visual" aria-label="Bogusława Herda - makijaż permanentny Bielsko-Biała">
             <img
-              class="home-main-hero-portrait"
+              class="hero-portrait"
               src="/images/hero-boguslawa-herda-pmu-cutout.webp"
-              alt="Bogusława Herda — makijaż permanentny Bielsko-Biała, trenerka Long-Time-Liner"
+              alt="Bogusława Herda - makijaż permanentny Bielsko-Biała, trenerka Long-Time-Liner"
               width="1024"
               height="1536"
               loading="eager"
-              fetchpriority="high"
               decoding="async"
             />
-
-            <div class="home-main-hero-badge">
-              <span>Autorska technika</span>
-              <strong>Silky Hairstroke Brows</strong>
-            </div>
-          </aside>
+          </div>
         </div>
       </section>
 
@@ -4180,412 +4181,6 @@ const structuredData = [
     :global(.home-page .hero-section-home .hero-actions .button-secondary),
     :global(.home-page .hero-section-home .hero-actions .button-booksy) {
       font-size: 0.98rem !important;
-    }
-  }
-
-
-  /* HOME HERO 2026 */
-  .home-main-hero {
-    position: relative;
-    overflow: hidden;
-    padding: 142px 0 72px;
-    background:
-      radial-gradient(circle at 84% 14%, rgba(56, 187, 181, 0.12), transparent 30rem),
-      radial-gradient(circle at 12% 74%, rgba(201, 127, 143, 0.10), transparent 28rem);
-  }
-
-  .home-main-hero *,
-  .home-main-hero *::before,
-  .home-main-hero *::after {
-    box-sizing: border-box;
-  }
-
-  .home-main-hero-glow {
-    position: absolute;
-    border-radius: 999px;
-    pointer-events: none;
-  }
-
-  .home-main-hero-glow--one {
-    top: 2rem;
-    right: -13rem;
-    width: 42rem;
-    height: 42rem;
-    background: radial-gradient(circle, rgba(56, 187, 181, 0.17), transparent 68%);
-  }
-
-  .home-main-hero-glow--two {
-    left: -11rem;
-    bottom: -14rem;
-    width: 38rem;
-    height: 38rem;
-    background: radial-gradient(circle, rgba(201, 127, 143, 0.14), transparent 68%);
-  }
-
-  .home-main-hero-grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
-    gap: 24px;
-    align-items: stretch;
-  }
-
-  .home-main-hero-copy,
-  .home-main-hero-visual {
-    min-width: 0;
-    border: 1px solid rgba(183, 101, 118, 0.14);
-    border-radius: 42px;
-    box-shadow: 0 22px 64px rgba(89, 53, 67, 0.08);
-  }
-
-  .home-main-hero-copy {
-    display: flex;
-    min-height: 590px;
-    flex-direction: column;
-    justify-content: center;
-    padding: clamp(38px, 5vw, 68px);
-    background:
-      radial-gradient(circle at 96% 10%, rgba(56, 187, 181, 0.08), transparent 18rem),
-      rgba(255, 255, 255, 0.86);
-  }
-
-  .home-main-hero-kicker {
-    display: inline-flex;
-    width: fit-content;
-    max-width: 100%;
-    min-height: 32px;
-    align-items: center;
-    margin: 0 0 20px;
-    padding: 0 13px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.72);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-family: inherit;
-    font-size: 0.7rem;
-    font-weight: 850;
-    line-height: 1;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .home-main-hero-copy h1 {
-    max-width: 920px;
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-family: inherit;
-    font-size: clamp(3.15rem, 5vw, 5.75rem);
-    font-weight: 770;
-    line-height: 0.98;
-    letter-spacing: -0.078em;
-  }
-
-  .home-main-hero-copy h1 > span {
-    display: block;
-    margin-top: 4px;
-    background: linear-gradient(120deg, #0d6a67 0%, #0f7773 22%, #1aa5a0 48%, #69d9d1 72%, #0d6a67 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .home-main-hero-lead {
-    max-width: 760px;
-    margin: 25px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-family: inherit;
-    font-size: clamp(1rem, 1.2vw, 1.1rem);
-    line-height: 1.68;
-  }
-
-  .home-main-hero-trust {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    align-items: center;
-    margin-top: 25px;
-  }
-
-  .home-main-hero-trust strong {
-    color: var(--color-text, #17151d);
-    font-size: 0.95rem;
-    font-weight: 820;
-  }
-
-  .home-main-hero-trust span {
-    color: var(--color-muted, #6e6670);
-    font-size: 0.78rem;
-    font-weight: 680;
-  }
-
-  .home-main-hero-trust span::before {
-    content: "";
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    margin: 0 9px 1px 0;
-    border-radius: 999px;
-    background: rgba(56, 187, 181, 0.72);
-  }
-
-  .home-main-hero-signature {
-    margin: 19px 0 0;
-  }
-
-  .home-main-hero-actions {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    width: 100%;
-    margin-top: 28px;
-  }
-
-  .home-main-hero-actions > a {
-    display: inline-flex;
-    width: 100%;
-    min-width: 0;
-    min-height: 58px;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 0 18px;
-    border-radius: 999px;
-    font-family: inherit !important;
-    font-size: 1rem !important;
-    font-weight: 820 !important;
-    line-height: 1 !important;
-    letter-spacing: -0.02em !important;
-    text-align: center;
-    text-decoration: none;
-    text-transform: none !important;
-    white-space: nowrap;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .home-main-hero-booksy {
-    border: 1px solid rgba(8, 111, 91, 0.16);
-    background: linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
-    box-shadow: 0 14px 34px rgba(15, 143, 120, 0.18);
-  }
-
-  .home-main-hero-actions > a:focus-visible {
-    outline: none;
-    box-shadow:
-      0 0 0 4px rgba(56, 187, 181, 0.14),
-      0 16px 38px rgba(23, 21, 29, 0.10);
-  }
-
-  .home-main-hero-visual {
-    position: relative;
-    min-height: 590px;
-    overflow: hidden;
-    isolation: isolate;
-    background:
-      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.30), transparent 12rem),
-      radial-gradient(circle at 84% 20%, rgba(255, 231, 238, 0.24), transparent 14rem),
-      linear-gradient(145deg, #0f7773 0%, #1aa5a0 38%, #63d7cf 67%, #0d6a67 100%);
-    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.20);
-  }
-
-  .home-main-hero-mark {
-    position: absolute;
-    top: 34px;
-    left: 38px;
-    z-index: 0;
-    color: rgba(255, 255, 255, 0.17);
-    font-size: clamp(5.5rem, 8vw, 9.4rem);
-    font-weight: 900;
-    line-height: 0.8;
-    letter-spacing: -0.12em;
-    pointer-events: none;
-  }
-
-  .home-main-hero-portrait {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    z-index: 1;
-    display: block;
-    width: min(94%, 560px);
-    height: 96%;
-    object-fit: contain;
-    object-position: center bottom;
-    transform: translateX(-50%);
-    filter: drop-shadow(0 24px 42px rgba(6, 72, 69, 0.16));
-  }
-
-  .home-main-hero-badge {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
-    z-index: 3;
-    display: grid;
-    gap: 5px;
-    padding: 17px 18px;
-    border: 1px solid rgba(255, 255, 255, 0.32);
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.18);
-    color: #ffffff;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-  }
-
-  .home-main-hero-badge span {
-    font-size: 0.63rem;
-    font-weight: 850;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-  }
-
-  .home-main-hero-badge strong {
-    font-size: clamp(1.08rem, 1.55vw, 1.35rem);
-    font-weight: 800;
-    letter-spacing: -0.035em;
-  }
-
-  @media (max-width: 1180px) {
-    .home-main-hero-grid {
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
-    }
-
-    .home-main-hero-actions {
-      grid-template-columns: 1fr;
-      max-width: 620px;
-    }
-
-    .home-main-hero-actions > a {
-      min-height: 56px;
-      white-space: normal;
-    }
-  }
-
-  @media (max-width: 860px) {
-    .home-main-hero {
-      padding: 116px 0 54px;
-    }
-
-    .home-main-hero-grid {
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .home-main-hero-copy,
-    .home-main-hero-visual {
-      border-radius: 30px;
-    }
-
-    .home-main-hero-copy {
-      min-height: auto;
-      padding: 30px 26px 27px;
-    }
-
-    .home-main-hero-visual {
-      min-height: 500px;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .home-main-hero {
-      padding: 112px 0 48px;
-    }
-
-    .home-main-hero-copy,
-    .home-main-hero-visual {
-      width: 100%;
-      max-width: 100%;
-      border-radius: 28px;
-    }
-
-    .home-main-hero-copy {
-      padding: 25px 21px 23px;
-    }
-
-    .home-main-hero-kicker {
-      min-height: 30px;
-      margin-bottom: 16px;
-      padding: 0 11px;
-      font-size: 0.63rem;
-      letter-spacing: 0.12em;
-    }
-
-    .home-main-hero-copy h1 {
-      font-size: clamp(2.38rem, 10.3vw, 3.42rem);
-      line-height: 1.01;
-      letter-spacing: -0.066em;
-    }
-
-    .home-main-hero-lead {
-      margin-top: 19px;
-      font-size: 0.98rem;
-      line-height: 1.62;
-    }
-
-    .home-main-hero-trust {
-      display: grid;
-      gap: 7px;
-      margin-top: 20px;
-    }
-
-    .home-main-hero-signature {
-      margin-top: 15px;
-    }
-
-    .home-main-hero-actions {
-      grid-template-columns: 1fr;
-      gap: 10px;
-      max-width: none;
-      margin-top: 23px;
-    }
-
-    .home-main-hero-actions > a {
-      min-height: 56px;
-      padding-inline: 17px;
-      font-size: 0.98rem !important;
-    }
-
-    .home-main-hero-visual {
-      min-height: 430px;
-    }
-
-    .home-main-hero-mark {
-      top: 24px;
-      left: 23px;
-      font-size: clamp(4.6rem, 21vw, 6.6rem);
-    }
-
-    .home-main-hero-portrait {
-      width: min(96%, 430px);
-      height: 94%;
-    }
-
-    .home-main-hero-badge {
-      right: 14px;
-      bottom: 14px;
-      left: 14px;
-      padding: 14px 15px;
-      border-radius: 19px;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .home-main-hero-copy {
-      padding-inline: 18px;
-    }
-
-    .home-main-hero-copy h1 {
-      font-size: clamp(2.2rem, 10.7vw, 2.85rem);
-    }
-
-    .home-main-hero-visual {
-      min-height: 390px;
-    }
-
-    .home-main-hero-badge strong {
-      font-size: 1rem;
     }
   }
 
