@@ -2,7 +2,7 @@
   <div class="cookie-consent__content">
     <p class="cookie-consent__title">Dbamy o Twoją prywatność</p>
     <p class="cookie-consent__text">
-      Używamy plików cookies i podobnych technologii, aby mierzyć działanie strony oraz skuteczność reklam Google.
+      Używamy plików cookies i podobnych technologii, aby mierzyć działanie strony, analizować sposób korzystania z serwisu oraz skuteczność reklam Google.
       Możesz zaakceptować pomiar analityczny i marketingowy albo pozostać przy ustawieniach niezbędnych.
     </p>
   </div>
@@ -61,6 +61,7 @@
     font-size: 13px;
     font-weight: 700;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .cookie-consent__button--primary {
@@ -100,16 +101,14 @@
     if (!banner || !acceptButton || !rejectButton) return;
 
     var storageKey = 'pb_cookie_consent';
+    var clarityProjectId = 'y4x08qso9k';
     var currentChoice = null;
+    var clarityLoaded = false;
 
     try {
       currentChoice = window.localStorage.getItem(storageKey);
     } catch (error) {
       currentChoice = null;
-    }
-
-    if (!currentChoice) {
-      banner.hidden = false;
     }
 
     function updateGoogleConsent(status) {
@@ -125,12 +124,50 @@
       });
     }
 
+    function loadClarity() {
+      if (clarityLoaded || window.clarity) return;
+
+      clarityLoaded = true;
+
+      window.clarity =
+        window.clarity ||
+        function () {
+          (window.clarity.q = window.clarity.q || []).push(arguments);
+        };
+
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.clarity.ms/tag/' + clarityProjectId;
+
+      var firstScript = document.getElementsByTagName('script')[0];
+
+      if (firstScript && firstScript.parentNode) {
+        firstScript.parentNode.insertBefore(script, firstScript);
+      } else {
+        document.head.appendChild(script);
+      }
+    }
+
+    function applyConsent(status) {
+      updateGoogleConsent(status);
+
+      if (status === 'accepted') {
+        loadClarity();
+      }
+    }
+
+    if (!currentChoice) {
+      banner.hidden = false;
+    } else {
+      applyConsent(currentChoice);
+    }
+
     acceptButton.addEventListener('click', function () {
       try {
         window.localStorage.setItem(storageKey, 'accepted');
       } catch (error) {}
 
-      updateGoogleConsent('accepted');
+      applyConsent('accepted');
       banner.hidden = true;
     });
 
@@ -139,7 +176,7 @@
         window.localStorage.setItem(storageKey, 'rejected');
       } catch (error) {}
 
-      updateGoogleConsent('rejected');
+      applyConsent('rejected');
       banner.hidden = true;
     });
   })();
