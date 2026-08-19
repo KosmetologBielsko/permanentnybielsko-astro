@@ -6,92 +6,43 @@ import Footer from "../components/Footer.astro";
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
+const pageUrl = "https://www.permanentnybielsko.com/galeria/";
+const pageTitle =
+  "Galeria makijażu permanentnego Bielsko-Biała | Bogusława Herda";
+const pageDescription =
+  "Galeria makijażu permanentnego Bogusławy Herda w Bielsku-Białej: brwi, Silky Hairstroke Brows, usta, kreski i filmy PMU. Zobacz realne efekty zabiegów.";
+
 const galleryAreas = [
   {
     number: "01",
-    title: "Brwi permanentne",
-    text: "Naturalna oprawa oka, miękki kształt, spokojny kolor i efekt dopasowany do twarzy.",
-    href: "/makijaz-permanentny-brwi/"
-  },
-  {
-    number: "02",
-    title: "Silky Hairstroke Brows",
-    text: "Autorskie podejście do włosa maszynowego: lekkość, kierunek włosa i realistyczny efekt.",
-    href: "/makijaz-permanentny-brwi/"
-  },
-  {
-    number: "03",
-    title: "Usta permanentne",
-    text: "Odświeżenie koloru, wyrównanie czerwieni wargowej i subtelny efekt bez przerysowania.",
-    href: "/makijaz-permanentny-ust/"
-  },
-  {
-    number: "04",
-    title: "Kreski permanentne",
-    text: "Zagęszczenie linii rzęs lub delikatne podkreślenie oka dopasowane do powieki.",
-    href: "/makijaz-permanentny-oczu/"
-  }
-];
-
-
-const fullFaceFrames = [
-  {
-    number: "01",
-    title: "Cała twarz",
-    text: "Pełny kadr pokazuje, czy makijaż permanentny naprawdę pasuje do rysów, mimiki i proporcji klientki."
-  },
-  {
-    number: "02",
-    title: "Detal zabiegu",
-    text: "Zbliżenia są potrzebne, ale mają uzupełniać pełny portret, a nie zastępować ocenę całej twarzy."
-  },
-  {
-    number: "03",
-    title: "Efekt po wygojeniu",
-    text: "Docelowo warto pokazywać nie tylko świeży efekt, ale także spokojny rezultat po stabilizacji koloru."
-  },
-  {
-    number: "04",
-    title: "Metamorfoza",
-    text: "Najlepsza galeria powinna łączyć estetyczny portret, detal PMU i krótką historię zmiany."
-  }
-];
-
-const galleryRules = [
-  "Pokazujemy tylko prace, które dobrze oddają styl Bogusławy Herda.",
-  "Efekty mają być naturalne, estetyczne i dobrane do urody klientki.",
-  "Zdjęcia przed i po wymagają zgody klientki na publikację.",
-  "Galeria będzie rozwijana etapami, gdy wybierzemy najlepsze materiały zdjęciowe.",
-  "Nie tworzymy przypadkowej galerii — liczy się jakość, światło i spójność."
-];
-
-const relatedPages = [
-  {
-    label: "PMU",
-    title: "Makijaż permanentny Bielsko-Biała",
-    text: "Główna podstrona o naturalnym makijażu permanentnym.",
-    href: "/makijaz-permanentny-bielsko/"
-  },
-  {
     label: "Brwi",
     title: "Brwi permanentne",
-    text: "Naturalne brwi, metoda włoskowa i Silky Hairstroke Brows.",
-    href: "/makijaz-permanentny-brwi/"
+    text: "Naturalna oprawa oka, miękki kształt i efekt dopasowany do twarzy.",
+    href: "#galeria-brwi",
   },
   {
+    number: "02",
+    label: "Silky",
+    title: "Silky Hairstroke Brows",
+    text: "Włos maszynowy, realistyczny kierunek i autorski charakter pracy.",
+    href: "#galeria-brwi",
+    accent: true,
+  },
+  {
+    number: "03",
     label: "Usta",
-    title: "Makijaż permanentny ust",
-    text: "Kolor ust, kontur i odświeżenie czerwieni wargowej.",
-    href: "/makijaz-permanentny-ust/"
+    title: "Usta permanentne",
+    text: "Kolor, kontur i świeżość czerwieni wargowej bez ciężkiego efektu.",
+    href: "#galeria-usta",
   },
   {
-    label: "Cennik",
-    title: "Cennik PMU",
-    text: "Ceny makijażu permanentnego, odświeżeń i usuwania PMU.",
-    href: "/cennik-makijaz-permanentny/"
-  }
+    number: "04",
+    label: "Kreski",
+    title: "Kreski permanentne",
+    text: "Zagęszczenie rzęs, softliner i kreski dopasowane do oka.",
+    href: "#galeria-kreski",
+  },
 ];
-;
 
 const browGalleryImages = [
   {
@@ -125,6 +76,7 @@ const browGalleryImages = [
   {
     src: "/images/silky-hairstroke-brows-zblizenie-naturalny-efekt.webp",
     alt: "Silky Hairstroke Brows — zbliżenie i naturalny efekt włosa maszynowego",
+    badge: "Silky",
   },
   {
     src: "/images/brwi-permanentne-naturalny-efekt-zielen-stylizacja.webp",
@@ -272,62 +224,66 @@ const videoGalleryItems = [
   },
 ];
 
-const gallerySliderSections = [
+const sections = [
   {
-  id: "galeria-brwi",
-  trackId: "gallery-track-brwi",
-  kicker: "Brwi permanentne",
-  title: "Brwi, włos maszynowy i detale naturalnej pigmentacji.",
-  text: "Sekcja pokazuje efekty brwi permanentnych, włos maszynowy, naturalne detale pigmentacji oraz ujęcia Silky Hairstroke Brows. To galeria pracy nad brwiami — od zbliżeń i struktury włosa po pełniejszy efekt na twarzy.",
-  items: browGalleryImages,
-},
-  {
-  id: "galeria-usta",
-  trackId: "gallery-track-usta",
-  kicker: "Usta permanentne",
-  title: "Kolor, kontur i subtelny blask ust permanentnych.",
-  text: "Sekcja pokazuje makro ujęcia makijażu permanentnego ust — od delikatnych, naturalnych efektów po bardziej nasycone kolory i błyszczące wykończenie. To galeria detali, koloru, konturu i świeżego efektu ust permanentnych.",
-  items: lipGalleryImages,
+    id: "galeria-brwi",
+    label: "Brwi",
+    title: "Brwi, włos maszynowy i naturalne detale pigmentacji.",
+    text: "Od makro włosa po pełniejsze kadry twarzy. Zobacz efekty, w których brwi mają wspierać urodę, a nie dominować nad nią.",
+    items: browGalleryImages,
+    serviceHref: "/makijaz-permanentny-brwi/",
+    serviceLabel: "Zobacz brwi",
   },
   {
-  id: "galeria-kreski",
-  trackId: "gallery-track-kreski",
-  kicker: "Kreski permanentne",
-  title: "Kreski, softliner i zagęszczenie linii rzęs.",
-  text: "Sekcja pokazuje makijaż permanentny oczu w różnych wariantach — od subtelnego zagęszczenia linii rzęs, przez klasyczną kreskę, po mocniejszy efekt dekoracyjny i softliner. To galeria zbliżeń, detali i efektów dopasowanych do kształtu oka.",
-  items: eyeGalleryImages,
+    id: "galeria-usta",
+    label: "Usta",
+    title: "Kolor, kontur i świeżość ust permanentnych.",
+    text: "Różne odcienie i stopnie nasycenia — od delikatnego odświeżenia po bardziej widoczny kolor.",
+    items: lipGalleryImages,
+    serviceHref: "/makijaz-permanentny-ust/",
+    serviceLabel: "Zobacz usta",
+  },
+  {
+    id: "galeria-kreski",
+    label: "Kreski",
+    title: "Kreski, softliner i zagęszczenie linii rzęs.",
+    text: "Różne warianty podkreślenia oka dopasowane do powieki, linii rzęs i charakteru spojrzenia.",
+    items: eyeGalleryImages,
+    serviceHref: "/makijaz-permanentny-oczu/",
+    serviceLabel: "Zobacz kreski",
   },
   {
     id: "galeria-szkolenia",
-    trackId: "gallery-track-szkolenia",
-    kicker: "Szkolenia PMU",
-    title: "Szkolenia, praktyka i standard Long-Time-Liner®.",
-    text: "Materiały pokazujące zaplecze szkoleniowe, certyfikację, praktykę zabiegową i drogę edukacyjną Bogusława Herda.",
+    label: "Szkolenia",
+    title: "Praktyka, edukacja i zaplecze eksperckie.",
+    text: "Wybrane materiały pokazujące pracę szkoleniową, certyfikację i rozwój warsztatu.",
     items: trainingGalleryImages,
+    serviceHref: "/szkolenia-makijaz-permanentny/",
+    serviceLabel: "Zobacz szkolenia",
   },
 ];
-const pageUrl = "https://permanentnybielsko.com/galeria/";
-const pageTitle = "Galeria makijażu permanentnego Bielsko-Biała | Bogusława Herda";
-const pageDescription =
-  "Galeria makijażu permanentnego Bogusława Herda w Bielsku-Białej: naturalne brwi permanentne, usta, kreski i wybrane efekty PMU bez przerysowania.";
 
 const faqItems = [
   {
-    "question": "Czy galeria będzie zawierać zdjęcia przed i po?",
-    "answer": "Tak, ale tylko wybrane zdjęcia, które dobrze pokazują styl pracy i mają zgodę klientki na publikację."
+    question: "Czy galeria pokazuje realne prace?",
+    answer:
+      "Tak. Galeria została zbudowana z wybranych materiałów pokazujących rzeczywiste efekty i sposób pracy.",
   },
   {
-    "question": "Dlaczego na razie nie ma wielu zdjęć?",
-    "answer": "Galeria będzie rozbudowywana etapami. Lepiej dodać mniej zdjęć, ale dobrze dobranych, niż tworzyć przypadkowy zbiór materiałów."
+    question: "Czy zdjęcia pokazują tylko świeży efekt?",
+    answer:
+      "Galeria może zawierać zarówno świeże efekty po zabiegu, jak i materiały pokazujące spokojniejszy rezultat po wygojeniu, jeśli taki materiał jest dostępny.",
   },
   {
-    "question": "Czy zdjęcia pokazują efekt po wygojeniu?",
-    "answer": "Docelowo galeria powinna pokazywać zarówno świeże efekty, jak i wygojone prace, jeżeli materiał zdjęciowy będzie dostępny."
+    question: "Czy mogę zobaczyć więcej prac z konkretnego zabiegu?",
+    answer:
+      "Tak. Z galerii można przejść bezpośrednio do podstron brwi, ust i kresek, gdzie znajdują się dodatkowe materiały i informacje o zabiegu.",
   },
   {
-    "question": "Czy mogę zobaczyć więcej prac przed wizytą?",
-    "answer": "Najlepiej zapytać podczas konsultacji lub sprawdzić aktualności w mediach społecznościowych gabinetu."
-  }
+    question: "Czy mogę powiększyć zdjęcia i filmy?",
+    answer:
+      "Tak. Zdjęcia można otworzyć w dużym podglądzie, a filmy zatrzymać, wznowić i wyświetlić w pełnoekranowym dialogu.",
+  },
 ];
 
 const structuredData = [
@@ -335,68 +291,68 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": `${pageUrl}#webpage`,
-    "url": pageUrl,
-    "name": pageTitle,
-    "description": pageDescription,
-    "inLanguage": "pl-PL",
-    "isPartOf": {
-      "@id": "https://permanentnybielsko.com/#website"
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+    inLanguage: "pl-PL",
+    isPartOf: {
+      "@id": "https://www.permanentnybielsko.com/#website",
     },
-    "about": {
-      "@id": "https://permanentnybielsko.com/#localbusiness"
+    about: {
+      "@id": "https://www.permanentnybielsko.com/#localbusiness",
     },
-    "primaryImageOfPage": {
+    primaryImageOfPage: {
       "@type": "ImageObject",
-      "url": "https://permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
-    }
+      url:
+        "https://www.permanentnybielsko.com/images/brwi-permanentne-zblizenie-oka-naturalny-efekt.webp",
+    },
   },
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "@id": `${pageUrl}#breadcrumb`,
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Strona główna",
-        "item": "https://permanentnybielsko.com/"
+        position: 1,
+        name: "Strona główna",
+        item: "https://www.permanentnybielsko.com/",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Galeria makijażu permanentnego",
-        "item": pageUrl
-      }
-    ]
+        position: 2,
+        name: "Galeria makijażu permanentnego",
+        item: pageUrl,
+      },
+    ],
   },
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": `${pageUrl}#gallery-areas`,
-    "name": "Zakres galerii makijażu permanentnego",
-    "itemListElement": galleryAreas.map((item, index) => ({
+    name: "Zakres galerii makijażu permanentnego",
+    itemListElement: galleryAreas.map((item, index) => ({
       "@type": "ListItem",
-      "position": index + 1,
-      "name": item.title,
-      "description": item.text,
-      "url": new URL(item.href, pageUrl).toString()
-    }))
+      position: index + 1,
+      name: item.title,
+      description: item.text,
+      url: `${pageUrl}${item.href}`,
+    })),
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
-    "mainEntity": faqItems.map((item) => ({
+    mainEntity: faqItems.map((item) => ({
       "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
+      name: item.question,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": item.answer
-      }
-    }))
-  }
+        text: item.answer,
+      },
+    })),
+  },
 ];
-
 ---
 
 <Layout
@@ -410,386 +366,339 @@ const structuredData = [
 
     <main>
       <section class="gallery-hero">
-        <div class="gallery-glow gallery-glow-one"></div>
-        <div class="gallery-glow gallery-glow-two"></div>
+        <div class="gallery-glow gallery-glow-one" aria-hidden="true"></div>
+        <div class="gallery-glow gallery-glow-two" aria-hidden="true"></div>
 
         <div class="container gallery-hero-grid">
           <div class="gallery-hero-copy">
             <p class="section-kicker">Galeria makijażu permanentnego</p>
 
             <h1>
-                <span class="pmu-hero-turquoise-text">Wybrane efekty PMU</span> — naturalnie, czysto i bez przerysowania.
+              <span class="gallery-turquoise-text">Realne efekty PMU</span>
+              pokazane bez zbędnego tekstu.
             </h1>
 
             <p class="gallery-hero-lead">
-              Galeria będzie miejscem na starannie dobrane prace Bogusława Herda:
-              brwi permanentne, usta, kreski i metamorfozy pokazujące styl gabinetu.
-              Nie chodzi o ilość zdjęć, tylko o jakość, światło i prawdziwy efekt.
+              Brwi, Silky Hairstroke Brows, usta, kreski i filmy z procesu pracy.
+              Zobacz detale pigmentacji, pełniejsze kadry i różne kierunki efektu.
             </p>
 
-            <div class="gallery-hero-actions">
-              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-                Umów konsultację
+            <div class="gallery-hero-actions" aria-label="Galeria PMU — szybkie działania">
+              <a class="button-primary" href="#galeria-brwi">
+                Zobacz efekty <span aria-hidden="true">→</span>
               </a>
 
-              <a class="button-secondary" href="#zakres-galerii">
-                Zobacz zakres galerii
+              <a
+                class="button-booksy"
+                href={booksyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Booksy <span aria-hidden="true">→</span>
+              </a>
+
+              <a class="button-secondary" href="/cennik-makijaz-permanentny/">
+                Cennik
               </a>
             </div>
           </div>
 
-          <aside class="gallery-hero-card" aria-label="Kierunek efektu galerii">
+          <aside class="gallery-hero-card" aria-label="Portfolio PMU">
             <p class="gallery-card-label">PMU</p>
-            <h2>Galeria ma pokazywać styl, nie przypadkowe zdjęcia.</h2>
+            <h2>Portfolio ma pokazać styl pracy, nie ilość zdjęć.</h2>
             <p>
-              Najważniejsze są naturalne proporcje, miękki kolor, czysta praca i efekt,
-              który dobrze wygląda także po wygojeniu.
+              Naturalne proporcje, czysty detal, miękki kolor i efekt,
+              który dobrze wygląda w kontekście całej twarzy.
             </p>
           </aside>
         </div>
       </section>
 
-      <section class="gallery-proof-section">
+      <section class="gallery-proof-section" aria-label="Zakres galerii">
         <div class="container gallery-proof-grid">
           <div>
-            <strong>Naturalny efekt</strong>
-            <span>bez ciężkiej formy</span>
+            <strong>Brwi i Silky</strong>
+            <span>detal włosa i pełniejsze kadry</span>
           </div>
-
           <div>
-            <strong>Selekcja zdjęć</strong>
-            <span>jakość zamiast ilości</span>
+            <strong>Usta</strong>
+            <span>kolor, kontur i nasycenie</span>
           </div>
-
           <div>
-            <strong>Realne prace</strong>
-            <span>z zachowaniem zgód klientek</span>
+            <strong>Kreski</strong>
+            <span>softliner i linia rzęs</span>
           </div>
-
           <div>
-            <strong>Powrót do natury</strong>
-            <span>spójny kierunek estetyczny</span>
+            <strong>Wideo</strong>
+            <span>ruch, proces i metamorfozy</span>
           </div>
         </div>
       </section>
 
-      <section class="gallery-intro-section">
-        <div class="container gallery-two-column">
-          <div>
-            <p class="section-kicker">Kierunek galerii</p>
-            <h2>To nie będzie przypadkowa kolekcja zdjęć. To będzie wizytówka stylu.</h2>
-          </div>
-
-          <div class="gallery-text-card">
-            <p>
-              W makijażu permanentnym zdjęcie ma sens tylko wtedy, gdy pokazuje jakość pracy:
-              kształt, miękkość, symetrię, kolor i naturalność efektu. Dlatego galeria będzie
-              rozwijana etapami — po wyborze najlepszych zdjęć i materiałów z zachowaniem zgód klientek.
-            </p>
-
-            <p>
-              Strona jest już przygotowana pod przyszłą rozbudowę zdjęciową. Na tym etapie pokazujemy
-              kierunek: brwi, usta, kreski i metamorfozy dobrane tak, aby wzmacniały ekspercki charakter
-              marki Bogusława Herda.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="gallery-areas-section" id="zakres-galerii">
+      <section class="gallery-area-section">
         <div class="container">
           <div class="gallery-section-heading">
-            <p class="section-kicker">Zakres galerii</p>
-            <h2>Galeria zostanie podzielona według najważniejszych obszarów PMU.</h2>
-            <p>
-              Każdy obszar wymaga innego światła, kadru i sposobu pokazania efektu.
-              Brwi, usta i kreski nie powinny wyglądać jak jedna przypadkowa kategoria.
-            </p>
+            <p class="section-kicker">Wybierz obszar</p>
+            <h2>Przejdź od razu do efektu, który chcesz zobaczyć.</h2>
           </div>
 
           <div class="gallery-area-grid">
             {galleryAreas.map((item) => (
-              <a href={item.href} class:list={["gallery-area-card", { "gallery-area-card-turquoise": item.number === "02" }]}>
-                {item.number === "02" && (
-                  <span class="gallery-big-mark" aria-hidden="true">SHB</span>
-                )}
-
+              <a
+                href={item.href}
+                class:list={[
+                  "gallery-area-card",
+                  item.accent && "gallery-area-card--accent",
+                ]}
+              >
                 <span>{item.number}</span>
+                <p>{item.label}</p>
                 <h3>{item.title}</h3>
-                <p>{item.text}</p>
+                <em>{item.text}</em>
+                <strong>Zobacz efekty →</strong>
               </a>
             ))}
           </div>
         </div>
       </section>
-      <section class="gallery-live-nav-section">
-        <div class="container gallery-live-nav">
-          <a href="#galeria-brwi">Brwi</a>
-          <a href="#galeria-usta">Usta</a>
-          <a href="#galeria-kreski">Kreski</a>
-          <a href="#galeria-szkolenia">Szkolenia</a>
-          <a href="#galeria-wideo">Wideo</a>
+
+      <section class="gallery-nav-section">
+        <div class="container">
+          <nav class="gallery-nav" aria-label="Kategorie galerii">
+            <a href="#galeria-brwi">Brwi</a>
+            <a href="#galeria-usta">Usta</a>
+            <a href="#galeria-kreski">Kreski</a>
+            <a href="#galeria-wideo">Wideo</a>
+            <a href="#galeria-szkolenia">Szkolenia</a>
+          </nav>
         </div>
       </section>
 
-      {gallerySliderSections.map((section) => (
-        <section class="gallery-live-section" id={section.id}>
-          <div class="container gallery-live-heading-row">
-            <div class="gallery-live-heading">
-              <p class="section-kicker">{section.kicker}</p>
+      {sections.map((section) => (
+        <section class="gallery-media-section" id={section.id} data-gallery-section>
+          <div class="container gallery-media-heading-row">
+            <div class="gallery-section-heading">
+              <p class="section-kicker">{section.label}</p>
               <h2>{section.title}</h2>
               <p>{section.text}</p>
             </div>
 
-            <div class="gallery-live-controls" aria-label={`Przewijanie: ${section.kicker}`}>
-              <button
-                class="gallery-live-arrow"
-                type="button"
-                aria-label="Przewiń w lewo"
-                onclick={`document.getElementById('${section.trackId}')?.parentElement?.scrollBy({ left: -430, behavior: 'smooth' })`}
-              >
-                ←
-              </button>
+            <div class="gallery-section-actions">
+              <div class="gallery-slider-controls">
+                <button
+                  type="button"
+                  class="gallery-slider-button"
+                  data-slider-prev
+                  aria-label={`Poprzednie zdjęcia: ${section.label}`}
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  class="gallery-slider-button"
+                  data-slider-next
+                  aria-label={`Następne zdjęcia: ${section.label}`}
+                >
+                  →
+                </button>
+              </div>
 
-              <button
-                class="gallery-live-arrow"
-                type="button"
-                aria-label="Przewiń w prawo"
-                onclick={`document.getElementById('${section.trackId}')?.parentElement?.scrollBy({ left: 430, behavior: 'smooth' })`}
-              >
-                →
-              </button>
+              <a class="gallery-service-link" href={section.serviceHref}>
+                {section.serviceLabel} <span aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
 
-          <div class="gallery-live-viewport" aria-label={section.title}>
-            <div class="gallery-live-track" id={section.trackId}>
-              {section.items.map((image) => (
-  <figure
-    class:list={[
-      "gallery-live-card",
-      "gallery-media-frame-live",
-      { "gallery-live-card-wide": "wide" in image && image.wide },
-    ]}
-  >
-    <img
-      src={image.src}
-      alt={image.alt}
-      width={"wide" in image && image.wide ? "1400" : "900"}
-      height={"wide" in image && image.wide ? "900" : "1200"}
-      loading="lazy"
-      decoding="async"
-    />
-  </figure>
-))}
-            </div>
+          <div class="gallery-photo-row" data-slider-track>
+            {section.items.map((image) => (
+              <button
+                type="button"
+                class:list={[
+                  "gallery-photo-card",
+                  image.wide && "gallery-photo-card--wide",
+                ]}
+                data-gallery-image
+                data-image-src={image.src}
+                data-image-alt={image.alt}
+                aria-label={`Powiększ zdjęcie: ${image.alt}`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.wide ? "1400" : "900"}
+                  height={image.wide ? "900" : "1200"}
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                {image.badge && (
+                  <span class="gallery-photo-badge">{image.badge}</span>
+                )}
+
+                <span class="gallery-photo-zoom" aria-hidden="true">↗</span>
+              </button>
+            ))}
           </div>
         </section>
       ))}
 
       <section
-        class="gallery-live-section gallery-live-video-section"
+        class="gallery-media-section gallery-video-section"
         id="galeria-wideo"
-        data-gallery-video-root
+        data-video-gallery
       >
-        <div class="container gallery-live-heading-row">
-          <div class="gallery-live-heading">
+        <div class="container gallery-media-heading-row">
+          <div class="gallery-section-heading">
             <p class="section-kicker">Wideo PMU</p>
-            <h2>Filmy z efektami, procesem pracy i szkoleniami PMU.</h2>
+            <h2>Ruch, detal pracy i efekt, którego nie pokaże pojedyncze zdjęcie.</h2>
             <p>
-              Materiały wideo pokazują ruch, detale pracy, efekty pigmentacji oraz szkoleniowy standard pracy.
-              Filmy są bez dźwięku. Każdy materiał można zatrzymać, wznowić i otworzyć w dużym widoku.
+              Filmy można zatrzymać, wznowić i otworzyć w dużym widoku.
+              Materiały pozostają wyciszone.
             </p>
           </div>
 
-          <div class="gallery-live-controls" aria-label="Przewijanie filmów PMU">
-            <button
-              class="gallery-live-arrow"
-              type="button"
-              aria-label="Przewiń filmy w lewo"
-              data-gallery-video-prev
-            >
-              ←
-            </button>
+          <div class="gallery-section-actions">
+            <div class="gallery-slider-controls">
+              <button
+                type="button"
+                class="gallery-slider-button"
+                data-video-prev
+                aria-label="Poprzednie filmy"
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                class="gallery-slider-button"
+                data-video-next
+                aria-label="Następne filmy"
+              >
+                →
+              </button>
+            </div>
 
-            <button
-              class="gallery-live-arrow"
-              type="button"
-              aria-label="Przewiń filmy w prawo"
-              data-gallery-video-next
-            >
-              →
-            </button>
+            <a class="gallery-service-link" href="/makijaz-permanentny-bielsko/">
+              Zobacz PMU <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
 
-        <div class="gallery-live-viewport" aria-label="Galeria wideo PMU" data-gallery-video-viewport>
-          <div class="gallery-live-track gallery-live-video-track" id="gallery-track-wideo">
-            {videoGalleryItems.map((item) => (
-              <figure
-                class="gallery-live-card gallery-live-video-card gallery-video-card gallery-media-frame-live"
-                data-gallery-video-card
-              >
-                <div class="gallery-video-v3-media">
+        <div class="gallery-video-row" data-video-track>
+          {videoGalleryItems.map((item) => (
+            <figure class="gallery-video-card" data-video-card>
+              <div class="gallery-video-media">
+                <video
+                  playsinline
+                  muted
+                  preload="metadata"
+                  poster={item.poster}
+                  aria-label={`${item.title} — film bez dźwięku`}
+                  data-card-video
+                >
+                  <source src={item.src} type="video/mp4" />
+                </video>
+
+                <button
+                  type="button"
+                  class="gallery-video-surface"
+                  data-card-toggle
+                  aria-label={`Odtwórz film: ${item.title}`}
+                >
+                  <span aria-hidden="true" data-card-icon>▶</span>
+                </button>
+
+                <div class="gallery-video-toolbar">
+                  <button
+                    type="button"
+                    data-card-toggle
+                    aria-label={`Odtwórz film: ${item.title}`}
+                  >
+                    <span aria-hidden="true" data-card-small-icon>▶</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-video-open
+                    aria-label={`Otwórz duży widok: ${item.title}`}
+                  >
+                    ⛶
+                  </button>
+                </div>
+              </div>
+
+              <figcaption>{item.title}</figcaption>
+
+              <dialog class="gallery-video-dialog" data-video-dialog>
+                <div class="gallery-video-dialog-shell">
                   <video
-                    class="gallery-video-v3-video"
                     playsinline
                     muted
                     preload="metadata"
                     poster={item.poster}
-                    aria-label={`${item.title} — film bez dźwięku`}
-                    data-gallery-video-card-video
+                    aria-label={`${item.title} — duży widok filmu`}
+                    data-dialog-video
                   >
                     <source src={item.src} type="video/mp4" />
                   </video>
 
                   <button
                     type="button"
-                    class="gallery-video-v3-surface"
+                    class="gallery-video-dialog-surface"
+                    data-dialog-toggle
                     aria-label={`Odtwórz film: ${item.title}`}
-                    data-gallery-video-card-toggle
                   >
-                    <span aria-hidden="true" data-gallery-video-card-big-icon>▶</span>
+                    <span aria-hidden="true" data-dialog-icon>▶</span>
                   </button>
 
-                  <div class="gallery-video-v3-toolbar">
+                  <button
+                    type="button"
+                    class="gallery-video-dialog-close"
+                    data-video-close
+                    aria-label="Zamknij duży widok"
+                  >
+                    ×
+                  </button>
+
+                  <div class="gallery-video-dialog-toolbar">
                     <button
                       type="button"
+                      data-dialog-toggle
                       aria-label={`Odtwórz film: ${item.title}`}
-                      data-gallery-video-card-toggle
                     >
-                      <span aria-hidden="true" data-gallery-video-card-small-icon>▶</span>
+                      <span aria-hidden="true" data-dialog-small-icon>▶</span>
                     </button>
 
                     <button
                       type="button"
-                      aria-label={`Otwórz duży widok: ${item.title}`}
-                      data-gallery-video-open
-                    >
-                      ⛶
-                    </button>
-                  </div>
-                </div>
-
-                <figcaption>{item.title}</figcaption>
-
-                <dialog class="gallery-video-v3-dialog" data-gallery-video-dialog>
-                  <div class="gallery-video-v3-dialog-shell">
-                    <video
-                      class="gallery-video-v3-dialog-video"
-                      playsinline
-                      muted
-                      preload="metadata"
-                      poster={item.poster}
-                      aria-label={`${item.title} — duży widok filmu`}
-                      data-gallery-video-dialog-video
-                    >
-                      <source src={item.src} type="video/mp4" />
-                    </video>
-
-                    <button
-                      type="button"
-                      class="gallery-video-v3-dialog-surface"
-                      aria-label={`Odtwórz film: ${item.title}`}
-                      data-gallery-video-dialog-toggle
-                    >
-                      <span aria-hidden="true" data-gallery-video-dialog-big-icon>▶</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      class="gallery-video-v3-dialog-close"
+                      data-video-close
                       aria-label="Zamknij duży widok"
-                      data-gallery-video-close
                     >
                       ×
                     </button>
-
-                    <div class="gallery-video-v3-dialog-toolbar">
-                      <button
-                        type="button"
-                        aria-label={`Odtwórz film: ${item.title}`}
-                        data-gallery-video-dialog-toggle
-                      >
-                        <span aria-hidden="true" data-gallery-video-dialog-small-icon>▶</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        aria-label="Zamknij duży widok"
-                        data-gallery-video-close
-                      >
-                        ×
-                      </button>
-                    </div>
                   </div>
-                </dialog>
-              </figure>
-            ))}
-          </div>
+                </div>
+              </dialog>
+            </figure>
+          ))}
         </div>
       </section>
-      <section class="gallery-face-section">
-        <div class="container">
-          <div class="gallery-section-heading">
-            <p class="section-kicker">Pełne kadry twarzy</p>
-            <h2>Galeria powinna pokazywać nie tylko detal, ale też całą twarz klientki.</h2>
+
+      <section class="gallery-bridge-section">
+        <div class="container gallery-bridge-card">
+          <div>
+            <p class="section-kicker">Podoba Ci się efekt?</p>
+            <h2>Przejdź od inspiracji do konkretnego zabiegu.</h2>
             <p>
-              Makijaż permanentny oceniamy w kontekście całej urody. Zbliżenie na brwi, usta albo kreskę
-              jest ważne technicznie, ale dopiero pełny kadr pokazuje harmonię efektu.
+              Na podstronach usługowych zobaczysz więcej informacji o metodach,
+              przebiegu, cenach i kwalifikacji.
             </p>
           </div>
 
-          <div class="gallery-face-grid">
-            {fullFaceFrames.map((item) => (
-              <article class="gallery-face-card">
-                <span>{item.number}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="gallery-rules-section">
-        <div class="container gallery-rules-grid">
-          <div class="gallery-rules-card">
-            <p class="section-kicker">Standard publikacji</p>
-            <h2>Jakie zdjęcia powinny trafić do galerii?</h2>
-            <p>
-              Galeria PMU musi być estetyczna, ale też odpowiedzialna. Nie każde zdjęcie nadaje się
-              do publikacji — nawet jeśli efekt zabiegu jest dobry. Liczy się światło, ostrość,
-              zgoda klientki i spójność z kierunkiem strony.
-            </p>
-          </div>
-
-          <div class="gallery-list-card">
-            {galleryRules.map((rule) => (
-              <div>
-                <span></span>
-                <p>{rule}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="gallery-related-section">
-        <div class="container">
-          <div class="gallery-section-heading">
-            <p class="section-kicker">Powiązane podstrony</p>
-            <h2>Zobacz najważniejsze obszary makijażu permanentnego.</h2>
-          </div>
-
-          <div class="gallery-related-grid">
-            {relatedPages.map((item) => (
-              <a href={item.href} class="gallery-related-card">
-                <span>{item.label}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </a>
-            ))}
+          <div class="gallery-bridge-links">
+            <a href="/makijaz-permanentny-brwi/">Brwi <span>→</span></a>
+            <a href="/makijaz-permanentny-ust/">Usta <span>→</span></a>
+            <a href="/makijaz-permanentny-oczu/">Kreski <span>→</span></a>
+            <a href="/cennik-makijaz-permanentny/">Cennik <span>→</span></a>
           </div>
         </div>
       </section>
@@ -798,60 +707,75 @@ const structuredData = [
         <div class="container">
           <div class="gallery-section-heading">
             <p class="section-kicker">Najczęstsze pytania</p>
-            <h2>Co warto wiedzieć o galerii PMU?</h2>
+            <h2>Jak korzystać z galerii PMU?</h2>
           </div>
 
-          <div class="gallery-faq-grid">
-            <article>
-              <h3>Czy galeria będzie zawierać zdjęcia przed i po?</h3>
-              <p>
-                Tak, ale tylko wybrane zdjęcia, które dobrze pokazują styl pracy i mają zgodę klientki na publikację.
-              </p>
-            </article>
-
-            <article>
-              <h3>Dlaczego na razie nie ma wielu zdjęć?</h3>
-              <p>
-                Galeria będzie rozbudowywana etapami. Lepiej dodać mniej zdjęć, ale dobrze dobranych,
-                niż tworzyć przypadkowy zbiór materiałów.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy zdjęcia pokazują efekt po wygojeniu?</h3>
-              <p>
-                Docelowo galeria powinna pokazywać zarówno świeże efekty, jak i wygojone prace,
-                jeżeli materiał zdjęciowy będzie dostępny.
-              </p>
-            </article>
-
-            <article>
-              <h3>Czy mogę zobaczyć więcej prac przed wizytą?</h3>
-              <p>
-                Najlepiej zapytać podczas konsultacji lub sprawdzić aktualności w mediach społecznościowych gabinetu.
-              </p>
-            </article>
+          <div class="gallery-faq-list">
+            {faqItems.map((item) => (
+              <details class="gallery-faq-item">
+                <summary>
+                  <span>{item.question}</span>
+                  <span class="gallery-faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div>
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
 
-      <section class="gallery-final-cta" id="kontakt">
+      <section class="gallery-final-cta">
         <div class="container gallery-final-card">
           <p class="signature cta-signature">Powrót do natury</p>
-          <h2>Chcesz sprawdzić, jaki makijaż permanentny będzie najlepszy dla Ciebie?</h2>
+          <h2>Widzisz efekt, który jest bliski temu, czego szukasz?</h2>
           <p>
-            Umów konsultację i zobacz, jak może wyglądać naturalny efekt dopasowany
-            do Twojej urody, skóry i codzienności.
+            Sprawdź terminy, ceny albo przejdź do kwalifikacji PMU,
+            jeśli masz wcześniejszą pigmentację lub nie wiesz, którą metodę wybrać.
           </p>
 
-          <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-            Umów wizytę przez Booksy
-          </a>
+          <div class="gallery-final-actions">
+            <a
+              class="button-booksy"
+              href={booksyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Booksy <span aria-hidden="true">→</span>
+            </a>
+
+            <a
+              class="button-primary"
+              href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
+            >
+              Formularz PMU <span aria-hidden="true">→</span>
+            </a>
+
+            <a class="button-secondary" href="/cennik-makijaz-permanentny/">
+              Cennik
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
     <Footer />
+
+    <dialog class="gallery-image-dialog" data-image-dialog>
+      <div class="gallery-image-dialog-shell">
+        <img src="" alt="" data-dialog-image />
+
+        <button
+          type="button"
+          class="gallery-image-dialog-close"
+          data-image-close
+          aria-label="Zamknij zdjęcie"
+        >
+          ×
+        </button>
+      </div>
+    </dialog>
   </div>
 </Layout>
 
@@ -860,2361 +784,1509 @@ const structuredData = [
     min-height: 100vh;
     overflow-x: hidden;
     background:
-      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.12), transparent 28rem),
-      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.12), transparent 26rem),
+      radial-gradient(circle at 78% 11%, rgba(56, 187, 181, 0.10), transparent 28rem),
+      radial-gradient(circle at 12% 42%, rgba(201, 127, 143, 0.10), transparent 26rem),
       linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
+  }
+
+  .gallery-page *,
+  .gallery-page *::before,
+  .gallery-page *::after {
+    box-sizing: border-box;
+  }
+
+  .gallery-page main,
+  .gallery-page section,
+  .gallery-page .container,
+  .gallery-page div,
+  .gallery-page figure,
+  .gallery-page nav {
+    min-width: 0;
+  }
+
+  .gallery-page .section-kicker {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 32px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 18px;
+    padding: 0 13px;
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.72);
+    color: var(--color-turquoise-dark, #0f7773);
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
   }
 
   .gallery-hero {
     position: relative;
-    padding: 150px 0 88px;
     overflow: hidden;
+    padding: 146px 0 78px;
   }
 
   .gallery-glow {
     position: absolute;
-    pointer-events: none;
     border-radius: 999px;
+    pointer-events: none;
   }
 
   .gallery-glow-one {
-    right: -12rem;
-    top: 4rem;
+    top: 3rem;
+    right: -13rem;
     width: 42rem;
     height: 42rem;
-    background: radial-gradient(circle, rgba(56, 187, 181, 0.2), transparent 68%);
+    background: radial-gradient(circle, rgba(56, 187, 181, 0.18), transparent 68%);
   }
 
   .gallery-glow-two {
-    left: -10rem;
-    bottom: -12rem;
+    left: -11rem;
+    bottom: -14rem;
     width: 38rem;
     height: 38rem;
-    background: radial-gradient(circle, rgba(201, 127, 143, 0.18), transparent 68%);
+    background: radial-gradient(circle, rgba(201, 127, 143, 0.16), transparent 68%);
   }
 
   .gallery-hero-grid {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
     gap: 24px;
     align-items: stretch;
   }
 
   .gallery-hero-copy,
   .gallery-hero-card,
-  .gallery-text-card,
   .gallery-area-card,
-  .gallery-coming-card,
-  .gallery-rules-card,
-  .gallery-list-card,
-  .gallery-related-card,
-  .gallery-faq-grid article,
+  .gallery-bridge-card,
+  .gallery-faq-item,
   .gallery-final-card {
-    border: 1px solid rgba(183, 101, 118, 0.16);
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+    border: 1px solid rgba(183, 101, 118, 0.14);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.07);
   }
 
   .gallery-hero-copy {
-    padding: clamp(38px, 5vw, 72px);
-    border-radius: 42px;
-    background: rgba(255, 255, 255, 0.76);
+    padding: clamp(38px, 5vw, 68px);
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.82);
   }
 
   .gallery-hero-copy h1 {
     max-width: 1040px;
     margin: 0;
-    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
-    font-weight: 750;
-    line-height: 1.02;
-    letter-spacing: -0.078em;
+    color: var(--color-text, #17151d);
+    font-family: inherit;
+    font-size: clamp(3rem, 5.2vw, 6.1rem);
+    font-weight: 770;
+    line-height: 0.99;
+    letter-spacing: -0.076em;
+  }
+
+  .gallery-turquoise-text {
+    background:
+      linear-gradient(
+        120deg,
+        #0d6a67 0%,
+        #0f7773 24%,
+        #1aa5a0 48%,
+        #63d7cf 72%,
+        #0d6a67 100%
+      );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .gallery-hero-lead {
     max-width: 780px;
-    margin: 28px 0 0;
-    color: var(--color-muted);
-    font-size: 1.12rem;
+    margin: 26px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(1.02rem, 1.25vw, 1.12rem);
+    line-height: 1.68;
   }
 
-  .gallery-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 34px;
+  .gallery-hero-actions,
+  .gallery-final-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .gallery-hero-actions > a,
+  .gallery-final-actions > a {
+    display: inline-flex;
+    width: 100%;
+    min-width: 0;
+    min-height: 58px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding-inline: 18px;
+    border-radius: 999px;
+    font-family: inherit !important;
+    font-size: 0.98rem !important;
+    font-weight: 820 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+    text-align: center;
+    text-transform: none !important;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .button-booksy {
+    border: 1px solid rgba(8, 111, 91, 0.16);
+    background:
+      linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 14px 34px rgba(15, 143, 120, 0.16);
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+
+  .button-booksy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 42px rgba(15, 143, 120, 0.22);
   }
 
   .gallery-hero-card {
     position: relative;
-    overflow: hidden;
-    min-height: 430px;
+    min-height: 420px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: clamp(34px, 4vw, 56px);
-    border-radius: 42px;
+    overflow: hidden;
+    padding: clamp(34px, 4vw, 52px);
+    border-radius: 40px;
     color: #ffffff;
     background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.3), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.3), transparent 13rem),
-      linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%);
-    background-size: 100% 100%, 100% 100%, 240% 240%;
-    animation: gallery-gold-flow 14s ease-in-out infinite alternate;
-    box-shadow: 0 28px 76px rgba(125, 95, 45, 0.24);
-  }
-
-  .gallery-hero-card::before,
-  .gallery-coming-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.26) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
-    transform: translateX(-72%);
-    animation: gallery-panel-shine 8.5s ease-in-out infinite;
-    pointer-events: none;
+      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.30), transparent 12rem),
+      radial-gradient(circle at 84% 20%, rgba(218, 255, 251, 0.20), transparent 13rem),
+      linear-gradient(145deg, #0f7773 0%, #1aa5a0 38%, #63d7cf 67%, #0d6a67 100%);
+    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.20);
   }
 
   .gallery-card-label {
-    position: relative;
-    z-index: 2;
-    margin: 0 0 auto;
-    color: rgba(255, 248, 230, 0.22);
-    font-size: clamp(4.5rem, 7vw, 7.8rem);
-    font-weight: 800;
+    position: absolute;
+    top: 32px;
+    left: 38px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.19);
+    font-family: inherit;
+    font-size: clamp(4.8rem, 7.4vw, 8rem);
+    font-weight: 850;
     line-height: 0.8;
-    letter-spacing: -0.09em;
-  }
-
-  .gallery-hero-card h2,
-  .gallery-hero-card p:not(.gallery-card-label) {
-    position: relative;
-    z-index: 2;
+    letter-spacing: -0.1em;
   }
 
   .gallery-hero-card h2 {
-    margin: 40px 0 0;
-    font-size: clamp(2rem, 3vw, 3.2rem);
-    font-weight: 740;
-    line-height: 0.96;
-    letter-spacing: -0.075em;
+    margin: 116px 0 0;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: clamp(2rem, 3vw, 3.15rem);
+    font-weight: 770;
+    line-height: 1;
+    letter-spacing: -0.068em;
   }
 
-  .gallery-hero-card p:not(.gallery-card-label) {
+  .gallery-hero-card > p:not(.gallery-card-label) {
     margin: 18px 0 0;
-    color: rgba(255, 255, 255, 0.88);
+    color: rgba(255, 255, 255, 0.90);
+    font-size: 1rem;
+    line-height: 1.64;
   }
 
   .gallery-proof-section {
-    border-top: 1px solid rgba(183, 101, 118, 0.1);
-    border-bottom: 1px solid rgba(183, 101, 118, 0.1);
-    background: rgba(255, 255, 255, 0.72);
+    border-top: 1px solid rgba(183, 101, 118, 0.10);
+    border-bottom: 1px solid rgba(183, 101, 118, 0.10);
+    background: rgba(255, 255, 255, 0.74);
   }
 
   .gallery-proof-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .gallery-proof-grid div {
+  .gallery-proof-grid > div {
     min-height: 112px;
     padding: 24px 22px;
     border-right: 1px solid rgba(183, 101, 118, 0.12);
   }
 
-  .gallery-proof-grid div:last-child {
+  .gallery-proof-grid > div:last-child {
     border-right: 0;
   }
 
   .gallery-proof-grid strong {
     display: block;
-    margin-bottom: 8px;
-    font-size: 0.92rem;
-    font-weight: 750;
-    letter-spacing: -0.02em;
+    margin-bottom: 7px;
+    color: var(--color-text, #17151d);
+    font-size: 0.94rem;
+    font-weight: 790;
   }
 
   .gallery-proof-grid span {
     display: block;
-    color: var(--color-muted);
-    font-size: 0.72rem;
-    font-weight: 600;
-    line-height: 1.55;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.7rem;
+    font-weight: 650;
+    line-height: 1.5;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
   }
 
-  .gallery-intro-section,
-  .gallery-areas-section,
-  .gallery-coming-section,
-  .gallery-face-section,
-  .gallery-rules-section,
-  .gallery-related-section,
+  .gallery-area-section,
+  .gallery-media-section,
+  .gallery-bridge-section,
   .gallery-faq-section,
   .gallery-final-cta {
-    padding: 88px 0;
-  }
-
-  .gallery-two-column,
-  .gallery-rules-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: 54px;
-    align-items: start;
-  }
-
-  .gallery-two-column h2,
-  .gallery-section-heading h2,
-  .gallery-coming-card h2,
-  .gallery-rules-card h2,
-  .gallery-final-card h2 {
-    margin: 0;
-    color: var(--color-text);
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
-    font-weight: 760;
-    line-height: 1.02;
-    letter-spacing: -0.074em;
-  }
-
-  .gallery-text-card,
-  .gallery-rules-card,
-  .gallery-list-card {
-    padding: 34px;
-    border-radius: 34px;
-    background: rgba(255, 255, 255, 0.78);
+    padding: 82px 0;
   }
 
   .gallery-section-heading {
-    max-width: 940px;
-    margin-bottom: 38px;
+    max-width: 1000px;
+    margin-bottom: 34px;
   }
 
-  .gallery-section-heading .section-kicker {
-    color: var(--color-turquoise-dark);
-    font-size: 0.78rem;
-    font-weight: 820;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-  }
-
-  .gallery-section-heading p {
-    max-width: 880px;
-    color: var(--color-muted);
-    font-size: 1.05rem;
-    line-height: 1.68;
-  }
-
-  .gallery-area-grid,
-  .gallery-related-grid,
-  .gallery-faq-grid {
-    display: grid;
-    gap: 18px;
-  }
-
-  .gallery-area-grid,
-  .gallery-related-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .gallery-area-card,
-  .gallery-related-card,
-  .gallery-faq-grid article {
-    position: relative;
-    min-height: 275px;
-    padding: 28px;
-    overflow: hidden;
-    border-radius: 32px;
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 252, 0.8));
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .gallery-area-card::before,
-  .gallery-related-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-top: 4px solid rgba(56, 187, 181, 0.34);
-    pointer-events: none;
-  }
-
-  .gallery-area-card::after,
-  .gallery-related-card::after {
-    content: "";
-    position: absolute;
-    right: -58px;
-    top: -58px;
-    width: 138px;
-    height: 138px;
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.68);
-    pointer-events: none;
-  }
-
-  .gallery-area-card-turquoise {
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
-    background-size: 100% 100%, 100% 100%, 240% 240%;
-    animation: gallery-turquoise-flow 13s ease-in-out infinite alternate;
-    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
-  }
-
-  .gallery-area-card-turquoise::before {
-    border-top-color: rgba(255, 255, 255, 0.28);
-  }
-
-  .gallery-area-card-turquoise::after {
-    z-index: 1;
-    background: rgba(255, 255, 255, 0.16);
-  }
-
-  .gallery-big-mark {
-    position: absolute !important;
-    right: clamp(14px, 2.4vw, 32px) !important;
-    top: clamp(12px, 2vw, 26px) !important;
-    z-index: 1 !important;
-    color: rgba(255, 255, 255, 0.16) !important;
-    font-size: clamp(3.6rem, 7vw, 7.9rem) !important;
-    font-weight: 850 !important;
-    line-height: 0.78 !important;
-    letter-spacing: -0.12em !important;
-    pointer-events: none !important;
-    user-select: none !important;
-  }
-
-  .gallery-big-mark-natural {
-    color: rgba(255, 255, 255, 0.14) !important;
-    font-size: clamp(3.8rem, 7vw, 8rem) !important;
-  }
-
-  .gallery-area-card > *:not(.gallery-big-mark),
-  .gallery-coming-card > *:not(.gallery-big-mark) {
-    position: relative;
-    z-index: 2;
-  }
-
-  .gallery-area-card span:not(.gallery-big-mark),
-  .gallery-related-card span {
-    position: relative;
-    z-index: 2;
-    display: inline-flex;
-    margin-bottom: 44px;
-    color: var(--color-turquoise-dark);
-    font-size: 0.72rem;
+  .gallery-section-heading h2,
+  .gallery-bridge-card h2,
+  .gallery-final-card h2 {
+    margin: 0;
+    color: var(--color-text, #17151d);
+    font-family: inherit;
+    font-size: clamp(2.35rem, 4vw, 4.25rem);
     font-weight: 760;
-    text-transform: uppercase;
+    line-height: 1.02;
+    letter-spacing: -0.072em;
+  }
+
+  .gallery-section-heading > p:not(.section-kicker),
+  .gallery-bridge-card > div:first-child > p:not(.section-kicker),
+  .gallery-final-card > p:not(.signature) {
+    max-width: 840px;
+    margin: 18px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: clamp(0.98rem, 1.15vw, 1.06rem);
+    line-height: 1.7;
+  }
+
+  .gallery-area-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .gallery-area-card {
+    min-height: 285px;
+    display: flex;
+    flex-direction: column;
+    padding: 26px;
+    border-radius: 28px;
+    color: inherit;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 12rem),
+      rgba(255, 255, 255, 0.90);
+  }
+
+  .gallery-area-card--accent {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.20);
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.24), transparent 10rem),
+      linear-gradient(145deg, #0f7773 0%, #1aa5a0 42%, #138a86 72%, #0d6a67 100%);
+    box-shadow: 0 22px 62px rgba(35, 156, 150, 0.16);
+  }
+
+  .gallery-area-card > span {
+    display: block;
+    margin-bottom: 32px;
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.72rem;
+    font-weight: 850;
     letter-spacing: 0.18em;
   }
 
-  .gallery-area-card h3,
-  .gallery-related-card h3,
-  .gallery-faq-grid h3 {
-    position: relative;
-    z-index: 2;
-    margin: 0;
-    color: var(--color-text);
-    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
-    font-weight: 740;
-    line-height: 1;
-    letter-spacing: -0.065em;
-  }
-
-  .gallery-area-card p,
-  .gallery-related-card p,
-  .gallery-faq-grid p {
-    position: relative;
-    z-index: 2;
-    margin: 14px 0 0;
-    color: var(--color-muted);
-    font-size: 0.95rem;
-    line-height: 1.62;
-  }
-
-  .gallery-area-card-turquoise span:not(.gallery-big-mark),
-  .gallery-area-card-turquoise h3,
-  .gallery-area-card-turquoise p {
-    color: rgba(255, 255, 255, 0.92);
-  }
-
-  .gallery-area-card-turquoise h3 {
-    color: #ffffff;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
-  }
-
-  .gallery-coming-section,
-  .gallery-rules-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
-  }
-
-  .gallery-coming-card {
-    position: relative;
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 34px;
+  .gallery-area-card > p {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 29px;
     align-items: center;
-    overflow: hidden;
-    padding: clamp(32px, 4vw, 54px);
-    border-radius: 38px;
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.34), transparent 10rem),
-      radial-gradient(circle at 82% 24%, rgba(255, 219, 231, 0.4), transparent 13rem),
-      linear-gradient(145deg, #9d4f68 0%, #d7899f 38%, #a85b73 64%, #6f3046 100%);
-    background-size: 100% 100%, 100% 100%, 220% 220%;
-    animation: gallery-rose-flow 12s ease-in-out infinite alternate;
-    box-shadow: 0 28px 76px rgba(157, 79, 104, 0.22);
-  }
-
-  .gallery-coming-card .section-kicker,
-  .gallery-coming-card h2,
-  .gallery-coming-card p {
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .gallery-coming-card h2 {
-    color: #ffffff;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
-  }
-
-  .gallery-list-card {
-    display: grid;
-    gap: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .gallery-list-card div {
-    display: grid;
-    grid-template-columns: 18px 1fr;
-    gap: 14px;
-    padding: 22px 24px;
-    border-bottom: 1px solid rgba(56, 187, 181, 0.15);
-  }
-
-  .gallery-list-card div:last-child {
-    border-bottom: 0;
-  }
-
-  .gallery-list-card span {
-    width: 10px;
-    height: 10px;
-    margin-top: 7px;
+    margin: 0 0 16px;
+    padding: 0 10px;
     border-radius: 999px;
-    background: var(--color-turquoise);
+    background: rgba(219, 246, 243, 0.66);
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.63rem;
+    font-weight: 850;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
   }
 
-  .gallery-list-card p {
+  .gallery-area-card h3 {
     margin: 0;
-    color: var(--color-muted);
-    font-size: 0.96rem;
+    color: var(--color-text, #17151d);
+    font-size: clamp(1.45rem, 1.9vw, 2.05rem);
+    font-weight: 780;
+    line-height: 1.03;
+    letter-spacing: -0.06em;
+  }
+
+  .gallery-area-card em {
+    display: block;
+    margin: 14px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.94rem;
+    font-style: normal;
     line-height: 1.58;
   }
 
-  .gallery-faq-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .gallery-area-card > strong {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: auto;
+    padding-top: 22px;
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.06em;
   }
 
-  .gallery-faq-grid article {
-    min-height: auto;
+  .gallery-area-card--accent > span,
+  .gallery-area-card--accent > p,
+  .gallery-area-card--accent h3,
+  .gallery-area-card--accent em,
+  .gallery-area-card--accent > strong {
+    color: #ffffff;
   }
 
-  .gallery-faq-grid article::before {
-    content: "";
+  .gallery-area-card--accent > p {
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .gallery-nav-section {
+    padding: 8px 0 14px;
+  }
+
+  .gallery-nav {
+    display: flex;
+    gap: 9px;
+    overflow-x: auto;
+    padding: 6px 2px 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .gallery-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-nav a {
+    min-height: 44px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 0 17px;
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.90);
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.72rem;
+    font-weight: 830;
+    letter-spacing: 0.10em;
+    text-decoration: none;
+    text-transform: uppercase;
+    scroll-snap-align: start;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .gallery-media-section {
+    scroll-margin-top: 100px;
+    overflow: hidden;
+  }
+
+  .gallery-media-section:nth-of-type(even) {
+    background: rgba(255, 255, 255, 0.48);
+  }
+
+  .gallery-media-heading-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 20px;
+    align-items: end;
+  }
+
+  .gallery-section-actions {
+    display: grid;
+    gap: 12px;
+    justify-items: end;
+    margin-bottom: 34px;
+  }
+
+  .gallery-slider-controls {
+    display: flex;
+    gap: 9px;
+  }
+
+  .gallery-slider-button {
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(56, 187, 181, 0.20);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.90);
+    color: var(--color-turquoise-dark, #0f7773);
+    font-family: inherit;
+    font-size: 1.12rem;
+    font-weight: 850;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(89, 53, 67, 0.07);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .gallery-service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.78rem;
+    font-weight: 840;
+    text-decoration: none;
+  }
+
+  .gallery-photo-row,
+  .gallery-video-row {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 8px max(18px, calc((100vw - 1440px) / 2)) 20px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+
+  .gallery-photo-row::-webkit-scrollbar,
+  .gallery-video-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-photo-card {
+    position: relative;
+    flex: 0 0 clamp(290px, 31vw, 430px);
+    width: clamp(290px, 31vw, 430px);
+    margin: 0;
+    padding: 7px;
+    overflow: hidden;
+    border: 1px solid rgba(183, 101, 118, 0.14);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 18px 46px rgba(89, 53, 67, 0.08);
+    scroll-snap-align: start;
+    cursor: zoom-in;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .gallery-photo-card--wide {
+    flex-basis: clamp(360px, 42vw, 580px);
+    width: clamp(360px, 42vw, 580px);
+  }
+
+  .gallery-photo-card img {
+    display: block;
+    width: 100%;
+    height: clamp(340px, 32vw, 460px);
+    border-radius: 21px;
+    object-fit: cover;
+  }
+
+  .gallery-photo-badge,
+  .gallery-photo-zoom {
+    position: absolute;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    background: rgba(15, 119, 115, 0.72);
+    color: #ffffff;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .gallery-photo-badge {
+    top: 18px;
+    left: 18px;
+    min-height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 0.66rem;
+    font-weight: 850;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .gallery-photo-zoom {
+    right: 18px;
+    bottom: 18px;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 850;
+  }
+
+  .gallery-video-section {
+    background:
+      radial-gradient(circle at 88% 20%, rgba(56, 187, 181, 0.08), transparent 24rem),
+      rgba(255, 255, 255, 0.56);
+  }
+
+  .gallery-video-card {
+    flex: 0 0 clamp(300px, 31vw, 410px);
+    width: clamp(300px, 31vw, 410px);
+    margin: 0;
+    padding: 7px;
+    overflow: hidden;
+    border: 1px solid rgba(183, 101, 118, 0.14);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 18px 46px rgba(89, 53, 67, 0.08);
+    scroll-snap-align: start;
+  }
+
+  .gallery-video-media {
+    position: relative;
+    height: clamp(370px, 31vw, 440px);
+    overflow: hidden;
+    border-radius: 21px;
+    background: #0d6a67;
+  }
+
+  .gallery-video-media video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-video-surface {
     position: absolute;
     inset: 0;
-    border-top: 4px solid rgba(201, 127, 143, 0.24);
+    z-index: 2;
+    display: grid;
+    width: 100%;
+    place-items: center;
+    border: 0;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.16));
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .gallery-video-surface span {
+    display: inline-flex;
+    width: 70px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    border-radius: 999px;
+    background: rgba(15, 119, 115, 0.68);
+    color: #ffffff;
+    font-size: 1.55rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition:
+      opacity 0.16s ease,
+      transform 0.16s ease;
+  }
+
+  .gallery-video-media.is-playing .gallery-video-surface {
+    background: transparent;
+  }
+
+  .gallery-video-media.is-playing .gallery-video-surface span {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+
+  .gallery-video-toolbar {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 4;
+    display: flex;
+    gap: 8px;
+  }
+
+  .gallery-video-toolbar button,
+  .gallery-video-dialog-toolbar button,
+  .gallery-video-dialog-close {
+    appearance: none;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .gallery-video-toolbar button,
+  .gallery-video-dialog-toolbar button {
+    display: inline-flex;
+    width: 43px;
+    height: 43px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.40);
+    border-radius: 999px;
+    background: rgba(15, 119, 115, 0.76);
+    color: #ffffff;
+    font-size: 1.02rem;
+    font-weight: 800;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .gallery-video-card figcaption {
+    padding: 15px 9px 7px;
+    color: var(--color-text, #17151d);
+    font-size: 0.94rem;
+    font-weight: 740;
+    line-height: 1.42;
+  }
+
+  .gallery-video-dialog,
+  .gallery-image-dialog {
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(5, 14, 16, 0.96);
+    overflow: hidden;
+  }
+
+  .gallery-video-dialog::backdrop,
+  .gallery-image-dialog::backdrop {
+    background: rgba(5, 14, 16, 0.96);
+  }
+
+  .gallery-video-dialog-shell,
+  .gallery-image-dialog-shell {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483000;
+    display: grid;
+    width: 100vw;
+    height: 100dvh;
+    place-items: center;
+    padding: clamp(14px, 3vw, 34px);
+    background: rgba(5, 14, 16, 0.96);
+  }
+
+  .gallery-video-dialog video,
+  .gallery-image-dialog img {
+    display: block;
+    width: min(94vw, 1120px);
+    height: min(88dvh, 980px);
+    margin: 0;
+    border-radius: 22px;
+    object-fit: contain;
+    background: #000000;
+  }
+
+  .gallery-video-dialog-surface {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .gallery-video-dialog-surface span {
+    display: inline-flex;
+    width: 84px;
+    height: 84px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    border-radius: 999px;
+    background: rgba(15, 119, 115, 0.76);
+    color: #ffffff;
+    font-size: 1.8rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .gallery-video-dialog-shell.is-playing .gallery-video-dialog-surface span {
+    opacity: 0;
+  }
+
+  .gallery-video-dialog-close,
+  .gallery-image-dialog-close {
+    position: fixed;
+    top: max(14px, env(safe-area-inset-top));
+    right: max(14px, env(safe-area-inset-right));
+    z-index: 2147483004;
+    display: inline-flex;
+    width: 52px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    border-radius: 999px;
+    background: rgba(15, 119, 115, 0.82);
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .gallery-video-dialog-toolbar {
+    position: fixed;
+    left: 50%;
+    bottom: max(18px, env(safe-area-inset-bottom));
+    z-index: 2147483004;
+    display: flex;
+    gap: 10px;
+    transform: translateX(-50%);
+  }
+
+  .gallery-video-dialog-toolbar button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .gallery-bridge-section {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.09), transparent 24rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
+  }
+
+  .gallery-bridge-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+    gap: 24px;
+    align-items: center;
+    padding: clamp(30px, 5vw, 52px);
+    border-radius: 36px;
+    background: rgba(255, 255, 255, 0.88);
+  }
+
+  .gallery-bridge-links {
+    overflow: hidden;
+    border: 1px solid rgba(56, 187, 181, 0.15);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .gallery-bridge-links a {
+    display: flex;
+    min-height: 62px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(56, 187, 181, 0.13);
+    color: var(--color-text, #17151d);
+    font-size: 0.94rem;
+    font-weight: 780;
+    text-decoration: none;
+  }
+
+  .gallery-bridge-links a:last-child {
+    border-bottom: 0;
+  }
+
+  .gallery-bridge-links span {
+    color: var(--color-turquoise-dark, #0f7773);
+  }
+
+  .gallery-faq-list {
+    display: grid;
+    max-width: 980px;
+    gap: 12px;
+  }
+
+  .gallery-faq-item {
+    overflow: hidden;
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at 96% 10%, rgba(56, 187, 181, 0.06), transparent 12rem),
+      rgba(255, 255, 255, 0.88);
+  }
+
+  .gallery-faq-item summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 40px;
+    gap: 16px;
+    align-items: center;
+    padding: 20px 22px;
+    color: var(--color-text, #17151d);
+    font-family: inherit;
+    font-size: clamp(1.03rem, 1.35vw, 1.22rem);
+    font-weight: 760;
+    line-height: 1.3;
+    letter-spacing: -0.03em;
+    cursor: pointer;
+    list-style: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .gallery-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .gallery-faq-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(56, 187, 181, 0.17);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, 0.58);
+  }
+
+  .gallery-faq-icon::before,
+  .gallery-faq-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--color-turquoise-dark, #0f7773);
+    transform: translate(-50%, -50%);
+  }
+
+  .gallery-faq-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .gallery-faq-item[open] .gallery-faq-icon::after {
+    opacity: 0;
+  }
+
+  .gallery-faq-item > div {
+    padding: 0 22px 20px;
+  }
+
+  .gallery-faq-item p {
+    margin: 0;
+    color: var(--color-muted, #6e6670);
+    font-size: 0.95rem;
+    line-height: 1.64;
   }
 
   .gallery-final-card {
-    padding: clamp(34px, 6vw, 70px);
-    border-radius: 42px;
+    padding: clamp(34px, 6vw, 64px);
+    border-radius: 40px;
     text-align: center;
     background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
-      rgba(255, 255, 255, 0.7);
+      linear-gradient(145deg, rgba(219, 246, 243, 0.70), rgba(255, 242, 246, 0.82)),
+      rgba(255, 255, 255, 0.74);
   }
 
-  .gallery-final-card p:not(.signature) {
+  .gallery-final-card > p:not(.signature) {
     max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--color-muted);
+    margin-inline: auto;
   }
 
-  .gallery-final-card .button-primary {
-    margin-top: 18px;
-  }
-
-  @keyframes gallery-panel-shine {
-    0% {
-      transform: translateX(-72%);
-      opacity: 0.28;
-    }
-
-    45% {
-      opacity: 0.88;
-    }
-
-    100% {
-      transform: translateX(88%);
-      opacity: 0.28;
-    }
-  }
-
-  @keyframes gallery-gold-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
-
-  @keyframes gallery-turquoise-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
-
-  @keyframes gallery-rose-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
-
-  @media (max-width: 1260px) {
-    .gallery-proof-grid,
-    .gallery-area-grid,
-    .gallery-face-grid,
-    .gallery-related-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .gallery-proof-grid div:nth-child(2) {
-      border-right: 0;
-    }
+  .gallery-final-actions {
+    max-width: 900px;
+    margin-inline: auto;
   }
 
   @media (max-width: 1080px) {
     .gallery-hero-grid,
-    .gallery-two-column,
-    .gallery-rules-grid,
-    .gallery-coming-card {
+    .gallery-bridge-card {
       grid-template-columns: 1fr;
+    }
+
+    .gallery-hero-card {
+      min-height: 330px;
+    }
+
+    .gallery-proof-grid,
+    .gallery-area-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
   @media (max-width: 760px) {
+    .gallery-page .section-kicker {
+      min-height: 30px;
+      margin-bottom: 14px;
+      padding: 0 11px;
+      font-size: 0.63rem;
+      letter-spacing: 0.13em;
+    }
+
     .gallery-hero {
-      padding: 112px 0 58px;
+      padding: 118px 0 52px;
+    }
+
+    .gallery-hero-grid {
+      gap: 14px;
     }
 
     .gallery-hero-copy,
     .gallery-hero-card,
-    .gallery-text-card,
     .gallery-area-card,
-    .gallery-face-card,
-    .gallery-coming-card,
-    .gallery-rules-card,
-    .gallery-list-card,
-    .gallery-related-card,
-    .gallery-faq-grid article,
+    .gallery-bridge-card,
     .gallery-final-card {
       border-radius: 28px;
     }
 
-    .gallery-hero-copy h1 {
-      font-size: clamp(2.75rem, 12.2vw, 4rem);
-      line-height: 1.02;
-      letter-spacing: -0.074em;
+    .gallery-hero-copy {
+      padding: 25px 21px 23px;
     }
 
-    .gallery-intro-section,
-    .gallery-areas-section,
-    .gallery-coming-section,
-    .gallery-face-section,
-    .gallery-rules-section,
-    .gallery-related-section,
+    .gallery-hero-copy h1 {
+      font-size: clamp(2.35rem, 10.2vw, 3.35rem);
+      line-height: 1.02;
+      letter-spacing: -0.064em;
+    }
+
+    .gallery-hero-lead {
+      margin-top: 19px;
+      font-size: 0.99rem;
+      line-height: 1.62;
+    }
+
+    .gallery-hero-actions,
+    .gallery-final-actions {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 23px;
+    }
+
+    .gallery-hero-actions > a,
+    .gallery-final-actions > a {
+      min-height: 56px;
+      font-size: 0.98rem !important;
+      white-space: normal;
+    }
+
+    .gallery-hero-card {
+      min-height: auto;
+      padding: 27px 23px;
+    }
+
+    .gallery-card-label {
+      top: 23px;
+      left: 23px;
+      font-size: clamp(3.9rem, 18vw, 5.7rem);
+    }
+
+    .gallery-hero-card h2 {
+      margin-top: 82px;
+      font-size: clamp(1.85rem, 8.3vw, 2.45rem);
+      line-height: 1.03;
+    }
+
+    .gallery-proof-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      padding: 12px 0;
+    }
+
+    .gallery-proof-grid > div {
+      min-height: 110px;
+      padding: 18px 15px;
+      border: 1px solid rgba(183, 101, 118, 0.11);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .gallery-proof-grid span {
+      font-size: 0.62rem;
+      letter-spacing: 0.09em;
+    }
+
+    .gallery-area-section,
+    .gallery-media-section,
+    .gallery-bridge-section,
     .gallery-faq-section,
     .gallery-final-cta {
-      padding: 58px 0;
+      padding: 54px 0;
     }
 
-    .gallery-two-column h2,
+    .gallery-section-heading {
+      margin-bottom: 25px;
+    }
+
     .gallery-section-heading h2,
-    .gallery-coming-card h2,
-    .gallery-rules-card h2,
+    .gallery-bridge-card h2,
     .gallery-final-card h2 {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
+      font-size: clamp(2rem, 8.8vw, 2.95rem);
       line-height: 1.04;
-      letter-spacing: -0.066em;
+      letter-spacing: -0.06em;
     }
 
-    .gallery-proof-grid,
-    .gallery-area-grid,
-    .gallery-face-grid,
-    .gallery-related-grid,
-    .gallery-faq-grid {
+    .gallery-section-heading > p:not(.section-kicker),
+    .gallery-bridge-card > div:first-child > p:not(.section-kicker),
+    .gallery-final-card > p:not(.signature) {
+      font-size: 0.96rem;
+      line-height: 1.62;
+    }
+
+    .gallery-area-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .gallery-area-card {
+      min-height: auto;
+      padding: 22px;
+    }
+
+    .gallery-area-card > span {
+      margin-bottom: 22px;
+    }
+
+    .gallery-media-heading-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .gallery-section-actions {
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      justify-items: stretch;
+      margin-bottom: 14px;
+    }
+
+    .gallery-slider-controls {
+      justify-content: flex-start;
+    }
+
+    .gallery-slider-button {
+      width: 42px;
+      height: 42px;
+    }
+
+    .gallery-service-link {
+      justify-self: end;
+    }
+
+    .gallery-photo-row,
+    .gallery-video-row {
+      gap: 12px;
+      padding: 6px 14px 18px;
+    }
+
+    .gallery-photo-card,
+    .gallery-photo-card--wide {
+      flex: 0 0 min(82vw, 360px);
+      width: min(82vw, 360px);
+      padding: 6px;
+      border-radius: 24px;
+    }
+
+    .gallery-photo-card img {
+      height: 330px;
+      border-radius: 18px;
+    }
+
+    .gallery-photo-badge {
+      top: 15px;
+      left: 15px;
+    }
+
+    .gallery-photo-zoom {
+      right: 15px;
+      bottom: 15px;
+      width: 39px;
+      height: 39px;
+    }
+
+    .gallery-video-card {
+      flex: 0 0 min(82vw, 360px);
+      width: min(82vw, 360px);
+      padding: 6px;
+      border-radius: 24px;
+    }
+
+    .gallery-video-media {
+      height: 350px;
+      border-radius: 18px;
+    }
+
+    .gallery-video-surface span {
+      width: 64px;
+      height: 64px;
+    }
+
+    .gallery-bridge-card {
+      gap: 18px;
+      padding: 24px 20px;
+    }
+
+    .gallery-video-dialog-shell,
+    .gallery-image-dialog-shell {
+      padding:
+        max(12px, env(safe-area-inset-top))
+        max(10px, env(safe-area-inset-right))
+        max(12px, env(safe-area-inset-bottom))
+        max(10px, env(safe-area-inset-left));
+    }
+
+    .gallery-video-dialog video,
+    .gallery-image-dialog img {
+      width: 100%;
+      height: 100%;
+      max-height: 100dvh;
+      border-radius: 16px;
+    }
+
+    .gallery-video-dialog-close,
+    .gallery-image-dialog-close,
+    .gallery-video-dialog-toolbar button {
+      width: 48px;
+      height: 48px;
+    }
+
+    .gallery-faq-list {
+      gap: 10px;
+    }
+
+    .gallery-faq-item {
+      border-radius: 19px;
+    }
+
+    .gallery-faq-item summary {
+      grid-template-columns: minmax(0, 1fr) 36px;
+      gap: 11px;
+      padding: 17px;
+      font-size: 0.98rem;
+    }
+
+    .gallery-faq-icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    .gallery-faq-item > div {
+      padding: 0 17px 17px;
+    }
+
+    .gallery-final-card {
+      padding: 29px 19px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .gallery-proof-grid {
       grid-template-columns: 1fr;
     }
 
-    .gallery-proof-grid div,
-    .gallery-proof-grid div:nth-child(2) {
-      border-right: 0;
-      border-bottom: 1px solid rgba(183, 101, 118, 0.12);
-    }
-
-    .gallery-proof-grid div:last-child {
-      border-bottom: 0;
-    }
-
-    .gallery-area-card,
-    .gallery-face-card,
-    .gallery-related-card {
-      min-height: auto;
-      padding: 26px;
-    }
-
-    .gallery-big-mark {
-      right: 16px !important;
-      top: 14px !important;
-      font-size: clamp(3rem, 15vw, 5rem) !important;
+    .gallery-photo-card,
+    .gallery-photo-card--wide,
+    .gallery-video-card {
+      flex-basis: min(86vw, 320px);
+      width: min(86vw, 320px);
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .gallery-hero-card,
-    .gallery-hero-card::before,
-    .gallery-area-card-turquoise,
-    .gallery-coming-card,
-    .gallery-coming-card::before {
-      animation: none;
-    }
-  }
-
-  /* V3 — naprawa kafelków w sekcji Pełne kadry twarzy */
-  .gallery-face-section {
-    background:
-      radial-gradient(circle at 84% 18%, rgba(56, 187, 181, 0.08), transparent 24rem),
-      rgba(255, 255, 255, 0.62);
-  }
-
-  .gallery-face-grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 18px !important;
-    align-items: stretch !important;
-  }
-
-  .gallery-face-card {
-    position: relative !important;
-    min-height: 245px !important;
-    padding: 28px !important;
-    overflow: hidden !important;
-    border-radius: 32px !important;
-    background:
-      radial-gradient(circle at 92% 10%, rgba(219, 246, 243, 0.72), transparent 7rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.86)) !important;
-    border: 1px solid rgba(183, 101, 118, 0.16) !important;
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075) !important;
-  }
-
-  .gallery-face-card::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    border-top: 4px solid rgba(56, 187, 181, 0.34) !important;
-    pointer-events: none !important;
-  }
-
-  .gallery-face-card:nth-child(2)::before,
-  .gallery-face-card:nth-child(4)::before {
-    border-top-color: rgba(201, 127, 143, 0.34) !important;
-  }
-
-  .gallery-face-card::after {
-    content: "" !important;
-    position: absolute !important;
-    right: -58px !important;
-    top: -58px !important;
-    width: 138px !important;
-    height: 138px !important;
-    border-radius: 999px !important;
-    background: rgba(219, 246, 243, 0.68) !important;
-    pointer-events: none !important;
-  }
-
-  .gallery-face-card:nth-child(2)::after,
-  .gallery-face-card:nth-child(4)::after {
-    background: rgba(246, 220, 227, 0.76) !important;
-  }
-
-  .gallery-face-card span,
-  .gallery-face-card h3,
-  .gallery-face-card p {
-    position: relative !important;
-    z-index: 2 !important;
-  }
-
-  .gallery-face-card span {
-    display: inline-flex !important;
-    margin-bottom: 44px !important;
-    color: var(--color-turquoise-dark) !important;
-    font-size: 0.72rem !important;
-    font-weight: 760 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.18em !important;
-  }
-
-  .gallery-face-card h3 {
-    margin: 0 !important;
-    color: var(--color-text) !important;
-    font-size: clamp(1.45rem, 1.9vw, 2.1rem) !important;
-    font-weight: 740 !important;
-    line-height: 1 !important;
-    letter-spacing: -0.065em !important;
-  }
-
-  .gallery-face-card p {
-    margin: 14px 0 0 !important;
-    color: var(--color-muted) !important;
-    font-size: 0.95rem !important;
-    line-height: 1.62 !important;
-  }
-
-  @media (max-width: 1260px) {
-    .gallery-face-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .gallery-face-grid {
-      grid-template-columns: 1fr !important;
+    .button-booksy {
+      transition: none;
     }
 
-    .gallery-face-card {
-      min-height: auto !important;
-      padding: 26px !important;
-      border-radius: 28px !important;
-    }
-  }
-
-
-  /* V4 — galeria: turkusowy kafelek główny i metamorfozy w standardzie PMU */
-  .gallery-hero-card,
-  .gallery-coming-card {
-    color: #ffffff !important;
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%) !important;
-    background-size: 100% 100%, 100% 100%, 240% 240% !important;
-    animation: gallery-turquoise-flow 13s ease-in-out infinite alternate !important;
-    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22) !important;
-  }
-
-  .gallery-hero-card h2,
-  .gallery-coming-card h2 {
-    color: #ffffff !important;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
-  }
-
-  .gallery-hero-card p:not(.gallery-card-label),
-  .gallery-coming-card p:not(.section-kicker) {
-    color: rgba(255, 255, 255, 0.88) !important;
-  }
-
-  .gallery-card-label,
-  .gallery-coming-card .gallery-big-mark,
-  .gallery-big-mark-natural {
-    color: rgba(255, 255, 255, 0.18) !important;
-  }
-
-  .gallery-coming-card .section-kicker {
-    display: inline-flex !important;
-    width: fit-content !important;
-    min-height: 32px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 0 18px !important;
-    padding: 0 13px !important;
-    border-radius: 999px !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.16) !important;
-    border: 1px solid rgba(255, 255, 255, 0.22) !important;
-    font-size: 0.7rem !important;
-    font-weight: 850 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.17em !important;
-    text-transform: uppercase !important;
-  }
-
-  .gallery-coming-card::before,
-  .gallery-hero-card::before {
-    background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.05) 22%, rgba(255, 255, 255, 0.24) 47%, rgba(255, 255, 255, 0.05) 72%, transparent 100%) !important;
-  }
-
-  @keyframes gallery-turquoise-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
+    .button-booksy:hover {
+      transform: none;
     }
 
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
+    .gallery-photo-row,
+    .gallery-video-row {
+      scroll-behavior: auto;
     }
   }
-
-  @media (max-width: 760px) {
-    .gallery-coming-card .section-kicker {
-      min-height: 30px !important;
-      margin-bottom: 16px !important;
-      padding: 0 11px !important;
-      font-size: 0.64rem !important;
-      letter-spacing: 0.13em !important;
-    }
-  }
-
-
-  /* V7 — powrót do spokojnego jednolitego koloru wyróżników */
-  .gallery-proof-grid span {
-    color: var(--color-muted, #6e6670) !important;
-    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
-    background: none !important;
-    background-image: none !important;
-    -webkit-background-clip: initial !important;
-    background-clip: initial !important;
-    animation: none !important;
-    text-shadow: none !important;
-  }
-
-  .gallery-proof-grid span::after {
-    display: none !important;
-    content: none !important;
-  }
-
-  .gallery-proof-grid strong {
-    color: var(--color-text, #17151d) !important;
-    -webkit-text-fill-color: var(--color-text, #17151d) !important;
-  }
-
-
-  /* V9 — awaryjna naprawa kapsuł galerii */
-
-  :global(.gallery-page .section-kicker) {
-    display: inline-flex !important;
-    width: fit-content !important;
-    max-width: 100% !important;
-    min-height: 32px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 0 18px !important;
-    padding: 0 13px !important;
-    border-radius: 999px !important;
-    color: var(--color-turquoise-dark, #0f7773) !important;
-    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
-    background: rgba(219, 246, 243, 0.72) !important;
-    border: 1px solid rgba(56, 187, 181, 0.16) !important;
-    font-size: 0.7rem !important;
-    font-weight: 850 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.17em !important;
-    text-transform: uppercase !important;
-  }
-
-  :global(.gallery-page .gallery-coming-card .section-kicker) {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.16) !important;
-    border-color: rgba(255, 255, 255, 0.22) !important;
-  }
-
-  :global(.gallery-page .gallery-section-heading h2),
-  :global(.gallery-page .gallery-two-column h2),
-  :global(.gallery-page .gallery-rules-card h2),
-  :global(.gallery-page .gallery-coming-card h2),
-  :global(.gallery-page .gallery-final-card h2) {
-    color: var(--color-text, #17151d) !important;
-    font-family: inherit !important;
-    font-weight: 760 !important;
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.074em !important;
-  }
-
-  :global(.gallery-page .gallery-coming-card h2) {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24) !important;
-  }
-
-  :global(.gallery-page .gallery-coming-card p:not(.section-kicker)) {
-    color: rgba(255, 255, 255, 0.88) !important;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.88) !important;
-  }
-
-  :global(.gallery-page .gallery-section-heading > p:not(.section-kicker)),
-  :global(.gallery-page .gallery-two-column p:not(.section-kicker)),
-  :global(.gallery-page .gallery-rules-card p:not(.section-kicker)),
-  :global(.gallery-page .gallery-final-card p:not(.section-kicker):not(.signature)) {
-    color: var(--color-muted, #6e6670) !important;
-    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
-    font-weight: 450 !important;
-    line-height: 1.65 !important;
-  }
-
-  @media (max-width: 760px) {
-    :global(.gallery-page .section-kicker) {
-      min-height: 30px !important;
-      margin-bottom: 16px !important;
-      padding: 0 11px !important;
-      font-size: 0.64rem !important;
-      letter-spacing: 0.13em !important;
-      line-height: 1 !important;
-    }
-
-    :global(.gallery-page .gallery-section-heading h2),
-    :global(.gallery-page .gallery-two-column h2),
-    :global(.gallery-page .gallery-rules-card h2),
-    :global(.gallery-page .gallery-coming-card h2),
-    :global(.gallery-page .gallery-final-card h2) {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
-      line-height: 1.04 !important;
-      letter-spacing: -0.066em !important;
-    }
-  }
-  /* Hero — turkusowy akcent w pierwszym nagłówku */
-
-  .pmu-hero-turquoise-text {
-    display: inline;
-    color: #0f7773;
-    background:
-      linear-gradient(
-        120deg,
-        #0d6a67 0%,
-        #0f7773 22%,
-        #1aa5a0 46%,
-        #74e0d7 68%,
-        #138a86 86%,
-        #0d6a67 100%
-      );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  @media (max-width: 760px) {
-    .pmu-hero-turquoise-text {
-      display: inline;
-    }
-  }
-  /* =========================================================
-   FINAL — aktywna galeria PMU: slidery zdjęć i filmów
-========================================================= */
-
-.gallery-live-nav-section {
-  padding: 34px 0 12px !important;
-  background: rgba(255, 255, 255, 0.42) !important;
-}
-
-.gallery-live-nav {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 12px !important;
-}
-
-.gallery-live-nav a {
-  display: inline-flex !important;
-  min-height: 42px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 16px !important;
-  border: 1px solid rgba(56, 187, 181, 0.18) !important;
-  border-radius: 999px !important;
-  background: rgba(255, 255, 255, 0.82) !important;
-  color: var(--color-turquoise-dark, #0f7773) !important;
-  font-size: 0.78rem !important;
-  font-weight: 850 !important;
-  letter-spacing: 0.13em !important;
-  text-decoration: none !important;
-  text-transform: uppercase !important;
-  box-shadow: 0 14px 34px rgba(89, 53, 67, 0.06) !important;
-  transition:
-    transform 180ms ease,
-    background 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease !important;
-}
-
-.gallery-live-nav a:hover {
-  transform: translateY(-2px) !important;
-  border-color: rgba(56, 187, 181, 0.42) !important;
-  background: #159a96 !important;
-  color: #ffffff !important;
-}
-
-.gallery-live-section {
-  padding: 76px 0 82px !important;
-  overflow: hidden !important;
-}
-
-.gallery-live-section:nth-of-type(even) {
-  background:
-    radial-gradient(circle at 88% 14%, rgba(56, 187, 181, 0.08), transparent 24rem),
-    rgba(255, 255, 255, 0.42) !important;
-}
-
-.gallery-live-heading-row {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) auto !important;
-  gap: 24px !important;
-  align-items: end !important;
-  margin-bottom: 26px !important;
-}
-
-.gallery-live-heading {
-  max-width: 980px !important;
-}
-
-.gallery-live-heading h2 {
-  max-width: 980px !important;
-  margin: 0 !important;
-  color: var(--color-text, #17151d) !important;
-  font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
-  font-weight: 760 !important;
-  line-height: 1.02 !important;
-  letter-spacing: -0.074em !important;
-}
-
-.gallery-live-heading p:not(.section-kicker) {
-  max-width: 880px !important;
-  margin: 18px 0 0 !important;
-  color: var(--color-muted, #6e6670) !important;
-  font-size: 1.05rem !important;
-  line-height: 1.68 !important;
-}
-
-.gallery-live-controls {
-  display: flex !important;
-  justify-content: flex-end !important;
-  align-items: center !important;
-  gap: 14px !important;
-  margin-bottom: 8px !important;
-}
-
-.gallery-live-arrow {
-  display: inline-flex !important;
-  width: 64px !important;
-  height: 64px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border: 1px solid rgba(56, 187, 181, 0.28) !important;
-  border-radius: 999px !important;
-  background:
-    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.76)) !important;
-  color: #0f7773 !important;
-  font-size: 1.45rem !important;
-  font-weight: 760 !important;
-  line-height: 1 !important;
-  box-shadow:
-    0 18px 46px rgba(89, 53, 67, 0.10),
-    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
-  cursor: pointer !important;
-  transition:
-    transform 180ms ease,
-    background 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease !important;
-}
-
-.gallery-live-arrow:hover {
-  transform: translateY(-2px) !important;
-  border-color: rgba(56, 187, 181, 0.46) !important;
-  background: #159a96 !important;
-  color: #ffffff !important;
-  box-shadow:
-    0 22px 52px rgba(56, 187, 181, 0.18),
-    0 0 0 1px rgba(255, 255, 255, 0.58) inset !important;
-}
-
-.gallery-live-viewport {
-  width: 100% !important;
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  padding: 8px max(18px, calc((100vw - 1440px) / 2)) 28px !important;
-  scroll-snap-type: x mandatory !important;
-  scroll-behavior: smooth !important;
-}
-
-.gallery-live-viewport::-webkit-scrollbar {
-  height: 10px !important;
-}
-
-.gallery-live-viewport::-webkit-scrollbar-thumb {
-  border-radius: 999px !important;
-  background: rgba(21, 154, 150, 0.28) !important;
-}
-
-.gallery-live-track {
-  display: grid !important;
-  width: max-content !important;
-  grid-auto-flow: column !important;
-  grid-auto-columns: minmax(250px, 330px) !important;
-  gap: 16px !important;
-}
-
-.gallery-live-video-track {
-  grid-auto-columns: minmax(280px, 390px) !important;
-}
-
-.gallery-media-frame-live {
-  position: relative !important;
-  overflow: hidden !important;
-  padding: 8px !important;
-  border: 1px solid rgba(183, 101, 118, 0.16) !important;
-  border-radius: 32px !important;
-  background: rgba(255, 255, 255, 0.94) !important;
-  box-shadow:
-    0 18px 54px rgba(89, 53, 67, 0.075),
-    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
-}
-
-.gallery-media-frame-live::after {
-  content: "" !important;
-  position: absolute !important;
-  inset: 8px !important;
-  border: 1px solid rgba(255, 255, 255, 0.54) !important;
-  border-radius: 24px !important;
-  pointer-events: none !important;
-}
-
-.gallery-live-card {
-  margin: 0 !important;
-  aspect-ratio: 4 / 5 !important;
-  scroll-snap-align: start !important;
-}
-
-.gallery-live-card-wide {
-  aspect-ratio: 16 / 10 !important;
-  width: min(520px, 80vw) !important;
-}
-
-.gallery-live-card img,
-.gallery-live-card video {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 24px !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  background: #f5f5f5 !important;
-}
-
-.gallery-live-video-card {
-  aspect-ratio: auto !important;
-  min-height: 500px !important;
-}
-
-.gallery-live-video-card video {
-  height: 430px !important;
-}
-
-.gallery-live-video-card figcaption {
-  position: relative !important;
-  z-index: 2 !important;
-  padding: 14px 8px 4px !important;
-  color: var(--color-text, #17151d) !important;
-  font-size: 0.95rem !important;
-  font-weight: 720 !important;
-  line-height: 1.45 !important;
-}
-
-@media (max-width: 760px) {
-  .gallery-live-nav-section {
-    padding: 24px 0 6px !important;
-  }
-
-  .gallery-live-nav {
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    padding-bottom: 10px !important;
-    scroll-snap-type: x mandatory !important;
-  }
-
-  .gallery-live-nav a {
-    flex: 0 0 auto !important;
-    scroll-snap-align: start !important;
-  }
-
-  .gallery-live-section {
-    padding: 58px 0 62px !important;
-  }
-
-  .gallery-live-heading-row {
-    grid-template-columns: 1fr !important;
-    gap: 10px !important;
-    margin-bottom: 18px !important;
-  }
-
-  .gallery-live-heading h2 {
-    font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
-    line-height: 1.04 !important;
-    letter-spacing: -0.066em !important;
-  }
-
-  .gallery-live-heading p:not(.section-kicker) {
-    font-size: 1rem !important;
-    line-height: 1.66 !important;
-  }
-
-  .gallery-live-controls {
-    justify-content: flex-end !important;
-    margin-bottom: 8px !important;
-    padding-right: 4px !important;
-  }
-
-  .gallery-live-arrow {
-    width: 52px !important;
-    height: 52px !important;
-    font-size: 1.2rem !important;
-  }
-
-  .gallery-live-track {
-    grid-auto-columns: minmax(218px, 74vw) !important;
-  }
-
-  .gallery-live-card-wide {
-    width: min(82vw, 380px) !important;
-  }
-
-  .gallery-live-video-track {
-    grid-auto-columns: minmax(260px, 82vw) !important;
-  }
-
-  .gallery-live-video-card {
-    min-height: 410px !important;
-  }
-
-  .gallery-live-video-card video {
-    height: 350px !important;
-  }
-
-  .gallery-media-frame-live {
-    padding: 7px !important;
-    border-radius: 28px !important;
-  }
-
-  .gallery-media-frame-live::after {
-    inset: 7px !important;
-    border-radius: 20px !important;
-  }
-
-  .gallery-live-card img,
-  .gallery-live-card video {
-    border-radius: 20px !important;
-  }
-}
-/* FINAL — Galeria: standard punktów turkusowych z hoverem różowym */
-
-.gallery-list-card {
-  display: grid !important;
-  gap: 14px !important;
-  padding: 0 !important;
-  overflow: visible !important;
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-.gallery-list-card div {
-  position: relative !important;
-  display: grid !important;
-  grid-template-columns: 34px 1fr !important;
-  gap: 16px !important;
-  align-items: flex-start !important;
-  padding: 22px 24px !important;
-  border: 1px solid rgba(56, 187, 181, 0.22) !important;
-  border-bottom: 1px solid rgba(56, 187, 181, 0.22) !important;
-  border-radius: 26px !important;
-  background:
-    radial-gradient(circle at 8% 18%, rgba(56, 187, 181, 0.16), transparent 9rem),
-    linear-gradient(145deg, rgba(219, 246, 243, 0.72), rgba(255, 255, 255, 0.92)) !important;
-  box-shadow: 0 16px 42px rgba(15, 119, 115, 0.075) !important;
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease !important;
-}
-
-.gallery-list-card div:last-child {
-  border-bottom: 1px solid rgba(56, 187, 181, 0.22) !important;
-}
-
-.gallery-list-card div:hover {
-  transform: translateY(-3px) !important;
-  border-color: rgba(201, 127, 143, 0.28) !important;
-  background:
-    radial-gradient(circle at 8% 18%, rgba(201, 127, 143, 0.18), transparent 9rem),
-    linear-gradient(145deg, rgba(255, 242, 246, 0.88), rgba(255, 255, 255, 0.94)) !important;
-  box-shadow: 0 20px 52px rgba(183, 101, 118, 0.11) !important;
-}
-
-.gallery-list-card span {
-  position: relative !important;
-  display: inline-flex !important;
-  width: 22px !important;
-  height: 22px !important;
-  margin-top: 3px !important;
-  border-radius: 999px !important;
-  background: linear-gradient(135deg, #159a96, #38bbb5) !important;
-  box-shadow:
-    0 0 0 7px rgba(56, 187, 181, 0.12),
-    0 10px 22px rgba(15, 119, 115, 0.16) !important;
-  transition:
-    background 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease !important;
-}
-
-.gallery-list-card span::after {
-  content: "" !important;
-  position: absolute !important;
-  inset: 7px !important;
-  border-radius: 999px !important;
-  background: #ffffff !important;
-}
-
-.gallery-list-card div:hover span {
-  transform: scale(1.04) !important;
-  background: linear-gradient(135deg, #b76576, #d992a2) !important;
-  box-shadow:
-    0 0 0 7px rgba(201, 127, 143, 0.14),
-    0 10px 22px rgba(183, 101, 118, 0.18) !important;
-}
-
-.gallery-list-card p {
-  margin: 0 !important;
-  color: var(--color-muted, #6e6670) !important;
-  font-size: clamp(1rem, 1.35vw, 1.18rem) !important;
-  line-height: 1.62 !important;
-}
-
-.gallery-list-card div:hover p {
-  color: var(--color-text, #17151d) !important;
-}
-
-@media (max-width: 760px) {
-  .gallery-list-card {
-    gap: 12px !important;
-  }
-
-  .gallery-list-card div {
-    grid-template-columns: 28px 1fr !important;
-    gap: 13px !important;
-    padding: 18px 18px !important;
-    border-radius: 22px !important;
-  }
-
-  .gallery-list-card span {
-    width: 18px !important;
-    height: 18px !important;
-    margin-top: 5px !important;
-    box-shadow:
-      0 0 0 6px rgba(56, 187, 181, 0.12),
-      0 8px 18px rgba(15, 119, 115, 0.14) !important;
-  }
-
-  .gallery-list-card span::after {
-    inset: 6px !important;
-  }
-
-  .gallery-list-card p {
-    font-size: 0.98rem !important;
-    line-height: 1.58 !important;
-  }
-}
-/* FINAL — Galeria: poprawka nakładania się zdjęć w sliderach */
-
-.gallery-live-viewport {
-  width: 100% !important;
-  overflow-x: auto !important;
-  overflow-y: visible !important;
-  padding: 14px 0 34px !important;
-  scroll-snap-type: x mandatory !important;
-}
-
-.gallery-live-track {
-  display: flex !important;
-  align-items: stretch !important;
-  gap: 26px !important;
-  width: max-content !important;
-  min-width: 100% !important;
-  padding: 8px 28px 20px !important;
-}
-
-.gallery-live-card {
-  position: relative !important;
-  flex: 0 0 clamp(320px, 34vw, 520px) !important;
-  width: clamp(320px, 34vw, 520px) !important;
-  max-width: none !important;
-  min-width: 0 !important;
-  margin: 0 !important;
-  scroll-snap-align: start !important;
-  z-index: 1 !important;
-}
-
-.gallery-live-card--wide {
-  flex-basis: clamp(420px, 46vw, 680px) !important;
-  width: clamp(420px, 46vw, 680px) !important;
-}
-
-.gallery-live-card + .gallery-live-card {
-  margin-left: 0 !important;
-}
-
-.gallery-live-card:hover {
-  z-index: 3 !important;
-}
-
-.gallery-live-media,
-.gallery-live-card picture,
-.gallery-live-card img {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-.gallery-live-card img {
-  display: block !important;
-  height: clamp(300px, 30vw, 430px) !important;
-  object-fit: cover !important;
-}
-
-.gallery-live-card--wide img {
-  height: clamp(300px, 30vw, 430px) !important;
-}
-
-@media (max-width: 760px) {
-  .gallery-live-viewport {
-    padding: 10px 0 28px !important;
-  }
-
-  .gallery-live-track {
-    gap: 16px !important;
-    padding: 6px 14px 18px !important;
-  }
-
-  .gallery-live-card,
-  .gallery-live-card--wide {
-    flex: 0 0 min(82vw, 360px) !important;
-    width: min(82vw, 360px) !important;
-  }
-
-  .gallery-live-card img,
-  .gallery-live-card--wide img {
-    height: 330px !important;
-  }
-}
-/* FINAL — Galeria: usunięcie białego odstępu pod zdjęciami, bez ruszania wideo */
-
-.gallery-live-card {
-  height: auto !important;
-  min-height: 0 !important;
-  padding-bottom: 0 !important;
-  overflow: hidden !important;
-}
-
-.gallery-live-media {
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  border-radius: 28px !important;
-}
-
-.gallery-live-card picture,
-.gallery-live-card img {
-  display: block !important;
-  width: 100% !important;
-  height: clamp(320px, 32vw, 460px) !important;
-  margin: 0 !important;
-  object-fit: cover !important;
-  border-radius: 28px !important;
-}
-
-.gallery-live-card figcaption,
-.gallery-live-card .gallery-live-caption,
-.gallery-live-card .gallery-card-caption {
-  display: none !important;
-}
-
-.gallery-live-card:not(.gallery-video-card) {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-.gallery-live-card:not(.gallery-video-card) .gallery-live-media {
-  background: #ffffff !important;
-  box-shadow:
-    0 22px 54px rgba(36, 23, 31, 0.08),
-    0 0 0 10px rgba(255, 255, 255, 0.84),
-    0 0 0 11px rgba(221, 181, 189, 0.18) !important;
-}
-
-@media (max-width: 760px) {
-  .gallery-live-card picture,
-  .gallery-live-card img {
-    height: 330px !important;
-    border-radius: 24px !important;
-  }
-
-  .gallery-live-media {
-    border-radius: 24px !important;
-  }
-}
-/* FINAL — Galeria: zdjęcia bez pustego pola pod spodem, wideo bez zmian */
-
-.gallery-live-track:not(.gallery-live-video-track) {
-  align-items: start !important;
-}
-
-.gallery-live-track:not(.gallery-live-video-track) .gallery-live-card,
-.gallery-live-track:not(.gallery-live-video-track) .gallery-live-card-wide {
-  aspect-ratio: auto !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  display: block !important;
-  line-height: 0 !important;
-  padding: 8px !important;
-  overflow: hidden !important;
-}
-
-.gallery-live-track:not(.gallery-live-video-track) .gallery-live-card img,
-.gallery-live-track:not(.gallery-live-video-track) .gallery-live-card-wide img {
-  display: block !important;
-  width: 100% !important;
-  height: clamp(340px, 34vw, 480px) !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  border-radius: 24px !important;
-}
-
-.gallery-live-track:not(.gallery-live-video-track) .gallery-live-card::before,
-.gallery-live-track:not(.gallery-live-video-track) .gallery-live-card::after,
-.gallery-live-track:not(.gallery-live-video-track) .gallery-live-card-wide::before,
-.gallery-live-track:not(.gallery-live-video-track) .gallery-live-card-wide::after {
-  pointer-events: none !important;
-}
-
-@media (max-width: 760px) {
-  .gallery-live-track:not(.gallery-live-video-track) .gallery-live-card,
-  .gallery-live-track:not(.gallery-live-video-track) .gallery-live-card-wide {
-    padding: 7px !important;
-  }
-
-  .gallery-live-track:not(.gallery-live-video-track) .gallery-live-card img,
-  .gallery-live-track:not(.gallery-live-video-track) .gallery-live-card-wide img {
-    height: 330px !important;
-    border-radius: 20px !important;
-  }
-}
-/* Mobile fix — zabezpieczenie kafelków galerii przed ucinaniem po prawej */
-@media (max-width: 768px) {
-  .gallery-page,
-  .gallery-section,
-  .gallery-wrap,
-  .gallery-grid,
-  .gallery-slider,
-  .gallery-track {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .gallery-page * {
-    box-sizing: border-box;
-  }
-
-  .gallery-card,
-  .gallery-feature,
-  .gallery-highlight,
-  .gallery-cta,
-  .premium-card,
-  .turquoise-card,
-  .aqua-card,
-  .cyan-card {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .gallery-card,
-  .gallery-feature,
-  .gallery-highlight,
-  .gallery-cta,
-  .premium-card {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .gallery-card::before,
-  .gallery-card::after,
-  .gallery-feature::before,
-  .gallery-feature::after,
-  .gallery-highlight::before,
-  .gallery-highlight::after,
-  .premium-card::before,
-  .premium-card::after {
-    max-width: 100%;
-  }
-}
-/* GALERIA — mobile fix: turkusowy kafel nie może wypychać strony */
-@media (max-width: 768px) {
-  :global(html),
-  :global(body) {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  main {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  section {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .gallery-hero,
-  .gallery-hero-section,
-  .gallery-intro,
-  .gallery-intro-section,
-  .gallery-premium,
-  .gallery-premium-section {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .gallery-hero-card,
-  .gallery-intro-card,
-  .gallery-premium-card,
-  .gallery-feature-card,
-  .gallery-highlight-card,
-  .hero-card,
-  .intro-card,
-  .premium-card,
-  .turquoise-card {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    margin-left: 0;
-    margin-right: 0;
-    box-sizing: border-box;
-  }
-
-  .gallery-hero-card h1,
-  .gallery-intro-card h1,
-  .gallery-premium-card h1,
-  .hero-card h1,
-  .intro-card h1,
-  .premium-card h1 {
-    max-width: 100%;
-    overflow-wrap: break-word;
-  }
-
-  .gallery-hero-card::before,
-  .gallery-hero-card::after,
-  .gallery-intro-card::before,
-  .gallery-intro-card::after,
-  .gallery-premium-card::before,
-  .gallery-premium-card::after,
-  .hero-card::before,
-  .hero-card::after,
-  .intro-card::before,
-  .intro-card::after,
-  .premium-card::before,
-  .premium-card::after {
-    max-width: 100%;
-    overflow: hidden;
-  }
-}
-/* FINAL FIX — Galeria hero card mobile: kafel nie może być ucięty */
-@media (max-width: 760px) {
-  .gallery-hero {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    overflow-x: hidden !important;
-  }
-
-  .gallery-hero-grid {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 18px !important;
-    overflow: hidden !important;
-  }
-
-  .gallery-hero-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    min-height: 360px !important;
-    margin: 0 !important;
-    padding: 26px 22px !important;
-    border-radius: 30px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  .gallery-card-label {
-    max-width: 100% !important;
-    margin: 0 0 auto !important;
-    font-size: clamp(3.2rem, 18vw, 4.8rem) !important;
-    line-height: 0.82 !important;
-    letter-spacing: -0.08em !important;
-    white-space: nowrap !important;
-  }
-
-  .gallery-hero-card h2 {
-    max-width: 100% !important;
-    margin-top: 34px !important;
-    font-size: clamp(2rem, 10vw, 2.65rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.065em !important;
-    overflow-wrap: normal !important;
-    word-break: normal !important;
-    hyphens: none !important;
-  }
-
-  .gallery-hero-card p:not(.gallery-card-label) {
-    max-width: 100% !important;
-    margin-top: 16px !important;
-    font-size: 1rem !important;
-    line-height: 1.58 !important;
-    overflow-wrap: normal !important;
-    word-break: normal !important;
-    hyphens: none !important;
-  }
-
-  .gallery-hero-card::before {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-}
-
-@media (max-width: 390px) {
-  .gallery-hero-card {
-    padding: 24px 20px !important;
-    min-height: 350px !important;
-  }
-
-  .gallery-hero-card h2 {
-    font-size: clamp(1.85rem, 9.4vw, 2.3rem) !important;
-    letter-spacing: -0.058em !important;
-  }
-
-  .gallery-hero-card p:not(.gallery-card-label) {
-    font-size: 0.96rem !important;
-  }
-}
-
-/* GALERIA — własne sterowanie filmami: play/pauza + duży widok */
-.gallery-video-card {
-  position: relative !important;
-  flex: 0 0 clamp(300px, 31vw, 410px) !important;
-  width: clamp(300px, 31vw, 410px) !important;
-  min-height: 0 !important;
-  aspect-ratio: auto !important;
-  padding: 8px !important;
-  overflow: hidden !important;
-  border: 1px solid rgba(183, 101, 118, 0.16) !important;
-  border-radius: 32px !important;
-  background: rgba(255, 255, 255, 0.96) !important;
-  box-shadow:
-    0 18px 54px rgba(89, 53, 67, 0.085),
-    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
-  line-height: normal !important;
-}
-
-.gallery-video-v3-media {
-  position: relative !important;
-  width: 100% !important;
-  height: clamp(370px, 31vw, 440px) !important;
-  overflow: hidden !important;
-  border-radius: 24px !important;
-  background: #0d6a67 !important;
-}
-
-.gallery-video-v3-video {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  border-radius: 24px !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  background: #0d6a67 !important;
-}
-
-.gallery-video-v3-surface {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 2 !important;
-  display: grid !important;
-  width: 100% !important;
-  place-items: center !important;
-  border: 0 !important;
-  border-radius: 24px !important;
-  color: #ffffff !important;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.17)) !important;
-  cursor: pointer !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-.gallery-video-v3-surface span {
-  display: inline-flex !important;
-  width: 74px !important;
-  height: 74px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding-left: 5px !important;
-  border: 1px solid rgba(255, 255, 255, 0.48) !important;
-  border-radius: 999px !important;
-  color: #ffffff !important;
-  background: rgba(15, 119, 115, 0.66) !important;
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  font-size: 1.65rem !important;
-  line-height: 1 !important;
-  transition:
-    opacity 160ms ease,
-    visibility 160ms ease,
-    transform 160ms ease !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-.gallery-video-v3-media.is-playing .gallery-video-v3-surface {
-  background: transparent !important;
-}
-
-.gallery-video-v3-media.is-playing .gallery-video-v3-surface span,
-.gallery-video-v3-media.is-playing:hover .gallery-video-v3-surface span,
-.gallery-video-v3-media.is-playing .gallery-video-v3-surface:focus-visible span {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transform: scale(0.82) !important;
-}
-
-.gallery-video-v3-media:not(.is-playing) .gallery-video-v3-surface span {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: scale(1) !important;
-}
-
-.gallery-video-v3-toolbar {
-  position: absolute !important;
-  right: 14px !important;
-  bottom: 14px !important;
-  z-index: 4 !important;
-  display: flex !important;
-  gap: 8px !important;
-}
-
-.gallery-video-v3-toolbar button,
-.gallery-video-v3-dialog-toolbar button,
-.gallery-video-v3-dialog-close {
-  appearance: none !important;
-  border: 0 !important;
-  font: inherit !important;
-  cursor: pointer !important;
-  -webkit-text-fill-color: currentColor !important;
-}
-
-.gallery-video-v3-toolbar button,
-.gallery-video-v3-dialog-toolbar button {
-  display: inline-flex !important;
-  width: 44px !important;
-  height: 44px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border: 1px solid rgba(255, 255, 255, 0.42) !important;
-  border-radius: 999px !important;
-  color: #ffffff !important;
-  background: rgba(15, 119, 115, 0.72) !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  font-size: 1.05rem !important;
-  font-weight: 800 !important;
-  line-height: 1 !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-.gallery-video-card figcaption {
-  display: block !important;
-  position: relative !important;
-  z-index: 2 !important;
-  padding: 16px 10px 8px !important;
-  color: var(--color-text, #17151d) !important;
-  font-size: 0.95rem !important;
-  font-weight: 740 !important;
-  line-height: 1.42 !important;
-  -webkit-text-fill-color: var(--color-text, #17151d) !important;
-}
-
-/* Duży widok — bez natywnej ikonki dźwięku, z wyraźnym zamknięciem */
-.gallery-video-v3-dialog {
-  width: 100vw !important;
-  max-width: none !important;
-  height: 100dvh !important;
-  max-height: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  background: rgba(5, 14, 16, 0.96) !important;
-  overflow: hidden !important;
-}
-
-.gallery-video-v3-dialog::backdrop {
-  background: rgba(5, 14, 16, 0.96) !important;
-}
-
-.gallery-video-v3-dialog-shell {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 2147483000 !important;
-  display: grid !important;
-  width: 100vw !important;
-  height: 100dvh !important;
-  place-items: center !important;
-  padding: clamp(14px, 3vw, 34px) !important;
-  background: rgba(5, 14, 16, 0.96) !important;
-}
-
-.gallery-video-v3-dialog-video {
-  display: block !important;
-  width: min(94vw, 960px) !important;
-  height: min(88dvh, 980px) !important;
-  margin: 0 !important;
-  border-radius: 24px !important;
-  object-fit: contain !important;
-  background: #000000 !important;
-}
-
-.gallery-video-v3-dialog-surface {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 2 !important;
-  display: grid !important;
-  place-items: center !important;
-  border: 0 !important;
-  color: #ffffff !important;
-  background: transparent !important;
-  cursor: pointer !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-.gallery-video-v3-dialog-surface span {
-  display: inline-flex !important;
-  width: 88px !important;
-  height: 88px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding-left: 6px !important;
-  border: 1px solid rgba(255, 255, 255, 0.48) !important;
-  border-radius: 999px !important;
-  color: #ffffff !important;
-  background: rgba(15, 119, 115, 0.76) !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.26) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  font-size: 1.9rem !important;
-  line-height: 1 !important;
-  transition:
-    opacity 160ms ease,
-    visibility 160ms ease,
-    transform 160ms ease !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-.gallery-video-v3-dialog-shell.is-playing .gallery-video-v3-dialog-surface span,
-.gallery-video-v3-dialog-shell.is-playing:hover .gallery-video-v3-dialog-surface span,
-.gallery-video-v3-dialog-shell.is-playing .gallery-video-v3-dialog-surface:focus-visible span {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transform: scale(0.82) !important;
-}
-
-.gallery-video-v3-dialog-shell:not(.is-playing) .gallery-video-v3-dialog-surface span {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: scale(1) !important;
-}
-
-.gallery-video-v3-dialog-close {
-  position: fixed !important;
-  top: max(14px, env(safe-area-inset-top)) !important;
-  right: max(14px, env(safe-area-inset-right)) !important;
-  z-index: 2147483004 !important;
-  display: inline-flex !important;
-  width: 52px !important;
-  height: 52px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border: 1px solid rgba(255, 255, 255, 0.46) !important;
-  border-radius: 999px !important;
-  color: #ffffff !important;
-  background: rgba(15, 119, 115, 0.82) !important;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  font-size: 2rem !important;
-  line-height: 1 !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-.gallery-video-v3-dialog-toolbar {
-  position: fixed !important;
-  left: 50% !important;
-  bottom: max(18px, env(safe-area-inset-bottom)) !important;
-  z-index: 2147483004 !important;
-  display: flex !important;
-  gap: 10px !important;
-  transform: translateX(-50%) !important;
-}
-
-.gallery-video-v3-dialog-toolbar button {
-  width: 52px !important;
-  height: 52px !important;
-  font-size: 1.3rem !important;
-}
-
-@media (max-width: 760px) {
-  .gallery-video-card {
-    flex: 0 0 min(82vw, 360px) !important;
-    width: min(82vw, 360px) !important;
-    padding: 7px !important;
-    border-radius: 28px !important;
-  }
-
-  .gallery-video-v3-media {
-    height: 350px !important;
-    border-radius: 20px !important;
-  }
-
-  .gallery-video-v3-video,
-  .gallery-video-v3-surface {
-    border-radius: 20px !important;
-  }
-
-  .gallery-video-v3-surface span {
-    width: 66px !important;
-    height: 66px !important;
-  }
-
-  .gallery-video-v3-dialog-shell {
-    padding:
-      max(12px, env(safe-area-inset-top))
-      max(10px, env(safe-area-inset-right))
-      max(12px, env(safe-area-inset-bottom))
-      max(10px, env(safe-area-inset-left)) !important;
-  }
-
-  .gallery-video-v3-dialog-video {
-    width: 100% !important;
-    height: 100% !important;
-    max-height: 100dvh !important;
-    border-radius: 18px !important;
-  }
-
-  .gallery-video-v3-dialog-close,
-  .gallery-video-v3-dialog-toolbar button {
-    width: 48px !important;
-    height: 48px !important;
-  }
-}
-
-@media (hover: none) {
-  .gallery-video-v3-media.is-playing .gallery-video-v3-surface span,
-  .gallery-video-v3-dialog-shell.is-playing .gallery-video-v3-dialog-surface span {
-    opacity: 0 !important;
-  }
-}
-
 </style>
 
 <script>
-  const initGalleryVideoControls = () => {
-    const roots = document.querySelectorAll(
-      "[data-gallery-video-root]:not([data-gallery-video-ready])"
-    );
+  const bindGallerySlider = (section: HTMLElement) => {
+    const track = section.querySelector<HTMLElement>("[data-slider-track]");
+    const previous = section.querySelector<HTMLButtonElement>("[data-slider-prev]");
+    const next = section.querySelector<HTMLButtonElement>("[data-slider-next]");
 
-    roots.forEach((root) => {
-      root.setAttribute("data-gallery-video-ready", "true");
+    if (!track || !previous || !next) return;
 
-      const viewport = root.querySelector("[data-gallery-video-viewport]");
-      const previous = root.querySelector("[data-gallery-video-prev]");
-      const next = root.querySelector("[data-gallery-video-next]");
-      const cards = Array.from(root.querySelectorAll("[data-gallery-video-card]"));
+    const getAmount = () => {
+      const firstCard = track.querySelector<HTMLElement>(".gallery-photo-card");
+      if (!firstCard) return Math.min(track.clientWidth * 0.86, 760);
+      return firstCard.getBoundingClientRect().width + 14;
+    };
 
-      const pauseAllCardVideosExcept = (exception) => {
-        cards.forEach((card) => {
-          const video = card.querySelector("[data-gallery-video-card-video]");
-          if (video instanceof HTMLVideoElement && video !== exception) {
-            video.pause();
-          }
-        });
-      };
+    previous.addEventListener("click", () => {
+      track.scrollBy({ left: -getAmount(), behavior: "smooth" });
+    });
 
-      const updateCardState = (card, video) => {
-        const media = card.querySelector(".gallery-video-v3-media");
-        const bigIcon = card.querySelector("[data-gallery-video-card-big-icon]");
-        const smallIcon = card.querySelector("[data-gallery-video-card-small-icon]");
-        const playing = !video.paused && !video.ended;
-
-        media?.classList.toggle("is-playing", playing);
-
-        if (bigIcon) bigIcon.textContent = playing ? "Ⅱ" : "▶";
-        if (smallIcon) smallIcon.textContent = playing ? "Ⅱ" : "▶";
-
-        card.querySelectorAll("[data-gallery-video-card-toggle]").forEach((button) => {
-          button.setAttribute(
-            "aria-label",
-            playing ? "Zatrzymaj film" : "Odtwórz film"
-          );
-        });
-      };
-
-      cards.forEach((card) => {
-        const cardVideo = card.querySelector("[data-gallery-video-card-video]");
-        const dialog = card.querySelector("[data-gallery-video-dialog]");
-        const dialogVideo = card.querySelector("[data-gallery-video-dialog-video]");
-        const dialogShell = card.querySelector(".gallery-video-v3-dialog-shell");
-        const dialogBigIcon = card.querySelector("[data-gallery-video-dialog-big-icon]");
-        const dialogSmallIcon = card.querySelector("[data-gallery-video-dialog-small-icon]");
-
-        if (
-          !(cardVideo instanceof HTMLVideoElement) ||
-          !(dialog instanceof HTMLDialogElement) ||
-          !(dialogVideo instanceof HTMLVideoElement)
-        ) {
-          return;
-        }
-
-        cardVideo.muted = true;
-        dialogVideo.muted = true;
-
-        const toggleCardVideo = async () => {
-          if (cardVideo.paused || cardVideo.ended) {
-            pauseAllCardVideosExcept(cardVideo);
-
-            try {
-              await cardVideo.play();
-            } catch {
-              // Przeglądarka może wymagać ponownego kliknięcia.
-            }
-          } else {
-            cardVideo.pause();
-          }
-
-          updateCardState(card, cardVideo);
-        };
-
-        card.querySelectorAll("[data-gallery-video-card-toggle]").forEach((button) => {
-          button.addEventListener("click", async () => {
-            await toggleCardVideo();
-            if (button instanceof HTMLElement) button.blur();
-          });
-        });
-
-        cardVideo.addEventListener("play", () => updateCardState(card, cardVideo));
-        cardVideo.addEventListener("pause", () => updateCardState(card, cardVideo));
-        cardVideo.addEventListener("ended", () => updateCardState(card, cardVideo));
-
-        const updateDialogState = () => {
-          const playing = !dialogVideo.paused && !dialogVideo.ended;
-          dialogShell?.classList.toggle("is-playing", playing);
-
-          if (dialogBigIcon) dialogBigIcon.textContent = playing ? "Ⅱ" : "▶";
-          if (dialogSmallIcon) dialogSmallIcon.textContent = playing ? "Ⅱ" : "▶";
-
-          card.querySelectorAll("[data-gallery-video-dialog-toggle]").forEach((button) => {
-            button.setAttribute(
-              "aria-label",
-              playing ? "Zatrzymaj film" : "Odtwórz film"
-            );
-          });
-        };
-
-        const toggleDialogVideo = async () => {
-          if (dialogVideo.paused || dialogVideo.ended) {
-            try {
-              await dialogVideo.play();
-            } catch {
-              // Ręczny przycisk pozostaje dostępny.
-            }
-          } else {
-            dialogVideo.pause();
-          }
-
-          updateDialogState();
-        };
-
-        card.querySelectorAll("[data-gallery-video-dialog-toggle]").forEach((button) => {
-          button.addEventListener("click", async () => {
-            await toggleDialogVideo();
-            if (button instanceof HTMLElement) button.blur();
-          });
-        });
-
-        const openDialog = async () => {
-          const shouldContinuePlaying = !cardVideo.paused && !cardVideo.ended;
-          const currentTime = Number.isFinite(cardVideo.currentTime)
-            ? cardVideo.currentTime
-            : 0;
-
-          pauseAllCardVideosExcept(cardVideo);
-          cardVideo.pause();
-          updateCardState(card, cardVideo);
-
-          try {
-            dialogVideo.currentTime = currentTime;
-          } catch {
-            // Czas zostanie ustawiony po wczytaniu metadanych, jeżeli będzie to konieczne.
-          }
-
-          if (typeof dialog.showModal === "function") {
-            dialog.showModal();
-          } else {
-            dialog.setAttribute("open", "");
-          }
-
-          document.documentElement.style.overflow = "hidden";
-          document.body.style.overflow = "hidden";
-          updateDialogState();
-
-          if (shouldContinuePlaying) {
-            try {
-              await dialogVideo.play();
-            } catch {
-              // W dużym widoku pozostaje ręczny przycisk PLAY.
-            }
-
-            updateDialogState();
-          }
-        };
-
-        const closeDialog = () => {
-          const currentTime = Number.isFinite(dialogVideo.currentTime)
-            ? dialogVideo.currentTime
-            : cardVideo.currentTime;
-
-          dialogVideo.pause();
-          updateDialogState();
-
-          try {
-            cardVideo.currentTime = currentTime;
-          } catch {
-            // Synchronizacja czasu nie jest krytyczna.
-          }
-
-          if (dialog.open && typeof dialog.close === "function") {
-            dialog.close();
-          } else {
-            dialog.removeAttribute("open");
-          }
-
-          document.documentElement.style.overflow = "";
-          document.body.style.overflow = "";
-        };
-
-        card.querySelector("[data-gallery-video-open]")?.addEventListener(
-          "click",
-          openDialog
-        );
-
-        card.querySelectorAll("[data-gallery-video-close]").forEach((button) => {
-          button.addEventListener("click", closeDialog);
-        });
-
-        dialog.addEventListener("cancel", (event) => {
-          event.preventDefault();
-          closeDialog();
-        });
-
-        dialog.addEventListener("click", (event) => {
-          if (event.target === dialog) closeDialog();
-        });
-
-        dialogVideo.addEventListener("play", updateDialogState);
-        dialogVideo.addEventListener("pause", updateDialogState);
-        dialogVideo.addEventListener("ended", updateDialogState);
-
-        updateCardState(card, cardVideo);
-        updateDialogState();
-      });
-
-      const getScrollDistance = () => {
-        const firstCard = root.querySelector("[data-gallery-video-card]");
-        if (!(firstCard instanceof HTMLElement)) return 380;
-        return firstCard.getBoundingClientRect().width + 26;
-      };
-
-      previous?.addEventListener("click", () => {
-        viewport?.scrollBy({
-          left: -getScrollDistance(),
-          behavior: "smooth",
-        });
-      });
-
-      next?.addEventListener("click", () => {
-        viewport?.scrollBy({
-          left: getScrollDistance(),
-          behavior: "smooth",
-        });
-      });
+    next.addEventListener("click", () => {
+      track.scrollBy({ left: getAmount(), behavior: "smooth" });
     });
   };
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initGalleryVideoControls, {
-      once: true,
+  document.querySelectorAll<HTMLElement>("[data-gallery-section]").forEach((section) => {
+    bindGallerySlider(section);
+  });
+
+  const imageDialog = document.querySelector<HTMLDialogElement>("[data-image-dialog]");
+  const dialogImage = imageDialog?.querySelector<HTMLImageElement>("[data-dialog-image]");
+  const imageClose = imageDialog?.querySelector<HTMLButtonElement>("[data-image-close]");
+
+  const closeImageDialog = () => {
+    if (!imageDialog) return;
+
+    if (imageDialog.open && typeof imageDialog.close === "function") {
+      imageDialog.close();
+    } else {
+      imageDialog.removeAttribute("open");
+    }
+
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll<HTMLElement>("[data-gallery-image]").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!imageDialog || !dialogImage) return;
+
+      const src = button.dataset.imageSrc ?? "";
+      const alt = button.dataset.imageAlt ?? "";
+
+      dialogImage.src = src;
+      dialogImage.alt = alt;
+
+      if (typeof imageDialog.showModal === "function") {
+        imageDialog.showModal();
+      } else {
+        imageDialog.setAttribute("open", "");
+      }
+
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
     });
-  } else {
-    initGalleryVideoControls();
+  });
+
+  imageClose?.addEventListener("click", closeImageDialog);
+
+  imageDialog?.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeImageDialog();
+  });
+
+  imageDialog?.addEventListener("click", (event) => {
+    if (event.target === imageDialog) closeImageDialog();
+  });
+
+  const videoGallery = document.querySelector<HTMLElement>("[data-video-gallery]");
+
+  if (videoGallery) {
+    const videoTrack = videoGallery.querySelector<HTMLElement>("[data-video-track]");
+    const videoPrev = videoGallery.querySelector<HTMLButtonElement>("[data-video-prev]");
+    const videoNext = videoGallery.querySelector<HTMLButtonElement>("[data-video-next]");
+    const cards = Array.from(
+      videoGallery.querySelectorAll<HTMLElement>("[data-video-card]")
+    );
+
+    const getVideoAmount = () => {
+      const firstCard = videoTrack?.querySelector<HTMLElement>(".gallery-video-card");
+      if (!firstCard) return 380;
+      return firstCard.getBoundingClientRect().width + 14;
+    };
+
+    videoPrev?.addEventListener("click", () => {
+      videoTrack?.scrollBy({ left: -getVideoAmount(), behavior: "smooth" });
+    });
+
+    videoNext?.addEventListener("click", () => {
+      videoTrack?.scrollBy({ left: getVideoAmount(), behavior: "smooth" });
+    });
+
+    const pauseOtherVideos = (exception?: HTMLVideoElement) => {
+      cards.forEach((card) => {
+        const video = card.querySelector<HTMLVideoElement>("[data-card-video]");
+        if (video && video !== exception) video.pause();
+      });
+    };
+
+    cards.forEach((card) => {
+      const cardVideo = card.querySelector<HTMLVideoElement>("[data-card-video]");
+      const cardMedia = card.querySelector<HTMLElement>(".gallery-video-media");
+      const cardIcon = card.querySelector<HTMLElement>("[data-card-icon]");
+      const cardSmallIcon = card.querySelector<HTMLElement>("[data-card-small-icon]");
+      const dialog = card.querySelector<HTMLDialogElement>("[data-video-dialog]");
+      const dialogVideo = card.querySelector<HTMLVideoElement>("[data-dialog-video]");
+      const dialogShell = card.querySelector<HTMLElement>(".gallery-video-dialog-shell");
+      const dialogIcon = card.querySelector<HTMLElement>("[data-dialog-icon]");
+      const dialogSmallIcon = card.querySelector<HTMLElement>("[data-dialog-small-icon]");
+
+      if (!cardVideo || !dialog || !dialogVideo) return;
+
+      cardVideo.muted = true;
+      dialogVideo.muted = true;
+
+      const updateCard = () => {
+        const playing = !cardVideo.paused && !cardVideo.ended;
+        cardMedia?.classList.toggle("is-playing", playing);
+        if (cardIcon) cardIcon.textContent = playing ? "Ⅱ" : "▶";
+        if (cardSmallIcon) cardSmallIcon.textContent = playing ? "Ⅱ" : "▶";
+      };
+
+      const toggleCard = async () => {
+        if (cardVideo.paused || cardVideo.ended) {
+          pauseOtherVideos(cardVideo);
+          try {
+            await cardVideo.play();
+          } catch {
+            // Ponowne kliknięcie pozostaje dostępne.
+          }
+        } else {
+          cardVideo.pause();
+        }
+        updateCard();
+      };
+
+      card.querySelectorAll<HTMLElement>("[data-card-toggle]").forEach((button) => {
+        button.addEventListener("click", toggleCard);
+      });
+
+      cardVideo.addEventListener("play", updateCard);
+      cardVideo.addEventListener("pause", updateCard);
+      cardVideo.addEventListener("ended", updateCard);
+
+      const updateDialog = () => {
+        const playing = !dialogVideo.paused && !dialogVideo.ended;
+        dialogShell?.classList.toggle("is-playing", playing);
+        if (dialogIcon) dialogIcon.textContent = playing ? "Ⅱ" : "▶";
+        if (dialogSmallIcon) dialogSmallIcon.textContent = playing ? "Ⅱ" : "▶";
+      };
+
+      const toggleDialog = async () => {
+        if (dialogVideo.paused || dialogVideo.ended) {
+          try {
+            await dialogVideo.play();
+          } catch {
+            // Przycisk PLAY pozostaje dostępny.
+          }
+        } else {
+          dialogVideo.pause();
+        }
+        updateDialog();
+      };
+
+      card.querySelectorAll<HTMLElement>("[data-dialog-toggle]").forEach((button) => {
+        button.addEventListener("click", toggleDialog);
+      });
+
+      const openDialog = async () => {
+        const continuePlaying = !cardVideo.paused && !cardVideo.ended;
+        const currentTime = Number.isFinite(cardVideo.currentTime)
+          ? cardVideo.currentTime
+          : 0;
+
+        cardVideo.pause();
+        updateCard();
+
+        try {
+          dialogVideo.currentTime = currentTime;
+        } catch {
+          // Synchronizacja czasu nie jest krytyczna.
+        }
+
+        if (typeof dialog.showModal === "function") {
+          dialog.showModal();
+        } else {
+          dialog.setAttribute("open", "");
+        }
+
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
+
+        if (continuePlaying) {
+          try {
+            await dialogVideo.play();
+          } catch {
+            // Ręczne wznowienie pozostaje dostępne.
+          }
+        }
+
+        updateDialog();
+      };
+
+      const closeDialog = () => {
+        const currentTime = Number.isFinite(dialogVideo.currentTime)
+          ? dialogVideo.currentTime
+          : cardVideo.currentTime;
+
+        dialogVideo.pause();
+
+        try {
+          cardVideo.currentTime = currentTime;
+        } catch {
+          // Synchronizacja czasu nie jest krytyczna.
+        }
+
+        if (dialog.open && typeof dialog.close === "function") {
+          dialog.close();
+        } else {
+          dialog.removeAttribute("open");
+        }
+
+        document.documentElement.style.overflow = "";
+        document.body.style.overflow = "";
+        updateDialog();
+      };
+
+      card.querySelector<HTMLElement>("[data-video-open]")?.addEventListener(
+        "click",
+        openDialog
+      );
+
+      card.querySelectorAll<HTMLElement>("[data-video-close]").forEach((button) => {
+        button.addEventListener("click", closeDialog);
+      });
+
+      dialog.addEventListener("cancel", (event) => {
+        event.preventDefault();
+        closeDialog();
+      });
+
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) closeDialog();
+      });
+
+      dialogVideo.addEventListener("play", updateDialog);
+      dialogVideo.addEventListener("pause", updateDialog);
+      dialogVideo.addEventListener("ended", updateDialog);
+
+      updateCard();
+      updateDialog();
+    });
   }
-
-  document.addEventListener("astro:page-load", initGalleryVideoControls);
 </script>
-
