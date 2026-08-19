@@ -6,10 +6,10 @@ import Footer from "../components/Footer.astro";
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
-const pageUrl = "https://permanentnybielsko.com/makijaz-permanentny-ust/";
-const pageTitle = "Makijaż permanentny ust Bielsko-Biała | Naturalny kolor ust";
+const pageUrl = "https://www.permanentnybielsko.com/makijaz-permanentny-ust/";
+const pageTitle = "Makijaż permanentny ust Bielsko-Biała | Usta permanentne 1400 zł";
 const pageDescription =
-  "Makijaż permanentny ust Bielsko-Biała: naturalne odświeżenie koloru, wyrównanie czerwieni wargowej, miękki kontur i subtelny efekt bez przerysowania u  Herda.";
+  "Makijaż permanentny ust Bielsko-Biała u Bogusławy Herda. Naturalny kolor, miękki kontur i indywidualny dobór pigmentu. Cena 1400 zł. Zobacz efekty i terminy.";
 
 const lipsGalleryNumbers = [
   "02",
@@ -145,6 +145,11 @@ const avoidItems = [
 
 const faqItems = [
   {
+    question: "Ile kosztuje makijaż permanentny ust w Bielsku-Białej?",
+    answer:
+      "Makijaż permanentny ust kosztuje 1400 zł. Cena oznaczona w cenniku gwiazdką obejmuje zabieg główny wraz z korektą w terminie 1–3 miesiące.",
+  },
+  {
     question: "Czy makijaż permanentny ust powiększa usta?",
     answer:
       "Nie. Pigmentacja ust nie jest zabiegiem powiększania ust. Może optycznie uporządkować kontur i odświeżyć kolor, ale nie zastępuje zabiegów wolumetrycznych.",
@@ -196,14 +201,14 @@ const structuredData = [
     description: pageDescription,
     inLanguage: "pl-PL",
     isPartOf: {
-      "@id": "https://permanentnybielsko.com/#website",
+      "@id": "https://www.permanentnybielsko.com/#website",
     },
     about: {
-      "@id": "https://permanentnybielsko.com/#localbusiness",
+      "@id": "https://www.permanentnybielsko.com/#localbusiness",
     },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: "https://permanentnybielsko.com/images/makijaz-permanentny-ust-bielsko-biala-efekt-01.webp",
+      url: "https://www.permanentnybielsko.com/images/makijaz-permanentny-ust-bielsko-biala-efekt-01.webp",
     },
   },
   {
@@ -215,13 +220,13 @@ const structuredData = [
         "@type": "ListItem",
         position: 1,
         name: "Strona główna",
-        item: "https://permanentnybielsko.com/",
+        item: "https://www.permanentnybielsko.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Makijaż permanentny Bielsko-Biała",
-        item: "https://permanentnybielsko.com/makijaz-permanentny-bielsko/",
+        item: "https://www.permanentnybielsko.com/makijaz-permanentny-bielsko/",
       },
       {
         "@type": "ListItem",
@@ -250,7 +255,13 @@ const structuredData = [
       },
     ],
     provider: {
-      "@id": "https://permanentnybielsko.com/#localbusiness",
+      "@id": "https://www.permanentnybielsko.com/#localbusiness",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "1400",
+      priceCurrency: "PLN",
+      url: pageUrl,
     },
     brand: {
       "@type": "Brand",
@@ -330,21 +341,29 @@ const structuredData = [
             </h1>
 
             <p class="lips-hero-lead">
-              Permanentny makijaż ust może subtelnie wyrównać czerwień wargową,
-              podkreślić kontur i nadać ustom świeższy wygląd. Celem nie jest
-              powiększanie ust, tylko naturalne wydobycie ich koloru, kształtu
-              i proporcji twarzy.
+              Naturalny kolor, miękki kontur i pigmentacja dopasowana do urody.
+              Usta permanentne kosztują 1400 zł, a każdy zabieg poprzedza analiza
+              czerwieni wargowej i rysunek wstępny.
             </p>
 
-            <div class="lips-hero-actions">
-              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-                Umów konsultację
+            <div class="lips-hero-actions" aria-label="Makijaż permanentny ust — szybkie działania">
+              <a class="button-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Booksy <span aria-hidden="true">→</span>
               </a>
 
-              <a class="button-secondary" href="#zakres-ust">
-                Zobacz zakres
+              <a class="button-primary" href="#efekty-ust">
+                Zobacz efekty <span aria-hidden="true">→</span>
+              </a>
+
+              <a class="button-secondary" href="/cennik-makijaz-permanentny/">
+                Cennik
               </a>
             </div>
+
+            <p class="lips-hero-note">
+              Masz wcześniejszą pigmentację, skłonność do opryszczki albo nie wiesz,
+              jaki kolor wybrać? Najpierw skorzystaj z kwalifikacji PMU.
+            </p>
           </div>
 
           <aside class="lips-hero-card" aria-label="Makijaż permanentny ust">
@@ -376,8 +395,8 @@ const structuredData = [
           </div>
 
           <div>
-            <strong>Dopigmentowanie</strong>
-            <span>finalne dopracowanie po wygojeniu</span>
+            <strong>1400 zł</strong>
+            <span>zabieg z korektą zgodnie z cennikiem</span>
           </div>
         </div>
       </section>
@@ -464,26 +483,24 @@ const structuredData = [
 
           <div class="lips-methods-controls" aria-label="Przewijanie metod pigmentacji ust">
             <button
-              class="lips-methods-arrow"
+              class="lips-methods-arrow lips-method-arrow-left"
               type="button"
               aria-label="Przewiń metody ust w lewo"
-              onclick="document.querySelector('.lips-methods-track')?.scrollBy({ left: -430, behavior: 'smooth' })"
             >
               ←
             </button>
 
             <button
-              class="lips-methods-arrow"
+              class="lips-methods-arrow lips-method-arrow-right"
               type="button"
               aria-label="Przewiń metody ust w prawo"
-              onclick="document.querySelector('.lips-methods-track')?.scrollBy({ left: 430, behavior: 'smooth' })"
             >
               →
             </button>
           </div>
         </div>
 
-        <div class="lips-methods-track" aria-label="Metody pigmentacji ust">
+        <div class="lips-methods-track" id="lipsMethodScroll" aria-label="Metody pigmentacji ust">
           <article class="lips-method-premium-card">
             <span>01</span>
             <h3>Natural Lips</h3>
@@ -528,6 +545,20 @@ const structuredData = [
               Efekt ma wyglądać lekko, czysto i spójnie z twarzą.
             </p>
           </article>
+        </div>
+
+        <div class="container lips-price-strip" aria-label="Cena makijażu permanentnego ust">
+          <div>
+            <span>Makijaż permanentny ust</span>
+            <strong>1400 zł</strong>
+          </div>
+          <div>
+            <span>Konsultacja</span>
+            <strong>50 zł</strong>
+          </div>
+          <a href="/cennik-makijaz-permanentny/">
+            Pełny cennik <span aria-hidden="true">→</span>
+          </a>
         </div>
       </section>
 
@@ -600,7 +631,6 @@ const structuredData = [
         class="lips-gallery-arrow lips-gallery-arrow-prev"
         type="button"
         aria-label="Przewiń efekty ust w lewo"
-        onclick="document.querySelector('.lips-gallery-viewport')?.scrollBy({ left: -430, behavior: 'smooth' })"
       >
         ←
       </button>
@@ -609,14 +639,13 @@ const structuredData = [
         class="lips-gallery-arrow lips-gallery-arrow-next"
         type="button"
         aria-label="Przewiń efekty ust w prawo"
-        onclick="document.querySelector('.lips-gallery-viewport')?.scrollBy({ left: 430, behavior: 'smooth' })"
       >
         →
       </button>
     </div>
   </div>
 
-  <div class="lips-gallery-viewport" aria-label="Galeria efektów makijażu permanentnego ust">
+  <div class="lips-gallery-viewport" id="lipsGalleryScroll" aria-label="Galeria efektów makijażu permanentnego ust">
     <div class="lips-gallery-track">
       {lipsGalleryImages.map((image) => (
         <figure class="lips-gallery-card lips-media-frame">
@@ -740,12 +769,17 @@ const structuredData = [
             <h2>Co warto wiedzieć przed makijażem permanentnym ust?</h2>
           </div>
 
-          <div class="lips-faq-grid">
+          <div class="lips-faq-list">
             {faqItems.map((item) => (
-              <article>
-                <h3>{item.question}</h3>
-                <p>{item.answer}</p>
-              </article>
+              <details class="lips-faq-item">
+                <summary>
+                  <span>{item.question}</span>
+                  <span class="lips-faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div>
+                  <p>{item.answer}</p>
+                </div>
+              </details>
             ))}
           </div>
         </div>
@@ -760,9 +794,17 @@ const structuredData = [
             do Twojego koloru skóry, czerwieni wargowej i codzienności.
           </p>
 
-          <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-            Umów wizytę przez Booksy
-          </a>
+          <div class="lips-final-actions">
+            <a class="button-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+              Booksy <span aria-hidden="true">→</span>
+            </a>
+            <a class="button-primary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
+              Formularz PMU <span aria-hidden="true">→</span>
+            </a>
+            <a class="button-secondary" href="tel:+48730900125">
+              Zadzwoń
+            </a>
+          </div>
         </div>
       </section>
     </main>
@@ -776,10 +818,20 @@ const structuredData = [
     min-height: 100vh;
     overflow-x: hidden;
     background:
-      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.12), transparent 28rem),
-      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.12), transparent 26rem),
-      linear-gradient(180deg, #fffdfd 0%, #fff8fa 48%, #ffffff 100%);
+      radial-gradient(circle at 78% 11%, rgba(56, 187, 181, 0.10), transparent 28rem),
+      radial-gradient(circle at 12% 42%, rgba(201, 127, 143, 0.10), transparent 26rem),
+      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
   }
+
+  .lips-page *,
+  .lips-page *::before,
+  .lips-page *::after { box-sizing: border-box; }
+
+  .lips-page main,
+  .lips-page section,
+  .lips-page .container,
+  .lips-page div,
+  .lips-page figure { min-width: 0; }
 
   .lips-page .section-kicker {
     display: inline-flex;
@@ -790,10 +842,11 @@ const structuredData = [
     justify-content: center;
     margin: 0 0 18px;
     padding: 0 13px;
-    border: 1px solid rgba(56, 187, 181, 0.18);
+    border: 1px solid rgba(56, 187, 181, 0.16);
     border-radius: 999px;
-    background: rgba(219, 246, 243, 0.76);
+    background: rgba(219, 246, 243, 0.72);
     color: var(--color-turquoise-dark, #0f7773);
+    font-family: inherit;
     font-size: 0.7rem;
     font-weight: 850;
     line-height: 1;
@@ -802,2135 +855,456 @@ const structuredData = [
   }
 
   .lips-page .section-kicker-light {
-    border-color: rgba(255, 255, 255, 0.24);
-    background: rgba(255, 255, 255, 0.14);
-    color: #ffffff;
+    border-color: rgba(255,255,255,.24);
+    background: rgba(255,255,255,.14);
+    color: #fff;
   }
 
   .lips-hero {
     position: relative;
-    padding: 150px 0 88px;
+    padding: 146px 0 78px;
     overflow: hidden;
   }
 
-  .lips-glow {
-    position: absolute;
-    pointer-events: none;
-    border-radius: 999px;
-  }
-
-  .lips-glow-one {
-    right: -12rem;
-    top: 4rem;
-    width: 42rem;
-    height: 42rem;
-    background: radial-gradient(circle, rgba(56, 187, 181, 0.2), transparent 68%);
-  }
-
-  .lips-glow-two {
-    left: -10rem;
-    bottom: -12rem;
-    width: 38rem;
-    height: 38rem;
-    background: radial-gradient(circle, rgba(201, 127, 143, 0.18), transparent 68%);
-  }
+  .lips-glow { position:absolute; border-radius:999px; pointer-events:none; }
+  .lips-glow-one { top:3rem; right:-13rem; width:42rem; height:42rem; background:radial-gradient(circle,rgba(56,187,181,.18),transparent 68%); }
+  .lips-glow-two { left:-11rem; bottom:-14rem; width:38rem; height:38rem; background:radial-gradient(circle,rgba(201,127,143,.16),transparent 68%); }
 
   .lips-hero-grid {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+    grid-template-columns: minmax(0,1.08fr) minmax(340px,.92fr);
     gap: 24px;
     align-items: stretch;
   }
 
   .lips-hero-copy,
   .lips-hero-card,
-  .lips-text-card,
-  .lips-mini-card,
-  .lips-method-card,
+  .lips-natural-look-card,
+  .lips-method-premium-card,
+  .lips-methods-collage-card,
+  .lips-signature-card,
+  .lips-process-visual-copy,
+  .lips-process-visual-photo,
   .lips-process-grid article,
+  .lips-avoid-heading,
+  .premium-points-list,
   .lips-related-card,
-  .lips-faq-grid article,
-  .lips-final-card,
-  .lips-media-frame {
-    border: 1px solid rgba(183, 101, 118, 0.16);
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
+  .lips-faq-item,
+  .lips-final-card {
+    border: 1px solid rgba(183,101,118,.14);
+    box-shadow: 0 18px 54px rgba(89,53,67,.07);
   }
 
   .lips-hero-copy {
-    display: flex;
-    min-height: 620px;
-    flex-direction: column;
-    justify-content: center;
-    padding: clamp(38px, 5vw, 72px);
-    border-radius: 44px;
-    background:
-      radial-gradient(circle at 92% 14%, rgba(56, 187, 181, 0.10), transparent 16rem),
-      rgba(255, 255, 255, 0.78);
+    padding: clamp(38px,5vw,68px);
+    border-radius: 40px;
+    background: rgba(255,255,255,.82);
   }
 
   .lips-hero-copy h1 {
-    max-width: 1080px;
+    max-width: 1000px;
     margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
-    font-weight: 760;
-    line-height: 1.02;
-    letter-spacing: -0.074em;
+    color: var(--color-text,#17151d);
+    font-family: inherit;
+    font-size: clamp(3rem,5.2vw,6.1rem);
+    font-weight: 770;
+    line-height: .99;
+    letter-spacing: -.076em;
   }
 
   .pmu-hero-rose-text {
-    color: #b76576;
-    background: linear-gradient(120deg, #7f344d 0%, #b76576 24%, #d7899f 48%, #9d4f68 72%, #6f3046 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color:#b76576;
+    background:linear-gradient(120deg,#7f344d 0%,#b76576 24%,#d7899f 48%,#9d4f68 72%,#6f3046 100%);
+    background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
   }
 
-  .lips-hero-lead {
-    max-width: 780px;
-    margin: 28px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 1.12rem;
-    line-height: 1.68;
+  .lips-hero-lead,
+  .lips-hero-note { max-width:760px; color:var(--color-muted,#6e6670); font-family:inherit; }
+  .lips-hero-lead { margin:26px 0 0; font-size:clamp(1.02rem,1.25vw,1.12rem); line-height:1.68; }
+  .lips-hero-note { margin:17px 0 0; font-size:.92rem; line-height:1.58; }
+
+  .lips-hero-actions,
+  .lips-final-actions {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+    width:100%;
+    margin-top:30px;
   }
 
-  .lips-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 34px;
+  .lips-hero-actions > a,
+  .lips-final-actions > a {
+    display:inline-flex;
+    width:100%;
+    min-width:0;
+    min-height:58px;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding-inline:18px;
+    border-radius:999px;
+    font-family:inherit !important;
+    font-size:.98rem !important;
+    font-weight:820 !important;
+    line-height:1 !important;
+    letter-spacing:-.02em !important;
+    text-align:center;
+    text-transform:none !important;
+    white-space:nowrap;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  .button-booksy {
+    border:1px solid rgba(8,111,91,.16);
+    background:linear-gradient(135deg,#18a889 0%,#0f8f78 55%,#0b7868 100%);
+    color:#fff;
+    text-decoration:none;
+    box-shadow:0 14px 34px rgba(15,143,120,.16);
   }
 
   .lips-hero-card {
-    position: relative;
-    display: flex;
-    min-height: 620px;
-    flex-direction: column;
-    justify-content: flex-end;
-    overflow: hidden;
-    padding: clamp(38px, 5vw, 72px);
-    border-radius: 44px;
-    color: #ffffff;
+    position:relative;
+    min-height:420px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    overflow:hidden;
+    padding:clamp(34px,4vw,52px);
+    border-radius:40px;
+    color:#fff;
     background:
-      radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.34), transparent 13rem),
-      radial-gradient(circle at 82% 84%, rgba(127, 52, 77, 0.22), transparent 18rem),
-      linear-gradient(145deg, #d992a7 0%, #c97894 36%, #b76576 72%, #9c4e68 100%);
-    box-shadow: 0 28px 76px rgba(183, 101, 118, 0.22);
-  }
-
-  .lips-hero-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(
-        110deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.06) 22%,
-        rgba(255, 255, 255, 0.24) 47%,
-        rgba(255, 255, 255, 0.06) 72%,
-        transparent 100%
-      );
-    transform: translateX(-72%);
-    animation: lips-panel-shine 8s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .lips-hero-card > * {
-    position: relative;
-    z-index: 2;
+      radial-gradient(circle at 18% 16%,rgba(255,255,255,.34),transparent 12rem),
+      radial-gradient(circle at 84% 20%,rgba(255,219,231,.42),transparent 13rem),
+      linear-gradient(145deg,#d992a7 0%,#c97894 38%,#b76576 67%,#8e3b58 100%);
+    box-shadow:0 28px 76px rgba(183,101,118,.23);
   }
 
   .lips-card-label {
-    position: absolute;
-    top: clamp(34px, 3.4vw, 54px);
-    left: clamp(52px, 5.4vw, 88px);
-    margin: 0;
-    color: rgba(255, 255, 255, 0.24);
-    font-size: clamp(6.2rem, 9vw, 11.8rem);
-    font-weight: 850;
-    line-height: 0.78;
-    letter-spacing: -0.085em;
-    text-transform: none;
+    position:absolute;
+    top:32px;
+    left:38px;
+    margin:0;
+    color:rgba(255,255,255,.22);
+    font-family:inherit;
+    font-size:clamp(4.8rem,7.4vw,8rem);
+    font-weight:850;
+    line-height:.8;
+    letter-spacing:-.1em;
   }
 
-  .lips-hero-card h2 {
-    max-width: 620px;
-    margin: 0;
-    color: #ffffff;
-    font-size: clamp(2.15rem, 3.7vw, 4.35rem);
-    font-weight: 780;
-    line-height: 1;
-    letter-spacing: -0.075em;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
-  }
+  .lips-hero-card h2 { margin:116px 0 0; color:#fff; font-size:clamp(2rem,3vw,3.15rem); font-weight:770; line-height:1; letter-spacing:-.068em; }
+  .lips-hero-card p:not(.lips-card-label) { margin:18px 0 0; color:rgba(255,255,255,.9); font-size:1rem; line-height:1.64; }
 
-  .lips-hero-card p:not(.lips-card-label) {
-    max-width: 620px;
-    margin: 22px 0 0;
-    color: rgba(255, 255, 255, 0.88);
-    font-size: 1.05rem;
-    line-height: 1.65;
-  }
-
-  @keyframes lips-panel-shine {
-    0%,
-    45% {
-      transform: translateX(-72%);
-    }
-
-    100% {
-      transform: translateX(72%);
-    }
-  }
-
-  .lips-media-frame {
-    position: relative;
-    overflow: hidden;
-    padding: 8px;
-    border-radius: 32px;
-    background: rgba(255, 255, 255, 0.92);
-  }
-
-  .lips-media-frame::after {
-    content: "";
-    position: absolute;
-    inset: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.54);
-    border-radius: 24px;
-    pointer-events: none;
-  }
-
-  .lips-media-frame img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 24px;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .lips-signature-media,
-  .lips-gallery-card {
-    margin: 0;
-  }
-
-  .lips-proof-section {
-    border-top: 1px solid rgba(183, 101, 118, 0.10);
-    border-bottom: 1px solid rgba(183, 101, 118, 0.10);
-    background: rgba(255, 255, 255, 0.74);
-  }
-
-  .lips-proof-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .lips-proof-grid div {
-    min-height: 112px;
-    padding: 24px 22px;
-    border-right: 1px solid rgba(183, 101, 118, 0.12);
-  }
-
-  .lips-proof-grid div:last-child {
-    border-right: 0;
-  }
-
-  .lips-proof-grid strong {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--color-text, #17151d);
-    font-size: 0.92rem;
-    font-weight: 780;
-    letter-spacing: -0.02em;
-  }
-
-  .lips-proof-grid span {
-    display: block;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.72rem;
-    font-weight: 650;
-    line-height: 1.55;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-  }
+  .lips-proof-section { border-top:1px solid rgba(183,101,118,.1); border-bottom:1px solid rgba(183,101,118,.1); background:rgba(255,255,255,.74); }
+  .lips-proof-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .lips-proof-grid > div { min-height:112px; padding:24px 22px; border-right:1px solid rgba(183,101,118,.12); }
+  .lips-proof-grid > div:last-child { border-right:0; }
+  .lips-proof-grid strong { display:block; margin-bottom:7px; color:var(--color-text,#17151d); font-size:.94rem; font-weight:790; }
+  .lips-proof-grid span { display:block; color:var(--color-muted,#6e6670); font-size:.7rem; font-weight:650; line-height:1.5; letter-spacing:.13em; text-transform:uppercase; }
 
   .lips-intro-section,
   .lips-types-section,
+  .lips-signature-section,
+  .lips-gallery-section,
   .lips-process-section,
   .lips-avoid-section,
   .lips-related-section,
   .lips-faq-section,
-  .lips-final-cta {
-    padding: 88px 0;
-  }
-
-  .lips-two-column,
-  .lips-avoid-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: 54px;
-    align-items: start;
-  }
+  .lips-final-cta { padding:82px 0; }
 
   .lips-natural-look-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-    gap: clamp(34px, 4vw, 64px);
-    align-items: center;
-    overflow: hidden;
-    padding: clamp(22px, 2.8vw, 34px);
-    border: 1px solid rgba(183, 101, 118, 0.14);
-    border-radius: 46px;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.10), transparent 18rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 248, 251, 0.92));
-    box-shadow: 0 22px 68px rgba(89, 53, 67, 0.08);
+    display:grid;
+    grid-template-columns:minmax(0,1.06fr) minmax(320px,.94fr);
+    gap:clamp(24px,4vw,48px);
+    align-items:center;
+    padding:clamp(18px,2.6vw,30px);
+    border-radius:40px;
+    background:radial-gradient(circle at 88% 16%,rgba(56,187,181,.11),transparent 18rem),rgba(255,255,255,.86);
   }
 
-  .lips-natural-look-media {
-    position: relative;
-    min-height: clamp(420px, 42vw, 620px);
-    margin: 0;
-    overflow: hidden;
-    border-radius: 34px;
-    background: rgba(255, 255, 255, 0.86);
-    box-shadow:
-      0 22px 54px rgba(89, 53, 67, 0.12),
-      0 0 0 1px rgba(255, 255, 255, 0.64) inset;
-  }
-
-  .lips-natural-look-media::after {
-    content: "";
-    position: absolute;
-    inset: 18px;
-    border: 1.5px solid rgba(255, 255, 255, 0.58);
-    border-radius: 26px;
-    pointer-events: none;
-  }
-
-  .lips-natural-look-media img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: clamp(420px, 42vw, 620px);
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .lips-natural-look-copy {
-    padding: clamp(8px, 1.4vw, 18px);
-  }
+  .lips-natural-look-media { position:relative; min-height:430px; margin:0; overflow:hidden; border-radius:30px; background:#fff; }
+  .lips-natural-look-media img { display:block; width:100%; height:100%; min-height:430px; object-fit:cover; }
+  .lips-natural-look-copy { padding:clamp(18px,3vw,38px); }
 
   .lips-natural-look-copy h2,
-  .lips-two-column h2,
-  .lips-section-heading h2,
+  .lips-for-who-heading h2,
+  .lips-methods-heading h2,
+  .lips-process-visual-copy h2,
   .lips-avoid-heading h2,
+  .lips-section-heading h2,
   .lips-final-card h2 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
-    font-weight: 760;
-    line-height: 1.02;
-    letter-spacing: -0.074em;
+    margin:0;
+    color:var(--color-text,#17151d);
+    font-family:inherit;
+    font-size:clamp(2.35rem,4vw,4.25rem);
+    font-weight:760;
+    line-height:1.02;
+    letter-spacing:-.072em;
   }
 
-  .lips-natural-look-copy h2 {
-    max-width: 720px;
-    font-size: clamp(2.55rem, 4.45vw, 5rem);
-    font-weight: 780;
-    line-height: 0.98;
-    letter-spacing: -0.078em;
-  }
-
-  .lips-natural-look-copy p:not(.section-kicker) {
-    max-width: 760px;
-    margin: 24px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: clamp(1.04rem, 1.28vw, 1.22rem);
-    line-height: 1.72;
-  }
-
-  .lips-for-who-heading {
-    max-width: 1120px;
-    margin-top: 72px;
-    margin-bottom: 34px;
-  }
-
-  .lips-for-who-heading h2 {
-    max-width: 980px;
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(2.35rem, 4vw, 4.2rem);
-    font-weight: 760;
-    line-height: 1.03;
-    letter-spacing: -0.074em;
-  }
-
-  .lips-text-card {
-    padding: 34px;
-    border-radius: 34px;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
-  }
-
-  .lips-text-card p,
-  .lips-section-heading p,
+  .lips-natural-look-copy p:not(.section-kicker),
+  .lips-methods-heading p:not(.section-kicker),
+  .lips-process-visual-copy p:not(.section-kicker),
   .lips-avoid-heading p,
-  .lips-final-card p:not(.signature) {
-    color: var(--color-muted, #6e6670);
-    font-weight: 450;
-    line-height: 1.65;
+  .lips-section-heading p,
+  .lips-final-card p:not(.signature) { color:var(--color-muted,#6e6670); font-size:clamp(.98rem,1.15vw,1.06rem); line-height:1.7; }
+
+  .lips-natural-look-copy p:not(.section-kicker) { margin:18px 0 0; }
+  .lips-for-who-heading { max-width:1000px; margin-top:62px; margin-bottom:28px; }
+  .lips-for-who-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+  .lips-for-who-card { margin:0; overflow:hidden; border:1px solid rgba(183,101,118,.14); border-radius:28px; background:#fff; box-shadow:0 18px 46px rgba(89,53,67,.07); }
+  .lips-for-who-card img { display:block; width:100%; height:auto; aspect-ratio:1200/754; object-fit:cover; }
+
+  .lips-methods-premium-section { overflow:hidden; }
+  .lips-methods-heading { max-width:1000px; margin-bottom:30px; }
+  .lips-methods-collage-card { position:relative; width:min(100%,1120px); margin:0 auto 22px; overflow:hidden; padding:14px; border-radius:34px; background:rgba(255,255,255,.9); }
+  .lips-methods-collage-card img { display:block; width:100%; height:auto; border-radius:24px; }
+  .lips-methods-controls { display:flex; justify-content:flex-end; gap:10px; width:min(100%,1120px); margin:0 auto 14px; }
+
+  .lips-methods-arrow,
+  .lips-gallery-arrow {
+    width:48px;
+    height:48px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(56,187,181,.18);
+    border-radius:999px;
+    background:rgba(255,255,255,.86);
+    color:var(--color-turquoise-dark,#0f7773);
+    font-size:1.15rem;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(89,53,67,.07);
+    -webkit-tap-highlight-color:transparent;
   }
 
-  .lips-text-card p:first-child {
-    margin-top: 0;
-  }
-
-  .lips-for-who-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 0;
-  }
-
-  .lips-mini-card,
-  .lips-method-card,
-  .lips-process-grid article,
-  .lips-related-card,
-  .lips-faq-grid article {
-    position: relative;
-    min-height: 236px;
-    overflow: hidden;
-    padding: 28px;
-    border-radius: 32px;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
-  }
-
-  .lips-mini-card::before,
-  .lips-method-card::before,
-  .lips-process-grid article::before,
-  .lips-related-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-top: 4px solid rgba(56, 187, 181, 0.34);
-    pointer-events: none;
-  }
-
-  .lips-mini-card::after,
-  .lips-method-card::after,
-  .lips-process-grid article::after,
-  .lips-related-card::after {
-    content: "";
-    position: absolute;
-    right: -58px;
-    top: -58px;
-    width: 138px;
-    height: 138px;
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.68);
-    pointer-events: none;
-  }
-
-  .lips-method-card-rose::before,
-  .lips-related-card-rose::before {
-    border-top-color: rgba(201, 127, 143, 0.34);
-  }
-
-  .lips-method-card-rose::after,
-  .lips-related-card-rose::after {
-    background: rgba(246, 220, 227, 0.76);
-  }
-
-  .lips-mini-card span,
-  .lips-method-card span,
-  .lips-process-grid span,
-  .lips-related-card span {
-    position: relative;
-    z-index: 2;
-    display: inline-flex;
-    margin-bottom: 44px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.72rem;
-    font-weight: 850;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .lips-mini-card h3,
-  .lips-method-card h3,
-  .lips-process-grid h3,
-  .lips-related-card h3,
-  .lips-faq-grid h3 {
-    position: relative;
-    z-index: 2;
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
-    font-weight: 760;
-    line-height: 1;
-    letter-spacing: -0.065em;
-  }
-
-  .lips-mini-card p,
-  .lips-method-card p,
-  .lips-process-grid p,
-  .lips-related-card p,
-  .lips-faq-grid p {
-    position: relative;
-    z-index: 2;
-    margin: 14px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.95rem;
-    line-height: 1.62;
-  }
-
-  .lips-section-heading {
-    max-width: 980px;
-    margin-bottom: 38px;
-  }
-
-  .lips-method-grid,
-  .lips-process-grid,
-  .lips-related-grid,
-  .lips-faq-grid {
-    display: grid;
-    gap: 18px;
-  }
-
-  .lips-method-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
-  .lips-signature-section {
-    padding: 92px 0;
-  }
-
-  .lips-signature-card {
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.8fr);
-    gap: 38px;
-    overflow: hidden;
-    padding: clamp(34px, 5vw, 64px);
-    border-radius: 46px;
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 92% 14%, rgba(255, 255, 255, 0.26), transparent 17rem),
-      radial-gradient(circle at 18% 88%, rgba(56, 187, 181, 0.20), transparent 18rem),
-      linear-gradient(145deg, #8a3650 0%, #c46b86 42%, #d58b9d 64%, #802f48 100%);
-    box-shadow: 0 28px 76px rgba(183, 101, 118, 0.22);
-  }
-
-  .lips-signature-copy h2 {
-    max-width: 900px;
-    margin: 0;
-    color: #ffffff;
-    font-size: clamp(2.5rem, 4.5vw, 5.2rem);
-    font-weight: 780;
-    line-height: 0.98;
-    letter-spacing: -0.08em;
-  }
-
-  .lips-signature-lead {
-    max-width: 860px;
-    margin: 24px 0 0;
-    color: rgba(255, 255, 255, 0.88);
-    font-size: 1.08rem;
-    line-height: 1.7;
-  }
-
-  .lips-signature-media {
-    align-self: start;
-    aspect-ratio: 4 / 5;
-    border-color: rgba(255, 255, 255, 0.22);
-    background: rgba(255, 255, 255, 0.16);
-    box-shadow: 0 26px 64px rgba(45, 24, 35, 0.18);
-  }
-
-  .lips-signature-points {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-    margin-top: 8px;
-  }
-
-  .lips-signature-points div {
-    min-height: 160px;
-    padding: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.12);
-  }
-
-  .lips-signature-points span {
-    display: block;
-    margin-bottom: 18px;
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 0.76rem;
-    font-weight: 850;
-    letter-spacing: 0.18em;
-  }
-
-  .lips-signature-points strong {
-    display: block;
-    color: #ffffff;
-    font-size: 1.14rem;
-    font-weight: 780;
-    letter-spacing: -0.04em;
-  }
-
-  .lips-signature-points p {
-    margin: 10px 0 0;
-    color: rgba(255, 255, 255, 0.82);
-    line-height: 1.55;
-  }
-
-  .lips-gallery-section {
-    padding: 88px 0;
-    overflow: hidden;
-  }
-
-  .lips-gallery-heading {
-    margin-bottom: 22px;
-  }
-
+  .lips-methods-track,
   .lips-gallery-viewport {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 8px max(18px, calc((100vw - 1440px) / 2)) 26px;
-    scroll-snap-type: x mandatory;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
   }
 
-  .lips-gallery-viewport::-webkit-scrollbar {
-    height: 10px;
-  }
+  .lips-methods-track { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(330px,420px); gap:18px; padding:8px max(18px,calc((100vw - 1440px)/2)) 24px; }
+  .lips-method-premium-card { position:relative; min-height:350px; overflow:hidden; scroll-snap-align:start; padding:34px; border-radius:34px; background:radial-gradient(circle at 94% 8%,rgba(219,246,243,.72),transparent 8rem),linear-gradient(145deg,rgba(255,255,255,.98),rgba(255,249,251,.92)); }
+  .lips-method-premium-card::before { content:""; position:absolute; inset:0; border-top:4px solid rgba(56,187,181,.34); }
+  .lips-method-premium-card span { position:relative; z-index:1; display:block; margin-bottom:92px; color:var(--color-turquoise-dark,#0f7773); font-size:.76rem; font-weight:850; letter-spacing:.18em; }
+  .lips-method-premium-card h3 { position:relative; z-index:1; margin:0; color:var(--color-text,#17151d); font-size:clamp(1.9rem,2.6vw,2.8rem); font-weight:780; line-height:.99; letter-spacing:-.068em; }
+  .lips-method-premium-card p { position:relative; z-index:1; margin:16px 0 0; color:var(--color-muted,#6e6670); font-size:.96rem; line-height:1.6; }
+  .lips-method-premium-card-rose { background:radial-gradient(circle at 94% 8%,rgba(246,220,227,.82),transparent 8rem),linear-gradient(145deg,rgba(255,255,255,.98),rgba(255,249,251,.92)); }
+  .lips-method-premium-card-rose::before { border-top-color:rgba(201,127,143,.36); }
+  .lips-method-premium-card-strong { color:#fff; background:radial-gradient(circle at 18% 18%,rgba(255,255,255,.28),transparent 10rem),linear-gradient(145deg,#d58b9d 0%,#bd637c 48%,#8b3852 100%); }
+  .lips-method-premium-card-strong::before { border-top-color:rgba(255,255,255,.34); }
+  .lips-method-premium-card-strong span,.lips-method-premium-card-strong h3 { color:#fff; }
+  .lips-method-premium-card-strong p { color:rgba(255,255,255,.88); }
 
-  .lips-gallery-viewport::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    background: rgba(201, 127, 143, 0.34);
-  }
+  .lips-price-strip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:18px; }
+  .lips-price-strip > div,.lips-price-strip > a { min-height:88px; display:flex; flex-direction:column; justify-content:center; padding:16px 20px; border:1px solid rgba(56,187,181,.16); border-radius:22px; background:rgba(255,255,255,.84); text-decoration:none; box-shadow:0 12px 34px rgba(89,53,67,.05); }
+  .lips-price-strip span { color:var(--color-muted,#6e6670); font-size:.7rem; font-weight:780; letter-spacing:.1em; text-transform:uppercase; }
+  .lips-price-strip strong { margin-top:6px; color:var(--color-text,#17151d); font-size:1.24rem; font-weight:820; letter-spacing:-.04em; }
+  .lips-price-strip > a { align-items:center; flex-direction:row; gap:8px; color:var(--color-turquoise-dark,#0f7773); font-size:.94rem; font-weight:840; text-align:center; }
 
-  .lips-gallery-track {
-    display: grid;
-    width: max-content;
-    grid-auto-columns: minmax(240px, 320px);
-    grid-auto-flow: column;
-    gap: 16px;
-  }
+  .lips-signature-card { display:grid; grid-template-columns:minmax(0,1.06fr) minmax(280px,.74fr); gap:clamp(26px,4vw,44px); padding:clamp(32px,5vw,56px); border-radius:42px; color:#fff; background:radial-gradient(circle at 92% 14%,rgba(255,255,255,.24),transparent 17rem),radial-gradient(circle at 18% 88%,rgba(56,187,181,.18),transparent 18rem),linear-gradient(145deg,#8a3650 0%,#c46b86 42%,#d58b9d 64%,#802f48 100%); }
+  .lips-signature-copy h2 { margin:0; color:#fff; font-size:clamp(2.6rem,4.7vw,5.2rem); font-weight:780; line-height:.98; letter-spacing:-.08em; }
+  .lips-signature-copy > p:not(.section-kicker) { margin:22px 0 0; color:rgba(255,255,255,.88); font-size:1rem; line-height:1.68; }
+  .lips-signature-media { width:min(100%,430px); margin:0 auto; overflow:hidden; aspect-ratio:4/5; border:1px solid rgba(255,255,255,.24); border-radius:30px; background:rgba(255,255,255,.14); }
+  .lips-signature-media img { display:block; width:100%; height:100%; object-fit:cover; border-radius:24px; }
+  .lips-signature-points { grid-column:1/-1; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+  .lips-signature-points > div { min-height:150px; padding:22px; border:1px solid rgba(255,255,255,.18); border-radius:24px; background:rgba(255,255,255,.12); }
+  .lips-signature-points span { display:block; margin-bottom:18px; color:rgba(255,255,255,.72); font-size:.68rem; font-weight:850; letter-spacing:.18em; }
+  .lips-signature-points strong { display:block; color:#fff; font-size:1rem; font-weight:790; }
+  .lips-signature-points p { margin:8px 0 0; color:rgba(255,255,255,.8); font-size:.86rem; line-height:1.5; }
 
-  .lips-gallery-card {
-    aspect-ratio: 4 / 5;
-    scroll-snap-align: start;
-  }
+  .lips-gallery-heading-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:18px; align-items:end; }
+  .lips-section-heading { max-width:1000px; margin-bottom:30px; }
+  .lips-gallery-controls { display:flex; gap:10px; margin-bottom:30px; }
+  .lips-gallery-viewport { padding:8px max(18px,calc((100vw - 1440px)/2)) 14px; scrollbar-width:none; }
+  .lips-gallery-viewport::-webkit-scrollbar { display:none; }
+  .lips-gallery-track { display:grid; width:max-content; grid-auto-flow:column; grid-auto-columns:minmax(245px,310px); gap:14px; }
+  .lips-gallery-card { width:100%; margin:0; overflow:hidden; scroll-snap-align:start; aspect-ratio:4/5; border:1px solid rgba(183,101,118,.14); border-radius:28px; background:#fff; box-shadow:0 18px 46px rgba(89,53,67,.08); }
+  .lips-gallery-card img { display:block; width:100%; height:100%; object-fit:cover; }
 
-  .lips-process-intro {
-    margin-bottom: 38px;
-  }
+  .lips-process-section { background:radial-gradient(circle at 88% 20%,rgba(56,187,181,.08),transparent 24rem),rgba(255,255,255,.56); }
+  .lips-process-visual-intro { display:grid; grid-template-columns:minmax(0,1fr) minmax(320px,.82fr); gap:clamp(24px,4vw,50px); align-items:stretch; margin-bottom:22px; }
+  .lips-process-visual-copy { display:flex; flex-direction:column; justify-content:center; padding:clamp(28px,4vw,46px); border-radius:34px; background:rgba(255,255,255,.88); }
+  .lips-process-visual-photo { margin:0; overflow:hidden; min-height:500px; border-radius:30px; background:#fff; padding:10px; }
+  .lips-process-visual-photo img { display:block; width:100%; height:100%; min-height:500px; object-fit:cover; object-position:center top; border-radius:22px; }
+  .lips-process-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+  .lips-process-grid article { min-height:220px; padding:26px; border-radius:28px; background:radial-gradient(circle at 94% 12%,rgba(56,187,181,.07),transparent 12rem),rgba(255,255,255,.88); }
+  .lips-process-grid span { display:block; margin-bottom:34px; color:var(--color-turquoise-dark,#0f7773); font-size:.7rem; font-weight:850; letter-spacing:.18em; }
+  .lips-process-grid h3 { margin:0; color:var(--color-text,#17151d); font-size:1.42rem; font-weight:780; line-height:1; letter-spacing:-.05em; }
+  .lips-process-grid p { margin:12px 0 0; color:var(--color-muted,#6e6670); font-size:.92rem; line-height:1.56; }
 
-  .lips-process-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .lips-avoid-section { background:radial-gradient(circle at 12% 20%,rgba(56,187,181,.09),transparent 24rem),linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,247,250,.72)); }
+  .lips-avoid-grid { display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:24px; }
+  .lips-avoid-heading,.premium-points-list { border-radius:34px; background:rgba(255,255,255,.86); }
+  .lips-avoid-heading { padding:34px; }
+  .premium-points-list { overflow:hidden; }
+  .premium-point { display:grid; grid-template-columns:auto 1fr; gap:16px; padding:21px 24px; border-bottom:1px solid rgba(56,187,181,.13); }
+  .premium-point:last-child { border-bottom:0; }
+  .premium-point__dot { width:14px; height:14px; margin-top:5px; border-radius:999px; background:#b76576; box-shadow:0 0 0 7px rgba(201,127,143,.10); }
+  .premium-point__title { display:block; color:var(--color-text,#17151d); font-size:.97rem; font-weight:790; }
+  .premium-point__text { display:block; margin-top:7px; color:var(--color-muted,#6e6670); font-size:.9rem; line-height:1.52; }
 
-  .lips-process-grid article {
-    min-height: 255px;
-  }
+  .lips-related-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+  .lips-related-card { position:relative; min-height:240px; padding:26px; overflow:hidden; border-radius:28px; background:rgba(255,255,255,.88); color:inherit; text-decoration:none; }
+  .lips-related-card > span { display:block; margin-bottom:34px; color:var(--color-turquoise-dark,#0f7773); font-size:.7rem; font-weight:850; letter-spacing:.16em; text-transform:uppercase; }
+  .lips-related-card h3 { margin:0; color:var(--color-text,#17151d); font-size:1.45rem; font-weight:780; line-height:1.05; letter-spacing:-.05em; }
+  .lips-related-card p { margin:12px 0 0; color:var(--color-muted,#6e6670); font-size:.9rem; line-height:1.55; }
+  .lips-related-card-turquoise { background:linear-gradient(145deg,rgba(219,246,243,.88),rgba(255,255,255,.92)); }
+  .lips-related-card-rose { background:linear-gradient(145deg,rgba(246,220,227,.72),rgba(255,255,255,.92)); }
 
-  .lips-avoid-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
-  }
+  .lips-faq-list { display:grid; max-width:980px; gap:12px; }
+  .lips-faq-item { overflow:hidden; border-radius:22px; background:radial-gradient(circle at 96% 10%,rgba(56,187,181,.06),transparent 12rem),rgba(255,255,255,.88); }
+  .lips-faq-item summary { display:grid; grid-template-columns:minmax(0,1fr) 40px; gap:16px; align-items:center; padding:20px 22px; color:var(--color-text,#17151d); font-size:clamp(1.03rem,1.35vw,1.22rem); font-weight:760; line-height:1.3; letter-spacing:-.03em; cursor:pointer; list-style:none; -webkit-tap-highlight-color:transparent; }
+  .lips-faq-item summary::-webkit-details-marker { display:none; }
+  .lips-faq-icon { position:relative; width:40px; height:40px; border:1px solid rgba(56,187,181,.17); border-radius:999px; background:rgba(219,246,243,.58); }
+  .lips-faq-icon::before,.lips-faq-icon::after { content:""; position:absolute; top:50%; left:50%; width:14px; height:2px; border-radius:999px; background:var(--color-turquoise-dark,#0f7773); transform:translate(-50%,-50%); }
+  .lips-faq-icon::after { transform:translate(-50%,-50%) rotate(90deg); }
+  .lips-faq-item[open] .lips-faq-icon::after { opacity:0; }
+  .lips-faq-item > div { padding:0 22px 20px; }
+  .lips-faq-item p { margin:0; color:var(--color-muted,#6e6670); font-size:.95rem; line-height:1.64; }
 
-  .lips-avoid-heading {
-    padding: 34px;
-    border: 1px solid rgba(183, 101, 118, 0.14);
-    border-radius: 34px;
-    background:
-      radial-gradient(circle at 92% 20%, rgba(201, 127, 143, 0.14), transparent 16rem),
-      rgba(255, 255, 255, 0.82);
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
-  }
+  .lips-final-card { padding:clamp(34px,6vw,64px); border-radius:40px; text-align:center; background:linear-gradient(145deg,rgba(219,246,243,.70),rgba(255,242,246,.82)),rgba(255,255,255,.74); }
+  .lips-final-card > p:not(.signature) { max-width:720px; margin:18px auto 0; }
+  .lips-final-actions { max-width:900px; margin-inline:auto; }
 
-  .premium-points-list {
-    overflow: hidden;
-    border: 1px solid rgba(183, 101, 118, 0.18);
-    border-radius: 34px;
-    background: rgba(255, 255, 255, 0.86);
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
-  }
-
-  .premium-point {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 18px;
-    padding: 24px;
-    border-bottom: 1px solid rgba(183, 101, 0.14);
-    transition: background 180ms ease, transform 180ms ease;
-  }
-
-  .premium-point:last-child {
-    border-bottom: 0;
-  }
-
-  .premium-point:hover {
-    background: rgba(219, 246, 243, 0.60);
-    transform: translateX(3px);
-  }
-
-  .premium-point__dot {
-    width: 28px;
-    height: 28px;
-    margin-top: 3px;
-    border-radius: 999px;
-    background:
-      radial-gradient(circle, rgba(183, 101, 118, 0.88) 0 22%, rgba(183, 101, 118, 0.18) 23% 100%);
-    box-shadow: 0 0 0 11px rgba(201, 127, 143, 0.10);
-  }
-
-  .premium-point__title {
-    display: block;
-    color: var(--color-text, #17151d);
-    font-size: 1rem;
-    font-weight: 780;
-    letter-spacing: -0.04em;
-  }
-
-  .premium-point__text {
-    display: block;
-    margin-top: 7px;
-    color: var(--color-muted, #6e6670);
-    line-height: 1.55;
-  }
-
-  .lips-related-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .lips-related-card {
-    min-height: 275px;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .lips-related-card-turquoise {
-    border-color: rgba(56, 187, 181, 0.3);
-    background: linear-gradient(145deg, rgba(219, 246, 243, 0.88), rgba(255, 255, 255, 0.92));
-  }
-
-  .lips-faq-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .lips-faq-grid article {
-    min-height: auto;
-  }
-
-  .lips-faq-grid article::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-top: 4px solid rgba(201, 127, 143, 0.24);
-    pointer-events: none;
-  }
-
-  .lips-final-card {
-    padding: clamp(34px, 6vw, 70px);
-    border-radius: 42px;
-    text-align: center;
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
-      rgba(255, 255, 255, 0.7);
-  }
-
-  .lips-final-card p:not(.signature) {
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .lips-final-card .button-primary {
-    margin-top: 18px;
-  }
-
-  @media (max-width: 1260px) {
-    .lips-proof-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .lips-proof-grid div:nth-child(2) {
-      border-right: 0;
-    }
-
-    .lips-method-grid,
-    .lips-process-grid,
-    .lips-related-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .lips-signature-points {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 1080px) {
+  @media (max-width:1080px) {
     .lips-hero-grid,
-    .lips-two-column,
-    .lips-avoid-grid,
+    .lips-natural-look-card,
     .lips-signature-card,
-    .lips-natural-look-card {
-      grid-template-columns: 1fr;
-    }
-
-    .lips-hero-card {
-      min-height: 520px;
-    }
-
-    .lips-natural-look-media,
-    .lips-natural-look-media img {
-      min-height: 470px;
-    }
-
-    .lips-signature-media {
-      width: min(100%, 460px);
-      justify-self: center;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .lips-hero {
-      padding: 112px 0 58px;
-    }
-
-    .lips-hero-grid {
-      gap: 16px;
-      padding-left: 8px;
-      padding-right: 8px;
-      box-sizing: border-box;
-    }
-
-    .lips-hero-copy,
-    .lips-hero-card,
-    .lips-text-card,
-    .lips-mini-card,
-    .lips-method-card,
-    .lips-process-grid article,
-    .lips-related-card,
-    .lips-faq-grid article,
-    .lips-final-card,
-    .lips-media-frame,
-    .lips-signature-card,
-    .lips-avoid-heading,
-    .premium-points-list {
-      border-radius: 28px;
-    }
-
-    .lips-hero-copy {
-      min-height: auto;
-      padding: 28px 22px;
-    }
-
-    .lips-hero-copy h1 {
-      font-size: clamp(2.55rem, 11.6vw, 3.85rem);
-      line-height: 1.04;
-      letter-spacing: -0.068em;
-    }
-
-    .lips-hero-lead {
-      font-size: 1rem;
-    }
-
-    .lips-hero-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    .lips-hero-actions a {
-      width: 100%;
-      text-align: center;
-    }
-
-    .lips-hero-card {
-      min-height: 430px;
-      padding: 30px 24px;
-    }
-
-    .lips-card-label {
-      top: 24px;
-      left: 26px;
-      font-size: clamp(4.8rem, 22vw, 7rem);
-    }
-
-    .lips-hero-card h2 {
-      font-size: clamp(2rem, 9vw, 2.8rem);
-    }
-
-    .lips-hero-card p:not(.lips-card-label) {
-      font-size: 1rem;
-    }
-
-    .lips-media-frame img,
-    .lips-media-frame::after {
-      border-radius: 20px;
-    }
-
-    .lips-media-frame {
-      padding: 7px;
-    }
-
-    .lips-media-frame::after {
-      inset: 7px;
-    }
-
-    .lips-intro-section,
-    .lips-types-section,
-    .lips-signature-section,
-    .lips-gallery-section,
-    .lips-process-section,
-    .lips-avoid-section,
-    .lips-related-section,
-    .lips-faq-section,
-    .lips-final-cta {
-      padding: 58px 0;
-    }
-
-    .lips-natural-look-card {
-      gap: 24px;
-      padding: 16px;
-      border-radius: 28px;
-    }
-
-    .lips-natural-look-media {
-      border-radius: 24px;
-    }
-
-    .lips-natural-look-media,
-    .lips-natural-look-media img {
-      min-height: 320px;
-    }
-
-    .lips-natural-look-media::after {
-      inset: 12px;
-      border-radius: 18px;
-    }
-
-    .lips-natural-look-copy {
-      padding: 6px 4px 8px;
-    }
-
-    .lips-natural-look-copy h2,
-    .lips-two-column h2,
-    .lips-section-heading h2,
-    .lips-avoid-heading h2,
-    .lips-final-card h2,
-    .lips-signature-copy h2 {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
-      line-height: 1.04;
-      letter-spacing: -0.066em;
-    }
-
-    .lips-natural-look-copy p:not(.section-kicker) {
-      margin-top: 16px;
-      font-size: 1rem;
-      line-height: 1.68;
-    }
-
-    .lips-for-who-heading {
-      margin-top: 44px;
-      margin-bottom: 24px;
-    }
-
-    .lips-for-who-heading h2 {
-      font-size: clamp(2.05rem, 9vw, 3rem);
-      line-height: 1.04;
-      letter-spacing: -0.066em;
-    }
-
-    .lips-for-who-grid,
-    .lips-method-grid,
-    .lips-process-grid,
-    .lips-related-grid,
-    .lips-faq-grid,
-    .lips-proof-grid,
-    .lips-signature-points {
-      grid-template-columns: 1fr;
-    }
-
-    .lips-proof-grid div,
-    .lips-proof-grid div:nth-child(2) {
-      border-right: 0;
-      border-bottom: 1px solid rgba(183, 101, 118, 0.12);
-    }
-
-    .lips-proof-grid div:last-child {
-      border-bottom: 0;
-    }
-
-    .lips-mini-card,
-    .lips-method-card,
-    .lips-process-grid article,
-    .lips-related-card {
-      min-height: auto;
-      padding: 26px;
-    }
-
-    .lips-mini-card span,
-    .lips-method-card span,
-    .lips-process-grid span,
-    .lips-related-card span {
-      margin-bottom: 32px;
-    }
-
-    .lips-gallery-track {
-      grid-auto-columns: minmax(218px, 74vw);
-    }
-
-    .premium-point {
-      padding: 22px;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .lips-hero-grid {
-      padding-left: 6px;
-      padding-right: 6px;
-    }
-
-    .lips-hero-copy,
-    .lips-hero-card {
-      width: calc(100% - 10px);
-      max-width: calc(100% - 10px);
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-    /* FINAL — usta: napis Lips w górnym lewym rogu kafla */
-  .lips-hero-card .lips-card-label {
-    position: absolute !important;
-    top: clamp(26px, 3vw, 46px) !important;
-    left: clamp(30px, 4vw, 58px) !important;
-    margin: 0 !important;
-    color: rgba(255, 255, 255, 0.24) !important;
-    font-size: clamp(6.2rem, 9vw, 11.8rem) !important;
-    font-weight: 850 !important;
-    line-height: 0.78 !important;
-    letter-spacing: -0.085em !important;
-    text-transform: none !important;
-  }
-
-  @media (max-width: 760px) {
-    .lips-hero-card .lips-card-label {
-      top: 24px !important;
-      left: 24px !important;
-      font-size: clamp(4.7rem, 22vw, 7rem) !important;
-    }
-  }
-    /* FINAL — usta: zakres pigmentacji jak metody brwi */
-  .lips-methods-premium-section {
-    padding: 96px 0 104px !important;
-    overflow: hidden !important;
-  }
-
-  .lips-methods-premium-section .lips-methods-heading {
-    max-width: 1180px !important;
-    margin: 0 auto 46px !important;
-  }
-
-  .lips-methods-premium-section .lips-methods-heading h2 {
-    max-width: 1120px !important;
-    margin: 0 !important;
-    color: var(--color-text, #17151d) !important;
-    font-size: clamp(2.7rem, 5vw, 5.6rem) !important;
-    font-weight: 780 !important;
-    line-height: 0.98 !important;
-    letter-spacing: -0.078em !important;
-  }
-
-  .lips-methods-premium-section .lips-methods-heading p:not(.section-kicker) {
-    max-width: 1080px !important;
-    margin: 24px 0 0 !important;
-    color: var(--color-muted, #6e6670) !important;
-    font-size: clamp(1.03rem, 1.25vw, 1.18rem) !important;
-    line-height: 1.72 !important;
-  }
-
-  .lips-methods-collage-card {
-    position: relative !important;
-    width: min(100%, 1120px) !important;
-    margin: 0 auto 36px !important;
-    overflow: hidden !important;
-    padding: clamp(14px, 1.8vw, 22px) !important;
-    border: 1px solid rgba(56, 187, 181, 0.22) !important;
-    border-radius: 38px !important;
-    background:
-      radial-gradient(circle at 94% 8%, rgba(56, 187, 181, 0.08), transparent 18rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 251, 0.94)) !important;
-    box-shadow:
-      0 24px 72px rgba(89, 53, 67, 0.08),
-      0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
-  }
-
-  .lips-methods-collage-card::after {
-    content: "" !important;
-    position: absolute !important;
-    inset: clamp(22px, 2.2vw, 34px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.72) !important;
-    border-radius: 26px !important;
-    pointer-events: none !important;
-  }
-
-  .lips-methods-collage-card img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 26px !important;
-    object-fit: cover !important;
-    box-shadow: 0 18px 46px rgba(89, 53, 67, 0.12) !important;
-  }
-
-  .lips-methods-controls {
-    display: flex !important;
-    justify-content: flex-end !important;
-    gap: 12px !important;
-    width: min(100%, 1120px) !important;
-    margin: 0 auto 22px !important;
-  }
-
-  .lips-methods-arrow {
-    display: inline-flex !important;
-    width: 52px !important;
-    height: 52px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border: 1px solid rgba(56, 187, 181, 0.22) !important;
-    border-radius: 999px !important;
-    background: rgba(255, 255, 255, 0.78) !important;
-    color: #0f7773 !important;
-    font-size: 1.25rem !important;
-    font-weight: 700 !important;
-    box-shadow: 0 14px 34px rgba(89, 53, 67, 0.08) !important;
-    cursor: pointer !important;
-    transition:
-      transform 180ms ease,
-      background 180ms ease,
-      color 180ms ease !important;
-  }
-
-  .lips-methods-arrow:hover {
-    transform: translateY(-2px) !important;
-    background: #159a96 !important;
-    color: #ffffff !important;
-  }
-
-  .lips-methods-track {
-    display: grid !important;
-    grid-auto-columns: minmax(360px, 460px) !important;
-    grid-auto-flow: column !important;
-    gap: 22px !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    padding: 10px max(18px, calc((100vw - 1440px) / 2)) 32px !important;
-    scroll-snap-type: x mandatory !important;
-    scroll-behavior: smooth !important;
-  }
-
-  .lips-methods-track::-webkit-scrollbar {
-    height: 10px !important;
-  }
-
-  .lips-methods-track::-webkit-scrollbar-thumb {
-    border-radius: 999px !important;
-    background: rgba(201, 127, 143, 0.32) !important;
-  }
-
-  .lips-method-premium-card {
-    position: relative !important;
-    min-height: 360px !important;
-    overflow: hidden !important;
-    padding: clamp(30px, 3vw, 44px) !important;
-    border: 1px solid rgba(183, 101, 118, 0.15) !important;
-    border-radius: 36px !important;
-    background:
-      radial-gradient(circle at 92% 0%, rgba(219, 246, 243, 0.72), transparent 7.2rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
-    box-shadow: 0 20px 58px rgba(89, 53, 67, 0.075) !important;
-    scroll-snap-align: start !important;
-  }
-
-  .lips-method-premium-card::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    border-top: 5px solid rgba(56, 187, 181, 0.34) !important;
-    pointer-events: none !important;
-  }
-
-  .lips-method-premium-card-rose {
-    background:
-      radial-gradient(circle at 92% 0%, rgba(246, 220, 227, 0.84), transparent 7.2rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
-  }
-
-  .lips-method-premium-card-rose::before {
-    border-top-color: rgba(201, 127, 143, 0.34) !important;
-  }
-
-  .lips-method-premium-card-strong {
-    color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.24) !important;
-    background:
-      radial-gradient(circle at 82% 10%, rgba(255, 255, 255, 0.20), transparent 10rem),
-      linear-gradient(145deg, #d58b9d 0%, #bd637c 45%, #8b3852 100%) !important;
-    box-shadow: 0 24px 68px rgba(183, 101, 118, 0.22) !important;
-  }
-
-  .lips-method-premium-card-strong::before {
-    border-top-color: rgba(255, 255, 255, 0.36) !important;
-  }
-
-  .lips-method-premium-card span {
-    position: relative !important;
-    z-index: 2 !important;
-    display: inline-flex !important;
-    margin-bottom: clamp(72px, 8vw, 110px) !important;
-    color: var(--color-turquoise-dark, #0f7773) !important;
-    font-size: 0.86rem !important;
-    font-weight: 850 !important;
-    letter-spacing: 0.18em !important;
-  }
-
-  .lips-method-premium-card h3 {
-    position: relative !important;
-    z-index: 2 !important;
-    max-width: 350px !important;
-    margin: 0 !important;
-    color: var(--color-text, #17151d) !important;
-    font-size: clamp(2rem, 3vw, 3.35rem) !important;
-    font-weight: 780 !important;
-    line-height: 0.98 !important;
-    letter-spacing: -0.076em !important;
-  }
-
-  .lips-method-premium-card p {
-    position: relative !important;
-    z-index: 2 !important;
-    max-width: 360px !important;
-    margin: 20px 0 0 !important;
-    color: var(--color-muted, #6e6670) !important;
-    font-size: clamp(1rem, 1.16vw, 1.12rem) !important;
-    line-height: 1.62 !important;
-  }
-
-  .lips-method-premium-card-strong span,
-  .lips-method-premium-card-strong h3 {
-    color: #ffffff !important;
-  }
-
-  .lips-method-premium-card-strong p {
-    color: rgba(255, 255, 255, 0.86) !important;
-  }
-
-  @media (max-width: 760px) {
-    .lips-methods-premium-section {
-      padding: 64px 0 70px !important;
-    }
-
-    .lips-methods-premium-section .lips-methods-heading {
-      margin-bottom: 30px !important;
-    }
-
-    .lips-methods-premium-section .lips-methods-heading h2 {
-      font-size: clamp(2.1rem, 9.8vw, 3.2rem) !important;
-      line-height: 1 !important;
-      letter-spacing: -0.068em !important;
-    }
-
-    .lips-methods-premium-section .lips-methods-heading p:not(.section-kicker) {
-      margin-top: 18px !important;
-      font-size: 1rem !important;
-      line-height: 1.68 !important;
-    }
-
-    .lips-methods-collage-card {
-      margin-bottom: 24px !important;
-      padding: 10px !important;
-      border-radius: 26px !important;
-    }
-
-    .lips-methods-collage-card::after {
-      inset: 16px !important;
-      border-radius: 18px !important;
-    }
-
-    .lips-methods-collage-card img {
-      border-radius: 18px !important;
-    }
-
-    .lips-methods-controls {
-      justify-content: flex-end !important;
-      margin-bottom: 14px !important;
-    }
-
-    .lips-methods-arrow {
-      width: 46px !important;
-      height: 46px !important;
-    }
-
-    .lips-methods-track {
-      grid-auto-columns: minmax(270px, 82vw) !important;
-      gap: 16px !important;
-      padding-bottom: 24px !important;
-    }
-
-    .lips-method-premium-card {
-      min-height: 310px !important;
-      padding: 28px !important;
-      border-radius: 28px !important;
-    }
-
-    .lips-method-premium-card span {
-      margin-bottom: 64px !important;
-    }
-
-    .lips-method-premium-card h3 {
-      font-size: clamp(1.8rem, 8.2vw, 2.6rem) !important;
-    }
-
-    .lips-method-premium-card p {
-      font-size: 1rem !important;
-    }
-  }
-    /* FINAL FORCE — usta: wymuszenie układu jak metody brwi */
-  .lips-page .lips-types-section.lips-methods-premium-section {
-    padding: 96px 0 104px !important;
-    overflow: hidden !important;
-  }
-
-  .lips-page .lips-types-section.lips-methods-premium-section .container {
-    max-width: 1440px !important;
-  }
-
-  .lips-page .lips-methods-heading {
-    max-width: 1180px !important;
-    margin: 0 auto 42px !important;
-  }
-
-  .lips-page .lips-methods-heading h2 {
-    max-width: 1120px !important;
-    margin: 0 !important;
-    color: #17151d !important;
-    font-size: clamp(2.7rem, 5vw, 5.6rem) !important;
-    font-weight: 780 !important;
-    line-height: 0.98 !important;
-    letter-spacing: -0.078em !important;
-  }
-
-  .lips-page .lips-methods-heading p:not(.section-kicker) {
-    max-width: 1080px !important;
-    margin: 24px 0 0 !important;
-    color: #6e6670 !important;
-    font-size: clamp(1.03rem, 1.25vw, 1.18rem) !important;
-    line-height: 1.72 !important;
-  }
-
-  .lips-page .lips-methods-collage-card {
-    position: relative !important;
-    display: block !important;
-    width: min(100%, 1120px) !important;
-    margin: 0 auto 28px !important;
-    padding: clamp(14px, 1.8vw, 22px) !important;
-    overflow: hidden !important;
-    border: 1px solid rgba(56, 187, 181, 0.24) !important;
-    border-radius: 38px !important;
-    background:
-      radial-gradient(circle at 94% 8%, rgba(56, 187, 181, 0.08), transparent 18rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 251, 0.94)) !important;
-    box-shadow:
-      0 24px 72px rgba(89, 53, 67, 0.08),
-      0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
-  }
-
-  .lips-page .lips-methods-collage-card img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 26px !important;
-    object-fit: cover !important;
-    box-shadow: 0 18px 46px rgba(89, 53, 67, 0.12) !important;
-  }
-
-  .lips-page .lips-methods-controls {
-    display: flex !important;
-    justify-content: flex-end !important;
-    gap: 12px !important;
-    width: min(100%, 1120px) !important;
-    margin: 0 auto 20px !important;
-  }
-
-  .lips-page .lips-methods-arrow {
-    display: inline-flex !important;
-    width: 52px !important;
-    height: 52px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border: 1px solid rgba(56, 187, 181, 0.24) !important;
-    border-radius: 999px !important;
-    background: rgba(255, 255, 255, 0.82) !important;
-    color: #0f7773 !important;
-    font-size: 1.25rem !important;
-    font-weight: 800 !important;
-    box-shadow: 0 14px 34px rgba(89, 53, 67, 0.08) !important;
-    cursor: pointer !important;
-  }
-
-  .lips-page .lips-methods-track {
-    display: grid !important;
-    width: 100% !important;
-    grid-auto-flow: column !important;
-    grid-auto-columns: minmax(360px, 460px) !important;
-    grid-template-columns: none !important;
-    gap: 22px !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    padding: 10px max(18px, calc((100vw - 1440px) / 2)) 32px !important;
-    scroll-snap-type: x mandatory !important;
-    scroll-behavior: smooth !important;
-  }
-
-  .lips-page .lips-method-premium-card {
-    position: relative !important;
-    display: block !important;
-    min-height: 360px !important;
-    padding: clamp(30px, 3vw, 44px) !important;
-    overflow: hidden !important;
-    border: 1px solid rgba(183, 101, 118, 0.15) !important;
-    border-radius: 36px !important;
-    background:
-      radial-gradient(circle at 92% 0%, rgba(219, 246, 243, 0.72), transparent 7.2rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
-    box-shadow: 0 20px 58px rgba(89, 53, 67, 0.075) !important;
-    scroll-snap-align: start !important;
-  }
-
-  .lips-page .lips-method-premium-card::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    border-top: 5px solid rgba(56, 187, 181, 0.34) !important;
-    pointer-events: none !important;
-  }
-
-  .lips-page .lips-method-premium-card-rose {
-    background:
-      radial-gradient(circle at 92% 0%, rgba(246, 220, 227, 0.84), transparent 7.2rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
-  }
-
-  .lips-page .lips-method-premium-card-rose::before {
-    border-top-color: rgba(201, 127, 143, 0.34) !important;
-  }
-
-  .lips-page .lips-method-premium-card-strong {
-    color: #ffffff !important;
-    background:
-      radial-gradient(circle at 82% 10%, rgba(255, 255, 255, 0.2), transparent 10rem),
-      linear-gradient(145deg, #d58b9d 0%, #bd637c 45%, #8b3852 100%) !important;
-    box-shadow: 0 24px 68px rgba(183, 101, 118, 0.22) !important;
-  }
-
-  .lips-page .lips-method-premium-card span {
-    position: relative !important;
-    z-index: 2 !important;
-    display: inline-flex !important;
-    margin-bottom: clamp(72px, 8vw, 110px) !important;
-    color: #0f7773 !important;
-    font-size: 0.86rem !important;
-    font-weight: 850 !important;
-    letter-spacing: 0.18em !important;
-  }
-
-  .lips-page .lips-method-premium-card h3 {
-    position: relative !important;
-    z-index: 2 !important;
-    max-width: 350px !important;
-    margin: 0 !important;
-    color: #17151d !important;
-    font-size: clamp(2rem, 3vw, 3.35rem) !important;
-    font-weight: 780 !important;
-    line-height: 0.98 !important;
-    letter-spacing: -0.076em !important;
-  }
-
-  .lips-page .lips-method-premium-card p {
-    position: relative !important;
-    z-index: 2 !important;
-    max-width: 360px !important;
-    margin: 20px 0 0 !important;
-    color: #6e6670 !important;
-    font-size: clamp(1rem, 1.16vw, 1.12rem) !important;
-    line-height: 1.62 !important;
-  }
-
-  .lips-page .lips-method-premium-card-strong span,
-  .lips-page .lips-method-premium-card-strong h3 {
-    color: #ffffff !important;
-  }
-
-  .lips-page .lips-method-premium-card-strong p {
-    color: rgba(255, 255, 255, 0.86) !important;
-  }
-
-  @media (max-width: 760px) {
-    .lips-page .lips-methods-track {
-      grid-auto-columns: minmax(270px, 82vw) !important;
-      gap: 16px !important;
-      padding-bottom: 24px !important;
-    }
-
-    .lips-page .lips-method-premium-card {
-      min-height: 310px !important;
-      padding: 28px !important;
-      border-radius: 28px !important;
-    }
-
-    .lips-page .lips-method-premium-card span {
-      margin-bottom: 64px !important;
-    }
-
-    .lips-page .lips-method-premium-card h3 {
-      font-size: clamp(1.8rem, 8.2vw, 2.6rem) !important;
-    }
-  }
-    /* FINAL — usta: video zamiast zdjęcia w kafelku Naturalny kolor */
-  .lips-natural-look-video-frame {
-    background: rgba(255, 255, 255, 0.92) !important;
-  }
-
-  .lips-natural-look-video {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    min-height: clamp(420px, 42vw, 620px) !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    border-radius: 34px !important;
-  }
-
-  @media (max-width: 760px) {
-    .lips-natural-look-video {
-      min-height: 320px !important;
-      border-radius: 24px !important;
-    }
-  }
-  /* FINAL — usta: proces zabiegu jak w brwiach */
-
-.lips-process-section {
-  padding: 96px 0 104px !important;
-}
-
-.lips-process-top {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr) !important;
-  gap: 44px !important;
-  align-items: stretch !important;
-  margin-bottom: 28px !important;
-}
-
-.lips-process-intro-card {
-  min-height: 100% !important;
-  padding: clamp(28px, 3vw, 42px) !important;
-  border: 1px solid rgba(56, 187, 181, 0.16) !important;
-  border-radius: 38px !important;
-  background:
-    radial-gradient(circle at 92% 8%, rgba(219, 246, 243, 0.68), transparent 14rem),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 251, 0.96)) !important;
-  box-shadow:
-    0 22px 64px rgba(89, 53, 67, 0.06),
-    0 0 0 1px rgba(255, 255, 255, 0.78) inset !important;
-}
-
-.lips-process-intro-card h2 {
-  max-width: 760px !important;
-  margin: 0 !important;
-  color: var(--color-text, #17151d) !important;
-  font-size: clamp(2.4rem, 4.6vw, 5rem) !important;
-  font-weight: 790 !important;
-  line-height: 0.98 !important;
-  letter-spacing: -0.078em !important;
-}
-
-.lips-process-intro-card p:not(.section-kicker) {
-  max-width: 740px !important;
-  margin: 22px 0 0 !important;
-  color: var(--color-muted, #6e6670) !important;
-  font-size: clamp(1rem, 1.22vw, 1.14rem) !important;
-  line-height: 1.72 !important;
-}
-
-.lips-process-photo-card {
-  position: relative !important;
-  min-height: 100% !important;
-  overflow: hidden !important;
-  padding: 16px !important;
-  border: 1px solid rgba(56, 187, 181, 0.16) !important;
-  border-radius: 38px !important;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 251, 0.96)) !important;
-  box-shadow:
-    0 22px 64px rgba(89, 53, 67, 0.06),
-    0 0 0 1px rgba(255, 255, 255, 0.78) inset !important;
-}
-
-.lips-process-photo-card::after {
-  content: "" !important;
-  position: absolute !important;
-  inset: 18px !important;
-  border: 1px solid rgba(218, 242, 240, 0.92) !important;
-  border-radius: 28px !important;
-  pointer-events: none !important;
-}
-
-.lips-process-photo-card img {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 680px !important;
-  object-fit: cover !important;
-  object-position: center top !important;
-  border-radius: 28px !important;
-}
-
-.lips-process-steps-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 18px !important;
-}
-
-.lips-process-step-card {
-  position: relative !important;
-  min-height: 220px !important;
-  padding: 28px 24px 26px !important;
-  border: 1px solid rgba(183, 101, 118, 0.14) !important;
-  border-radius: 30px !important;
-  background:
-    radial-gradient(circle at 92% 0%, rgba(219, 246, 243, 0.72), transparent 7rem),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
-  box-shadow: 0 18px 44px rgba(89, 53, 67, 0.06) !important;
-}
-
-.lips-process-step-card span {
-  display: inline-flex !important;
-  margin: 0 0 22px !important;
-  color: var(--color-turquoise-dark, #0f7773) !important;
-  font-size: 0.84rem !important;
-  font-weight: 850 !important;
-  line-height: 1 !important;
-  letter-spacing: 0.18em !important;
-}
-
-.lips-process-step-card h3 {
-  margin: 0 !important;
-  color: var(--color-text, #17151d) !important;
-  font-size: clamp(1.45rem, 2vw, 2.1rem) !important;
-  font-weight: 770 !important;
-  line-height: 1.04 !important;
-  letter-spacing: -0.06em !important;
-}
-
-.lips-process-step-card p {
-  margin: 16px 0 0 !important;
-  color: var(--color-muted, #6e6670) !important;
-  font-size: clamp(0.98rem, 1.04vw, 1.08rem) !important;
-  line-height: 1.62 !important;
-}
-
-@media (max-width: 1100px) {
-  .lips-process-top {
-    grid-template-columns: 1fr !important;
-    gap: 26px !important;
-  }
-
-  .lips-process-photo-card img {
-    min-height: 560px !important;
-    object-position: center top !important;
-  }
-
-  .lips-process-steps-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-@media (max-width: 760px) {
-  .lips-process-section {
-    padding: 64px 0 72px !important;
-  }
-
-  .lips-process-top {
-    gap: 20px !important;
-    margin-bottom: 20px !important;
-  }
-
-  .lips-process-intro-card,
-  .lips-process-photo-card {
-    padding: 12px !important;
-    border-radius: 26px !important;
-  }
-
-  .lips-process-intro-card {
-    padding: 24px !important;
-  }
-
-  .lips-process-intro-card h2 {
-    font-size: clamp(2rem, 9vw, 3rem) !important;
-    line-height: 1 !important;
-    letter-spacing: -0.068em !important;
-  }
-
-  .lips-process-intro-card p:not(.section-kicker) {
-    font-size: 1rem !important;
-    line-height: 1.68 !important;
-  }
-
-  .lips-process-photo-card::after {
-    inset: 14px !important;
-    border-radius: 18px !important;
-  }
-
-  .lips-process-photo-card img {
-    min-height: 420px !important;
-    border-radius: 18px !important;
-  }
-
-  .lips-process-steps-grid {
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
-
-  .lips-process-step-card {
-    min-height: auto !important;
-    padding: 24px 20px 22px !important;
-    border-radius: 24px !important;
-  }
-
-  .lips-process-step-card h3 {
-    font-size: 1.55rem !important;
-  }
-
-  .lips-process-step-card p {
-    font-size: 1rem !important;
-  }
-}
-/* FINAL FIX — usta: proces zabiegu ze zdjęciem, klasy zgodne z aktualnym HTML */
-
-.lips-process-section {
-  padding: 96px 0 104px !important;
-}
-
-.lips-process-visual-intro {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr) !important;
-  gap: 44px !important;
-  align-items: stretch !important;
-  margin-bottom: 38px !important;
-}
-
-.lips-process-visual-copy {
-  min-height: 100% !important;
-  padding: clamp(32px, 4vw, 52px) !important;
-  border: 1px solid rgba(183, 101, 118, 0.14) !important;
-  border-radius: 38px !important;
-  background:
-    radial-gradient(circle at 92% 12%, rgba(56, 187, 181, 0.10), transparent 16rem),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
-  box-shadow:
-    0 22px 64px rgba(89, 53, 67, 0.07),
-    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
-}
-
-.lips-process-visual-copy h2 {
-  max-width: 780px !important;
-  margin: 0 !important;
-  color: var(--color-text, #17151d) !important;
-  font-size: clamp(2.45rem, 4.4vw, 5rem) !important;
-  font-weight: 780 !important;
-  line-height: 0.98 !important;
-  letter-spacing: -0.078em !important;
-}
-
-.lips-process-visual-copy p:not(.section-kicker) {
-  max-width: 760px !important;
-  margin: 22px 0 0 !important;
-  color: var(--color-muted, #6e6670) !important;
-  font-size: clamp(1rem, 1.18vw, 1.12rem) !important;
-  line-height: 1.72 !important;
-}
-
-.lips-process-visual-photo {
-  position: relative !important;
-  display: block !important;
-  min-height: 100% !important;
-  margin: 0 !important;
-  overflow: hidden !important;
-  padding: 16px !important;
-  border: 1px solid rgba(56, 187, 181, 0.18) !important;
-  border-radius: 38px !important;
-  background:
-    radial-gradient(circle at 92% 10%, rgba(56, 187, 181, 0.08), transparent 14rem),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 251, 0.94)) !important;
-  box-shadow:
-    0 22px 64px rgba(89, 53, 67, 0.07),
-    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
-}
-
-.lips-process-visual-photo::after {
-  content: "" !important;
-  position: absolute !important;
-  inset: 18px !important;
-  border: 1px solid rgba(255, 255, 255, 0.72) !important;
-  border-radius: 28px !important;
-  pointer-events: none !important;
-}
-
-.lips-process-visual-photo img {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 680px !important;
-  border-radius: 28px !important;
-  object-fit: cover !important;
-  object-position: center top !important;
-}
-
-.lips-process-section .lips-process-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 18px !important;
-}
-
-.lips-process-section .lips-process-grid article {
-  position: relative !important;
-  min-height: 255px !important;
-  overflow: hidden !important;
-  padding: 28px !important;
-  border: 1px solid rgba(183, 101, 118, 0.14) !important;
-  border-radius: 32px !important;
-  background:
-    radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88)) !important;
-  box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075) !important;
-}
-
-.lips-process-section .lips-process-grid article::before {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  border-top: 4px solid rgba(56, 187, 181, 0.34) !important;
-  pointer-events: none !important;
-}
-
-.lips-process-section .lips-process-grid article::after {
-  content: "" !important;
-  position: absolute !important;
-  right: -58px !important;
-  top: -58px !important;
-  width: 138px !important;
-  height: 138px !important;
-  border-radius: 999px !important;
-  background: rgba(219, 246, 243, 0.68) !important;
-  pointer-events: none !important;
-}
-
-.lips-process-section .lips-process-grid span {
-  position: relative !important;
-  z-index: 2 !important;
-  display: inline-flex !important;
-  margin-bottom: 44px !important;
-  color: var(--color-turquoise-dark, #0f7773) !important;
-  font-size: 0.72rem !important;
-  font-weight: 850 !important;
-  line-height: 1 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.18em !important;
-}
-
-.lips-process-section .lips-process-grid h3 {
-  position: relative !important;
-  z-index: 2 !important;
-  margin: 0 !important;
-  color: var(--color-text, #17151d) !important;
-  font-size: clamp(1.45rem, 1.9vw, 2.1rem) !important;
-  font-weight: 760 !important;
-  line-height: 1 !important;
-  letter-spacing: -0.065em !important;
-}
-
-.lips-process-section .lips-process-grid p {
-  position: relative !important;
-  z-index: 2 !important;
-  margin: 14px 0 0 !important;
-  color: var(--color-muted, #6e6670) !important;
-  font-size: 0.95rem !important;
-  line-height: 1.62 !important;
-}
-
-@media (max-width: 1080px) {
-  .lips-process-visual-intro {
-    grid-template-columns: 1fr !important;
-    gap: 26px !important;
-  }
-
-  .lips-process-visual-photo img {
-    min-height: 560px !important;
-  }
-
-  .lips-process-section .lips-process-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-@media (max-width: 760px) {
-  .lips-process-section {
-    padding: 64px 0 72px !important;
-  }
-
-  .lips-process-visual-intro {
-    gap: 20px !important;
-    margin-bottom: 24px !important;
-  }
-
-  .lips-process-visual-copy {
-    padding: 26px 22px !important;
-    border-radius: 28px !important;
-  }
-
-  .lips-process-visual-copy h2 {
-    font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
-    line-height: 1.04 !important;
-    letter-spacing: -0.066em !important;
-  }
-
-  .lips-process-visual-copy p:not(.section-kicker) {
-    font-size: 1rem !important;
-    line-height: 1.68 !important;
-  }
-
-  .lips-process-visual-photo {
-    padding: 10px !important;
-    border-radius: 28px !important;
-  }
-
-  .lips-process-visual-photo::after {
-    inset: 14px !important;
-    border-radius: 20px !important;
-  }
-
-  .lips-process-visual-photo img {
-    min-height: 430px !important;
-    border-radius: 20px !important;
-  }
-
-  .lips-process-section .lips-process-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  .lips-process-section .lips-process-grid article {
-    min-height: auto !important;
-    padding: 26px !important;
-    border-radius: 28px !important;
-  }
-
-  .lips-process-section .lips-process-grid span {
-    margin-bottom: 32px !important;
-  }
-}
-/* FINAL FIX — usta: zdjęcie w sekcji Kolor i kształt */
-
-.lips-signature-photo-frame {
-  aspect-ratio: 4 / 5 !important;
-  background: rgba(255, 255, 255, 0.16) !important;
-}
-
-.lips-signature-photo {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  border-radius: 24px !important;
-}
-
-@media (max-width: 760px) {
-  .lips-signature-photo {
-    border-radius: 20px !important;
-  }
-}
-  /* FIX — strzałki przewijania w sekcji Efekty ust */
-  .lips-page .lips-gallery-heading-row {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto !important;
-    gap: 24px !important;
-    align-items: end !important;
-  }
-
-  .lips-page .lips-gallery-heading {
-    margin-bottom: 22px !important;
-  }
-
-  .lips-page .lips-gallery-controls {
-    display: flex !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-    gap: 14px !important;
-    margin-bottom: 28px !important;
-  }
-
-  .lips-page .lips-gallery-arrow {
-    display: inline-flex !important;
-    width: 64px !important;
-    height: 64px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border: 1px solid rgba(56, 187, 181, 0.28) !important;
-    border-radius: 999px !important;
-    background:
-      radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.76)) !important;
-    color: #0f7773 !important;
-    font-size: 1.45rem !important;
-    font-weight: 760 !important;
-    line-height: 1 !important;
-    box-shadow:
-      0 18px 46px rgba(89, 53, 67, 0.10),
-      0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
-    cursor: pointer !important;
-    transition:
-      transform 180ms ease,
-      background 180ms ease,
-      color 180ms ease,
-      border-color 180ms ease,
-      box-shadow 180ms ease !important;
-  }
-
-  .lips-page .lips-gallery-arrow:hover {
-    transform: translateY(-2px) !important;
-    border-color: rgba(56, 187, 181, 0.46) !important;
-    background: #159a96 !important;
-    color: #ffffff !important;
-    box-shadow:
-      0 22px 52px rgba(56, 187, 181, 0.18),
-      0 0 0 1px rgba(255, 255, 255, 0.58) inset !important;
-  }
-
-  .lips-page .lips-gallery-arrow-prev {
-    opacity: 0.72 !important;
-  }
-
-  .lips-page .lips-gallery-arrow-next {
-    opacity: 1 !important;
-  }
-
-  .lips-page .lips-gallery-viewport {
-    scroll-behavior: smooth !important;
-  }
-
-  @media (max-width: 760px) {
-    .lips-page .lips-gallery-heading-row {
-      grid-template-columns: 1fr !important;
-      gap: 8px !important;
-    }
-
-    .lips-page .lips-gallery-controls {
-      justify-content: flex-end !important;
-      margin-bottom: 18px !important;
-      padding-right: 4px !important;
-    }
-
-    .lips-page .lips-gallery-arrow {
-      width: 52px !important;
-      height: 52px !important;
-      font-size: 1.2rem !important;
-    }
-  }
-  /* SAFE FIX — tylko kadrowanie 4 zdjęć w galerii ust, bez zmiany layoutu */
-.lips-gallery-card img[src*="makijaz-permanentny-ust-bielsko-biala-efekt-03"] {
-  object-position: 50% 64% !important;
-}
-
-.lips-gallery-card img[src*="makijaz-permanentny-ust-bielsko-biala-efekt-04"] {
-  object-position: 50% 62% !important;
-}
-
-.lips-gallery-card img[src*="makijaz-permanentny-ust-bielsko-biala-efekt-05"] {
-  object-position: 50% 63% !important;
-}
-
-
-  /* FINAL — usta: graficzne kafelki w sekcji Dla kogo? */
-  .lips-page .lips-for-who-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 20px !important;
-    margin-top: 0 !important;
-  }
-
-  .lips-page .lips-for-who-card {
-    position: relative !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-    aspect-ratio: 1200 / 754 !important;
-    border: 1px solid rgba(183, 101, 118, 0.14) !important;
-    border-radius: 32px !important;
-    background: #ffffff !important;
-    box-shadow:
-      0 18px 54px rgba(89, 53, 67, 0.08),
-      0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
-    transition:
-      transform 220ms ease,
-      box-shadow 220ms ease !important;
-  }
-
-  .lips-page .lips-for-who-card:hover {
-    transform: translateY(-4px) !important;
-    box-shadow:
-      0 26px 68px rgba(89, 53, 67, 0.13),
-      0 0 0 1px rgba(255, 255, 255, 0.78) inset !important;
-  }
-
-  .lips-page .lips-for-who-card img {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-  }
-
-  @media (max-width: 1080px) {
-    .lips-page .lips-for-who-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .lips-page .lips-for-who-grid {
-      grid-template-columns: 1fr !important;
-      gap: 16px !important;
-    }
-
-    .lips-page .lips-for-who-card {
-      border-radius: 24px !important;
-    }
-
-    .lips-page .lips-for-who-card:hover {
-      transform: none !important;
-    }
+    .lips-process-visual-intro,
+    .lips-avoid-grid { grid-template-columns:1fr; }
+    .lips-hero-card { min-height:330px; }
+    .lips-proof-grid,.lips-signature-points { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .lips-for-who-grid,.lips-related-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  }
+
+  @media (max-width:760px) {
+    .lips-page .section-kicker { min-height:30px; margin-bottom:14px; padding:0 11px; font-size:.63rem; letter-spacing:.13em; }
+    .lips-hero { padding:118px 0 52px; }
+    .lips-hero-grid { gap:14px; }
+    .lips-hero-copy,.lips-hero-card,.lips-natural-look-card,.lips-method-premium-card,.lips-methods-collage-card,.lips-signature-card,.lips-process-visual-copy,.lips-process-visual-photo,.lips-process-grid article,.lips-avoid-heading,.premium-points-list,.lips-related-card,.lips-final-card { border-radius:28px; }
+    .lips-hero-copy { padding:25px 21px 23px; }
+    .lips-hero-copy h1 { font-size:clamp(2.35rem,10.2vw,3.35rem); line-height:1.02; letter-spacing:-.064em; }
+    .lips-hero-lead { margin-top:19px; font-size:.99rem; line-height:1.62; }
+    .lips-hero-actions,.lips-final-actions { grid-template-columns:1fr; gap:10px; margin-top:23px; }
+    .lips-hero-actions > a,.lips-final-actions > a { width:100%; min-height:56px; font-size:.98rem !important; white-space:normal; }
+    .lips-hero-note { margin-top:14px; font-size:.88rem; }
+    .lips-hero-card { min-height:auto; padding:27px 23px; }
+    .lips-card-label { top:23px; left:23px; font-size:clamp(3.9rem,18vw,5.7rem); }
+    .lips-hero-card h2 { margin-top:82px; font-size:clamp(1.85rem,8.3vw,2.45rem); line-height:1.03; }
+    .lips-proof-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; padding:12px 0; }
+    .lips-proof-grid > div { min-height:110px; padding:18px 15px; border:1px solid rgba(183,101,118,.11); border-radius:18px; background:rgba(255,255,255,.82); }
+    .lips-proof-grid span { font-size:.62rem; letter-spacing:.09em; }
+    .lips-intro-section,.lips-types-section,.lips-signature-section,.lips-gallery-section,.lips-process-section,.lips-avoid-section,.lips-related-section,.lips-faq-section,.lips-final-cta { padding:54px 0; }
+    .lips-natural-look-card { gap:17px; padding:14px; }
+    .lips-natural-look-media,.lips-natural-look-media img { min-height:290px; border-radius:24px; }
+    .lips-natural-look-copy { padding:14px 6px 6px; }
+    .lips-natural-look-copy h2,.lips-for-who-heading h2,.lips-methods-heading h2,.lips-process-visual-copy h2,.lips-avoid-heading h2,.lips-section-heading h2,.lips-final-card h2 { font-size:clamp(2rem,8.8vw,2.95rem); line-height:1.04; letter-spacing:-.06em; }
+    .lips-natural-look-copy p:not(.section-kicker),.lips-methods-heading p:not(.section-kicker),.lips-process-visual-copy p:not(.section-kicker),.lips-avoid-heading p,.lips-section-heading p,.lips-final-card p:not(.signature) { font-size:.96rem; line-height:1.62; }
+    .lips-for-who-heading { margin-top:42px; margin-bottom:24px; }
+    .lips-for-who-grid { grid-template-columns:1fr; gap:14px; }
+    .lips-for-who-card { border-radius:23px; }
+    .lips-methods-collage-card { padding:9px; border-radius:24px; }
+    .lips-methods-collage-card img { border-radius:17px; }
+    .lips-methods-arrow,.lips-gallery-arrow { width:42px; height:42px; }
+    .lips-methods-track { grid-auto-columns:min(84vw,340px); gap:13px; padding-bottom:20px; }
+    .lips-method-premium-card { min-height:310px; padding:27px; }
+    .lips-method-premium-card span { margin-bottom:64px; }
+    .lips-method-premium-card h3 { font-size:clamp(1.75rem,7.9vw,2.35rem); }
+    .lips-price-strip { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+    .lips-price-strip > div,.lips-price-strip > a { min-height:82px; padding:14px; border-radius:19px; }
+    .lips-price-strip > a { grid-column:1/-1; min-height:66px; }
+    .lips-signature-card { gap:22px; padding:27px 18px; border-radius:30px; }
+    .lips-signature-copy h2 { font-size:clamp(2.3rem,10.6vw,3.4rem); line-height:.99; }
+    .lips-signature-points { grid-template-columns:1fr; gap:9px; }
+    .lips-signature-points > div { min-height:auto; padding:18px; border-radius:20px; }
+    .lips-gallery-heading-row { grid-template-columns:1fr; gap:0; }
+    .lips-gallery-controls { justify-content:flex-end; margin-bottom:14px; }
+    .lips-gallery-track { grid-auto-columns:minmax(220px,78vw); gap:12px; }
+    .lips-gallery-card { border-radius:23px; }
+    .lips-process-visual-intro { gap:16px; margin-bottom:16px; }
+    .lips-process-visual-copy { padding:24px 21px; }
+    .lips-process-visual-photo,.lips-process-visual-photo img { min-height:400px; border-radius:24px; }
+    .lips-process-grid { grid-template-columns:1fr; gap:10px; }
+    .lips-process-grid article { min-height:auto; padding:22px; }
+    .lips-process-grid span { margin-bottom:22px; }
+    .lips-avoid-grid { gap:14px; }
+    .lips-avoid-heading { padding:24px 21px; }
+    .premium-point { padding:19px 20px; }
+    .lips-related-grid { grid-template-columns:1fr; gap:10px; }
+    .lips-related-card { min-height:auto; padding:22px; }
+    .lips-faq-list { gap:10px; }
+    .lips-faq-item { border-radius:19px; }
+    .lips-faq-item summary { grid-template-columns:minmax(0,1fr) 36px; gap:11px; padding:17px; font-size:.98rem; }
+    .lips-faq-icon { width:36px; height:36px; }
+    .lips-faq-item > div { padding:0 17px 17px; }
+    .lips-faq-item p { font-size:.92rem; line-height:1.6; }
+    .lips-final-card { padding:29px 19px; }
+  }
+
+  @media (max-width:390px) {
+    .lips-proof-grid,.lips-price-strip { grid-template-columns:1fr; }
+    .lips-price-strip > a { grid-column:auto; }
+    .lips-methods-track { grid-auto-columns:min(86vw,320px); }
+  }
+
+  @media (prefers-reduced-motion:reduce) {
+    .lips-methods-track,.lips-gallery-viewport { scroll-behavior:auto; }
   }
 </style>
+
+<script>
+  const bindLipsSlider = (
+    scrollSelector: string,
+    leftSelector: string,
+    rightSelector: string,
+    cardSelector: string,
+    fallbackAmount: number,
+    gap: number
+  ) => {
+    const scroll = document.querySelector<HTMLElement>(scrollSelector);
+    const left = document.querySelector<HTMLButtonElement>(leftSelector);
+    const right = document.querySelector<HTMLButtonElement>(rightSelector);
+
+    if (!scroll || !left || !right) return;
+
+    const getAmount = () => {
+      const card = scroll.querySelector<HTMLElement>(cardSelector);
+      return card ? card.getBoundingClientRect().width + gap : fallbackAmount;
+    };
+
+    left.addEventListener("click", () => {
+      scroll.scrollBy({ left: -getAmount(), behavior: "smooth" });
+    });
+
+    right.addEventListener("click", () => {
+      scroll.scrollBy({ left: getAmount(), behavior: "smooth" });
+    });
+  };
+
+  bindLipsSlider(
+    "#lipsMethodScroll",
+    ".lips-method-arrow-left",
+    ".lips-method-arrow-right",
+    ".lips-method-premium-card",
+    350,
+    18
+  );
+
+  bindLipsSlider(
+    "#lipsGalleryScroll",
+    ".lips-gallery-arrow-prev",
+    ".lips-gallery-arrow-next",
+    ".lips-gallery-card",
+    300,
+    14
+  );
+</script>
