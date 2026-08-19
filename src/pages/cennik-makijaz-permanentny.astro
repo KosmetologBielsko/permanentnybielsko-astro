@@ -200,35 +200,35 @@ const featuredPrices = [
 ];
 
 const pageUrl = "https://www.permanentnybielsko.com/cennik-makijaz-permanentny/";
-const pageTitle = "Cennik makijażu permanentnego Bielsko-Biała | Brwi, usta, kreski";
+const pageTitle = "Cennik makijażu permanentnego Bielsko-Biała | Brwi od 1200 zł, usta 1400 zł";
 const pageDescription =
-  "Cennik makijażu permanentnego Bielsko-Biała: brwi permanentne cena, metoda włoskowa, kreski permanentne, makijaż permanentny ust, odświeżenie PMU, korekta i usuwanie.";
+  "Makijaż permanentny Bielsko-Biała — cennik: brwi od 1200 zł, usta 1400 zł, kreski od 500 zł, konsultacja 50 zł, usuwanie PMU 200–400 zł. Sprawdź pełne ceny zabiegów.";
 
 const faqItems = [
+  {
+    question: "Ile kosztują brwi permanentne w Bielsku-Białej?",
+    answer:
+      "Makijaż permanentny brwi kosztuje od 1200 zł za cieniowanie do 1400 zł za metodę włoskową lub włoski z cieniem. Ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące."
+  },
+  {
+    question: "Ile kosztuje makijaż permanentny ust w Bielsku-Białej?",
+    answer:
+      "Makijaż permanentny ust kosztuje 1400 zł. Cena obejmuje zabieg główny wraz z korektą w terminie 1–3 miesiące. Pigmentacja ma odświeżyć kolor i kontur ust, a nie je powiększać."
+  },
+  {
+    question: "Ile kosztują kreski permanentne?",
+    answer:
+      "Cena kresek permanentnych zaczyna się od 500 zł za kreskę dolną. Kreska zagęszczająca kosztuje 800 zł, a eyeliner lub kreska cieniowana 1100 zł. Zakres dobierany jest do budowy oka i oczekiwanego efektu."
+  },
   {
     question: "Czy cena makijażu permanentnego obejmuje korektę?",
     answer:
       "Tak. Ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące. Korekta pozwala dopracować kolor, nasycenie i równowagę efektu po wygojeniu skóry."
   },
   {
-    question: "Czym różni się korekta od odświeżenia makijażu permanentnego?",
-    answer:
-      "Korekta jest etapem dopracowania świeżo wykonanego zabiegu. Odświeżenie dotyczy starszego makijażu permanentnego, gdy kolor po czasie wymaga ponownego nasycenia."
-  },
-  {
     question: "Czy można poprawić makijaż permanentny wykonany w innym gabinecie?",
     answer:
       "Taką pigmentację trzeba najpierw ocenić indywidualnie. Znaczenie mają kolor, nasycenie, kształt, głębokość pracy i kondycja skóry. Czasem przed nowym zabiegiem potrzebne jest rozjaśnienie lub usuwanie."
-  },
-  {
-    question: "Dlaczego usuwanie makijażu permanentnego kosztuje 200–400 zł?",
-    answer:
-      "Cena jednej wizyty zależy od obszaru, koloru, nasycenia i głębokości pigmentu oraz wybranej metody. Liczba potrzebnych spotkań jest ustalana indywidualnie po kwalifikacji."
-  },
-  {
-    question: "Czy konsultacja makijażu permanentnego jest płatna?",
-    answer:
-      "Tak. Konsultacja trwa 30 minut i kosztuje 50 zł. To pierwszy krok przed zabiegiem, korektą, naprawą lub usuwaniem starego makijażu permanentnego."
   }
 ];
 
@@ -322,6 +322,10 @@ const structuredData = [
           "serviceType": group.title,
           "provider": {
             "@id": "https://www.permanentnybielsko.com/#localbusiness"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Bielsko-Biała"
           }
         }
       }))
@@ -363,13 +367,13 @@ const structuredData = [
             <p class="section-kicker">Cennik makijażu permanentnego</p>
 
             <h1>
-                <span class="pmu-hero-turquoise-text">Ceny zabiegów PMU</span> w gabinecie Bogusława Herda.
+              <span class="pmu-hero-turquoise-text">Cennik makijażu permanentnego</span> w Bielsku-Białej.
             </h1>
 
             <p class="price-hero-lead">
-              Cennik obejmuje konsultację, makijaż permanentny brwi, oczu i ust, odświeżenie,
-              usuwanie PMU oraz usługi specjalne. Przy części usług ostateczna decyzja zależy
-              od kwalifikacji, stanu skóry i zakresu pracy.
+              Brwi permanentne od 1200 zł, usta permanentne 1400 zł, kreski permanentne od 500 zł,
+              konsultacja 50 zł, a usuwanie PMU 200–400 zł. Poniżej znajdziesz pełny cennik
+              zabiegów Bogusławy Herda wraz z informacją, które ceny obejmują korektę.
             </p>
 
             <div class="price-hero-actions">
@@ -421,13 +425,13 @@ const structuredData = [
       <section class="price-featured-section">
         <div class="container">
           <div class="price-section-heading">
-            <p class="section-kicker">Najczęściej wybierane zakresy</p>
-            <h2>Najważniejsze ceny makijażu permanentnego.</h2>
+            <p class="section-kicker">Najczęściej sprawdzane ceny</p>
+            <h2>Brwi, usta i kreski permanentne — ceny w Bielsku-Białej.</h2>
           </div>
 
           <div class="price-featured-grid">
             {featuredPrices.map((item) => (
-              <a href={item.href} class="price-featured-card">
+              <a href={item.href} class="price-featured-card" aria-label={`${item.title} — ${item.price}`}>
                 <span>{item.label}</span>
                 <h3>{item.title}</h3>
                 <p>{item.price}</p>
@@ -441,10 +445,11 @@ const structuredData = [
         <div class="container">
           <div class="price-section-heading">
             <p class="section-kicker">Pełny cennik PMU</p>
-            <h2>Cennik makijażu permanentnego, odświeżeń i usuwania PMU.</h2>
+            <h2>Ile kosztuje makijaż permanentny w Bielsku-Białej?</h2>
             <p>
-              Ceny z gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące.
-              Ceny odświeżeń dotyczą makijażu wykonanego w naszym gabinecie.
+              Sprawdź ceny brwi permanentnych, ust, kresek, odświeżeń i usuwania PMU.
+              Ceny z gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące,
+              a ceny odświeżeń dotyczą makijażu wykonanego w naszym gabinecie.
             </p>
           </div>
 
