@@ -2055,6 +2055,152 @@ const structuredData = [
       transform: none;
     }
   }
+
+  /* PREMIUM MICRO 2026 — spójność typografii i przycisków, bez zmiany układu desktop */
+
+  .pmu-service-page .pmu-hero-actions .button-primary,
+  .pmu-service-page .pmu-hero-actions .button-secondary,
+  .pmu-service-page .pmu-hero-actions .button-booksy,
+  .pmu-service-page .pmu-lead-actions .button-primary,
+  .pmu-service-page .pmu-lead-actions .button-secondary,
+  .pmu-service-page .pmu-lead-actions .button-booksy,
+  .pmu-service-page .pmu-final-actions .button-primary,
+  .pmu-service-page .pmu-final-actions .button-secondary,
+  .pmu-service-page .pmu-final-actions .button-booksy,
+  .pmu-service-page .pmu-lead-form > button {
+    font-family: inherit !important;
+    font-size: 1rem !important;
+    font-weight: 820 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+    text-transform: none !important;
+  }
+
+  .pmu-service-page .pmu-hero-actions > a,
+  .pmu-service-page .pmu-lead-actions > a,
+  .pmu-service-page .pmu-final-actions > a,
+  .pmu-service-page .pmu-lead-form > button {
+    min-height: 56px !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+    border-radius: 999px !important;
+    box-sizing: border-box !important;
+  }
+
+  .pmu-service-page .pmu-hero-actions > a,
+  .pmu-service-page .pmu-final-actions > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  .pmu-service-page .pmu-lead-actions > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  .pmu-service-page .pmu-hero-actions .button-secondary,
+  .pmu-service-page .pmu-lead-actions .button-secondary,
+  .pmu-service-page .pmu-final-actions .button-secondary {
+    color: var(--color-text, #17151d) !important;
+  }
+
+  .pmu-service-page .pmu-price-strip > div,
+  .pmu-service-page .pmu-price-strip > a {
+    min-height: 88px !important;
+  }
+
+  .pmu-service-page .pmu-price-strip span {
+    font-family: inherit !important;
+    font-weight: 780 !important;
+    letter-spacing: 0.11em !important;
+  }
+
+  .pmu-service-page .pmu-price-strip strong {
+    font-family: inherit !important;
+    font-weight: 820 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  .pmu-service-page .pmu-price-strip > a {
+    font-family: inherit !important;
+    font-size: 0.96rem !important;
+    font-weight: 840 !important;
+    letter-spacing: -0.015em !important;
+    text-transform: none !important;
+  }
+
+  .pmu-service-page .pmu-form-heading strong,
+  .pmu-service-page .pmu-lead-form label:not(.pmu-lead-consent) {
+    font-family: inherit !important;
+  }
+
+  @media (max-width: 760px) {
+    .pmu-service-page .pmu-hero-actions .button-primary,
+    .pmu-service-page .pmu-hero-actions .button-secondary,
+    .pmu-service-page .pmu-hero-actions .button-booksy,
+    .pmu-service-page .pmu-lead-actions .button-primary,
+    .pmu-service-page .pmu-lead-actions .button-secondary,
+    .pmu-service-page .pmu-lead-actions .button-booksy,
+    .pmu-service-page .pmu-final-actions .button-primary,
+    .pmu-service-page .pmu-final-actions .button-secondary,
+    .pmu-service-page .pmu-final-actions .button-booksy,
+    .pmu-service-page .pmu-lead-form > button {
+      font-size: 0.98rem !important;
+      font-weight: 820 !important;
+      letter-spacing: -0.018em !important;
+    }
+
+    .pmu-service-page .pmu-hero-actions > a,
+    .pmu-service-page .pmu-lead-actions > a,
+    .pmu-service-page .pmu-final-actions > a,
+    .pmu-service-page .pmu-lead-form > button {
+      min-height: 56px !important;
+      width: 100% !important;
+    }
+
+    .pmu-service-page .pmu-price-strip {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 10px !important;
+    }
+
+    .pmu-service-page .pmu-price-strip > div,
+    .pmu-service-page .pmu-price-strip > a {
+      min-height: 86px !important;
+      padding: 15px 14px !important;
+    }
+
+    .pmu-service-page .pmu-price-strip strong {
+      font-size: 1.12rem !important;
+      line-height: 1.08 !important;
+    }
+
+    .pmu-service-page .pmu-price-strip > a {
+      font-size: 0.9rem !important;
+    }
+
+    .pmu-service-page .pmu-lead-form label:not(.pmu-lead-consent) {
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.045em !important;
+    }
+
+    .pmu-service-page .pmu-form-heading strong {
+      font-size: 1.22rem !important;
+      font-weight: 820 !important;
+      letter-spacing: -0.03em !important;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .pmu-service-page .pmu-price-strip {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
 </style>
 
 <script is:inline>
