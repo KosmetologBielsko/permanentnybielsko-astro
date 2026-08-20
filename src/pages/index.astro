@@ -124,6 +124,7 @@ const structuredData = [
   canonicalPath="/"
   structuredData={structuredData}
 >
+  <!-- HOME FINAL 2026: mobile audit + 3 CTA -->
   <div class="home-page">
     <Header />
 
@@ -890,33 +891,49 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="cta-section" id="kontakt">
-        <div class="container cta-card">
+      <section class="cta-section home-final-cta-section" id="kontakt">
+        <div class="container cta-card home-final-cta-card">
           <p class="signature cta-signature">Powrót do natury</p>
-          <h2>Chcesz sprawdzić, jaki makijaż permanentny będzie najlepszy dla Ciebie?</h2>
-          <p>
-            Nie musisz od razu wiedzieć, czy najlepsze będą brwi, usta, kreski czy korekta starego PMU. 
-            Wystarczy konsultacja, spokojna rozmowa i projekt dopasowany do Twojej twarzy.
+
+          <h2>Nie wiesz jeszcze, jaki makijaż permanentny będzie najlepszy dla Ciebie?</h2>
+
+          <p class="home-final-cta-lead">
+            Nie musisz wybierać techniki przed wizytą. Możesz najpierw opisać swoją sytuację,
+            zadzwonić albo od razu zarezerwować termin. Brwi, usta, kreski i stare PMU
+            kwalifikuję indywidualnie do skóry, urody i oczekiwanego efektu.
           </p>
 
-          <div class="hero-actions cta-actions">
-  <a
-    class="button-primary"
-    href="tel:+48730900125"
-    aria-label="Zadzwoń i zapytaj o makijaż permanentny"
-  >
-    Zadzwoń i zapytaj
-  </a>
+          <div class="hero-actions cta-actions home-final-cta-actions">
+            <a
+              class="button-primary"
+              href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
+              aria-label="Przejdź do formularza kwalifikacji PMU"
+            >
+              Formularz PMU <span>→</span>
+            </a>
 
-  <a
-    class="button-secondary"
-    href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Umów przez Booksy
-  </a>
-</div>
+            <a
+              class="button-secondary"
+              href="tel:+48730900125"
+              aria-label="Zadzwoń do gabinetu Bogusławy Herda"
+            >
+              Zadzwoń
+            </a>
+
+            <a
+              class="button-booksy"
+              href="https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Zarezerwuj wizytę w Booksy"
+            >
+              Booksy <span>→</span>
+            </a>
+          </div>
+
+          <p class="home-final-cta-note">
+            Jeśli nie wiesz, od czego zacząć — wybierz Formularz PMU.
+          </p>
         </div>
       </section>
     </main>
@@ -4181,6 +4198,126 @@ const structuredData = [
     :global(.home-page .hero-section-home .hero-actions .button-secondary),
     :global(.home-page .hero-section-home .hero-actions .button-booksy) {
       font-size: 0.98rem !important;
+    }
+  }
+
+
+  /* FINAL HOME CTA — 3 spójne ścieżki kontaktu jak na podstronach */
+  :global(.home-page .home-final-cta-section) {
+    padding-top: clamp(44px, 6vw, 86px) !important;
+    padding-bottom: clamp(44px, 6vw, 86px) !important;
+  }
+
+  :global(.home-page .home-final-cta-card) {
+    max-width: 1180px !important;
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  :global(.home-page .home-final-cta-card h2) {
+    max-width: 900px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  :global(.home-page .home-final-cta-lead) {
+    max-width: 790px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  :global(.home-page .home-final-cta-actions) {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    width: min(100%, 920px) !important;
+    margin: 30px auto 0 !important;
+  }
+
+  :global(.home-page .home-final-cta-actions a) {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 58px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    font-family: inherit !important;
+    font-size: 1rem !important;
+    font-weight: 820 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+    white-space: nowrap !important;
+  }
+
+  :global(.home-page .home-final-cta-note) {
+    margin: 17px auto 0 !important;
+    color: var(--color-muted, #6e6670) !important;
+    font-size: 0.82rem !important;
+    font-weight: 650 !important;
+    line-height: 1.5 !important;
+  }
+
+  @media (max-width: 980px) {
+    :global(.home-page .home-final-cta-actions) {
+      width: min(100%, 620px) !important;
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+
+    :global(.home-page .home-final-cta-actions a) {
+      min-height: 54px !important;
+      white-space: normal !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    :global(.home-page .home-final-cta-section) {
+      padding-top: 38px !important;
+      padding-bottom: 38px !important;
+    }
+
+    :global(.home-page .home-final-cta-card) {
+      padding: 24px 18px !important;
+      border-radius: 28px !important;
+    }
+
+    :global(.home-page .home-final-cta-card h2) {
+      font-size: clamp(2rem, 9.5vw, 3rem) !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.062em !important;
+    }
+
+    :global(.home-page .home-final-cta-lead) {
+      font-size: 0.98rem !important;
+      line-height: 1.62 !important;
+    }
+
+    :global(.home-page .home-final-cta-actions) {
+      width: 100% !important;
+      margin-top: 24px !important;
+    }
+
+    :global(.home-page .home-final-cta-actions a) {
+      min-height: 52px !important;
+      font-size: 0.96rem !important;
+    }
+
+    :global(.home-page .home-final-cta-note) {
+      max-width: 280px !important;
+      margin-top: 14px !important;
+      font-size: 0.76rem !important;
+    }
+  }
+
+  @media (max-width: 390px) {
+    :global(.home-page .home-final-cta-card) {
+      padding: 21px 15px !important;
+    }
+
+    :global(.home-page .home-final-cta-actions a) {
+      min-height: 50px !important;
+      font-size: 0.92rem !important;
     }
   }
 
