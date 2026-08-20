@@ -33,6 +33,7 @@ const isActive = (href: string) => {
 };
 ---
 
+<!-- HEADER MOBILE V2: bez CTA w panelu + większe social media -->
 <header class="site-header" data-site-header>
   <div class="header-shell">
     <a
@@ -152,21 +153,6 @@ const isActive = (href: string) => {
       <strong>Naturalny PMU · Bielsko-Biała</strong>
     </div>
 
-    <div class="mobile-menu-cta">
-      <a
-        class="mobile-booksy-cta"
-        href={booksyUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Umów przez Booksy
-      </a>
-
-      <a class="mobile-form-cta" href={pmuLeadUrl}>
-        Mam pytanie przed wizytą
-      </a>
-    </div>
-
     <nav class="mobile-nav" aria-label="Menu mobilne">
       {navLinks.map((link, index) => (
         <a
@@ -180,7 +166,7 @@ const isActive = (href: string) => {
     </nav>
 
     <section class="mobile-social-section" aria-label="Media społecznościowe i profile online">
-      <p>Zobacz moje prace</p>
+      <p>Zobacz moje prace i profile</p>
 
       <div class="mobile-social-links">
         <a
@@ -627,7 +613,7 @@ const isActive = (href: string) => {
     height: calc(100dvh - 102px);
     max-height: calc(100dvh - 102px);
     display: grid;
-    grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
     gap: 8px;
     overflow: hidden;
     padding: 12px;
@@ -693,43 +679,6 @@ const isActive = (href: string) => {
     white-space: nowrap;
   }
 
-  .mobile-menu-cta {
-    display: grid;
-    gap: 6px;
-  }
-
-  .mobile-booksy-cta,
-  .mobile-form-cta {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
-  .mobile-booksy-cta {
-    min-height: 44px;
-    color: #ffffff;
-    font-size: 0.78rem;
-    font-weight: 850;
-    letter-spacing: 0.045em;
-    background: linear-gradient(135deg, #0f7773, #1aa5a0, #74e0d7);
-    box-shadow: 0 12px 30px rgba(26, 165, 160, 0.20);
-  }
-
-  .mobile-form-cta {
-    min-height: 36px;
-    border: 1px solid rgba(56, 187, 181, 0.18);
-    color: #0f7773;
-    font-size: 0.65rem;
-    font-weight: 820;
-    letter-spacing: 0.055em;
-    background: rgba(219, 246, 243, 0.62);
-  }
-
   .mobile-nav {
     display: grid;
     min-height: 0;
@@ -784,16 +733,16 @@ const isActive = (href: string) => {
 
   .mobile-social-section {
     min-width: 0;
-    padding-top: 5px;
+    padding-top: 9px;
     border-top: 1px solid rgba(183, 101, 118, 0.10);
   }
 
   .mobile-social-section > p {
-    margin: 0 0 5px;
+    margin: 0 0 8px;
     color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.58rem;
-    font-weight: 880;
-    letter-spacing: 0.15em;
+    font-size: 0.64rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
     text-align: center;
     text-transform: uppercase;
   }
@@ -801,43 +750,46 @@ const isActive = (href: string) => {
   .mobile-social-links {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 5px;
+    gap: 7px;
   }
 
   .mobile-social-link {
     display: grid;
     min-width: 0;
-    min-height: 48px;
-    grid-template-columns: 26px minmax(0, 1fr);
-    gap: 5px;
+    min-height: 58px;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 7px;
     align-items: center;
-    padding: 5px 7px;
-    border: 1px solid rgba(183, 101, 118, 0.11);
-    border-radius: 14px;
+    padding: 7px 8px;
+    border: 1px solid rgba(183, 101, 118, 0.12);
+    border-radius: 16px;
     color: #17151d;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.74);
+    background:
+      radial-gradient(circle at 90% 10%, rgba(219, 246, 243, 0.34), transparent 4rem),
+      rgba(255, 255, 255, 0.80);
+    box-shadow: 0 10px 26px rgba(72, 42, 55, 0.055);
   }
 
   .mobile-social-icon {
     display: grid;
-    width: 26px;
-    height: 26px;
+    width: 32px;
+    height: 32px;
     place-items: center;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.92);
   }
 
   .mobile-social-icon svg {
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
   }
 
   .mobile-social-link > strong {
     overflow: hidden;
     font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-    font-size: 0.55rem;
-    font-weight: 790;
+    font-size: 0.61rem;
+    font-weight: 810;
     letter-spacing: -0.01em;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -861,7 +813,7 @@ const isActive = (href: string) => {
 
   .mobile-social-booksy-icon {
     color: #ffffff;
-    font-size: 0.82rem;
+    font-size: 0.96rem;
     font-weight: 900;
     background: linear-gradient(145deg, #0f7773, #1aa5a0);
   }
@@ -1089,24 +1041,30 @@ const isActive = (href: string) => {
       font-size: 0.69rem;
     }
 
+    .mobile-social-links {
+      gap: 5px;
+    }
+
     .mobile-social-link {
-      min-height: 44px;
-      grid-template-columns: 22px minmax(0, 1fr);
-      padding: 4px 5px;
+      min-height: 54px;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 5px;
+      padding: 6px;
+      border-radius: 14px;
     }
 
     .mobile-social-icon {
-      width: 22px;
-      height: 22px;
+      width: 28px;
+      height: 28px;
     }
 
     .mobile-social-icon svg {
-      width: 15px;
-      height: 15px;
+      width: 18px;
+      height: 18px;
     }
 
     .mobile-social-link > strong {
-      font-size: 0.50rem;
+      font-size: 0.54rem;
     }
   }
 
@@ -1150,16 +1108,6 @@ const isActive = (href: string) => {
       font-size: 0.56rem;
     }
 
-    .mobile-booksy-cta {
-      min-height: 38px;
-      font-size: 0.69rem;
-    }
-
-    .mobile-form-cta {
-      min-height: 31px;
-      font-size: 0.58rem;
-    }
-
     .mobile-nav {
       gap: 4px;
     }
@@ -1172,8 +1120,33 @@ const isActive = (href: string) => {
       margin-bottom: 3px;
     }
 
+    .mobile-social-section {
+      padding-top: 5px;
+    }
+
+    .mobile-social-section > p {
+      margin-bottom: 4px;
+      font-size: 0.57rem;
+    }
+
     .mobile-social-link {
-      min-height: 40px;
+      min-height: 46px;
+      grid-template-columns: 24px minmax(0, 1fr);
+      padding: 4px 5px;
+    }
+
+    .mobile-social-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .mobile-social-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .mobile-social-link > strong {
+      font-size: 0.50rem;
     }
 
     .mobile-formal-links a {
