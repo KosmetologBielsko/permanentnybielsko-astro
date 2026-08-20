@@ -1,6 +1,7 @@
 ---
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
 const pmuLeadUrl = "/makijaz-permanentny-bielsko/#kwalifikacja-pmu";
 const instagramUrl = "https://www.instagram.com/permanentnybielsko";
 const facebookUrl = "https://www.facebook.com/PermanentnyBielsko";
@@ -18,12 +19,12 @@ const navLinks = [
   { label: "Poradnik", href: "/poradnik/" },
   { label: "Galeria", href: "/galeria/" },
   { label: "Cennik", href: "/cennik-makijaz-permanentny/" },
-  { label: "Kontakt", href: "/kontakt/" }
+  { label: "Kontakt", href: "/kontakt/" },
 ];
 
 const mobileQuickLinks = [
-  { label: "Regulamin salonu", href: "/regulamin-salonu/" },
-  { label: "Polityka prywatności", href: "/rodo-polityka-prywatnosci-regulamin/" }
+  { label: "Regulamin", href: "/regulamin-salonu/" },
+  { label: "Polityka prywatności", href: "/rodo-polityka-prywatnosci-regulamin/" },
 ];
 
 const isActive = (href: string) => {
@@ -34,7 +35,11 @@ const isActive = (href: string) => {
 
 <header class="site-header" data-site-header>
   <div class="header-shell">
-    <a class="header-logo header-logo-image-link" href="/" aria-label="Bogusława Herda — strona główna">
+    <a
+      class="header-logo header-logo-image-link"
+      href="/"
+      aria-label="Bogusława Herda — strona główna"
+    >
       <picture class="header-logo-picture">
         <source
           media="(max-width: 1080px)"
@@ -51,6 +56,7 @@ const isActive = (href: string) => {
           fetchpriority="high"
         />
       </picture>
+
       <span class="header-logo-text-fallback" aria-hidden="true">
         <strong>Bogusława Herda</strong>
         <em>Permanentny Make-up</em>
@@ -109,14 +115,14 @@ const isActive = (href: string) => {
         </a>
       </nav>
 
-     <a
-  class="header-booksy"
-  href={booksyUrl}
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Umów przez Booksy
-</a>
+      <a
+        class="header-booksy"
+        href={booksyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Umów przez Booksy
+      </a>
 
       <button
         class="mobile-menu-button"
@@ -128,30 +134,38 @@ const isActive = (href: string) => {
       >
         <span></span>
         <span></span>
+        <span></span>
       </button>
     </div>
   </div>
 
   <div class="mobile-menu-backdrop" data-menu-backdrop></div>
 
-  <aside class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Menu mobilne" data-mobile-menu>
-   <div class="mobile-menu-head">
-  <p>Menu</p>
-  <span>Naturalny PMU • Bielsko-Biała</span>
+  <aside
+    class="mobile-menu-panel"
+    id="mobile-menu-panel"
+    aria-label="Menu mobilne"
+    data-mobile-menu
+  >
+    <div class="mobile-menu-intro">
+      <span>Menu</span>
+      <strong>Naturalny PMU · Bielsko-Biała</strong>
+    </div>
 
-  <a
-  class="mobile-lead-cta mobile-booksy-cta"
-  href={booksyUrl}
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Umów przez Booksy
-</a>
+    <div class="mobile-menu-cta">
+      <a
+        class="mobile-booksy-cta"
+        href={booksyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Umów przez Booksy
+      </a>
 
-<a class="mobile-form-cta" href={pmuLeadUrl}>
-  Mam pytanie przed wizytą
-</a>
-</div>
+      <a class="mobile-form-cta" href={pmuLeadUrl}>
+        Mam pytanie przed wizytą
+      </a>
+    </div>
 
     <nav class="mobile-nav" aria-label="Menu mobilne">
       {navLinks.map((link, index) => (
@@ -160,64 +174,74 @@ const isActive = (href: string) => {
           aria-current={isActive(link.href) ? "page" : undefined}
         >
           <span>{String(index + 1).padStart(2, "0")}</span>
-          {link.label}
+          <strong>{link.label}</strong>
         </a>
       ))}
     </nav>
 
     <section class="mobile-social-section" aria-label="Media społecznościowe i profile online">
-      <p>Online</p>
+      <p>Zobacz moje prace</p>
 
-      <div class="mobile-social-orbs" aria-label="Profile online">
+      <div class="mobile-social-links">
         <a
           href={instagramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="mobile-orb mobile-orb-instagram"
+          class="mobile-social-link mobile-social-instagram"
           aria-label="Instagram PermanentnyBielsko"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect>
-            <circle cx="12" cy="12" r="4.2"></circle>
-            <circle cx="17.25" cy="6.75" r="1.15"></circle>
-          </svg>
+          <span class="mobile-social-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect>
+              <circle cx="12" cy="12" r="4.2"></circle>
+              <circle cx="17.25" cy="6.75" r="1.15"></circle>
+            </svg>
+          </span>
+          <strong>Instagram</strong>
         </a>
 
         <a
           href={facebookUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="mobile-orb mobile-orb-facebook"
+          class="mobile-social-link mobile-social-facebook"
           aria-label="Facebook PermanentnyBielsko"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M14.05 8.2V6.7c0-.72.24-1.2 1.31-1.2H17V2.7c-.8-.1-1.58-.16-2.38-.16-2.36 0-3.98 1.44-3.98 4.08V8.2H8v3.14h2.64v10.12h3.41V11.34h2.67l.42-3.14h-3.09Z"></path>
-          </svg>
+          <span class="mobile-social-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.05 8.2V6.7c0-.72.24-1.2 1.31-1.2H17V2.7c-.8-.1-1.58-.16-2.38-.16-2.36 0-3.98 1.44-3.98 4.08V8.2H8v3.14h2.64v10.12h3.41V11.34h2.67l.42-3.14h-3.09Z"></path>
+            </svg>
+          </span>
+          <strong>Facebook</strong>
         </a>
 
         <a
           href={googleUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="mobile-orb mobile-orb-google"
+          class="mobile-social-link mobile-social-google"
           aria-label="Google mapa i opinie"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path class="g-blue" d="M21.6 12.23c0-.72-.06-1.42-.18-2.08H12v3.94h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.32 2.98-7.39Z"></path>
-            <path class="g-green" d="M12 22c2.7 0 4.96-.9 6.62-2.38l-3.24-2.51c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.76-5.59-4.12H3.06v2.6A10 10 0 0 0 12 22Z"></path>
-            <path class="g-yellow" d="M6.41 13.95A6.02 6.02 0 0 1 6.1 12c0-.68.11-1.34.31-1.95v-2.6H3.06A10 10 0 0 0 2 12c0 1.61.39 3.13 1.06 4.55l3.35-2.6Z"></path>
-            <path class="g-red" d="M12 5.93c1.47 0 2.79.5 3.82 1.5l2.87-2.87C16.95 2.94 14.7 2 12 2a10 10 0 0 0-8.94 5.45l3.35 2.6C7.2 7.69 9.4 5.93 12 5.93Z"></path>
-          </svg>
+          <span class="mobile-social-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path class="g-blue" d="M21.6 12.23c0-.72-.06-1.42-.18-2.08H12v3.94h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.32 2.98-7.39Z"></path>
+              <path class="g-green" d="M12 22c2.7 0 4.96-.9 6.62-2.38l-3.24-2.51c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.76-5.59-4.12H3.06v2.6A10 10 0 0 0 12 22Z"></path>
+              <path class="g-yellow" d="M6.41 13.95A6.02 6.02 0 0 1 6.1 12c0-.68.11-1.34.31-1.95v-2.6H3.06A10 10 0 0 0 2 12c0 1.61.39 3.13 1.06 4.55l3.35-2.6Z"></path>
+              <path class="g-red" d="M12 5.93c1.47 0 2.79.5 3.82 1.5l2.87-2.87C16.95 2.94 14.7 2 12 2a10 10 0 0 0-8.94 5.45l3.35 2.6C7.2 7.69 9.4 5.93 12 5.93Z"></path>
+            </svg>
+          </span>
+          <strong>Google</strong>
         </a>
 
         <a
           href={booksyUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="mobile-orb mobile-orb-booksy"
+          class="mobile-social-link mobile-social-booksy"
           aria-label="Booksy rezerwacja wizyty"
         >
-          <span>B</span>
+          <span class="mobile-social-icon mobile-social-booksy-icon">B</span>
+          <strong>Booksy</strong>
         </a>
       </div>
     </section>
@@ -243,7 +267,7 @@ const isActive = (href: string) => {
     "/images/logo-boguslawa-herda-pmu-full.webp",
     "/images/logo-boguslawa-herda-black.webp",
     "/images/logo-boguslawa-herda-header.webp",
-    "/images/logo-boguslawa-herda-pmu-header.webp"
+    "/images/logo-boguslawa-herda-pmu-header.webp",
   ];
 
   let logoFallbackIndex = 0;
@@ -298,19 +322,21 @@ const isActive = (href: string) => {
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeMenu();
-    }
+    if (event.key === "Escape") closeMenu();
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 1080) {
-      closeMenu();
-    }
+    if (window.innerWidth > 1080) closeMenu();
   });
 </script>
 
 <style>
+  :global(html.mobile-menu-open),
+  :global(html.mobile-menu-open body) {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
   .site-header {
     position: fixed;
     top: 12px;
@@ -332,9 +358,10 @@ const isActive = (href: string) => {
     padding: 10px 12px 10px 16px;
     border: 1px solid rgba(183, 101, 118, 0.13);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.82);
     box-shadow: 0 20px 60px rgba(72, 42, 55, 0.12);
     backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
     pointer-events: auto;
   }
 
@@ -345,137 +372,130 @@ const isActive = (href: string) => {
   .mobile-nav a,
   .mobile-formal-links a,
   .header-social-orb,
-  .header-logo-mark {
+  .mobile-social-link {
     -webkit-tap-highlight-color: transparent;
     outline: none;
   }
 
-  .header-logo:focus,
   .header-logo:focus-visible,
-  .desktop-nav a:focus,
   .desktop-nav a:focus-visible,
-  .header-booksy:focus,
   .header-booksy:focus-visible,
-  .mobile-menu-button:focus,
   .mobile-menu-button:focus-visible,
-  .mobile-nav a:focus,
   .mobile-nav a:focus-visible,
-  .mobile-formal-links a:focus,
   .mobile-formal-links a:focus-visible,
-  .header-social-orb:focus,
-  .header-social-orb:focus-visible {
-    outline: none;
-    box-shadow: none;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .header-logo:focus-visible,
-    .desktop-nav a:focus-visible,
-    .header-booksy:focus-visible,
-    .mobile-menu-button:focus-visible,
-    .mobile-nav a:focus-visible,
-    .mobile-formal-links a:focus-visible,
-    .header-social-orb:focus-visible {
-      box-shadow: 0 0 0 3px rgba(56, 187, 181, 0.18);
-    }
+  .header-social-orb:focus-visible,
+  .mobile-social-link:focus-visible {
+    box-shadow: 0 0 0 3px rgba(56, 187, 181, 0.18);
   }
 
   .header-logo {
     display: inline-flex;
-    align-items: center;
-    gap: 12px;
     min-width: 0;
+    align-items: center;
     color: var(--color-text, #17151d);
     text-decoration: none;
   }
 
-  .header-logo-mark {
-    display: grid;
-    width: 48px;
-    height: 48px;
+  .header-logo-picture {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .header-logo-image-link {
+    width: clamp(230px, 18vw, 315px);
+    max-width: 315px;
+    height: 62px;
     flex: 0 0 auto;
-    place-items: center;
-    border-radius: 17px;
-    color: #ffffff;
-    font-size: 1.05rem;
-    font-weight: 850;
-    letter-spacing: -0.08em;
-    background:
-      radial-gradient(circle at 24% 24%, rgba(255, 255, 255, 0.3), transparent 3rem),
-      linear-gradient(145deg, #9d4f68 0%, #d7899f 45%, #7f344d 100%);
-    box-shadow: 0 16px 38px rgba(157, 79, 104, 0.22);
+    overflow: visible;
   }
 
-  .header-logo-copy {
-    display: grid;
-    min-width: 0;
-    gap: 2px;
+  .header-logo-image-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 58px;
+    object-fit: contain;
+    object-position: left center;
   }
 
-  .header-logo-copy strong {
-    color: var(--color-text, #17151d);
-    font-size: clamp(1rem, 1.35vw, 1.35rem);
-    font-weight: 790;
+  .header-logo-text-fallback {
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .header-logo-text-fallback strong {
+    color: #17151d;
+    font-size: 1rem;
+    font-weight: 820;
     line-height: 1;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.055em;
     text-transform: uppercase;
     white-space: nowrap;
   }
 
-  .header-logo-copy em {
+  .header-logo-text-fallback em {
     color: #b76576;
-    font-size: 0.58rem;
+    font-size: 0.55rem;
     font-style: normal;
-    font-weight: 730;
+    font-weight: 760;
     line-height: 1;
-    letter-spacing: 0.32em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     white-space: nowrap;
+  }
+
+  .header-logo-image-link.is-logo-fallback .header-logo-picture {
+    display: none;
+  }
+
+  .header-logo-image-link.is-logo-fallback .header-logo-text-fallback {
+    display: grid;
   }
 
   .desktop-nav {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
     min-width: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
   }
 
   .desktop-nav a {
     display: inline-flex;
-    min-height: 44px;
+    min-height: 42px;
     align-items: center;
+    padding: 0 clamp(9px, 0.76vw, 14px);
     border-radius: 999px;
-    padding: 0 clamp(10px, 0.82vw, 15px);
     color: #17151d;
-    font-size: clamp(0.88rem, 0.82vw, 0.99rem);
-    font-weight: 760;
+    font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(0.78rem, 0.74vw, 0.9rem);
+    font-weight: 720;
     line-height: 1;
-    letter-spacing: -0.014em;
+    letter-spacing: 0.075em;
     text-decoration: none;
+    text-transform: uppercase;
     white-space: nowrap;
-    transition:
-      background 0.2s ease,
-      color 0.2s ease,
-      transform 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
   }
 
   .desktop-nav a:hover {
-    color: #17151d;
-    background: rgba(255, 255, 255, 0.68);
+    background: rgba(255, 255, 255, 0.64);
     transform: translateY(-1px);
   }
 
   .desktop-nav a[aria-current="page"] {
-    color: #17151d;
-    background: rgba(219, 246, 243, 0.78);
-    box-shadow: inset 0 0 0 1px rgba(56, 187, 181, 0.12);
+    background: rgba(219, 246, 243, 0.74);
+    box-shadow: inset 0 0 0 1px rgba(56, 187, 181, 0.11);
   }
 
   .header-actions {
     display: inline-flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
     gap: 9px;
   }
 
@@ -486,48 +506,25 @@ const isActive = (href: string) => {
   }
 
   .header-social-orb {
-    position: relative;
     display: grid;
     width: 38px;
     height: 38px;
     place-items: center;
-    overflow: hidden;
-    border-radius: 999px;
-    background:
-      radial-gradient(circle at 26% 20%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.54) 34%, rgba(255, 255, 255, 0.18) 68%),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 247, 250, 0.52));
     border: 1px solid rgba(183, 101, 118, 0.13);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 12px 30px rgba(72, 42, 55, 0.10);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-
-  .header-social-orb::after {
-    content: "";
-    position: absolute;
-    inset: 4px 6px auto 6px;
-    height: 11px;
     border-radius: 999px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent);
-    pointer-events: none;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 12px 30px rgba(72, 42, 55, 0.10);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .header-social-orb:hover {
     transform: translateY(-1px);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 16px 38px rgba(72, 42, 55, 0.15);
+    box-shadow: 0 16px 38px rgba(72, 42, 55, 0.15);
   }
 
   .header-social-orb svg {
-    position: relative;
-    z-index: 2;
     width: 20px;
     height: 20px;
-    display: block;
   }
 
   .header-orb-instagram svg rect,
@@ -541,46 +538,28 @@ const isActive = (href: string) => {
     fill: #1877f2;
   }
 
-  .header-orb-google svg .g-blue {
-    fill: #4285f4;
-  }
-
-  .header-orb-google svg .g-green {
-    fill: #34a853;
-  }
-
-  .header-orb-google svg .g-yellow {
-    fill: #fbbc05;
-  }
-
-  .header-orb-google svg .g-red {
-    fill: #ea4335;
-  }
+  .g-blue { fill: #4285f4; }
+  .g-green { fill: #34a853; }
+  .g-yellow { fill: #fbbc05; }
+  .g-red { fill: #ea4335; }
 
   .header-booksy {
     display: inline-flex;
     min-height: 48px;
     align-items: center;
     justify-content: center;
-    border-radius: 999px;
     padding: 0 18px;
+    border-radius: 999px;
     color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 810;
+    font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.84rem;
+    font-weight: 760;
+    letter-spacing: 0.045em;
     text-decoration: none;
+    text-transform: uppercase;
     white-space: nowrap;
-    background:
-      radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.24), transparent 4rem),
-      linear-gradient(135deg, #0f7773 0%, #1aa5a0 100%);
-    box-shadow: 0 14px 36px rgba(35, 156, 150, 0.2);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-
-  .header-booksy:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 18px 44px rgba(35, 156, 150, 0.24);
+    background: linear-gradient(135deg, #0f7773 0%, #1aa5a0 100%);
+    box-shadow: 0 14px 36px rgba(35, 156, 150, 0.20);
   }
 
   .mobile-menu-button {
@@ -592,32 +571,38 @@ const isActive = (href: string) => {
     border: 1px solid rgba(183, 101, 118, 0.16);
     border-radius: 999px;
     padding: 0;
-    background: rgba(255, 255, 255, 0.68);
+    background: rgba(255, 255, 255, 0.80);
     cursor: pointer;
   }
 
   .mobile-menu-button span {
+    grid-area: 1 / 1;
     display: block;
     width: 18px;
     height: 2px;
     border-radius: 999px;
     background: var(--color-text, #17151d);
-    transition:
-      transform 0.24s ease,
-      opacity 0.24s ease;
+    transition: transform 0.24s ease, opacity 0.18s ease;
   }
 
-  .mobile-menu-button span + span {
-    margin-top: -10px;
-    transform: translateY(10px);
+  .mobile-menu-button span:nth-child(1) {
+    transform: translateY(-6px);
   }
 
-  .is-menu-open .mobile-menu-button span:first-child {
-    transform: translateY(5px) rotate(45deg);
+  .mobile-menu-button span:nth-child(3) {
+    transform: translateY(6px);
   }
 
-  .is-menu-open .mobile-menu-button span:last-child {
-    transform: translateY(5px) rotate(-45deg);
+  .is-menu-open .mobile-menu-button span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .is-menu-open .mobile-menu-button span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .is-menu-open .mobile-menu-button span:nth-child(3) {
+    transform: rotate(-45deg);
   }
 
   .mobile-menu-backdrop {
@@ -626,36 +611,40 @@ const isActive = (href: string) => {
     z-index: -2;
     opacity: 0;
     pointer-events: none;
-    background: rgba(25, 18, 24, 0.26);
-    backdrop-filter: blur(4px);
-    transition: opacity 0.24s ease;
+    background: rgba(25, 18, 24, 0.28);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: opacity 0.22s ease;
   }
 
   .mobile-menu-panel {
     position: fixed;
-    top: 94px;
+    top: 92px;
     right: 12px;
+    bottom: 10px;
     z-index: -1;
     width: min(430px, calc(100vw - 24px));
-    max-height: calc(100vh - 112px);
-    overflow: auto;
-    padding: 14px;
+    height: calc(100dvh - 102px);
+    max-height: calc(100dvh - 102px);
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+    gap: 8px;
+    overflow: hidden;
+    padding: 12px;
     border: 1px solid rgba(183, 101, 118, 0.16);
-    border-radius: 28px;
+    border-radius: 26px;
     background:
-      radial-gradient(circle at 94% 10%, rgba(56, 187, 181, 0.16), transparent 14rem),
-      radial-gradient(circle at 10% 88%, rgba(201, 127, 143, 0.14), transparent 14rem),
-      rgba(255, 255, 255, 0.9);
+      radial-gradient(circle at 94% 8%, rgba(56, 187, 181, 0.17), transparent 12rem),
+      radial-gradient(circle at 8% 92%, rgba(201, 127, 143, 0.13), transparent 13rem),
+      rgba(255, 255, 255, 0.94);
     box-shadow: 0 24px 80px rgba(72, 42, 55, 0.24);
-    backdrop-filter: blur(22px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-10px) scale(0.98);
+    transform: translateY(-8px) scale(0.985);
     transform-origin: top right;
-    transition:
-      opacity 0.24s ease,
-      transform 0.24s ease;
-    scrollbar-width: thin;
+    transition: opacity 0.22s ease, transform 0.22s ease;
   }
 
   .is-menu-open .mobile-menu-backdrop {
@@ -669,250 +658,253 @@ const isActive = (href: string) => {
     transform: translateY(0) scale(1);
   }
 
-  .mobile-menu-head {
-    padding: 8px 8px 18px;
-    text-align: center;
+  .mobile-menu-intro {
+    display: flex;
+    min-height: 28px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 3px;
   }
 
-  .mobile-menu-head p {
+  .mobile-menu-intro > span {
     display: inline-flex;
+    min-height: 26px;
     align-items: center;
-    justify-content: center;
-    min-height: 30px;
-    margin: 0;
-    padding: 0 13px;
+    padding: 0 10px;
     border-radius: 999px;
-    background: rgba(219, 246, 243, 0.64);
+    background: rgba(219, 246, 243, 0.72);
     color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.7rem;
-    font-weight: 850;
-    letter-spacing: 0.18em;
+    font-size: 0.62rem;
+    font-weight: 860;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
   }
 
-  .mobile-menu-head span {
-    display: block;
-    max-width: 270px;
-    margin: 10px auto 0;
-    color: rgba(23, 21, 29, 0.74);
-    font-size: 1.04rem;
-    font-weight: 730;
-    line-height: 1.28;
-    letter-spacing: -0.035em;
+  .mobile-menu-intro > strong {
+    overflow: hidden;
+    color: rgba(23, 21, 29, 0.62);
+    font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.64rem;
+    font-weight: 760;
+    letter-spacing: 0.055em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .mobile-menu-cta {
+    display: grid;
+    gap: 6px;
+  }
+
+  .mobile-booksy-cta,
+  .mobile-form-cta {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .mobile-booksy-cta {
+    min-height: 44px;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.045em;
+    background: linear-gradient(135deg, #0f7773, #1aa5a0, #74e0d7);
+    box-shadow: 0 12px 30px rgba(26, 165, 160, 0.20);
+  }
+
+  .mobile-form-cta {
+    min-height: 36px;
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    color: #0f7773;
+    font-size: 0.65rem;
+    font-weight: 820;
+    letter-spacing: 0.055em;
+    background: rgba(219, 246, 243, 0.62);
   }
 
   .mobile-nav {
     display: grid;
+    min-height: 0;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    gap: 6px;
   }
 
   .mobile-nav a {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 6px;
-    min-height: 76px;
-    align-content: center;
-    justify-items: center;
-    padding: 12px 10px;
+    min-width: 0;
+    min-height: 0;
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 7px;
+    align-items: center;
+    padding: 6px 10px;
     border: 1px solid rgba(56, 187, 181, 0.13);
-    border-radius: 19px;
+    border-radius: 15px;
     color: var(--color-text, #17151d);
-    font-size: 1rem;
-    font-weight: 780;
-    line-height: 1.08;
-    text-align: center;
     text-decoration: none;
     background:
-      radial-gradient(circle at 85% 10%, rgba(219, 246, 243, 0.5), transparent 5rem),
-      rgba(255, 255, 255, 0.66);
+      radial-gradient(circle at 90% 10%, rgba(219, 246, 243, 0.48), transparent 4rem),
+      rgba(255, 255, 255, 0.70);
   }
 
   .mobile-nav a[aria-current="page"] {
-    background: rgba(219, 246, 243, 0.86);
+    border-color: rgba(56, 187, 181, 0.22);
+    background: rgba(219, 246, 243, 0.88);
+    box-shadow: inset 0 0 0 1px rgba(56, 187, 181, 0.05);
   }
 
   .mobile-nav span {
     color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.64rem;
-    font-weight: 860;
+    font-size: 0.58rem;
+    font-weight: 880;
     line-height: 1;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
   }
 
-  .mobile-nav-wide {
-    grid-column: 1 / -1;
+  .mobile-nav strong {
+    overflow: hidden;
+    color: #17151d;
+    font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: 0.03em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .mobile-social-section {
-    margin-top: 16px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(183, 101, 118, 0.12);
+    min-width: 0;
+    padding-top: 5px;
+    border-top: 1px solid rgba(183, 101, 118, 0.10);
   }
 
-  .mobile-social-section p {
-    margin: 0 0 12px;
+  .mobile-social-section > p {
+    margin: 0 0 5px;
     color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.7rem;
-    font-weight: 850;
+    font-size: 0.58rem;
+    font-weight: 880;
+    letter-spacing: 0.15em;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
   }
 
-  .mobile-social-orbs {
+  .mobile-social-links {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .mobile-social-link {
+    display: grid;
+    min-width: 0;
+    min-height: 48px;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 5px;
     align-items: center;
-    justify-items: center;
-    padding: 4px 8px 0;
-  }
-
-  .mobile-orb {
-    position: relative;
-    display: grid;
-    width: clamp(54px, 14vw, 68px);
-    height: clamp(54px, 14vw, 68px);
-    place-items: center;
-    overflow: hidden;
-    border-radius: 999px;
-    background:
-      radial-gradient(circle at 26% 18%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.54) 34%, rgba(255, 255, 255, 0.12) 72%),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 247, 250, 0.5));
-    border: 1px solid rgba(183, 101, 118, 0.13);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.92),
-      0 18px 40px rgba(72, 42, 55, 0.13);
+    padding: 5px 7px;
+    border: 1px solid rgba(183, 101, 118, 0.11);
+    border-radius: 14px;
+    color: #17151d;
     text-decoration: none;
+    background: rgba(255, 255, 255, 0.74);
   }
 
-  .mobile-orb::after {
-    content: "";
-    position: absolute;
-    inset: 7px 10px auto 10px;
-    height: 16px;
+  .mobile-social-icon {
+    display: grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
     border-radius: 999px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), transparent);
-    pointer-events: none;
+    background: rgba(255, 255, 255, 0.88);
   }
 
-  .mobile-orb svg,
-  .mobile-orb span {
-    position: relative;
-    z-index: 2;
+  .mobile-social-icon svg {
+    width: 17px;
+    height: 17px;
   }
 
-  .mobile-orb svg {
-    width: clamp(24px, 6vw, 30px);
-    height: clamp(24px, 6vw, 30px);
-    display: block;
+  .mobile-social-link > strong {
+    overflow: hidden;
+    font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 790;
+    letter-spacing: -0.01em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  .mobile-orb-instagram svg rect,
-  .mobile-orb-instagram svg circle {
+  .mobile-social-instagram svg rect,
+  .mobile-social-instagram svg circle {
     fill: none;
     stroke: #d62976;
     stroke-width: 1.9;
   }
 
-  .mobile-orb-facebook svg {
+  .mobile-social-facebook svg {
     fill: #1877f2;
   }
 
-  .mobile-orb-google svg .g-blue {
-    fill: #4285f4;
+  .mobile-social-booksy {
+    border-color: rgba(56, 187, 181, 0.18);
+    background: rgba(219, 246, 243, 0.60);
   }
 
-  .mobile-orb-google svg .g-green {
-    fill: #34a853;
-  }
-
-  .mobile-orb-google svg .g-yellow {
-    fill: #fbbc05;
-  }
-
-  .mobile-orb-google svg .g-red {
-    fill: #ea4335;
-  }
-
-  .mobile-orb-booksy {
-    background:
-      radial-gradient(circle at 26% 18%, rgba(255, 255, 255, 0.45), transparent 4rem),
-      linear-gradient(145deg, #0f7773 0%, #1aa5a0 52%, #74e0d7 100%);
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-
-  .mobile-orb-booksy span {
+  .mobile-social-booksy-icon {
     color: #ffffff;
-    font-size: clamp(1.1rem, 5vw, 1.45rem);
+    font-size: 0.82rem;
     font-weight: 900;
-    letter-spacing: -0.08em;
+    background: linear-gradient(145deg, #0f7773, #1aa5a0);
   }
 
   .mobile-formal-links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 14px;
-    padding: 0;
+    display: flex;
+    min-width: 0;
+    align-items: center;
     justify-content: center;
-    align-items: stretch;
+    gap: 8px;
+    padding-top: 1px;
   }
 
   .mobile-formal-links a {
-    display: flex;
-    min-height: 44px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 16px;
-    padding: 0 12px;
-    color: rgba(23, 21, 29, 0.72);
-    font-size: 0.76rem;
-    font-weight: 720;
+    color: rgba(23, 21, 29, 0.58);
+    font-size: 0.58rem;
+    font-weight: 700;
     line-height: 1.2;
     text-align: center;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.68);
-    border: 1px solid rgba(183, 101, 118, 0.13);
+  }
+
+  .mobile-formal-links a + a::before {
+    content: "•";
+    margin-right: 8px;
+    color: rgba(15, 119, 115, 0.35);
   }
 
   @media (min-width: 1081px) and (max-width: 1280px) {
-    .header-shell {
-      gap: 8px;
-      padding-left: 12px;
-      padding-right: 10px;
+    .header-logo-image-link {
+      width: 205px;
+      max-width: 205px;
+      height: 54px;
     }
 
-    .header-logo-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 15px;
-    }
-
-    .header-logo-copy strong {
-      max-width: 150px;
-      overflow: hidden;
-      font-size: 0.86rem;
-      letter-spacing: 0.045em;
-      text-overflow: ellipsis;
-    }
-
-    .header-logo-copy em {
-      font-size: 0.47rem;
-      letter-spacing: 0.18em;
-    }
-
-    .desktop-nav {
-      gap: 1px;
+    .header-logo-image-link img {
+      max-height: 50px;
     }
 
     .desktop-nav a {
-      min-height: 38px;
       padding: 0 6px;
-      font-size: 0.76rem;
-      font-weight: 740;
-      letter-spacing: -0.02em;
+      font-size: 0.69rem;
+      letter-spacing: 0.055em;
     }
 
     .header-socials {
@@ -931,14 +923,27 @@ const isActive = (href: string) => {
 
     .header-booksy {
       min-height: 40px;
-      padding: 0 14px;
-      font-size: 0.78rem;
+      padding: 0 12px;
+      font-size: 0.72rem;
+      letter-spacing: 0.035em;
     }
   }
 
   @media (min-width: 1281px) and (max-width: 1480px) {
-    .header-shell {
-      gap: 10px;
+    .header-logo-image-link {
+      width: 250px;
+      max-width: 250px;
+      height: 58px;
+    }
+
+    .header-logo-image-link img {
+      max-height: 54px;
+    }
+
+    .desktop-nav a {
+      padding: 0 7px;
+      font-size: 0.73rem;
+      letter-spacing: 0.06em;
     }
 
     .header-social-orb {
@@ -951,14 +956,9 @@ const isActive = (href: string) => {
       height: 18px;
     }
 
-    .desktop-nav a {
-      padding: 0 8px;
-      font-size: 0.82rem;
-    }
-
     .header-booksy {
-      padding: 0 16px;
-      font-size: 0.84rem;
+      padding: 0 14px;
+      font-size: 0.76rem;
     }
   }
 
@@ -970,10 +970,11 @@ const isActive = (href: string) => {
 
     .header-shell {
       min-height: 70px;
-      grid-template-columns: auto auto;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
       justify-content: space-between;
-      border-radius: 26px;
-      padding: 10px;
+      padding: 9px 10px;
+      border-radius: 25px;
     }
 
     .desktop-nav,
@@ -981,626 +982,218 @@ const isActive = (href: string) => {
       display: none;
     }
 
-    .mobile-menu-button {
-      display: grid;
+    .header-logo-image-link {
+      width: clamp(175px, 45vw, 235px);
+      max-width: 235px;
+      height: 50px;
     }
 
-    .header-booksy {
-      display: inline-flex;
-      min-height: 44px;
-      padding: 0 14px;
-      font-size: 0.8rem;
+    .header-logo-image-link img {
+      max-height: 48px;
     }
 
     .header-actions {
-      gap: 8px;
-    }
-
-    .mobile-menu-head {
-      text-align: center;
-    }
-  }
-
-  @media (max-width: 520px) {
-    .header-logo-mark {
-      width: 46px;
-      height: 46px;
-      border-radius: 16px;
-    }
-
-    .header-logo-copy strong {
-      max-width: 170px;
-      overflow: hidden;
-      font-size: 0.92rem;
-      letter-spacing: 0.05em;
-      text-overflow: ellipsis;
-    }
-
-    .header-logo-copy em {
-      font-size: 0.52rem;
-      letter-spacing: 0.2em;
-    }
-
-    .header-booksy {
-      min-height: 42px;
-      padding: 0 12px;
-      font-size: 0.76rem;
-    }
-  }
-
-  @media (max-width: 430px) {
-    .mobile-formal-links {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .header-logo-copy strong {
-      max-width: 150px;
-      font-size: 0.86rem;
-    }
-
-    .header-logo-copy em {
-      font-size: 0.48rem;
-      letter-spacing: 0.16em;
+      gap: 7px;
     }
 
     .header-booksy {
       min-height: 40px;
-      padding: 0 10px;
-      font-size: 0.72rem;
+      padding: 0 11px;
+      font-size: 0.66rem;
+      letter-spacing: 0.035em;
     }
 
-    .mobile-social-orbs {
-      gap: 9px;
-      padding-left: 2px;
-      padding-right: 2px;
-    }
-
-    .mobile-orb {
-      width: clamp(48px, 13vw, 58px);
-      height: clamp(48px, 13vw, 58px);
-    }
-
-    .mobile-orb svg {
-      width: 23px;
-      height: 23px;
-    }
-  }
-
-  /* V10 — menu typography closer to Sharley: clean, uppercase, premium */
-  .desktop-nav a,
-  .mobile-nav a {
-    font-family:
-      "Avenir Next",
-      "Helvetica Neue",
-      Arial,
-      sans-serif !important;
-  }
-
-  @media (min-width: 1081px) {
-    .desktop-nav {
-      gap: 2px !important;
-    }
-
-    .desktop-nav a {
-      min-height: 42px !important;
-      padding: 0 clamp(9px, 0.76vw, 14px) !important;
-      color: #17151d !important;
-      font-size: clamp(0.78rem, 0.74vw, 0.9rem) !important;
-      font-weight: 720 !important;
-      line-height: 1 !important;
-      letter-spacing: 0.075em !important;
-      text-transform: uppercase !important;
-    }
-
-    .desktop-nav a:hover {
-      color: #17151d !important;
-      background: rgba(255, 255, 255, 0.64) !important;
-      transform: translateY(-1px) !important;
-    }
-
-    .desktop-nav a[aria-current="page"] {
-      color: #17151d !important;
-      background: rgba(219, 246, 243, 0.74) !important;
-      box-shadow: inset 0 0 0 1px rgba(56, 187, 181, 0.11) !important;
-    }
-
-    .header-booksy {
-      font-family:
-        "Avenir Next",
-        "Helvetica Neue",
-        Arial,
-        sans-serif !important;
-      font-size: 0.84rem !important;
-      font-weight: 760 !important;
-      letter-spacing: 0.045em !important;
-      text-transform: uppercase !important;
-    }
-  }
-
-  @media (min-width: 1081px) and (max-width: 1280px) {
-    .desktop-nav a {
-      padding: 0 6px !important;
-      font-size: 0.69rem !important;
-      letter-spacing: 0.055em !important;
-      font-weight: 720 !important;
-    }
-
-    .header-booksy {
-      padding: 0 12px !important;
-      font-size: 0.72rem !important;
-      letter-spacing: 0.035em !important;
-    }
-  }
-
-  @media (min-width: 1281px) and (max-width: 1480px) {
-    .desktop-nav a {
-      padding: 0 7px !important;
-      font-size: 0.73rem !important;
-      letter-spacing: 0.06em !important;
-    }
-
-    .header-booksy {
-      font-size: 0.76rem !important;
-      padding: 0 14px !important;
-    }
-  }
-
-  @media (min-width: 1481px) {
-    .desktop-nav a {
-      font-size: 0.82rem !important;
-    }
-  }
-
-  @media (max-width: 1080px) {
-    .mobile-nav a {
-      font-size: 0.9rem !important;
-      font-weight: 760 !important;
-      letter-spacing: 0.045em !important;
-      text-transform: uppercase !important;
-    }
-
-    .mobile-menu-head span {
-      font-family:
-        "Avenir Next",
-        "Helvetica Neue",
-        Arial,
-        sans-serif !important;
-      letter-spacing: 0.02em !important;
-      text-transform: uppercase !important;
-      font-size: 0.88rem !important;
-      font-weight: 720 !important;
-    }
-
-    .header-booksy {
-      font-family:
-        "Avenir Next",
-        "Helvetica Neue",
-        Arial,
-        sans-serif !important;
-      font-size: 0.7rem !important;
-      font-weight: 780 !important;
-      letter-spacing: 0.045em !important;
-      text-transform: uppercase !important;
-    }
-  }
-
-
-  /* V11 — logo WEBP w belce menu */
-  .header-logo-image-link {
-    width: clamp(170px, 17vw, 245px) !important;
-    max-width: 245px !important;
-    height: 54px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    overflow: visible !important;
-    gap: 0 !important;
-  }
-
-  .header-logo-image-link img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    max-height: 54px !important;
-    object-fit: contain !important;
-  }
-
-  @media (min-width: 1081px) and (max-width: 1280px) {
-    .header-logo-image-link {
-      width: 155px !important;
-      max-width: 155px !important;
-      height: 48px !important;
-    }
-
-    .header-logo-image-link img {
-      max-height: 48px !important;
-    }
-  }
-
-  @media (min-width: 1281px) and (max-width: 1480px) {
-    .header-logo-image-link {
-      width: 180px !important;
-      max-width: 180px !important;
-    }
-  }
-
-  @media (max-width: 1080px) {
-    .header-logo-image-link {
-      width: clamp(142px, 42vw, 190px) !important;
-      max-width: 190px !important;
-      height: 48px !important;
-    }
-
-    .header-logo-image-link img {
-      max-height: 48px !important;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .header-logo-image-link {
-      width: clamp(128px, 39vw, 160px) !important;
-      max-width: 160px !important;
-      height: 44px !important;
-    }
-
-    .header-logo-image-link img {
-      max-height: 44px !important;
-    }
-  }
-
-
-  /* V12 — header używa tego samego logo WEBP co footer */
-  .header-logo-image-link {
-    width: clamp(150px, 13vw, 210px) !important;
-    max-width: 210px !important;
-    height: 58px !important;
-  }
-
-  .header-logo-image-link img {
-    width: 100% !important;
-    height: 58px !important;
-    max-height: 58px !important;
-    object-fit: contain !important;
-    object-position: center !important;
-  }
-
-  @media (min-width: 1081px) and (max-width: 1280px) {
-    .header-logo-image-link {
-      width: 132px !important;
-      max-width: 132px !important;
-      height: 50px !important;
-    }
-
-    .header-logo-image-link img {
-      height: 50px !important;
-      max-height: 50px !important;
-    }
-  }
-
-  @media (min-width: 1281px) and (max-width: 1480px) {
-    .header-logo-image-link {
-      width: 152px !important;
-      max-width: 152px !important;
-      height: 54px !important;
-    }
-
-    .header-logo-image-link img {
-      height: 54px !important;
-      max-height: 54px !important;
-    }
-  }
-
-  @media (max-width: 1080px) {
-    .header-logo-image-link {
-      width: clamp(120px, 34vw, 150px) !important;
-      max-width: 150px !important;
-      height: 48px !important;
-    }
-
-    .header-logo-image-link img {
-      height: 48px !important;
-      max-height: 48px !important;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .header-logo-image-link {
-      width: clamp(105px, 30vw, 132px) !important;
-      max-width: 132px !important;
-      height: 44px !important;
-    }
-
-    .header-logo-image-link img {
-      height: 44px !important;
-      max-height: 44px !important;
-    }
-  }
-
-
-
-  /* V13 — mobile menu: Kontakt nie jest szeroki po dodaniu Poradnika */
-  @media (max-width: 1080px) {
-    .mobile-nav {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
-
-    .mobile-nav a,
-    .mobile-nav-wide {
-      grid-column: auto !important;
-      width: 100% !important;
-      min-width: 0 !important;
-    }
-
-    .mobile-nav a {
-      min-height: 70px !important;
-      padding: 11px 8px !important;
-      font-size: 0.82rem !important;
-      line-height: 1.05 !important;
-      letter-spacing: 0.035em !important;
-    }
-
-    .mobile-nav span {
-      font-size: 0.6rem !important;
-      letter-spacing: 0.1em !important;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .mobile-nav {
-      gap: 8px !important;
-    }
-
-    .mobile-nav a {
-      min-height: 66px !important;
-      padding: 10px 7px !important;
-      font-size: 0.76rem !important;
-      letter-spacing: 0.025em !important;
-    }
-  }
-
-
-
-  /* V14 — odporne logo headera z fallbackiem tekstowym */
-  .header-logo-text-fallback {
-    display: none;
-    grid-template-columns: 1fr;
-    gap: 3px;
-    min-width: 0;
-  }
-
-  .header-logo-text-fallback strong {
-    color: #17151d;
-    font-size: clamp(0.92rem, 1.05vw, 1.18rem);
-    font-weight: 820;
-    line-height: 1;
-    letter-spacing: 0.055em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .header-logo-text-fallback em {
-    color: #b76576;
-    font-size: 0.58rem;
-    font-style: normal;
-    font-weight: 760;
-    line-height: 1;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .header-logo-image-link.is-logo-fallback {
-    width: auto !important;
-    min-width: 178px !important;
-    max-width: 230px !important;
-  }
-
-  .header-logo-image-link.is-logo-fallback .header-logo-text-fallback {
-    display: grid;
-  }
-
-  @media (max-width: 1080px) {
-    .header-logo-image-link.is-logo-fallback {
-      min-width: 152px !important;
-      max-width: 190px !important;
-    }
-
-    .header-logo-text-fallback strong {
-      font-size: 0.86rem;
-      letter-spacing: 0.04em;
-    }
-
-    .header-logo-text-fallback em {
-      font-size: 0.5rem;
-      letter-spacing: 0.14em;
-    }
-  }
-
-
-  /* V15 — czytelne logo headera: desktop + mobile */
-  .header-logo-picture {
-    display: flex !important;
-    width: 100% !important;
-    height: 100% !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-  }
-
-  .header-logo-image-link {
-    width: clamp(230px, 18vw, 315px) !important;
-    max-width: 315px !important;
-    height: 62px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    overflow: visible !important;
-    flex: 0 0 auto !important;
-  }
-
-  .header-logo-image-link img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    max-height: 58px !important;
-    object-fit: contain !important;
-    object-position: left center !important;
-  }
-
-  .header-logo-image-link.is-logo-fallback .header-logo-picture {
-    display: none !important;
-  }
-
-  @media (min-width: 1481px) {
-    .header-logo-image-link {
-      width: 315px !important;
-      max-width: 315px !important;
-    }
-  }
-
-  @media (min-width: 1281px) and (max-width: 1480px) {
-    .header-logo-image-link {
-      width: 250px !important;
-      max-width: 250px !important;
-      height: 58px !important;
-    }
-
-    .header-logo-image-link img {
-      max-height: 54px !important;
-    }
-  }
-
-  @media (min-width: 1081px) and (max-width: 1280px) {
-    .header-logo-image-link {
-      width: 205px !important;
-      max-width: 205px !important;
-      height: 54px !important;
-    }
-
-    .header-logo-image-link img {
-      max-height: 50px !important;
-    }
-  }
-
-  @media (max-width: 1080px) {
-    .header-logo-image-link {
-      width: clamp(182px, 46vw, 240px) !important;
-      max-width: 240px !important;
-      height: 50px !important;
-    }
-
-    .header-logo-image-link img {
-      max-height: 48px !important;
-      object-position: left center !important;
+    .mobile-menu-button {
+      display: grid;
+      width: 44px;
+      height: 44px;
     }
   }
 
   @media (max-width: 520px) {
+    .header-logo-image-link {
+      width: clamp(158px, 43vw, 198px);
+      max-width: 198px;
+      height: 46px;
+    }
+
+    .header-logo-image-link img {
+      max-height: 44px;
+    }
+
+    .header-booksy {
+      min-height: 38px;
+      padding: 0 9px;
+      font-size: 0.61rem;
+    }
+
+    .mobile-menu-button {
+      width: 42px;
+      height: 42px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .site-header {
+      padding-inline: 9px;
+    }
+
     .header-shell {
-      gap: 7px !important;
-      padding: 9px !important;
+      gap: 6px;
+      padding: 8px;
     }
 
     .header-logo-image-link {
-      width: clamp(170px, 45vw, 205px) !important;
-      max-width: 205px !important;
-      height: 48px !important;
+      width: clamp(145px, 41vw, 176px);
+      max-width: 176px;
+      height: 44px;
     }
 
     .header-logo-image-link img {
-      max-height: 46px !important;
+      max-height: 42px;
     }
 
     .header-booksy {
-      min-height: 40px !important;
-      padding: 0 10px !important;
-      font-size: 0.68rem !important;
-      letter-spacing: 0.035em !important;
+      min-height: 36px;
+      padding: 0 8px;
+      font-size: 0.56rem;
     }
 
     .mobile-menu-button {
-      width: 44px !important;
-      height: 44px !important;
+      width: 40px;
+      height: 40px;
+    }
+
+    .mobile-menu-panel {
+      top: 84px;
+      right: 9px;
+      bottom: 8px;
+      width: calc(100vw - 18px);
+      height: calc(100dvh - 92px);
+      max-height: calc(100dvh - 92px);
+      padding: 10px;
+      border-radius: 23px;
+    }
+
+    .mobile-nav {
+      gap: 5px;
+    }
+
+    .mobile-nav a {
+      grid-template-columns: 24px minmax(0, 1fr);
+      padding-inline: 8px;
+      border-radius: 13px;
+    }
+
+    .mobile-nav strong {
+      font-size: 0.69rem;
+    }
+
+    .mobile-social-link {
+      min-height: 44px;
+      grid-template-columns: 22px minmax(0, 1fr);
+      padding: 4px 5px;
+    }
+
+    .mobile-social-icon {
+      width: 22px;
+      height: 22px;
+    }
+
+    .mobile-social-icon svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .mobile-social-link > strong {
+      font-size: 0.50rem;
     }
   }
 
-  @media (max-width: 430px) {
+  @media (max-width: 360px) {
     .header-logo-image-link {
-      width: clamp(158px, 43vw, 185px) !important;
-      max-width: 185px !important;
-      height: 46px !important;
-    }
-
-    .header-logo-image-link img {
-      max-height: 44px !important;
+      width: 138px;
+      max-width: 138px;
     }
 
     .header-booksy {
-      padding: 0 9px !important;
-      font-size: 0.64rem !important;
+      padding-inline: 7px;
+      font-size: 0.52rem;
+    }
+
+    .mobile-menu-intro > strong {
+      display: none;
+    }
+
+    .mobile-social-link > strong {
+      display: none;
+    }
+
+    .mobile-social-link {
+      grid-template-columns: 1fr;
+      justify-items: center;
     }
   }
 
-  @media (max-width: 390px) {
-    .header-logo-image-link {
-      width: clamp(148px, 42vw, 170px) !important;
-      max-width: 170px !important;
+  @media (max-height: 680px) and (max-width: 1080px) {
+    .mobile-menu-panel {
+      gap: 5px;
+      padding: 9px;
     }
 
-    .header-booksy {
-      min-height: 38px !important;
-      padding: 0 8px !important;
-      font-size: 0.6rem !important;
+    .mobile-menu-intro {
+      min-height: 24px;
     }
 
-    .mobile-menu-button {
-      width: 42px !important;
-      height: 42px !important;
+    .mobile-menu-intro > span {
+      min-height: 23px;
+      font-size: 0.56rem;
+    }
+
+    .mobile-booksy-cta {
+      min-height: 38px;
+      font-size: 0.69rem;
+    }
+
+    .mobile-form-cta {
+      min-height: 31px;
+      font-size: 0.58rem;
+    }
+
+    .mobile-nav {
+      gap: 4px;
+    }
+
+    .mobile-nav a {
+      padding-block: 4px;
+    }
+
+    .mobile-social-section > p {
+      margin-bottom: 3px;
+    }
+
+    .mobile-social-link {
+      min-height: 40px;
+    }
+
+    .mobile-formal-links a {
+      font-size: 0.54rem;
     }
   }
 
-.header-lead-cta {
-  background: linear-gradient(135deg, #0f7773, #1aa5a0, #74e0d7);
-  color: #ffffff;
-  box-shadow: 0 14px 34px rgba(26, 165, 160, 0.22);
-}
+  @media (max-height: 560px) and (max-width: 1080px) {
+    .mobile-menu-panel {
+      overflow-y: auto;
+    }
+  }
 
-.mobile-lead-cta {
-  display: flex;
-  width: 100%;
-  min-height: 52px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 16px;
-  border-radius: 999px;
-  color: #ffffff;
-  font-size: 0.94rem;
-  font-weight: 850;
-  text-decoration: none;
-  background: linear-gradient(135deg, #0f7773, #1aa5a0, #74e0d7);
-  box-shadow: 0 14px 34px rgba(26, 165, 160, 0.22);
-}
-.mobile-form-cta {
-  display: flex;
-  width: 100%;
-  min-height: 46px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  border-radius: 999px;
-  color: #0f7773;
-  font-family:
-    "Avenir Next",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-  font-size: 0.76rem;
-  font-weight: 820;
-  letter-spacing: 0.045em;
-  text-transform: uppercase;
-  text-decoration: none;
-  background: rgba(219, 246, 243, 0.68);
-  border: 1px solid rgba(56, 187, 181, 0.18);
-}
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu-panel,
+    .mobile-menu-backdrop,
+    .mobile-menu-button span,
+    .desktop-nav a,
+    .header-social-orb {
+      transition: none;
+    }
+  }
 </style>
