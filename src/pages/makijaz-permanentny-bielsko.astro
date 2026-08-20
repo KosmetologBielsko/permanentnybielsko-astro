@@ -1,583 +1,1066 @@
 ---
+
 import Layout from "../layouts/Layout.astro";
+
 import Header from "../components/Header.astro";
+
 import Footer from "../components/Footer.astro";
+
 import ProcessVideo from "../components/ProcessVideo.astro";
 
 const booksyUrl =
+
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const pageUrl =
+
   "https://www.permanentnybielsko.com/makijaz-permanentny-bielsko/";
 
 const pageTitle =
+
   "Makijaż permanentny Bielsko-Biała | Brwi, usta i kreski";
 
 const pageDescription =
+
   "Makijaż permanentny Bielsko-Biała u Bogusławy Herda. Naturalne brwi, usta i kreski, konsultacja i rysunek wstępny. Brwi od 1200 zł. Sprawdź terminy.";
 
 const faqItems = [
+
   {
+
     question: "Czy makijaż permanentny może wyglądać naturalnie?",
+
     answer:
+
       "Tak. Naturalny efekt zależy od rysunku wstępnego, koloru, techniki, skóry i doświadczenia osoby wykonującej zabieg. Celem jest podkreślenie urody bez ciężkiej, graficznej formy."
+
   },
+
   {
+
     question: "Ile kosztuje makijaż permanentny w Bielsku-Białej?",
+
     answer:
+
       "Brwi permanentne kosztują od 1200 zł, makijaż permanentny ust 1400 zł, a kreski permanentne od 500 zł. Pełny zakres cen, odświeżeń i usuwania PMU znajduje się w cenniku."
+
   },
+
   {
+
     question: "Czy przed zabiegiem wykonywany jest rysunek wstępny?",
+
     answer:
+
       "Tak. Kształt, proporcje i kierunek pracy są omawiane przed pigmentacją. Dopiero po zaakceptowaniu planu przechodzimy do właściwego zabiegu."
+
   },
+
   {
+
     question: "Czy makijaż permanentny boli?",
+
     answer:
+
       "Odczucia są indywidualne i zależą od progu wrażliwości, okolicy zabiegowej oraz stanu skóry. Przebieg zabiegu i komfort klientki są omawiane przed rozpoczęciem pigmentacji."
+
   },
+
   {
+
     question: "Jak długo utrzymuje się makijaż permanentny?",
+
     answer:
+
       "Trwałość zależy między innymi od skóry, techniki, koloru, pielęgnacji, ekspozycji na słońce i metabolizmu pigmentu. Z czasem pigment stopniowo się rozjaśnia i może wymagać odświeżenia."
+
   },
+
   {
+
     question: "Czy można poprawić stary makijaż permanentny?",
+
     answer:
+
       "Czasem tak, ale stary pigment trzeba najpierw ocenić. Przy zbyt ciemnym, chłodnym, nierównym lub niekorzystnie ułożonym PMU może być potrzebne wcześniejsze rozjaśnienie albo usuwanie."
+
   },
+
   {
+
     question: "Kiedy wykonuje się korektę lub dopigmentowanie?",
+
     answer:
+
       "Korektę wykonuje się po wygojeniu skóry, gdy można realnie ocenić kolor, nasycenie i równomierność efektu. Ceny oznaczone w cenniku gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące."
+
   },
+
   {
+
     question: "Gdzie wykonywany jest makijaż permanentny?",
+
     answer:
+
       "Zabiegi wykonywane są w gabinecie Bogusławy Herda w Bielsku-Białej. Aktualne terminy można sprawdzić w Booksy, a w przypadku wątpliwości wysłać formularz kwalifikacji PMU."
+
   }
+
 ];
 
 const structuredData = [
+
   {
+
     "@context": "https://schema.org",
+
     "@type": "WebPage",
+
     "@id": `${pageUrl}#webpage`,
+
     url: pageUrl,
+
     name: pageTitle,
+
     description: pageDescription,
+
     inLanguage: "pl-PL",
+
     isPartOf: {
+
       "@id": "https://www.permanentnybielsko.com/#website"
+
     },
+
     about: {
+
       "@id": "https://www.permanentnybielsko.com/#localbusiness"
+
     },
+
     primaryImageOfPage: {
+
       "@type": "ImageObject",
+
       url: "https://www.permanentnybielsko.com/images/hero-boguslawa-herda-pmu-cutout.webp"
+
     }
+
   },
+
   {
+
     "@context": "https://schema.org",
+
     "@type": "BreadcrumbList",
+
     "@id": `${pageUrl}#breadcrumb`,
+
     itemListElement: [
+
       {
+
         "@type": "ListItem",
+
         position: 1,
+
         name: "Strona główna",
+
         item: "https://www.permanentnybielsko.com/"
+
       },
+
       {
+
         "@type": "ListItem",
+
         position: 2,
+
         name: "Makijaż permanentny Bielsko-Biała",
+
         item: pageUrl
+
       }
+
     ]
+
   },
+
   {
+
     "@context": "https://schema.org",
+
     "@type": "Service",
+
     "@id": `${pageUrl}#service`,
+
     name: "Makijaż permanentny Bielsko-Biała",
+
     serviceType: "Makijaż permanentny",
+
     description:
+
       "Naturalny makijaż permanentny brwi, ust i kresek w Bielsku-Białej, poprzedzony konsultacją, analizą urody i rysunkiem wstępnym.",
+
     areaServed: [
+
       {
+
         "@type": "City",
+
         name: "Bielsko-Biała"
+
       },
+
       {
+
         "@type": "AdministrativeArea",
+
         name: "województwo śląskie"
+
       }
+
     ],
+
     provider: {
+
       "@id": "https://www.permanentnybielsko.com/#localbusiness"
+
     },
+
     brand: {
+
       "@type": "Brand",
+
       name: "Bogusława Herda Makijaż Permanentny"
+
     },
+
     hasOfferCatalog: {
+
       "@type": "OfferCatalog",
+
       name: "Oferta makijażu permanentnego",
+
       itemListElement: [
+
         {
+
           "@type": "Offer",
+
           itemOffered: {
+
             "@type": "Service",
+
             name: "Brwi permanentne"
+
           }
+
         },
+
         {
+
           "@type": "Offer",
+
           itemOffered: {
+
             "@type": "Service",
+
             name: "Makijaż permanentny ust"
+
           }
+
         },
+
         {
+
           "@type": "Offer",
+
           itemOffered: {
+
             "@type": "Service",
+
             name: "Kreski permanentne"
+
           }
+
         },
+
         {
+
           "@type": "Offer",
+
           itemOffered: {
+
             "@type": "Service",
+
             name: "Korekta lub odświeżenie makijażu permanentnego"
+
           }
+
         }
+
       ]
+
     }
+
   },
+
   {
+
     "@context": "https://schema.org",
+
     "@type": "FAQPage",
+
     "@id": `${pageUrl}#faq`,
+
     mainEntity: faqItems.map((item) => ({
+
       "@type": "Question",
+
       name: item.question,
+
       acceptedAnswer: {
+
         "@type": "Answer",
+
         text: item.answer
+
       }
+
     }))
+
   }
+
 ];
+
 ---
 
 <Layout
+
   title={pageTitle}
+
   description={pageDescription}
+
   canonicalPath="/makijaz-permanentny-bielsko/"
+
   structuredData={structuredData}
+
 >
+
   <div class="pmu-service-page">
+
     <Header />
 
     <main>
+
       <section class="pmu-hero">
+
         <div class="pmu-glow pmu-glow-one" aria-hidden="true"></div>
+
         <div class="pmu-glow pmu-glow-two" aria-hidden="true"></div>
 
         <div class="container pmu-hero-grid">
+
           <div class="pmu-hero-copy">
+
             <p class="section-kicker">Makijaż permanentny Bielsko-Biała</p>
 
             <h1>
+
               <span class="pmu-hero-gold-text">Makijaż permanentny w Bielsku-Białej</span>
+
               — naturalny efekt dopasowany do twarzy.
+
             </h1>
 
             <p class="pmu-hero-lead">
+
               Brwi, usta i kreski permanentne poprzedzone konsultacją i rysunkiem wstępnym.
+
               Jeśli nie wiesz, która opcja będzie właściwa, wyślij krótkie zapytanie — pomożemy
+
               dobrać zabieg przed rezerwacją.
+
             </p>
 
             <div class="pmu-hero-actions" aria-label="Szybki kontakt i rezerwacja">
+
               <a class="button-primary" href="#kwalifikacja-pmu">
+
                 Formularz PMU <span aria-hidden="true">→</span>
+
               </a>
 
               <a
+
                 class="button-booksy"
+
                 href={booksyUrl}
+
                 target="_blank"
+
                 rel="noopener noreferrer"
+
                 aria-label="Sprawdź terminy w Booksy"
+
               >
+
                 Booksy <span aria-hidden="true">→</span>
+
               </a>
 
               <a
+
                 class="button-secondary"
+
                 href="tel:+48730900125"
+
                 aria-label="Zadzwoń do gabinetu Bogusławy Herda"
+
               >
+
                 Zadzwoń
+
               </a>
+
             </div>
 
             <p class="pmu-hero-contact-note">
+
               Masz stary makijaż permanentny albo nie wiesz, czy potrzebujesz pigmentacji,
+
               korekty czy usuwania? Najpierw wyślij formularz kwalifikacji.
+
             </p>
+
           </div>
 
           <aside class="pmu-hero-card" aria-label="Podejście do makijażu permanentnego">
+
             <p class="pmu-card-label" aria-hidden="true">PMU</p>
+
             <h2>Najpierw decyzja. Dopiero później pigmentacja.</h2>
+
             <p>
+
               Analiza twarzy, skóry i wcześniejszych pigmentacji pozwala dobrać kształt,
+
               technikę, kolor i intensywność bez pracy według jednego schematu.
+
             </p>
+
           </aside>
+
         </div>
+
       </section>
 
       <section class="pmu-proof-section" aria-label="Doświadczenie i specjalizacja">
+
         <div class="container pmu-proof-grid">
+
           <div>
+
             <strong>Wicemistrzyni świata</strong>
+
             <span>doświadczenie konkursowe PMU</span>
+
           </div>
 
           <div>
+
             <strong>Trenerka Long-Time-Liner®</strong>
+
             <span>standard edukacji i precyzji</span>
+
           </div>
 
           <div>
+
             <strong>Silky Hairstroke Brows</strong>
+
             <span>autorskie podejście do brwi</span>
+
           </div>
 
           <div>
+
             <strong>Bielsko-Biała</strong>
+
             <span>gabinet i konsultacje na miejscu</span>
+
           </div>
+
         </div>
+
       </section>
 
       <section class="pmu-services-section" id="zakres-zabiegow">
+
         <div class="container">
+
           <div class="pmu-section-heading">
+
             <p class="section-kicker">Wybierz obszar</p>
+
             <h2>Brwi, usta czy kreski? Zacznij od efektu, którego naprawdę potrzebujesz.</h2>
+
             <p>
+
               Każdy obszar wymaga innego podejścia. Wybierz usługę, aby zobaczyć szczegóły,
+
               przykłady efektów i informacje o zabiegu.
+
             </p>
+
           </div>
 
           <div
+
             class="pmu-service-image-grid"
+
             aria-label="Zakres zabiegów makijażu permanentnego"
+
           >
+
             <a
+
               class="pmu-service-image-card"
+
               href="/makijaz-permanentny-brwi/"
+
               aria-label="Zobacz brwi permanentne"
+
             >
+
               <img
+
                 src="/images/oferta-brwi-permanentne.webp?v=20260709-v2"
+
                 alt="Brwi permanentne — naturalna oprawa oka i miękki kształt dopasowany do twarzy"
+
                 width="1448"
+
                 height="1086"
+
                 loading="lazy"
+
                 decoding="async"
+
                 sizes="(max-width: 860px) calc(100vw - 32px), min(560px, 46vw)"
+
               />
+
             </a>
 
             <a
+
               class="pmu-service-image-card"
+
               href="/silky-hairstroke-brows/"
+
               aria-label="Zobacz Silky Hairstroke Brows"
+
             >
+
               <img
+
                 src="/images/oferta-silky-hairstroke-brows-mobile.webp?v=20260709-v2"
+
                 alt="Silky Hairstroke Brows — autorska metoda włosa maszynowego dla realistycznego efektu brwi"
+
                 width="1448"
+
                 height="1086"
+
                 loading="lazy"
+
                 decoding="async"
+
                 sizes="(max-width: 860px) calc(100vw - 32px), min(560px, 46vw)"
+
               />
+
             </a>
 
             <a
+
               class="pmu-service-image-card"
+
               href="/makijaz-permanentny-ust/"
+
               aria-label="Zobacz makijaż permanentny ust"
+
             >
+
               <img
+
                 src="/images/oferta-usta-permanentne.webp?v=20260709-v2"
+
                 alt="Makijaż permanentny ust — subtelne odświeżenie koloru i wyrównanie konturu"
+
                 width="1448"
+
                 height="1086"
+
                 loading="lazy"
+
                 decoding="async"
+
                 sizes="(max-width: 860px) calc(100vw - 32px), min(560px, 46vw)"
+
               />
+
             </a>
 
             <a
+
               class="pmu-service-image-card"
+
               href="/makijaz-permanentny-oczu/"
+
               aria-label="Zobacz kreski permanentne"
+
             >
+
               <img
+
                 src="/images/oferta-kreski-permanentne.webp?v=20260709-v2"
+
                 alt="Kreski permanentne — zagęszczenie linii rzęs i podkreślenie spojrzenia"
+
                 width="1448"
+
                 height="1086"
+
                 loading="lazy"
+
                 decoding="async"
+
                 sizes="(max-width: 860px) calc(100vw - 32px), min(560px, 46vw)"
+
               />
+
             </a>
+
           </div>
 
           <div class="pmu-price-strip" aria-label="Najważniejsze ceny makijażu permanentnego">
+
             <div>
+
               <span>Brwi</span>
+
               <strong>od 1200 zł</strong>
+
             </div>
+
             <div>
+
               <span>Usta</span>
+
               <strong>1400 zł</strong>
+
             </div>
+
             <div>
+
               <span>Kreski</span>
+
               <strong>od 500 zł</strong>
+
             </div>
+
             <a href="/cennik-makijaz-permanentny/">
+
               Pełny cennik <span aria-hidden="true">→</span>
+
             </a>
+
           </div>
+
         </div>
+
       </section>
 
       <section class="pmu-portrait-section" aria-label="Dla kogo jest makijaż permanentny">
+
         <div class="container pmu-portrait-card">
+
           <div class="pmu-portrait-copy">
+
             <p class="section-kicker">Dla kogo jest PMU?</p>
+
             <h2>Podkreślamy rysy. Nie zmieniamy twarzy.</h2>
+
             <p>
+
               Brwi mogą uporządkować oprawę oka, pigmentacja ust wyrównać kolor i kontur,
+
               a odpowiednio dobrana kreska subtelnie zagęścić linię rzęs. Zakres pracy
+
               dobierany jest do urody, skóry, mimiki i codziennego stylu.
+
             </p>
+
             <p>
+
               Jeśli masz wcześniejszy makijaż permanentny, najpierw oceniamy jego kolor,
+
               nasycenie i kształt. Nie każdą starą pigmentację warto od razu przykrywać nową.
+
             </p>
 
             <div class="pmu-portrait-points" aria-label="Najważniejsze elementy planowania PMU">
+
               <span>analiza twarzy</span>
+
               <span>rysunek wstępny</span>
+
               <span>dobór pigmentu</span>
+
               <span>kwalifikacja starego PMU</span>
+
             </div>
+
           </div>
 
           <figure class="pmu-portrait-photo">
+
             <img
+
               src="/images/portret-boguslawa-herda-naturalny-pmu.webp"
+
               alt="Bogusława Herda — makijaż permanentny Bielsko-Biała"
+
               width="1024"
+
               height="1536"
+
               loading="lazy"
+
               decoding="async"
+
             />
+
           </figure>
+
         </div>
+
       </section>
 
       <section class="pmu-process-section" aria-label="Jak wygląda zabieg makijażu permanentnego">
+
         <div class="container">
+
           <div class="pmu-process-feature-row">
+
             <div class="pmu-process-feature-card">
+
               <p class="section-kicker">Proces</p>
+
               <h2>Nie zaczynamy od pigmentu. Zaczynamy od rozmowy i rysunku.</h2>
+
               <p>
+
                 Przed zabiegiem ustalamy oczekiwania, oceniamy skórę i planujemy kształt.
+
                 Dopiero po zaakceptowaniu kierunku pracy przechodzimy do pigmentacji.
+
               </p>
+
             </div>
 
             <div class="pmu-process-video-shell">
+
               <ProcessVideo />
+
             </div>
 
             <div class="pmu-process-mini-list">
+
               <div>
+
                 <strong>1. Konsultacja</strong>
+
                 <span>oczekiwania, skóra, wcześniejsze zabiegi i przeciwwskazania</span>
+
               </div>
 
               <div>
+
                 <strong>2. Rysunek wstępny</strong>
+
                 <span>kształt, proporcje i kierunek pracy przed pigmentacją</span>
+
               </div>
 
               <div>
+
                 <strong>3. Pigmentacja i gojenie</strong>
+
                 <span>kontrola nasycenia oraz ocena efektu po wygojeniu</span>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
       <section class="pmu-lead-section" id="kwalifikacja-pmu">
+
         <div class="container pmu-lead-card">
+
           <div class="pmu-lead-copy">
+
             <p class="section-kicker">Kwalifikacja PMU</p>
+
             <h2>Nie jesteś pewna, jaki zabieg wybrać?</h2>
+
             <p>
+
               Wyślij krótkie zapytanie. To najlepsza opcja, jeśli masz stary makijaż
+
               permanentny, wahasz się między kilkoma zabiegami albo chcesz najpierw
+
               sprawdzić, czy pigmentacja będzie właściwym rozwiązaniem.
+
             </p>
 
             <div class="pmu-lead-actions">
+
               <a
+
                 class="button-booksy"
+
                 href={booksyUrl}
+
                 target="_blank"
+
                 rel="noopener noreferrer"
+
               >
+
                 Booksy <span aria-hidden="true">→</span>
+
               </a>
 
               <a
+
                 class="button-secondary"
+
                 href="tel:+48730900125"
+
                 aria-label="Zadzwoń do gabinetu Bogusławy Herda"
+
               >
+
                 Zadzwoń: 730 900 125
+
               </a>
+
             </div>
+
           </div>
 
           <form
+
             class="pmu-lead-form"
+
             action="https://formspree.io/f/mjgnwzvp"
+
             method="POST"
+
             data-pmu-lead-form
+
           >
+
             <div class="pmu-form-heading">
+
               <strong>Formularz PMU</strong>
+
               <span>Odpowiemy w sprawie kwalifikacji i dalszego kroku.</span>
+
             </div>
 
             <label>
+
               Imię
+
               <input
+
                 type="text"
+
                 name="name"
+
                 autocomplete="name"
+
                 required
+
               />
+
             </label>
 
             <label>
+
               Telefon
+
               <input
+
                 type="tel"
+
                 name="phone"
+
                 autocomplete="tel"
+
                 inputmode="tel"
+
                 required
+
               />
+
             </label>
 
             <label>
+
               Jaki zabieg Cię interesuje?
+
               <select name="service">
+
                 <option value="">Wybierz</option>
+
                 <option>Brwi permanentne</option>
+
                 <option>Usta permanentne</option>
+
                 <option>Kreska permanentna</option>
+
                 <option>Usuwanie PMU</option>
+
                 <option>Nie wiem — potrzebuję konsultacji</option>
+
               </select>
+
             </label>
 
             <label>
+
               Czy był wcześniej makijaż permanentny?
+
               <select name="old_pmu">
+
                 <option value="">Wybierz</option>
+
                 <option>Tak</option>
+
                 <option>Nie</option>
+
                 <option>Nie jestem pewna</option>
+
               </select>
+
             </label>
 
             <label>
+
               Krótka wiadomość
+
               <textarea
+
                 name="message"
+
                 rows="4"
+
                 placeholder="Np. mam stare brwi permanentne i nie wiem, czy można je odświeżyć."
+
               ></textarea>
+
             </label>
 
             <input
+
               class="pmu-lead-hidden"
+
               type="text"
+
               name="_gotcha"
+
               tabindex="-1"
+
               autocomplete="off"
+
               aria-hidden="true"
+
             />
 
             <input
+
               type="hidden"
+
               name="_subject"
+
               value="Nowe zapytanie PMU — Permanentny Bielsko"
+
             />
 
             <input
+
               type="hidden"
+
               name="page"
+
               value={pageUrl}
+
             />
 
             <label class="pmu-lead-consent">
+
               <input type="checkbox" name="consent" value="yes" required />
+
               <span>
+
                 Wyrażam zgodę na kontakt w odpowiedzi na przesłane zapytanie.
+
               </span>
+
             </label>
 
             <button class="button-primary" type="submit">
+
               Wyślij formularz PMU
+
             </button>
 
             <p
+
               class="pmu-lead-status"
+
               data-pmu-lead-status
+
               role="status"
+
               aria-live="polite"
+
               hidden
+
             ></p>
+
           </form>
+
         </div>
+
       </section>
 
-      <section class="pmu-expert-section" aria-label="Dlaczego Bogusława Herda">
+      <section
+        class="pmu-expert-section"
+        id="boguslawa-herda"
+        aria-label="Dlaczego Bogusława Herda"
+      >
         <div class="container pmu-expert-card">
           <figure class="pmu-expert-photo">
             <img
@@ -592,1725 +1075,3136 @@ const structuredData = [
 
           <div class="pmu-expert-copy">
             <p class="section-kicker">Dlaczego Bogusława Herda</p>
+
             <h2>Doświadczenie ma znaczenie wtedy, gdy trzeba podjąć właściwą decyzję.</h2>
-            <p>
-              W makijażu permanentnym technika jest tylko częścią pracy. Równie ważne jest
-              wyczucie proporcji, intensywności i momentu, w którym lepiej zrezygnować
-              z mocniejszego efektu albo zaplanować zabieg etapami.
+
+            <p class="pmu-expert-intro">
+              <strong>Bogusława Herda</strong> to 8-krotna mistrzyni makijażu permanentnego,
+              w tym <strong>wicemistrzyni świata</strong>, kosmetolog z ponad
+              <strong>10-letnim doświadczeniem</strong> i czterema ukończonymi studiami
+              podyplomowymi. Jako <strong>europejski trener Long-Time-Liner®</strong>
+              i autorka techniki <strong>Silky Hairstroke Brows</strong> łączy precyzję,
+              estetykę i świadomą kwalifikację do zabiegu.
             </p>
+
+            <div class="pmu-expert-highlights" aria-label="Najważniejsze osiągnięcia Bogusławy Herda">
+              <div>
+                <strong>8×</strong>
+                <span>Mistrzyni PMU</span>
+              </div>
+
+              <div>
+                <strong>Wicemistrzyni świata</strong>
+                <span>makijażu permanentnego</span>
+              </div>
+
+              <div>
+                <strong>10+ lat</strong>
+                <span>doświadczenia · 4 studia podyplomowe</span>
+              </div>
+
+              <div>
+                <strong>Europejski trener</strong>
+                <span>Long-Time-Liner®</span>
+              </div>
+            </div>
+
             <p>
-              Doświadczenie konkursowe, praca szkoleniowa oraz autorskie podejście
-              Silky Hairstroke Brows przekładają się na sposób planowania każdej pigmentacji.
+              W gabinecie w Bielsku-Białej nie pracuję według jednego schematu.
+              Oceniam skórę, proporcje twarzy, wcześniejsze pigmentacje i oczekiwany efekt,
+              a dopiero później dobieram technikę, kolor i intensywność. Czasem najlepszą
+              decyzją jest delikatniejszy efekt, praca etapami albo wcześniejsze rozjaśnienie
+              starego PMU.
+            </p>
+
+            <div class="pmu-expert-2026">
+              <span>2026</span>
+              <p>
+                Jurorka i prelegentka <strong>New Generation Congress &amp; Competition w Lyonie</strong>
+                oraz jurorka i spikerka <strong>PMU Indonesia 2026</strong>.
+              </p>
+            </div>
+
+            <p class="pmu-expert-social">
+              Poza pracą gabinetową jestem ambasadorką akcji <strong>#SercemMalowane</strong>
+              oraz inicjatywy <strong>Koronacja</strong>, w ramach których wykonuję bezpłatne
+              zabiegi dla osób po chorobach i znajdujących się w trudnej sytuacji życiowej.
             </p>
           </div>
         </div>
       </section>
 
       <section class="pmu-safety-section">
+
         <div class="container pmu-safety-grid">
+
           <div class="pmu-safety-card">
+
             <p class="section-kicker">Bezpieczeństwo i kwalifikacja</p>
+
             <h2>Nie każdy zabieg trzeba wykonać od razu.</h2>
+
             <p>
+
               Przy starej pigmentacji, niekorzystnym kolorze albo problemach ze skórą
+
               najlepszym pierwszym krokiem może być konsultacja, rozjaśnienie PMU
+
               lub odłożenie nowego zabiegu.
+
             </p>
+
           </div>
 
           <div class="pmu-safety-list">
+
             <div>
+
               <strong>Stare pigmentacje</strong>
+
               <span>ocena koloru, nasycenia i możliwości wykonania nowej pracy</span>
+
             </div>
+
             <div>
+
               <strong>Dobór techniki</strong>
+
               <span>brwi pudrowe, włos maszynowy, usta, kreski albo korekta</span>
+
             </div>
+
             <div>
+
               <strong>Intensywność</strong>
+
               <span>efekt dopasowany do twarzy i codziennego stylu</span>
+
             </div>
+
             <div>
+
               <strong>Gojenie</strong>
+
               <span>zalecenia i dalszy plan omawiane po pigmentacji</span>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
       <section class="pmu-faq-section">
+
         <div class="container">
+
           <div class="pmu-section-heading">
+
             <p class="section-kicker">Najczęstsze pytania</p>
+
             <h2>Co warto wiedzieć przed makijażem permanentnym?</h2>
+
           </div>
 
           <div class="pmu-faq-list">
+
             {faqItems.map((item) => (
+
               <details class="pmu-faq-item">
+
                 <summary>
+
                   <span>{item.question}</span>
+
                   <span class="pmu-faq-icon" aria-hidden="true"></span>
+
                 </summary>
+
                 <div>
+
                   <p>{item.answer}</p>
+
                 </div>
+
               </details>
+
             ))}
+
           </div>
+
         </div>
+
       </section>
 
       <section class="pmu-final-cta" id="kontakt">
+
         <div class="container pmu-final-card">
+
           <p class="signature cta-signature">Powrót do natury</p>
+
           <h2>Chcesz sprawdzić, jaki makijaż permanentny będzie najlepszy dla Ciebie?</h2>
+
           <p>
+
             Jeśli wiesz, czego potrzebujesz — sprawdź terminy. Jeśli masz wątpliwości,
+
             wyślij formularz PMU i zacznij od kwalifikacji.
+
           </p>
 
           <div class="pmu-final-actions">
+
             <a class="button-primary" href="#kwalifikacja-pmu">
+
               Formularz PMU <span aria-hidden="true">→</span>
+
             </a>
 
             <a
+
               class="button-booksy"
+
               href={booksyUrl}
+
               target="_blank"
+
               rel="noopener noreferrer"
+
             >
+
               Booksy <span aria-hidden="true">→</span>
+
             </a>
 
             <a
+
               class="button-secondary"
+
               href="tel:+48730900125"
+
               aria-label="Zadzwoń i zapytaj o makijaż permanentny"
+
             >
+
               Zadzwoń
+
             </a>
+
           </div>
+
         </div>
+
       </section>
+
     </main>
 
     <Footer />
+
   </div>
+
 </Layout>
 
 <style>
+
   .pmu-service-page {
+
     min-height: 100vh;
+
     overflow-x: hidden;
+
     background:
+
       radial-gradient(circle at 78% 10%, rgba(56, 187, 181, 0.11), transparent 28rem),
+
       radial-gradient(circle at 12% 42%, rgba(201, 127, 143, 0.10), transparent 26rem),
+
       linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
+
   }
 
   .pmu-service-page .section-kicker {
+
     display: inline-flex;
+
     width: fit-content;
+
     max-width: 100%;
+
     min-height: 32px;
+
     align-items: center;
+
     justify-content: center;
+
     margin: 0 0 18px;
+
     padding: 0 13px;
+
     border: 1px solid rgba(56, 187, 181, 0.16);
+
     border-radius: 999px;
+
     background: rgba(219, 246, 243, 0.72);
+
     color: var(--color-turquoise-dark, #0f7773);
+
     font-size: 0.7rem;
+
     font-weight: 850;
+
     line-height: 1;
+
     letter-spacing: 0.17em;
+
     text-transform: uppercase;
+
   }
 
   .pmu-hero {
+
     position: relative;
+
     padding: 146px 0 82px;
+
     overflow: hidden;
+
   }
 
   .pmu-glow {
+
     position: absolute;
+
     border-radius: 999px;
+
     pointer-events: none;
+
   }
 
   .pmu-glow-one {
+
     top: 3rem;
+
     right: -13rem;
+
     width: 42rem;
+
     height: 42rem;
+
     background: radial-gradient(circle, rgba(56, 187, 181, 0.20), transparent 68%);
+
   }
 
   .pmu-glow-two {
+
     left: -11rem;
+
     bottom: -14rem;
+
     width: 38rem;
+
     height: 38rem;
+
     background: radial-gradient(circle, rgba(201, 127, 143, 0.17), transparent 68%);
+
   }
 
   .pmu-hero-grid {
+
     position: relative;
+
     z-index: 2;
+
     display: grid;
+
     grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+
     gap: 24px;
+
     align-items: stretch;
+
   }
 
   .pmu-hero-copy,
+
   .pmu-hero-card,
+
   .pmu-portrait-card,
+
   .pmu-process-feature-card,
+
   .pmu-process-mini-list,
+
   .pmu-lead-card,
+
   .pmu-lead-form,
+
   .pmu-expert-card,
+
   .pmu-safety-card,
+
   .pmu-safety-list,
+
   .pmu-faq-item,
+
   .pmu-final-card {
+
     border: 1px solid rgba(183, 101, 118, 0.14);
+
     box-shadow: 0 18px 54px rgba(89, 53, 67, 0.07);
+
   }
 
   .pmu-hero-copy {
+
     padding: clamp(38px, 5vw, 68px);
+
     border-radius: 40px;
+
     background: rgba(255, 255, 255, 0.80);
+
   }
 
   .pmu-hero-copy h1 {
+
     max-width: 1000px;
+
     margin: 0;
+
     color: var(--color-text, #17151d);
+
     font-size: clamp(3rem, 5.2vw, 6.2rem);
+
     font-weight: 770;
+
     line-height: 0.98;
+
     letter-spacing: -0.078em;
+
   }
 
   .pmu-hero-gold-text {
+
     color: #b9924d;
+
     background:
+
       linear-gradient(
+
         120deg,
+
         #8e6b36 0%,
+
         #b9924d 22%,
+
         #f4e0a4 46%,
+
         #d1aa63 68%,
+
         #8a6731 100%
+
       );
+
     background-clip: text;
+
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
+
   }
 
   .pmu-hero-lead {
+
     max-width: 760px;
+
     margin: 26px 0 0;
+
     color: var(--color-muted, #6e6670);
+
     font-size: clamp(1.02rem, 1.25vw, 1.12rem);
+
     line-height: 1.68;
+
   }
 
   .pmu-hero-actions,
+
   .pmu-final-actions {
+
     display: grid;
+
     grid-template-columns: repeat(3, minmax(0, 1fr));
+
     gap: 12px;
+
     width: 100%;
+
     margin-top: 30px;
+
   }
 
   .pmu-hero-actions a,
+
   .pmu-final-actions a,
+
   .pmu-lead-actions a {
+
     min-height: 54px;
+
     justify-content: center;
+
     text-align: center;
+
     box-sizing: border-box;
+
     -webkit-tap-highlight-color: transparent;
+
   }
 
   .button-booksy {
+
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
+
     gap: 8px;
+
     padding: 0 22px;
+
     border: 1px solid rgba(8, 111, 91, 0.16);
+
     border-radius: 999px;
+
     background:
+
       linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
+
     color: #ffffff;
+
     font: inherit;
+
     font-size: 1rem;
+
     font-weight: 820;
+
     line-height: 1;
+
     letter-spacing: -0.02em;
+
     text-decoration: none;
+
     box-shadow: 0 14px 34px rgba(15, 143, 120, 0.16);
+
     transition:
+
       transform 0.18s ease,
+
       box-shadow 0.18s ease,
+
       filter 0.18s ease;
+
   }
 
   .button-booksy:hover {
+
     transform: translateY(-2px);
+
     filter: saturate(1.04);
+
     box-shadow: 0 18px 42px rgba(15, 143, 120, 0.22);
+
   }
 
   .button-booksy:focus-visible {
+
     outline: 3px solid rgba(15, 143, 120, 0.26);
+
     outline-offset: 3px;
+
   }
 
   .pmu-hero-contact-note {
+
     max-width: 720px;
+
     margin: 17px 0 0;
+
     color: var(--color-muted, #6e6670);
+
     font-size: 0.92rem;
+
     line-height: 1.58;
+
   }
 
   .pmu-hero-card {
+
     position: relative;
+
     min-height: 420px;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: flex-end;
+
     overflow: hidden;
+
     padding: clamp(34px, 4vw, 52px);
+
     border-radius: 40px;
+
     color: #ffffff;
+
     background:
+
       radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
+
       radial-gradient(circle at 82% 24%, rgba(255, 245, 215, 0.28), transparent 13rem),
+
       linear-gradient(140deg, #6f5730 0%, #b9924d 18%, #f4e0a4 34%, #8e6b36 50%, #d1aa63 67%, #fff0c8 82%, #8a6731 100%);
+
     background-size: 100% 100%, 100% 100%, 240% 240%;
+
     box-shadow: 0 28px 76px rgba(125, 95, 45, 0.22);
+
     animation: pmu-gold-flow 14s ease-in-out infinite alternate;
+
   }
 
   .pmu-hero-card::before {
+
     content: "";
+
     position: absolute;
+
     inset: 0;
+
     background:
+
       linear-gradient(
+
         110deg,
+
         transparent 0%,
+
         rgba(255, 255, 255, 0.05) 22%,
+
         rgba(255, 255, 255, 0.24) 47%,
+
         rgba(255, 255, 255, 0.05) 72%,
+
         transparent 100%
+
       );
+
     transform: translateX(-74%);
+
     animation: pmu-panel-shine 8.5s ease-in-out infinite;
+
     pointer-events: none;
+
   }
 
   .pmu-card-label {
+
     position: relative;
+
     z-index: 1;
+
     margin: 0 0 auto;
+
     color: rgba(255, 255, 255, 0.18);
+
     font-size: clamp(4.4rem, 7vw, 7.6rem);
+
     font-weight: 850;
+
     line-height: 0.8;
+
     letter-spacing: -0.1em;
+
   }
 
   .pmu-hero-card h2,
+
   .pmu-hero-card p:not(.pmu-card-label) {
+
     position: relative;
+
     z-index: 1;
+
   }
 
   .pmu-hero-card h2 {
+
     margin: 38px 0 0;
+
     color: #ffffff;
+
     font-size: clamp(2rem, 3vw, 3.15rem);
+
     font-weight: 760;
+
     line-height: 0.99;
+
     letter-spacing: -0.07em;
+
     text-shadow: 0 16px 42px rgba(55, 23, 35, 0.2);
+
   }
 
   .pmu-hero-card p:not(.pmu-card-label) {
+
     margin: 18px 0 0;
+
     color: rgba(255, 255, 255, 0.90);
+
     line-height: 1.64;
+
   }
 
   .pmu-proof-section {
+
     border-top: 1px solid rgba(183, 101, 118, 0.10);
+
     border-bottom: 1px solid rgba(183, 101, 118, 0.10);
+
     background: rgba(255, 255, 255, 0.76);
+
   }
 
   .pmu-proof-grid {
+
     display: grid;
+
     grid-template-columns: repeat(4, minmax(0, 1fr));
+
   }
 
   .pmu-proof-grid > div {
+
     min-height: 112px;
+
     padding: 24px 22px;
+
     border-right: 1px solid rgba(183, 101, 118, 0.12);
+
   }
 
   .pmu-proof-grid > div:last-child {
+
     border-right: 0;
+
   }
 
   .pmu-proof-grid strong {
+
     display: block;
+
     margin-bottom: 7px;
+
     color: var(--color-text, #17151d);
+
     font-size: 0.94rem;
+
     font-weight: 790;
+
     line-height: 1.2;
+
   }
 
   .pmu-proof-grid span {
+
     display: block;
+
     color: var(--color-muted, #6e6670);
+
     font-size: 0.7rem;
+
     font-weight: 650;
+
     line-height: 1.5;
+
     letter-spacing: 0.13em;
+
     text-transform: uppercase;
+
   }
 
   .pmu-services-section,
+
   .pmu-portrait-section,
+
   .pmu-process-section,
+
   .pmu-lead-section,
+
   .pmu-expert-section,
+
   .pmu-safety-section,
+
   .pmu-faq-section,
+
   .pmu-final-cta {
+
     padding: 84px 0;
+
   }
 
   .pmu-section-heading {
+
     max-width: 930px;
+
     margin-bottom: 34px;
+
   }
 
   .pmu-section-heading h2,
+
   .pmu-portrait-copy h2,
+
   .pmu-process-feature-card h2,
+
   .pmu-lead-copy h2,
+
   .pmu-expert-copy h2,
+
   .pmu-safety-card h2,
+
   .pmu-final-card h2 {
+
     margin: 0;
+
     color: var(--color-text, #17151d);
+
     font-size: clamp(2.35rem, 4vw, 4.25rem);
+
     font-weight: 760;
+
     line-height: 1.02;
+
     letter-spacing: -0.072em;
+
   }
 
   .pmu-section-heading > p:not(.section-kicker),
+
   .pmu-portrait-copy > p:not(.section-kicker),
+
   .pmu-process-feature-card > p:not(.section-kicker),
+
   .pmu-lead-copy > p:not(.section-kicker),
+
   .pmu-expert-copy > p:not(.section-kicker),
+
   .pmu-safety-card > p:not(.section-kicker),
+
   .pmu-final-card > p:not(.signature) {
+
     color: var(--color-muted, #6e6670);
+
     font-size: clamp(0.98rem, 1.15vw, 1.06rem);
+
     line-height: 1.7;
+
   }
 
   .pmu-service-image-grid {
+
     display: grid;
+
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: clamp(16px, 2vw, 26px);
+
   }
 
   .pmu-service-image-card {
+
     position: relative;
+
     display: block;
+
     overflow: hidden;
+
     border: 1px solid rgba(201, 127, 143, 0.15);
+
     border-radius: clamp(24px, 3vw, 36px);
+
     background: rgba(255, 255, 255, 0.92);
+
     box-shadow: 0 22px 62px rgba(89, 53, 67, 0.08);
+
     text-decoration: none;
+
     transform: translateZ(0);
+
     transition:
+
       transform 0.2s ease,
+
       box-shadow 0.2s ease;
+
     -webkit-tap-highlight-color: transparent;
+
   }
 
   .pmu-service-image-card::after {
+
     content: "";
+
     position: absolute;
+
     inset: 0;
+
     border: 1px solid rgba(255, 255, 255, 0.42);
+
     border-radius: inherit;
+
     pointer-events: none;
+
   }
 
   .pmu-service-image-card img {
+
     display: block;
+
     width: 100%;
+
     height: auto;
+
     aspect-ratio: 4 / 3;
+
     object-fit: contain;
+
     object-position: center;
+
     background: #ffffff;
+
   }
 
   .pmu-service-image-card:hover {
+
     transform: translateY(-4px);
+
     box-shadow: 0 30px 78px rgba(89, 53, 67, 0.13);
+
   }
 
   .pmu-service-image-card:focus-visible {
+
     outline: 4px solid rgba(56, 187, 181, 0.20);
+
     outline-offset: 4px;
+
   }
 
   .pmu-price-strip {
+
     display: grid;
+
     grid-template-columns: repeat(4, minmax(0, 1fr));
+
     gap: 12px;
+
     margin-top: 22px;
+
   }
 
   .pmu-price-strip > div,
+
   .pmu-price-strip > a {
+
+    min-height: 92px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 18px 20px;
+
+    border: 1px solid rgba(56, 187, 181, 0.16);
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    box-shadow: 0 12px 34px rgba(89, 53, 67, 0.05);
+
+  }
+
+  .pmu-price-strip span {
+
+    color: var(--color-muted, #6e6670);
+
+    font-size: 0.72rem;
+
+    font-weight: 750;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+  }
+
+  .pmu-price-strip strong {
+
+    margin-top: 6px;
+
+    color: var(--color-text, #17151d);
+
+    font-size: 1.3rem;
+
+    font-weight: 820;
+
+    letter-spacing: -0.04em;
+
+  }
+
+  .pmu-price-strip > a {
+
+    align-items: center;
+
+    flex-direction: row;
+
+    gap: 8px;
+
+    background:
+
+      linear-gradient(145deg, rgba(219, 246, 243, 0.84), rgba(255, 255, 255, 0.92));
+
+    color: var(--color-turquoise-dark, #0f7773);
+
+    font-size: 0.92rem;
+
+    font-weight: 850;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    -webkit-tap-highlight-color: transparent;
+
+  }
+
+  .pmu-portrait-section {
+
+    padding-top: 10px;
+
+  }
+
+  .pmu-portrait-card {
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.68fr);
+
+    gap: clamp(28px, 4vw, 54px);
+
+    align-items: center;
+
+    padding: clamp(24px, 4vw, 42px);
+
+    border-radius: 40px;
+
+    background:
+
+      radial-gradient(circle at 10% 10%, rgba(56, 187, 181, 0.11), transparent 18rem),
+
+      radial-gradient(circle at 94% 88%, rgba(201, 127, 143, 0.10), transparent 20rem),
+
+      rgba(255, 255, 255, 0.88);
+
+  }
+
+  .pmu-portrait-copy > p:not(.section-kicker),
+
+  .pmu-expert-copy > p:not(.section-kicker) {
+
+    max-width: 760px;
+
+    margin: 18px 0 0;
+
+  }
+
+  .pmu-portrait-points {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 24px;
+
+  }
+
+  .pmu-portrait-points span {
+
+    display: inline-flex;
+
+    min-height: 36px;
+
+    align-items: center;
+
+    padding: 0 13px;
+
+    border: 1px solid rgba(56, 187, 181, 0.16);
+
+    border-radius: 999px;
+
+    background: rgba(219, 246, 243, 0.68);
+
+    color: var(--color-turquoise-dark, #0f7773);
+
+    font-size: 0.7rem;
+
+    font-weight: 820;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+  }
+
+  .pmu-portrait-photo,
+
+  .pmu-expert-photo {
+
+    position: relative;
+
+    width: min(100%, 420px);
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(201, 127, 143, 0.17);
+
+    border-radius: 34px;
+
+    background: rgba(255, 255, 255, 0.84);
+
+    box-shadow: 0 24px 68px rgba(89, 53, 67, 0.10);
+
+  }
+
+  .pmu-portrait-photo img,
+
+  .pmu-expert-photo img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    aspect-ratio: 2 / 3;
+
+    object-fit: cover;
+
+    object-position: center;
+
+  }
+
+  .pmu-process-section {
+
+    background:
+
+      radial-gradient(circle at 86% 22%, rgba(56, 187, 181, 0.08), transparent 24rem),
+
+      rgba(255, 255, 255, 0.58);
+
+  }
+
+  .pmu-process-feature-row {
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 280px minmax(0, 1fr);
+
+    gap: 22px;
+
+    align-items: stretch;
+
+    max-width: 1080px;
+
+    margin: 0 auto;
+
+  }
+
+  .pmu-process-feature-card,
+
+  .pmu-process-mini-list {
+
+    border-radius: 34px;
+
+    background: rgba(255, 255, 255, 0.84);
+
+  }
+
+  .pmu-process-feature-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 30px;
+
+  }
+
+  .pmu-process-feature-card h2 {
+
+    font-size: clamp(2rem, 2.8vw, 3.05rem);
+
+    letter-spacing: -0.064em;
+
+  }
+
+  .pmu-process-feature-card > p:not(.section-kicker) {
+
+    margin: 17px 0 0;
+
+    font-size: 0.96rem;
+
+  }
+
+  .pmu-process-video-shell {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 0;
+
+  }
+
+  .pmu-process-video-shell :global(.process-video-card) {
+
+    width: 270px;
+
+    max-width: 270px;
+
+    margin: 0 auto;
+
+  }
+
+  .pmu-process-mini-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 12px 26px;
+
+  }
+
+  .pmu-process-mini-list > div {
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid rgba(56, 187, 181, 0.14);
+
+  }
+
+  .pmu-process-mini-list > div:last-child {
+
+    border-bottom: 0;
+
+  }
+
+  .pmu-process-mini-list strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--color-text, #17151d);
+
+    font-size: 0.96rem;
+
+    font-weight: 780;
+
+  }
+
+  .pmu-process-mini-list span {
+
+    display: block;
+
+    color: var(--color-muted, #6e6670);
+
+    font-size: 0.9rem;
+
+    line-height: 1.52;
+
+  }
+
+  .pmu-lead-section {
+
+    scroll-margin-top: 110px;
+
+    background:
+
+      radial-gradient(circle at 12% 18%, rgba(56, 187, 181, 0.10), transparent 24rem),
+
+      radial-gradient(circle at 90% 80%, rgba(201, 127, 143, 0.10), transparent 26rem),
+
+      linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 248, 250, 0.76));
+
+  }
+
+  #kwalifikacja-pmu {
+
+    scroll-margin-top: 110px;
+
+  }
+
+  .pmu-lead-card {
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+
+    gap: clamp(24px, 4vw, 52px);
+
+    align-items: stretch;
+
+    padding: clamp(24px, 4vw, 42px);
+
+    border-radius: 42px;
+
+    background:
+
+      radial-gradient(circle at 8% 12%, rgba(56, 187, 181, 0.10), transparent 18rem),
+
+      radial-gradient(circle at 94% 88%, rgba(217, 146, 162, 0.10), transparent 20rem),
+
+      rgba(255, 255, 255, 0.88);
+
+  }
+
+  .pmu-lead-copy {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+  }
+
+  .pmu-lead-copy > p:not(.section-kicker) {
+
+    margin: 20px 0 0;
+
+  }
+
+  .pmu-lead-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 26px;
+
+  }
+
+  .pmu-lead-form {
+
+    display: grid;
+
+    gap: 13px;
+
+    padding: clamp(22px, 3vw, 32px);
+
+    border-color: rgba(56, 187, 181, 0.16);
+
+    border-radius: 32px;
+
+    background:
+
+      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
+
+      linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 250, 252, 0.92));
+
+  }
+
+  .pmu-form-heading {
+
+    margin-bottom: 3px;
+
+  }
+
+  .pmu-form-heading strong {
+
+    display: block;
+
+    color: var(--color-text, #17151d);
+
+    font-size: 1.25rem;
+
+    font-weight: 820;
+
+    letter-spacing: -0.035em;
+
+  }
+
+  .pmu-form-heading span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--color-muted, #6e6670);
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
+
+  }
+
+  .pmu-lead-form label:not(.pmu-lead-consent) {
+
+    display: grid;
+
+    gap: 7px;
+
+    color: var(--color-text, #17151d);
+
+    font-size: 0.8rem;
+
+    font-weight: 790;
+
+    letter-spacing: 0.04em;
+
+    text-transform: uppercase;
+
+  }
+
+  .pmu-lead-form input,
+
+  .pmu-lead-form select,
+
+  .pmu-lead-form textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(183, 101, 118, 0.18);
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    color: var(--color-text, #17151d);
+
+    font: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    line-height: 1.35;
+
+    outline: none;
+
+    transition:
+
+      border-color 0.18s ease,
+
+      box-shadow 0.18s ease,
+
+      background 0.18s ease;
+
+  }
+
+  .pmu-lead-form input,
+
+  .pmu-lead-form select {
+
+    min-height: 52px;
+
+    padding: 0 15px;
+
+  }
+
+  .pmu-lead-form textarea {
+
+    min-height: 116px;
+
+    padding: 14px 15px;
+
+    resize: vertical;
+
+  }
+
+  .pmu-lead-form input:focus,
+
+  .pmu-lead-form select:focus,
+
+  .pmu-lead-form textarea:focus {
+
+    border-color: rgba(56, 187, 181, 0.44);
+
+    background: #ffffff;
+
+    box-shadow: 0 0 0 4px rgba(56, 187, 181, 0.12);
+
+  }
+
+  .pmu-lead-consent {
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: flex-start;
+
+    color: var(--color-muted, #6e6670);
+
+    font-size: 0.84rem;
+
+    font-weight: 520;
+
+    line-height: 1.45;
+
+  }
+
+  .pmu-lead-consent input {
+
+    width: 18px;
+
+    height: 18px;
+
+    min-height: 0;
+
+    margin-top: 2px;
+
+    flex: 0 0 auto;
+
+  }
+
+  .pmu-lead-form button {
+
+    width: 100%;
+
+    min-height: 54px;
+
+    justify-content: center;
+
+    margin-top: 4px;
+
+    border: 0;
+
+    cursor: pointer;
+
+  }
+
+  .pmu-lead-form button[disabled] {
+
+    opacity: 0.7;
+
+    cursor: wait;
+
+  }
+
+  .pmu-lead-status {
+
+    margin: 2px 0 0;
+
+    color: var(--color-muted, #6e6670);
+
+    font-size: 0.9rem;
+
+    font-weight: 560;
+
+    line-height: 1.5;
+
+  }
+
+  .pmu-lead-hidden {
+
+    position: absolute;
+
+    left: -9999px;
+
+    width: 1px;
+
+    height: 1px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+  }
+
+  .pmu-expert-section {
+
+    background:
+
+      linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(255, 249, 251, 0.78));
+
+  }
+
+  .pmu-expert-card {
+
+    display: grid;
+
+    grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+
+    gap: clamp(28px, 4vw, 56px);
+
+    align-items: center;
+
+    padding: clamp(22px, 4vw, 42px);
+
+    border-radius: 42px;
+
+    background:
+
+      radial-gradient(circle at 10% 10%, rgba(56, 187, 181, 0.10), transparent 18rem),
+
+      radial-gradient(circle at 94% 88%, rgba(217, 146, 162, 0.10), transparent 20rem),
+
+      rgba(255, 255, 255, 0.86);
+
+  }
+
+  .pmu-expert-section {
+    scroll-margin-top: 110px;
+  }
+
+  .pmu-expert-intro strong,
+  .pmu-expert-copy > p strong {
+    color: var(--color-text, #17151d);
+    font-weight: 820;
+  }
+
+  .pmu-expert-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .pmu-expert-highlights > div {
     min-height: 92px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 18px 20px;
+    padding: 16px 18px;
     border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.82);
-    box-shadow: 0 12px 34px rgba(89, 53, 67, 0.05);
-  }
-
-  .pmu-price-strip span {
-    color: var(--color-muted, #6e6670);
-    font-size: 0.72rem;
-    font-weight: 750;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .pmu-price-strip strong {
-    margin-top: 6px;
-    color: var(--color-text, #17151d);
-    font-size: 1.3rem;
-    font-weight: 820;
-    letter-spacing: -0.04em;
-  }
-
-  .pmu-price-strip > a {
-    align-items: center;
-    flex-direction: row;
-    gap: 8px;
+    border-radius: 20px;
     background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.84), rgba(255, 255, 255, 0.92));
+      radial-gradient(circle at 92% 10%, rgba(56, 187, 181, 0.09), transparent 8rem),
+      rgba(255, 255, 255, 0.80);
+  }
+
+  .pmu-expert-highlights strong {
     color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.92rem;
+    font-size: clamp(1.02rem, 1.35vw, 1.25rem);
     font-weight: 850;
-    text-decoration: none;
-    text-align: center;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .pmu-portrait-section {
-    padding-top: 10px;
-  }
-
-  .pmu-portrait-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.68fr);
-    gap: clamp(28px, 4vw, 54px);
-    align-items: center;
-    padding: clamp(24px, 4vw, 42px);
-    border-radius: 40px;
-    background:
-      radial-gradient(circle at 10% 10%, rgba(56, 187, 181, 0.11), transparent 18rem),
-      radial-gradient(circle at 94% 88%, rgba(201, 127, 143, 0.10), transparent 20rem),
-      rgba(255, 255, 255, 0.88);
-  }
-
-  .pmu-portrait-copy > p:not(.section-kicker),
-  .pmu-expert-copy > p:not(.section-kicker) {
-    max-width: 760px;
-    margin: 18px 0 0;
-  }
-
-  .pmu-portrait-points {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-    margin-top: 24px;
-  }
-
-  .pmu-portrait-points span {
-    display: inline-flex;
-    min-height: 36px;
-    align-items: center;
-    padding: 0 13px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.68);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.7rem;
-    font-weight: 820;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .pmu-portrait-photo,
-  .pmu-expert-photo {
-    position: relative;
-    width: min(100%, 420px);
-    margin: 0 auto;
-    overflow: hidden;
-    border: 1px solid rgba(201, 127, 143, 0.17);
-    border-radius: 34px;
-    background: rgba(255, 255, 255, 0.84);
-    box-shadow: 0 24px 68px rgba(89, 53, 67, 0.10);
-  }
-
-  .pmu-portrait-photo img,
-  .pmu-expert-photo img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .pmu-process-section {
-    background:
-      radial-gradient(circle at 86% 22%, rgba(56, 187, 181, 0.08), transparent 24rem),
-      rgba(255, 255, 255, 0.58);
-  }
-
-  .pmu-process-feature-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px minmax(0, 1fr);
-    gap: 22px;
-    align-items: stretch;
-    max-width: 1080px;
-    margin: 0 auto;
-  }
-
-  .pmu-process-feature-card,
-  .pmu-process-mini-list {
-    border-radius: 34px;
-    background: rgba(255, 255, 255, 0.84);
-  }
-
-  .pmu-process-feature-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
-  }
-
-  .pmu-process-feature-card h2 {
-    font-size: clamp(2rem, 2.8vw, 3.05rem);
-    letter-spacing: -0.064em;
-  }
-
-  .pmu-process-feature-card > p:not(.section-kicker) {
-    margin: 17px 0 0;
-    font-size: 0.96rem;
-  }
-
-  .pmu-process-video-shell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-  }
-
-  .pmu-process-video-shell :global(.process-video-card) {
-    width: 270px;
-    max-width: 270px;
-    margin: 0 auto;
-  }
-
-  .pmu-process-mini-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    padding: 12px 26px;
-  }
-
-  .pmu-process-mini-list > div {
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(56, 187, 181, 0.14);
-  }
-
-  .pmu-process-mini-list > div:last-child {
-    border-bottom: 0;
-  }
-
-  .pmu-process-mini-list strong {
-    display: block;
-    margin-bottom: 7px;
-    color: var(--color-text, #17151d);
-    font-size: 0.96rem;
-    font-weight: 780;
-  }
-
-  .pmu-process-mini-list span {
-    display: block;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.9rem;
-    line-height: 1.52;
-  }
-
-  .pmu-lead-section {
-    scroll-margin-top: 110px;
-    background:
-      radial-gradient(circle at 12% 18%, rgba(56, 187, 181, 0.10), transparent 24rem),
-      radial-gradient(circle at 90% 80%, rgba(201, 127, 143, 0.10), transparent 26rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 248, 250, 0.76));
-  }
-
-  #kwalifikacja-pmu {
-    scroll-margin-top: 110px;
-  }
-
-  .pmu-lead-card {
-    display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
-    gap: clamp(24px, 4vw, 52px);
-    align-items: stretch;
-    padding: clamp(24px, 4vw, 42px);
-    border-radius: 42px;
-    background:
-      radial-gradient(circle at 8% 12%, rgba(56, 187, 181, 0.10), transparent 18rem),
-      radial-gradient(circle at 94% 88%, rgba(217, 146, 162, 0.10), transparent 20rem),
-      rgba(255, 255, 255, 0.88);
-  }
-
-  .pmu-lead-copy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .pmu-lead-copy > p:not(.section-kicker) {
-    margin: 20px 0 0;
-  }
-
-  .pmu-lead-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 26px;
-  }
-
-  .pmu-lead-form {
-    display: grid;
-    gap: 13px;
-    padding: clamp(22px, 3vw, 32px);
-    border-color: rgba(56, 187, 181, 0.16);
-    border-radius: 32px;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 250, 252, 0.92));
-  }
-
-  .pmu-form-heading {
-    margin-bottom: 3px;
-  }
-
-  .pmu-form-heading strong {
-    display: block;
-    color: var(--color-text, #17151d);
-    font-size: 1.25rem;
-    font-weight: 820;
+    line-height: 1.16;
     letter-spacing: -0.035em;
   }
 
-  .pmu-form-heading span {
+  .pmu-expert-highlights span {
     display: block;
     margin-top: 5px;
     color: var(--color-muted, #6e6670);
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  .pmu-lead-form label:not(.pmu-lead-consent) {
-    display: grid;
-    gap: 7px;
-    color: var(--color-text, #17151d);
-    font-size: 0.8rem;
-    font-weight: 790;
-    letter-spacing: 0.04em;
+    font-size: 0.72rem;
+    font-weight: 720;
+    line-height: 1.4;
+    letter-spacing: 0.055em;
     text-transform: uppercase;
   }
 
-  .pmu-lead-form input,
-  .pmu-lead-form select,
-  .pmu-lead-form textarea {
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid rgba(183, 101, 118, 0.18);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.92);
-    color: var(--color-text, #17151d);
-    font: inherit;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.35;
-    outline: none;
-    transition:
-      border-color 0.18s ease,
-      box-shadow 0.18s ease,
-      background 0.18s ease;
-  }
-
-  .pmu-lead-form input,
-  .pmu-lead-form select {
-    min-height: 52px;
-    padding: 0 15px;
-  }
-
-  .pmu-lead-form textarea {
-    min-height: 116px;
-    padding: 14px 15px;
-    resize: vertical;
-  }
-
-  .pmu-lead-form input:focus,
-  .pmu-lead-form select:focus,
-  .pmu-lead-form textarea:focus {
-    border-color: rgba(56, 187, 181, 0.44);
-    background: #ffffff;
-    box-shadow: 0 0 0 4px rgba(56, 187, 181, 0.12);
-  }
-
-  .pmu-lead-consent {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.84rem;
-    font-weight: 520;
-    line-height: 1.45;
-  }
-
-  .pmu-lead-consent input {
-    width: 18px;
-    height: 18px;
-    min-height: 0;
-    margin-top: 2px;
-    flex: 0 0 auto;
-  }
-
-  .pmu-lead-form button {
-    width: 100%;
-    min-height: 54px;
-    justify-content: center;
-    margin-top: 4px;
-    border: 0;
-    cursor: pointer;
-  }
-
-  .pmu-lead-form button[disabled] {
-    opacity: 0.7;
-    cursor: wait;
-  }
-
-  .pmu-lead-status {
-    margin: 2px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.9rem;
-    font-weight: 560;
-    line-height: 1.5;
-  }
-
-  .pmu-lead-hidden {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .pmu-expert-section {
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(255, 249, 251, 0.78));
-  }
-
-  .pmu-expert-card {
+  .pmu-expert-2026 {
     display: grid;
-    grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
-    gap: clamp(28px, 4vw, 56px);
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 15px;
     align-items: center;
-    padding: clamp(22px, 4vw, 42px);
-    border-radius: 42px;
+    margin-top: 22px;
+    padding: 17px 19px;
+    border: 1px solid rgba(183, 101, 118, 0.14);
+    border-radius: 20px;
     background:
-      radial-gradient(circle at 10% 10%, rgba(56, 187, 181, 0.10), transparent 18rem),
-      radial-gradient(circle at 94% 88%, rgba(217, 146, 162, 0.10), transparent 20rem),
-      rgba(255, 255, 255, 0.86);
+      linear-gradient(145deg, rgba(255, 242, 246, 0.80), rgba(255, 255, 255, 0.90));
   }
 
-  .pmu-safety-section {
-    background:
-      radial-gradient(circle at 12% 18%, rgba(56, 187, 181, 0.09), transparent 24rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
+  .pmu-expert-2026 > span {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(219, 246, 243, 0.72);
+    color: var(--color-turquoise-dark, #0f7773);
+    font-size: 0.73rem;
+    font-weight: 900;
+    letter-spacing: 0.10em;
   }
 
-  .pmu-safety-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: 28px;
-    align-items: stretch;
-  }
-
-  .pmu-safety-card,
-  .pmu-safety-list {
-    border-radius: 34px;
-    background: rgba(255, 255, 255, 0.84);
-  }
-
-  .pmu-safety-card {
-    padding: 34px;
-  }
-
-  .pmu-safety-card > p:not(.section-kicker) {
-    margin: 18px 0 0;
-  }
-
-  .pmu-safety-list {
-    overflow: hidden;
-  }
-
-  .pmu-safety-list > div {
-    padding: 22px 26px;
-    border-bottom: 1px solid rgba(56, 187, 181, 0.14);
-  }
-
-  .pmu-safety-list > div:last-child {
-    border-bottom: 0;
-  }
-
-  .pmu-safety-list strong {
-    display: block;
-    color: var(--color-text, #17151d);
-    font-size: 1rem;
-    font-weight: 790;
-  }
-
-  .pmu-safety-list span {
-    display: block;
-    margin-top: 6px;
+  .pmu-expert-2026 p {
+    margin: 0;
     color: var(--color-muted, #6e6670);
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     line-height: 1.55;
   }
 
-  .pmu-faq-list {
+  .pmu-expert-2026 strong {
+    color: var(--color-text, #17151d);
+    font-weight: 800;
+  }
+
+  .pmu-expert-social {
+    margin-top: 17px !important;
+    padding-left: 16px;
+    border-left: 3px solid rgba(56, 187, 181, 0.38);
+  }
+
+  .pmu-safety-section {
+
+    background:
+
+      radial-gradient(circle at 12% 18%, rgba(56, 187, 181, 0.09), transparent 24rem),
+
+      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
+
+  }
+
+  .pmu-safety-grid {
+
     display: grid;
+
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+
+    gap: 28px;
+
+    align-items: stretch;
+
+  }
+
+  .pmu-safety-card,
+
+  .pmu-safety-list {
+
+    border-radius: 34px;
+
+    background: rgba(255, 255, 255, 0.84);
+
+  }
+
+  .pmu-safety-card {
+
+    padding: 34px;
+
+  }
+
+  .pmu-safety-card > p:not(.section-kicker) {
+
+    margin: 18px 0 0;
+
+  }
+
+  .pmu-safety-list {
+
+    overflow: hidden;
+
+  }
+
+  .pmu-safety-list > div {
+
+    padding: 22px 26px;
+
+    border-bottom: 1px solid rgba(56, 187, 181, 0.14);
+
+  }
+
+  .pmu-safety-list > div:last-child {
+
+    border-bottom: 0;
+
+  }
+
+  .pmu-safety-list strong {
+
+    display: block;
+
+    color: var(--color-text, #17151d);
+
+    font-size: 1rem;
+
+    font-weight: 790;
+
+  }
+
+  .pmu-safety-list span {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: var(--color-muted, #6e6670);
+
+    font-size: 0.92rem;
+
+    line-height: 1.55;
+
+  }
+
+  .pmu-faq-list {
+
+    display: grid;
+
     max-width: 980px;
+
     gap: 12px;
+
   }
 
   .pmu-faq-item {
+
     overflow: hidden;
+
     border-radius: 24px;
+
     background:
+
       radial-gradient(circle at 96% 10%, rgba(56, 187, 181, 0.07), transparent 12rem),
+
       rgba(255, 255, 255, 0.88);
+
   }
 
   .pmu-faq-item summary {
+
     display: grid;
+
     grid-template-columns: minmax(0, 1fr) 40px;
+
     gap: 16px;
+
     align-items: center;
+
     padding: 21px 24px;
+
     color: var(--color-text, #17151d);
+
     font-size: clamp(1.05rem, 1.4vw, 1.28rem);
+
     font-weight: 760;
+
     line-height: 1.28;
+
     letter-spacing: -0.03em;
+
     cursor: pointer;
+
     list-style: none;
+
     -webkit-tap-highlight-color: transparent;
+
   }
 
   .pmu-faq-item summary::-webkit-details-marker {
+
     display: none;
+
   }
 
   .pmu-faq-item summary:focus-visible {
+
     outline: 3px solid rgba(56, 187, 181, 0.25);
+
     outline-offset: -3px;
+
   }
 
   .pmu-faq-icon {
+
     position: relative;
+
     width: 40px;
+
     height: 40px;
+
     border: 1px solid rgba(56, 187, 181, 0.18);
+
     border-radius: 999px;
+
     background: rgba(219, 246, 243, 0.58);
+
   }
 
   .pmu-faq-icon::before,
+
   .pmu-faq-icon::after {
+
     content: "";
+
     position: absolute;
+
     top: 50%;
+
     left: 50%;
+
     width: 14px;
+
     height: 2px;
+
     border-radius: 999px;
+
     background: var(--color-turquoise-dark, #0f7773);
+
     transform: translate(-50%, -50%);
+
     transition:
+
       opacity 0.18s ease,
+
       transform 0.18s ease;
+
   }
 
   .pmu-faq-icon::after {
+
     transform: translate(-50%, -50%) rotate(90deg);
+
   }
 
   .pmu-faq-item[open] .pmu-faq-icon::after {
+
     opacity: 0;
+
     transform: translate(-50%, -50%) rotate(0deg);
+
   }
 
   .pmu-faq-item > div {
+
     padding: 0 24px 22px;
+
   }
 
   .pmu-faq-item p {
+
     max-width: 850px;
+
     margin: 0;
+
     color: var(--color-muted, #6e6670);
+
     font-size: 0.96rem;
+
     line-height: 1.66;
+
   }
 
   .pmu-final-card {
+
     padding: clamp(34px, 6vw, 66px);
+
     border-radius: 42px;
+
     text-align: center;
+
     background:
+
       linear-gradient(145deg, rgba(219, 246, 243, 0.72), rgba(255, 242, 246, 0.84)),
+
       rgba(255, 255, 255, 0.74);
+
   }
 
   .pmu-final-card > p:not(.signature) {
+
     max-width: 720px;
+
     margin: 18px auto 0;
+
   }
 
   .pmu-final-actions {
+
     max-width: 900px;
+
     margin: 26px auto 0;
+
   }
 
   @keyframes pmu-panel-shine {
+
     0% {
+
       transform: translateX(-74%);
+
       opacity: 0.28;
+
     }
+
     45% {
+
       opacity: 0.86;
+
     }
+
     100% {
+
       transform: translateX(86%);
+
       opacity: 0.28;
+
     }
+
   }
 
   @keyframes pmu-gold-flow {
+
     0% {
+
       background-position: 0% 50%, 0% 50%, 0% 50%;
+
     }
+
     100% {
+
       background-position: 0% 50%, 0% 50%, 100% 50%;
+
     }
+
   }
 
   @media (max-width: 1080px) {
+
     .pmu-hero-grid,
+
     .pmu-lead-card,
+
     .pmu-expert-card,
+
     .pmu-safety-grid {
+
       grid-template-columns: 1fr;
+
     }
 
     .pmu-hero-card {
+
       min-height: 340px;
+
     }
 
     .pmu-process-feature-row {
+
       grid-template-columns: minmax(0, 1fr) 270px;
+
       max-width: 900px;
+
     }
 
     .pmu-process-mini-list {
+
       grid-column: 1 / -1;
+
       display: grid;
+
       grid-template-columns: repeat(3, minmax(0, 1fr));
+
       padding: 0;
+
     }
 
     .pmu-process-mini-list > div {
+
       padding: 20px 22px;
+
       border-right: 1px solid rgba(56, 187, 181, 0.14);
+
       border-bottom: 0;
+
     }
 
     .pmu-process-mini-list > div:last-child {
+
       border-right: 0;
+
     }
 
     .pmu-expert-photo {
+
       width: min(100%, 420px);
+
     }
+
   }
 
   @media (max-width: 860px) {
+
     .pmu-service-image-grid {
+
       grid-template-columns: 1fr;
+
       max-width: 640px;
+
       margin-inline: auto;
+
     }
 
     .pmu-price-strip {
+
       grid-template-columns: repeat(2, minmax(0, 1fr));
+
       max-width: 640px;
+
       margin-inline: auto;
+
       margin-top: 18px;
+
     }
 
     .pmu-portrait-card {
+
       grid-template-columns: 1fr;
+
     }
 
     .pmu-portrait-photo {
+
       width: min(100%, 440px);
+
     }
 
     .pmu-process-feature-row {
+
       grid-template-columns: 1fr;
+
       max-width: 620px;
+
     }
 
     .pmu-process-video-shell :global(.process-video-card) {
+
       width: min(100%, 300px);
+
       max-width: 300px;
+
     }
 
     .pmu-process-mini-list {
+
       grid-column: auto;
+
       grid-template-columns: 1fr;
+
       padding: 0 24px;
+
     }
 
     .pmu-process-mini-list > div {
+
       padding: 19px 0;
+
       border-right: 0;
+
       border-bottom: 1px solid rgba(56, 187, 181, 0.14);
+
     }
 
     .pmu-process-mini-list > div:last-child {
+
       border-bottom: 0;
+
     }
+
   }
 
   @media (max-width: 760px) {
+
     .pmu-service-page .section-kicker {
+
       min-height: 30px;
+
       margin-bottom: 14px;
+
       padding: 0 11px;
+
       font-size: 0.63rem;
+
       letter-spacing: 0.13em;
+
     }
 
     .pmu-hero {
+
       padding: 108px 0 54px;
+
     }
 
     .pmu-hero-grid {
+
       gap: 16px;
+
     }
 
     .pmu-hero-copy,
+
     .pmu-hero-card,
+
     .pmu-portrait-card,
+
     .pmu-process-feature-card,
+
     .pmu-process-mini-list,
+
     .pmu-lead-card,
+
     .pmu-lead-form,
+
     .pmu-expert-card,
+
     .pmu-safety-card,
+
     .pmu-safety-list,
+
     .pmu-final-card {
+
       border-radius: 28px;
+
     }
 
     .pmu-hero-copy {
+
       padding: 26px 22px 24px;
+
     }
 
     .pmu-hero-copy h1 {
+
       font-size: clamp(2.45rem, 10.8vw, 3.55rem);
+
       line-height: 1.01;
+
       letter-spacing: -0.068em;
+
     }
 
     .pmu-hero-lead {
+
       margin-top: 20px;
+
       font-size: 1rem;
+
       line-height: 1.62;
+
     }
 
     .pmu-hero-actions,
+
     .pmu-final-actions {
+
       grid-template-columns: 1fr;
+
       gap: 10px;
+
       margin-top: 24px;
+
     }
 
     .pmu-hero-actions a,
+
     .pmu-final-actions a {
+
       width: 100%;
+
       min-height: 54px;
+
     }
 
     .pmu-hero-contact-note {
+
       margin-top: 14px;
+
       font-size: 0.88rem;
+
       line-height: 1.55;
+
     }
 
     .pmu-hero-card {
+
       min-height: auto;
+
       padding: 28px 24px;
+
     }
 
     .pmu-card-label {
+
       margin-bottom: 64px;
+
       font-size: clamp(4rem, 18vw, 5.7rem);
+
     }
 
     .pmu-hero-card h2 {
+
       margin-top: 0;
+
       font-size: clamp(1.9rem, 8.5vw, 2.55rem);
+
       line-height: 1.02;
+
     }
 
     .pmu-proof-grid {
+
       grid-template-columns: repeat(2, minmax(0, 1fr));
+
     }
 
     .pmu-proof-grid > div {
+
       min-height: 104px;
+
       padding: 20px 16px;
+
       border-right: 1px solid rgba(183, 101, 118, 0.12);
+
       border-bottom: 1px solid rgba(183, 101, 118, 0.12);
+
     }
 
     .pmu-proof-grid > div:nth-child(2n) {
+
       border-right: 0;
+
     }
 
     .pmu-proof-grid > div:nth-last-child(-n + 2) {
+
       border-bottom: 0;
+
     }
 
     .pmu-services-section,
+
     .pmu-portrait-section,
+
     .pmu-process-section,
+
     .pmu-lead-section,
+
     .pmu-expert-section,
+
     .pmu-safety-section,
+
     .pmu-faq-section,
+
     .pmu-final-cta {
+
       padding: 56px 0;
+
     }
 
     .pmu-section-heading {
+
       margin-bottom: 26px;
+
     }
 
     .pmu-section-heading h2,
+
     .pmu-portrait-copy h2,
+
     .pmu-process-feature-card h2,
+
     .pmu-lead-copy h2,
+
     .pmu-expert-copy h2,
+
     .pmu-safety-card h2,
+
     .pmu-final-card h2 {
+
       font-size: clamp(2.05rem, 9.1vw, 3.05rem);
+
       line-height: 1.04;
+
       letter-spacing: -0.062em;
+
     }
 
     .pmu-section-heading > p:not(.section-kicker),
+
     .pmu-portrait-copy > p:not(.section-kicker),
+
     .pmu-process-feature-card > p:not(.section-kicker),
+
     .pmu-lead-copy > p:not(.section-kicker),
+
     .pmu-expert-copy > p:not(.section-kicker),
+
     .pmu-safety-card > p:not(.section-kicker),
+
     .pmu-final-card > p:not(.signature) {
+
       font-size: 0.97rem;
+
       line-height: 1.64;
+
     }
 
     .pmu-service-image-grid {
+
       gap: 14px;
+
     }
 
     .pmu-service-image-card {
+
       border-radius: 24px;
+
       box-shadow: 0 16px 42px rgba(89, 53, 67, 0.08);
+
     }
 
     .pmu-service-image-card:hover {
+
       transform: none;
+
     }
 
     .pmu-price-strip {
+
       gap: 9px;
+
     }
 
     .pmu-price-strip > div,
+
     .pmu-price-strip > a {
+
       min-height: 82px;
+
       padding: 15px 16px;
+
       border-radius: 20px;
+
     }
 
     .pmu-price-strip strong {
+
       font-size: 1.14rem;
+
     }
 
     .pmu-portrait-card,
+
     .pmu-lead-card,
+
     .pmu-expert-card {
+
       padding: 20px;
+
+    }
+
+    .pmu-expert-highlights {
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .pmu-expert-highlights > div {
+      min-height: 82px;
+      padding: 14px;
+      border-radius: 17px;
+    }
+
+    .pmu-expert-highlights strong {
+      font-size: 0.98rem;
+    }
+
+    .pmu-expert-highlights span {
+      font-size: 0.63rem;
+      letter-spacing: 0.04em;
+    }
+
+    .pmu-expert-2026 {
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 12px;
+      margin-top: 19px;
+      padding: 14px;
+      border-radius: 17px;
+    }
+
+    .pmu-expert-social {
+      padding-left: 13px;
     }
 
     .pmu-portrait-points {
+
       display: grid;
+
       grid-template-columns: repeat(2, minmax(0, 1fr));
+
     }
 
     .pmu-portrait-points span {
+
       min-height: 38px;
+
       justify-content: center;
+
       padding: 0 10px;
+
       text-align: center;
+
       font-size: 0.64rem;
+
     }
 
     .pmu-portrait-photo,
+
     .pmu-expert-photo {
+
       width: 100%;
+
       max-width: 390px;
+
       border-radius: 26px;
+
     }
 
     .pmu-process-feature-row {
+
       gap: 16px;
+
     }
 
     .pmu-process-feature-card {
+
       padding: 24px 22px;
+
     }
 
     .pmu-process-mini-list {
+
       padding: 0 22px;
+
     }
 
     .pmu-lead-card {
+
       gap: 22px;
+
     }
 
     .pmu-lead-actions {
+
       display: grid;
+
       grid-template-columns: 1fr;
+
       margin-top: 22px;
+
     }
 
     .pmu-lead-actions a {
+
       width: 100%;
+
     }
 
     .pmu-lead-form {
+
       padding: 22px 18px;
+
     }
 
     .pmu-safety-card {
+
       padding: 24px 22px;
+
     }
 
     .pmu-safety-list > div {
+
       padding: 20px 22px;
+
     }
 
     .pmu-faq-item {
+
       border-radius: 20px;
+
     }
 
     .pmu-faq-item summary {
+
       grid-template-columns: minmax(0, 1fr) 36px;
+
       gap: 12px;
+
       padding: 18px 18px;
+
       font-size: 1rem;
+
     }
 
     .pmu-faq-icon {
+
       width: 36px;
+
       height: 36px;
+
     }
 
     .pmu-faq-item > div {
+
       padding: 0 18px 18px;
+
     }
 
     .pmu-faq-item p {
+
       font-size: 0.93rem;
+
       line-height: 1.62;
+
     }
 
     .pmu-final-card {
+
       padding: 30px 20px;
+
     }
+
   }
 
   @media (max-width: 460px) {
+
     .pmu-proof-grid,
+
     .pmu-price-strip,
-    .pmu-portrait-points {
+
+    .pmu-portrait-points,
+
+    .pmu-expert-highlights {
+
       grid-template-columns: 1fr;
+
     }
 
     .pmu-proof-grid > div {
+
       border-right: 0;
+
       border-bottom: 1px solid rgba(183, 101, 118, 0.12);
+
     }
 
     .pmu-proof-grid > div:nth-last-child(-n + 2) {
+
       border-bottom: 1px solid rgba(183, 101, 118, 0.12);
+
     }
 
     .pmu-proof-grid > div:last-child {
+
       border-bottom: 0;
+
     }
 
     .pmu-price-strip > div,
+
     .pmu-price-strip > a {
+
       min-height: 72px;
+
     }
+
   }
 
   @media (prefers-reduced-motion: reduce) {
+
     .pmu-hero-card,
+
     .pmu-hero-card::before {
+
       animation: none;
+
     }
 
     .pmu-service-image-card,
+
     .button-booksy,
+
     .pmu-faq-icon::before,
+
     .pmu-faq-icon::after {
+
       transition: none;
+
     }
 
     .pmu-service-image-card:hover,
+
     .button-booksy:hover {
+
       transform: none;
+
     }
+
   }
 
   /* PREMIUM MICRO 2026 — spójność typografii i przycisków, bez zmiany układu desktop */
 
   .pmu-service-page .pmu-hero-actions .button-primary,
+
   .pmu-service-page .pmu-hero-actions .button-secondary,
+
   .pmu-service-page .pmu-hero-actions .button-booksy,
+
   .pmu-service-page .pmu-lead-actions .button-primary,
+
   .pmu-service-page .pmu-lead-actions .button-secondary,
+
   .pmu-service-page .pmu-lead-actions .button-booksy,
+
   .pmu-service-page .pmu-final-actions .button-primary,
+
   .pmu-service-page .pmu-final-actions .button-secondary,
+
   .pmu-service-page .pmu-final-actions .button-booksy,
+
   .pmu-service-page .pmu-lead-form > button {
+
     font-family: inherit !important;
+
     font-size: 1rem !important;
+
     font-weight: 820 !important;
+
     line-height: 1 !important;
+
     letter-spacing: -0.02em !important;
+
     text-transform: none !important;
+
   }
 
   .pmu-service-page .pmu-hero-actions > a,
+
   .pmu-service-page .pmu-lead-actions > a,
+
   .pmu-service-page .pmu-final-actions > a,
+
   .pmu-service-page .pmu-lead-form > button {
+
     min-height: 56px !important;
+
     padding-left: 22px !important;
+
     padding-right: 22px !important;
+
     border-radius: 999px !important;
+
     box-sizing: border-box !important;
+
   }
 
   .pmu-service-page .pmu-hero-actions > a,
+
   .pmu-service-page .pmu-final-actions > a {
+
     display: inline-flex !important;
+
     align-items: center !important;
+
     justify-content: center !important;
+
     gap: 8px !important;
+
   }
 
   .pmu-service-page .pmu-lead-actions > a {
+
     display: inline-flex !important;
+
     align-items: center !important;
+
     justify-content: center !important;
+
     gap: 8px !important;
+
   }
 
   .pmu-service-page .pmu-hero-actions .button-secondary,
+
   .pmu-service-page .pmu-lead-actions .button-secondary,
+
   .pmu-service-page .pmu-final-actions .button-secondary {
+
     color: var(--color-text, #17151d) !important;
+
   }
 
   .pmu-service-page .pmu-price-strip > div,
+
   .pmu-service-page .pmu-price-strip > a {
+
     min-height: 88px !important;
+
   }
 
   .pmu-service-page .pmu-price-strip span {
+
     font-family: inherit !important;
+
     font-weight: 780 !important;
+
     letter-spacing: 0.11em !important;
+
   }
 
   .pmu-service-page .pmu-price-strip strong {
+
     font-family: inherit !important;
+
     font-weight: 820 !important;
+
     letter-spacing: -0.045em !important;
+
   }
 
   .pmu-service-page .pmu-price-strip > a {
+
     font-family: inherit !important;
+
     font-size: 0.96rem !important;
+
     font-weight: 840 !important;
+
     letter-spacing: -0.015em !important;
+
     text-transform: none !important;
+
   }
 
   .pmu-service-page .pmu-form-heading strong,
+
   .pmu-service-page .pmu-lead-form label:not(.pmu-lead-consent) {
+
     font-family: inherit !important;
+
   }
 
   @media (max-width: 760px) {
+
     .pmu-service-page .pmu-hero-actions .button-primary,
+
     .pmu-service-page .pmu-hero-actions .button-secondary,
+
     .pmu-service-page .pmu-hero-actions .button-booksy,
+
     .pmu-service-page .pmu-lead-actions .button-primary,
+
     .pmu-service-page .pmu-lead-actions .button-secondary,
+
     .pmu-service-page .pmu-lead-actions .button-booksy,
+
     .pmu-service-page .pmu-final-actions .button-primary,
+
     .pmu-service-page .pmu-final-actions .button-secondary,
+
     .pmu-service-page .pmu-final-actions .button-booksy,
+
     .pmu-service-page .pmu-lead-form > button {
+
       font-size: 0.98rem !important;
+
       font-weight: 820 !important;
+
       letter-spacing: -0.018em !important;
+
     }
 
     .pmu-service-page .pmu-hero-actions > a,
+
     .pmu-service-page .pmu-lead-actions > a,
+
     .pmu-service-page .pmu-final-actions > a,
+
     .pmu-service-page .pmu-lead-form > button {
+
       min-height: 56px !important;
+
       width: 100% !important;
+
     }
 
     .pmu-service-page .pmu-price-strip {
+
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
       gap: 10px !important;
+
     }
 
     .pmu-service-page .pmu-price-strip > div,
+
     .pmu-service-page .pmu-price-strip > a {
+
       min-height: 86px !important;
+
       padding: 15px 14px !important;
+
     }
 
     .pmu-service-page .pmu-price-strip strong {
+
       font-size: 1.12rem !important;
+
       line-height: 1.08 !important;
+
     }
 
     .pmu-service-page .pmu-price-strip > a {
+
       font-size: 0.9rem !important;
+
     }
 
     .pmu-service-page .pmu-lead-form label:not(.pmu-lead-consent) {
+
       font-size: 0.78rem !important;
+
       font-weight: 800 !important;
+
       letter-spacing: 0.045em !important;
+
     }
 
     .pmu-service-page .pmu-form-heading strong {
+
       font-size: 1.22rem !important;
+
       font-weight: 820 !important;
+
       letter-spacing: -0.03em !important;
+
     }
+
   }
 
   @media (max-width: 360px) {
+
     .pmu-service-page .pmu-price-strip {
+
       grid-template-columns: 1fr !important;
+
     }
+
   }
 
 
+
   /* FINAL CTA DESKTOP — mobile bez zmian */
+
   @media (min-width: 761px) {
+
     .pmu-service-page .pmu-hero-actions {
+
       grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+
       align-items: stretch !important;
+
     }
 
     .pmu-service-page .pmu-hero-actions > a {
+
       width: 100% !important;
+
       min-width: 0 !important;
+
       min-height: 58px !important;
+
       padding-left: 18px !important;
+
       padding-right: 18px !important;
+
       white-space: nowrap !important;
+
       font-size: 0.96rem !important;
+
       line-height: 1 !important;
+
     }
 
     .pmu-service-page .pmu-hero-actions > a > span {
+
       flex: 0 0 auto !important;
+
     }
+
   }
 
 </style>
 
 <script is:inline>
+
   (() => {
+
     const formElement = document.querySelector("[data-pmu-lead-form]");
 
     if (!(formElement instanceof HTMLFormElement)) {
+
       return;
+
     }
 
     const form = formElement;
+
     const statusElement = form.querySelector("[data-pmu-lead-status]");
+
     const endpoint = "https://formspree.io/f/mjgnwzvp";
 
     form.addEventListener("submit", async (event) => {
+
       event.preventDefault();
 
       const submitButtonElement = form.querySelector('button[type="submit"]');
+
       const submitButton =
+
         submitButtonElement instanceof HTMLButtonElement
+
           ? submitButtonElement
+
           : null;
 
       const status =
+
         statusElement instanceof HTMLElement
+
           ? statusElement
+
           : null;
 
       const formData = new FormData(form);
 
       formData.set("page", window.location.href);
+
       formData.set("_subject", "Nowe zapytanie PMU — Permanentny Bielsko");
 
       if (submitButton) {
+
         submitButton.disabled = true;
+
         submitButton.textContent = "Wysyłanie...";
+
       }
 
       if (status) {
+
         status.hidden = false;
+
         status.textContent = "Wysyłamy zapytanie...";
+
       }
 
       try {
+
         const response = await fetch(endpoint, {
+
           method: "POST",
+
           body: formData,
+
           headers: {
+
             Accept: "application/json"
+
           }
+
         });
 
         const data = await response.json().catch(() => ({}));
 
         if (!response.ok) {
+
           const errors =
+
             data &&
+
             typeof data === "object" &&
+
             Array.isArray(data.errors)
+
               ? data.errors
+
               : [];
 
           const formspreeMessage = errors
+
             .map((item) => {
+
               if (
+
                 item &&
+
                 typeof item === "object" &&
+
                 "message" in item &&
+
                 typeof item.message === "string"
+
               ) {
+
                 return item.message;
+
               }
 
               return "";
+
             })
+
             .filter(Boolean)
+
             .join(" ");
 
           throw new Error(
+
             formspreeMessage || "Nie udało się wysłać formularza."
+
           );
+
         }
 
         if (status) {
+
           status.textContent =
+
             "Dziękujemy. Formularz został wysłany. Gabinet skontaktuje się w sprawie kwalifikacji.";
+
         }
 
         form.reset();
@@ -2318,30 +4212,55 @@ const structuredData = [
         const gtag = window["gtag"];
 
         if (typeof gtag === "function") {
+
           gtag("event", "conversion", {
+
             send_to: "AW-18200277713/3I8RCPuF8NIcENHlyOZD",
+
             value: 1.0,
+
             currency: "PLN"
+
           });
 
           gtag("event", "pmu_lead_submit", {
+
             event_category: "lead",
+
             event_label: "Formularz kwalifikacji PMU"
+
           });
+
         }
+
       } catch (error) {
+
         if (status) {
+
           status.textContent =
+
             error instanceof Error && error.message
+
               ? error.message
+
               : "Nie udało się wysłać zapytania. Prosimy zadzwonić do gabinetu.";
+
         }
+
       } finally {
+
         if (submitButton) {
+
           submitButton.disabled = false;
+
           submitButton.textContent = "Wyślij formularz PMU";
+
         }
+
       }
+
     });
+
   })();
+
 </script>
