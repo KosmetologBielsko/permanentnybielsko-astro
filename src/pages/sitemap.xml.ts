@@ -327,6 +327,51 @@ const pages = [
     changefreq: "monthly"
   },
 
+
+  /*
+    Poradnik PMU — najnowsze wpisy 2026 / Senuto
+  */
+  {
+    path: "/poradnik/brwi-permanentne-po-latach/",
+    priority: "0.86",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/nieudany-makijaz-permanentny-ust/",
+    priority: "0.84",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/kreski-permanentne-cieniowane/",
+    priority: "0.84",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/skutki-uboczne-makijazu-permanentnego-brwi/",
+    priority: "0.84",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/przeciwwskazania-do-makijazu-permanentnego/",
+    priority: "0.86",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/ile-trwa-zabieg-makijazu-permanentnego/",
+    priority: "0.82",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/kreska-zageszczajaca-linie-rzes/",
+    priority: "0.84",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/czy-makijaz-permanentny-boli/",
+    priority: "0.86",
+    changefreq: "monthly"
+  },
+
   {
     path: "/sercemmalowane/",
     priority: "0.6",
