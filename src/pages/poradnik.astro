@@ -1928,16 +1928,23 @@ const structuredData = [
     font-weight: 830;
   }
 
-  .guide-filter-button:hover,
-  .guide-filter-button.is-active {
+  .guide-filter-button:hover {
     border-color: rgba(56, 187, 181, 0.17);
     background: rgba(219, 246, 243, 0.52);
     color: var(--color-turquoise-dark, #0f7773);
   }
 
+  .guide-filter-button.is-active {
+    border-color: rgba(15, 119, 115, 0.22);
+    background:
+      linear-gradient(135deg, #18a889 0%, #0f8f78 58%, #0b7868 100%);
+    color: #ffffff;
+    box-shadow: 0 10px 26px rgba(15, 143, 120, 0.16);
+  }
+
   .guide-filter-button.is-active strong {
-    background: #ffffff;
-    color: var(--color-turquoise-dark, #0f7773);
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
   }
 
   .guide-filter-help {
@@ -2310,6 +2317,61 @@ const structuredData = [
   }
 
   @media (max-width: 1080px) {
+    .guide-filter-panel {
+      position: sticky;
+      top: 164px;
+      z-index: 20;
+    }
+
+    .guide-filter-panel::before,
+    .guide-filter-panel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 38px;
+      pointer-events: none;
+      z-index: 3;
+      transition: opacity 0.18s ease;
+    }
+
+    .guide-filter-panel::before {
+      left: 0;
+      opacity: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+
+    .guide-filter-panel::after {
+      right: 0;
+      opacity: 1;
+      background:
+        linear-gradient(
+          270deg,
+          rgba(255, 255, 255, 0.98) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+    }
+
+    .guide-filter-panel.is-scrolled::before {
+      opacity: 1;
+    }
+
+    .guide-filter-panel.is-at-end::after {
+      opacity: 0;
+    }
+
+    .guide-search-card {
+      position: sticky;
+      top: 78px;
+      z-index: 21;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 16px 44px rgba(89, 53, 67, 0.09);
+    }
     .guide-hero-grid,
     .guide-expert-panel {
       grid-template-columns: 1fr;
@@ -2324,8 +2386,6 @@ const structuredData = [
     }
 
     .guide-filter-panel {
-      position: relative;
-      top: auto;
       overflow: hidden;
     }
 
@@ -2363,6 +2423,66 @@ const structuredData = [
   }
 
   @media (max-width: 760px) {
+    .guide-search-card {
+      top: 68px;
+      margin-inline: -4px;
+      padding: 10px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.93);
+    }
+
+    .guide-search-label,
+    .guide-search-presets {
+      display: none;
+    }
+
+    .guide-search-box {
+      min-height: 50px;
+      border-radius: 15px;
+    }
+
+    .guide-filter-panel {
+      top: 130px;
+      margin-inline: -4px;
+      padding: 8px 32px 8px 8px;
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 12px 34px rgba(89, 53, 67, 0.075);
+    }
+
+    .guide-filter-panel::after {
+      width: 54px;
+      background:
+        linear-gradient(
+          270deg,
+          rgba(255, 255, 255, 0.99) 0%,
+          rgba(255, 255, 255, 0.88) 35%,
+          rgba(255, 255, 255, 0) 100%
+        );
+    }
+
+    .guide-filter-panel:not(.is-at-end)::after {
+      content: "→";
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      color: var(--color-turquoise-dark, #0f7773);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    .guide-filter-list {
+      padding-right: 20px;
+      scroll-padding-inline: 12px 42px;
+      scroll-snap-type: x proximity;
+    }
+
+    .guide-filter-button {
+      scroll-snap-align: center;
+    }
     .guide-page .section-kicker {
       min-height: 29px;
       margin-bottom: 14px;
@@ -2541,13 +2661,9 @@ const structuredData = [
       font-size: 0.53rem;
     }
 
-    .guide-search-card {
-      padding: 14px;
-    }
 
     .guide-search-box {
       grid-template-columns: 21px minmax(0, 1fr);
-      min-height: 56px;
       padding: 0 14px;
     }
 
@@ -2559,26 +2675,6 @@ const structuredData = [
       font-size: 0.94rem;
     }
 
-    .guide-search-presets {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      padding-bottom: 2px;
-      scrollbar-width: none;
-    }
-
-    .guide-search-presets::-webkit-scrollbar {
-      display: none;
-    }
-
-    .guide-search-presets > span,
-    .guide-search-presets button {
-      flex: 0 0 auto;
-    }
-
-    .guide-filter-panel {
-      padding: 10px;
-      border-radius: 19px;
-    }
 
     .guide-filter-button {
       min-height: 40px;
@@ -2777,16 +2873,45 @@ const structuredData = [
     if (articleGrid) articleGrid.hidden = visible === 0;
   };
 
+  const filterPanel = document.querySelector(".guide-filter-panel");
+  const filterTrack = document.querySelector(".guide-filter-list");
+
+  const updateFilterScrollState = () => {
+    if (!filterPanel || !filterTrack) return;
+
+    const maxScroll = Math.max(0, filterTrack.scrollWidth - filterTrack.clientWidth);
+    const current = filterTrack.scrollLeft;
+
+    filterPanel.classList.toggle("is-scrolled", current > 8);
+    filterPanel.classList.toggle("is-at-end", maxScroll - current < 10);
+  };
+
+  const centerSelectedFilter = (button) => {
+    if (!button) return;
+
+    button.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  };
+
   const setFilter = (filter) => {
     activeFilter = filter || "all";
+    let selectedButton = null;
 
     filterButtons.forEach((button) => {
       const selected = button.getAttribute("data-guide-filter") === activeFilter;
       button.classList.toggle("is-active", selected);
       button.setAttribute("aria-pressed", selected ? "true" : "false");
+
+      if (selected) selectedButton = button;
     });
 
+    centerSelectedFilter(selectedButton);
     applyGuideFilters();
+
+    window.setTimeout(updateFilterScrollState, 220);
   };
 
   const resetGuide = () => {
@@ -2831,5 +2956,9 @@ const structuredData = [
   resetButton?.addEventListener("click", resetGuide);
   emptyReset?.addEventListener("click", resetGuide);
 
+  filterTrack?.addEventListener("scroll", updateFilterScrollState, { passive: true });
+  window.addEventListener("resize", updateFilterScrollState, { passive: true });
+
+  updateFilterScrollState();
   applyGuideFilters();
 </script>
