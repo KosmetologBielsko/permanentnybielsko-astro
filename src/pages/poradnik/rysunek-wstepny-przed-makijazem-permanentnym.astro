@@ -6,211 +6,25 @@ import Footer from "../../components/Footer.astro";
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
-/*
-  SZABLON ARTYKUŁU PORADNIKA PMU
-
-  Jak używać:
-  1. Skopiuj ten plik.
-  2. Zmień nazwę pliku na docelowy adres, np.
-     jak-przygotowac-sie-do-makijazu-permanentnego-brwi.astro
-  3. Wklej do:
-     src/pages/poradnik/
-  4. Uzupełnij dane poniżej: title, description, slug, lead, sekcje, FAQ, zdjęcia.
-
-  Założenie:
-  - tekst jest najważniejszy,
-  - układ jest spokojny, czytelny i powtarzalny,
-  - zdjęcia są opcjonalne: 0, 1 albo 2,
-  - kafelki są proste, bez ciężkich efektów.
-*/
-
 const article = {
-  "slug": "rysunek-wstepny-przed-makijazem-permanentnym",
-  "title": "Dlaczego rysunek wstępny jest najważniejszy przed pigmentacją?",
-  "eyebrow": "Poradnik PMU",
-  "category": "Rysunek wstępny",
-  "datePublished": "2026-06-08",
-  "dateModified": "2026-06-08",
-  "readingTime": "7–9 minut",
-  "description": "Rysunek wstępny przed makijażem permanentnym to etap decyzji o kształcie, proporcji i naturalnym efekcie. Sprawdź, dlaczego nie warto go pomijać.",
-  "lead": "Rysunek wstępny to jeden z najważniejszych etapów makijażu permanentnego. To tutaj klientka widzi kierunek przyszłego efektu, a linergistka analizuje twarz, asymetrię, mimikę, naturalne brwi, usta albo powieki. Bez dobrego projektu pigmentacja staje się zbyt przypadkowa.",
-  "shortAnswer": "Rysunek wstępny pozwala zaplanować kształt, proporcję, symetrię i intensywność makijażu permanentnego przed wprowadzeniem pigmentu. Chroni przed zbyt pochopną decyzją i pomaga dopasować brwi, usta lub kreski do twarzy, a nie do przypadkowego trendu.",
-  "canonicalPath": "/poradnik/rysunek-wstepny-przed-makijazem-permanentnym/",
-  "heroImage": {
-    "src": "",
-    "alt": ""
+  slug: "rysunek-wstepny-przed-makijazem-permanentnym",
+  title: "Dlaczego rysunek wstępny jest najważniejszy przed pigmentacją?",
+  eyebrow: "Poradnik PMU",
+  category: "Rysunek wstępny",
+  datePublished: "2026-06-08",
+  dateModified: "2026-08-20",
+  readingTime: "7–9 minut",
+  description: "Rysunek wstępny przed makijażem permanentnym to etap decyzji o kształcie, proporcji i naturalnym efekcie. Sprawdź, dlaczego nie warto go pomijać.",
+  lead: "Rysunek wstępny to jeden z najważniejszych etapów makijażu permanentnego. To tutaj klientka widzi kierunek przyszłego efektu, a linergistka analizuje twarz, asymetrię, mimikę, naturalne brwi, usta albo powieki. Bez dobrego projektu pigmentacja staje się zbyt przypadkowa.",
+  shortAnswer: "Rysunek wstępny pozwala zaplanować kształt, proporcję, symetrię i intensywność makijażu permanentnego przed wprowadzeniem pigmentu. Chroni przed zbyt pochopną decyzją i pomaga dopasować brwi, usta lub kreski do twarzy, a nie do przypadkowego trendu.",
+  canonicalPath: "/poradnik/rysunek-wstepny-przed-makijazem-permanentnym/",
+  mainService: {
+    href: "/makijaz-permanentny-bielsko/",
+    title: "Makijaż permanentny",
   },
-  "secondaryImage": {
-    "src": "",
-    "alt": ""
-  },
-  "mainService": {
-    "href": "/makijaz-permanentny-bielsko/",
-    "title": "Makijaż permanentny"
-  },
-  "faqHeading": "Pytania o rysunek wstępny przed PMU"
 };
 
-const tableOfContents = [
-  {
-    "href": "#najkrocej",
-    "title": "Najkrócej"
-  },
-  {
-    "href": "#decyzja",
-    "title": "Etap decyzji"
-  },
-  {
-    "href": "#twarz",
-    "title": "Twarz i proporcje"
-  },
-  {
-    "href": "#zgoda",
-    "title": "Akceptacja projektu"
-  },
-  {
-    "href": "#stary-pmu",
-    "title": "Stary PMU"
-  },
-  {
-    "href": "#faq",
-    "title": "FAQ"
-  }
-];
-
-const keyPoints = [
-  "Rysunek wstępny pokazuje kierunek efektu przed pigmentacją.",
-  "Projekt powinien uwzględniać asymetrię, mimikę i naturalne proporcje twarzy.",
-  "Nie warto zaczynać pigmentacji bez spokojnej akceptacji kształtu.",
-  "Przy starym PMU rysunek pomaga ocenić, czy nowy efekt jest w ogóle możliwy."
-];
-
-const sections = [
-  {
-    "id": "decyzja",
-    "eyebrow": "Etap decyzji",
-    "title": "Rysunek wstępny nie jest dodatkiem do zabiegu.",
-    "paragraphs": [
-      "W makijażu permanentnym najważniejsza decyzja zapada przed pigmentacją. Rysunek wstępny pozwala zobaczyć kierunek kształtu, szerokość, długość, łuk, kontur albo przebieg kreski, zanim pigment znajdzie się w skórze.",
-      "To etap, w którym można spokojnie rozmawiać, korygować i tłumaczyć, dlaczego pewne rozwiązanie będzie korzystne, a inne może dać zbyt ciężki efekt. Dobrze wykonany projekt zmniejsza ryzyko przypadkowego rezultatu."
-    ],
-    "cards": [
-      {
-        "title": "Widoczna decyzja",
-        "text": "Klientka widzi projekt przed pigmentacją, a nie dopiero po zabiegu."
-      },
-      {
-        "title": "Bez pośpiechu",
-        "text": "Kształt powinien być zaakceptowany spokojnie i świadomie."
-      }
-    ]
-  },
-  {
-    "id": "twarz",
-    "eyebrow": "Twarz i proporcje",
-    "title": "Dobry projekt wynika z twarzy, nie z szablonu.",
-    "paragraphs": [
-      "Nie ma jednej idealnej brwi, jednego idealnego konturu ust ani jednej kreski dobrej dla każdej osoby. Twarz ma naturalne asymetrie, mimikę, różny układ mięśni, inną budowę powieki i inny kształt czerwieni wargowej.",
-      "Rysunek wstępny pozwala te elementy uporządkować. Celem nie jest matematyczna identyczność, ale harmonijny efekt, który wygląda dobrze w codziennym życiu i nie dominuje nad urodą."
-    ],
-    "cards": [
-      {
-        "title": "Asymetria",
-        "text": "Naturalna asymetria twarzy nie zawsze powinna być korygowana na siłę."
-      },
-      {
-        "title": "Mimika",
-        "text": "Projekt musi wyglądać dobrze nie tylko w bezruchu, ale też przy naturalnej ekspresji."
-      }
-    ]
-  },
-  {
-    "id": "zgoda",
-    "eyebrow": "Akceptacja projektu",
-    "title": "Klientka powinna wiedzieć, na co się decyduje.",
-    "paragraphs": [
-      "Rysunek wstępny daje przestrzeń na pytania. To dobry moment, aby powiedzieć, czy efekt ma być bardzo subtelny, bardziej widoczny, miękki, naturalny albo bardziej uporządkowany.",
-      "Dobra komunikacja przed pigmentacją jest ważniejsza niż szybkie przejście do zabiegu. Jeśli projekt budzi wątpliwości, trzeba je omówić przed rozpoczęciem pracy, a nie po wykonaniu makijażu permanentnego."
-    ],
-    "cards": [
-      {
-        "title": "Jasne oczekiwania",
-        "text": "Projekt pomaga połączyć oczekiwania klientki z realnymi możliwościami skóry."
-      },
-      {
-        "title": "Bez niespodzianek",
-        "text": "Im lepiej omówiony rysunek, tym spokojniejszy przebieg zabiegu."
-      }
-    ]
-  },
-  {
-    "id": "stary-pmu",
-    "eyebrow": "Stary PMU",
-    "title": "Rysunek pokazuje też ograniczenia starego pigmentu.",
-    "paragraphs": [
-      "Przy wcześniejszym makijażu permanentnym rysunek wstępny jest szczególnie ważny. Stary pigment może być zbyt szeroki, zbyt ciemny, przesunięty, szary, czerwony albo nierówny. Nie zawsze da się go przykryć tak, aby uzyskać lekki i naturalny efekt.",
-      "W takiej sytuacji projekt pomaga ocenić, czy nowa pigmentacja ma sens, czy najpierw lepszym rozwiązaniem będzie rozjaśnianie laserem, removerem albo etapowa korekta."
-    ],
-    "cards": [
-      {
-        "title": "Granice korekty",
-        "text": "Nie każdy stary kształt da się bezpiecznie przykryć nowym."
-      },
-      {
-        "title": "Plan etapowy",
-        "text": "Czasem najlepszy efekt wymaga najpierw rozjaśnienia pigmentu."
-      }
-    ]
-  }
-];
-
-const warningBox = {
-  "title": "Kiedy nie warto zaczynać pigmentacji od razu?",
-  "text": "Jeśli projekt nie jest zaakceptowany, skóra jest podrażniona, oczekiwania są niejasne albo stary pigment ogranicza możliwość uzyskania naturalnego efektu, lepiej zatrzymać się na konsultacji i zaplanować dalsze kroki."
-};
-
-const relatedLinks = [
-  {
-    "href": "/makijaz-permanentny-bielsko/",
-    "title": "Makijaż permanentny Bielsko-Biała",
-    "text": "Zobacz główną ofertę PMU i podejście do naturalnej pigmentacji."
-  },
-  {
-    "href": "/makijaz-permanentny-brwi/",
-    "title": "Brwi permanentne",
-    "text": "Sprawdź, jak rysunek wpływa na efekt brwi."
-  },
-  {
-    "href": "/poradnik/kiedy-usuwac-stary-makijaz-permanentny/",
-    "title": "Stary makijaż permanentny",
-    "text": "Dowiedz się, kiedy najpierw warto rozjaśnić pigment."
-  }
-];
-
-const faqItems = [
-  {
-    "question": "Czy rysunek wstępny wykonuje się przed każdym zabiegiem PMU?",
-    "answer": "Tak, projekt jest podstawą świadomej decyzji przed pigmentacją brwi, ust lub kresek."
-  },
-  {
-    "question": "Czy można zmienić rysunek przed zabiegiem?",
-    "answer": "Tak. Rysunek jest po to, aby omówić i dopracować kierunek przed rozpoczęciem pigmentacji."
-  },
-  {
-    "question": "Czy rysunek musi być idealnie symetryczny?",
-    "answer": "Nie zawsze. Twarz naturalnie pracuje i ma asymetrie. Celem jest harmonia, a nie sztuczna identyczność za wszelką cenę."
-  },
-  {
-    "question": "Czy przy starym PMU rysunek jest trudniejszy?",
-    "answer": "Często tak, ponieważ stary pigment narzuca ograniczenia kształtu, koloru i szerokości."
-  },
-  {
-    "question": "Czy mogę przyjść ze zdjęciem inspiracji?",
-    "answer": "Tak, ale inspiracja powinna być punktem rozmowy, nie gotowym szablonem do skopiowania."
-  }
-];
-
-const pageUrl = `https://permanentnybielsko.com${article.canonicalPath}`;
+const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
 
 const structuredData = [
   {
@@ -226,15 +40,20 @@ const structuredData = [
     author: {
       "@type": "Person",
       name: "Bogusława Herda",
-      url: "https://permanentnybielsko.com/",
+      url: "https://www.permanentnybielsko.com/",
     },
     publisher: {
-      "@id": "https://permanentnybielsko.com/#localbusiness",
+      "@id": "https://www.permanentnybielsko.com/#localbusiness",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${pageUrl}#webpage`,
     },
+    citation: [
+      "https://pubmed.ncbi.nlm.nih.gov/38901732/",
+      "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet",
+      "https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/caring-for-tattooed-skin"
+    ],
   },
   {
     "@context": "https://schema.org",
@@ -245,13 +64,13 @@ const structuredData = [
         "@type": "ListItem",
         position: 1,
         name: "Strona główna",
-        item: "https://permanentnybielsko.com/",
+        item: "https://www.permanentnybielsko.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Poradnik PMU",
-        item: "https://permanentnybielsko.com/poradnik/",
+        item: "https://www.permanentnybielsko.com/poradnik/",
       },
       {
         "@type": "ListItem",
@@ -265,181 +84,377 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Czy rysunek wstępny wykonuje się przed każdym zabiegiem PMU?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Tak, projekt jest podstawą świadomej decyzji przed pigmentacją brwi, ust lub kresek.",
+        },
       },
-    })),
+      {
+        "@type": "Question",
+        name: "Czy można zmienić rysunek przed zabiegiem?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Tak. Rysunek jest po to, aby omówić i dopracować kierunek przed rozpoczęciem pigmentacji.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Czy rysunek musi być idealnie symetryczny?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Nie zawsze. Twarz naturalnie pracuje i ma asymetrie. Celem jest harmonia, a nie sztuczna identyczność za wszelką cenę.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Czy przy starym PMU rysunek jest trudniejszy?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Często tak, ponieważ stary pigment narzuca ograniczenia kształtu, koloru i szerokości.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Czy mogę przyjść ze zdjęciem inspiracji?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Tak, ale inspiracja powinna być punktem rozmowy, nie gotowym szablonem do skopiowania.",
+        },
+      }
+    ],
   },
 ];
 ---
 
 <Layout
-  title={`${article.title} | Poradnik PMU Bogusława Herda`}
+  title={`${article.title} | Poradnik PMU Bogusławy Herda`}
   description={article.description}
   canonicalPath={article.canonicalPath}
   structuredData={structuredData}
 >
-  <div class="article-page">
+  <div class="expert-article-page">
     <Header />
 
     <main>
-      <section class="article-hero">
-        <div class="container article-hero-grid">
-          <div class="article-hero-copy">
+      <section class="expert-article-hero">
+        <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
+        <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
+
+        <div class="container expert-article-hero-grid">
+          <div class="expert-article-hero-copy">
             <p class="section-kicker">{article.eyebrow}</p>
 
-            <div class="article-meta">
+            <div class="expert-article-meta">
+              <span>Ekspercki poradnik</span>
               <span>{article.category}</span>
               <span>{article.readingTime}</span>
             </div>
 
             <h1>{article.title}</h1>
-
-            <p class="article-lead">{article.lead}</p>
+            <p class="expert-article-lead">{article.lead}</p>
           </div>
 
-          <aside class="article-hero-summary" aria-label="Krótka odpowiedź">
-            <p class="summary-label">Najkrócej</p>
-            <h2>Co warto wiedzieć?</h2>
+          <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
+            <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
+            <h2>Najważniejsze bez powtarzania.</h2>
             <p>{article.shortAnswer}</p>
           </aside>
         </div>
       </section>
 
-      <section class="article-content-section">
-        <div class="container article-layout">
-          <aside class="article-sidebar" aria-label="Spis treści">
-            <div class="article-sidebar-card">
-              <p>W artykule</p>
-              <nav>
-                {tableOfContents.map((item) => (
-                  <a href={item.href}>{item.title}</a>
-                ))}
-              </nav>
-            </div>
+      <section class="expert-article-nav-section">
+        <div class="container">
+          <nav class="expert-article-nav" aria-label="Spis treści artykułu">
+            <a href="#decyzja">Etap decyzji</a>
+            <a href="#twarz">Twarz i proporcje</a>
+            <a href="#zgoda">Akceptacja projektu</a>
+            <a href="#stary-pmu">Stary PMU</a>
+            <a href="#praktyka">Praktyka</a>
+            <a href="#zrodla">Źródła</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+        </div>
+      </section>
 
-            <div class="article-sidebar-card article-sidebar-card-soft">
-              <p>Powiązane</p>
-              <a href="/poradnik/">Poradnik PMU</a>
-              <a href={article.mainService.href}>{article.mainService.title}</a>
-              <a href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów wizytę</a>
-            </div>
+      <section class="expert-article-section" id="decyzja">
+        <div class="container">
+          <div class="expert-article-heading">
+            <p class="section-kicker">Etap decyzji</p>
+            <h2>Rysunek wstępny nie jest dodatkiem do zabiegu.</h2>
+          </div>
+
+          <div class="expert-legacy-copy">
+            <p>W makijażu permanentnym najważniejsza decyzja zapada przed pigmentacją. Rysunek wstępny pozwala zobaczyć kierunek kształtu, szerokość, długość, łuk, kontur albo przebieg kreski, zanim pigment znajdzie się w skórze.</p>
+            <p>To etap, w którym można spokojnie rozmawiać, korygować i tłumaczyć, dlaczego pewne rozwiązanie będzie korzystne, a inne może dać zbyt ciężki efekt. Dobrze wykonany projekt zmniejsza ryzyko przypadkowego rezultatu.</p>
+          </div>
+          <div class="expert-legacy-cards">
+            <article>
+              <h3>Widoczna decyzja</h3>
+              <p>Klientka widzi projekt przed pigmentacją, a nie dopiero po zabiegu.</p>
+            </article>
+            <article>
+              <h3>Bez pośpiechu</h3>
+              <p>Kształt powinien być zaakceptowany spokojnie i świadomie.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="expert-article-section expert-article-soft" id="twarz">
+        <div class="container">
+          <div class="expert-article-heading">
+            <p class="section-kicker">Twarz i proporcje</p>
+            <h2>Dobry projekt wynika z twarzy, nie z szablonu.</h2>
+          </div>
+
+          <div class="expert-legacy-copy">
+            <p>Nie ma jednej idealnej brwi, jednego idealnego konturu ust ani jednej kreski dobrej dla każdej osoby. Twarz ma naturalne asymetrie, mimikę, różny układ mięśni, inną budowę powieki i inny kształt czerwieni wargowej.</p>
+            <p>Rysunek wstępny pozwala te elementy uporządkować. Celem nie jest matematyczna identyczność, ale harmonijny efekt, który wygląda dobrze w codziennym życiu i nie dominuje nad urodą.</p>
+          </div>
+          <div class="expert-legacy-cards">
+            <article>
+              <h3>Asymetria</h3>
+              <p>Naturalna asymetria twarzy nie zawsze powinna być korygowana na siłę.</p>
+            </article>
+            <article>
+              <h3>Mimika</h3>
+              <p>Projekt musi wyglądać dobrze nie tylko w bezruchu, ale też przy naturalnej ekspresji.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="expert-article-section" id="zgoda">
+        <div class="container">
+          <div class="expert-article-heading">
+            <p class="section-kicker">Akceptacja projektu</p>
+            <h2>Klientka powinna wiedzieć, na co się decyduje.</h2>
+          </div>
+
+          <div class="expert-legacy-copy">
+            <p>Rysunek wstępny daje przestrzeń na pytania. To dobry moment, aby powiedzieć, czy efekt ma być bardzo subtelny, bardziej widoczny, miękki, naturalny albo bardziej uporządkowany.</p>
+            <p>Dobra komunikacja przed pigmentacją jest ważniejsza niż szybkie przejście do zabiegu. Jeśli projekt budzi wątpliwości, trzeba je omówić przed rozpoczęciem pracy, a nie po wykonaniu makijażu permanentnego.</p>
+          </div>
+          <div class="expert-legacy-cards">
+            <article>
+              <h3>Jasne oczekiwania</h3>
+              <p>Projekt pomaga połączyć oczekiwania klientki z realnymi możliwościami skóry.</p>
+            </article>
+            <article>
+              <h3>Bez niespodzianek</h3>
+              <p>Im lepiej omówiony rysunek, tym spokojniejszy przebieg zabiegu.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="expert-article-section expert-article-soft" id="stary-pmu">
+        <div class="container">
+          <div class="expert-article-heading">
+            <p class="section-kicker">Stary PMU</p>
+            <h2>Rysunek pokazuje też ograniczenia starego pigmentu.</h2>
+          </div>
+
+          <div class="expert-legacy-copy">
+            <p>Przy wcześniejszym makijażu permanentnym rysunek wstępny jest szczególnie ważny. Stary pigment może być zbyt szeroki, zbyt ciemny, przesunięty, szary, czerwony albo nierówny. Nie zawsze da się go przykryć tak, aby uzyskać lekki i naturalny efekt.</p>
+            <p>W takiej sytuacji projekt pomaga ocenić, czy nowa pigmentacja ma sens, czy najpierw lepszym rozwiązaniem będzie rozjaśnianie laserem, removerem albo etapowa korekta.</p>
+          </div>
+          <div class="expert-legacy-cards">
+            <article>
+              <h3>Granice korekty</h3>
+              <p>Nie każdy stary kształt da się bezpiecznie przykryć nowym.</p>
+            </article>
+            <article>
+              <h3>Plan etapowy</h3>
+              <p>Czasem najlepszy efekt wymaga najpierw rozjaśnienia pigmentu.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="expert-article-section">
+        <div class="container">
+          <div class="expert-source-inline">
+            <span>Ważne</span>
+            <h3 style="margin:0 0 9px;color:var(--color-text,#17151d);font-size:1.25rem;">Kiedy nie warto zaczynać pigmentacji od razu?</h3>
+            <p>Jeśli projekt nie jest zaakceptowany, skóra jest podrażniona, oczekiwania są niejasne albo stary pigment ogranicza możliwość uzyskania naturalnego efektu, lepiej zatrzymać się na konsultacji i zaplanować dalsze kroki.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="expert-article-section" id="praktyka">
+        <div class="container expert-author-note">
+          <div>
+            <p class="section-kicker">Praktyka gabinetowa</p>
+            <h2>Jak przekładam tę wiedzę na realny zabieg?</h2>
+            <p>
+              Nie stosuję jednej odpowiedzi dla każdej skóry i każdej klientki.
+              Najpierw oceniam aktualny stan skóry, wcześniejszy makijaż permanentny,
+              naturalną anatomię oraz oczekiwany efekt. Dopiero potem wybieramy metodę
+              i plan postępowania.
+            </p>
+          </div>
+
+          <aside>
+            <span>Bogusława Herda</span>
+            <strong>Trenerka Long-Time-Liner®</strong>
+            <strong>Autorka Silky Hairstroke Brows</strong>
+            <a href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
+              Przejdź do kwalifikacji PMU →
+            </a>
           </aside>
+        </div>
+      </section>
 
-          <article class="article-main">
-            <section class="article-answer-card" id="najkrocej">
-              <p class="section-kicker">Krótka odpowiedź</p>
-              <h2>Najważniejsze w kilku zdaniach</h2>
-              <p>{article.shortAnswer}</p>
-            </section>
+      <section class="expert-article-section expert-article-related-section">
+        <div class="container">
+          <div class="expert-article-heading">
+            <p class="section-kicker">Powiązane tematy</p>
+            <h2>Nie opisujemy wszystkiego drugi raz — przejdź do właściwego zagadnienia.</h2>
+          </div>
 
-            <section class="article-keypoints" aria-label="Najważniejsze punkty">
-              {keyPoints.map((point) => (
-                <div>
-                  <span></span>
-                  <p>{point}</p>
-                </div>
-              ))}
-            </section>
+          <div class="expert-related-grid">
+            <a href="/makijaz-permanentny-bielsko/">
+              <h3>Makijaż permanentny Bielsko-Biała</h3>
+              <p>Zobacz główną ofertę PMU i podejście do naturalnej pigmentacji.</p>
+              <span>Czytaj dalej →</span>
+            </a>
+            <a href="/makijaz-permanentny-brwi/">
+              <h3>Brwi permanentne</h3>
+              <p>Sprawdź, jak rysunek wpływa na efekt brwi.</p>
+              <span>Czytaj dalej →</span>
+            </a>
+            <a href="/poradnik/kiedy-usuwac-stary-makijaz-permanentny/">
+              <h3>Stary makijaż permanentny</h3>
+              <p>Dowiedz się, kiedy najpierw warto rozjaśnić pigment.</p>
+              <span>Czytaj dalej →</span>
+            </a>
+            <a href="/poradnik/jak-przygotowac-sie-do-makijazu-permanentnego-brwi/">
+              <h3>Jak przygotować się do makijażu permanentnego brwi?</h3>
+              <p>Rozwinięcie tego zagadnienia w osobnym poradniku.</p>
+              <span>Czytaj dalej →</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
-            {article.heroImage.src && (
-              <figure class="article-image article-image-wide">
-                <img
-                  src={article.heroImage.src}
-                  alt={article.heroImage.alt}
-                  width="1400"
-                  height="900"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-            )}
+      <section class="expert-article-section" id="zrodla">
+        <div class="container">
+          <div class="expert-article-heading">
+            <p class="section-kicker">Źródła i materiały odniesienia</p>
+            <h2>Na czym opieramy informacje medyczne i techniczne?</h2>
+            <p>
+              Wiedzę gabinetową oddzielamy od informacji dermatologicznych i instytucjonalnych.
+              Tam, gdzie nie istnieje jedna uniwersalna reguła, nie przedstawiamy jej jako pewnika.
+            </p>
+          </div>
 
-            {sections.map((section, index) => (
-              <section class="article-text-block" id={section.id}>
-                <p class="section-kicker">{section.eyebrow}</p>
-                <h2>{section.title}</h2>
+          <div class="expert-source-grid">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/38901732/" target="_blank" rel="noopener noreferrer">
+              <span>JAAD / PubMed</span>
+              <h3>Permanent makeup: A review of its technique, regulation, and complications</h3>
+              <p>Przegląd dermatologiczny PMU: technika, regulacje oraz możliwe powikłania.</p>
+              <strong>Otwórz źródło ↗</strong>
+            </a>
+            <a href="https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet" target="_blank" rel="noopener noreferrer">
+              <span>FDA</span>
+              <h3>Tattoos & Permanent Makeup: Fact Sheet</h3>
+              <p>Informacje instytucjonalne o permanent makeup jako formie pigmentacji skóry, bezpieczeństwie i możliwych reakcjach.</p>
+              <strong>Otwórz źródło ↗</strong>
+            </a>
+            <a href="https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/caring-for-tattooed-skin" target="_blank" rel="noopener noreferrer">
+              <span>American Academy of Dermatology</span>
+              <h3>Caring for tattooed skin</h3>
+              <p>Zalecenia dermatologów dotyczące ochrony i pielęgnacji pigmentowanej skóry.</p>
+              <strong>Otwórz źródło ↗</strong>
+            </a>
+          </div>
 
-                {section.paragraphs.map((paragraph) => (
-                  <p>{paragraph}</p>
-                ))}
+          <p class="expert-medical-note">
+            Treść ma charakter edukacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej.
+            Przy nasilonych, nietypowych lub utrzymujących się objawach skontaktuj się z lekarzem.
+          </p>
+        </div>
+      </section>
 
-                {section.cards && (
-                  <div class="article-simple-cards">
-                    {section.cards.map((card) => (
-                      <article>
-                        <h3>{card.title}</h3>
-                        <p>{card.text}</p>
-                      </article>
-                    ))}
-                  </div>
-                )}
+      <section class="expert-article-section expert-article-faq-section" id="faq">
+        <div class="container">
+          <div class="expert-article-heading">
+            <p class="section-kicker">FAQ</p>
+            <h2>Najczęstsze pytania związane z tym tematem.</h2>
+          </div>
 
-                {index === 1 && article.secondaryImage.src && (
-                  <figure class="article-image">
-                    <img
-                      src={article.secondaryImage.src}
-                      alt={article.secondaryImage.alt}
-                      width="1200"
-                      height="900"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </figure>
-                )}
-              </section>
-            ))}
+          <div class="expert-faq-list">
+            <details>
+              <summary>
+                <span>Czy rysunek wstępny wykonuje się przed każdym zabiegiem PMU?</span>
+                <span class="expert-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div><p>Tak, projekt jest podstawą świadomej decyzji przed pigmentacją brwi, ust lub kresek.</p></div>
+            </details>
+            <details>
+              <summary>
+                <span>Czy można zmienić rysunek przed zabiegiem?</span>
+                <span class="expert-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div><p>Tak. Rysunek jest po to, aby omówić i dopracować kierunek przed rozpoczęciem pigmentacji.</p></div>
+            </details>
+            <details>
+              <summary>
+                <span>Czy rysunek musi być idealnie symetryczny?</span>
+                <span class="expert-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div><p>Nie zawsze. Twarz naturalnie pracuje i ma asymetrie. Celem jest harmonia, a nie sztuczna identyczność za wszelką cenę.</p></div>
+            </details>
+            <details>
+              <summary>
+                <span>Czy przy starym PMU rysunek jest trudniejszy?</span>
+                <span class="expert-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div><p>Często tak, ponieważ stary pigment narzuca ograniczenia kształtu, koloru i szerokości.</p></div>
+            </details>
+            <details>
+              <summary>
+                <span>Czy mogę przyjść ze zdjęciem inspiracji?</span>
+                <span class="expert-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div><p>Tak, ale inspiracja powinna być punktem rozmowy, nie gotowym szablonem do skopiowania.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
 
-            <section class="article-warning-card">
-              <h2>{warningBox.title}</h2>
-              <p>{warningBox.text}</p>
-            </section>
+      <section class="expert-article-section">
+        <div class="container expert-final-card">
+          <p class="signature cta-signature">Powrót do natury</p>
+          <h2>Chcesz ocenić swój przypadek przed zabiegiem?</h2>
+          <p>
+            Jeśli wiesz, jakiego zabiegu potrzebujesz — sprawdź terminy.
+            Jeśli masz stare PMU, wcześniejsze zabiegi albo wątpliwości, zacznij od kwalifikacji.
+          </p>
 
-            <section class="article-related-section">
-              <p class="section-kicker">Powiązane tematy</p>
-              <h2>Co warto przeczytać dalej?</h2>
+          <div class="expert-final-actions">
+            <a class="expert-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+              Booksy <span aria-hidden="true">→</span>
+            </a>
 
-              <div class="article-related-grid">
-                {relatedLinks.map((item) => (
-                  <a href={item.href}>
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </a>
-                ))}
-              </div>
-            </section>
+            <a class="button-primary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
+              Formularz PMU <span aria-hidden="true">→</span>
+            </a>
 
-            <section class="article-faq-section" id="faq">
-              <p class="section-kicker">Najczęstsze pytania</p>
-              <h2>{article.faqHeading}</h2>
+            <a class="button-secondary" href={article.mainService.href}>
+              {article.mainService.title}
+            </a>
+          </div>
 
-              <div class="article-faq-list">
-                {faqItems.map((item) => (
-                  <article>
-                    <h3>{item.question}</h3>
-                    <p>{item.answer}</p>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <section class="article-final-cta">
-              <p class="signature cta-signature">Powrót do natury</p>
-              <h2>Nie masz pewności, czy zabieg jest dla Ciebie?</h2>
-              <p>
-                Zacznij od konsultacji. Przy makijażu permanentnym najważniejsza jest spokojna decyzja:
-                analiza skóry, oczekiwań, naturalnej urody i możliwości uzyskania dobrego efektu po wygojeniu.
-              </p>
-
-              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-                Umów konsultację przez Booksy
-              </a>
-            </section>
-          </article>
+          <a class="expert-back-link" href="/poradnik/">
+            ← Wróć do całego poradnika PMU
+          </a>
         </div>
       </section>
     </main>
@@ -449,510 +464,126 @@ const structuredData = [
 </Layout>
 
 <style>
-  .article-page {
-    min-height: 100vh;
-    overflow-x: hidden;
-    background:
-      radial-gradient(circle at 82% 10%, rgba(56, 187, 181, 0.10), transparent 28rem),
-      radial-gradient(circle at 12% 42%, rgba(201, 127, 143, 0.10), transparent 26rem),
-      linear-gradient(180deg, #fffdfd 0%, #fff8fa 48%, #ffffff 100%);
+  .expert-article-page{min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 82% 10%,rgba(56,187,181,.10),transparent 28rem),radial-gradient(circle at 12% 42%,rgba(201,127,143,.10),transparent 26rem),linear-gradient(180deg,#fffdfd 0%,#fff8fa 48%,#fff 100%)}
+  .expert-article-page*,.expert-article-page *::before,.expert-article-page *::after{box-sizing:border-box}.expert-article-page main,.expert-article-page section,.expert-article-page .container,.expert-article-page article,.expert-article-page div{min-width:0}
+  .expert-article-page .section-kicker{display:inline-flex;width:fit-content;max-width:100%;min-height:31px;align-items:center;justify-content:center;margin:0 0 17px;padding:0 12px;border:1px solid rgba(56,187,181,.18);border-radius:999px;background:rgba(219,246,243,.76);color:var(--color-turquoise-dark,#0f7773);font:850 .67rem/1 inherit;letter-spacing:.15em;text-transform:uppercase}.expert-article-page .section-kicker-light{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.13);color:#fff}
+  .expert-article-hero{padding:144px 0 66px}.expert-article-hero-grid{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(340px,.87fr);gap:22px;align-items:stretch}.expert-article-hero-copy,.expert-article-answer,.expert-timeline-card,.expert-article-note,.expert-factor-grid article,.expert-source-inline,.expert-area-grid a,.expert-author-note,.expert-related-grid a,.expert-source-grid a,.expert-faq-list details,.expert-final-card{border:1px solid rgba(183,101,118,.14);box-shadow:0 18px 54px rgba(89,53,67,.065)}
+  .expert-article-hero-copy{padding:clamp(34px,5vw,62px);border-radius:38px;background:radial-gradient(circle at 96% 10%,rgba(56,187,181,.07),transparent 16rem),rgba(255,255,255,.84)}.expert-article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}.expert-article-meta span{display:inline-flex;min-height:29px;align-items:center;padding:0 11px;border-radius:999px;background:rgba(255,248,251,.94);color:var(--color-muted,#6e6670);font-size:.68rem;font-weight:790;letter-spacing:.08em;text-transform:uppercase}.expert-article-meta span:first-child{background:rgba(56,187,181,.12);color:var(--color-turquoise-dark,#0f7773)}
+  .expert-article-hero-copy h1{max-width:1050px;margin:0;color:var(--color-text,#17151d);font-size:clamp(2.8rem,4.8vw,5.4rem);font-weight:780;line-height:1.01;letter-spacing:-.074em}.expert-article-lead{max-width:900px;margin:24px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(1.04rem,1.3vw,1.2rem);line-height:1.7}
+  .expert-article-answer{display:flex;min-height:100%;flex-direction:column;justify-content:flex-end;padding:clamp(30px,4vw,46px);border-radius:38px;color:#fff;background:radial-gradient(circle at 88% 12%,rgba(255,255,255,.24),transparent 13rem),linear-gradient(145deg,#0f7773 0%,#1aa5a0 45%,#138a86 100%);box-shadow:0 26px 68px rgba(35,156,150,.18)}.expert-article-answer-label{margin:0 auto auto 0;color:rgba(255,255,255,.72);font-size:.7rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.expert-article-answer h2{margin:54px 0 0;color:#fff;font-size:clamp(2rem,3.1vw,3.4rem);font-weight:780;line-height:1;letter-spacing:-.07em}.expert-article-answer p:not(.expert-article-answer-label){margin:18px 0 0;color:rgba(255,255,255,.88);font-size:.98rem;line-height:1.64}
+  .expert-article-nav-section{padding:0 0 14px}.expert-article-nav{display:flex;gap:8px;overflow-x:auto;padding:5px 2px 10px;scroll-snap-type:x mandatory;scrollbar-width:none}.expert-article-nav::-webkit-scrollbar{display:none}.expert-article-nav a{min-height:43px;display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;padding:0 15px;border:1px solid rgba(56,187,181,.17);border-radius:999px;background:rgba(255,255,255,.88);color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:820;letter-spacing:.07em;text-decoration:none;scroll-snap-align:start}
+  .expert-article-section{padding:70px 0;scroll-margin-top:96px}.expert-article-soft,.expert-article-faq-section{background:rgba(255,255,255,.52)}.expert-article-heading{max-width:980px;margin-bottom:30px}.expert-article-heading h2,.expert-author-note h2,.expert-final-card h2{margin:0;color:var(--color-text,#17151d);font-size:clamp(2.2rem,3.7vw,4rem);font-weight:770;line-height:1.02;letter-spacing:-.07em}.expert-article-heading>p:not(.section-kicker),.expert-author-note>div>p:not(.section-kicker),.expert-final-card>p:not(.signature){max-width:840px;margin:17px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(.98rem,1.1vw,1.06rem);line-height:1.7}
+  .expert-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.expert-timeline-card{min-height:305px;padding:24px;border-radius:28px;background:rgba(255,255,255,.9)}.expert-timeline-card.is-danger{border-top:4px solid rgba(180,72,90,.58)}.expert-timeline-card.is-warning{border-top:4px solid rgba(201,127,143,.58)}.expert-timeline-card.is-good,.expert-timeline-card.is-best{border-top:4px solid rgba(56,187,181,.58)}.expert-timeline-top{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-bottom:52px}.expert-timeline-top strong{color:var(--color-text,#17151d);font-size:1.02rem;font-weight:840}.expert-timeline-top span{display:inline-flex;min-height:29px;align-items:center;padding:0 9px;border-radius:999px;background:rgba(219,246,243,.7);color:var(--color-turquoise-dark,#0f7773);font-size:.61rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.expert-timeline-card.is-danger .expert-timeline-top span,.expert-timeline-card.is-warning .expert-timeline-top span{background:rgba(246,220,227,.68);color:#8d4057}
+  .expert-timeline-card h3,.expert-factor-grid h3,.expert-area-grid h3,.expert-related-grid h3,.expert-source-grid h3{margin:0;color:var(--color-text,#17151d);font-size:clamp(1.38rem,1.8vw,1.85rem);font-weight:770;line-height:1.04;letter-spacing:-.052em}.expert-timeline-card p,.expert-factor-grid p,.expert-area-grid p,.expert-related-grid p,.expert-source-grid p{margin:13px 0 0;color:var(--color-muted,#6e6670);font-size:.92rem;line-height:1.6}
+  .expert-article-note{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 20px;align-items:start;margin-top:14px;padding:20px 22px;border-radius:22px;background:rgba(255,255,255,.88)}.expert-article-note strong{color:var(--color-turquoise-dark,#0f7773);font-size:.88rem;font-weight:840}.expert-article-note p{margin:0;color:var(--color-muted,#6e6670);font-size:.94rem;line-height:1.6}
+  .expert-factor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.expert-factor-grid article{min-height:210px;padding:25px;border-radius:26px;background:radial-gradient(circle at 94% 10%,rgba(56,187,181,.07),transparent 11rem),rgba(255,255,255,.88)}.expert-source-inline{margin-top:14px;padding:23px 25px;border-radius:24px;background:linear-gradient(145deg,rgba(219,246,243,.62),rgba(255,248,251,.86)),rgba(255,255,255,.84)}.expert-source-inline span{display:block;margin-bottom:8px;color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.expert-source-inline p{max-width:940px;margin:0;color:var(--color-muted,#6e6670);font-size:.94rem;line-height:1.66}
+  .expert-area-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.expert-area-grid a{min-height:300px;display:flex;flex-direction:column;padding:26px;border-radius:28px;color:inherit;text-decoration:none;background:radial-gradient(circle at 94% 10%,rgba(56,187,181,.08),transparent 11rem),rgba(255,255,255,.9)}.expert-area-grid a>span{display:block;margin-bottom:52px;color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:850;letter-spacing:.17em}.expert-area-grid a>strong{display:inline-flex;width:fit-content;margin-top:auto;padding-top:20px;color:var(--color-turquoise-dark,#0f7773);font-size:.76rem;font-weight:850}
+  .expert-article-plan-section{background:rgba(255,255,255,.48)}.expert-plan-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;padding:clamp(30px,5vw,52px);border-radius:38px;color:#fff;background:radial-gradient(circle at 92% 12%,rgba(255,255,255,.22),transparent 16rem),linear-gradient(145deg,#0f7773 0%,#1aa5a0 42%,#138a86 100%);box-shadow:0 28px 72px rgba(35,156,150,.18)}.expert-plan-copy h2{margin:0;color:#fff;font-size:clamp(2.35rem,4vw,4.4rem);font-weight:780;line-height:.99;letter-spacing:-.075em}.expert-plan-copy>p:not(.section-kicker){margin:18px 0 0;color:rgba(255,255,255,.87);font-size:.96rem;line-height:1.65}.expert-plan-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.expert-plan-steps>div{min-height:168px;padding:20px;border:1px solid rgba(255,255,255,.18);border-radius:21px;background:rgba(255,255,255,.11)}.expert-plan-steps span{display:block;margin-bottom:17px;color:rgba(255,255,255,.65);font-size:.65rem;font-weight:850;letter-spacing:.16em}.expert-plan-steps strong{display:block;color:#fff;font-size:.97rem;font-weight:790}.expert-plan-steps p{margin:7px 0 0;color:rgba(255,255,255,.79);font-size:.84rem;line-height:1.5}
+  .expert-author-note{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(280px,.68fr);gap:24px;align-items:stretch;padding:clamp(28px,4vw,44px);border-radius:32px;background:rgba(255,255,255,.9)}.expert-author-note aside{display:flex;flex-direction:column;justify-content:center;padding:22px;border:1px solid rgba(56,187,181,.15);border-radius:23px;background:rgba(219,246,243,.46)}.expert-author-note aside span{color:var(--color-turquoise-dark,#0f7773);font-size:.68rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.expert-author-note aside strong{display:block;margin-top:8px;color:var(--color-text,#17151d);font-size:.92rem;font-weight:760}.expert-author-note aside a{display:inline-flex;width:fit-content;margin-top:19px;color:var(--color-turquoise-dark,#0f7773);font-size:.76rem;font-weight:850;text-decoration:none}
+  .expert-article-related-section{background:radial-gradient(circle at 12% 20%,rgba(56,187,181,.08),transparent 22rem),rgba(255,255,255,.54)}.expert-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.expert-related-grid a,.expert-source-grid a{min-height:245px;display:flex;flex-direction:column;padding:23px;border-radius:24px;color:inherit;text-decoration:none;background:rgba(255,255,255,.88)}.expert-related-grid a>span,.expert-source-grid a>strong{display:inline-flex;width:fit-content;margin-top:auto;padding-top:18px;color:var(--color-turquoise-dark,#0f7773);font-size:.72rem;font-weight:850}.expert-source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.expert-source-grid a>span{display:block;margin-bottom:16px;color:var(--color-turquoise-dark,#0f7773);font-size:.62rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.expert-medical-note{max-width:940px;margin:16px 0 0;padding:18px 20px;border-left:3px solid rgba(201,127,143,.56);border-radius:0 18px 18px 0;background:rgba(255,248,251,.8);color:var(--color-muted,#6e6670);font-size:.86rem;line-height:1.6}
+  .expert-faq-list{display:grid;max-width:980px;gap:10px}.expert-faq-list details{overflow:hidden;border-radius:21px;background:rgba(255,255,255,.9)}.expert-faq-list summary{display:grid;grid-template-columns:minmax(0,1fr) 38px;gap:14px;align-items:center;padding:19px 21px;color:var(--color-text,#17151d);font-size:clamp(1rem,1.25vw,1.16rem);font-weight:760;line-height:1.34;letter-spacing:-.025em;cursor:pointer;list-style:none}.expert-faq-list summary::-webkit-details-marker{display:none}.expert-faq-icon{position:relative;width:38px;height:38px;border:1px solid rgba(56,187,181,.17);border-radius:999px;background:rgba(219,246,243,.58)}.expert-faq-icon::before,.expert-faq-icon::after{content:"";position:absolute;top:50%;left:50%;width:13px;height:2px;border-radius:999px;background:var(--color-turquoise-dark,#0f7773);transform:translate(-50%,-50%)}.expert-faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}.expert-faq-list details[open] .expert-faq-icon::after{opacity:0}.expert-faq-list details>div{padding:0 21px 19px}.expert-faq-list p{margin:0;color:var(--color-muted,#6e6670);font-size:.93rem;line-height:1.62}
+  .expert-final-card{padding:clamp(32px,5vw,56px);border-radius:36px;text-align:center;background:linear-gradient(145deg,rgba(219,246,243,.70),rgba(255,242,246,.82)),rgba(255,255,255,.76)}.expert-final-card>p:not(.signature){margin-inline:auto}.expert-final-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:900px;margin:25px auto 0}.expert-final-actions>a{display:inline-flex;width:100%;min-height:56px;align-items:center;justify-content:center;gap:7px;padding:0 17px;border-radius:999px;font-family:inherit;font-size:.94rem;font-weight:820;line-height:1;text-align:center;text-decoration:none}.expert-booksy{border:1px solid rgba(8,111,91,.16);background:linear-gradient(135deg,#18a889 0%,#0f8f78 55%,#0b7868 100%);color:#fff;box-shadow:0 14px 34px rgba(15,143,120,.16)}.expert-back-link{display:inline-flex;margin-top:22px;color:var(--color-turquoise-dark,#0f7773);font-size:.78rem;font-weight:820;text-decoration:none}
+  @media(max-width:1080px){.expert-article-hero-grid,.expert-plan-panel,.expert-author-note{grid-template-columns:1fr}.expert-timeline,.expert-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.expert-source-grid{grid-template-columns:1fr}}
+  @media(max-width:760px){.expert-article-page .section-kicker{min-height:29px;margin-bottom:14px;padding:0 10px;font-size:.61rem;letter-spacing:.12em}.expert-article-hero{padding:112px 0 44px}.expert-article-hero-grid{grid-template-columns:1fr;gap:13px}.expert-article-hero-copy,.expert-article-answer,.expert-timeline-card,.expert-article-note,.expert-factor-grid article,.expert-source-inline,.expert-area-grid a,.expert-author-note,.expert-related-grid a,.expert-source-grid a,.expert-final-card{border-radius:25px}.expert-article-hero-copy,.expert-article-answer{padding:24px 20px}.expert-article-hero-copy h1{font-size:clamp(2.25rem,10.2vw,3.35rem);line-height:1.02;letter-spacing:-.064em}.expert-article-lead{margin-top:18px;font-size:.98rem;line-height:1.62}.expert-article-answer h2{margin-top:54px;font-size:clamp(1.9rem,8.4vw,2.65rem);line-height:1.02}.expert-article-nav a{min-height:41px;padding-inline:14px;font-size:.66rem}.expert-article-section{padding:50px 0}.expert-article-heading{margin-bottom:23px}.expert-article-heading h2,.expert-author-note h2,.expert-final-card h2{font-size:clamp(1.95rem,8.6vw,2.8rem);line-height:1.04;letter-spacing:-.06em}.expert-article-heading>p:not(.section-kicker),.expert-author-note>div>p:not(.section-kicker),.expert-final-card>p:not(.signature){font-size:.94rem;line-height:1.62}.expert-timeline,.expert-factor-grid,.expert-area-grid,.expert-related-grid,.expert-plan-steps{grid-template-columns:1fr;gap:9px}.expert-timeline-card{min-height:auto;padding:21px}.expert-timeline-top{margin-bottom:28px}.expert-article-note{grid-template-columns:1fr;padding:18px}.expert-factor-grid article,.expert-area-grid a{min-height:auto;padding:21px}.expert-area-grid a>span{margin-bottom:28px}.expert-plan-panel{gap:20px;padding:25px 18px;border-radius:28px}.expert-plan-copy h2{font-size:clamp(2.15rem,9.8vw,3.05rem)}.expert-plan-steps>div{min-height:auto;padding:17px}.expert-author-note{gap:17px;padding:22px 18px}.expert-related-grid a,.expert-source-grid a{min-height:auto;padding:20px}.expert-medical-note{padding:16px 17px;font-size:.82rem}.expert-faq-list summary{grid-template-columns:minmax(0,1fr) 35px;gap:10px;padding:16px;font-size:.96rem}.expert-faq-icon{width:35px;height:35px}.expert-faq-list details>div{padding:0 16px 16px}.expert-final-card{padding:27px 18px}.expert-final-actions{grid-template-columns:1fr;gap:9px;margin-top:22px}.expert-final-actions>a{min-height:55px}}
+  @media(max-width:390px){.expert-article-hero-copy{padding-inline:18px}.expert-article-hero-copy h1{font-size:clamp(2.12rem,10.6vw,2.85rem)}.expert-article-meta{gap:5px}.expert-article-meta span{min-height:27px;padding-inline:9px;font-size:.62rem}}
+</style>
+
+<style>
+  .expert-legacy-copy {
+    max-width: 940px;
   }
 
-  .article-page .section-kicker {
-    display: inline-flex;
-    width: fit-content;
-    max-width: 100%;
-    min-height: 30px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 16px;
-    padding: 0 12px;
-    border: 1px solid rgba(56, 187, 181, 0.18);
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.76);
-    color: var(--color-turquoise-dark, #0f7773);
-    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.68rem;
-    font-weight: 850;
-    line-height: 1;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .article-hero {
-    padding: 150px 0 72px;
-  }
-
-  .article-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-    gap: 24px;
-    align-items: stretch;
-  }
-
-  .article-hero-copy,
-  .article-hero-summary,
-  .article-sidebar-card,
-  .article-answer-card,
-  .article-keypoints,
-  .article-text-block,
-  .article-warning-card,
-  .article-related-section,
-  .article-faq-section,
-  .article-final-cta,
-  .article-image {
-    border: 1px solid rgba(183, 101, 118, 0.14);
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.065);
-  }
-
-  .article-hero-copy {
-    padding: clamp(34px, 5vw, 64px);
-    border-radius: 38px;
-    background: rgba(255, 255, 255, 0.80);
-  }
-
-  .article-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 18px;
-  }
-
-  .article-meta span {
-    display: inline-flex;
-    min-height: 30px;
-    align-items: center;
-    padding: 0 12px;
-    border-radius: 999px;
-    background: rgba(255, 248, 251, 0.92);
+  .expert-legacy-copy p {
+    margin: 16px 0 0;
     color: var(--color-muted, #6e6670);
-    font-size: 0.72rem;
-    font-weight: 760;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .article-hero-copy h1 {
-    max-width: 1050px;
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(2.8rem, 5vw, 5.6rem);
-    font-weight: 780;
-    line-height: 1.02;
-    letter-spacing: -0.074em;
-  }
-
-  .article-lead {
-    max-width: 920px;
-    margin: 26px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: clamp(1.06rem, 1.35vw, 1.24rem);
+    font-size: clamp(0.98rem, 1.1vw, 1.06rem);
     line-height: 1.72;
   }
 
-  .article-hero-summary {
-    display: flex;
-    min-height: 100%;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: clamp(30px, 4vw, 48px);
-    border-radius: 38px;
-    background:
-      radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.26), transparent 13rem),
-      linear-gradient(145deg, #38bbb5 0%, #159a96 48%, #0f7773 100%);
-    color: #ffffff;
+  .expert-legacy-copy p:first-of-type {
+    margin-top: 0;
   }
 
-  .summary-label {
-    margin: 0 auto auto 0;
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 0.74rem;
-    font-weight: 850;
-    letter-spacing: 0.17em;
-    text-transform: uppercase;
-  }
-
-  .article-hero-summary h2 {
-    margin: 58px 0 0;
-    color: #ffffff;
-    font-size: clamp(2rem, 3.3vw, 3.7rem);
-    font-weight: 780;
-    line-height: 1;
-    letter-spacing: -0.072em;
-  }
-
-  .article-hero-summary p:not(.summary-label) {
-    margin: 20px 0 0;
-    color: rgba(255, 255, 255, 0.88);
-    font-size: 1.02rem;
-    line-height: 1.66;
-  }
-
-  .article-content-section {
-    padding: 28px 0 88px;
-  }
-
-  .article-layout {
+  .expert-legacy-cards {
     display: grid;
-    grid-template-columns: 280px minmax(0, 1fr);
-    gap: 34px;
-    align-items: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
   }
 
-  .article-sidebar {
-    position: sticky;
-    top: 112px;
-    display: grid;
-    gap: 14px;
-  }
-
-  .article-sidebar-card {
-    padding: 22px;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.82);
-  }
-
-  .article-sidebar-card p {
-    margin: 0 0 14px;
-    color: var(--color-text, #17151d);
-    font-size: 0.78rem;
-    font-weight: 850;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .article-sidebar-card nav,
-  .article-sidebar-card {
-    display: grid;
-    gap: 8px;
-  }
-
-  .article-sidebar-card a {
-    display: block;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.94rem;
-    line-height: 1.45;
-    text-decoration: none;
-  }
-
-  .article-sidebar-card a:hover {
-    color: #0f7773;
-  }
-
-  .article-sidebar-card-soft {
-    background: rgba(219, 246, 243, 0.46);
-  }
-
-  .article-main {
-    display: grid;
-    gap: 22px;
-    min-width: 0;
-  }
-
-  .article-answer-card,
-  .article-text-block,
-  .article-warning-card,
-  .article-related-section,
-  .article-faq-section,
-  .article-final-cta {
-    padding: clamp(28px, 4vw, 46px);
-    border-radius: 32px;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.07), transparent 14rem),
-      rgba(255, 255, 255, 0.86);
-  }
-
-  .article-answer-card h2,
-  .article-text-block h2,
-  .article-warning-card h2,
-  .article-related-section h2,
-  .article-faq-section h2,
-  .article-final-cta h2 {
-    max-width: 900px;
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(2rem, 3.2vw, 3.55rem);
-    font-weight: 780;
-    line-height: 1.03;
-    letter-spacing: -0.068em;
-  }
-
-  .article-answer-card p:not(.section-kicker),
-  .article-text-block p:not(.section-kicker),
-  .article-warning-card p,
-  .article-related-section p,
-  .article-faq-section p,
-  .article-final-cta p:not(.signature) {
-    max-width: 900px;
-    color: var(--color-muted, #6e6670);
-    font-size: clamp(1rem, 1.12vw, 1.1rem);
-    line-height: 1.74;
-  }
-
-  .article-answer-card p:not(.section-kicker),
-  .article-text-block p:not(.section-kicker) {
-    margin: 20px 0 0;
-  }
-
-  .article-keypoints {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    overflow: hidden;
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.82);
-  }
-
-  .article-keypoints div {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 14px;
-    padding: 22px;
-    border-right: 1px solid rgba(56, 187, 181, 0.13);
-    border-bottom: 1px solid rgba(56, 187, 181, 0.13);
-  }
-
-  .article-keypoints div:nth-child(2n) {
-    border-right: 0;
-  }
-
-  .article-keypoints div:nth-last-child(-n + 2) {
-    border-bottom: 0;
-  }
-
-  .article-keypoints span {
-    width: 22px;
-    height: 22px;
-    margin-top: 4px;
-    border-radius: 999px;
-    background:
-      radial-gradient(circle, rgba(21, 154, 150, 0.95) 0 24%, rgba(21, 154, 150, 0.16) 25% 100%);
-    box-shadow: 0 0 0 9px rgba(56, 187, 181, 0.10);
-  }
-
-  .article-keypoints p {
-    margin: 0;
-    color: var(--color-muted, #6e6670);
-    line-height: 1.58;
-  }
-
-  .article-simple-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    margin-top: 28px;
-  }
-
-  .article-simple-cards article,
-  .article-related-grid a,
-  .article-faq-list article {
-    padding: 22px;
+  .expert-legacy-cards article {
+    min-height: 150px;
+    padding: 23px;
     border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.74);
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at 94% 10%, rgba(56, 187, 181, 0.07), transparent 11rem),
+      rgba(255, 255, 255, 0.90);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.055);
   }
 
-  .article-simple-cards h3,
-  .article-related-grid h3,
-  .article-faq-list h3 {
+  .expert-legacy-cards h3 {
     margin: 0;
     color: var(--color-text, #17151d);
-    font-size: clamp(1.25rem, 1.65vw, 1.75rem);
-    font-weight: 760;
+    font-size: clamp(1.25rem, 1.6vw, 1.72rem);
+    font-weight: 770;
     line-height: 1.05;
-    letter-spacing: -0.052em;
+    letter-spacing: -0.05em;
   }
 
-  .article-simple-cards p,
-  .article-related-grid p,
-  .article-faq-list p {
-    margin: 12px 0 0;
+  .expert-legacy-cards p {
+    margin: 11px 0 0;
     color: var(--color-muted, #6e6670);
+    font-size: 0.92rem;
     line-height: 1.62;
   }
 
-  .article-image {
-    overflow: hidden;
-    margin: 0;
-    padding: 10px;
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.84);
-  }
-
-  .article-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    object-fit: cover;
-  }
-
-  .article-warning-card {
-    border-color: rgba(201, 127, 143, 0.20);
-    background:
-      radial-gradient(circle at 92% 10%, rgba(246, 220, 227, 0.54), transparent 15rem),
-      rgba(255, 255, 255, 0.88);
-  }
-
-  .article-related-grid {
+  .expert-focus-links {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-top: 24px;
-  }
-
-  .article-related-grid a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .article-related-grid a:hover {
-    border-color: rgba(201, 127, 143, 0.28);
-    background: rgba(255, 248, 251, 0.9);
-  }
-
-  .article-faq-list {
-    display: grid;
-    gap: 14px;
-    margin-top: 24px;
-  }
-
-  .article-final-cta {
-    text-align: center;
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.72), rgba(255, 242, 246, 0.84)),
-      rgba(255, 255, 255, 0.7);
-  }
-
-  .article-final-cta p:not(.signature) {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .article-final-cta .button-primary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
     margin-top: 18px;
   }
 
-  @media (max-width: 1080px) {
-    .article-hero-grid,
-    .article-layout {
-      grid-template-columns: 1fr;
-    }
+  .expert-focus-links a {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 17px 18px;
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    border-radius: 18px;
+    background: rgba(219, 246, 243, 0.38);
+    color: var(--color-text, #17151d);
+    font-size: 0.88rem;
+    font-weight: 760;
+    line-height: 1.35;
+    text-decoration: none;
+  }
 
-    .article-sidebar {
-      position: relative;
-      top: auto;
-      order: -1;
-    }
-
-    .article-sidebar-card nav {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .article-related-grid {
-      grid-template-columns: 1fr;
-    }
+  .expert-focus-links a span {
+    color: var(--color-turquoise-dark, #0f7773);
+    font-weight: 850;
   }
 
   @media (max-width: 760px) {
-    .article-hero {
-      padding: 112px 0 54px;
-    }
-
-    .article-hero-grid {
-      gap: 16px;
-      padding-left: 8px;
-      padding-right: 8px;
-      box-sizing: border-box;
-    }
-
-    .article-hero-copy,
-    .article-hero-summary,
-    .article-sidebar-card,
-    .article-answer-card,
-    .article-keypoints,
-    .article-text-block,
-    .article-warning-card,
-    .article-related-section,
-    .article-faq-section,
-    .article-final-cta,
-    .article-image {
-      border-radius: 26px;
-    }
-
-    .article-hero-copy,
-    .article-hero-summary,
-    .article-answer-card,
-    .article-text-block,
-    .article-warning-card,
-    .article-related-section,
-    .article-faq-section,
-    .article-final-cta {
-      padding: 26px 22px;
-    }
-
-    .article-hero-copy h1 {
-      font-size: clamp(2.35rem, 10.5vw, 3.55rem);
-      line-height: 1.04;
-      letter-spacing: -0.066em;
-    }
-
-    .article-lead {
-      font-size: 1rem;
-      line-height: 1.68;
-    }
-
-    .article-hero-summary h2,
-    .article-answer-card h2,
-    .article-text-block h2,
-    .article-warning-card h2,
-    .article-related-section h2,
-    .article-faq-section h2,
-    .article-final-cta h2 {
-      font-size: clamp(2rem, 9vw, 3rem);
-      line-height: 1.04;
-      letter-spacing: -0.064em;
-    }
-
-    .article-sidebar-card nav {
+    .expert-legacy-cards,
+    .expert-focus-links {
       grid-template-columns: 1fr;
+      gap: 9px;
     }
 
-    .article-keypoints,
-    .article-simple-cards {
-      grid-template-columns: 1fr;
-    }
-
-    .article-keypoints div,
-    .article-keypoints div:nth-child(2n),
-    .article-keypoints div:nth-last-child(-n + 2) {
-      border-right: 0;
-      border-bottom: 1px solid rgba(56, 187, 181, 0.13);
-    }
-
-    .article-keypoints div:last-child {
-      border-bottom: 0;
-    }
-
-    .article-simple-cards article,
-    .article-related-grid a,
-    .article-faq-list article {
+    .expert-legacy-cards article {
+      min-height: auto;
       padding: 20px;
-      border-radius: 20px;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .article-hero-grid {
-      padding-left: 6px;
-      padding-right: 6px;
+      border-radius: 21px;
     }
 
-    .article-hero-copy,
-    .article-hero-summary {
-      width: calc(100% - 10px);
-      max-width: calc(100% - 10px);
-      margin-left: auto;
-      margin-right: auto;
+    .expert-focus-links a {
+      min-height: 68px;
+      padding: 15px 16px;
     }
   }
 </style>
+
