@@ -1,0 +1,57 @@
+NOWE WPISY PORADNIKA PMU — 37–50
+
+37. Jak długo utrzymuje się makijaż permanentny i od czego zależy trwałość?
+PLIK: jak-dlugo-utrzymuje-sie-makijaz-permanentny.astro
+URL: https://www.permanentnybielsko.com/poradnik/jak-dlugo-utrzymuje-sie-makijaz-permanentny/
+
+38. Czy można ćwiczyć po makijażu permanentnym? Siłownia, bieganie i pot po PMU
+PLIK: czy-mozna-cwiczyc-po-makijazu-permanentnym.astro
+URL: https://www.permanentnybielsko.com/poradnik/czy-mozna-cwiczyc-po-makijazu-permanentnym/
+
+39. Retinol, kwasy i kosmetyki aktywne a makijaż permanentny brwi
+PLIK: retinol-kwasy-a-makijaz-permanentny.astro
+URL: https://www.permanentnybielsko.com/poradnik/retinol-kwasy-a-makijaz-permanentny/
+
+40. Botoks a makijaż permanentny brwi — co zrobić najpierw i jak zaplanować zabiegi?
+PLIK: botoks-a-makijaz-permanentny-brwi.astro
+URL: https://www.permanentnybielsko.com/poradnik/botoks-a-makijaz-permanentny-brwi/
+
+41. Kwas hialuronowy w ustach a makijaż permanentny ust — kolejność zabiegów
+PLIK: kwas-hialuronowy-w-ustach-a-makijaz-permanentny.astro
+URL: https://www.permanentnybielsko.com/poradnik/kwas-hialuronowy-w-ustach-a-makijaz-permanentny/
+
+42. Dlaczego makijaż permanentny zmienia kolor z czasem?
+PLIK: dlaczego-makijaz-permanentny-zmienia-kolor.astro
+URL: https://www.permanentnybielsko.com/poradnik/dlaczego-makijaz-permanentny-zmienia-kolor/
+
+43. Dlaczego brwi permanentne są tak ciemne po zabiegu?
+PLIK: dlaczego-brwi-permanentne-sa-ciemne-po-zabiegu.astro
+URL: https://www.permanentnybielsko.com/poradnik/dlaczego-brwi-permanentne-sa-ciemne-po-zabiegu/
+
+44. Dlaczego pigment po wygojeniu miejscami „znika”? Czy nierówne brwi są normalne?
+PLIK: dlaczego-pigment-po-wygojeniu-miejscami-znika.astro
+URL: https://www.permanentnybielsko.com/poradnik/dlaczego-pigment-po-wygojeniu-miejscami-znika/
+
+45. Czy każda skóra nadaje się do metody włoskowej brwi?
+PLIK: czy-kazda-skora-nadaje-sie-do-metody-wloskowej.astro
+URL: https://www.permanentnybielsko.com/poradnik/czy-kazda-skora-nadaje-sie-do-metody-wloskowej/
+
+46. Skóra tłusta a brwi permanentne — włos czy cieniowanie?
+PLIK: skora-tlusta-a-brwi-permanentne.astro
+URL: https://www.permanentnybielsko.com/poradnik/skora-tlusta-a-brwi-permanentne/
+
+47. Skóra dojrzała a makijaż permanentny — jakie efekty wyglądają najlepiej?
+PLIK: skora-dojrzala-a-makijaz-permanentny.astro
+URL: https://www.permanentnybielsko.com/poradnik/skora-dojrzala-a-makijaz-permanentny/
+
+48. Czy można zrobić makijaż permanentny na bliźnie?
+PLIK: makijaz-permanentny-na-bliznie.astro
+URL: https://www.permanentnybielsko.com/poradnik/makijaz-permanentny-na-bliznie/
+
+49. Makijaż permanentny a rezonans magnetyczny — czy PMU jest bezpieczne przy MRI?
+PLIK: makijaz-permanentny-a-rezonans-magnetyczny-mri.astro
+URL: https://www.permanentnybielsko.com/poradnik/makijaz-permanentny-a-rezonans-magnetyczny-mri/
+
+50. Reakcja alergiczna czy normalne gojenie po PMU — kiedy skontaktować się z lekarzem?
+PLIK: reakcja-alergiczna-czy-normalne-gojenie-po-pmu.astro
+URL: https://www.permanentnybielsko.com/poradnik/reakcja-alergiczna-czy-normalne-gojenie-po-pmu/
