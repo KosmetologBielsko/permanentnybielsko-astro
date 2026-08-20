@@ -248,6 +248,85 @@ const pages = [
     changefreq: "monthly"
   },
 
+  /*
+    Poradnik PMU — nowe eksperckie wpisy 2026
+  */
+  {
+    path: "/poradnik/makijaz-permanentny-przed-wakacjami/",
+    priority: "0.82",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/jak-dlugo-utrzymuje-sie-makijaz-permanentny/",
+    priority: "0.84",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/czy-mozna-cwiczyc-po-makijazu-permanentnym/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/retinol-kwasy-a-makijaz-permanentny/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/botoks-a-makijaz-permanentny-brwi/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/kwas-hialuronowy-w-ustach-a-makijaz-permanentny/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/dlaczego-makijaz-permanentny-zmienia-kolor/",
+    priority: "0.84",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/dlaczego-brwi-permanentne-sa-ciemne-po-zabiegu/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/dlaczego-pigment-po-wygojeniu-miejscami-znika/",
+    priority: "0.8",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/czy-kazda-skora-nadaje-sie-do-metody-wloskowej/",
+    priority: "0.84",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/skora-tlusta-a-brwi-permanentne/",
+    priority: "0.82",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/skora-dojrzala-a-makijaz-permanentny/",
+    priority: "0.82",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/makijaz-permanentny-na-bliznie/",
+    priority: "0.78",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/makijaz-permanentny-a-rezonans-magnetyczny-mri/",
+    priority: "0.76",
+    changefreq: "monthly"
+  },
+  {
+    path: "/poradnik/reakcja-alergiczna-czy-normalne-gojenie-po-pmu/",
+    priority: "0.82",
+    changefreq: "monthly"
+  },
+
   {
     path: "/sercemmalowane/",
     priority: "0.6",
