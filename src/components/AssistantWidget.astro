@@ -1,6 +1,7 @@
 ---
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
 const phoneHref = "tel:+48730900125";
 
 const starters = [
@@ -16,16 +17,26 @@ const starters = [
 ---
 
 <div class="pmu-assistant" data-pmu-assistant>
-  <button class="pmu-assistant__launcher" type="button" aria-expanded="false" aria-controls="pmu-assistant-panel">
+  <button
+    class="pmu-assistant__launcher"
+    type="button"
+    aria-expanded="false"
+    aria-controls="pmu-assistant-panel"
+  >
     <span class="pmu-assistant__launcher-glow"></span>
     <span class="pmu-assistant__launcher-icon">AI</span>
+
     <span class="pmu-assistant__launcher-copy">
       <strong>Dobierz zabieg</strong>
       <small>AI Asystent PMU</small>
     </span>
   </button>
 
-  <section class="pmu-assistant__panel" id="pmu-assistant-panel" aria-hidden="true">
+  <section
+    class="pmu-assistant__panel"
+    id="pmu-assistant-panel"
+    aria-hidden="true"
+  >
     <header class="pmu-assistant__header">
       <div class="pmu-assistant__header-main">
         <p>AI Asystent PMU</p>
@@ -34,10 +45,20 @@ const starters = [
       </div>
 
       <div class="pmu-assistant__header-actions">
-        <button class="pmu-assistant__clear" type="button" data-clear aria-label="Wyczyść rozmowę">
+        <button
+          class="pmu-assistant__clear"
+          type="button"
+          data-clear
+          aria-label="Wyczyść rozmowę"
+        >
           Wyczyść
         </button>
-        <button class="pmu-assistant__close" type="button" aria-label="Zamknij asystenta">
+
+        <button
+          class="pmu-assistant__close"
+          type="button"
+          aria-label="Zamknij asystenta"
+        >
           ×
         </button>
       </div>
@@ -47,10 +68,12 @@ const starters = [
       <div class="pmu-assistant__intro">
         <div class="pmu-assistant__consult-card">
           <div class="pmu-assistant__consult-kicker">Konsultacyjny pomocnik</div>
+
           <p>
-            Pomogę Pani wybrać kierunek zabiegu, znaleźć właściwą podstronę
-            i przejść do rezerwacji lub kontaktu z gabinetem.
+            Zapytaj o zabieg, stare PMU, cenę lub przeciwwskazania.
+            Pomogę wskazać właściwy kierunek i podstronę.
           </p>
+
           <small>Na podstawie standardu gabinetu Bogusława Herda.</small>
         </div>
 
@@ -65,7 +88,10 @@ const starters = [
     </div>
 
     <form class="pmu-assistant__form" data-form>
-      <label class="sr-only" for="pmu-assistant-input">Wpisz pytanie do asystenta PMU</label>
+      <label class="sr-only" for="pmu-assistant-input">
+        Wpisz pytanie do asystenta PMU
+      </label>
+
       <textarea
         id="pmu-assistant-input"
         name="message"
@@ -75,13 +101,19 @@ const starters = [
         data-input
       ></textarea>
 
-      <button type="submit">Wyślij</button>
+      <button type="submit" aria-label="Wyślij pytanie">Wyślij</button>
     </form>
 
     <footer class="pmu-assistant__footer">
-      <a href={booksyUrl} target="_blank" rel="noopener noreferrer" data-track="assistant_booksy_click">
+      <a
+        href={booksyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track="assistant_booksy_click"
+      >
         Booksy
       </a>
+
       <a href={phoneHref} data-track="assistant_phone_click">
         Zadzwoń
       </a>
@@ -99,7 +131,6 @@ const starters = [
     --pmu-turquoise-soft: #eefbfc;
     --pmu-pink: #d46d9b;
     --pmu-pink-deep: #bd527f;
-    --pmu-pink-soft: #fff4f8;
     --pmu-ink: #182d31;
     --pmu-muted: #667a80;
     --pmu-line: rgba(15, 119, 115, 0.14);
@@ -121,10 +152,10 @@ const starters = [
   .pmu-assistant__launcher {
     position: relative;
     display: inline-flex;
+    min-height: 62px;
     align-items: center;
     gap: 12px;
     isolation: isolate;
-    min-height: 62px;
     padding: 10px 18px 10px 10px;
     border: 1px solid rgba(231, 209, 154, 0.58);
     border-radius: 999px;
@@ -142,10 +173,6 @@ const starters = [
   }
 
   .pmu-assistant__launcher:hover {
-    background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 248, 236, 0.9)),
-      radial-gradient(circle at 8% 0%, rgba(231, 209, 154, 0.42), transparent 45%),
-      radial-gradient(circle at 100% 100%, rgba(34, 168, 183, 0.22), transparent 42%);
     transform: translateY(-2px);
     box-shadow:
       0 22px 52px rgba(24, 45, 49, 0.2),
@@ -167,10 +194,10 @@ const starters = [
 
   .pmu-assistant__launcher-icon {
     display: grid;
-    place-items: center;
     width: 42px;
     height: 42px;
     flex-shrink: 0;
+    place-items: center;
     border-radius: 999px;
     background: linear-gradient(135deg, var(--pmu-gold-deep), var(--pmu-gold-light));
     color: #fff;
@@ -213,10 +240,9 @@ const starters = [
     border: 1px solid rgba(255, 255, 255, 0.82);
     border-radius: 34px;
     background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(255, 247, 250, 0.76)),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 247, 250, 0.82)),
       radial-gradient(circle at 0% 0%, rgba(34, 168, 183, 0.12), transparent 38%),
-      radial-gradient(circle at 100% 12%, rgba(212, 109, 155, 0.12), transparent 40%),
-      radial-gradient(circle at 50% 100%, rgba(200, 163, 95, 0.11), transparent 38%);
+      radial-gradient(circle at 100% 12%, rgba(212, 109, 155, 0.12), transparent 40%);
     box-shadow:
       var(--pmu-shadow),
       0 0 0 1px rgba(15, 119, 115, 0.08),
@@ -232,9 +258,6 @@ const starters = [
     pointer-events: none;
     border: 1px solid rgba(255, 255, 255, 0.52);
     border-radius: 26px;
-    box-shadow:
-      inset 0 0 0 1px rgba(15, 119, 115, 0.07),
-      inset 0 20px 60px rgba(255, 255, 255, 0.34);
   }
 
   .pmu-assistant.is-open .pmu-assistant__panel {
@@ -253,23 +276,10 @@ const starters = [
     justify-content: space-between;
     gap: 16px;
     padding: 24px 24px 18px;
+    border-bottom: 1px solid var(--pmu-line);
     background:
       linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(255, 245, 249, 0.62)),
-      radial-gradient(circle at 0% 0%, rgba(34, 168, 183, 0.14), transparent 40%),
-      radial-gradient(circle at 100% 0%, rgba(200, 163, 95, 0.13), transparent 42%);
-    border-bottom: 1px solid var(--pmu-line);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-  }
-
-  .pmu-assistant__header::after {
-    content: "";
-    position: absolute;
-    left: 24px;
-    right: 24px;
-    bottom: -1px;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(38, 169, 186, 0.32), rgba(212, 109, 155, 0.18), transparent);
+      radial-gradient(circle at 0% 0%, rgba(34, 168, 183, 0.14), transparent 40%);
   }
 
   .pmu-assistant__header-main p {
@@ -295,15 +305,14 @@ const starters = [
     margin-top: 9px;
     color: var(--pmu-muted);
     font-size: 0.78rem;
-    line-height: 1.25;
     font-weight: 650;
   }
 
   .pmu-assistant__header-actions {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     gap: 8px;
-    flex-shrink: 0;
   }
 
   .pmu-assistant__clear,
@@ -312,18 +321,6 @@ const starters = [
     background: rgba(255, 255, 255, 0.72);
     color: var(--pmu-turquoise-deep);
     cursor: pointer;
-    box-shadow:
-      0 8px 18px rgba(24, 45, 49, 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 0.72);
-    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
-  }
-
-  .pmu-assistant__clear:hover,
-  .pmu-assistant__close:hover {
-    background: rgba(255, 255, 255, 0.92);
-    color: var(--pmu-turquoise-deep);
-    border-color: rgba(15, 119, 115, 0.24);
-    transform: translateY(-1px);
   }
 
   .pmu-assistant__clear {
@@ -336,9 +333,9 @@ const starters = [
 
   .pmu-assistant__close {
     display: grid;
-    place-items: center;
     width: 40px;
     height: 40px;
+    place-items: center;
     border-radius: 999px;
     font-size: 1.5rem;
     line-height: 1;
@@ -347,17 +344,15 @@ const starters = [
   .pmu-assistant__body {
     overflow-y: auto;
     padding: 18px;
-    background:
-      radial-gradient(circle at 100% 22%, rgba(38, 169, 186, 0.045), transparent 26%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(252, 253, 253, 0.96));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(252, 253, 253, 0.98));
   }
 
   .pmu-assistant__body::-webkit-scrollbar {
-    width: 9px;
+    width: 8px;
   }
 
   .pmu-assistant__body::-webkit-scrollbar-thumb {
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     border-radius: 999px;
     background-clip: content-box;
     background-color: rgba(15, 119, 115, 0.28);
@@ -370,31 +365,13 @@ const starters = [
   }
 
   .pmu-assistant__consult-card {
-    position: relative;
-    overflow: hidden;
     padding: 18px;
     border: 1px solid rgba(255, 255, 255, 0.74);
     border-radius: 26px;
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 251, 253, 0.84)),
-      radial-gradient(circle at 100% 0%, rgba(34, 168, 183, 0.08), transparent 38%);
+    background: rgba(255, 255, 255, 0.9);
     box-shadow:
       0 14px 34px rgba(24, 45, 49, 0.08),
-      0 0 0 1px rgba(15, 119, 115, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.84);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  .pmu-assistant__consult-card::after {
-    content: "";
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    right: -80px;
-    bottom: -92px;
-    border-radius: 999px;
-    background: radial-gradient(circle, rgba(212, 109, 155, 0.12), transparent 64%);
+      0 0 0 1px rgba(15, 119, 115, 0.08);
   }
 
   .pmu-assistant__consult-kicker {
@@ -407,7 +384,6 @@ const starters = [
   }
 
   .pmu-assistant__consult-card p {
-    position: relative;
     margin: 0;
     color: var(--pmu-ink);
     font-size: 0.9rem;
@@ -415,7 +391,6 @@ const starters = [
   }
 
   .pmu-assistant__consult-card small {
-    position: relative;
     display: block;
     margin-top: 11px;
     color: var(--pmu-muted);
@@ -431,23 +406,15 @@ const starters = [
 
   .pmu-assistant__starters button {
     min-height: 36px;
+    padding: 8px 12px;
     border: 1px solid rgba(15, 119, 115, 0.13);
     border-radius: 999px;
-    padding: 8px 12px;
     background: rgba(255, 255, 255, 0.92);
     color: var(--pmu-turquoise-deep);
     cursor: pointer;
     font-size: 0.75rem;
     font-weight: 780;
     line-height: 1.1;
-    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
-  }
-
-  .pmu-assistant__starters button:hover {
-    background: rgba(255, 255, 255, 0.96);
-    color: var(--pmu-turquoise-deep);
-    border-color: rgba(15, 119, 115, 0.24);
-    transform: translateY(-1px);
   }
 
   .pmu-assistant__messages {
@@ -457,25 +424,18 @@ const starters = [
 
   .pmu-assistant__message {
     max-width: 92%;
-    border-radius: 24px;
     padding: 15px 16px;
+    border-radius: 24px;
     font-size: 0.88rem;
     line-height: 1.58;
   }
 
   .pmu-assistant__message--assistant {
+    border: 1px solid rgba(15, 119, 115, 0.08);
     border-top-left-radius: 11px;
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 251, 253, 0.84)),
-      radial-gradient(circle at 100% 0%, rgba(34, 168, 183, 0.08), transparent 38%);
-    border: 1px solid rgba(255, 255, 255, 0.74);
-    box-shadow:
-      0 14px 34px rgba(24, 45, 49, 0.08),
-      0 0 0 1px rgba(15, 119, 115, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.84);
+    background: rgba(255, 255, 255, 0.94);
     color: var(--pmu-ink);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--pmu-soft-shadow);
   }
 
   .pmu-assistant__message--user {
@@ -483,9 +443,6 @@ const starters = [
     border-top-right-radius: 11px;
     background: linear-gradient(135deg, var(--pmu-turquoise-deep), var(--pmu-turquoise));
     color: #fff;
-    box-shadow:
-      0 14px 30px rgba(15, 119, 115, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
   .pmu-assistant__message--loading {
@@ -500,9 +457,9 @@ const starters = [
 
   .pmu-assistant__text p {
     margin: 0;
+    color: inherit;
     font-size: 0.88rem;
     line-height: 1.58;
-    color: inherit;
   }
 
   .pmu-assistant__message--assistant .pmu-assistant__text strong {
@@ -510,20 +467,10 @@ const starters = [
     font-weight: 850;
   }
 
-  .pmu-assistant__message--user .pmu-assistant__text strong {
-    color: #fff;
-    font-weight: 850;
-  }
-
   .pmu-assistant__text a {
     color: var(--pmu-pink);
     font-weight: 850;
     text-decoration: none;
-    border-bottom: 1px solid rgba(212, 109, 155, 0.34);
-  }
-
-  .pmu-assistant__text a:hover {
-    border-bottom-color: currentColor;
   }
 
   .pmu-assistant__actions {
@@ -532,30 +479,19 @@ const starters = [
   }
 
   .pmu-assistant__action {
-    min-height: 34px;
-    width: auto;
     display: inline-flex;
+    width: auto;
+    min-height: 34px;
     align-items: center;
     justify-content: center;
     padding: 8px 12px;
+    border: 1px solid rgba(15, 119, 115, 0.16);
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.92);
     color: var(--pmu-turquoise-deep);
-    border: 1px solid rgba(15, 119, 115, 0.16);
-    box-shadow: none;
     font-size: 0.74rem;
     font-weight: 800;
-    line-height: 1.15;
-    text-align: center;
     text-decoration: none;
-    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
-  }
-
-  .pmu-assistant__action:hover {
-    background: rgba(255, 255, 255, 0.98);
-    color: var(--pmu-turquoise-deep);
-    border-color: rgba(15, 119, 115, 0.28);
-    transform: translateY(-1px);
   }
 
   .pmu-assistant__form {
@@ -564,9 +500,7 @@ const starters = [
     gap: 10px;
     padding: 14px 16px 12px;
     border-top: 1px solid var(--pmu-line);
-    background: rgba(255, 255, 255, 0.78);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.88);
   }
 
   .pmu-assistant__form textarea {
@@ -576,19 +510,12 @@ const starters = [
     border: 1px solid rgba(34, 168, 183, 0.28);
     border-radius: 22px;
     padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.96);
     color: var(--pmu-ink);
-    background: rgba(255, 255, 255, 0.9);
     font: inherit;
     font-size: 0.88rem;
     line-height: 1.35;
     outline: none;
-    box-shadow:
-      inset 0 1px 2px rgba(24, 45, 49, 0.03),
-      0 0 0 1px rgba(255, 255, 255, 0.52);
-  }
-
-  .pmu-assistant__form textarea::placeholder {
-    color: rgba(102, 122, 128, 0.92);
   }
 
   .pmu-assistant__form textarea:focus {
@@ -607,25 +534,11 @@ const starters = [
     cursor: pointer;
     font-size: 0.94rem;
     font-weight: 850;
-    box-shadow:
-      0 14px 28px rgba(200, 163, 95, 0.24),
-      inset 0 1px 0 rgba(255, 255, 255, 0.32);
-    transition: transform 160ms ease, box-shadow 160ms ease;
-  }
-
-  .pmu-assistant__form button:hover {
-    background: linear-gradient(135deg, var(--pmu-gold-deep), var(--pmu-gold-light));
-    color: #fff;
-    transform: translateY(-1px);
-    box-shadow:
-      0 18px 34px rgba(200, 163, 95, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.34);
   }
 
   .pmu-assistant__form button:disabled {
     opacity: 0.7;
     cursor: wait;
-    transform: none;
   }
 
   .pmu-assistant__footer {
@@ -633,43 +546,26 @@ const starters = [
     grid-template-columns: 1fr 1fr;
     gap: 9px;
     padding: 0 16px 16px;
-    background: rgba(255, 255, 255, 0.78);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.88);
   }
 
   .pmu-assistant__footer a {
     display: grid;
-    place-items: center;
     min-height: 42px;
+    place-items: center;
     border-radius: 999px;
+    color: #fff;
     text-decoration: none;
     font-size: 0.84rem;
     font-weight: 850;
-    transition: transform 160ms ease, box-shadow 160ms ease;
   }
 
-  .pmu-assistant__footer a:hover {
-    transform: translateY(-1px);
-  }
-
-  .pmu-assistant__footer a:first-child,
-  .pmu-assistant__footer a:first-child:hover {
+  .pmu-assistant__footer a:first-child {
     background: linear-gradient(135deg, var(--pmu-turquoise-deep), var(--pmu-turquoise));
-    color: #fff;
-    box-shadow:
-      0 12px 24px rgba(15, 119, 115, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.22);
   }
 
-  .pmu-assistant__footer a:last-child,
-  .pmu-assistant__footer a:last-child:hover {
+  .pmu-assistant__footer a:last-child {
     background: linear-gradient(135deg, var(--pmu-pink), var(--pmu-pink-deep));
-    color: #fff;
-    border: 0;
-    box-shadow:
-      0 12px 24px rgba(212, 109, 155, 0.22),
-      inset 0 1px 0 rgba(255, 255, 255, 0.22);
   }
 
   .sr-only {
@@ -681,81 +577,19 @@ const starters = [
     white-space: nowrap;
   }
 
+  /* ======================================================
+     MOBILE V5 — COMPACT AI ASSISTANT
+     ====================================================== */
   @media (max-width: 640px) {
     .pmu-assistant {
       left: auto;
       right: 14px;
       bottom: calc(env(safe-area-inset-bottom, 0px) + 84px);
       width: auto;
-    }
-
-    .pmu-assistant__launcher {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .pmu-assistant.is-open {
-      left: 12px;
-      right: 12px;
-      bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
-      width: auto;
-    }
-
-    .pmu-assistant.is-open .pmu-assistant__panel {
-      right: 0;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      max-height: min(700px, calc(100svh - 28px));
-      border-radius: 28px;
-    }
-
-    .pmu-assistant__header {
-      padding: 18px 18px 15px;
-    }
-
-    .pmu-assistant__header-main h2 {
-      font-size: 1.12rem;
-    }
-
-    .pmu-assistant__header-main span {
-      display: none;
-    }
-
-    .pmu-assistant__clear {
-      display: none;
-    }
-
-    .pmu-assistant__body {
-      padding: 14px;
-    }
-
-    .pmu-assistant__form {
-      grid-template-columns: 1fr;
-      padding: 12px 14px;
-    }
-
-    .pmu-assistant__form button {
-      width: 100%;
-    }
-
-    .pmu-assistant__message {
-      max-width: 96%;
-    }
-  }
-    /* V2 mobile assistant launcher: circle only + hide under hamburger menu */
-  @media (max-width: 640px) {
-    .pmu-assistant {
       transition:
         opacity 180ms ease,
         visibility 180ms ease,
         transform 180ms ease;
-    }
-
-    .pmu-assistant:not(.is-open) {
-      right: 14px;
-      bottom: calc(env(safe-area-inset-bottom, 0px) + 84px);
-      width: auto;
     }
 
     .pmu-assistant:not(.is-open) .pmu-assistant__launcher {
@@ -782,7 +616,6 @@ const starters = [
       width: 48px;
       height: 48px;
       font-size: 0.74rem;
-      letter-spacing: 0.08em;
     }
 
     .pmu-assistant:not(.is-open) .pmu-assistant__launcher-glow {
@@ -791,29 +624,180 @@ const starters = [
       filter: blur(9px);
     }
 
-    .pmu-assistant.is-mobile-menu-open:not(.is-open) {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform: translateY(8px) scale(0.94);
+    .pmu-assistant.is-open {
+      left: 12px;
+      right: 12px;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+      width: auto;
+    }
+
+    .pmu-assistant.is-open .pmu-assistant__panel {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-height: min(560px, 74svh);
+      border-radius: 24px;
+    }
+
+    .pmu-assistant__panel::before {
+      display: none;
+    }
+
+    /* tylko jeden lekki nagłówek + X */
+    .pmu-assistant__header {
+      align-items: center;
+      padding: 13px 14px 11px;
+    }
+
+    .pmu-assistant__header-main p {
+      margin: 0;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+    }
+
+    .pmu-assistant__header-main h2,
+    .pmu-assistant__header-main span,
+    .pmu-assistant__clear {
+      display: none;
+    }
+
+    .pmu-assistant__close {
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.88);
+      font-size: 1.35rem;
+    }
+
+    .pmu-assistant__body {
+      padding: 10px 12px;
+    }
+
+    .pmu-assistant__intro {
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    /* karta w karcie znika — zostaje jedno zdanie */
+    .pmu-assistant__consult-card {
+      padding: 3px 2px 7px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .pmu-assistant__consult-kicker,
+    .pmu-assistant__consult-card small {
+      display: none;
+    }
+
+    .pmu-assistant__consult-card p {
+      max-width: 520px;
+      color: var(--pmu-muted);
+      font-size: 0.79rem;
+      line-height: 1.45;
+    }
+
+    /* Na wejściu tylko 4 najważniejsze wybory.
+       Brwi/Usta/Kreski rozwija odpowiedź po "Dobierz zabieg". */
+    .pmu-assistant__starters {
+      gap: 6px;
+    }
+
+    .pmu-assistant__starters button {
+      min-height: 32px;
+      padding: 6px 10px;
+      font-size: 0.69rem;
+    }
+
+    .pmu-assistant__starters button:nth-child(2),
+    .pmu-assistant__starters button:nth-child(3),
+    .pmu-assistant__starters button:nth-child(4),
+    .pmu-assistant__starters button:nth-child(8) {
+      display: none;
+    }
+
+    /* Po rozpoczęciu rozmowy znikają intro i chipy. */
+    .pmu-assistant.has-conversation .pmu-assistant__intro {
+      display: none;
+    }
+
+    .pmu-assistant__messages {
+      gap: 8px;
+    }
+
+    .pmu-assistant__message {
+      max-width: 96%;
+      padding: 11px 12px;
+      border-radius: 18px;
+      font-size: 0.82rem;
+    }
+
+    .pmu-assistant__text,
+    .pmu-assistant__text p {
+      gap: 7px;
+      font-size: 0.82rem;
+      line-height: 1.48;
+    }
+
+    /* Pole + strzałka w środku zamiast osobnego wielkiego "Wyślij". */
+    .pmu-assistant__form {
+      position: relative;
+      display: block;
+      padding: 9px 12px;
+    }
+
+    .pmu-assistant__form textarea {
+      min-height: 54px;
+      max-height: 84px;
+      padding: 10px 54px 10px 12px;
+      border-radius: 18px;
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+
+    .pmu-assistant__form button {
+      position: absolute;
+      right: 19px;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      min-height: 40px;
+      padding: 0;
+      border-radius: 999px;
+      font-size: 0;
+      transform: translateY(-50%);
+      box-shadow: 0 8px 20px rgba(157, 115, 49, 0.22);
+    }
+
+    .pmu-assistant__form button::after {
+      content: "→";
+      font-size: 1.12rem;
+      line-height: 1;
+    }
+
+    .pmu-assistant__footer {
+      gap: 7px;
+      padding: 0 12px 11px;
+    }
+
+    .pmu-assistant__footer a {
+      min-height: 39px;
+      font-size: 0.76rem;
     }
   }
-    /* V3 mobile assistant under hamburger menu */
+
+  /* Launcher pod hamburgerem / znika po otwarciu menu mobilnego. */
   @media (max-width: 900px) {
     .pmu-assistant:not(.is-open) {
       z-index: 30 !important;
     }
 
     .pmu-assistant.is-open {
-      z-index: 9999 !important;
+      z-index: 10000 !important;
     }
 
-    .pmu-assistant:not(.is-open) .pmu-assistant__launcher {
-      z-index: 30 !important;
-    }
-  }
-    /* V4 mobile assistant hidden when hamburger menu is open */
-  @media (max-width: 900px) {
     .pmu-assistant.is-mobile-menu-open {
       opacity: 0 !important;
       visibility: hidden !important;
@@ -821,16 +805,11 @@ const starters = [
       transform: translateY(12px) scale(0.88) !important;
     }
 
-    .pmu-assistant.is-mobile-menu-open .pmu-assistant__launcher {
-      pointer-events: none !important;
-    }
-
     .pmu-assistant.is-open {
       opacity: 1 !important;
       visibility: visible !important;
       pointer-events: auto !important;
       transform: none !important;
-      z-index: 10000 !important;
     }
   }
 </style>
@@ -839,7 +818,6 @@ const starters = [
   // @ts-nocheck
 
   const STORAGE_KEY = "pmu_assistant_messages_v1";
-
   const root = document.querySelector("[data-pmu-assistant]");
   const launcher = root?.querySelector(".pmu-assistant__launcher");
   const closeButton = root?.querySelector(".pmu-assistant__close");
@@ -855,42 +833,15 @@ const starters = [
     "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
   const serviceLinks = [
-    {
-      path: "/makijaz-permanentny-brwi/",
-      label: "Zobacz brwi permanentne",
-    },
-    {
-      path: "/makijaz-permanentny-ust/",
-      label: "Zobacz usta permanentne",
-    },
-    {
-      path: "/makijaz-permanentny-oczu/",
-      label: "Zobacz kreski permanentne",
-    },
-    {
-      path: "/usuwanie-makijazu-permanentnego/",
-      label: "Zobacz usuwanie PMU",
-    },
-    {
-      path: "/cennik-makijaz-permanentny/",
-      label: "Zobacz cennik",
-    },
-    {
-      path: "/galeria/",
-      label: "Zobacz galerię",
-    },
-    {
-      path: "/kontakt/",
-      label: "Kontakt z gabinetem",
-    },
-    {
-      path: "/szkolenia/",
-      label: "Zobacz szkolenia",
-    },
-    {
-      path: "/sercemmalowane/",
-      label: "Sercem Malowane",
-    },
+    { path: "/makijaz-permanentny-brwi/", label: "Zobacz brwi permanentne" },
+    { path: "/makijaz-permanentny-ust/", label: "Zobacz usta permanentne" },
+    { path: "/makijaz-permanentny-oczu/", label: "Zobacz kreski permanentne" },
+    { path: "/usuwanie-makijazu-permanentnego/", label: "Zobacz usuwanie PMU" },
+    { path: "/cennik-makijaz-permanentny/", label: "Zobacz cennik" },
+    { path: "/galeria/", label: "Zobacz galerię" },
+    { path: "/kontakt/", label: "Kontakt z gabinetem" },
+    { path: "/szkolenia/", label: "Zobacz szkolenia" },
+    { path: "/sercemmalowane/", label: "Sercem Malowane" },
     {
       path: "https://kosmetologiabielsko.com",
       label: "Kosmetologia Bielsko",
@@ -913,7 +864,7 @@ const starters = [
   function saveMessages() {
     try {
       sessionStorage.setItem(STORAGE_KEY, JSON.stringify(savedMessages.slice(-20)));
-    } catch (error) {}
+    } catch {}
   }
 
   function loadMessages() {
@@ -922,7 +873,7 @@ const starters = [
       if (!raw) return [];
       const parsed = JSON.parse(raw);
       return Array.isArray(parsed) ? parsed : [];
-    } catch (error) {
+    } catch {
       return [];
     }
   }
@@ -985,6 +936,7 @@ const starters = [
     return paragraphs
       .map((paragraph) => {
         let html = escapeHtml(paragraph);
+
         html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 
         html = html.replace(
@@ -1011,7 +963,6 @@ const starters = [
         href: serviceLink.path,
         label: serviceLink.label,
         external: Boolean(serviceLink.external),
-        kind: "service",
       });
     }
 
@@ -1052,13 +1003,28 @@ const starters = [
 
     if (isOpen) {
       track("assistant_open");
-      setTimeout(() => input?.focus(), 100);
+
+      /* Na mobile nie otwieramy automatycznie klawiatury.
+         Najpierw użytkownik widzi 4 szybkie wybory. */
+      const isCompactMobile = window.matchMedia?.("(max-width: 640px)").matches;
+
+      if (!isCompactMobile) {
+        setTimeout(() => input?.focus(), 100);
+      }
     }
+  }
+
+  function syncConversationState() {
+    root?.classList.toggle(
+      "has-conversation",
+      Boolean(messages?.children?.length)
+    );
   }
 
   function addMessage(role, text, extraClass = "", shouldSave = true) {
     const item = document.createElement("div");
-    item.className = `pmu-assistant__message pmu-assistant__message--${role} ${extraClass}`.trim();
+    item.className =
+      `pmu-assistant__message pmu-assistant__message--${role} ${extraClass}`.trim();
 
     const content = document.createElement("div");
     content.className = "pmu-assistant__text";
@@ -1076,7 +1042,12 @@ const starters = [
     }
 
     messages?.appendChild(item);
-    body?.scrollTo({ top: body.scrollHeight, behavior: "smooth" });
+    syncConversationState();
+
+    body?.scrollTo({
+      top: body.scrollHeight,
+      behavior: "smooth",
+    });
 
     item.querySelectorAll("[data-assistant-link='booksy']").forEach((link) => {
       link.addEventListener("click", () => track("assistant_booksy_click"));
@@ -1084,12 +1055,6 @@ const starters = [
 
     item.querySelectorAll("[data-assistant-link='phone']").forEach((link) => {
       link.addEventListener("click", () => track("assistant_phone_click"));
-    });
-
-    item.querySelectorAll("[data-assistant-link='service']").forEach((link) => {
-      link.addEventListener("click", () =>
-        track("assistant_service_link_click", { href: link.getAttribute("href") })
-      );
     });
 
     if (shouldSave && !extraClass.includes("loading")) {
@@ -1102,14 +1067,21 @@ const starters = [
 
   async function askAssistant(question) {
     const cleanQuestion = String(question || "").trim();
-
     if (!cleanQuestion) return;
 
     addMessage("user", cleanQuestion);
     history.push({ role: "user", content: cleanQuestion });
-    track("assistant_question_sent", { question_length: cleanQuestion.length });
 
-    const loading = addMessage("assistant", "Piszę odpowiedź…", "pmu-assistant__message--loading", false);
+    track("assistant_question_sent", {
+      question_length: cleanQuestion.length,
+    });
+
+    const loading = addMessage(
+      "assistant",
+      "Piszę odpowiedź…",
+      "pmu-assistant__message--loading",
+      false
+    );
 
     try {
       const response = await fetch("/api/assistant", {
@@ -1124,29 +1096,32 @@ const starters = [
       });
 
       const data = await response.json();
-
       loading.remove();
 
       if (!response.ok) {
-        const errorMessage =
+        addMessage(
+          "assistant",
           data?.error ||
-          "Asystent chwilowo nie może odpowiedzieć. Proszę skorzystać z Booksy albo zadzwonić do gabinetu.";
-
-        addMessage("assistant", errorMessage);
+            "Asystent chwilowo nie może odpowiedzieć. Proszę skorzystać z Booksy albo zadzwonić do gabinetu."
+        );
         track("assistant_error");
         return;
       }
 
-      const answer = data?.answer || "Nie udało mi się przygotować odpowiedzi.";
+      const answer =
+        data?.answer || "Nie udało mi się przygotować odpowiedzi.";
+
       addMessage("assistant", answer);
       history.push({ role: "assistant", content: answer });
       track("assistant_answer_received");
-    } catch (error) {
+    } catch {
       loading.remove();
+
       addMessage(
         "assistant",
         "Asystent chwilowo nie może odpowiedzieć. Proszę skorzystać z Booksy albo zadzwonić do gabinetu."
       );
+
       track("assistant_error");
     }
   }
@@ -1160,9 +1135,14 @@ const starters = [
       addMessage(message.role, message.text, "", false);
 
       if (message.role === "user" || message.role === "assistant") {
-        history.push({ role: message.role, content: message.text });
+        history.push({
+          role: message.role,
+          content: message.text,
+        });
       }
     }
+
+    syncConversationState();
   }
 
   launcher?.addEventListener("click", () => setOpen(true));
@@ -1172,7 +1152,12 @@ const starters = [
     savedMessages = [];
     history = [];
     sessionStorage.removeItem(STORAGE_KEY);
-    if (messages) messages.innerHTML = "";
+
+    if (messages) {
+      messages.innerHTML = "";
+    }
+
+    syncConversationState();
     track("assistant_clear");
   });
 
@@ -1183,11 +1168,17 @@ const starters = [
     input.value = "";
 
     const submitButton = form.querySelector("button[type='submit']");
-    if (submitButton) submitButton.disabled = true;
+
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
 
     await askAssistant(question);
 
-    if (submitButton) submitButton.disabled = false;
+    if (submitButton) {
+      submitButton.disabled = false;
+    }
+
     input?.focus();
   });
 
@@ -1200,7 +1191,11 @@ const starters = [
 
   starterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const question = button.getAttribute("data-starter") || button.textContent || "";
+      const question =
+        button.getAttribute("data-starter") ||
+        button.textContent ||
+        "";
+
       askAssistant(question);
     });
   });
@@ -1208,88 +1203,14 @@ const starters = [
   root?.querySelectorAll("[data-track]").forEach((element) => {
     element.addEventListener("click", () => {
       const eventName = element.getAttribute("data-track");
-      if (eventName) track(eventName);
-    });
-  });
-  function isMobileAssistantViewport() {
-    return window.matchMedia?.("(max-width: 900px)").matches ?? window.innerWidth <= 900;
-  }
 
-  function hasOpenMobileMenuBySelector() {
-    const selectors = [
-      "body.menu-open",
-      "body.nav-open",
-      "body.is-menu-open",
-      "body.mobile-menu-open",
-      "html.menu-open",
-      "html.nav-open",
-      "html.is-menu-open",
-      "html.mobile-menu-open",
-      ".mobile-menu.is-open",
-      ".mobile-menu[aria-hidden='false']",
-      ".mobile-nav.is-open",
-      ".mobile-nav[aria-hidden='false']",
-      ".nav-drawer.is-open",
-      ".menu-drawer.is-open",
-      ".site-header.is-open",
-      "[data-mobile-menu].is-open",
-      "[data-menu].is-open",
-      "[data-nav].is-open",
-      "[data-menu-open='true']",
-      "[data-state='open'][data-mobile-menu]",
-      "[data-state='open'][data-menu]",
-    ];
-
-    return selectors.some((selector) => {
-      try {
-        const element = document.querySelector(selector);
-        return Boolean(element && !root?.contains(element));
-      } catch (error) {
-        return false;
+      if (eventName) {
+        track(eventName);
       }
     });
-  }
+  });
 
-  function hasExpandedMobileMenuButton() {
-    const buttons = Array.from(
-      document.querySelectorAll("button[aria-expanded='true'], [role='button'][aria-expanded='true']")
-    );
-
-    return buttons.some((button) => {
-      if (root?.contains(button)) return false;
-
-      const text = [
-        button.id,
-        button.className,
-        button.getAttribute("aria-controls"),
-        button.getAttribute("aria-label"),
-        button.getAttribute("data-menu-button"),
-        button.getAttribute("data-mobile-menu-button"),
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-
-      return /menu|nav|hamburger|nawigac|mobile|header/.test(text);
-    });
-  }
-
-  function isMobileMenuOpen() {
-    if (!isMobileAssistantViewport()) return false;
-    return hasOpenMobileMenuBySelector() || hasExpandedMobileMenuButton();
-  }
-
-  function syncAssistantWithMobileMenu() {
-    const menuOpen = isMobileMenuOpen();
-
-    if (menuOpen && root?.classList.contains("is-open")) {
-      setOpen(false);
-    }
-
-    root?.classList.toggle("is-mobile-menu-open", menuOpen);
-  }
-
-    function setupMobileMenuWatcher() {
+  function setupMobileMenuWatcher() {
     const mobileMenuLabels = new Set([
       "PMU",
       "BRWI",
@@ -1304,7 +1225,10 @@ const starters = [
     ]);
 
     function isMobileViewport() {
-      return window.matchMedia?.("(max-width: 900px)").matches ?? window.innerWidth <= 900;
+      return (
+        window.matchMedia?.("(max-width: 900px)").matches ??
+        window.innerWidth <= 900
+      );
     }
 
     function normalizeText(value) {
@@ -1318,6 +1242,7 @@ const starters = [
       if (!element || root?.contains(element)) return false;
 
       const style = window.getComputedStyle(element);
+
       if (
         style.display === "none" ||
         style.visibility === "hidden" ||
@@ -1337,10 +1262,13 @@ const starters = [
     }
 
     function visibleMobileMenuCardsCount() {
-      const elements = Array.from(document.querySelectorAll("a, button"));
+      const elements = Array.from(
+        document.querySelectorAll("a, button")
+      );
 
       return elements.filter((element) => {
         const text = normalizeText(element.textContent);
+
         if (!mobileMenuLabels.has(text)) return false;
         if (!isElementVisible(element)) return false;
 
@@ -1351,7 +1279,9 @@ const starters = [
     }
 
     function hasExpandedHeaderButton() {
-      const buttons = Array.from(document.querySelectorAll("button[aria-expanded='true']"));
+      const buttons = Array.from(
+        document.querySelectorAll("button[aria-expanded='true']")
+      );
 
       return buttons.some((button) => {
         if (root?.contains(button)) return false;
@@ -1368,33 +1298,46 @@ const starters = [
       });
     }
 
-    function isMobileMenuOpenNow() {
-      if (!isMobileViewport()) return false;
-
-      return visibleMobileMenuCardsCount() >= 4 || hasExpandedHeaderButton();
-    }
-
     function syncAssistantWithMobileMenu() {
-      const menuOpen = isMobileMenuOpenNow();
+      if (!isMobileViewport()) {
+        root?.classList.remove("is-mobile-menu-open");
+        return;
+      }
+
+      const menuOpen =
+        visibleMobileMenuCardsCount() >= 4 ||
+        hasExpandedHeaderButton();
 
       if (menuOpen && root?.classList.contains("is-open")) {
         setOpen(false);
       }
 
-      root?.classList.toggle("is-mobile-menu-open", menuOpen);
+      root?.classList.toggle(
+        "is-mobile-menu-open",
+        menuOpen
+      );
     }
 
     syncAssistantWithMobileMenu();
 
     const observer = new MutationObserver(() => {
-      window.requestAnimationFrame(syncAssistantWithMobileMenu);
+      window.requestAnimationFrame(
+        syncAssistantWithMobileMenu
+      );
     });
 
     observer.observe(document.documentElement, {
       subtree: true,
       childList: true,
       attributes: true,
-      attributeFilter: ["class", "style", "aria-expanded", "aria-hidden", "data-state", "data-open"],
+      attributeFilter: [
+        "class",
+        "style",
+        "aria-expanded",
+        "aria-hidden",
+        "data-state",
+        "data-open",
+      ],
     });
 
     document.addEventListener("click", () => {
@@ -1407,10 +1350,15 @@ const starters = [
       window.setTimeout(syncAssistantWithMobileMenu, 220);
     });
 
-    window.addEventListener("resize", syncAssistantWithMobileMenu);
-    window.addEventListener("scroll", syncAssistantWithMobileMenu, { passive: true });
+    window.addEventListener(
+      "resize",
+      syncAssistantWithMobileMenu
+    );
 
-        window.setInterval(syncAssistantWithMobileMenu, 350);
+    window.setInterval(
+      syncAssistantWithMobileMenu,
+      350
+    );
   }
 
   restoreConversation();
