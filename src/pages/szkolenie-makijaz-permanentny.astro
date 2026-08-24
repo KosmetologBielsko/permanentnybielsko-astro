@@ -3,8 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const booksyUrl =
-  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const pageUrl = "https://www.permanentnybielsko.com/szkolenie-makijaz-permanentny/";
 const pageTitle = "Szkolenie makijaż permanentny Bielsko-Biała | Bogusława Herda";
@@ -15,7 +13,6 @@ const heroImage = "/images/szkolenia-pmu-hero-boguslawa-herda-elite-top-linergis
 
 const paths = [
   {
-    number: "01",
     title: "Step by Step",
     image: "/images/01-step-by-step.webp",
     intro: "Dla osób, które chcą zbudować mocne podstawy.",
@@ -23,7 +20,6 @@ const paths = [
     points: ["brwi, usta albo oczy", "3 dni", "tryb 1:1", "rysunek + praktyka"]
   },
   {
-    number: "02",
     title: "Masterclass",
     image: "/images/02-masterclass.webp",
     intro: "Dla linergistek, które już pracują i chcą wejść poziom wyżej.",
@@ -31,7 +27,6 @@ const paths = [
     points: ["1 dzień", "analiza błędów", "brwi, usta lub oczy", "doskonalenie techniki"]
   },
   {
-    number: "03",
     title: "Silky Hairstroke Brows",
     image: "/images/03-silky-hairstroke-brows.webp",
     intro: "Autorska metoda naturalnego włosa maszynowego.",
@@ -147,12 +142,10 @@ const structuredData = [
                 Zadzwoń
               </a>
               <a
-                class="training-button training-button-booksy"
-                href={booksyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                class="training-button training-button-mail"
+                href="mailto:bogusia@permanentnybielsko.com?subject=Zapytanie%20o%20szkolenie%20PMU"
               >
-                Booksy →
+                Napisz e-mail →
               </a>
             </div>
           </div>
@@ -219,7 +212,6 @@ const structuredData = [
                       loading="lazy"
                       decoding="async"
                     />
-                    <span>{path.number}</span>
                   </div>
 
                   <div class="training-path-copy">
@@ -350,13 +342,11 @@ const structuredData = [
               Zadzwoń
             </a>
             <a
-              class="training-button training-button-booksy"
-              href={booksyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Booksy →
-            </a>
+                class="training-button training-button-mail"
+                href="mailto:bogusia@permanentnybielsko.com?subject=Zapytanie%20o%20szkolenie%20PMU"
+              >
+                Napisz e-mail →
+              </a>
           </div>
         </div>
       </section>
@@ -530,8 +520,7 @@ const structuredData = [
     text-decoration: none;
   }
 
-  .training-button-primary,
-  .training-button-booksy {
+  .training-button-primary {
     color: #fff;
     background: linear-gradient(135deg,#18a889 0%,#0f8f78 55%,#0b7868 100%);
     box-shadow: 0 14px 34px rgba(15,143,120,.20);
@@ -541,6 +530,12 @@ const structuredData = [
     border: 1px solid rgba(183,101,118,.18);
     color: var(--color-text,#17151d);
     background: rgba(255,255,255,.78);
+  }
+
+  .training-button-mail {
+    border: 1px solid rgba(56,187,181,.22);
+    color: var(--color-turquoise-dark,#0f7773);
+    background: rgba(219,246,243,.72);
   }
 
   .training-hero-photo {
@@ -678,22 +673,6 @@ const structuredData = [
     height: 100%;
     display: block;
     object-fit: cover;
-  }
-
-  .training-path-media > span {
-    position: absolute;
-    left: 18px;
-    bottom: 16px;
-    display: inline-flex;
-    width: 38px;
-    height: 38px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background: rgba(15,119,115,.82);
-    color: #fff;
-    font-size: .70rem;
-    font-weight: 900;
   }
 
   .training-path-copy { padding: 22px 22px 20px; }
