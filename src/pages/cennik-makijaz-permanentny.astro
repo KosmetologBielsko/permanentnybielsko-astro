@@ -6,6 +6,71 @@ import Footer from "../components/Footer.astro";
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
+const pmuFormUrl = "/makijaz-permanentny-bielsko/#kwalifikacja-pmu";
+const phoneUrl = "tel:+48730900125";
+
+const getPriceItemDetails = (groupLabel: string, itemName: string) => {
+  if (groupLabel === "Konsultacja") return {
+    description: "Podczas konsultacji oceniamy obszar zabiegowy lub wcześniejszy makijaż permanentny, omawiamy oczekiwany efekt i ustalamy właściwy kierunek: nowa pigmentacja, korekta, odświeżenie albo rozjaśnienie starego PMU.",
+    primaryLabel: "Umów konsultację", primaryHref: booksyUrl, primaryExternal: true,
+    secondaryLabel: "Formularz PMU", secondaryHref: pmuFormUrl
+  };
+
+  if (groupLabel === "Brwi") return {
+    description: "Dobór techniki zależy od skóry, naturalnego owłosienia, wcześniejszej pigmentacji i efektu, który chcesz uzyskać. Przy pierwszej wizycie nie musisz samodzielnie wybierać metody.",
+    primaryLabel: "Zobacz brwi permanentne", primaryHref: "/makijaz-permanentny-brwi/",
+    secondaryLabel: "Umów przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
+  };
+
+  if (groupLabel === "Oczy") return {
+    description: "Kreskę dobieramy do budowy oka, powieki i linii rzęs. Jeśli nie wiesz, czy lepsze będzie subtelne zagęszczenie czy mocniejsza kreska, decyzję można podjąć po konsultacji przed zabiegiem.",
+    primaryLabel: "Zobacz kreski permanentne", primaryHref: "/makijaz-permanentny-oczu/",
+    secondaryLabel: "Umów przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
+  };
+
+  if (groupLabel === "Usta") return {
+    description: itemName === "LIP LIGHT"
+      ? "LIP LIGHT jest usługą dodatkową. Jeśli nie wiesz, czy ten zabieg jest odpowiedni dla Ciebie, najlepiej sprawdzić szczegóły oferty ust lub skontaktować się z gabinetem."
+      : "Pigmentację ust dobieramy do naturalnej czerwieni wargowej, typu urody i oczekiwanego efektu. Zabieg ma odświeżyć kolor i kontur, a nie powiększać usta.",
+    primaryLabel: "Zobacz makijaż permanentny ust", primaryHref: "/makijaz-permanentny-ust/",
+    secondaryLabel: "Umów przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
+  };
+
+  if (groupLabel === "Odświeżenie") return {
+    description: "Odświeżenie ma sens wtedy, gdy wcześniejszy makijaż jest nadal dobrym punktem wyjścia. Jeśli pigment mocno zmienił kolor, kształt lub nasycenie, przed kolejną pigmentacją może być potrzebna korekta albo rozjaśnienie.",
+    primaryLabel: "Sprawdź zasady odświeżenia", primaryHref: "/poradnik/odswiezenie-makijazu-permanentnego-cena/",
+    secondaryLabel: "Umów przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
+  };
+
+  if (groupLabel === "Usuwanie" && itemName.startsWith("Naprawa")) return {
+    description: "Przy makijażu wykonanym w innym gabinecie najpierw trzeba ocenić kolor, kształt, nasycenie pigmentu i kondycję skóry. Nie każdą pracę można bezpiecznie przykryć nową pigmentacją.",
+    primaryLabel: "Formularz PMU", primaryHref: pmuFormUrl,
+    secondaryLabel: "Zobacz korektę i usuwanie", secondaryHref: "/usuwanie-makijazu-permanentnego/"
+  };
+
+  if (groupLabel === "Usuwanie") return {
+    description: "Liczba sesji i metoda usuwania zależą od pigmentu, jego koloru, głębokości oraz reakcji skóry. Przed rozpoczęciem najlepiej ustalić realny plan pracy.",
+    primaryLabel: "Zobacz usuwanie PMU", primaryHref: "/usuwanie-makijazu-permanentnego/",
+    secondaryLabel: "Formularz PMU", secondaryHref: pmuFormUrl
+  };
+
+  if (itemName === "Sercem malowane") return {
+    description: "To społeczna część działalności gabinetu. Wybrane zabiegi wykonywane są bezpłatnie dla osób po chorobie lub w szczególnie trudnej sytuacji życiowej — po wcześniejszej kwalifikacji.",
+    primaryLabel: "Poznaj #SercemMalowane", primaryHref: "/sercemmalowane/"
+  };
+
+  if (itemName.startsWith("Usługa VIP")) return {
+    description: "Usługa VIP zależy od bieżącej dostępności gabinetu i nie zastępuje standardowej rezerwacji. Przed przyjazdem warto skontaktować się telefonicznie.",
+    primaryLabel: "Zadzwoń i zapytaj", primaryHref: phoneUrl,
+    secondaryLabel: "Sprawdź Booksy", secondaryHref: booksyUrl, secondaryExternal: true
+  };
+
+  return {
+    description: "Jeśli nie wiesz, czy ta usługa jest odpowiednia dla Ciebie, możesz najpierw opisać swoją sytuację w formularzu PMU.",
+    primaryLabel: "Formularz PMU", primaryHref: pmuFormUrl
+  };
+};
+
 const priceGroups = [
   {
     label: "Konsultacja",
@@ -354,6 +419,7 @@ const structuredData = [
   canonicalPath="/cennik-makijaz-permanentny/"
   structuredData={structuredData}
 >
+  <!-- CENNIK FINAL V10: interaktywne ceny + kontekstowe CTA -->
   <div class="price-page">
     <Header />
 
@@ -400,25 +466,18 @@ const structuredData = [
 
       <section class="price-proof-section">
         <div class="container price-proof-grid">
-          <div>
-            <strong>Konsultacja</strong>
-            <span>50 zł / 30 min</span>
-          </div>
-
-          <div>
-            <strong>Brwi permanentne</strong>
-            <span>od 1200 zł</span>
-          </div>
-
-          <div>
-            <strong>Usta permanentne</strong>
-            <span>1400 zł</span>
-          </div>
-
-          <div>
-            <strong>Usuwanie PMU</strong>
-            <span>200–400 zł</span>
-          </div>
+          <a href="#price-group-0" aria-label="Konsultacja — przejdź do szczegółów">
+            <strong>Konsultacja</strong><span>50 zł / 30 min</span><em>Sprawdź szczegóły →</em>
+          </a>
+          <a href="#price-group-1" aria-label="Brwi permanentne — przejdź do szczegółów">
+            <strong>Brwi permanentne</strong><span>od 1200 zł</span><em>Sprawdź szczegóły →</em>
+          </a>
+          <a href="#price-group-3" aria-label="Usta permanentne — przejdź do szczegółów">
+            <strong>Usta permanentne</strong><span>1400 zł</span><em>Sprawdź szczegóły →</em>
+          </a>
+          <a href="#price-group-5" aria-label="Usuwanie PMU — przejdź do szczegółów">
+            <strong>Usuwanie PMU</strong><span>200–400 zł</span><em>Sprawdź szczegóły →</em>
+          </a>
         </div>
       </section>
 
@@ -490,23 +549,61 @@ const structuredData = [
                   id={`price-group-panel-${groupIndex}`}
                 >
                   <div class="price-items">
-                    {group.items.map((item) => (
-                      <div
-                        class:list={[
-                          "price-item",
-                          { "price-item-highlight": item.highlight },
-                          { "price-item-heart": item.name === "Sercem malowane" },
-                          { "price-item-vip": item.name.startsWith("Usługa VIP") }
-                        ]}
-                      >
-                        <div>
-                          <h4>{item.name}</h4>
-                          <span>{item.time}</span>
-                        </div>
+                    {group.items.map((item) => {
+                      const details = getPriceItemDetails(group.label, item.name);
 
-                        <strong>{item.price}</strong>
-                      </div>
-                    ))}
+                      return (
+                        <details
+                          class:list={[
+                            "price-item",
+                            "price-item-interactive",
+                            { "price-item-highlight": item.highlight },
+                            { "price-item-heart": item.name === "Sercem malowane" },
+                            { "price-item-vip": item.name.startsWith("Usługa VIP") }
+                          ]}
+                          data-price-item
+                        >
+                          <summary class="price-item-summary">
+                            <span class="price-item-copy">
+                              <span class="price-item-name">{item.name}</span>
+                              <span class="price-item-time">{item.time}</span>
+                            </span>
+                            <span class="price-item-side">
+                              <strong>{item.price}</strong>
+                              <span class="price-item-more">
+                                <span class="price-item-more-label">Szczegóły</span>
+                                <span class="price-item-more-icon" aria-hidden="true"></span>
+                              </span>
+                            </span>
+                          </summary>
+
+                          <div class="price-item-details">
+                            <p>{details.description}</p>
+                            <div class="price-item-actions">
+                              <a
+                                class="price-item-action price-item-action-primary"
+                                href={details.primaryHref}
+                                target={details.primaryExternal ? "_blank" : undefined}
+                                rel={details.primaryExternal ? "noopener noreferrer" : undefined}
+                              >
+                                {details.primaryLabel}
+                              </a>
+
+                              {details.secondaryHref && (
+                                <a
+                                  class="price-item-action price-item-action-secondary"
+                                  href={details.secondaryHref}
+                                  target={details.secondaryExternal ? "_blank" : undefined}
+                                  rel={details.secondaryExternal ? "noopener noreferrer" : undefined}
+                                >
+                                  {details.secondaryLabel}
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                        </details>
+                      );
+                    })}
                   </div>
                 </div>
               </article>
@@ -2847,6 +2944,93 @@ const structuredData = [
     }
   }
 
+
+  /* FINAL V10 — ceny interaktywne: tap → szczegóły → właściwe CTA */
+  .price-proof-grid > a {
+    position: relative; min-height: 178px; display: flex; flex-direction: column; justify-content: space-between;
+    overflow: hidden; padding: 28px; border: 1px solid rgba(183,101,118,.14); border-radius: 30px;
+    background: radial-gradient(circle at 92% 12%, rgba(56,187,181,.14), transparent 9rem),
+      linear-gradient(145deg, rgba(255,255,255,.97), rgba(255,250,252,.9));
+    color: inherit; text-decoration: none; box-shadow: 0 18px 54px rgba(89,53,67,.055);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .price-proof-grid > a::before { content:""; position:absolute; inset:0; border-top:4px solid rgba(56,187,181,.36); pointer-events:none; }
+  .price-proof-grid > a::after { content:""; position:absolute; right:-54px; top:-54px; width:132px; height:132px; border-radius:999px; background:rgba(219,246,243,.72); pointer-events:none; }
+  .price-proof-grid > a > * { position:relative; z-index:2; }
+  .price-proof-grid > a strong { display:block; margin:0 0 16px; color:var(--color-text,#17151d); font-size:clamp(1.32rem,1.65vw,1.85rem); font-weight:780; line-height:1.05; letter-spacing:-.055em; }
+  .price-proof-grid > a span { display:inline-flex; width:fit-content; padding:11px 15px; border:1px solid rgba(56,187,181,.18); border-radius:999px; background:rgba(219,246,243,.62); color:var(--color-turquoise-dark,#0f7773); font-size:clamp(1rem,1.25vw,1.22rem); font-weight:850; line-height:1; letter-spacing:.05em; text-transform:uppercase; }
+  .price-proof-grid > a em { margin-top:18px; color:rgba(15,119,115,.76); font-size:.72rem; font-style:normal; font-weight:820; letter-spacing:.08em; text-transform:uppercase; }
+
+  .price-item-interactive { display:block !important; padding:0 !important; }
+  .price-item-interactive > summary { list-style:none; }
+  .price-item-interactive > summary::-webkit-details-marker { display:none; }
+
+  .price-item-summary {
+    display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; align-items:center;
+    padding:22px clamp(24px,4vw,42px); cursor:pointer; -webkit-tap-highlight-color:transparent; user-select:none;
+  }
+  .price-item-summary:focus-visible { outline:3px solid rgba(56,187,181,.24); outline-offset:-3px; }
+  .price-item-copy { display:grid; gap:6px; min-width:0; }
+  .price-item-name { margin:0; color:var(--color-text,#17151d) !important; font-size:clamp(1.02rem,1.3vw,1.18rem) !important; font-weight:760 !important; line-height:1.25 !important; letter-spacing:-.025em !important; }
+  .price-item-time { margin:0 !important; color:var(--color-muted,#6e6670) !important; font-size:.83rem !important; font-weight:620 !important; line-height:1.35 !important; }
+  .price-item-side { display:flex; align-items:center; justify-content:flex-end; gap:14px; min-width:0; }
+  .price-item-side > strong {
+    display:inline-flex !important; min-width:132px !important; align-items:center !important; justify-content:center !important;
+    padding:12px 16px !important; border:1px solid rgba(56,187,181,.18) !important; border-radius:999px !important;
+    background:rgba(219,246,243,.58) !important; color:var(--color-turquoise-dark,#0f7773) !important;
+    font-size:clamp(1.02rem,1.45vw,1.28rem) !important; font-weight:850 !important; line-height:1 !important;
+    letter-spacing:-.035em !important; text-align:center !important; white-space:nowrap !important;
+  }
+  .price-item-more { display:inline-flex; min-width:88px; align-items:center; justify-content:flex-end; gap:8px; color:rgba(15,119,115,.8) !important; font-size:.68rem !important; font-weight:850 !important; letter-spacing:.08em !important; text-transform:uppercase; }
+  .price-item-more-icon { position:relative; width:30px; height:30px; flex:0 0 auto; border:1px solid rgba(56,187,181,.18); border-radius:999px; background:rgba(255,255,255,.68); }
+  .price-item-more-icon::before,.price-item-more-icon::after { content:""; position:absolute; left:50%; top:50%; width:11px; height:2px; border-radius:999px; background:var(--color-turquoise-dark,#0f7773); transform:translate(-50%,-50%); transition:opacity .18s ease,transform .18s ease; }
+  .price-item-more-icon::after { transform:translate(-50%,-50%) rotate(90deg); }
+  .price-item-interactive[open] .price-item-more-icon::after { opacity:0; transform:translate(-50%,-50%) rotate(0deg); }
+  .price-item-interactive[open] .price-item-more-label { font-size:0; }
+  .price-item-interactive[open] .price-item-more-label::after { content:"Mniej"; font-size:.68rem; }
+
+  .price-item-details { padding:0 clamp(24px,4vw,42px) 24px; border-top:1px solid rgba(56,187,181,.10); background:linear-gradient(180deg,rgba(219,246,243,.24),rgba(255,255,255,.56)); }
+  .price-item-details p { max-width:830px; margin:0; padding-top:20px; color:var(--color-muted,#6e6670); font-size:.94rem; font-weight:450; line-height:1.62; }
+  .price-item-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+  .price-item-action { display:inline-flex; min-height:44px; align-items:center; justify-content:center; padding:0 17px; border-radius:999px; font-size:.76rem; font-weight:840; line-height:1; letter-spacing:.035em; text-align:center; text-decoration:none; -webkit-tap-highlight-color:transparent; }
+  .price-item-action-primary { color:#fff; background:linear-gradient(135deg,#0f7773 0%,#1aa5a0 58%,#74e0d7 100%); box-shadow:0 12px 28px rgba(15,119,115,.18); }
+  .price-item-action-secondary { border:1px solid rgba(56,187,181,.18); color:var(--color-turquoise-dark,#0f7773); background:rgba(255,255,255,.76); }
+
+  .price-item-heart .price-item-side > strong { border-color:rgba(183,32,53,.24) !important; background:linear-gradient(135deg,rgba(183,32,53,.1),rgba(255,243,246,.94)) !important; color:#b72035 !important; }
+  .price-item-vip .price-item-side > strong { border-color:rgba(198,159,84,.28) !important; background:linear-gradient(135deg,rgba(255,240,200,.86),rgba(255,255,255,.92)) !important; color:#8a6731 !important; }
+
+  @media (hover:hover) and (pointer:fine) {
+    .price-item-summary:hover { background:rgba(219,246,243,.22); }
+    .price-item-action:hover { transform:translateY(-1px); }
+    .price-proof-grid > a:hover { transform:translateY(-4px); box-shadow:0 24px 70px rgba(89,53,67,.09); }
+  }
+
+  @media (max-width:760px) {
+    .price-proof-grid > a { min-height:auto; padding:24px; border-radius:26px; }
+    .price-proof-grid > a strong { margin-bottom:13px; font-size:clamp(1.45rem,7vw,2rem); }
+    .price-proof-grid > a span { font-size:1rem; }
+    .price-proof-grid > a em { margin-top:14px; font-size:.66rem; }
+
+    .price-item-summary { grid-template-columns:minmax(0,1fr) auto; gap:12px; padding:18px; }
+    .price-item-name { font-size:.98rem !important; line-height:1.26 !important; }
+    .price-item-time { font-size:.78rem !important; }
+    .price-item-side { display:grid; gap:8px; justify-items:end; }
+    .price-item-side > strong { min-width:0 !important; max-width:150px !important; padding:10px 12px !important; font-size:clamp(1rem,5.4vw,1.28rem) !important; white-space:normal !important; }
+    .price-item-more { min-width:0; gap:6px; font-size:.60rem !important; }
+    .price-item-more-icon { width:27px; height:27px; }
+    .price-item-details { padding:0 18px 19px; }
+    .price-item-details p { padding-top:16px; font-size:.9rem; line-height:1.58; }
+    .price-item-actions { display:grid; grid-template-columns:1fr; gap:8px; margin-top:15px; }
+    .price-item-action { width:100%; min-height:46px; padding:0 14px; font-size:.72rem; }
+  }
+
+  @media (max-width:390px) {
+    .price-item-summary { grid-template-columns:1fr; align-items:start; }
+    .price-item-side { width:100%; grid-template-columns:minmax(0,1fr) auto; align-items:center; justify-items:start; }
+    .price-item-more { justify-self:end; }
+    .price-item-side > strong { max-width:100% !important; justify-self:start !important; }
+  }
+
 </style>
 
 
@@ -2909,6 +3093,25 @@ const structuredData = [
       if (targetGroup?.matches("[data-price-accordion]")) {
         setPriceGroupState(targetGroup, true);
       }
+    });
+  });
+
+  document.querySelectorAll(".price-proof-grid > a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const targetId = link.getAttribute("href");
+      if (!targetId?.startsWith("#")) return;
+      const targetGroup = document.querySelector(targetId);
+      if (targetGroup?.matches("[data-price-accordion]")) setPriceGroupState(targetGroup, true);
+    });
+  });
+
+  document.querySelectorAll("[data-price-item]").forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (!(item instanceof HTMLDetailsElement) || !item.open) return;
+      const group = item.closest("[data-price-accordion]");
+      group?.querySelectorAll("[data-price-item][open]").forEach((otherItem) => {
+        if (otherItem !== item && otherItem instanceof HTMLDetailsElement) otherItem.open = false;
+      });
     });
   });
 
