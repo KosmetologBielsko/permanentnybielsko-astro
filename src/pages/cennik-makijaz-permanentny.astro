@@ -421,6 +421,7 @@ const structuredData = [
 >
   <!-- CENNIK FINAL V10: interaktywne ceny + kontekstowe CTA -->
 <!-- CENNIK FINAL V12: poprawne mobile gutters turkusowego kafelka -->
+<!-- CENNIK FINAL V13: 3 CTA global standard -->
 
   <div class="price-page">
     <Header />
@@ -444,13 +445,30 @@ const structuredData = [
               zabiegów Bogusławy Herda wraz z informacją, które ceny obejmują korektę.
             </p>
 
-            <div class="price-hero-actions">
-              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-                Sprawdź terminy w Booksy
+            <div class="price-hero-actions price-hero-actions-global">
+              <a
+                class="button-primary"
+                href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
+              >
+                Formularz PMU <span>→</span>
               </a>
 
-              <a class="button-secondary" href="#cennik-pmu">
-                Zobacz cennik
+              <a
+                class="button-secondary"
+                href="tel:+48730900125"
+                aria-label="Zadzwoń do gabinetu Bogusławy Herda"
+              >
+                Zadzwoń
+              </a>
+
+              <a
+                class="button-booksy"
+                href={booksyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Zarezerwuj wizytę w Booksy"
+              >
+                Booksy <span>→</span>
               </a>
             </div>
           </div>
@@ -3063,6 +3081,92 @@ const structuredData = [
     .price-card-label {
       max-width: 100% !important;
       overflow-wrap: break-word !important;
+    }
+  }
+
+
+  /* FINAL V13 — cennik: 3 CTA jak na pozostałych podstronach */
+  .price-hero-actions-global {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    margin-top: 34px !important;
+  }
+
+  .price-hero-actions-global a {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 58px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    padding: 0 22px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    font-family: inherit !important;
+    font-size: 1rem !important;
+    font-weight: 820 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+    text-decoration: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .price-hero-actions-global .button-booksy {
+    display: inline-flex !important;
+    border-radius: 999px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background:
+      linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.20) !important;
+    box-shadow:
+      0 16px 38px rgba(15, 143, 120, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.24) !important;
+  }
+
+  .price-hero-actions-global .button-booksy:hover,
+  .price-hero-actions-global .button-booksy:focus-visible {
+    transform: translateY(-2px) !important;
+    box-shadow:
+      0 20px 46px rgba(15, 143, 120, 0.30),
+      inset 0 1px 0 rgba(255, 255, 255, 0.28) !important;
+    outline: none !important;
+  }
+
+  .price-hero-actions-global .button-booksy span,
+  .price-hero-actions-global .button-primary span {
+    font-size: 1.08em !important;
+    line-height: 1 !important;
+  }
+
+  @media (max-width: 1180px) {
+    .price-hero-actions-global {
+      grid-template-columns: 1fr !important;
+      max-width: 620px !important;
+      gap: 12px !important;
+    }
+
+    .price-hero-actions-global a {
+      min-height: 56px !important;
+      white-space: normal !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .price-hero-actions-global {
+      width: 100% !important;
+      max-width: none !important;
+      margin-top: 28px !important;
+      gap: 10px !important;
+    }
+
+    .price-hero-actions-global a {
+      min-height: 54px !important;
+      padding: 0 18px !important;
+      font-size: 0.98rem !important;
     }
   }
 
