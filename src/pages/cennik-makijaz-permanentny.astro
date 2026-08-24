@@ -422,6 +422,7 @@ const structuredData = [
   <!-- CENNIK FINAL V10: interaktywne ceny + kontekstowe CTA -->
 <!-- CENNIK FINAL V12: poprawne mobile gutters turkusowego kafelka -->
 <!-- CENNIK FINAL V13: 3 CTA global standard -->
+<!-- CENNIK FINAL V14: bez sekcji najczęściej sprawdzane ceny na mobile -->
 
   <div class="price-page">
     <Header />
@@ -3167,6 +3168,18 @@ const structuredData = [
       min-height: 54px !important;
       padding: 0 18px !important;
       font-size: 0.98rem !important;
+    }
+  }
+
+
+  /* FINAL V14 — mobile: usuwamy sekcję "Najczęściej sprawdzane ceny" */
+  @media (max-width: 760px) {
+    .price-featured-section {
+      display: none !important;
+    }
+
+    .price-list-section {
+      padding-top: 42px !important;
     }
   }
 
