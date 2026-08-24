@@ -420,7 +420,7 @@ const structuredData = [
   structuredData={structuredData}
 >
   <!-- CENNIK FINAL V10: interaktywne ceny + kontekstowe CTA -->
-<!-- CENNIK FINAL V11: mobile card alignment fix -->
+<!-- CENNIK FINAL V12: poprawne mobile gutters turkusowego kafelka -->
 
   <div class="price-page">
     <Header />
@@ -3034,41 +3034,27 @@ const structuredData = [
   }
 
 
-  /* FINAL V11 — mobile: wszystkie kafelki cennika równo w jednej osi */
+  /* FINAL V12 — mobile: turkusowy hero card w tej samej osi co pozostałe kafelki */
   @media (max-width: 760px) {
-    .price-page,
-    .price-page main,
-    .price-page section,
-    .price-page .container {
-      min-width: 0 !important;
-      max-width: 100% !important;
-      box-sizing: border-box !important;
-    }
-
+    /*
+      Nie ruszamy globalnego .container.
+      Problem wynikał z minimalnej szerokości tracka CSS Grid, a nie z marginesów strony.
+      minmax(0, 1fr) pozwala kafelkowi rzeczywiście zmieścić się wewnątrz kontenera.
+    */
     .price-hero-grid {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0 !important;
       grid-template-columns: minmax(0, 1fr) !important;
-      gap: 16px !important;
-      box-sizing: border-box !important;
+      min-width: 0 !important;
     }
 
     .price-hero-grid > *,
     .price-hero-copy,
     .price-hero-card {
-      width: 100% !important;
-      max-width: 100% !important;
       min-width: 0 !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
+      max-width: 100% !important;
       box-sizing: border-box !important;
     }
 
     .price-hero-card {
-      min-height: 0 !important;
-      padding: 28px 24px !important;
-      border-radius: 28px !important;
       overflow: hidden !important;
     }
 
@@ -3077,34 +3063,6 @@ const structuredData = [
     .price-card-label {
       max-width: 100% !important;
       overflow-wrap: break-word !important;
-    }
-
-    .price-proof-grid,
-    .price-featured-grid,
-    .price-group-stack,
-    .price-decision-card,
-    .price-notes-grid,
-    .price-faq-list {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0 !important;
-      box-sizing: border-box !important;
-    }
-
-    .price-proof-grid > *,
-    .price-featured-grid > *,
-    .price-group-stack > *,
-    .price-notes-grid > * {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0 !important;
-      box-sizing: border-box !important;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .price-hero-card {
-      padding: 24px 20px !important;
     }
   }
 
