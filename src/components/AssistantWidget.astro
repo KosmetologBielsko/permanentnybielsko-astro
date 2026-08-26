@@ -1,492 +1,1366 @@
 ---
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
-const pmuLeadUrl = "/makijaz-permanentny-bielsko/#kwalifikacja-pmu";
+
+const phoneHref = "tel:+48730900125";
+
+const starters = [
+  "Chcę dobrać zabieg",
+  "Brwi permanentne",
+  "Usta permanentne",
+  "Kreski permanentne",
+  "Mam stary makijaż permanentny",
+  "Cena i rezerwacja",
+  "Przeciwwskazania",
+  "Szkolenia PMU",
+];
 ---
 
-<div class="ai-assistant" data-ai-assistant>
-  <div class="ai-assistant-panel" role="dialog" aria-modal="false" aria-label="AI Asystent PMU" data-ai-panel>
-    <div class="ai-panel-head">
-      <div>
-        <span class="ai-panel-kicker">AI Asystent PMU</span>
-        <h2>Dobierz kierunek zabiegu</h2>
-      </div>
-
-      <button class="ai-panel-close" type="button" aria-label="Zamknij AI Asystenta" data-ai-close>
-        ×
-      </button>
-    </div>
-
-    <p class="ai-panel-lead">
-      Wybierz temat, a podpowiemy najbezpieczniejszą ścieżkę: Booksy, formularz kwalifikacji albo rozmowę telefoniczną.
-    </p>
-
-    <div class="ai-choice-grid" aria-label="Wybierz temat PMU">
-      <button
-        type="button"
-        data-ai-choice
-        data-title="Brwi permanentne"
-        data-text="Najczęściej zaczynamy od oceny naturalnej oprawy oka, skóry i oczekiwanego efektu. Przy brwiach możesz od razu przejść do Booksy albo wysłać pytanie, jeśli masz stary PMU."
-        data-link="/makijaz-permanentny-brwi/"
-        data-link-label="Zobacz brwi"
-      >
-        Brwi
-      </button>
-
-      <button
-        type="button"
-        data-ai-choice
-        data-title="Usta permanentne"
-        data-text="Przy ustach ważna jest czerwień wargowa, symetria, kolor i skłonność do opryszczki. Jeśli masz wątpliwości, najpierw wyślij krótkie pytanie."
-        data-link="/makijaz-permanentny-ust/"
-        data-link-label="Zobacz usta"
-      >
-        Usta
-      </button>
-
-      <button
-        type="button"
-        data-ai-choice
-        data-title="Kreski permanentne"
-        data-text="Rodzaj kreski dobieramy do budowy oka, powieki i oczekiwanego efektu. Jeśli masz opadającą powiekę albo stary PMU, lepiej najpierw zapytać."
-        data-link="/makijaz-permanentny-oczu/"
-        data-link-label="Zobacz kreski"
-      >
-        Kreski
-      </button>
-
-      <button
-        type="button"
-        data-ai-choice
-        data-title="Korekta lub usuwanie PMU"
-        data-text="Przy starym, zbyt ciemnym albo nieudanym PMU najważniejsza jest kwalifikacja. Najlepiej opisać sytuację i dołączyć zdjęcie przed rezerwacją."
-        data-link="/usuwanie-makijazu-permanentnego/"
-        data-link-label="Zobacz korektę"
-      >
-        Korekta
-      </button>
-
-      <button
-        type="button"
-        data-ai-choice
-        data-title="Szkolenia PMU"
-        data-text="Jeśli interesują Cię szkolenia, przejdź do oferty edukacyjnej: Step by Step, Masterclass, Silky Hairstroke Brows i praca z pigmentem."
-        data-link="/szkolenie-makijaz-permanentny/"
-        data-link-label="Zobacz szkolenia"
-      >
-        Szkolenia
-      </button>
-    </div>
-
-    <div class="ai-result" data-ai-result hidden>
-      <span class="ai-result-label">Rekomendacja</span>
-      <h3 data-ai-result-title>Brwi permanentne</h3>
-      <p data-ai-result-text></p>
-
-      <div class="ai-result-actions">
-        <a class="ai-result-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-          Umów przez Booksy
-        </a>
-
-        <a class="ai-result-secondary" href={pmuLeadUrl}>
-          Mam pytanie
-        </a>
-
-        <a class="ai-result-link" href="/makijaz-permanentny-bielsko/" data-ai-result-link>
-          Zobacz PMU
-        </a>
-      </div>
-    </div>
-  </div>
-
+<div class="pmu-assistant" data-pmu-assistant>
   <button
-    class="ai-assistant-orb"
+    class="pmu-assistant__launcher"
     type="button"
-    aria-label="Otwórz AI Asystenta PMU"
     aria-expanded="false"
-    data-ai-toggle
+    aria-controls="pmu-assistant-panel"
   >
-    <span>AI</span>
+    <span class="pmu-assistant__launcher-glow"></span>
+    <span class="pmu-assistant__launcher-icon">AI</span>
+
+    <span class="pmu-assistant__launcher-copy">
+      <strong>Dobierz zabieg</strong>
+      <small>AI Asystent PMU</small>
+    </span>
   </button>
+
+  <section
+    class="pmu-assistant__panel"
+    id="pmu-assistant-panel"
+    aria-hidden="true"
+  >
+    <header class="pmu-assistant__header">
+      <div class="pmu-assistant__header-main">
+        <p>AI Asystent PMU</p>
+        <h2>Dobierz właściwy kierunek</h2>
+        <span>Brwi · Usta · Kreski · Korekta PMU</span>
+      </div>
+
+      <div class="pmu-assistant__header-actions">
+        <button
+          class="pmu-assistant__clear"
+          type="button"
+          data-clear
+          aria-label="Wyczyść rozmowę"
+        >
+          Wyczyść
+        </button>
+
+        <button
+          class="pmu-assistant__close"
+          type="button"
+          aria-label="Zamknij asystenta"
+        >
+          ×
+        </button>
+      </div>
+    </header>
+
+    <div class="pmu-assistant__body" data-body>
+      <div class="pmu-assistant__intro">
+        <div class="pmu-assistant__consult-card">
+          <div class="pmu-assistant__consult-kicker">Konsultacyjny pomocnik</div>
+
+          <p>
+            Zapytaj o zabieg, stare PMU, cenę lub przeciwwskazania.
+            Pomogę wskazać właściwy kierunek i podstronę.
+          </p>
+
+          <small>Na podstawie standardu gabinetu Bogusława Herda.</small>
+        </div>
+
+        <div class="pmu-assistant__starters" aria-label="Szybkie tematy">
+          {starters.map((starter) => (
+            <button type="button" data-starter={starter}>{starter}</button>
+          ))}
+        </div>
+      </div>
+
+      <div class="pmu-assistant__messages" data-messages></div>
+    </div>
+
+    <form class="pmu-assistant__form" data-form>
+      <label class="sr-only" for="pmu-assistant-input">
+        Wpisz pytanie do asystenta PMU
+      </label>
+
+      <textarea
+        id="pmu-assistant-input"
+        name="message"
+        rows="2"
+        maxlength="1200"
+        placeholder="Np. mam stare brwi permanentne — co wybrać?"
+        data-input
+      ></textarea>
+
+      <button type="submit" aria-label="Wyślij pytanie">Wyślij</button>
+    </form>
+
+    <footer class="pmu-assistant__footer">
+      <a
+        href={booksyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track="assistant_booksy_click"
+      >
+        Booksy
+      </a>
+
+      <a href={phoneHref} data-track="assistant_phone_click">
+        Zadzwoń
+      </a>
+    </footer>
+  </section>
 </div>
 
-<script>
-  const assistant = document.querySelector("[data-ai-assistant]");
-  const toggle = assistant?.querySelector("[data-ai-toggle]");
-  const closeButton = assistant?.querySelector("[data-ai-close]");
-  const choices = assistant?.querySelectorAll("[data-ai-choice]");
-  const result = assistant?.querySelector("[data-ai-result]");
-  const resultTitle = assistant?.querySelector("[data-ai-result-title]");
-  const resultText = assistant?.querySelector("[data-ai-result-text]");
-  const resultLink = assistant?.querySelector("[data-ai-result-link]");
+<style is:global>
+  .pmu-assistant {
+    --pmu-gold: #c8a35f;
+    --pmu-gold-light: #e7d19a;
+    --pmu-gold-deep: #9d7331;
+    --pmu-turquoise: #22a8b7;
+    --pmu-turquoise-deep: #0f7773;
+    --pmu-turquoise-soft: #eefbfc;
+    --pmu-pink: #d46d9b;
+    --pmu-pink-deep: #bd527f;
+    --pmu-ink: #182d31;
+    --pmu-muted: #667a80;
+    --pmu-line: rgba(15, 119, 115, 0.14);
+    --pmu-line-strong: rgba(15, 119, 115, 0.24);
+    --pmu-shadow: 0 34px 90px rgba(24, 45, 49, 0.22);
+    --pmu-soft-shadow: 0 14px 34px rgba(24, 45, 49, 0.08);
 
-  const setOpen = (isOpen) => {
-    if (!assistant || !toggle) return;
-
-    assistant.classList.toggle("is-open", isOpen);
-    toggle.setAttribute("aria-expanded", String(isOpen));
-    toggle.setAttribute(
-      "aria-label",
-      isOpen ? "Zamknij AI Asystenta PMU" : "Otwórz AI Asystenta PMU"
-    );
-  };
-
-  toggle?.addEventListener("click", () => {
-    setOpen(!assistant?.classList.contains("is-open"));
-  });
-
-  closeButton?.addEventListener("click", () => setOpen(false));
-
-  choices?.forEach((choice) => {
-    choice.addEventListener("click", () => {
-      choices.forEach((item) => item.classList.remove("is-active"));
-      choice.classList.add("is-active");
-
-      const title = choice.getAttribute("data-title") || "Rekomendacja PMU";
-      const text = choice.getAttribute("data-text") || "Wybierz najlepszą ścieżkę kontaktu.";
-      const link = choice.getAttribute("data-link") || "/makijaz-permanentny-bielsko/";
-      const linkLabel = choice.getAttribute("data-link-label") || "Zobacz więcej";
-
-      if (resultTitle) resultTitle.textContent = title;
-      if (resultText) resultText.textContent = text;
-      if (resultLink instanceof HTMLAnchorElement) {
-        resultLink.href = link;
-        resultLink.textContent = linkLabel;
-      }
-      if (result instanceof HTMLElement) result.hidden = false;
-    });
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setOpen(false);
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!assistant || !assistant.classList.contains("is-open")) return;
-    if (event.target instanceof Node && assistant.contains(event.target)) return;
-    setOpen(false);
-  });
-</script>
-
-<style>
-  .ai-assistant {
     position: fixed;
-    right: max(18px, env(safe-area-inset-right));
-    bottom: max(18px, env(safe-area-inset-bottom));
-    z-index: 1200;
-    font-family:
-      "Avenir Next",
-      "Helvetica Neue",
-      Arial,
-      sans-serif;
+    right: clamp(16px, 2vw, 28px);
+    bottom: clamp(16px, 2vw, 28px);
+    z-index: 10000;
+    font-family: inherit;
   }
 
-  .ai-assistant-orb {
+  .pmu-assistant * {
+    box-sizing: border-box;
+  }
+
+  .pmu-assistant__launcher {
     position: relative;
-    display: grid;
-    width: 70px;
-    height: 70px;
-    place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.38);
+    display: inline-flex;
+    min-height: 62px;
+    align-items: center;
+    gap: 12px;
+    isolation: isolate;
+    padding: 10px 18px 10px 10px;
+    border: 1px solid rgba(231, 209, 154, 0.58);
     border-radius: 999px;
-    padding: 0;
-    color: #ffffff;
     background:
-      radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.44), transparent 2.8rem),
-      linear-gradient(145deg, #d6b46c 0%, #bf9546 45%, #8c6327 100%);
+      linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 248, 236, 0.9)),
+      radial-gradient(circle at 8% 0%, rgba(231, 209, 154, 0.38), transparent 45%),
+      radial-gradient(circle at 100% 100%, rgba(34, 168, 183, 0.18), transparent 42%);
+    color: var(--pmu-ink);
     box-shadow:
-      0 20px 50px rgba(111, 75, 27, 0.28),
-      0 0 0 7px rgba(255, 247, 226, 0.72),
-      inset 0 1px 0 rgba(255, 255, 255, 0.42);
+      0 18px 42px rgba(24, 45, 49, 0.15),
+      0 0 0 1px rgba(200, 163, 95, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      filter 0.2s ease;
+    transition: transform 180ms ease, box-shadow 180ms ease;
   }
 
-  .ai-assistant-orb::after {
-    content: "";
+  .pmu-assistant__launcher:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 22px 52px rgba(24, 45, 49, 0.2),
+      0 0 0 1px rgba(200, 163, 95, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  }
+
+  .pmu-assistant__launcher-glow {
     position: absolute;
-    inset: 8px 11px auto 11px;
-    height: 17px;
+    inset: -10px;
+    z-index: -1;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at 16% 8%, rgba(200, 163, 95, 0.22), transparent 42%),
+      radial-gradient(circle at 90% 78%, rgba(34, 168, 183, 0.18), transparent 45%);
+    filter: blur(10px);
+    opacity: 0.72;
+  }
+
+  .pmu-assistant__launcher-icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    place-items: center;
     border-radius: 999px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.56), transparent);
-    pointer-events: none;
-  }
-
-  .ai-assistant-orb span {
-    position: relative;
-    z-index: 1;
-    font-size: 1.08rem;
-    font-weight: 920;
-    line-height: 1;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .ai-assistant-orb:hover {
-    transform: translateY(-2px) scale(1.02);
-    filter: saturate(1.04) brightness(1.02);
+    background: linear-gradient(135deg, var(--pmu-gold-deep), var(--pmu-gold-light));
+    color: #fff;
+    font-size: 0.76rem;
+    font-weight: 850;
+    letter-spacing: 0.09em;
     box-shadow:
-      0 24px 58px rgba(111, 75, 27, 0.34),
-      0 0 0 7px rgba(255, 247, 226, 0.82),
-      inset 0 1px 0 rgba(255, 255, 255, 0.48);
+      0 12px 24px rgba(200, 163, 95, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.38);
   }
 
-  .ai-assistant-orb:focus,
-  .ai-assistant-orb:active {
-    outline: none;
+  .pmu-assistant__launcher-copy strong,
+  .pmu-assistant__launcher-copy small {
+    display: block;
+    text-align: left;
+    line-height: 1.12;
   }
 
-  .ai-assistant-orb:focus-visible {
-    outline: none;
-    box-shadow:
-      0 0 0 4px rgba(56, 187, 181, 0.18),
-      0 24px 58px rgba(111, 75, 27, 0.34),
-      0 0 0 9px rgba(255, 247, 226, 0.86);
+  .pmu-assistant__launcher-copy strong {
+    color: var(--pmu-ink);
+    font-size: 0.94rem;
+    font-weight: 850;
   }
 
-  .ai-assistant-panel {
+  .pmu-assistant__launcher-copy small {
+    margin-top: 4px;
+    color: var(--pmu-turquoise-deep);
+    font-size: 0.72rem;
+    font-weight: 750;
+  }
+
+  .pmu-assistant__panel {
     position: absolute;
     right: 0;
-    bottom: 90px;
-    width: min(390px, calc(100vw - 28px));
-    max-height: min(680px, calc(100vh - 128px));
-    overflow: auto;
-    padding: 18px;
-    border: 1px solid rgba(201, 127, 143, 0.17);
-    border-radius: 30px;
+    bottom: 78px;
+    display: none;
+    width: min(456px, calc(100vw - 32px));
+    max-height: min(780px, calc(100vh - 110px));
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: 34px;
     background:
-      radial-gradient(circle at 92% 10%, rgba(56, 187, 181, 0.14), transparent 12rem),
-      radial-gradient(circle at 8% 90%, rgba(201, 127, 143, 0.12), transparent 14rem),
-      rgba(255, 255, 255, 0.94);
-    box-shadow: 0 26px 84px rgba(72, 42, 55, 0.25);
-    backdrop-filter: blur(22px);
-    opacity: 0;
+      linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 247, 250, 0.82)),
+      radial-gradient(circle at 0% 0%, rgba(34, 168, 183, 0.12), transparent 38%),
+      radial-gradient(circle at 100% 12%, rgba(212, 109, 155, 0.12), transparent 40%);
+    box-shadow:
+      var(--pmu-shadow),
+      0 0 0 1px rgba(15, 119, 115, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(22px) saturate(1.12);
+    -webkit-backdrop-filter: blur(22px) saturate(1.12);
+  }
+
+  .pmu-assistant__panel::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
     pointer-events: none;
-    transform: translateY(10px) scale(0.97);
-    transform-origin: bottom right;
-    transition:
-      opacity 0.22s ease,
-      transform 0.22s ease;
+    border: 1px solid rgba(255, 255, 255, 0.52);
+    border-radius: 26px;
   }
 
-  .ai-assistant.is-open .ai-assistant-panel {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0) scale(1);
+  .pmu-assistant.is-open .pmu-assistant__panel {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
   }
 
-  .ai-panel-head {
+  .pmu-assistant.is-open .pmu-assistant__launcher {
+    display: none;
+  }
+
+  .pmu-assistant__header {
+    position: relative;
     display: flex;
-    gap: 14px;
     align-items: flex-start;
     justify-content: space-between;
+    gap: 16px;
+    padding: 24px 24px 18px;
+    border-bottom: 1px solid var(--pmu-line);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(255, 245, 249, 0.62)),
+      radial-gradient(circle at 0% 0%, rgba(34, 168, 183, 0.14), transparent 40%);
   }
 
-  .ai-panel-kicker,
-  .ai-result-label {
-    display: inline-flex;
-    min-height: 28px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 10px;
-    padding: 0 11px;
-    border-radius: 999px;
-    color: #0f7773;
-    background: rgba(219, 246, 243, 0.74);
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    font-size: 0.62rem;
-    font-weight: 880;
-    line-height: 1;
-    letter-spacing: 0.14em;
+  .pmu-assistant__header-main p {
+    margin: 0 0 8px;
+    color: var(--pmu-turquoise-deep);
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
   }
 
-  .ai-panel-head h2 {
+  .pmu-assistant__header-main h2 {
     margin: 0;
-    color: #17151d;
-    font-size: 1.48rem;
-    font-weight: 830;
-    line-height: 0.98;
-    letter-spacing: -0.055em;
+    color: var(--pmu-ink);
+    font-size: clamp(1.15rem, 2vw, 1.34rem);
+    line-height: 1.12;
+    font-weight: 850;
+    letter-spacing: -0.03em;
   }
 
-  .ai-panel-close {
-    display: grid;
-    width: 38px;
-    height: 38px;
-    flex: 0 0 auto;
-    place-items: center;
-    border: 1px solid rgba(183, 101, 118, 0.13);
-    border-radius: 999px;
-    color: rgba(23, 21, 29, 0.62);
-    background: rgba(255, 255, 255, 0.74);
-    font-size: 1.3rem;
-    line-height: 1;
+  .pmu-assistant__header-main span {
+    display: block;
+    margin-top: 9px;
+    color: var(--pmu-muted);
+    font-size: 0.78rem;
+    font-weight: 650;
+  }
+
+  .pmu-assistant__header-actions {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pmu-assistant__clear,
+  .pmu-assistant__close {
+    border: 1px solid rgba(15, 119, 115, 0.12);
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--pmu-turquoise-deep);
     cursor: pointer;
   }
 
-  .ai-panel-lead {
-    margin: 14px 0 0;
-    color: #6e6670;
-    font-size: 0.94rem;
-    line-height: 1.58;
-  }
-
-  .ai-choice-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
-    margin-top: 16px;
-  }
-
-  .ai-choice-grid button {
-    display: flex;
-    min-height: 48px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(56, 187, 181, 0.14);
-    border-radius: 16px;
+  .pmu-assistant__clear {
+    height: 36px;
     padding: 0 12px;
-    color: #17151d;
-    background:
-      radial-gradient(circle at 86% 12%, rgba(219, 246, 243, 0.52), transparent 5rem),
-      rgba(255, 255, 255, 0.72);
-    font-size: 0.82rem;
-    font-weight: 820;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    transition:
-      transform 0.18s ease,
-      background 0.18s ease,
-      border-color 0.18s ease;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 850;
   }
 
-  .ai-choice-grid button:hover,
-  .ai-choice-grid button.is-active {
-    transform: translateY(-1px);
-    color: #0f7773;
-    background: rgba(219, 246, 243, 0.84);
-    border-color: rgba(56, 187, 181, 0.22);
+  .pmu-assistant__close {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 999px;
+    font-size: 1.5rem;
+    line-height: 1;
   }
 
-  .ai-result {
-    margin-top: 15px;
-    padding: 15px;
-    border: 1px solid rgba(201, 127, 143, 0.14);
-    border-radius: 22px;
-    background:
-      radial-gradient(circle at 90% 12%, rgba(201, 127, 143, 0.10), transparent 9rem),
-      rgba(255, 249, 251, 0.82);
+  .pmu-assistant__body {
+    overflow-y: auto;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(252, 253, 253, 0.98));
   }
 
-  .ai-result h3 {
+  .pmu-assistant__body::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .pmu-assistant__body::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background-clip: content-box;
+    background-color: rgba(15, 119, 115, 0.28);
+  }
+
+  .pmu-assistant__intro {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .pmu-assistant__consult-card {
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.74);
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+      0 14px 34px rgba(24, 45, 49, 0.08),
+      0 0 0 1px rgba(15, 119, 115, 0.08);
+  }
+
+  .pmu-assistant__consult-kicker {
+    margin-bottom: 9px;
+    color: var(--pmu-turquoise-deep);
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .pmu-assistant__consult-card p {
     margin: 0;
-    color: #17151d;
-    font-size: 1.18rem;
-    font-weight: 830;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
+    color: var(--pmu-ink);
+    font-size: 0.9rem;
+    line-height: 1.52;
   }
 
-  .ai-result p {
-    margin: 10px 0 0;
-    color: #6e6670;
-    font-size: 0.9rem;
+  .pmu-assistant__consult-card small {
+    display: block;
+    margin-top: 11px;
+    color: var(--pmu-muted);
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+
+  .pmu-assistant__starters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pmu-assistant__starters button {
+    min-height: 36px;
+    padding: 8px 12px;
+    border: 1px solid rgba(15, 119, 115, 0.13);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--pmu-turquoise-deep);
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 780;
+    line-height: 1.1;
+  }
+
+  .pmu-assistant__messages {
+    display: grid;
+    gap: 12px;
+  }
+
+  .pmu-assistant__message {
+    max-width: 92%;
+    padding: 15px 16px;
+    border-radius: 24px;
+    font-size: 0.88rem;
     line-height: 1.58;
   }
 
-  .ai-result-actions {
-    display: grid;
-    gap: 9px;
-    margin-top: 14px;
+  .pmu-assistant__message--assistant {
+    border: 1px solid rgba(15, 119, 115, 0.08);
+    border-top-left-radius: 11px;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--pmu-ink);
+    box-shadow: var(--pmu-soft-shadow);
   }
 
-  .ai-result-actions a {
-    display: flex;
-    min-height: 44px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    padding: 0 14px;
-    font-size: 0.8rem;
-    font-weight: 840;
-    line-height: 1;
-    text-align: center;
+  .pmu-assistant__message--user {
+    margin-left: auto;
+    border-top-right-radius: 11px;
+    background: linear-gradient(135deg, var(--pmu-turquoise-deep), var(--pmu-turquoise));
+    color: #fff;
+  }
+
+  .pmu-assistant__message--loading {
+    color: var(--pmu-muted);
+    font-style: italic;
+  }
+
+  .pmu-assistant__text {
+    display: grid;
+    gap: 10px;
+  }
+
+  .pmu-assistant__text p {
+    margin: 0;
+    color: inherit;
+    font-size: 0.88rem;
+    line-height: 1.58;
+  }
+
+  .pmu-assistant__message--assistant .pmu-assistant__text strong {
+    color: var(--pmu-turquoise-deep);
+    font-weight: 850;
+  }
+
+  .pmu-assistant__text a {
+    color: var(--pmu-pink);
+    font-weight: 850;
     text-decoration: none;
   }
 
-  .ai-result-primary {
-    color: #ffffff;
-    background: linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
-    box-shadow: 0 14px 30px rgba(15, 143, 120, 0.18);
+  .pmu-assistant__actions {
+    display: flex;
+    margin-top: 12px;
   }
 
-  .ai-result-secondary {
-    color: #ffffff;
-    background: linear-gradient(135deg, #d992a2, #c77788);
-    box-shadow: 0 14px 30px rgba(199, 119, 136, 0.18);
+  .pmu-assistant__action {
+    display: inline-flex;
+    width: auto;
+    min-height: 34px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border: 1px solid rgba(15, 119, 115, 0.16);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--pmu-turquoise-deep);
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-decoration: none;
   }
 
-  .ai-result-link {
-    color: #0f7773;
-    background: rgba(219, 246, 243, 0.72);
-    border: 1px solid rgba(56, 187, 181, 0.16);
+  .pmu-assistant__form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 14px 16px 12px;
+    border-top: 1px solid var(--pmu-line);
+    background: rgba(255, 255, 255, 0.88);
   }
 
-  @media (max-width: 760px) {
-    .ai-assistant {
-      right: max(14px, env(safe-area-inset-right));
-      bottom: max(14px, env(safe-area-inset-bottom));
-    }
-
-    .ai-assistant-orb {
-      width: 62px;
-      height: 62px;
-      box-shadow:
-        0 18px 44px rgba(111, 75, 27, 0.25),
-        0 0 0 6px rgba(255, 247, 226, 0.76),
-        inset 0 1px 0 rgba(255, 255, 255, 0.42);
-    }
-
-    .ai-assistant-orb span {
-      font-size: 1rem;
-    }
-
-    .ai-assistant-panel {
-      right: 0;
-      bottom: 80px;
-      width: min(370px, calc(100vw - 28px));
-      max-height: min(650px, calc(100vh - 104px));
-      padding: 16px;
-      border-radius: 26px;
-    }
-
-    .ai-panel-head h2 {
-      font-size: 1.32rem;
-    }
-
-    .ai-choice-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .ai-choice-grid button {
-      min-height: 46px;
-    }
+  .pmu-assistant__form textarea {
+    width: 100%;
+    min-height: 56px;
+    resize: none;
+    border: 1px solid rgba(34, 168, 183, 0.28);
+    border-radius: 22px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--pmu-ink);
+    font: inherit;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    outline: none;
   }
 
-  @media (max-width: 390px) {
-    .ai-assistant-orb {
+  .pmu-assistant__form textarea:focus {
+    border-color: rgba(38, 169, 186, 0.72);
+    box-shadow: 0 0 0 4px rgba(38, 169, 186, 0.11);
+  }
+
+  .pmu-assistant__form button {
+    align-self: end;
+    min-height: 48px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--pmu-gold-deep), var(--pmu-gold-light));
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.94rem;
+    font-weight: 850;
+  }
+
+  .pmu-assistant__form button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+  }
+
+  .pmu-assistant__footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    padding: 0 16px 16px;
+    background: rgba(255, 255, 255, 0.88);
+  }
+
+  .pmu-assistant__footer a {
+    display: grid;
+    min-height: 42px;
+    place-items: center;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 850;
+  }
+
+  .pmu-assistant__footer a:first-child {
+    background: linear-gradient(135deg, var(--pmu-turquoise-deep), var(--pmu-turquoise));
+  }
+
+  .pmu-assistant__footer a:last-child {
+    background: linear-gradient(135deg, var(--pmu-pink), var(--pmu-pink-deep));
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  /* ======================================================
+     MOBILE V5 — COMPACT AI ASSISTANT
+     ====================================================== */
+  @media (max-width: 640px) {
+    .pmu-assistant {
+      left: auto;
+      right: 14px;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 84px);
+      width: auto;
+      transition:
+        opacity 180ms ease,
+        visibility 180ms ease,
+        transform 180ms ease;
+    }
+
+    .pmu-assistant:not(.is-open) .pmu-assistant__launcher {
       width: 58px;
       height: 58px;
+      min-height: 58px;
+      justify-content: center;
+      gap: 0;
+      padding: 0;
+      border-radius: 999px;
     }
 
-    .ai-assistant-panel {
-      width: calc(100vw - 24px);
-      padding: 14px;
+    .pmu-assistant:not(.is-open) .pmu-assistant__launcher-copy {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      clip-path: inset(50%) !important;
+      white-space: nowrap !important;
+    }
+
+    .pmu-assistant:not(.is-open) .pmu-assistant__launcher-icon {
+      width: 48px;
+      height: 48px;
+      font-size: 0.74rem;
+    }
+
+    .pmu-assistant:not(.is-open) .pmu-assistant__launcher-glow {
+      inset: -8px;
+      opacity: 0.58;
+      filter: blur(9px);
+    }
+
+    .pmu-assistant.is-open {
+      left: 12px;
+      right: 12px;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+      width: auto;
+    }
+
+    .pmu-assistant.is-open .pmu-assistant__panel {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-height: min(560px, 74svh);
+      border-radius: 24px;
+    }
+
+    .pmu-assistant__panel::before {
+      display: none;
+    }
+
+    /* tylko jeden lekki nagłówek + X */
+    .pmu-assistant__header {
+      align-items: center;
+      padding: 13px 14px 11px;
+    }
+
+    .pmu-assistant__header-main p {
+      margin: 0;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+    }
+
+    .pmu-assistant__header-main h2,
+    .pmu-assistant__header-main span,
+    .pmu-assistant__clear {
+      display: none;
+    }
+
+    .pmu-assistant__close {
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.88);
+      font-size: 1.35rem;
+    }
+
+    .pmu-assistant__body {
+      padding: 10px 12px;
+    }
+
+    .pmu-assistant__intro {
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    /* karta w karcie znika — zostaje jedno zdanie */
+    .pmu-assistant__consult-card {
+      padding: 3px 2px 7px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .pmu-assistant__consult-kicker,
+    .pmu-assistant__consult-card small {
+      display: none;
+    }
+
+    .pmu-assistant__consult-card p {
+      max-width: 520px;
+      color: var(--pmu-muted);
+      font-size: 0.79rem;
+      line-height: 1.45;
+    }
+
+    /* Na wejściu tylko 4 najważniejsze wybory.
+       Brwi/Usta/Kreski rozwija odpowiedź po "Dobierz zabieg". */
+    .pmu-assistant__starters {
+      gap: 6px;
+    }
+
+    .pmu-assistant__starters button {
+      min-height: 32px;
+      padding: 6px 10px;
+      font-size: 0.69rem;
+    }
+
+    .pmu-assistant__starters button:nth-child(2),
+    .pmu-assistant__starters button:nth-child(3),
+    .pmu-assistant__starters button:nth-child(4),
+    .pmu-assistant__starters button:nth-child(8) {
+      display: none;
+    }
+
+    /* Po rozpoczęciu rozmowy znikają intro i chipy. */
+    .pmu-assistant.has-conversation .pmu-assistant__intro {
+      display: none;
+    }
+
+    .pmu-assistant__messages {
+      gap: 8px;
+    }
+
+    .pmu-assistant__message {
+      max-width: 96%;
+      padding: 11px 12px;
+      border-radius: 18px;
+      font-size: 0.82rem;
+    }
+
+    .pmu-assistant__text,
+    .pmu-assistant__text p {
+      gap: 7px;
+      font-size: 0.82rem;
+      line-height: 1.48;
+    }
+
+    /* Pole + strzałka w środku zamiast osobnego wielkiego "Wyślij". */
+    .pmu-assistant__form {
+      position: relative;
+      display: block;
+      padding: 9px 12px;
+    }
+
+    .pmu-assistant__form textarea {
+      min-height: 54px;
+      max-height: 84px;
+      padding: 10px 54px 10px 12px;
+      border-radius: 18px;
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+
+    .pmu-assistant__form button {
+      position: absolute;
+      right: 19px;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      min-height: 40px;
+      padding: 0;
+      border-radius: 999px;
+      font-size: 0;
+      transform: translateY(-50%);
+      box-shadow: 0 8px 20px rgba(157, 115, 49, 0.22);
+    }
+
+    .pmu-assistant__form button::after {
+      content: "→";
+      font-size: 1.12rem;
+      line-height: 1;
+    }
+
+    .pmu-assistant__footer {
+      gap: 7px;
+      padding: 0 12px 11px;
+    }
+
+    .pmu-assistant__footer a {
+      min-height: 39px;
+      font-size: 0.76rem;
+    }
+  }
+
+  /* Launcher pod hamburgerem / znika po otwarciu menu mobilnego. */
+  @media (max-width: 900px) {
+    .pmu-assistant:not(.is-open) {
+      z-index: 30 !important;
+    }
+
+    .pmu-assistant.is-open {
+      z-index: 10000 !important;
+    }
+
+    .pmu-assistant.is-mobile-menu-open {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: translateY(12px) scale(0.88) !important;
+    }
+
+    .pmu-assistant.is-open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: none !important;
     }
   }
 </style>
+
+<script is:inline>
+  // @ts-nocheck
+
+  const STORAGE_KEY = "pmu_assistant_messages_v1";
+  const root = document.querySelector("[data-pmu-assistant]");
+  const launcher = root?.querySelector(".pmu-assistant__launcher");
+  const closeButton = root?.querySelector(".pmu-assistant__close");
+  const clearButton = root?.querySelector("[data-clear]");
+  const panel = root?.querySelector(".pmu-assistant__panel");
+  const body = root?.querySelector("[data-body]");
+  const form = root?.querySelector("[data-form]");
+  const input = root?.querySelector("[data-input]");
+  const messages = root?.querySelector("[data-messages]");
+  const starterButtons = root?.querySelectorAll("[data-starter]") ?? [];
+
+  const booksyUrl =
+    "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+  const serviceLinks = [
+    { path: "/makijaz-permanentny-brwi/", label: "Zobacz brwi permanentne" },
+    { path: "/makijaz-permanentny-ust/", label: "Zobacz usta permanentne" },
+    { path: "/makijaz-permanentny-oczu/", label: "Zobacz kreski permanentne" },
+    { path: "/usuwanie-makijazu-permanentnego/", label: "Zobacz usuwanie PMU" },
+    { path: "/cennik-makijaz-permanentny/", label: "Zobacz cennik" },
+    { path: "/galeria/", label: "Zobacz galerię" },
+    { path: "/kontakt/", label: "Kontakt z gabinetem" },
+    { path: "/szkolenia/", label: "Zobacz szkolenia" },
+    { path: "/sercemmalowane/", label: "Sercem Malowane" },
+    {
+      path: "https://kosmetologiabielsko.com",
+      label: "Kosmetologia Bielsko",
+      external: true,
+    },
+  ];
+
+  let history = [];
+  let savedMessages = [];
+
+  function track(eventName, payload = {}) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...payload });
+
+    if (window.va && typeof window.va.track === "function") {
+      window.va.track(eventName, payload);
+    }
+  }
+
+  function saveMessages() {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(savedMessages.slice(-20)));
+    } catch {}
+  }
+
+  function loadMessages() {
+    try {
+      const raw = sessionStorage.getItem(STORAGE_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function getServiceLinkFromText(text) {
+    return serviceLinks.find((item) => text.includes(item.path)) || null;
+  }
+
+  function getParagraphs(text) {
+    let clean = String(text || "").trim();
+
+    clean = clean
+      .replace(booksyUrl, "")
+      .replace(/https:\/\/booksy\.com\/[^\s)]+/g, "")
+      .replace(/https:\/\/kosmetologiabielsko\.com\/?/g, "")
+      .replace(/\bPodstrona:\s*/gi, "")
+      .replace(/\bTelefon:\s*/gi, "")
+      .replace(/\bBooksy:\s*/gi, "")
+      .replace(
+        /\bAktualną cenę najlepiej sprawdzić w cenniku lub przy usłudze w Booksy\.\s*/gi,
+        "Aktualną cenę najlepiej sprawdzić w cenniku lub przy usłudze w Booksy."
+      )
+      .trim();
+
+    for (const item of serviceLinks) {
+      clean = clean.replaceAll(item.path, "");
+    }
+
+    clean = clean
+      .replace(/\s+([,.!?;:])/g, "$1")
+      .replace(/\s{2,}/g, " ")
+      .replace(/\s+\./g, ".")
+      .replace(/\s+,/g, ",")
+      .trim();
+
+    clean = clean.replace(
+      /([.!?])\s+(Najlepiej|Może Pani|Warto|Ostateczną|Przy|Jeżeli|Jeśli|Ten kierunek|Najwłaściwszy|To dobry moment|W takiej sytuacji|Jeśli nie jest|Aktualne ceny)/g,
+      "$1\n\n$2"
+    );
+
+    return clean
+      .split(/\n{2,}/)
+      .map((part) => part.trim())
+      .filter(Boolean)
+      .slice(0, 4);
+  }
+
+  function createSafeAssistantHtml(text) {
+    const paragraphs = getParagraphs(text);
+
+    return paragraphs
+      .map((paragraph) => {
+        let html = escapeHtml(paragraph);
+
+        html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+        html = html.replace(
+          /\bBooksy\b/g,
+          `<a href="${booksyUrl}" target="_blank" rel="noopener noreferrer" data-assistant-link="booksy">Booksy</a>`
+        );
+
+        html = html.replace(
+          /\+48 730 900 125|730 900 125/g,
+          `<a href="tel:+48730900125" data-assistant-link="phone">+48 730 900 125</a>`
+        );
+
+        return `<p>${html}</p>`;
+      })
+      .join("");
+  }
+
+  function createActionsForAnswer(text) {
+    const actions = [];
+    const serviceLink = getServiceLinkFromText(text);
+
+    if (serviceLink) {
+      actions.push({
+        href: serviceLink.path,
+        label: serviceLink.label,
+        external: Boolean(serviceLink.external),
+      });
+    }
+
+    return actions.slice(0, 1);
+  }
+
+  function appendActions(messageElement, actions) {
+    if (!actions.length) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "pmu-assistant__actions";
+
+    for (const action of actions) {
+      const link = document.createElement("a");
+      link.className = "pmu-assistant__action";
+      link.href = action.href;
+      link.textContent = action.label;
+
+      if (action.external) {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+
+      link.addEventListener("click", () => {
+        track("assistant_service_link_click", { href: action.href });
+      });
+
+      wrapper.appendChild(link);
+    }
+
+    messageElement.appendChild(wrapper);
+  }
+
+  function setOpen(isOpen) {
+    root?.classList.toggle("is-open", isOpen);
+    launcher?.setAttribute("aria-expanded", String(isOpen));
+    panel?.setAttribute("aria-hidden", String(!isOpen));
+
+    if (isOpen) {
+      track("assistant_open");
+
+      /* Na mobile nie otwieramy automatycznie klawiatury.
+         Najpierw użytkownik widzi 4 szybkie wybory. */
+      const isCompactMobile = window.matchMedia?.("(max-width: 640px)").matches;
+
+      if (!isCompactMobile) {
+        setTimeout(() => input?.focus(), 100);
+      }
+    }
+  }
+
+  function syncConversationState() {
+    root?.classList.toggle(
+      "has-conversation",
+      Boolean(messages?.children?.length)
+    );
+  }
+
+  function addMessage(role, text, extraClass = "", shouldSave = true) {
+    const item = document.createElement("div");
+    item.className =
+      `pmu-assistant__message pmu-assistant__message--${role} ${extraClass}`.trim();
+
+    const content = document.createElement("div");
+    content.className = "pmu-assistant__text";
+
+    if (role === "assistant") {
+      content.innerHTML = createSafeAssistantHtml(text);
+    } else {
+      content.innerHTML = `<p>${escapeHtml(text)}</p>`;
+    }
+
+    item.appendChild(content);
+
+    if (role === "assistant" && !extraClass.includes("loading")) {
+      appendActions(item, createActionsForAnswer(text));
+    }
+
+    messages?.appendChild(item);
+    syncConversationState();
+
+    body?.scrollTo({
+      top: body.scrollHeight,
+      behavior: "smooth",
+    });
+
+    item.querySelectorAll("[data-assistant-link='booksy']").forEach((link) => {
+      link.addEventListener("click", () => track("assistant_booksy_click"));
+    });
+
+    item.querySelectorAll("[data-assistant-link='phone']").forEach((link) => {
+      link.addEventListener("click", () => track("assistant_phone_click"));
+    });
+
+    if (shouldSave && !extraClass.includes("loading")) {
+      savedMessages.push({ role, text });
+      saveMessages();
+    }
+
+    return item;
+  }
+
+  async function askAssistant(question) {
+    const cleanQuestion = String(question || "").trim();
+    if (!cleanQuestion) return;
+
+    addMessage("user", cleanQuestion);
+    history.push({ role: "user", content: cleanQuestion });
+
+    track("assistant_question_sent", {
+      question_length: cleanQuestion.length,
+    });
+
+    const loading = addMessage(
+      "assistant",
+      "Piszę odpowiedź…",
+      "pmu-assistant__message--loading",
+      false
+    );
+
+    try {
+      const response = await fetch("/api/assistant", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: cleanQuestion,
+          history: history.slice(-4),
+        }),
+      });
+
+      const data = await response.json();
+      loading.remove();
+
+      if (!response.ok) {
+        addMessage(
+          "assistant",
+          data?.error ||
+            "Asystent chwilowo nie może odpowiedzieć. Proszę skorzystać z Booksy albo zadzwonić do gabinetu."
+        );
+        track("assistant_error");
+        return;
+      }
+
+      const answer =
+        data?.answer || "Nie udało mi się przygotować odpowiedzi.";
+
+      addMessage("assistant", answer);
+      history.push({ role: "assistant", content: answer });
+      track("assistant_answer_received");
+    } catch {
+      loading.remove();
+
+      addMessage(
+        "assistant",
+        "Asystent chwilowo nie może odpowiedzieć. Proszę skorzystać z Booksy albo zadzwonić do gabinetu."
+      );
+
+      track("assistant_error");
+    }
+  }
+
+  function restoreConversation() {
+    savedMessages = loadMessages();
+
+    for (const message of savedMessages) {
+      if (!message || !message.role || !message.text) continue;
+
+      addMessage(message.role, message.text, "", false);
+
+      if (message.role === "user" || message.role === "assistant") {
+        history.push({
+          role: message.role,
+          content: message.text,
+        });
+      }
+    }
+
+    syncConversationState();
+  }
+
+  launcher?.addEventListener("click", () => setOpen(true));
+  closeButton?.addEventListener("click", () => setOpen(false));
+
+  clearButton?.addEventListener("click", () => {
+    savedMessages = [];
+    history = [];
+    sessionStorage.removeItem(STORAGE_KEY);
+
+    if (messages) {
+      messages.innerHTML = "";
+    }
+
+    syncConversationState();
+    track("assistant_clear");
+  });
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const question = input?.value || "";
+    input.value = "";
+
+    const submitButton = form.querySelector("button[type='submit']");
+
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    await askAssistant(question);
+
+    if (submitButton) {
+      submitButton.disabled = false;
+    }
+
+    input?.focus();
+  });
+
+  input?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      form?.requestSubmit();
+    }
+  });
+
+  starterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const question =
+        button.getAttribute("data-starter") ||
+        button.textContent ||
+        "";
+
+      askAssistant(question);
+    });
+  });
+
+  root?.querySelectorAll("[data-track]").forEach((element) => {
+    element.addEventListener("click", () => {
+      const eventName = element.getAttribute("data-track");
+
+      if (eventName) {
+        track(eventName);
+      }
+    });
+  });
+
+  function setupMobileMenuWatcher() {
+    const mobileMenuLabels = new Set([
+      "PMU",
+      "BRWI",
+      "USTA",
+      "KRESKI",
+      "USUWANIE",
+      "SZKOLENIA",
+      "PORADNIK",
+      "GALERIA",
+      "CENNIK",
+      "KONTAKT",
+    ]);
+
+    function isMobileViewport() {
+      return (
+        window.matchMedia?.("(max-width: 900px)").matches ??
+        window.innerWidth <= 900
+      );
+    }
+
+    function normalizeText(value) {
+      return String(value || "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toUpperCase();
+    }
+
+    function isElementVisible(element) {
+      if (!element || root?.contains(element)) return false;
+
+      const style = window.getComputedStyle(element);
+
+      if (
+        style.display === "none" ||
+        style.visibility === "hidden" ||
+        Number(style.opacity) < 0.05
+      ) {
+        return false;
+      }
+
+      const rect = element.getBoundingClientRect();
+
+      return (
+        rect.width > 100 &&
+        rect.height > 40 &&
+        rect.bottom > 0 &&
+        rect.top < window.innerHeight
+      );
+    }
+
+    function visibleMobileMenuCardsCount() {
+      const elements = Array.from(
+        document.querySelectorAll("a, button")
+      );
+
+      return elements.filter((element) => {
+        const text = normalizeText(element.textContent);
+
+        if (!mobileMenuLabels.has(text)) return false;
+        if (!isElementVisible(element)) return false;
+
+        const rect = element.getBoundingClientRect();
+
+        return rect.width > 140 && rect.height > 55;
+      }).length;
+    }
+
+    function hasExpandedHeaderButton() {
+      const buttons = Array.from(
+        document.querySelectorAll("button[aria-expanded='true']")
+      );
+
+      return buttons.some((button) => {
+        if (root?.contains(button)) return false;
+
+        const rect = button.getBoundingClientRect();
+
+        return (
+          rect.width > 20 &&
+          rect.height > 20 &&
+          rect.top >= 0 &&
+          rect.top < 160 &&
+          rect.right > window.innerWidth - 180
+        );
+      });
+    }
+
+    function syncAssistantWithMobileMenu() {
+      if (!isMobileViewport()) {
+        root?.classList.remove("is-mobile-menu-open");
+        return;
+      }
+
+      const menuOpen =
+        visibleMobileMenuCardsCount() >= 4 ||
+        hasExpandedHeaderButton();
+
+      if (menuOpen && root?.classList.contains("is-open")) {
+        setOpen(false);
+      }
+
+      root?.classList.toggle(
+        "is-mobile-menu-open",
+        menuOpen
+      );
+    }
+
+    syncAssistantWithMobileMenu();
+
+    const observer = new MutationObserver(() => {
+      window.requestAnimationFrame(
+        syncAssistantWithMobileMenu
+      );
+    });
+
+    observer.observe(document.documentElement, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: [
+        "class",
+        "style",
+        "aria-expanded",
+        "aria-hidden",
+        "data-state",
+        "data-open",
+      ],
+    });
+
+    document.addEventListener("click", () => {
+      window.setTimeout(syncAssistantWithMobileMenu, 80);
+      window.setTimeout(syncAssistantWithMobileMenu, 220);
+    });
+
+    document.addEventListener("touchend", () => {
+      window.setTimeout(syncAssistantWithMobileMenu, 80);
+      window.setTimeout(syncAssistantWithMobileMenu, 220);
+    });
+
+    window.addEventListener(
+      "resize",
+      syncAssistantWithMobileMenu
+    );
+
+    window.setInterval(
+      syncAssistantWithMobileMenu,
+      350
+    );
+  }
+
+  restoreConversation();
+  setupMobileMenuWatcher();
+</script>
