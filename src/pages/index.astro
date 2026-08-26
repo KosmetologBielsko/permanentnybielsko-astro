@@ -4322,6 +4322,50 @@ const structuredData = [
     }
   }
 
+
+  /* FIX V31 — desktop/laptop: CTA bez nakładania się tekstu */
+  @media (min-width: 981px) {
+    :global(.home-page .hero-section-home .hero-actions),
+    :global(.home-page .home-final-cta-actions) {
+      width: min(100%, 1040px) !important;
+      max-width: 1040px !important;
+      grid-template-columns: minmax(220px, 0.95fr) minmax(320px, 1.25fr) minmax(200px, 0.82fr) !important;
+      gap: 16px !important;
+      align-items: stretch !important;
+    }
+
+    :global(.home-page .hero-section-home .hero-actions a),
+    :global(.home-page .home-final-cta-actions a) {
+      min-width: 0 !important;
+      overflow: hidden !important;
+      white-space: normal !important;
+      text-wrap: balance !important;
+      line-height: 1.12 !important;
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      font-size: clamp(0.86rem, 0.86vw, 0.98rem) !important;
+    }
+  }
+
+  @media (min-width: 981px) and (max-width: 1180px) {
+    :global(.home-page .hero-section-home .hero-actions),
+    :global(.home-page .home-final-cta-actions) {
+      width: min(100%, 920px) !important;
+      max-width: 920px !important;
+      grid-template-columns: minmax(210px, 0.95fr) minmax(300px, 1.25fr) minmax(180px, 0.78fr) !important;
+      gap: 12px !important;
+    }
+
+    :global(.home-page .hero-section-home .hero-actions a),
+    :global(.home-page .home-final-cta-actions a) {
+      min-height: 54px !important;
+      padding-left: 13px !important;
+      padding-right: 13px !important;
+      font-size: 0.84rem !important;
+      letter-spacing: -0.025em !important;
+    }
+  }
+
 </style>
 
 
