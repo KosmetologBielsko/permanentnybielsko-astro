@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import PmuServiceCompass from "../components/PmuServiceCompass.astro";
+import PmuExpertAuthority from "../components/PmuExpertAuthority.astro";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
@@ -259,11 +261,20 @@ const structuredData = [
 
             <p class="removal-hero-lead">
               Zbyt ciemny pigment, niekorzystny kształt, chłodny odcień albo
-              nierówna pigmentacja wymagają spokojnej oceny. Celem jest plan,
-              który nie dokłada kolejnej warstwy do istniejącego problemu.
+              nierówna pigmentacja wymagają spokojnej oceny. Usuwanie makijażu permanentnego
+              może oznaczać laserowe rozjaśnianie, remover albo plan etapowy przygotowujący skórę
+              do późniejszej korekty — bez dokładania kolejnej warstwy do istniejącego problemu.
             </p>
 
             <div class="removal-hero-actions" aria-label="Usuwanie PMU — szybkie działania">
+              <a class="button-primary" href="#kwalifikacja">
+                Kwalifikacja <span aria-hidden="true">→</span>
+              </a>
+
+              <a class="button-secondary" href="#cena-usuwania">
+                Cena 200–400 zł
+              </a>
+
               <a
                 class="button-booksy"
                 href={booksyUrl}
@@ -271,14 +282,6 @@ const structuredData = [
                 rel="noopener noreferrer"
               >
                 Booksy <span aria-hidden="true">→</span>
-              </a>
-
-              <a class="button-primary" href="#kwalifikacja">
-                Kwalifikacja <span aria-hidden="true">→</span>
-              </a>
-
-              <a class="button-secondary" href="/cennik-makijaz-permanentny/">
-                Cennik
               </a>
             </div>
 
@@ -311,6 +314,26 @@ const structuredData = [
         </div>
       </section>
 
+      <div id="usuwanie-pmu-informacje">
+        <PmuServiceCompass
+          eyebrow="Usuwanie PMU — szybka decyzja"
+          title="Najpierw pigment i cel. Potem metoda."
+          lead="Nie wybieraj lasera albo removera wyłącznie po nazwie technologii. Najpierw oceniamy kolor, nasycenie, kształt, obszar i to, co chcesz zrobić później — całkowicie rozjaśnić pigment czy przygotować skórę do nowego PMU."
+          items={[
+            { label: "Laser", title: "GLOVCON Q-Switch →", href: "#laser" },
+            { label: "Remover", title: "Bye-Bye Pigment →", href: "#remover" },
+            { label: "Cena", title: "200–400 zł →", href: "#cena-usuwania" },
+            { label: "Kwalifikacja", title: "Ocena starego PMU →", href: "#kwalifikacja" }
+          ]}
+          secondary={[
+            { label: "Kiedy usuwać?", title: "Czy stary PMU trzeba rozjaśnić? →", href: "/poradnik/kiedy-usuwac-stary-makijaz-permanentny/" },
+            { label: "Brwi", title: "Laserowe usuwanie brwi →", href: "/poradnik/laserowe-usuwanie-brwi-permanentnych/" },
+            { label: "Stary pigment", title: "Brwi permanentne po latach →", href: "/poradnik/brwi-permanentne-po-latach/" }
+          ]}
+        />
+      </div>
+
+
       <section class="removal-assessment-section" id="kwalifikacja">
         <div class="container removal-assessment-card">
           <figure class="removal-photo-frame removal-assessment-media">
@@ -340,7 +363,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="removal-methods-section">
+      <section class="removal-methods-section" id="laser-remover">
         <div class="container">
           <div class="removal-section-heading">
             <p class="section-kicker">Dwie ścieżki pracy</p>
@@ -352,7 +375,7 @@ const structuredData = [
           </div>
 
           <div class="removal-methods-grid">
-            <article class="removal-method-card">
+            <article class="removal-method-card" id="remover">
               <figure class="removal-method-media">
                 <img
                   src="/images/usuwanie-pmu-bye-bye-pigment-zestaw.webp"
@@ -375,7 +398,7 @@ const structuredData = [
               </div>
             </article>
 
-            <article class="removal-method-card removal-method-card-turquoise">
+            <article class="removal-method-card removal-method-card-turquoise" id="laser">
               <figure class="removal-method-media">
                 <img
                   src="/images/usuwanie-pmu-glovcon-q-switch-nd-yag.webp"
@@ -399,7 +422,7 @@ const structuredData = [
             </article>
           </div>
 
-          <div class="removal-price-strip" aria-label="Cena usuwania makijażu permanentnego">
+          <div class="removal-price-strip" id="cena-usuwania" aria-label="Cena usuwania makijażu permanentnego">
             <div>
               <span>Laserowe usuwanie PMU</span>
               <strong>200–400 zł</strong>
@@ -439,7 +462,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="removal-indications-section">
+      <section class="removal-indications-section" id="kiedy-usuwac">
         <div class="container">
           <div class="removal-section-heading">
             <p class="section-kicker">Kiedy rozważyć rozjaśnianie?</p>
@@ -493,7 +516,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="removal-process-section">
+      <section class="removal-process-section" id="proces-usuwania">
         <div class="container">
           <div class="removal-section-heading">
             <p class="section-kicker">Proces pracy</p>
@@ -516,7 +539,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="removal-next-step-section">
+      <section class="removal-next-step-section" id="co-po-usuwaniu">
         <div class="container removal-next-step-grid">
           <div class="removal-next-step-copy">
             <p class="section-kicker">Co po rozjaśnianiu?</p>
@@ -557,7 +580,56 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="removal-faq-section">
+
+      <section class="removal-guides-section" id="poradniki-usuwanie">
+        <div class="container">
+          <div class="removal-section-heading">
+            <p class="section-kicker">Decyzja przed zabiegiem</p>
+            <h2>Nie każdy stary makijaż permanentny trzeba usuwać do zera.</h2>
+            <p>
+              Czasem wystarcza kontrolowane rozjaśnienie, czasem potrzebna jest korekta,
+              a w części przypadków najważniejsze jest najpierw odzyskanie przestrzeni
+              na nowy, naturalniejszy projekt.
+            </p>
+          </div>
+
+          <div class="removal-guides-grid">
+            <a href="/poradnik/kiedy-usuwac-stary-makijaz-permanentny/">
+              <span>Decyzja</span>
+              <strong>Kiedy usuwać stary makijaż permanentny?</strong>
+              <p>Rozjaśnianie, korekta czy pozostawienie pigmentu — od czego zacząć.</p>
+            </a>
+
+            <a href="/poradnik/laserowe-usuwanie-brwi-permanentnych/">
+              <span>Laser</span>
+              <strong>Laserowe usuwanie brwi permanentnych</strong>
+              <p>Kiedy warto rozjaśnić pigment i dlaczego nie zawsze celem jest usunięcie go do zera.</p>
+            </a>
+
+            <a href="/poradnik/brwi-permanentne-po-latach/">
+              <span>Stare PMU</span>
+              <strong>Brwi permanentne po latach</strong>
+              <p>Jak ocenić kolor, nasycenie i kształt przed kolejnym zabiegiem.</p>
+            </a>
+
+            <a href="/poradnik/nieudany-makijaz-permanentny-brwi-co-zrobic/">
+              <span>Problem</span>
+              <strong>Nieudane brwi permanentne — co zrobić?</strong>
+              <p>Kiedy poprawiać, kiedy nie przykrywać i kiedy potrzebna jest inna strategia.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+      <div id="ekspert-usuwanie-pmu">
+        <PmuExpertAuthority
+          title="Przy starym PMU najważniejsza jest decyzja, czego nie robić za szybko."
+          lead="Bogusława Herda ocenia nie tylko sam kolor pigmentu, ale również nasycenie, kształt, warstwy wcześniejszej pigmentacji, stan skóry i plan dalszej pracy. Celem nie jest obietnica usunięcia w określonej liczbie zabiegów, tylko bezpieczne prowadzenie kolejnych etapów."
+        />
+      </div>
+
+      <section class="removal-faq-section" id="faq">
         <div class="container">
           <div class="removal-section-heading">
             <p class="section-kicker">Najczęstsze pytania</p>
@@ -589,26 +661,33 @@ const structuredData = [
             Jeśli nie masz pewności, zacznij od kwalifikacji.
           </p>
 
-          <div class="removal-final-actions">
+          <div class="final-actions removal-final-actions">
             <a
-              class="button-booksy"
+              class="final-form"
+              href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
+            >
+              Formularz PMU <span aria-hidden="true">→</span>
+            </a>
+
+            <a class="final-phone" href="tel:+48730900125">
+              Zadzwoń
+            </a>
+
+            <a
+              class="final-booksy"
               href={booksyUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
               Booksy <span aria-hidden="true">→</span>
             </a>
+          </div>
 
-            <a
-              class="button-primary"
-              href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
-            >
-              Formularz PMU <span aria-hidden="true">→</span>
-            </a>
-
-            <a class="button-secondary" href="tel:+48730900125">
-              Zadzwoń
-            </a>
+          <div class="removal-final-secondary">
+            <a href="#laser">Laser</a>
+            <a href="#remover">Remover</a>
+            <a href="#cena-usuwania">Cena 200–400 zł</a>
+            <a href="/poradnik/kiedy-usuwac-stary-makijaz-permanentny/">Kiedy usuwać?</a>
           </div>
         </div>
       </section>
@@ -1795,3 +1874,144 @@ const structuredData = [
     }
   }
 </style>
+
+<style>
+  #kwalifikacja,
+  #laser-remover,
+  #laser,
+  #remover,
+  #cena-usuwania,
+  #kiedy-usuwac,
+  #proces-usuwania,
+  #co-po-usuwaniu,
+  #poradniki-usuwanie,
+  #faq {
+    scroll-margin-top: 105px;
+  }
+
+  .removal-guides-section {
+    padding: 72px 0;
+    background:
+      radial-gradient(circle at 88% 12%, rgba(56, 187, 181, .07), transparent 22rem),
+      rgba(255, 248, 250, .48);
+  }
+
+  .removal-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .removal-guides-grid a {
+    display: flex;
+    min-height: 218px;
+    flex-direction: column;
+    padding: 21px;
+    border: 1px solid rgba(183, 101, 118, .13);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .92);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 14px 38px rgba(89, 53, 67, .05);
+  }
+
+  .removal-guides-grid span {
+    color: #0f7773;
+    font-size: .63rem;
+    font-weight: 850;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .removal-guides-grid strong {
+    margin-top: 30px;
+    color: var(--color-text, #17151d);
+    font-size: 1.18rem;
+    font-weight: 800;
+    line-height: 1.07;
+    letter-spacing: -.04em;
+  }
+
+  .removal-guides-grid p {
+    margin: 10px 0 0;
+    color: var(--color-muted, #6e6670);
+    font-size: .84rem;
+    line-height: 1.52;
+  }
+
+  .removal-final-secondary {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 12px;
+  }
+
+  .removal-final-secondary a {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    border: 1px solid rgba(56, 187, 181, .14);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .74);
+    color: #0f7773;
+    font-size: .69rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  @media (max-width: 980px) {
+    .removal-guides-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+    .removal-guides-section {
+      padding: 50px 0;
+    }
+
+    .removal-guides-grid {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: min(76vw, 285px);
+      grid-template-columns: none;
+      gap: 8px;
+      margin-inline: -16px;
+      padding: 2px 16px 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .removal-guides-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .removal-guides-grid a {
+      min-height: 198px;
+      padding: 18px;
+      border-radius: 21px;
+      scroll-snap-align: start;
+    }
+
+    .removal-final-secondary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .removal-guides-grid {
+      grid-auto-columns: 82vw;
+    }
+
+    .removal-final-secondary {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
