@@ -3,570 +3,177 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 
-const booksyUrl =
-  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+const canonicalPath = "/poradnik/jak-goja-sie-brwi-permanentne/";
+const pageUrl = `https://www.permanentnybielsko.com${canonicalPath}`;
 
-const article = {
-  slug: "jak-goja-sie-brwi-permanentne",
-  title: "Jak goją się brwi permanentne i czego nie robić po zabiegu?",
-  eyebrow: "Poradnik PMU",
-  category: "Gojenie PMU",
-  datePublished: "2026-06-08",
-  dateModified: "2026-08-20",
-  readingTime: "7–9 minut",
-  description: "Jak goją się brwi permanentne? Etapy dzień po dniu, pielęgnacja, mycie brwi, strupki, łuszczenie, kolor po wygojeniu i dopigmentowanie brwi.",
-  lead: "Gojenie brwi permanentnych to proces, który wymaga cierpliwości. Bezpośrednio po zabiegu brwi mogą być ciemniejsze i bardziej wyraźne, później skóra może się łuszczyć, a kolor chwilowo wydawać się nierówny. To, co najważniejsze, ocenia się dopiero po wygojeniu i stabilizacji pigmentu.",
-  shortAnswer: "Brwi permanentne po zabiegu zwykle przechodzą przez kilka etapów: większą intensywność koloru, delikatne napięcie skóry, złuszczanie, chwilowe osłabienie pigmentu i stopniową stabilizację. Po odpadnięciu strupków brwi mogą wydawać się jaśniejsze, a kolor może wracać stopniowo. Nie wolno odrywać strupków, malować świeżej pigmentacji ani oceniać efektu zbyt wcześnie. Dopigmentowanie planuje się dopiero po wygojeniu.",
-  canonicalPath: "/poradnik/jak-goja-sie-brwi-permanentne/",
-  mainService: {
-    href: "/makijaz-permanentny-brwi/",
-    title: "Brwi permanentne",
-  },
-};
+const stages = [
+  { no:"01", label:"Bezpośrednio po", title:"Kolor jest mocniejszy", text:"Świeża pigmentacja zwykle wygląda intensywniej i bardziej graficznie niż po wygojeniu. Skóra może być lekko zaczerwieniona, napięta lub tkliwa.", href:"/poradnik/dlaczego-brwi-permanentne-sa-ciemne-po-zabiegu/", link:"Dlaczego są ciemne? →" },
+  { no:"02", label:"Pierwsze dni", title:"Skóra się regeneruje", text:"Może pojawić się suchość, uczucie ściągnięcia i delikatne złuszczanie. Tempo zależy od skóry, techniki i indywidualnej reakcji.", href:"/poradnik/kiedy-mozna-myc-brwi-po-makijazu-permanentnym/", link:"Jak myć brwi? →" },
+  { no:"03", label:"Złuszczanie", title:"Łuski odchodzą same", text:"Nie odrywaj strupków ani łusek. W tym momencie brwi mogą wyglądać miejscami jaśniej lub nierówno.", href:"#strupki", link:"Co ze strupkami? ↓" },
+  { no:"04", label:"Po złuszczeniu", title:"Pigment może być bardzo jasny", text:"To etap, który często niepokoi najbardziej. Wygląd tuż po odpadnięciu łusek nie jest jeszcze końcową oceną nasycenia.", href:"#po-strupkach", link:"Co dzieje się dalej? ↓" },
+  { no:"05", label:"Po stabilizacji", title:"Dopiero wtedy oceniamy", text:"Po uspokojeniu skóry można ocenić nasycenie i równomierność oraz zdecydować, czy potrzebne jest dopigmentowanie.", href:"#dopigmentowanie", link:"Dopigmentowanie ↓" },
+];
 
-const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
+const triage = [
+  { cls:"ok", title:"Zwykle mieści się w gojeniu", items:["mocniejszy świeży kolor","delikatne napięcie lub tkliwość","suchość, swędzenie i łuszczenie","chwilowe rozjaśnienie po złuszczeniu"] },
+  { cls:"watch", title:"Warto zapytać gabinet", items:["nie wiesz, czy to łuszczenie czy podrażnienie","przypadkowo zerwałaś fragment strupka","kosmetyk wywołał nietypowe pieczenie","wygląd skóry budzi niepokój"] },
+  { cls:"alert", title:"Potrzebna ocena medyczna", items:["zaczerwienienie się rozszerza lub nasila","ból narasta zamiast słabnąć","pojawia się ropa lub otwarta rana","występują gorączka lub dreszcze"] },
+];
+
+const faqItems = [
+  { q:"Jak długo goją się brwi permanentne?", a:"Widoczny etap regeneracji naskórka może zakończyć się wcześniej niż stabilizacja wyglądu pigmentu. Dlatego brak łuszczenia nie oznacza jeszcze, że efekt jest ostateczny. Tempo jest indywidualne." },
+  { q:"Kiedy pojawiają się strupki po brwiach permanentnych?", a:"Złuszczanie lub drobne strupki mogą pojawić się po kilku dniach, ale nie u każdej osoby przebiegają identycznie. Nie należy ich odrywać ani przyspieszać ich odchodzenia." },
+  { q:"Jak wyglądają brwi po odpadnięciu strupków?", a:"Mogą być wyraźnie jaśniejsze, delikatniejsze albo miejscami nierówne. Ten etap nie przesądza jeszcze o finalnym wyglądzie pigmentu." },
+  { q:"Czy pigment może wyglądać, jakby zniknął?", a:"Po złuszczeniu pigment może optycznie wyglądać bardzo jasno lub miejscami słabiej. Wnioski wyciąga się dopiero po stabilizacji skóry." },
+  { q:"Czy można odrywać strupki?", a:"Nie. Odrywanie strupków lub łusek może naruszyć regenerującą się skórę i wpłynąć na gojenie oraz wygląd pigmentacji." },
+  { q:"Czy można myć brwi po makijażu permanentnym?", a:"Higiena jest ważna, ale sposób mycia powinien odpowiadać zaleceniom po zabiegu. Nie należy szorować, pocierać ani nadmiernie moczyć świeżej pigmentacji." },
+  { q:"Kiedy ocenić potrzebę dopigmentowania?", a:"Dopiero po wygojeniu i uspokojeniu skóry. W naszym gabinecie korekta głównego zabiegu jest planowana w przedziale 1–3 miesięcy." },
+];
 
 const structuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": `${pageUrl}#article`,
-    url: pageUrl,
-    headline: article.title,
-    description: article.description,
-    datePublished: article.datePublished,
-    dateModified: article.dateModified,
-    inLanguage: "pl-PL",
-    author: {
-      "@type": "Person",
-      name: "Bogusława Herda",
-      url: "https://www.permanentnybielsko.com/",
-    },
-    publisher: {
-      "@id": "https://www.permanentnybielsko.com/#localbusiness",
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${pageUrl}#webpage`,
-    },
-    citation: [
-      "https://pubmed.ncbi.nlm.nih.gov/38901732/",
-      "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet",
-      "https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/caring-for-tattooed-skin"
-    ],
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "@id": `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Strona główna",
-        item: "https://www.permanentnybielsko.com/",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Poradnik PMU",
-        item: "https://www.permanentnybielsko.com/poradnik/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: article.title,
-        item: pageUrl,
-      },
-    ],
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${pageUrl}#faq`,
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Jak długo goją się brwi permanentne?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Pierwszy etap gojenia trwa zwykle kilkanaście dni, ale pełniejszą ocenę efektu wykonuje się dopiero po stabilizacji skóry. W praktyce dopigmentowanie planuje się najczęściej po kilku tygodniach, kiedy widać, jak pigment przyjął się w skórze.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Jak wyglądają brwi permanentne po odpadnięciu strupków?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Po odpadnięciu strupków brwi mogą wyglądać jaśniej, delikatniej albo chwilowo nierówno. To nie zawsze oznacza, że pigment się nie przyjął. Skóra nadal się stabilizuje, a kolor może stopniowo wracać i wyglądać inaczej niż w dniu złuszczania.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Czy brwi permanentne mogą zniknąć po złuszczeniu?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "W trakcie gojenia może pojawić się etap, w którym pigment wygląda bardzo jasno albo jakby częściowo zniknął. Często jest to związane z regeneracją naskórka i tak zwaną fazą przejściową. Efekt ocenia się dopiero po pełniejszym wygojeniu, nie w połowie procesu.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Kiedy kolor brwi permanentnych wraca po gojeniu?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Kolor może stabilizować się stopniowo przez kilka tygodni. U części osób po złuszczeniu wydaje się jaśniejszy, a później nabiera bardziej naturalnego wyglądu. Ostateczną ocenę nasycenia i równomierności wykonuje się dopiero po czasie wskazanym przez gabinet.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Czy brwi permanentne po zabiegu zawsze są bardzo ciemne?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Często są wyraźniejsze niż efekt końcowy, ale intensywność zależy od techniki, skóry i koloru pigmentu. Świeży kolor nie jest ostatecznym rezultatem, dlatego brwi ocenia się dopiero po wygojeniu.",
-        },
-      }
-    ],
-  },
+  { "@context":"https://schema.org", "@type":"Article", "@id":`${pageUrl}#article`, url:pageUrl, headline:"Jak goją się brwi permanentne i czego nie robić po zabiegu?", description:"Jak goją się brwi permanentne? Etapy gojenia, strupki, łuszczenie, ciemny kolor, brwi po odpadnięciu strupków, pielęgnacja i moment oceny pigmentu.", dateModified:"2026-08-27", inLanguage:"pl-PL", author:{"@type":"Person",name:"Bogusława Herda",url:"https://www.permanentnybielsko.com/"}, publisher:{"@id":"https://www.permanentnybielsko.com/#localbusiness"}, mainEntityOfPage:{"@type":"WebPage","@id":`${pageUrl}#webpage`}, citation:["https://pubmed.ncbi.nlm.nih.gov/38901732/","https://pubmed.ncbi.nlm.nih.gov/34605159/","https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/tattoo-skin-reactions","https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/caring-for-tattooed-skin"] },
+  { "@context":"https://schema.org", "@type":"BreadcrumbList", itemListElement:[{"@type":"ListItem",position:1,name:"Strona główna",item:"https://www.permanentnybielsko.com/"},{"@type":"ListItem",position:2,name:"Poradnik PMU",item:"https://www.permanentnybielsko.com/poradnik/"},{"@type":"ListItem",position:3,name:"Jak goją się brwi permanentne?",item:pageUrl}] },
+  { "@context":"https://schema.org", "@type":"FAQPage", mainEntity:faqItems.map(i=>({"@type":"Question",name:i.q,acceptedAnswer:{"@type":"Answer",text:i.a}})) },
 ];
 ---
 
-<Layout
-  title={`${article.title} | Poradnik PMU Bogusławy Herda`}
-  description={article.description}
-  canonicalPath={article.canonicalPath}
-  structuredData={structuredData}
->
-  <div class="expert-article-page">
+<Layout title="Jak goją się brwi permanentne i czego nie robić po zabiegu? | Poradnik PMU Bogusławy Herda" description="Jak goją się brwi permanentne? Etapy gojenia, strupki, łuszczenie, ciemny kolor, brwi po odpadnięciu strupków, pielęgnacja i moment oceny pigmentu." canonicalPath={canonicalPath} structuredData={structuredData}>
+  <div class="heal-page">
     <Header />
-
     <main>
-      <section class="expert-article-hero">
-        <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
-        <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
-
-        <div class="container expert-article-hero-grid">
-          <div class="expert-article-hero-copy">
-            <p class="section-kicker">{article.eyebrow}</p>
-
-            <div class="expert-article-meta">
-              <span>Ekspercki poradnik</span>
-              <span>{article.category}</span>
-              <span>{article.readingTime}</span>
-            </div>
-
-            <h1>{article.title}</h1>
-            <p class="expert-article-lead">{article.lead}</p>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy card">
+            <p class="kicker">Poradnik PMU</p>
+            <div class="meta"><span>Gojenie brwi</span><span>10–12 minut</span><span>27.08.2026</span></div>
+            <h1>Jak goją się brwi permanentne i czego nie robić po zabiegu?</h1>
+            <p class="lead">Gojenie nie jest liniowe. Świeże brwi mogą być mocniejsze, później skóra zaczyna się złuszczać, a po odpadnięciu łusek kolor może chwilowo wyglądać bardzo jasno lub nierówno. Ostatecznego efektu nie ocenia się w połowie procesu.</p>
           </div>
-
-          <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
-            <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
-            <h2>Najważniejsze bez powtarzania.</h2>
-            <p>{article.shortAnswer}</p>
+          <aside class="hero-answer card">
+            <p class="answer-label">Odpowiedź w 20 sekund</p>
+            <h2>Ciemniej → łuszczenie → jaśniej → stabilizacja.</h2>
+            <p>Nie odrywaj strupków ani łusek, nie przyspieszaj gojenia i trzymaj się zaleceń gabinetu. Jeśli zaczerwienienie, ból lub obrzęk narastają, pojawia się ropa, gorączka albo dreszcze — potrzebna jest ocena medyczna.</p>
+            <div class="answer-actions"><a href="#etapy">Zobacz etapy ↓</a><a href="#normalne-czy-nie">Czy to normalne? ↓</a></div>
           </aside>
         </div>
       </section>
 
-      <section class="expert-article-nav-section">
+      <section class="timeline" id="etapy">
         <div class="container">
-          <nav class="expert-article-nav" aria-label="Spis treści artykułu">
-            <a href="#etapy-gojenia">Etapy gojenia</a>
-            <a href="#pierwsze-dni">Pierwsze dni</a>
-            <a href="#dopigmentowanie">Dopigmentowanie</a>
-            <a href="#praktyka">Praktyka</a>
-            <a href="#zrodla">Źródła</a>
-            <a href="#faq">FAQ</a>
-          </nav>
+          <div class="section-head row-head"><div><p class="kicker">Orientacyjna oś gojenia</p><h2>Nie patrz na jeden dzień. Patrz na cały proces.</h2></div><p>Na telefonie przesuń karty palcem.</p></div>
+          <div class="timeline-scroll">
+            {stages.map(s => <article class="timeline-card card"><div class="card-top"><span>{s.no}</span><em>{s.label}</em></div><h3>{s.title}</h3><p>{s.text}</p><a href={s.href}>{s.link}</a></article>)}
+          </div>
+          <p class="note">To schemat orientacyjny, nie kalendarz dla każdej skóry. Szczegółową oś czasu zostawiamy w osobnym poradniku, żeby nie tworzyć dwóch stron o identycznej treści.</p>
+          <div class="bridge"><a href="/poradnik/brwi-permanentne-dzien-po-dniu/"><span>Szczegółowo</span><strong>Brwi dzień po dniu →</strong></a><a href="/poradnik/czego-nie-wolno-po-makijazu-permanentnym-brwi/"><span>Pielęgnacja</span><strong>Czego nie robić →</strong></a><a href="/makijaz-permanentny-brwi/#efekty-brwi"><span>Efekty</span><strong>Zobacz brwi →</strong></a></div>
         </div>
       </section>
 
-      <section class="expert-article-section" id="etapy-gojenia">
+      <section class="section soft" id="normalne-czy-nie">
         <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Etapy gojenia</p>
-            <h2>Etapy gojenia brwi permanentnych dzień po dniu.</h2>
-          </div>
-
-          <div class="expert-legacy-copy">
-            <p>Brwi permanentne nie goją się w jeden dzień. To proces, w którym kolor, nasycenie i wygląd skóry mogą się zmieniać. Dlatego nie warto oceniać efektu ani po pierwszej dobie, ani w momencie złuszczania.</p>
-            <p>Najczęstszy błąd to panika w połowie gojenia. Brwi mogą najpierw wydawać się zbyt ciemne, później zbyt jasne albo nierówne. Dopiero po stabilizacji skóry można ocenić, jak pigment przyjął się naprawdę.</p>
-          </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Dzień 1–2</h3>
-              <p>Kolor zwykle jest mocniejszy, a brwi mogą wyglądać intensywniej niż finalny efekt.</p>
-            </article>
-            <article>
-              <h3>Dzień 3–5</h3>
-              <p>Skóra może być sucha, napięta albo lekko tkliwa. To moment, w którym trzeba zachować delikatność.</p>
-            </article>
-            <article>
-              <h3>Dzień 5–10</h3>
-              <p>Może pojawić się łuszczenie. Nie wolno odrywać strupków, drapać ani przyspieszać złuszczania.</p>
-            </article>
-            <article>
-              <h3>Po 4–8 tygodniach</h3>
-              <p>Dopiero wtedy ocenia się efekt i podejmuje decyzję o ewentualnym dopigmentowaniu.</p>
-            </article>
-          </div>
+          <div class="section-head"><p class="kicker">Najważniejszy filtr</p><h2>Normalne gojenie, pytanie do gabinetu czy objaw medyczny?</h2><p>Nie każdy rumień, suchość czy swędzenie oznacza komplikację. Ważny jest kierunek zmian: typowe objawy po zabiegu powinny z czasem słabnąć, a nie narastać.</p></div>
+          <div class="triage-grid">{triage.map(g => <article class={`triage card ${g.cls}`}><h3><i></i>{g.title}</h3><ul>{g.items.map(x=><li>{x}</li>)}</ul></article>)}</div>
+          <div class="medical card"><div><p class="kicker">Ważne</p><h3>Jeśli objawy narastają, nie czekaj na „koniec gojenia”.</h3><p>American Academy of Dermatology wskazuje m.in. nasilające się lub rozszerzające zaczerwienienie, pogarszający się ból, ropę, gorączkę i dreszcze jako sygnały możliwej infekcji po tatuażu.</p></div><a href="/poradnik/reakcja-alergiczna-czy-normalne-gojenie-po-pmu/">Reakcja alergiczna czy gojenie? →</a></div>
         </div>
       </section>
 
-      <section class="expert-article-section expert-article-soft" id="pierwsze-dni">
+      <section class="section" id="strupki">
+        <div class="container split card">
+          <div><p class="kicker">Strupki po brwiach</p><h2>Największy błąd to sprawdzanie palcem, czy „już schodzą”.</h2><p>Podczas regeneracji mogą pojawić się drobne łuski albo strupki. Nie odrywaj ich, nie skub, nie zdrapuj i nie pocieraj. Mechaniczne usunięcie fragmentu gojącej się skóry może zwiększyć podrażnienie i wpłynąć na wygląd pigmentacji.</p><p>Jedna brew może złuszczać się szybciej niż druga. Nie próbuj wyrównywać tego procesu.</p></div>
+          <aside class="rule"><span>Zasada</span><strong>Nie odrywaj.</strong><strong>Nie drap.</strong><strong>Nie przyspieszaj.</strong><a href="/poradnik/czego-nie-wolno-po-makijazu-permanentnym-brwi/">Pełna lista zakazów →</a></aside>
+        </div>
+      </section>
+
+      <section class="section soft" id="po-strupkach">
         <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Pierwsze dni</p>
-            <h2>Brwi po zabiegu mogą być ciemniejsze niż finalny efekt.</h2>
-          </div>
-
-          <div class="expert-legacy-copy">
-            <p>Bezpośrednio po pigmentacji brwi zwykle są intensywniejsze, bardziej wyraźne i mogą wydawać się mocniejsze niż efekt, którego oczekujesz po wygojeniu. To naturalny etap po zabiegu, a nie ostateczny rezultat. Skóra pracuje, a pigment potrzebuje czasu, żeby się ustabilizować.</p>
-            <p>W pierwszych dniach ważny jest spokój i obserwacja skóry. Nie należy porównywać świeżych brwi ze zdjęciami wygojonych efektów, bo to dwa różne etapy. Dobra pigmentacja ma być oceniana po procesie gojenia, a nie tylko w dniu zabiegu.</p>
-          </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Świeży kolor</h3>
-              <p>Może być ciemniejszy i bardziej nasycony niż finalny efekt po wygojeniu.</p>
-            </article>
-            <article>
-              <h3>Reakcja skóry</h3>
-              <p>Delikatne napięcie, tkliwość albo uczucie suchości mogą pojawić się w pierwszych dniach.</p>
-            </article>
-          </div>
+          <div class="section-head"><p class="kicker">Po odpadnięciu strupków</p><h2>„Brwi zniknęły” — to zdanie bardzo często pada za wcześnie.</h2><p>Po złuszczeniu brwi mogą wyglądać wyraźnie jaśniej albo miejscami nierówno. Nie oznacza to automatycznie, że pigment się nie przyjął lub zabieg się nie udał.</p></div>
+          <div class="color-flow"><div><span>01</span><strong>Świeżo</strong><p>ciemniej i wyraźniej</p></div><i>→</i><div><span>02</span><strong>Złuszczanie</strong><p>nierówno i „w plamkach”</p></div><i>→</i><div><span>03</span><strong>Po łuskach</strong><p>często dużo jaśniej</p></div><i>→</i><div><span>04</span><strong>Stabilizacja</strong><p>dopiero wtedy ocena</p></div></div>
+          <div class="pill-links"><a href="/poradnik/dlaczego-brwi-permanentne-sa-ciemne-po-zabiegu/">Dlaczego świeże brwi są ciemne? →</a><a href="/poradnik/dlaczego-pigment-po-wygojeniu-miejscami-znika/">Dlaczego pigment miejscami „znika”? →</a></div>
         </div>
       </section>
 
-      <section class="expert-article-section" id="dopigmentowanie">
+      <section class="section" id="pielegnacja">
         <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Dopigmentowanie</p>
-            <h2>Dopigmentowanie nie jest poprawką po błędzie, tylko etapem oceny.</h2>
+          <div class="section-head"><p class="kicker">Pielęgnacja</p><h2>Mniej przypadkowych działań. Więcej konsekwencji.</h2><p>Najbezpieczniej trzymać się zaleceń przekazanych po zabiegu i nie drażnić regenerującej się skóry.</p></div>
+          <div class="care-grid">
+            <article class="care card"><b class="red"></b><h3>Nie odrywaj</h3><p>Łuski powinny odejść samoistnie.</p></article>
+            <article class="care card"><b class="red"></b><h3>Nie szoruj</h3><p>Bez ręcznika, peelingu i mechanicznego pocierania.</p></article>
+            <article class="care card"><b class="red"></b><h3>Nie eksperymentuj</h3><p>Nie nakładaj przypadkowych maści, olejów i silnych kosmetyków.</p></article>
+            <article class="care card"><b></b><h3>Dbaj o higienę</h3><p>Mycie wykonuj delikatnie, zgodnie z zaleceniami gabinetu.</p></article>
+            <article class="care card"><b></b><h3>Ogranicz drażnienie</h3><p>W aktywnym gojeniu unikaj mocnego moczenia, tarcia i przegrzewania okolicy.</p></article>
+            <article class="care card"><b></b><h3>Chroń po wygojeniu</h3><p>Ochrona UV ma znaczenie dla skóry i wyglądu pigmentu.</p></article>
           </div>
-
-          <div class="expert-legacy-copy">
-            <p>Po wygojeniu można realnie ocenić, jak pigment przyjął się w skórze, czy nasycenie jest odpowiednie i czy potrzebne jest dopracowanie. U jednej osoby efekt może być równy i wystarczający, u innej skóra może oddać więcej pigmentu.</p>
-            <p>Dopigmentowanie, jeśli jest potrzebne, pozwala dopracować efekt po wygojeniu. Nie powinno się go planować zbyt wcześnie, bo skóra musi zakończyć pierwszy etap regeneracji.</p>
-          </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Ocena po czasie</h3>
-              <p>Dopiero wygojone brwi pokazują, czy potrzebne jest dodatkowe nasycenie.</p>
-            </article>
-            <article>
-              <h3>Indywidualna reakcja</h3>
-              <p>Typ skóry, pielęgnacja i wcześniejsze pigmentacje wpływają na efekt po gojeniu.</p>
-            </article>
-          </div>
+          <div class="bridge"><a href="/poradnik/kiedy-mozna-myc-brwi-po-makijazu-permanentnym/"><span>Mycie</span><strong>Jak myć brwi →</strong></a><a href="/poradnik/czym-smarowac-brwi-po-makijazu-permanentnym/"><span>Kosmetyki</span><strong>Czym smarować →</strong></a><a href="/poradnik/czego-nie-wolno-po-makijazu-permanentnym-brwi/"><span>Zakazy</span><strong>Sauna, basen, słońce →</strong></a></div>
         </div>
       </section>
 
+      <section class="section soft" id="dopigmentowanie">
+        <div class="container split card">
+          <div><p class="kicker">Dopigmentowanie i korekta</p><h2>Nie poprawiamy brwi w połowie gojenia.</h2><p>Dopiero wygojona skóra pokazuje, jak równomiernie przyjął się pigment. W aktualnym cenniku korekta głównego zabiegu brwi jest ujęta w cenie i wykonywana w przedziale 1–3 miesięcy.</p><p>Dopigmentowanie nie jest automatycznie „naprawą błędu”. To moment, w którym po wygojeniu można świadomie dopracować efekt.</p><div class="pill-links"><a href="/cennik-makijaz-permanentny/#price-group-1">Cennik brwi i korekta →</a><a href="/poradnik/makijaz-permanentny-brwi-cena/">Co obejmuje cena brwi? →</a></div></div>
+          <aside class="rule"><span>Nie myl pojęć</span><div><strong>Korekta</strong><p>dopracowanie głównego zabiegu po gojeniu</p></div><div><strong>Odświeżenie</strong><p>powrót do pigmentacji po dłuższym czasie</p></div><a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">Korekta a odświeżenie →</a></aside>
+        </div>
+      </section>
 
-      <section class="expert-article-section">
+      <section class="section">
         <div class="container">
-          <div class="expert-source-inline">
-            <span>Ważne</span>
-            <h3 style="margin:0 0 9px;color:var(--color-text,#17151d);font-size:1.25rem;">Kiedy skontaktować się z gabinetem?</h3>
-            <p>Jeśli pojawia się silny niepokój, nietypowa reakcja skóry, duży dyskomfort albo nie wiesz, czy gojenie przebiega prawidłowo, najlepiej skontaktować się z gabinetem. Nie warto samodzielnie usuwać strupków, nakładać przypadkowych preparatów ani szukać szybkich rozwiązań w internecie.</p>
-          </div>
+          <div class="section-head"><p class="kicker">Metoda i skóra</p><h2>Nie każda technika i nie każda skóra goją się identycznie.</h2><p>Cieniowanie, włos maszynowy i włos z cieniem różnią się sposobem budowania efektu. Na gojenie wpływa też kondycja skóry i wcześniejsze pigmentacje.</p></div>
+          <div class="links-grid"><a class="card" href="/makijaz-permanentny-brwi/#metody-brwi"><span>Usługa</span><h3>Zobacz metody brwi →</h3><p>Cieniowanie, włos, włos z cieniem, Silky i korekta starego PMU.</p></a><a class="card" href="/poradnik/czy-kazda-skora-nadaje-sie-do-metody-wloskowej/"><span>Skóra</span><h3>Czy metoda włoskowa jest dla każdego? →</h3><p>Warunki skóry a dobór techniki.</p></a><a class="card" href="/poradnik/skora-tlusta-a-brwi-permanentne/"><span>Typ skóry</span><h3>Skóra tłusta a brwi →</h3><p>Co zmienia sebum i porowatość.</p></a></div>
         </div>
       </section>
 
-      <section class="expert-article-section" id="praktyka">
-        <div class="container expert-author-note">
-          <div>
-            <p class="section-kicker">Praktyka gabinetowa</p>
-            <h2>Jak przekładam tę wiedzę na realny zabieg?</h2>
-            <p>
-              Nie stosuję jednej odpowiedzi dla każdej skóry i każdej klientki.
-              Najpierw oceniam aktualny stan skóry, wcześniejszy makijaż permanentny,
-              naturalną anatomię oraz oczekiwany efekt. Dopiero potem wybieramy metodę
-              i plan postępowania.
-            </p>
-          </div>
-
-          <aside>
-            <span>Bogusława Herda</span>
-            <strong>Trenerka Long-Time-Liner®</strong>
-            <strong>Autorka Silky Hairstroke Brows</strong>
-            <a href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
-              Przejdź do kwalifikacji PMU →
-            </a>
-          </aside>
+      <section class="section soft" id="praktyka">
+        <div class="container split card author">
+          <div><p class="kicker">Praktyka gabinetowa</p><h2>Najczęstszy problem? Ocenianie brwi w najgorszym możliwym momencie.</h2><p>Najwięcej niepokoju pojawia się zwykle wtedy, gdy brwi już nie wyglądają jak świeżo po zabiegu, ale jeszcze nie są ustabilizowane. Dlatego cały proces omawiam z wyprzedzeniem, a ocenę jakości pigmentacji zostawiamy na moment, kiedy skóra rzeczywiście pozwala ją ocenić.</p></div>
+          <aside class="rule"><span>Bogusława Herda</span><strong>8× mistrzyni PMU</strong><strong>Wicemistrzyni świata</strong><strong>Europejski trener Long-Time-Liner®</strong><a href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj doświadczenie →</a></aside>
         </div>
       </section>
 
-      <section class="expert-article-section expert-article-related-section">
+      <section class="section" id="zrodla">
         <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Powiązane tematy</p>
-            <h2>Nie opisujemy wszystkiego drugi raz — przejdź do właściwego zagadnienia.</h2>
-          </div>
-
-          <div class="expert-related-grid">
-            <a href="/makijaz-permanentny-brwi/">
-              <h3>Brwi permanentne</h3>
-              <p>Poznaj ofertę makijażu permanentnego brwi w Bielsku-Białej.</p>
-              <span>Czytaj dalej →</span>
-            </a>
-            <a href="/cennik-makijaz-permanentny/">
-              <h3>Cennik makijażu permanentnego</h3>
-              <p>Sprawdź ceny brwi permanentnych, korekty, odświeżenia i usuwania PMU.</p>
-              <span>Czytaj dalej →</span>
-            </a>
-            <a href="/poradnik/czego-nie-wolno-po-makijazu-permanentnym-brwi/">
-              <h3>Czego nie wolno po PMU brwi?</h3>
-              <p>Zobacz najważniejsze zakazy po zabiegu i błędy, których warto unikać.</p>
-              <span>Czytaj dalej →</span>
-            </a>
-            <a href="/poradnik/brwi-permanentne-dzien-po-dniu/">
-              <h3>Brwi permanentne dzień po dniu — jak zmieniają się po zabiegu?</h3>
-              <p>Rozwinięcie tego zagadnienia w osobnym poradniku.</p>
-              <span>Czytaj dalej →</span>
-            </a>
-          </div>
+          <div class="section-head"><p class="kicker">Źródła i bezpieczeństwo</p><h2>Praktykę gabinetową oddzielamy od informacji medycznych.</h2><p>Opis wyglądu brwi podczas gojenia wynika z praktyki PMU. Informacje o powikłaniach i sygnałach alarmowych opieramy na źródłach dermatologicznych.</p></div>
+          <div class="source-grid"><a class="card" href="https://pubmed.ncbi.nlm.nih.gov/38901732/" target="_blank" rel="noopener noreferrer"><span>2024 · JAAD</span><h3>Permanent makeup: technique, regulation and complications</h3><p>Przegląd PMU i możliwych powikłań.</p><strong>PubMed ↗</strong></a><a class="card" href="https://pubmed.ncbi.nlm.nih.gov/34605159/" target="_blank" rel="noopener noreferrer"><span>2021 · J Cosmet Dermatol</span><h3>Complications of tattoos and permanent makeup</h3><p>Analiza klinicznych powikłań tatuaży i PMU.</p><strong>PubMed ↗</strong></a><a class="card" href="https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/tattoo-skin-reactions" target="_blank" rel="noopener noreferrer"><span>AAD</span><h3>Tattoo skin reactions</h3><p>Sygnały infekcji i reakcje skóry.</p><strong>AAD ↗</strong></a><a class="card" href="https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/caring-for-tattooed-skin" target="_blank" rel="noopener noreferrer"><span>AAD</span><h3>Caring for tattooed skin</h3><p>Pielęgnacja i ochrona tatuażowanej skóry.</p><strong>AAD ↗</strong></a></div>
+          <p class="note medical-note">Poradnik ma charakter edukacyjny. Nietypowej lub nasilającej się reakcji skóry nie diagnozuje się przez internet.</p>
         </div>
       </section>
 
-      <section class="expert-article-section" id="zrodla">
+      <section class="section soft">
         <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Źródła i materiały odniesienia</p>
-            <h2>Na czym opieramy informacje medyczne i techniczne?</h2>
-            <p>
-              Wiedzę gabinetową oddzielamy od informacji dermatologicznych i instytucjonalnych.
-              Tam, gdzie nie istnieje jedna uniwersalna reguła, nie przedstawiamy jej jako pewnika.
-            </p>
-          </div>
-
-          <div class="expert-source-grid">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/38901732/" target="_blank" rel="noopener noreferrer">
-              <span>JAAD / PubMed</span>
-              <h3>Permanent makeup: A review of its technique, regulation, and complications</h3>
-              <p>Przegląd dermatologiczny PMU: technika, regulacje oraz możliwe powikłania.</p>
-              <strong>Otwórz źródło ↗</strong>
-            </a>
-            <a href="https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet" target="_blank" rel="noopener noreferrer">
-              <span>FDA</span>
-              <h3>Tattoos & Permanent Makeup: Fact Sheet</h3>
-              <p>Informacje instytucjonalne o permanent makeup jako formie pigmentacji skóry, bezpieczeństwie i możliwych reakcjach.</p>
-              <strong>Otwórz źródło ↗</strong>
-            </a>
-            <a href="https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/caring-for-tattooed-skin" target="_blank" rel="noopener noreferrer">
-              <span>American Academy of Dermatology</span>
-              <h3>Caring for tattooed skin</h3>
-              <p>Zalecenia dermatologów dotyczące ochrony i pielęgnacji pigmentowanej skóry.</p>
-              <strong>Otwórz źródło ↗</strong>
-            </a>
-          </div>
-
-          <p class="expert-medical-note">
-            Treść ma charakter edukacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej.
-            Przy nasilonych, nietypowych lub utrzymujących się objawach skontaktuj się z lekarzem.
-          </p>
+          <div class="section-head"><p class="kicker">Powiązane odpowiedzi</p><h2>Przejdź do pytania, które masz teraz.</h2></div>
+          <div class="related-grid"><a class="card" href="/poradnik/brwi-permanentne-dzien-po-dniu/"><span>Oś czasu</span><h3>Brwi dzień po dniu</h3><p>Szczegółowy przebieg zmian.</p><strong>Czytaj →</strong></a><a class="card" href="/poradnik/kiedy-mozna-myc-brwi-po-makijazu-permanentnym/"><span>Higiena</span><h3>Kiedy można myć brwi?</h3><p>Delikatne mycie i osuszanie.</p><strong>Czytaj →</strong></a><a class="card" href="/poradnik/dlaczego-pigment-po-wygojeniu-miejscami-znika/"><span>Kolor</span><h3>Dlaczego pigment „znika”?</h3><p>Jaśniejszy i nierówny etap.</p><strong>Czytaj →</strong></a><a class="card" href="/makijaz-permanentny-brwi/#efekty-brwi"><span>Efekty</span><h3>Zobacz brwi permanentne</h3><p>Galeria zostaje na stronie usługi.</p><strong>Zobacz →</strong></a></div>
         </div>
       </section>
 
-      <section class="expert-article-section expert-article-faq-section" id="faq">
+      <section class="section" id="faq">
         <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">FAQ</p>
-            <h2>Najczęstsze pytania związane z tym tematem.</h2>
-          </div>
-
-          <div class="expert-faq-list">
-            <details>
-              <summary>
-                <span>Jak długo goją się brwi permanentne?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Pierwszy etap gojenia trwa zwykle kilkanaście dni, ale pełniejszą ocenę efektu wykonuje się dopiero po stabilizacji skóry. W praktyce dopigmentowanie planuje się najczęściej po kilku tygodniach, kiedy widać, jak pigment przyjął się w skórze.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Jak wyglądają brwi permanentne po odpadnięciu strupków?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Po odpadnięciu strupków brwi mogą wyglądać jaśniej, delikatniej albo chwilowo nierówno. To nie zawsze oznacza, że pigment się nie przyjął. Skóra nadal się stabilizuje, a kolor może stopniowo wracać i wyglądać inaczej niż w dniu złuszczania.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Czy brwi permanentne mogą zniknąć po złuszczeniu?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>W trakcie gojenia może pojawić się etap, w którym pigment wygląda bardzo jasno albo jakby częściowo zniknął. Często jest to związane z regeneracją naskórka i tak zwaną fazą przejściową. Efekt ocenia się dopiero po pełniejszym wygojeniu, nie w połowie procesu.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Kiedy kolor brwi permanentnych wraca po gojeniu?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Kolor może stabilizować się stopniowo przez kilka tygodni. U części osób po złuszczeniu wydaje się jaśniejszy, a później nabiera bardziej naturalnego wyglądu. Ostateczną ocenę nasycenia i równomierności wykonuje się dopiero po czasie wskazanym przez gabinet.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Czy brwi permanentne po zabiegu zawsze są bardzo ciemne?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Często są wyraźniejsze niż efekt końcowy, ale intensywność zależy od techniki, skóry i koloru pigmentu. Świeży kolor nie jest ostatecznym rezultatem, dlatego brwi ocenia się dopiero po wygojeniu.</p></div>
-            </details>
-          </div>
+          <div class="section-head"><p class="kicker">FAQ</p><h2>Najczęstsze pytania o gojenie brwi permanentnych.</h2></div>
+          <div class="faq">{faqItems.map(i=><details class="card"><summary><span>{i.q}</span><b></b></summary><p>{i.a}</p></details>)}</div>
         </div>
       </section>
 
-      <section class="expert-article-section">
-        <div class="container expert-final-card">
-          <p class="signature cta-signature">Powrót do natury</p>
-          <h2>Chcesz ocenić swój przypadek przed zabiegiem?</h2>
-          <p>
-            Jeśli wiesz, jakiego zabiegu potrzebujesz — sprawdź terminy.
-            Jeśli masz stare PMU, wcześniejsze zabiegi albo wątpliwości, zacznij od kwalifikacji.
-          </p>
-
-          <div class="expert-final-actions">
-            <a class="expert-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-              Booksy <span aria-hidden="true">→</span>
-            </a>
-
-            <a class="button-primary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
-              Formularz PMU <span aria-hidden="true">→</span>
-            </a>
-
-            <a class="button-secondary" href={article.mainService.href}>
-              {article.mainService.title}
-            </a>
-          </div>
-
-          <a class="expert-back-link" href="/poradnik/">
-            ← Wróć do całego poradnika PMU
-          </a>
-        </div>
-      </section>
+      <section class="section"><div class="container final card"><p class="signature cta-signature">Powrót do natury</p><h2>Masz świeże brwi i coś Cię niepokoi?</h2><p>Jeśli jesteś naszą klientką — skontaktuj się z gabinetem. Jeśli dopiero rozważasz zabieg, zobacz efekty, metody albo wyślij formularz PMU.</p><div class="final-actions"><a class="green" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Formularz PMU →</a><a class="white" href="tel:+48730900125">Zadzwoń</a><a class="green" href={booksyUrl} target="_blank" rel="noopener noreferrer">Booksy →</a></div><div class="final-secondary"><a href="/makijaz-permanentny-brwi/#efekty-brwi">Efekty brwi</a><a href="/makijaz-permanentny-brwi/#metody-brwi">Metody brwi</a><a href="/cennik-makijaz-permanentny/#price-group-1">Cennik brwi</a></div><a class="back" href="/poradnik/">← Wróć do poradnika PMU</a></div></section>
     </main>
-
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .expert-article-page{min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 82% 10%,rgba(56,187,181,.10),transparent 28rem),radial-gradient(circle at 12% 42%,rgba(201,127,143,.10),transparent 26rem),linear-gradient(180deg,#fffdfd 0%,#fff8fa 48%,#fff 100%)}
-  .expert-article-page*,.expert-article-page *::before,.expert-article-page *::after{box-sizing:border-box}.expert-article-page main,.expert-article-page section,.expert-article-page .container,.expert-article-page article,.expert-article-page div{min-width:0}
-  .expert-article-page .section-kicker{display:inline-flex;width:fit-content;max-width:100%;min-height:31px;align-items:center;justify-content:center;margin:0 0 17px;padding:0 12px;border:1px solid rgba(56,187,181,.18);border-radius:999px;background:rgba(219,246,243,.76);color:var(--color-turquoise-dark,#0f7773);font:850 .67rem/1 inherit;letter-spacing:.15em;text-transform:uppercase}.expert-article-page .section-kicker-light{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.13);color:#fff}
-  .expert-article-hero{padding:144px 0 66px}.expert-article-hero-grid{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(340px,.87fr);gap:22px;align-items:stretch}.expert-article-hero-copy,.expert-article-answer,.expert-timeline-card,.expert-article-note,.expert-factor-grid article,.expert-source-inline,.expert-area-grid a,.expert-author-note,.expert-related-grid a,.expert-source-grid a,.expert-faq-list details,.expert-final-card{border:1px solid rgba(183,101,118,.14);box-shadow:0 18px 54px rgba(89,53,67,.065)}
-  .expert-article-hero-copy{padding:clamp(34px,5vw,62px);border-radius:38px;background:radial-gradient(circle at 96% 10%,rgba(56,187,181,.07),transparent 16rem),rgba(255,255,255,.84)}.expert-article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}.expert-article-meta span{display:inline-flex;min-height:29px;align-items:center;padding:0 11px;border-radius:999px;background:rgba(255,248,251,.94);color:var(--color-muted,#6e6670);font-size:.68rem;font-weight:790;letter-spacing:.08em;text-transform:uppercase}.expert-article-meta span:first-child{background:rgba(56,187,181,.12);color:var(--color-turquoise-dark,#0f7773)}
-  .expert-article-hero-copy h1{max-width:1050px;margin:0;color:var(--color-text,#17151d);font-size:clamp(2.8rem,4.8vw,5.4rem);font-weight:780;line-height:1.01;letter-spacing:-.074em}.expert-article-lead{max-width:900px;margin:24px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(1.04rem,1.3vw,1.2rem);line-height:1.7}
-  .expert-article-answer{display:flex;min-height:100%;flex-direction:column;justify-content:flex-end;padding:clamp(30px,4vw,46px);border-radius:38px;color:#fff;background:radial-gradient(circle at 88% 12%,rgba(255,255,255,.24),transparent 13rem),linear-gradient(145deg,#0f7773 0%,#1aa5a0 45%,#138a86 100%);box-shadow:0 26px 68px rgba(35,156,150,.18)}.expert-article-answer-label{margin:0 auto auto 0;color:rgba(255,255,255,.72);font-size:.7rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.expert-article-answer h2{margin:54px 0 0;color:#fff;font-size:clamp(2rem,3.1vw,3.4rem);font-weight:780;line-height:1;letter-spacing:-.07em}.expert-article-answer p:not(.expert-article-answer-label){margin:18px 0 0;color:rgba(255,255,255,.88);font-size:.98rem;line-height:1.64}
-  .expert-article-nav-section{padding:0 0 14px}.expert-article-nav{display:flex;gap:8px;overflow-x:auto;padding:5px 2px 10px;scroll-snap-type:x mandatory;scrollbar-width:none}.expert-article-nav::-webkit-scrollbar{display:none}.expert-article-nav a{min-height:43px;display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;padding:0 15px;border:1px solid rgba(56,187,181,.17);border-radius:999px;background:rgba(255,255,255,.88);color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:820;letter-spacing:.07em;text-decoration:none;scroll-snap-align:start}
-  .expert-article-section{padding:70px 0;scroll-margin-top:96px}.expert-article-soft,.expert-article-faq-section{background:rgba(255,255,255,.52)}.expert-article-heading{max-width:980px;margin-bottom:30px}.expert-article-heading h2,.expert-author-note h2,.expert-final-card h2{margin:0;color:var(--color-text,#17151d);font-size:clamp(2.2rem,3.7vw,4rem);font-weight:770;line-height:1.02;letter-spacing:-.07em}.expert-article-heading>p:not(.section-kicker),.expert-author-note>div>p:not(.section-kicker),.expert-final-card>p:not(.signature){max-width:840px;margin:17px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(.98rem,1.1vw,1.06rem);line-height:1.7}
-  .expert-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.expert-timeline-card{min-height:305px;padding:24px;border-radius:28px;background:rgba(255,255,255,.9)}.expert-timeline-card.is-danger{border-top:4px solid rgba(180,72,90,.58)}.expert-timeline-card.is-warning{border-top:4px solid rgba(201,127,143,.58)}.expert-timeline-card.is-good,.expert-timeline-card.is-best{border-top:4px solid rgba(56,187,181,.58)}.expert-timeline-top{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-bottom:52px}.expert-timeline-top strong{color:var(--color-text,#17151d);font-size:1.02rem;font-weight:840}.expert-timeline-top span{display:inline-flex;min-height:29px;align-items:center;padding:0 9px;border-radius:999px;background:rgba(219,246,243,.7);color:var(--color-turquoise-dark,#0f7773);font-size:.61rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.expert-timeline-card.is-danger .expert-timeline-top span,.expert-timeline-card.is-warning .expert-timeline-top span{background:rgba(246,220,227,.68);color:#8d4057}
-  .expert-timeline-card h3,.expert-factor-grid h3,.expert-area-grid h3,.expert-related-grid h3,.expert-source-grid h3{margin:0;color:var(--color-text,#17151d);font-size:clamp(1.38rem,1.8vw,1.85rem);font-weight:770;line-height:1.04;letter-spacing:-.052em}.expert-timeline-card p,.expert-factor-grid p,.expert-area-grid p,.expert-related-grid p,.expert-source-grid p{margin:13px 0 0;color:var(--color-muted,#6e6670);font-size:.92rem;line-height:1.6}
-  .expert-article-note{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 20px;align-items:start;margin-top:14px;padding:20px 22px;border-radius:22px;background:rgba(255,255,255,.88)}.expert-article-note strong{color:var(--color-turquoise-dark,#0f7773);font-size:.88rem;font-weight:840}.expert-article-note p{margin:0;color:var(--color-muted,#6e6670);font-size:.94rem;line-height:1.6}
-  .expert-factor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.expert-factor-grid article{min-height:210px;padding:25px;border-radius:26px;background:radial-gradient(circle at 94% 10%,rgba(56,187,181,.07),transparent 11rem),rgba(255,255,255,.88)}.expert-source-inline{margin-top:14px;padding:23px 25px;border-radius:24px;background:linear-gradient(145deg,rgba(219,246,243,.62),rgba(255,248,251,.86)),rgba(255,255,255,.84)}.expert-source-inline span{display:block;margin-bottom:8px;color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.expert-source-inline p{max-width:940px;margin:0;color:var(--color-muted,#6e6670);font-size:.94rem;line-height:1.66}
-  .expert-area-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.expert-area-grid a{min-height:300px;display:flex;flex-direction:column;padding:26px;border-radius:28px;color:inherit;text-decoration:none;background:radial-gradient(circle at 94% 10%,rgba(56,187,181,.08),transparent 11rem),rgba(255,255,255,.9)}.expert-area-grid a>span{display:block;margin-bottom:52px;color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:850;letter-spacing:.17em}.expert-area-grid a>strong{display:inline-flex;width:fit-content;margin-top:auto;padding-top:20px;color:var(--color-turquoise-dark,#0f7773);font-size:.76rem;font-weight:850}
-  .expert-article-plan-section{background:rgba(255,255,255,.48)}.expert-plan-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;padding:clamp(30px,5vw,52px);border-radius:38px;color:#fff;background:radial-gradient(circle at 92% 12%,rgba(255,255,255,.22),transparent 16rem),linear-gradient(145deg,#0f7773 0%,#1aa5a0 42%,#138a86 100%);box-shadow:0 28px 72px rgba(35,156,150,.18)}.expert-plan-copy h2{margin:0;color:#fff;font-size:clamp(2.35rem,4vw,4.4rem);font-weight:780;line-height:.99;letter-spacing:-.075em}.expert-plan-copy>p:not(.section-kicker){margin:18px 0 0;color:rgba(255,255,255,.87);font-size:.96rem;line-height:1.65}.expert-plan-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.expert-plan-steps>div{min-height:168px;padding:20px;border:1px solid rgba(255,255,255,.18);border-radius:21px;background:rgba(255,255,255,.11)}.expert-plan-steps span{display:block;margin-bottom:17px;color:rgba(255,255,255,.65);font-size:.65rem;font-weight:850;letter-spacing:.16em}.expert-plan-steps strong{display:block;color:#fff;font-size:.97rem;font-weight:790}.expert-plan-steps p{margin:7px 0 0;color:rgba(255,255,255,.79);font-size:.84rem;line-height:1.5}
-  .expert-author-note{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(280px,.68fr);gap:24px;align-items:stretch;padding:clamp(28px,4vw,44px);border-radius:32px;background:rgba(255,255,255,.9)}.expert-author-note aside{display:flex;flex-direction:column;justify-content:center;padding:22px;border:1px solid rgba(56,187,181,.15);border-radius:23px;background:rgba(219,246,243,.46)}.expert-author-note aside span{color:var(--color-turquoise-dark,#0f7773);font-size:.68rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.expert-author-note aside strong{display:block;margin-top:8px;color:var(--color-text,#17151d);font-size:.92rem;font-weight:760}.expert-author-note aside a{display:inline-flex;width:fit-content;margin-top:19px;color:var(--color-turquoise-dark,#0f7773);font-size:.76rem;font-weight:850;text-decoration:none}
-  .expert-article-related-section{background:radial-gradient(circle at 12% 20%,rgba(56,187,181,.08),transparent 22rem),rgba(255,255,255,.54)}.expert-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.expert-related-grid a,.expert-source-grid a{min-height:245px;display:flex;flex-direction:column;padding:23px;border-radius:24px;color:inherit;text-decoration:none;background:rgba(255,255,255,.88)}.expert-related-grid a>span,.expert-source-grid a>strong{display:inline-flex;width:fit-content;margin-top:auto;padding-top:18px;color:var(--color-turquoise-dark,#0f7773);font-size:.72rem;font-weight:850}.expert-source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.expert-source-grid a>span{display:block;margin-bottom:16px;color:var(--color-turquoise-dark,#0f7773);font-size:.62rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.expert-medical-note{max-width:940px;margin:16px 0 0;padding:18px 20px;border-left:3px solid rgba(201,127,143,.56);border-radius:0 18px 18px 0;background:rgba(255,248,251,.8);color:var(--color-muted,#6e6670);font-size:.86rem;line-height:1.6}
-  .expert-faq-list{display:grid;max-width:980px;gap:10px}.expert-faq-list details{overflow:hidden;border-radius:21px;background:rgba(255,255,255,.9)}.expert-faq-list summary{display:grid;grid-template-columns:minmax(0,1fr) 38px;gap:14px;align-items:center;padding:19px 21px;color:var(--color-text,#17151d);font-size:clamp(1rem,1.25vw,1.16rem);font-weight:760;line-height:1.34;letter-spacing:-.025em;cursor:pointer;list-style:none}.expert-faq-list summary::-webkit-details-marker{display:none}.expert-faq-icon{position:relative;width:38px;height:38px;border:1px solid rgba(56,187,181,.17);border-radius:999px;background:rgba(219,246,243,.58)}.expert-faq-icon::before,.expert-faq-icon::after{content:"";position:absolute;top:50%;left:50%;width:13px;height:2px;border-radius:999px;background:var(--color-turquoise-dark,#0f7773);transform:translate(-50%,-50%)}.expert-faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}.expert-faq-list details[open] .expert-faq-icon::after{opacity:0}.expert-faq-list details>div{padding:0 21px 19px}.expert-faq-list p{margin:0;color:var(--color-muted,#6e6670);font-size:.93rem;line-height:1.62}
-  .expert-final-card{padding:clamp(32px,5vw,56px);border-radius:36px;text-align:center;background:linear-gradient(145deg,rgba(219,246,243,.70),rgba(255,242,246,.82)),rgba(255,255,255,.76)}.expert-final-card>p:not(.signature){margin-inline:auto}.expert-final-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:900px;margin:25px auto 0}.expert-final-actions>a{display:inline-flex;width:100%;min-height:56px;align-items:center;justify-content:center;gap:7px;padding:0 17px;border-radius:999px;font-family:inherit;font-size:.94rem;font-weight:820;line-height:1;text-align:center;text-decoration:none}.expert-booksy{border:1px solid rgba(8,111,91,.16);background:linear-gradient(135deg,#18a889 0%,#0f8f78 55%,#0b7868 100%);color:#fff;box-shadow:0 14px 34px rgba(15,143,120,.16)}.expert-back-link{display:inline-flex;margin-top:22px;color:var(--color-turquoise-dark,#0f7773);font-size:.78rem;font-weight:820;text-decoration:none}
-  @media(max-width:1080px){.expert-article-hero-grid,.expert-plan-panel,.expert-author-note{grid-template-columns:1fr}.expert-timeline,.expert-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.expert-source-grid{grid-template-columns:1fr}}
-  @media(max-width:760px){.expert-article-page .section-kicker{min-height:29px;margin-bottom:14px;padding:0 10px;font-size:.61rem;letter-spacing:.12em}.expert-article-hero{padding:112px 0 44px}.expert-article-hero-grid{grid-template-columns:1fr;gap:13px}.expert-article-hero-copy,.expert-article-answer,.expert-timeline-card,.expert-article-note,.expert-factor-grid article,.expert-source-inline,.expert-area-grid a,.expert-author-note,.expert-related-grid a,.expert-source-grid a,.expert-final-card{border-radius:25px}.expert-article-hero-copy,.expert-article-answer{padding:24px 20px}.expert-article-hero-copy h1{font-size:clamp(2.25rem,10.2vw,3.35rem);line-height:1.02;letter-spacing:-.064em}.expert-article-lead{margin-top:18px;font-size:.98rem;line-height:1.62}.expert-article-answer h2{margin-top:54px;font-size:clamp(1.9rem,8.4vw,2.65rem);line-height:1.02}.expert-article-nav a{min-height:41px;padding-inline:14px;font-size:.66rem}.expert-article-section{padding:50px 0}.expert-article-heading{margin-bottom:23px}.expert-article-heading h2,.expert-author-note h2,.expert-final-card h2{font-size:clamp(1.95rem,8.6vw,2.8rem);line-height:1.04;letter-spacing:-.06em}.expert-article-heading>p:not(.section-kicker),.expert-author-note>div>p:not(.section-kicker),.expert-final-card>p:not(.signature){font-size:.94rem;line-height:1.62}.expert-timeline,.expert-factor-grid,.expert-area-grid,.expert-related-grid,.expert-plan-steps{grid-template-columns:1fr;gap:9px}.expert-timeline-card{min-height:auto;padding:21px}.expert-timeline-top{margin-bottom:28px}.expert-article-note{grid-template-columns:1fr;padding:18px}.expert-factor-grid article,.expert-area-grid a{min-height:auto;padding:21px}.expert-area-grid a>span{margin-bottom:28px}.expert-plan-panel{gap:20px;padding:25px 18px;border-radius:28px}.expert-plan-copy h2{font-size:clamp(2.15rem,9.8vw,3.05rem)}.expert-plan-steps>div{min-height:auto;padding:17px}.expert-author-note{gap:17px;padding:22px 18px}.expert-related-grid a,.expert-source-grid a{min-height:auto;padding:20px}.expert-medical-note{padding:16px 17px;font-size:.82rem}.expert-faq-list summary{grid-template-columns:minmax(0,1fr) 35px;gap:10px;padding:16px;font-size:.96rem}.expert-faq-icon{width:35px;height:35px}.expert-faq-list details>div{padding:0 16px 16px}.expert-final-card{padding:27px 18px}.expert-final-actions{grid-template-columns:1fr;gap:9px;margin-top:22px}.expert-final-actions>a{min-height:55px}}
-  @media(max-width:390px){.expert-article-hero-copy{padding-inline:18px}.expert-article-hero-copy h1{font-size:clamp(2.12rem,10.6vw,2.85rem)}.expert-article-meta{gap:5px}.expert-article-meta span{min-height:27px;padding-inline:9px;font-size:.62rem}}
+.heal-page{min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 84% 8%,rgba(56,187,181,.1),transparent 28rem),radial-gradient(circle at 11% 44%,rgba(201,127,143,.1),transparent 26rem),linear-gradient(180deg,#fffdfd 0%,#fff8fa 48%,#fff 100%)}
+.heal-page *{box-sizing:border-box}.heal-page section,.heal-page .container,.heal-page article,.heal-page div,.heal-page aside{min-width:0}.card{border:1px solid rgba(183,101,118,.14);box-shadow:0 16px 48px rgba(89,53,67,.055)}
+.kicker{display:inline-flex;width:fit-content;min-height:30px;align-items:center;margin:0 0 16px;padding:0 11px;border:1px solid rgba(56,187,181,.18);border-radius:999px;background:rgba(219,246,243,.76);color:var(--color-turquoise-dark,#0f7773);font-size:.65rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+.hero{padding:144px 0 48px}.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr);gap:18px}.hero-copy{padding:clamp(32px,4.8vw,58px);border-radius:36px;background:rgba(255,255,255,.9)}.meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}.meta span{display:inline-flex;min-height:28px;align-items:center;padding:0 10px;border-radius:999px;background:#fff8fb;color:var(--color-muted,#6e6670);font-size:.62rem;font-weight:790;text-transform:uppercase}.meta span:first-child{background:rgba(56,187,181,.12);color:#0f7773}.hero h1{margin:0;color:var(--color-text,#17151d);font-size:clamp(2.75rem,4.7vw,5.15rem);font-weight:780;line-height:1.01;letter-spacing:-.072em}.lead{margin:21px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(1.02rem,1.2vw,1.14rem);line-height:1.65}
+.hero-answer{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(27px,3.7vw,42px);border-radius:36px;color:#fff;background:linear-gradient(145deg,#0f7773,#1aa5a0 52%,#138a86);box-shadow:0 26px 68px rgba(35,156,150,.18)}.answer-label{margin:0 auto 38px 0;color:rgba(255,255,255,.72);font-size:.67rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.hero-answer h2{margin:0;color:#fff;font-size:clamp(1.95rem,2.7vw,2.9rem);font-weight:790;line-height:1.02;letter-spacing:-.058em}.hero-answer>p:not(.answer-label){margin:16px 0 0;color:rgba(255,255,255,.92);font-size:.9rem;line-height:1.58}.answer-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}.answer-actions a{display:inline-flex;min-height:40px;align-items:center;padding:0 13px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(255,255,255,.11);color:#fff;font-size:.71rem;font-weight:840;text-decoration:none}
+.timeline{padding:0 0 35px;scroll-margin-top:96px}.section{padding:62px 0;scroll-margin-top:94px}.soft{background:rgba(255,255,255,.52)}.section-head{max-width:960px;margin-bottom:24px}.row-head{display:flex;align-items:end;justify-content:space-between;gap:24px}.row-head>p{margin:0 0 4px;color:#6e6670;font-size:.78rem}.section-head h2,.split h2,.final h2{margin:0;color:#17151d;font-size:clamp(2.05rem,3.45vw,3.7rem);font-weight:770;line-height:1.02;letter-spacing:-.066em}.section-head>p:not(.kicker),.split>div>p,.final>p:not(.signature){max-width:860px;margin:15px 0 0;color:#6e6670;font-size:.96rem;line-height:1.64}
+.timeline-scroll{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.timeline-card{min-height:300px;display:flex;flex-direction:column;padding:20px;border-radius:23px;background:rgba(255,255,255,.92)}.card-top{display:flex;justify-content:space-between;gap:10px;margin-bottom:28px}.card-top span{color:#0f7773;font-size:.6rem;font-weight:900}.card-top em{color:#6e6670;font-size:.62rem;font-style:normal;font-weight:800;text-align:right}.timeline-card h3{margin:0;color:#17151d;font-size:1.34rem;line-height:1.06;letter-spacing:-.046em}.timeline-card p{margin:11px 0 0;color:#6e6670;font-size:.8rem;line-height:1.52}.timeline-card a{margin-top:auto;padding-top:14px;color:#0f7773;font-size:.69rem;font-weight:850;text-decoration:none}.note{margin:10px 0 0;padding:13px 15px;border-left:3px solid rgba(56,187,181,.48);border-radius:0 16px 16px 0;background:rgba(219,246,243,.34);color:#6e6670;font-size:.76rem;line-height:1.5}
+.bridge{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.bridge a{display:flex;min-height:66px;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;border:1px solid rgba(56,187,181,.14);border-radius:18px;background:rgba(219,246,243,.34);color:inherit;text-decoration:none}.bridge span{color:#6e6670;font-size:.64rem;font-weight:740}.bridge strong{color:#0f7773;font-size:.74rem;font-weight:850;text-align:right}
+.triage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.triage{padding:20px;border-radius:23px;background:#fff}.triage h3{display:flex;align-items:center;gap:9px;margin:0;color:#17151d;font-size:.92rem}.triage i{width:10px;height:10px;border-radius:50%;background:#18a889}.triage.watch i{background:#d4a441}.triage.alert i{background:#be6378}.triage ul{display:grid;gap:9px;margin:15px 0 0;padding:0;list-style:none}.triage li{position:relative;padding-left:17px;color:#6e6670;font-size:.8rem;line-height:1.48}.triage li:before{content:'•';position:absolute;left:2px;color:#0f7773}.medical{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-top:10px;padding:20px;border-radius:22px;background:#fff8fb}.medical h3{margin:0;font-size:1.45rem;letter-spacing:-.045em}.medical p:not(.kicker){max-width:830px;margin:10px 0 0;color:#6e6670;font-size:.82rem;line-height:1.52}.medical>a{flex:0 0 auto;color:#0f7773;font-size:.72rem;font-weight:850;text-decoration:none}
+.split{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(290px,.68fr);gap:22px;padding:clamp(25px,4vw,40px);border-radius:30px;background:#fff}.rule{display:flex;flex-direction:column;justify-content:center;gap:7px;padding:18px;border:1px solid rgba(56,187,181,.14);border-radius:20px;background:rgba(219,246,243,.42)}.rule>span{margin-bottom:4px;color:#0f7773;font-size:.63rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.rule strong{color:#17151d;font-size:.9rem}.rule p{margin:4px 0 0;color:#6e6670;font-size:.73rem;line-height:1.42}.rule a{margin-top:10px;color:#0f7773;font-size:.72rem;font-weight:850;text-decoration:none}
+.color-flow{display:grid;grid-template-columns:repeat(7,auto);align-items:center;gap:9px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.color-flow::-webkit-scrollbar{display:none}.color-flow>div{min-width:185px;padding:17px;border:1px solid rgba(183,101,118,.13);border-radius:20px;background:#fff}.color-flow span{color:#0f7773;font-size:.59rem;font-weight:900}.color-flow strong{display:block;margin-top:20px;color:#17151d}.color-flow p{margin:5px 0 0;color:#6e6670;font-size:.72rem}.color-flow i{color:rgba(15,119,115,.5);font-style:normal;font-weight:900}.pill-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.pill-links a{display:inline-flex;min-height:40px;align-items:center;padding:0 13px;border:1px solid rgba(56,187,181,.15);border-radius:999px;background:#fff;color:#0f7773;font-size:.7rem;font-weight:840;text-decoration:none}
+.care-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.care{min-height:190px;padding:19px;border-radius:22px;background:#fff}.care b{display:block;width:34px;height:5px;margin-bottom:34px;border-radius:999px;background:#18a889}.care b.red{background:#be6378}.care h3{margin:0;font-size:1.25rem;letter-spacing:-.045em}.care p{margin:10px 0 0;color:#6e6670;font-size:.8rem;line-height:1.5}
+.links-grid,.source-grid,.related-grid{display:grid;gap:9px}.links-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.related-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.links-grid a,.source-grid a,.related-grid a{display:flex;flex-direction:column;min-height:210px;padding:20px;border-radius:22px;background:#fff;color:inherit;text-decoration:none}.links-grid span,.source-grid span,.related-grid span{margin-bottom:25px;color:#0f7773;font-size:.6rem;font-weight:850;letter-spacing:.09em;text-transform:uppercase}.links-grid h3,.source-grid h3,.related-grid h3{margin:0;color:#17151d;font-size:1.25rem;line-height:1.06;letter-spacing:-.045em}.links-grid p,.source-grid p,.related-grid p{margin:10px 0 0;color:#6e6670;font-size:.8rem;line-height:1.5}.source-grid a>strong,.related-grid a>strong{margin-top:auto;padding-top:15px;color:#0f7773;font-size:.7rem}.medical-note{border-left-color:rgba(201,127,143,.54);background:#fff8fb}
+.faq{display:grid;max-width:990px;gap:8px}.faq details{overflow:hidden;border-radius:20px;background:#fff}.faq summary{display:grid;grid-template-columns:minmax(0,1fr) 34px;gap:11px;align-items:center;padding:15px 16px;cursor:pointer;list-style:none}.faq summary::-webkit-details-marker{display:none}.faq summary span{font-size:.94rem;font-weight:780}.faq summary b{position:relative;width:34px;height:34px;border:1px solid rgba(56,187,181,.16);border-radius:50%;background:rgba(219,246,243,.58)}.faq summary b:before,.faq summary b:after{content:'';position:absolute;top:50%;left:50%;width:11px;height:2px;background:#0f7773;transform:translate(-50%,-50%)}.faq summary b:after{transform:translate(-50%,-50%) rotate(90deg)}.faq details[open] summary b:after{opacity:0}.faq details>p{max-width:810px;margin:0;padding:0 16px 15px;color:#6e6670;font-size:.84rem;line-height:1.56}
+.final{padding:clamp(29px,5vw,50px);border-radius:32px;text-align:center;background:linear-gradient(145deg,rgba(219,246,243,.7),rgba(255,242,246,.82))}.final>p:not(.signature){margin-inline:auto}.final-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:880px;margin:22px auto 0}.final-actions a{display:flex;min-height:53px;align-items:center;justify-content:center;border-radius:999px;font-size:.9rem;font-weight:820;text-decoration:none}.green{color:#fff;background:linear-gradient(135deg,#18a889,#0f8f78 55%,#0b7868)}.white{border:1px solid rgba(56,187,181,.18);background:#fff;color:#0f7773}.final-secondary{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin-top:11px}.final-secondary a{display:inline-flex;min-height:37px;align-items:center;padding:0 11px;border:1px solid rgba(56,187,181,.14);border-radius:999px;background:rgba(255,255,255,.56);color:#0f7773;font-size:.68rem;font-weight:800;text-decoration:none}.back{display:inline-flex;margin-top:18px;color:#0f7773;font-size:.74rem;font-weight:820;text-decoration:none}
+@media(max-width:1080px){.hero-grid,.split{grid-template-columns:1fr}.timeline-scroll{grid-template-columns:repeat(3,minmax(0,1fr))}.care-grid,.links-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.kicker{min-height:27px;margin-bottom:11px;padding-inline:9px;font-size:.57rem}.hero{padding:103px 0 25px}.hero-grid{gap:9px}.hero-copy,.hero-answer{border-radius:23px}.hero-copy{padding:21px 16px}.meta{gap:4px;margin-bottom:13px}.meta span{min-height:24px;padding-inline:7px;font-size:.54rem}.hero h1{font-size:clamp(2.02rem,9.5vw,2.88rem);letter-spacing:-.06em}.lead{margin-top:14px;font-size:.89rem;line-height:1.53}.hero-answer{padding:19px 16px}.answer-label{margin-bottom:17px;font-size:.58rem}.hero-answer h2{font-size:2rem}.hero-answer>p:not(.answer-label){font-size:.8rem;line-height:1.5}.answer-actions{display:grid;grid-template-columns:1fr 1fr}.answer-actions a{justify-content:center;text-align:center;font-size:.64rem}.timeline{padding-bottom:20px}.row-head{display:block}.row-head>p{margin-top:9px}.section{padding:44px 0}.section-head h2,.split h2,.final h2{font-size:clamp(1.85rem,8.4vw,2.58rem);letter-spacing:-.057em}.section-head>p:not(.kicker),.split>div>p,.final>p:not(.signature){font-size:.86rem;line-height:1.54}.timeline-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(78vw,300px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 9px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.timeline-card{min-height:265px;padding:17px;scroll-snap-align:start}.bridge,.triage-grid,.care-grid,.links-grid,.source-grid,.related-grid{grid-template-columns:1fr}.bridge a{min-height:57px}.medical{display:block;padding:16px}.medical>a{display:inline-flex;margin-top:13px}.split{gap:14px;padding:19px 16px;border-radius:23px}.rule{padding:15px}.color-flow{margin-inline:-16px;padding:2px 16px 9px;scroll-snap-type:x mandatory}.color-flow>div{min-width:72vw;scroll-snap-align:start}.pill-links{display:grid;grid-template-columns:1fr}.pill-links a{justify-content:center;text-align:center}.care{min-height:auto;padding:17px 16px}.care b{margin-bottom:24px}.links-grid a,.source-grid a,.related-grid a{min-height:auto;padding:17px 16px}.faq summary{grid-template-columns:minmax(0,1fr) 31px;padding:13px}.faq summary span{font-size:.86rem}.faq summary b{width:31px;height:31px}.faq details>p{padding:0 13px 13px;font-size:.79rem}.final{padding:23px 15px;border-radius:24px}.final-actions{grid-template-columns:1fr}.final-secondary{display:grid;grid-template-columns:1fr}.final-secondary a{justify-content:center}.back{font-size:.7rem}}
+@media(max-width:390px){.hero-copy{padding-inline:14px}.hero h1{font-size:clamp(1.93rem,9.9vw,2.5rem)}.timeline-scroll{grid-auto-columns:81vw}.answer-actions{grid-template-columns:1fr}}
 </style>
-
-<style>
-  .expert-legacy-copy {
-    max-width: 940px;
-  }
-
-  .expert-legacy-copy p {
-    margin: 16px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: clamp(0.98rem, 1.1vw, 1.06rem);
-    line-height: 1.72;
-  }
-
-  .expert-legacy-copy p:first-of-type {
-    margin-top: 0;
-  }
-
-  .expert-legacy-cards {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 24px;
-  }
-
-  .expert-legacy-cards article {
-    min-height: 150px;
-    padding: 23px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 24px;
-    background:
-      radial-gradient(circle at 94% 10%, rgba(56, 187, 181, 0.07), transparent 11rem),
-      rgba(255, 255, 255, 0.90);
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.055);
-  }
-
-  .expert-legacy-cards h3 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(1.25rem, 1.6vw, 1.72rem);
-    font-weight: 770;
-    line-height: 1.05;
-    letter-spacing: -0.05em;
-  }
-
-  .expert-legacy-cards p {
-    margin: 11px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.92rem;
-    line-height: 1.62;
-  }
-
-  .expert-focus-links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 18px;
-  }
-
-  .expert-focus-links a {
-    display: flex;
-    min-height: 76px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    padding: 17px 18px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 18px;
-    background: rgba(219, 246, 243, 0.38);
-    color: var(--color-text, #17151d);
-    font-size: 0.88rem;
-    font-weight: 760;
-    line-height: 1.35;
-    text-decoration: none;
-  }
-
-  .expert-focus-links a span {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-weight: 850;
-  }
-
-  @media (max-width: 760px) {
-    .expert-legacy-cards,
-    .expert-focus-links {
-      grid-template-columns: 1fr;
-      gap: 9px;
-    }
-
-    .expert-legacy-cards article {
-      min-height: auto;
-      padding: 20px;
-      border-radius: 21px;
-    }
-
-    .expert-focus-links a {
-      min-height: 68px;
-      padding: 15px 16px;
-    }
-  }
-</style>
-
