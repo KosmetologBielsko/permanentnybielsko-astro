@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@300..800&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@300..800&display=swap");
 
 :root {
   --color-bg: #fffafb;
@@ -3348,3 +3348,44 @@ img {
     max-width: 100% !important;
   }
 }
+
+/* PB GLOBAL PORADNIK CTA START */
+/* Poradniki: Formularz PMU = róż, Booksy = jedyny zielony CTA */
+.final-actions .final-form,
+.final-card .final-form {
+  color: #fff !important;
+  border-color: transparent !important;
+  background:
+    linear-gradient(135deg, #dc8fa3 0%, #ca718b 52%, #b85d78 100%) !important;
+  box-shadow: 0 12px 28px rgba(184, 93, 120, 0.18) !important;
+}
+
+.final-actions .final-booksy,
+.final-card .final-booksy {
+  color: #fff !important;
+  border-color: transparent !important;
+  background:
+    linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%) !important;
+  box-shadow: 0 12px 28px rgba(15, 143, 120, 0.16) !important;
+}
+
+.final-actions .final-phone,
+.final-card .final-phone {
+  color: #0f7773 !important;
+  border: 1px solid rgba(56, 187, 181, 0.18) !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+}
+
+.final-actions .final-form:hover,
+.final-card .final-form:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 15px 32px rgba(184, 93, 120, 0.23) !important;
+}
+
+.final-actions .final-booksy:hover,
+.final-card .final-booksy:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 15px 32px rgba(15, 143, 120, 0.22) !important;
+}
+/* PB GLOBAL PORADNIK CTA END */
+
