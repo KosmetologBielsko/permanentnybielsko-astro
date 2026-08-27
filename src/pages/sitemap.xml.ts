@@ -115,6 +115,11 @@ const pages = [
     changefreq: "monthly"
   },
   {
+    path: "/poradnik/makijaz-permanentny-ust-cena/",
+    priority: "0.82",
+    changefreq: "monthly"
+  },
+  {
     path: "/poradnik/kreska-permanentna-cena/",
     priority: "0.8",
     changefreq: "monthly"
