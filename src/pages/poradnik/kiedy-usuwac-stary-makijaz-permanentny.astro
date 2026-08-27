@@ -8,23 +8,113 @@ const booksyUrl =
 
 const article = {
   slug: "kiedy-usuwac-stary-makijaz-permanentny",
-  title: "Kiedy nie poprawiać starego PMU, tylko najpierw je rozjaśnić?",
+  title: "Kiedy usuwać stary makijaż permanentny, a kiedy można go poprawić?",
   eyebrow: "Poradnik PMU",
   category: "Usuwanie PMU",
   datePublished: "2026-06-08",
-  dateModified: "2026-08-20",
-  readingTime: "8–10 minut",
-  description: "Kiedy usuwać stary makijaż permanentny, a kiedy można go poprawić? Sprawdź, kiedy potrzebne jest laserowe usuwanie PMU, remover, korekta lub plan etapowy.",
-  lead: "Stary makijaż permanentny nie zawsze da się bezpiecznie przykryć nową pigmentacją. Jeśli pigment jest zbyt ciemny, nierówny, szary, czerwony, granatowy albo wyszedł poza dobry kształt, najlepszym pierwszym krokiem może być rozjaśnienie, a nie kolejna warstwa koloru.",
-  shortAnswer: "Starego PMU nie warto poprawiać na siłę, gdy pigment jest zbyt ciemny, chłodny, czerwony, szary, szeroki, nierówny albo nie pasuje do planowanego kształtu. Wtedy lepszym początkiem bywa laserowe rozjaśnianie, remover albo etapowa korekta. Nowy makijaż permanentny powinien być wykonany dopiero wtedy, gdy skóra i pigment dają warunki do dobrego efektu.",
+  dateModified: "2026-08-27",
+  readingTime: "9–12 minut",
+  description:
+    "Kiedy usuwać stary makijaż permanentny, a kiedy można go poprawić? Sprawdź, kiedy potrzebne jest rozjaśnianie laserem, remover, korekta lub plan etapowy.",
+  lead:
+    "Stary makijaż permanentny nie zawsze trzeba usuwać do zera — ale nie każdy można też bezpiecznie przykryć kolejną pigmentacją. Najważniejsze są kolor, nasycenie, kształt, liczba warstw, stan skóry i plan nowego efektu.",
+  shortAnswer:
+    "Starego PMU nie warto poprawiać na siłę, gdy pigment jest zbyt ciemny, bardzo nasycony, zmienił kolor, ma niekorzystny kształt albo blokuje nowy projekt. Wtedy pierwszym krokiem może być kontrolowane rozjaśnianie laserem, remover albo plan etapowy. Jeśli pigment jest lekki, kształt nadal współpracuje z twarzą, a skóra daje dobre warunki, czasem możliwa jest korekta bez wcześniejszego usuwania.",
   canonicalPath: "/poradnik/kiedy-usuwac-stary-makijaz-permanentny/",
-  mainService: {
-    href: "/usuwanie-makijazu-permanentnego/",
-    title: "Usuwanie PMU",
-  },
 };
 
 const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
+
+const scenarios = [
+  {
+    label: "Pigment lekki i równy",
+    price: "możliwa korekta",
+    text: "Jeśli stary PMU jest delikatny, kształt nadal ma sens, a kolor nie blokuje nowego efektu, czasem można zaplanować korektę bez wcześniejszego rozjaśniania.",
+    href: "#kiedy-mozna-poprawic",
+    cta: "Kiedy można poprawić?",
+  },
+  {
+    label: "Pigment zbyt ciemny",
+    price: "rozjaśnianie",
+    text: "Mocne nasycenie ogranicza możliwość uzyskania lekkiego nowego efektu. Dokładanie kolejnej warstwy może tylko zwiększyć ciężkość pigmentacji.",
+    href: "#kiedy-rozjasniac",
+    cta: "Kiedy rozjaśniać?",
+  },
+  {
+    label: "Kolor się zmienił",
+    price: "najpierw diagnoza",
+    text: "Szary, grafitowy, czerwony, pomarańczowy lub inny niekorzystny ton wymaga oceny przed wyborem kolejnego etapu.",
+    href: "#kolor-pigmentu",
+    cta: "Jak ocenić kolor?",
+  },
+  {
+    label: "Kształt blokuje nowy projekt",
+    price: "plan etapowy",
+    text: "Jeśli stary rysunek wychodzi poza dobry projekt, nowa pigmentacja może nie być w stanie go estetycznie przykryć.",
+    href: "#plan",
+    cta: "Zobacz plan etapowy",
+  },
+];
+
+const assessmentItems = [
+  {
+    title: "Kolor pigmentu",
+    text: "Sprawdzamy, czy stary PMU jest neutralny, chłodny, czerwony, pomarańczowy, szary lub grafitowy i jak wpływa to na dalszy plan.",
+  },
+  {
+    title: "Nasycenie",
+    text: "Im więcej pigmentu pozostaje w skórze, tym mniej przestrzeni na nowy, lekki efekt.",
+  },
+  {
+    title: "Kształt",
+    text: "Oceniamy, czy stara pigmentacja mieści się w projekcie, który byłby dziś korzystny dla twarzy.",
+  },
+  {
+    title: "Liczba warstw",
+    text: "Wielokrotnie dopigmentowywane PMU może wymagać ostrożniejszego i bardziej etapowego podejścia.",
+  },
+  {
+    title: "Stan skóry",
+    text: "Dalszą pracę planuje się tylko wtedy, gdy skóra daje do tego warunki i jest odpowiednio wygojona.",
+  },
+  {
+    title: "Cel końcowy",
+    text: "Inaczej planuje się częściowe rozjaśnienie przed nowymi brwiami, a inaczej przypadek, w którym celem jest możliwie duża redukcja pigmentu.",
+  },
+];
+
+const faqItems = [
+  {
+    question: "Czy każdy stary makijaż permanentny trzeba usuwać?",
+    answer:
+      "Nie. Jeśli pigment jest lekki, kształt nadal współpracuje z twarzą, a kolor i nasycenie nie blokują nowego projektu, czasem możliwa jest korekta bez wcześniejszego rozjaśniania.",
+  },
+  {
+    question: "Kiedy lepiej rozjaśnić stary PMU przed nową pigmentacją?",
+    answer:
+      "Rozjaśnianie warto rozważyć, gdy pigment jest bardzo ciemny lub nasycony, zmienił kolor, ma niekorzystny kształt albo ogranicza możliwość wykonania nowego, lżejszego projektu.",
+  },
+  {
+    question: "Czy laserowe usuwanie PMU usuwa pigment całkowicie?",
+    answer:
+      "Nie można zagwarantować całkowitego usunięcia ani określonej liczby zabiegów. Reakcja zależy od pigmentu, skóry, głębokości, nasycenia i przebiegu kolejnych etapów. Często celem jest rozjaśnienie wystarczające do dalszej korekty.",
+  },
+  {
+    question: "Laser czy remover — co jest lepsze?",
+    answer:
+      "Nie ma jednej metody najlepszej dla każdego przypadku. Wybór zależy od koloru i charakteru pigmentu, obszaru zabiegowego, skóry, historii wcześniejszych prac oraz celu dalszego postępowania.",
+  },
+  {
+    question: "Czy można przykryć czerwone albo szare brwi permanentne?",
+    answer:
+      "Czasem tak, ale nie powinno się tego zakładać bez oceny. Przy zmienionym kolorze najpierw trzeba sprawdzić nasycenie, kształt i to, czy korekta koloru nie stworzy zbyt ciężkiego efektu.",
+  },
+  {
+    question: "Kiedy można zrobić nowy makijaż permanentny po rozjaśnianiu?",
+    answer:
+      "Dopiero po wygojeniu skóry i ocenie efektu poprzedniego etapu. Nie ma jednego uniwersalnego terminu dla wszystkich przypadków.",
+  },
+];
 
 const structuredData = [
   {
@@ -40,7 +130,7 @@ const structuredData = [
     author: {
       "@type": "Person",
       name: "Bogusława Herda",
-      url: "https://www.permanentnybielsko.com/",
+      url: "https://www.permanentnybielsko.com/makijaz-permanentny-bielsko/#boguslawa-herda",
     },
     publisher: {
       "@id": "https://www.permanentnybielsko.com/#localbusiness",
@@ -52,7 +142,7 @@ const structuredData = [
     citation: [
       "https://www.fda.gov/consumers/consumer-updates/tattoo-removal-options-and-results",
       "https://pubmed.ncbi.nlm.nih.gov/39337100/",
-      "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet"
+      "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet",
     ],
   },
   {
@@ -84,48 +174,14 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Czy każdy stary makijaż permanentny trzeba usuwać?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Nie każdy. Czasem możliwa jest korekta, ale przy zbyt ciemnym, szerokim albo niekorzystnym pigmencie rozjaśnienie może być lepszym początkiem.",
-        },
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
       },
-      {
-        "@type": "Question",
-        name: "Czy laserowe usuwanie PMU usuwa pigment całkowicie?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "To zależy od pigmentu, skóry, głębokości i liczby sesji. Często celem jest rozjaśnienie pozwalające na nową pigmentację.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Czym różni się laser od removera?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "To różne metody pracy z pigmentem. Wybór zależy od rodzaju starego PMU, koloru, skóry i kwalifikacji.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Kiedy można zrobić nowy makijaż permanentny po rozjaśnianiu?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Dopiero po regeneracji skóry i ocenie efektu rozjaśnienia. Termin ustala się indywidualnie.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Czy można przykryć czerwone lub szare brwi?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Nie zawsze. Przy niekorzystnym kolorze najpierw może być potrzebne rozjaśnienie albo neutralizacja według indywidualnego planu.",
-        },
-      }
-    ],
+    })),
   },
 ];
 ---
@@ -136,325 +192,398 @@ const structuredData = [
   canonicalPath={article.canonicalPath}
   structuredData={structuredData}
 >
-  <div class="expert-article-page">
+  <div class="price-guide-page">
     <Header />
 
     <main>
-      <section class="expert-article-hero">
-        <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
-        <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
+      <section class="price-hero">
+        <div class="price-glow price-glow-one" aria-hidden="true"></div>
+        <div class="price-glow price-glow-two" aria-hidden="true"></div>
 
-        <div class="container expert-article-hero-grid">
-          <div class="expert-article-hero-copy">
+        <div class="container price-hero-grid">
+          <div class="price-hero-copy">
             <p class="section-kicker">{article.eyebrow}</p>
 
-            <div class="expert-article-meta">
-              <span>Ekspercki poradnik</span>
+            <div class="price-meta">
               <span>{article.category}</span>
               <span>{article.readingTime}</span>
+              <span>Aktualizacja: 27.08.2026</span>
             </div>
 
             <h1>{article.title}</h1>
-            <p class="expert-article-lead">{article.lead}</p>
+            <p class="price-lead">{article.lead}</p>
+
+            <div class="price-hero-actions">
+              <a class="price-primary" href="#decyzja">Sprawdź decyzję <span aria-hidden="true">→</span></a>
+              <a class="price-secondary" href="/usuwanie-makijazu-permanentnego/">Zobacz usługę usuwania PMU</a>
+            </div>
           </div>
 
-          <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
-            <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
-            <h2>Najważniejsze bez powtarzania.</h2>
+          <aside class="price-answer" aria-label="Odpowiedź w 20 sekund">
+            <p class="price-answer-label">Odpowiedź w 20 sekund</p>
+            <strong class="price-big price-big-text">Nie przykrywaj w ciemno</strong>
+            <h2>Najpierw oceń, co naprawdę znajduje się w skórze.</h2>
             <p>{article.shortAnswer}</p>
           </aside>
         </div>
       </section>
 
-      <section class="expert-article-nav-section">
+      <section class="price-nav-section">
         <div class="container">
-          <nav class="expert-article-nav" aria-label="Spis treści artykułu">
-            <a href="#kiedy-nie-przykrywac">Kiedy nie przykrywać?</a>
-            <a href="#laser-remover">Laser i remover</a>
+          <nav class="price-nav" aria-label="Spis treści">
+            <a href="#decyzja">Usuwać czy poprawiać?</a>
+            <a href="#kiedy-rozjasniac">Kiedy rozjaśniać?</a>
+            <a href="#laser-remover">Laser czy remover?</a>
             <a href="#plan">Plan etapowy</a>
-            <a href="#nowa-pigmentacja">Nowa pigmentacja</a>
-            <a href="#praktyka">Praktyka</a>
-            <a href="#zrodla">Źródła</a>
+            <a href="#nowe-pmu">Nowy makijaż</a>
             <a href="#faq">FAQ</a>
           </nav>
         </div>
       </section>
 
-      <section class="expert-article-section" id="kiedy-nie-przykrywac">
+      <section class="price-section" id="decyzja">
         <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Kiedy nie przykrywać?</p>
-            <h2>Kolejna pigmentacja nie zawsze rozwiązuje problem.</h2>
-          </div>
-
-          <div class="expert-legacy-copy">
-            <p>Jeśli stary makijaż permanentny jest zbyt ciemny, zimny, szary, czerwony, granatowy, nierówny albo ma niekorzystny kształt, przykrycie go nowym kolorem może tylko pogłębić problem. Skóra ma swoją pojemność, a kolejne warstwy pigmentu nie zawsze dają czystszy efekt.</p>
-            <p>Najczęstszy błąd to próba szybkiej korekty bez rozjaśnienia starego koloru. Przy zbyt mocnym pigmencie naturalny efekt brwi, ust czy kresek może być niemożliwy bez wcześniejszego przygotowania skóry.</p>
-          </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Za ciemny pigment</h3>
-              <p>Czerń, grafit, granat albo mocny chłodny odcień często wymagają rozjaśnienia.</p>
-            </article>
-            <article>
-              <h3>Zły kształt</h3>
-              <p>Jeśli stary PMU wychodzi poza dobry projekt, nowa pigmentacja może go nie ukryć.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="expert-article-section expert-article-soft" id="laser-remover">
-        <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Laser i remover</p>
-            <h2>Metodę rozjaśniania dobiera się do pigmentu i skóry.</h2>
-          </div>
-
-          <div class="expert-legacy-copy">
-            <p>Laserowe usuwanie makijażu permanentnego i remover to różne narzędzia. Ich wybór zależy od koloru pigmentu, głębokości, obszaru, historii wcześniejszych zabiegów i reakcji skóry. Nie istnieje jedna odpowiedź dobra dla wszystkich przypadków.</p>
-            <p>Celem często nie jest całkowite usunięcie pigmentu za wszelką cenę, ale takie rozjaśnienie, które pozwoli wykonać nowy, czystszy i bardziej naturalny projekt. To dlatego konsultacja przed usuwaniem PMU jest tak ważna.</p>
-          </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Laser</h3>
-              <p>Może być stosowany przy określonych kolorach i typach pigmentu, po kwalifikacji.</p>
-            </article>
-            <article>
-              <h3>Remover</h3>
-              <p>Bywa rozważany w innych sytuacjach, zależnie od skóry i rodzaju starej pigmentacji.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="expert-article-section" id="plan">
-        <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Plan etapowy</p>
-            <h2>Stary PMU często wymaga cierpliwości.</h2>
-          </div>
-
-          <div class="expert-legacy-copy">
-            <p>Rozjaśnianie starego makijażu permanentnego rzadko jest decyzją na jeden dzień. Czasem potrzebny jest plan kilku etapów, przerwy na regenerację skóry i stopniowa ocena, jak pigment reaguje.</p>
-            <p>To podejście może wydawać się dłuższe, ale często daje większą szansę na dobry efekt końcowy. Przy naturalnej pigmentacji najważniejsze jest to, żeby nie dokładać problemu do problemu.</p>
-          </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Etapy</h3>
-              <p>Między sesjami skóra musi mieć czas na regenerację.</p>
-            </article>
-            <article>
-              <h3>Kontrola efektu</h3>
-              <p>Po każdym etapie ocenia się, czy można przejść dalej.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="expert-article-section expert-article-soft" id="nowa-pigmentacja">
-        <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Nowa pigmentacja</p>
-            <h2>Nowy makijaż permanentny powinien być wykonany dopiero na dobrych warunkach.</h2>
-          </div>
-
-          <div class="expert-legacy-copy">
-            <p>Po rozjaśnieniu starego pigmentu można wrócić do rysunku wstępnego i zaplanować nowy efekt. Wtedy łatwiej dobrać kształt, kolor i technikę bez konieczności przykrywania zbyt mocnej poprzedniej pracy.</p>
-            <p>Właśnie dlatego czasem najlepsza korekta zaczyna się od decyzji: jeszcze nie pigmentujemy. Najpierw tworzymy warunki, które pozwolą uzyskać lżejszy, bardziej estetyczny i bezpieczniejszy rezultat.</p>
-          </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Nowy projekt</h3>
-              <p>Po rozjaśnieniu łatwiej zaplanować brwi, usta lub kreski od nowa.</p>
-            </article>
-            <article>
-              <h3>Naturalniejszy efekt</h3>
-              <p>Mniejsza ilość starego pigmentu daje większą szansę na lekkość.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-
-      <section class="expert-article-section">
-        <div class="container">
-          <div class="expert-source-inline">
-            <span>Ważne</span>
-            <h3 style="margin:0 0 9px;color:var(--color-text,#17151d);font-size:1.25rem;">Nie usuwaj i nie przykrywaj PMU bez kwalifikacji.</h3>
-            <p>Stary makijaż permanentny wymaga obejrzenia na żywo. Zdjęcie pomaga, ale nie zawsze pokazuje głębokość pigmentu, stan skóry i realne możliwości korekty. Decyzję o laserze, removerze albo nowej pigmentacji najlepiej podjąć po konsultacji.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="expert-article-section" id="praktyka">
-        <div class="container expert-author-note">
-          <div>
-            <p class="section-kicker">Praktyka gabinetowa</p>
-            <h2>Jak przekładam tę wiedzę na realny zabieg?</h2>
+          <div class="price-heading">
+            <p class="section-kicker">Usuwać czy poprawiać?</p>
+            <h2>Nie każdy stary makijaż permanentny trzeba usuwać — ale nie każdy warto przykrywać.</h2>
             <p>
-              Nie stosuję jednej odpowiedzi dla każdej skóry i każdej klientki.
-              Najpierw oceniam aktualny stan skóry, wcześniejszy makijaż permanentny,
-              naturalną anatomię oraz oczekiwany efekt. Dopiero potem wybieramy metodę
-              i plan postępowania.
+              Najważniejsze jest znalezienie właściwej ścieżki dla konkretnego pigmentu.
+              Przy jednym przypadku możliwa będzie korekta, przy innym rozsądniejsze będzie najpierw rozjaśnienie,
+              a przy jeszcze innym potrzebny będzie plan kilku etapów.
             </p>
           </div>
 
+          <div class="scenario-scroll" aria-label="Scenariusze przy starym makijażu permanentnym">
+            {scenarios.map((item) => (
+              <article class="scenario-card">
+                <span>{item.label}</span>
+                <strong>{item.price}</strong>
+                <p>{item.text}</p>
+                <a href={item.href}>{item.cta} →</a>
+              </article>
+            ))}
+          </div>
+
+          <div class="price-service-bridge">
+            <div>
+              <span>Główna strona usługi</span>
+              <strong>Laser, remover, cena 200–400 zł i kwalifikacja starego PMU.</strong>
+            </div>
+            <div class="price-service-actions">
+              <a href="/usuwanie-makijazu-permanentnego/#laser">Laser</a>
+              <a href="/usuwanie-makijazu-permanentnego/#remover">Remover</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section price-soft" id="ocena">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">Co oceniamy?</p>
+            <h2>Sześć elementów decyduje o tym, czy stare PMU można poprawić.</h2>
+            <p>
+              Zdjęcie pomaga w pierwszej ocenie, ale nie zawsze pokazuje realne nasycenie, liczbę warstw ani stan skóry.
+              Dlatego kwalifikacja powinna obejmować więcej niż sam kolor widoczny na ekranie telefonu.
+            </p>
+          </div>
+
+          <div class="included-grid">
+            {assessmentItems.map((item, index) => (
+              <article>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section" id="kiedy-rozjasniac">
+        <div class="container decision-grid">
+          <div class="decision-copy">
+            <p class="section-kicker">Kiedy rozjaśniać?</p>
+            <h2>Gdy stary pigment zabiera przestrzeń potrzebną do nowego efektu.</h2>
+            <p>
+              Jeśli pigment jest zbyt ciemny, bardzo nasycony, ma niekorzystny kolor albo stary kształt
+              wychodzi poza nowy projekt, przykrywanie go kolejną warstwą może pogłębić problem.
+            </p>
+            <p>
+              Rozjaśnienie nie zawsze oznacza dążenie do całkowitego usunięcia pigmentu.
+              Często celem jest odzyskanie wystarczającej przestrzeni do bezpieczniejszej i lżejszej korekty.
+            </p>
+          </div>
+
+          <div class="decision-cards">
+            <article>
+              <span>Nie przykrywaj</span>
+              <strong>Zbyt duże nasycenie</strong>
+              <p>Kolejna warstwa nie rozjaśni starego pigmentu i może ograniczyć możliwości późniejszej korekty.</p>
+            </article>
+            <article>
+              <span>Rozważ rozjaśnienie</span>
+              <strong>Kształt blokuje projekt</strong>
+              <p>Jeśli stary rysunek wychodzi poza dobry kształt, najpierw trzeba odzyskać miejsce na nową pracę.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section price-soft" id="kolor-pigmentu">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">Zmiana koloru</p>
+            <h2>Szary, czerwony czy grafitowy pigment nie mówi jeszcze sam, którą metodę wybrać.</h2>
+            <p>
+              Kolor jest ważnym sygnałem, ale decyzja nie powinna opierać się wyłącznie na nazwaniu odcienia.
+              Liczą się także nasycenie, głębokość, historia pigmentacji, kształt i to, jaki efekt ma powstać później.
+            </p>
+          </div>
+
+          <div class="triage-grid">
+            <article>
+              <span>01</span>
+              <h3>Chłodny / szary</h3>
+              <p>Najpierw ocena nasycenia i możliwości korekty bez dokładania ciężkiej warstwy koloru.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Czerwony / pomarańczowy</h3>
+              <p>Nie każdy ciepły ton powinien być automatycznie przykrywany neutralizatorem bez oceny całego przypadku.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Bardzo ciemny / grafitowy</h3>
+              <p>Przy wysokim nasyceniu często najważniejsze jest najpierw kontrolowane rozjaśnienie starego PMU.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section" id="laser-remover">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">Laser czy remover?</p>
+            <h2>To dwie różne ścieżki — żadna nie jest automatycznie najlepsza dla wszystkich.</h2>
+            <p>
+              Metodę dobiera się po ocenie pigmentu, skóry, obszaru zabiegowego, wcześniejszych prac
+              i tego, czy celem jest rozjaśnienie przed nowym PMU, czy inny zakres redukcji starej pigmentacji.
+            </p>
+          </div>
+
+          <div class="compare-list">
+            <div><strong>Laser</strong><span>Może być elementem kontrolowanego rozjaśniania wybranych pigmentów. Reakcja koloru i tempo redukcji nie są identyczne u każdej osoby.</span></div>
+            <div><strong>Remover</strong><span>Może być rozważany w innych sytuacjach klinicznych i technicznych, zależnie od pigmentu, skóry i planu dalszej pracy.</span></div>
+            <div><strong>Liczba zabiegów</strong><span>Nie można uczciwie zagwarantować jednej liczby sesji. Każdy etap ocenia się po wygojeniu i reakcji pigmentu.</span></div>
+            <div><strong>Cel</strong><span>Nie zawsze trzeba usuwać pigment do zera. Czasem wystarczające jest rozjaśnienie umożliwiające nowy, lżejszy projekt.</span></div>
+          </div>
+
+          <div class="qualification-strip">
+            <div>
+              <span>Potrzebujesz oceny metody?</span>
+              <strong>Najpierw kwalifikacja starego pigmentu, później laser lub remover.</strong>
+            </div>
+            <a href="/usuwanie-makijazu-permanentnego/#kwalifikacja">Przejdź do kwalifikacji →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section price-soft" id="plan">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">Plan etapowy</p>
+            <h2>Stare PMU często wymaga cierpliwości bardziej niż kolejnej szybkiej pigmentacji.</h2>
+            <p>
+              Po każdym etapie skóra potrzebuje regeneracji, a efekt rozjaśnienia trzeba ponownie ocenić.
+              Dopiero wtedy można zdecydować, czy potrzebny jest kolejny zabieg, przerwa czy przygotowanie do nowego PMU.
+            </p>
+          </div>
+
+          <div class="included-grid">
+            <article>
+              <span>01</span>
+              <h3>Kwalifikacja</h3>
+              <p>Kolor, nasycenie, kształt, warstwy pigmentu, stan skóry i cel końcowy.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Pierwszy etap</h3>
+              <p>Dobór metody i wykonanie wyłącznie zakresu ustalonego dla konkretnego przypadku.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Gojenie</h3>
+              <p>Skóra musi się zregenerować, zanim uczciwie ocenimy rezultat i następny krok.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Ponowna ocena</h3>
+              <p>Sprawdzamy, jak zmienił się pigment i czy cel został osiągnięty w wystarczającym stopniu.</p>
+            </article>
+            <article>
+              <span>05</span>
+              <h3>Kolejny etap lub przerwa</h3>
+              <p>Nie przyspieszamy kolejnych działań tylko dlatego, że poprzedni zabieg już się odbył.</p>
+            </article>
+            <article>
+              <span>06</span>
+              <h3>Nowy projekt</h3>
+              <p>Nowe PMU planujemy dopiero wtedy, gdy stan skóry i pozostały pigment dają dobre warunki.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section" id="nowe-pmu">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">Co dalej?</p>
+            <h2>Nowy makijaż permanentny planujemy dopiero na realnym stanie skóry.</h2>
+            <p>
+              Po rozjaśnieniu wracamy do projektu: kształtu, koloru, techniki i efektu,
+              który ma wyglądać dobrze po wygojeniu — a nie tylko przykryć poprzednią pracę.
+            </p>
+          </div>
+
+          <div class="triage-grid">
+            <article>
+              <span>Brwi</span>
+              <h3>Naturalniejszy projekt</h3>
+              <p>Po odzyskaniu przestrzeni można ponownie ocenić metodę włoskową, cieniowanie lub inny kierunek.</p>
+            </article>
+            <article>
+              <span>Usta</span>
+              <h3>Kolor i kontur</h3>
+              <p>Wcześniejszy pigment ust wymaga osobnej oceny przed kolejną pigmentacją.</p>
+            </article>
+            <article>
+              <span>Kreski</span>
+              <h3>Budowa oka i powieki</h3>
+              <p>Stara linia może ograniczać nowy projekt, dlatego każdy przypadek kwalifikuje się indywidualnie.</p>
+            </article>
+          </div>
+
+          <div class="price-service-bridge">
+            <div>
+              <span>Masz stare brwi permanentne?</span>
+              <strong>Zobacz też poradnik o brwiach po latach i osobny przewodnik po laserowym rozjaśnianiu.</strong>
+            </div>
+            <div class="price-service-actions">
+              <a href="/poradnik/brwi-permanentne-po-latach/">Brwi po latach</a>
+              <a href="/poradnik/laserowe-usuwanie-brwi-permanentnych/">Laserowe usuwanie brwi</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section expert-section">
+        <div class="container expert-card">
+          <div>
+            <p class="section-kicker">Ekspert PMU</p>
+            <h2>Przy starym PMU najważniejsza bywa decyzja, czego nie robić za szybko.</h2>
+            <p>
+              Bogusława Herda jest kosmetologiem i linergistką z ponad 10-letnim doświadczeniem,
+              8-krotną mistrzynią PMU, wicemistrzynią świata oraz europejskim trenerem Long-Time-Liner®.
+              W pracy ze starym pigmentem liczy się nie tylko technologia, ale również ocena warstw,
+              skóry, kształtu i planu nowego efektu.
+            </p>
+          </div>
           <aside>
             <span>Bogusława Herda</span>
-            <strong>Trenerka Long-Time-Liner®</strong>
-            <strong>Autorka Silky Hairstroke Brows</strong>
-            <a href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
-              Przejdź do kwalifikacji PMU →
-            </a>
+            <strong>8× mistrzyni PMU</strong>
+            <strong>Wicemistrzyni świata</strong>
+            <strong>Europejski trener Long-Time-Liner®</strong>
+            <a href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj doświadczenie →</a>
           </aside>
         </div>
       </section>
 
-      <section class="expert-article-section expert-article-related-section">
+      <section class="price-section price-soft" id="powiazane">
         <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Powiązane tematy</p>
-            <h2>Nie opisujemy wszystkiego drugi raz — przejdź do właściwego zagadnienia.</h2>
+          <div class="price-heading">
+            <p class="section-kicker">Powiązane odpowiedzi</p>
+            <h2>Jeśli masz stare PMU, wybierz temat odpowiadający Twojej sytuacji.</h2>
           </div>
 
-          <div class="expert-related-grid">
+          <div class="related-scroll">
             <a href="/usuwanie-makijazu-permanentnego/">
-              <h3>Usuwanie makijażu permanentnego</h3>
-              <p>Zobacz ofertę rozjaśniania i usuwania starego PMU.</p>
-              <span>Czytaj dalej →</span>
-            </a>
-            <a href="/poradnik/rysunek-wstepny-przed-makijazem-permanentnym/">
-              <h3>Rysunek wstępny</h3>
-              <p>Sprawdź, jak projekt pomaga ocenić ograniczenia starego pigmentu.</p>
-              <span>Czytaj dalej →</span>
-            </a>
-            <a href="/makijaz-permanentny-brwi/">
-              <h3>Brwi permanentne</h3>
-              <p>Zobacz, jak planuje się nowy efekt po rozjaśnieniu starego PMU.</p>
-              <span>Czytaj dalej →</span>
+              <span>Usługa</span>
+              <strong>Usuwanie makijażu permanentnego</strong>
+              <p>Laser, remover, cena i kwalifikacja starego PMU.</p>
             </a>
             <a href="/poradnik/laserowe-usuwanie-brwi-permanentnych/">
-              <h3>Laserowe usuwanie brwi permanentnych — kiedy warto rozjaśnić stary pigment?</h3>
-              <p>Rozwinięcie tego zagadnienia w osobnym poradniku.</p>
-              <span>Czytaj dalej →</span>
+              <span>Laser</span>
+              <strong>Laserowe usuwanie brwi</strong>
+              <p>Kiedy warto rozjaśnić pigment i czego można oczekiwać po kolejnych etapach.</p>
+            </a>
+            <a href="/poradnik/brwi-permanentne-po-latach/">
+              <span>Stare brwi</span>
+              <strong>Brwi permanentne po latach</strong>
+              <p>Kiedy odświeżyć, kiedy skorygować, a kiedy najpierw rozjaśnić.</p>
+            </a>
+            <a href="/poradnik/nieudany-makijaz-permanentny-brwi-co-zrobic/">
+              <span>Problem</span>
+              <strong>Nieudane brwi — co zrobić?</strong>
+              <p>Korekta, rozjaśnianie czy nowy plan — jak nie pogłębić problemu.</p>
             </a>
           </div>
         </div>
       </section>
 
-      <section class="expert-article-section" id="zrodla">
+      <section class="price-section" id="faq">
         <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Źródła i materiały odniesienia</p>
-            <h2>Na czym opieramy informacje medyczne i techniczne?</h2>
+          <div class="price-heading">
+            <p class="section-kicker">FAQ</p>
+            <h2>Najczęstsze pytania o stare PMU i rozjaśnianie.</h2>
+          </div>
+
+          <div class="faq-list">
+            {faqItems.map((item) => (
+              <details class="faq-item">
+                <summary>
+                  <span>{item.question}</span>
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div><p>{item.answer}</p></div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section sources-section" id="zrodla">
+        <div class="container sources-card">
+          <div>
+            <p class="section-kicker">Źródła i bezpieczeństwo</p>
+            <h2>Nie obiecujemy jednej metody ani jednej liczby zabiegów dla każdego pigmentu.</h2>
             <p>
-              Wiedzę gabinetową oddzielamy od informacji dermatologicznych i instytucjonalnych.
-              Tam, gdzie nie istnieje jedna uniwersalna reguła, nie przedstawiamy jej jako pewnika.
+              Materiały instytucjonalne i medyczne opisują usuwanie pigmentu jako proces zależny od wielu czynników.
+              Informacje gabinetowe dotyczą kwalifikacji i planowania pracy, natomiast przy objawach medycznych potrzebna jest właściwa konsultacja lekarska.
             </p>
           </div>
-
-          <div class="expert-source-grid">
-            <a href="https://www.fda.gov/consumers/consumer-updates/tattoo-removal-options-and-results" target="_blank" rel="noopener noreferrer">
-              <span>FDA</span>
-              <h3>Tattoo Removal: Options and Results</h3>
-              <p>FDA opisuje laserowe usuwanie pigmentu, ograniczenia metody oraz możliwe ryzyka.</p>
-              <strong>Otwórz źródło ↗</strong>
-            </a>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/39337100/" target="_blank" rel="noopener noreferrer">
-              <span>PubMed</span>
-              <h3>Permanent Makeup Removal Severe Complication — case report</h3>
-              <p>Opis kliniczny powikłania związanego z usuwaniem PMU i znaczenia właściwej kwalifikacji.</p>
-              <strong>Otwórz źródło ↗</strong>
-            </a>
-            <a href="https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet" target="_blank" rel="noopener noreferrer">
-              <span>FDA</span>
-              <h3>Tattoos & Permanent Makeup: Fact Sheet</h3>
-              <p>Informacje instytucjonalne o permanent makeup jako formie pigmentacji skóry, bezpieczeństwie i możliwych reakcjach.</p>
-              <strong>Otwórz źródło ↗</strong>
-            </a>
-          </div>
-
-          <p class="expert-medical-note">
-            Treść ma charakter edukacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej.
-            Przy nasilonych, nietypowych lub utrzymujących się objawach skontaktuj się z lekarzem.
-          </p>
-        </div>
-      </section>
-
-      <section class="expert-article-section expert-article-faq-section" id="faq">
-        <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">FAQ</p>
-            <h2>Najczęstsze pytania związane z tym tematem.</h2>
-          </div>
-
-          <div class="expert-faq-list">
-            <details>
-              <summary>
-                <span>Czy każdy stary makijaż permanentny trzeba usuwać?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Nie każdy. Czasem możliwa jest korekta, ale przy zbyt ciemnym, szerokim albo niekorzystnym pigmencie rozjaśnienie może być lepszym początkiem.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Czy laserowe usuwanie PMU usuwa pigment całkowicie?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>To zależy od pigmentu, skóry, głębokości i liczby sesji. Często celem jest rozjaśnienie pozwalające na nową pigmentację.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Czym różni się laser od removera?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>To różne metody pracy z pigmentem. Wybór zależy od rodzaju starego PMU, koloru, skóry i kwalifikacji.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Kiedy można zrobić nowy makijaż permanentny po rozjaśnianiu?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Dopiero po regeneracji skóry i ocenie efektu rozjaśnienia. Termin ustala się indywidualnie.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Czy można przykryć czerwone lub szare brwi?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Nie zawsze. Przy niekorzystnym kolorze najpierw może być potrzebne rozjaśnienie albo neutralizacja według indywidualnego planu.</p></div>
-            </details>
+          <div class="source-links">
+            <a href="https://www.fda.gov/consumers/consumer-updates/tattoo-removal-options-and-results" target="_blank" rel="noopener noreferrer">FDA — Tattoo Removal →</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/39337100/" target="_blank" rel="noopener noreferrer">PubMed — PMU removal case report →</a>
+            <a href="https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet" target="_blank" rel="noopener noreferrer">FDA — Permanent Makeup Fact Sheet →</a>
           </div>
         </div>
       </section>
 
-      <section class="expert-article-section">
-        <div class="container expert-final-card">
+      <section class="price-final-cta">
+        <div class="container final-card">
           <p class="signature cta-signature">Powrót do natury</p>
-          <h2>Chcesz ocenić swój przypadek przed zabiegiem?</h2>
+          <h2>Nie wiesz, czy stare PMU poprawiać, rozjaśniać czy zostawić?</h2>
           <p>
-            Jeśli wiesz, jakiego zabiegu potrzebujesz — sprawdź terminy.
-            Jeśli masz stare PMU, wcześniejsze zabiegi albo wątpliwości, zacznij od kwalifikacji.
+            Jeśli masz wcześniejszą pigmentację, opisz jej wiek, obszar i to, co chcesz zmienić.
+            Przy starym PMU najlepiej zacząć od kwalifikacji zamiast kolejnej warstwy pigmentu.
           </p>
 
-          <div class="expert-final-actions">
-            <a class="expert-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-              Booksy <span aria-hidden="true">→</span>
-            </a>
-
-            <a class="button-primary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
-              Formularz PMU <span aria-hidden="true">→</span>
-            </a>
-
-            <a class="button-secondary" href={article.mainService.href}>
-              {article.mainService.title}
-            </a>
+          <div class="final-actions">
+            <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Formularz PMU →</a>
+            <a class="final-phone" href="tel:+48730900125">Zadzwoń</a>
+            <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">Booksy →</a>
           </div>
-
-          <a class="expert-back-link" href="/poradnik/">
-            ← Wróć do całego poradnika PMU
-          </a>
         </div>
       </section>
     </main>
@@ -464,126 +593,41 @@ const structuredData = [
 </Layout>
 
 <style>
-  .expert-article-page{min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 82% 10%,rgba(56,187,181,.10),transparent 28rem),radial-gradient(circle at 12% 42%,rgba(201,127,143,.10),transparent 26rem),linear-gradient(180deg,#fffdfd 0%,#fff8fa 48%,#fff 100%)}
-  .expert-article-page*,.expert-article-page *::before,.expert-article-page *::after{box-sizing:border-box}.expert-article-page main,.expert-article-page section,.expert-article-page .container,.expert-article-page article,.expert-article-page div{min-width:0}
-  .expert-article-page .section-kicker{display:inline-flex;width:fit-content;max-width:100%;min-height:31px;align-items:center;justify-content:center;margin:0 0 17px;padding:0 12px;border:1px solid rgba(56,187,181,.18);border-radius:999px;background:rgba(219,246,243,.76);color:var(--color-turquoise-dark,#0f7773);font:850 .67rem/1 inherit;letter-spacing:.15em;text-transform:uppercase}.expert-article-page .section-kicker-light{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.13);color:#fff}
-  .expert-article-hero{padding:144px 0 66px}.expert-article-hero-grid{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(340px,.87fr);gap:22px;align-items:stretch}.expert-article-hero-copy,.expert-article-answer,.expert-timeline-card,.expert-article-note,.expert-factor-grid article,.expert-source-inline,.expert-area-grid a,.expert-author-note,.expert-related-grid a,.expert-source-grid a,.expert-faq-list details,.expert-final-card{border:1px solid rgba(183,101,118,.14);box-shadow:0 18px 54px rgba(89,53,67,.065)}
-  .expert-article-hero-copy{padding:clamp(34px,5vw,62px);border-radius:38px;background:radial-gradient(circle at 96% 10%,rgba(56,187,181,.07),transparent 16rem),rgba(255,255,255,.84)}.expert-article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}.expert-article-meta span{display:inline-flex;min-height:29px;align-items:center;padding:0 11px;border-radius:999px;background:rgba(255,248,251,.94);color:var(--color-muted,#6e6670);font-size:.68rem;font-weight:790;letter-spacing:.08em;text-transform:uppercase}.expert-article-meta span:first-child{background:rgba(56,187,181,.12);color:var(--color-turquoise-dark,#0f7773)}
-  .expert-article-hero-copy h1{max-width:1050px;margin:0;color:var(--color-text,#17151d);font-size:clamp(2.8rem,4.8vw,5.4rem);font-weight:780;line-height:1.01;letter-spacing:-.074em}.expert-article-lead{max-width:900px;margin:24px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(1.04rem,1.3vw,1.2rem);line-height:1.7}
-  .expert-article-answer{display:flex;min-height:100%;flex-direction:column;justify-content:flex-end;padding:clamp(30px,4vw,46px);border-radius:38px;color:#fff;background:radial-gradient(circle at 88% 12%,rgba(255,255,255,.24),transparent 13rem),linear-gradient(145deg,#0f7773 0%,#1aa5a0 45%,#138a86 100%);box-shadow:0 26px 68px rgba(35,156,150,.18)}.expert-article-answer-label{margin:0 auto auto 0;color:rgba(255,255,255,.72);font-size:.7rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.expert-article-answer h2{margin:54px 0 0;color:#fff;font-size:clamp(2rem,3.1vw,3.4rem);font-weight:780;line-height:1;letter-spacing:-.07em}.expert-article-answer p:not(.expert-article-answer-label){margin:18px 0 0;color:rgba(255,255,255,.88);font-size:.98rem;line-height:1.64}
-  .expert-article-nav-section{padding:0 0 14px}.expert-article-nav{display:flex;gap:8px;overflow-x:auto;padding:5px 2px 10px;scroll-snap-type:x mandatory;scrollbar-width:none}.expert-article-nav::-webkit-scrollbar{display:none}.expert-article-nav a{min-height:43px;display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;padding:0 15px;border:1px solid rgba(56,187,181,.17);border-radius:999px;background:rgba(255,255,255,.88);color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:820;letter-spacing:.07em;text-decoration:none;scroll-snap-align:start}
-  .expert-article-section{padding:70px 0;scroll-margin-top:96px}.expert-article-soft,.expert-article-faq-section{background:rgba(255,255,255,.52)}.expert-article-heading{max-width:980px;margin-bottom:30px}.expert-article-heading h2,.expert-author-note h2,.expert-final-card h2{margin:0;color:var(--color-text,#17151d);font-size:clamp(2.2rem,3.7vw,4rem);font-weight:770;line-height:1.02;letter-spacing:-.07em}.expert-article-heading>p:not(.section-kicker),.expert-author-note>div>p:not(.section-kicker),.expert-final-card>p:not(.signature){max-width:840px;margin:17px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(.98rem,1.1vw,1.06rem);line-height:1.7}
-  .expert-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.expert-timeline-card{min-height:305px;padding:24px;border-radius:28px;background:rgba(255,255,255,.9)}.expert-timeline-card.is-danger{border-top:4px solid rgba(180,72,90,.58)}.expert-timeline-card.is-warning{border-top:4px solid rgba(201,127,143,.58)}.expert-timeline-card.is-good,.expert-timeline-card.is-best{border-top:4px solid rgba(56,187,181,.58)}.expert-timeline-top{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-bottom:52px}.expert-timeline-top strong{color:var(--color-text,#17151d);font-size:1.02rem;font-weight:840}.expert-timeline-top span{display:inline-flex;min-height:29px;align-items:center;padding:0 9px;border-radius:999px;background:rgba(219,246,243,.7);color:var(--color-turquoise-dark,#0f7773);font-size:.61rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.expert-timeline-card.is-danger .expert-timeline-top span,.expert-timeline-card.is-warning .expert-timeline-top span{background:rgba(246,220,227,.68);color:#8d4057}
-  .expert-timeline-card h3,.expert-factor-grid h3,.expert-area-grid h3,.expert-related-grid h3,.expert-source-grid h3{margin:0;color:var(--color-text,#17151d);font-size:clamp(1.38rem,1.8vw,1.85rem);font-weight:770;line-height:1.04;letter-spacing:-.052em}.expert-timeline-card p,.expert-factor-grid p,.expert-area-grid p,.expert-related-grid p,.expert-source-grid p{margin:13px 0 0;color:var(--color-muted,#6e6670);font-size:.92rem;line-height:1.6}
-  .expert-article-note{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 20px;align-items:start;margin-top:14px;padding:20px 22px;border-radius:22px;background:rgba(255,255,255,.88)}.expert-article-note strong{color:var(--color-turquoise-dark,#0f7773);font-size:.88rem;font-weight:840}.expert-article-note p{margin:0;color:var(--color-muted,#6e6670);font-size:.94rem;line-height:1.6}
-  .expert-factor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.expert-factor-grid article{min-height:210px;padding:25px;border-radius:26px;background:radial-gradient(circle at 94% 10%,rgba(56,187,181,.07),transparent 11rem),rgba(255,255,255,.88)}.expert-source-inline{margin-top:14px;padding:23px 25px;border-radius:24px;background:linear-gradient(145deg,rgba(219,246,243,.62),rgba(255,248,251,.86)),rgba(255,255,255,.84)}.expert-source-inline span{display:block;margin-bottom:8px;color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.expert-source-inline p{max-width:940px;margin:0;color:var(--color-muted,#6e6670);font-size:.94rem;line-height:1.66}
-  .expert-area-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.expert-area-grid a{min-height:300px;display:flex;flex-direction:column;padding:26px;border-radius:28px;color:inherit;text-decoration:none;background:radial-gradient(circle at 94% 10%,rgba(56,187,181,.08),transparent 11rem),rgba(255,255,255,.9)}.expert-area-grid a>span{display:block;margin-bottom:52px;color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:850;letter-spacing:.17em}.expert-area-grid a>strong{display:inline-flex;width:fit-content;margin-top:auto;padding-top:20px;color:var(--color-turquoise-dark,#0f7773);font-size:.76rem;font-weight:850}
-  .expert-article-plan-section{background:rgba(255,255,255,.48)}.expert-plan-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;padding:clamp(30px,5vw,52px);border-radius:38px;color:#fff;background:radial-gradient(circle at 92% 12%,rgba(255,255,255,.22),transparent 16rem),linear-gradient(145deg,#0f7773 0%,#1aa5a0 42%,#138a86 100%);box-shadow:0 28px 72px rgba(35,156,150,.18)}.expert-plan-copy h2{margin:0;color:#fff;font-size:clamp(2.35rem,4vw,4.4rem);font-weight:780;line-height:.99;letter-spacing:-.075em}.expert-plan-copy>p:not(.section-kicker){margin:18px 0 0;color:rgba(255,255,255,.87);font-size:.96rem;line-height:1.65}.expert-plan-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.expert-plan-steps>div{min-height:168px;padding:20px;border:1px solid rgba(255,255,255,.18);border-radius:21px;background:rgba(255,255,255,.11)}.expert-plan-steps span{display:block;margin-bottom:17px;color:rgba(255,255,255,.65);font-size:.65rem;font-weight:850;letter-spacing:.16em}.expert-plan-steps strong{display:block;color:#fff;font-size:.97rem;font-weight:790}.expert-plan-steps p{margin:7px 0 0;color:rgba(255,255,255,.79);font-size:.84rem;line-height:1.5}
-  .expert-author-note{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(280px,.68fr);gap:24px;align-items:stretch;padding:clamp(28px,4vw,44px);border-radius:32px;background:rgba(255,255,255,.9)}.expert-author-note aside{display:flex;flex-direction:column;justify-content:center;padding:22px;border:1px solid rgba(56,187,181,.15);border-radius:23px;background:rgba(219,246,243,.46)}.expert-author-note aside span{color:var(--color-turquoise-dark,#0f7773);font-size:.68rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.expert-author-note aside strong{display:block;margin-top:8px;color:var(--color-text,#17151d);font-size:.92rem;font-weight:760}.expert-author-note aside a{display:inline-flex;width:fit-content;margin-top:19px;color:var(--color-turquoise-dark,#0f7773);font-size:.76rem;font-weight:850;text-decoration:none}
-  .expert-article-related-section{background:radial-gradient(circle at 12% 20%,rgba(56,187,181,.08),transparent 22rem),rgba(255,255,255,.54)}.expert-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.expert-related-grid a,.expert-source-grid a{min-height:245px;display:flex;flex-direction:column;padding:23px;border-radius:24px;color:inherit;text-decoration:none;background:rgba(255,255,255,.88)}.expert-related-grid a>span,.expert-source-grid a>strong{display:inline-flex;width:fit-content;margin-top:auto;padding-top:18px;color:var(--color-turquoise-dark,#0f7773);font-size:.72rem;font-weight:850}.expert-source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.expert-source-grid a>span{display:block;margin-bottom:16px;color:var(--color-turquoise-dark,#0f7773);font-size:.62rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.expert-medical-note{max-width:940px;margin:16px 0 0;padding:18px 20px;border-left:3px solid rgba(201,127,143,.56);border-radius:0 18px 18px 0;background:rgba(255,248,251,.8);color:var(--color-muted,#6e6670);font-size:.86rem;line-height:1.6}
-  .expert-faq-list{display:grid;max-width:980px;gap:10px}.expert-faq-list details{overflow:hidden;border-radius:21px;background:rgba(255,255,255,.9)}.expert-faq-list summary{display:grid;grid-template-columns:minmax(0,1fr) 38px;gap:14px;align-items:center;padding:19px 21px;color:var(--color-text,#17151d);font-size:clamp(1rem,1.25vw,1.16rem);font-weight:760;line-height:1.34;letter-spacing:-.025em;cursor:pointer;list-style:none}.expert-faq-list summary::-webkit-details-marker{display:none}.expert-faq-icon{position:relative;width:38px;height:38px;border:1px solid rgba(56,187,181,.17);border-radius:999px;background:rgba(219,246,243,.58)}.expert-faq-icon::before,.expert-faq-icon::after{content:"";position:absolute;top:50%;left:50%;width:13px;height:2px;border-radius:999px;background:var(--color-turquoise-dark,#0f7773);transform:translate(-50%,-50%)}.expert-faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}.expert-faq-list details[open] .expert-faq-icon::after{opacity:0}.expert-faq-list details>div{padding:0 21px 19px}.expert-faq-list p{margin:0;color:var(--color-muted,#6e6670);font-size:.93rem;line-height:1.62}
-  .expert-final-card{padding:clamp(32px,5vw,56px);border-radius:36px;text-align:center;background:linear-gradient(145deg,rgba(219,246,243,.70),rgba(255,242,246,.82)),rgba(255,255,255,.76)}.expert-final-card>p:not(.signature){margin-inline:auto}.expert-final-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:900px;margin:25px auto 0}.expert-final-actions>a{display:inline-flex;width:100%;min-height:56px;align-items:center;justify-content:center;gap:7px;padding:0 17px;border-radius:999px;font-family:inherit;font-size:.94rem;font-weight:820;line-height:1;text-align:center;text-decoration:none}.expert-booksy{border:1px solid rgba(8,111,91,.16);background:linear-gradient(135deg,#18a889 0%,#0f8f78 55%,#0b7868 100%);color:#fff;box-shadow:0 14px 34px rgba(15,143,120,.16)}.expert-back-link{display:inline-flex;margin-top:22px;color:var(--color-turquoise-dark,#0f7773);font-size:.78rem;font-weight:820;text-decoration:none}
-  @media(max-width:1080px){.expert-article-hero-grid,.expert-plan-panel,.expert-author-note{grid-template-columns:1fr}.expert-timeline,.expert-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.expert-source-grid{grid-template-columns:1fr}}
-  @media(max-width:760px){.expert-article-page .section-kicker{min-height:29px;margin-bottom:14px;padding:0 10px;font-size:.61rem;letter-spacing:.12em}.expert-article-hero{padding:112px 0 44px}.expert-article-hero-grid{grid-template-columns:1fr;gap:13px}.expert-article-hero-copy,.expert-article-answer,.expert-timeline-card,.expert-article-note,.expert-factor-grid article,.expert-source-inline,.expert-area-grid a,.expert-author-note,.expert-related-grid a,.expert-source-grid a,.expert-final-card{border-radius:25px}.expert-article-hero-copy,.expert-article-answer{padding:24px 20px}.expert-article-hero-copy h1{font-size:clamp(2.25rem,10.2vw,3.35rem);line-height:1.02;letter-spacing:-.064em}.expert-article-lead{margin-top:18px;font-size:.98rem;line-height:1.62}.expert-article-answer h2{margin-top:54px;font-size:clamp(1.9rem,8.4vw,2.65rem);line-height:1.02}.expert-article-nav a{min-height:41px;padding-inline:14px;font-size:.66rem}.expert-article-section{padding:50px 0}.expert-article-heading{margin-bottom:23px}.expert-article-heading h2,.expert-author-note h2,.expert-final-card h2{font-size:clamp(1.95rem,8.6vw,2.8rem);line-height:1.04;letter-spacing:-.06em}.expert-article-heading>p:not(.section-kicker),.expert-author-note>div>p:not(.section-kicker),.expert-final-card>p:not(.signature){font-size:.94rem;line-height:1.62}.expert-timeline,.expert-factor-grid,.expert-area-grid,.expert-related-grid,.expert-plan-steps{grid-template-columns:1fr;gap:9px}.expert-timeline-card{min-height:auto;padding:21px}.expert-timeline-top{margin-bottom:28px}.expert-article-note{grid-template-columns:1fr;padding:18px}.expert-factor-grid article,.expert-area-grid a{min-height:auto;padding:21px}.expert-area-grid a>span{margin-bottom:28px}.expert-plan-panel{gap:20px;padding:25px 18px;border-radius:28px}.expert-plan-copy h2{font-size:clamp(2.15rem,9.8vw,3.05rem)}.expert-plan-steps>div{min-height:auto;padding:17px}.expert-author-note{gap:17px;padding:22px 18px}.expert-related-grid a,.expert-source-grid a{min-height:auto;padding:20px}.expert-medical-note{padding:16px 17px;font-size:.82rem}.expert-faq-list summary{grid-template-columns:minmax(0,1fr) 35px;gap:10px;padding:16px;font-size:.96rem}.expert-faq-icon{width:35px;height:35px}.expert-faq-list details>div{padding:0 16px 16px}.expert-final-card{padding:27px 18px}.expert-final-actions{grid-template-columns:1fr;gap:9px;margin-top:22px}.expert-final-actions>a{min-height:55px}}
-  @media(max-width:390px){.expert-article-hero-copy{padding-inline:18px}.expert-article-hero-copy h1{font-size:clamp(2.12rem,10.6vw,2.85rem)}.expert-article-meta{gap:5px}.expert-article-meta span{min-height:27px;padding-inline:9px;font-size:.62rem}}
-</style>
-
-<style>
-  .expert-legacy-copy {
-    max-width: 940px;
-  }
-
-  .expert-legacy-copy p {
-    margin: 16px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: clamp(0.98rem, 1.1vw, 1.06rem);
-    line-height: 1.72;
-  }
-
-  .expert-legacy-copy p:first-of-type {
-    margin-top: 0;
-  }
-
-  .expert-legacy-cards {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 24px;
-  }
-
-  .expert-legacy-cards article {
-    min-height: 150px;
-    padding: 23px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 24px;
-    background:
-      radial-gradient(circle at 94% 10%, rgba(56, 187, 181, 0.07), transparent 11rem),
-      rgba(255, 255, 255, 0.90);
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.055);
-  }
-
-  .expert-legacy-cards h3 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(1.25rem, 1.6vw, 1.72rem);
-    font-weight: 770;
-    line-height: 1.05;
-    letter-spacing: -0.05em;
-  }
-
-  .expert-legacy-cards p {
-    margin: 11px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.92rem;
-    line-height: 1.62;
-  }
-
-  .expert-focus-links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 18px;
-  }
-
-  .expert-focus-links a {
-    display: flex;
-    min-height: 76px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    padding: 17px 18px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 18px;
-    background: rgba(219, 246, 243, 0.38);
-    color: var(--color-text, #17151d);
-    font-size: 0.88rem;
-    font-weight: 760;
-    line-height: 1.35;
-    text-decoration: none;
-  }
-
-  .expert-focus-links a span {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-weight: 850;
-  }
-
-  @media (max-width: 760px) {
-    .expert-legacy-cards,
-    .expert-focus-links {
-      grid-template-columns: 1fr;
-      gap: 9px;
-    }
-
-    .expert-legacy-cards article {
-      min-height: auto;
-      padding: 20px;
-      border-radius: 21px;
-    }
-
-    .expert-focus-links a {
-      min-height: 68px;
-      padding: 15px 16px;
-    }
+  .price-guide-page{min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 78% 10%,rgba(56,187,181,.08),transparent 27rem),radial-gradient(circle at 10% 34%,rgba(201,127,143,.1),transparent 24rem),linear-gradient(180deg,#fffdfd 0%,#fff8fa 54%,#fff 100%)}
+  .price-guide-page *,.price-guide-page *::before,.price-guide-page *::after{box-sizing:border-box}
+  .price-guide-page main,.price-guide-page section,.price-guide-page .container,.price-guide-page div{min-width:0}
+  .price-guide-page .section-kicker{display:inline-flex;width:fit-content;min-height:30px;align-items:center;margin:0 0 16px;padding:0 12px;border:1px solid rgba(56,187,181,.16);border-radius:999px;background:rgba(219,246,243,.72);color:var(--color-turquoise-dark,#0f7773);font-size:.66rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+  .price-hero{position:relative;padding:136px 0 62px;overflow:hidden}
+  .price-glow{position:absolute;border-radius:999px;pointer-events:none}.price-glow-one{top:2rem;right:-12rem;width:38rem;height:38rem;background:radial-gradient(circle,rgba(56,187,181,.16),transparent 68%)}.price-glow-two{left:-10rem;bottom:-16rem;width:36rem;height:36rem;background:radial-gradient(circle,rgba(201,127,143,.14),transparent 68%)}
+  .price-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(330px,.72fr);gap:18px;align-items:stretch}
+  .price-hero-copy,.price-answer,.scenario-card,.included-grid article,.decision-copy,.decision-cards article,.triage-grid article,.compare-list,.expert-card,.related-scroll a,.faq-item,.sources-card,.final-card{border:1px solid rgba(183,101,118,.14);box-shadow:0 16px 48px rgba(89,53,67,.06)}
+  .price-hero-copy{padding:clamp(30px,5vw,62px);border-radius:36px;background:rgba(255,255,255,.86)}
+  .price-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}.price-meta span{display:inline-flex;min-height:30px;align-items:center;padding:0 10px;border-radius:999px;background:rgba(246,220,227,.44);color:#8e5163;font-size:.66rem;font-weight:760}
+  .price-hero h1{max-width:980px;margin:0;color:var(--color-text,#17151d);font-size:clamp(2.8rem,5vw,5.7rem);font-weight:770;line-height:.99;letter-spacing:-.074em}
+  .price-lead{max-width:780px;margin:22px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(1rem,1.2vw,1.1rem);line-height:1.66}
+  .price-hero-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.price-hero-actions a{display:inline-flex;min-height:49px;align-items:center;justify-content:center;padding:0 17px;border-radius:999px;font-size:.82rem;font-weight:830;text-decoration:none}.price-primary{background:linear-gradient(135deg,#dc8fa3 0%,#ca718b 52%,#b85d78 100%);color:#fff;box-shadow:0 12px 28px rgba(184,93,120,.18)}.price-secondary{border:1px solid rgba(56,187,181,.16);background:#fff;color:#0f7773}
+  .price-answer{display:flex;flex-direction:column;justify-content:center;padding:clamp(27px,4vw,42px);border-radius:36px;background:radial-gradient(circle at 88% 12%,rgba(255,255,255,.3),transparent 12rem),linear-gradient(145deg,#d992a7 0%,#c97894 42%,#a8506a 100%);color:#fff}
+  .price-answer-label{margin:0;color:rgba(255,255,255,.72);font-size:.67rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.price-big{display:block;margin:17px 0 5px;font-size:clamp(3.8rem,7vw,6.3rem);font-weight:860;line-height:.9;letter-spacing:-.08em}.price-big-text{font-size:clamp(2.2rem,4.1vw,4rem);line-height:.95}.price-answer h2{margin:13px 0 0;color:#fff;font-size:clamp(1.55rem,2.5vw,2.3rem);font-weight:760;line-height:1.02;letter-spacing:-.05em}.price-answer p:last-child{margin:16px 0 0;color:rgba(255,255,255,.9);font-size:.92rem;line-height:1.6}
+  .price-nav-section{padding:0 0 28px}.price-nav{display:flex;gap:7px;overflow-x:auto;padding:3px 0 9px;scrollbar-width:none}.price-nav::-webkit-scrollbar{display:none}.price-nav a{flex:0 0 auto;display:inline-flex;min-height:39px;align-items:center;padding:0 12px;border:1px solid rgba(56,187,181,.14);border-radius:999px;background:rgba(255,255,255,.84);color:#0f7773;font-size:.7rem;font-weight:800;text-decoration:none}
+  .price-section{padding:66px 0;scroll-margin-top:100px}.price-soft{background:radial-gradient(circle at 90% 12%,rgba(56,187,181,.06),transparent 20rem),rgba(255,255,255,.52)}
+  .price-heading{max-width:980px;margin-bottom:24px}.price-heading h2,.decision-copy h2,.expert-card h2,.sources-card h2,.final-card h2{margin:0;color:var(--color-text,#17151d);font-size:clamp(2.1rem,3.8vw,3.9rem);font-weight:760;line-height:1.02;letter-spacing:-.068em}.price-heading>p:not(.section-kicker),.decision-copy>p:not(.section-kicker),.expert-card>div>p:not(.section-kicker),.sources-card>div>p:not(.section-kicker),.final-card>p:not(.signature){max-width:860px;margin:15px 0 0;color:var(--color-muted,#6e6670);font-size:.96rem;line-height:1.64}
+  .scenario-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,1fr);grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.scenario-card{display:flex;min-height:270px;flex-direction:column;padding:22px;border-radius:25px;background:rgba(255,255,255,.9)}.scenario-card>span{color:#0f7773;font-size:.65rem;font-weight:840;letter-spacing:.1em;text-transform:uppercase}.scenario-card>strong{margin-top:28px;color:var(--color-text,#17151d);font-size:clamp(1.45rem,2.2vw,2.1rem);font-weight:830;line-height:1;letter-spacing:-.05em}.scenario-card p{margin:13px 0 0;color:var(--color-muted,#6e6670);font-size:.87rem;line-height:1.55}.scenario-card a{width:fit-content;margin-top:auto;padding-top:18px;color:#0f7773;font-size:.73rem;font-weight:840;text-decoration:none}
+  .price-service-bridge,.qualification-strip{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;margin-top:13px;padding:18px 20px;border:1px solid rgba(56,187,181,.15);border-radius:22px;background:linear-gradient(135deg,rgba(219,246,243,.56),rgba(255,242,246,.52)),rgba(255,255,255,.8)}.price-service-bridge span,.qualification-strip span{display:block;color:var(--color-muted,#6e6670);font-size:.65rem;font-weight:760;letter-spacing:.08em;text-transform:uppercase}.price-service-bridge strong,.qualification-strip strong{display:block;margin-top:4px;color:var(--color-text,#17151d);font-size:.95rem;font-weight:820}.price-service-actions{display:flex;gap:7px}.price-service-actions a,.qualification-strip>a{display:inline-flex;min-height:42px;align-items:center;justify-content:center;padding:0 14px;border-radius:999px;font-size:.73rem;font-weight:820;text-decoration:none}.price-service-actions a:first-child{border:1px solid rgba(56,187,181,.17);background:#fff;color:#0f7773}.price-service-actions a:last-child,.qualification-strip>a{background:linear-gradient(135deg,#18a889 0%,#0f8f78 55%,#0b7868 100%);color:#fff}
+  .included-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.included-grid article{min-height:190px;padding:22px;border-radius:24px;background:rgba(255,255,255,.9)}.included-grid span,.triage-grid span{display:block;margin-bottom:28px;color:#0f7773;font-size:.67rem;font-weight:860;letter-spacing:.14em}.included-grid h3,.triage-grid h3{margin:0;color:var(--color-text,#17151d);font-size:1.25rem;font-weight:790;line-height:1.06;letter-spacing:-.045em}.included-grid p,.triage-grid p{margin:10px 0 0;color:var(--color-muted,#6e6670);font-size:.87rem;line-height:1.55}
+  .decision-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:15px}.decision-copy{padding:clamp(25px,4vw,38px);border-radius:28px;background:rgba(255,255,255,.9)}.decision-copy>p:not(.section-kicker){margin-top:15px}.decision-cards{display:grid;gap:10px}.decision-cards article{display:flex;min-height:175px;flex-direction:column;justify-content:center;padding:23px;border-radius:25px;background:radial-gradient(circle at 92% 12%,rgba(56,187,181,.08),transparent 11rem),rgba(255,255,255,.9)}.decision-cards span{color:#0f7773;font-size:.65rem;font-weight:850;text-transform:uppercase;letter-spacing:.1em}.decision-cards strong{margin-top:8px;color:var(--color-text,#17151d);font-size:1.35rem;font-weight:810}.decision-cards p{margin:9px 0 0;color:var(--color-muted,#6e6670);font-size:.88rem;line-height:1.55}
+  .triage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.triage-grid article{min-height:210px;padding:22px;border-radius:24px;background:rgba(255,255,255,.9)}
+  .compare-list{overflow:hidden;border-radius:27px;background:rgba(255,255,255,.9)}.compare-list>div{display:grid;grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr);gap:18px;padding:20px 23px;border-bottom:1px solid rgba(56,187,181,.12)}.compare-list>div:last-child{border-bottom:0}.compare-list strong{color:var(--color-text,#17151d);font-size:.9rem;font-weight:800}.compare-list span{color:var(--color-muted,#6e6670);font-size:.87rem;line-height:1.5}
+  .expert-section{padding-top:40px}.expert-card{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(285px,.7fr);gap:20px;padding:clamp(26px,4vw,40px);border-radius:30px;background:rgba(255,255,255,.92)}.expert-card aside{display:flex;flex-direction:column;justify-content:center;padding:18px;border:1px solid rgba(56,187,181,.14);border-radius:20px;background:rgba(219,246,243,.42)}.expert-card aside>span{margin-bottom:7px;color:#0f7773;font-size:.63rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.expert-card aside>strong{margin-top:6px;color:var(--color-text,#17151d);font-size:.85rem;font-weight:790}.expert-card aside a{margin-top:14px;color:#0f7773;font-size:.72rem;font-weight:850;text-decoration:none}
+  .related-scroll{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.related-scroll a{display:flex;min-height:210px;flex-direction:column;padding:21px;border-radius:24px;background:rgba(255,255,255,.9);color:inherit;text-decoration:none}.related-scroll span{color:#0f7773;font-size:.63rem;font-weight:840;text-transform:uppercase;letter-spacing:.1em}.related-scroll strong{margin-top:32px;color:var(--color-text,#17151d);font-size:1.18rem;font-weight:800;line-height:1.05;letter-spacing:-.04em}.related-scroll p{margin:10px 0 0;color:var(--color-muted,#6e6670);font-size:.85rem;line-height:1.5}
+  .faq-list{display:grid;max-width:980px;gap:9px}.faq-item{overflow:hidden;border-radius:21px;background:rgba(255,255,255,.9)}.faq-item summary{display:grid;grid-template-columns:minmax(0,1fr) 38px;gap:12px;align-items:center;padding:18px 20px;color:var(--color-text,#17151d);font-size:1rem;font-weight:760;line-height:1.3;cursor:pointer;list-style:none}.faq-item summary::-webkit-details-marker{display:none}.faq-icon{position:relative;width:38px;height:38px;border:1px solid rgba(56,187,181,.16);border-radius:999px;background:rgba(219,246,243,.55)}.faq-icon::before,.faq-icon::after{content:"";position:absolute;top:50%;left:50%;width:12px;height:2px;border-radius:99px;background:#0f7773;transform:translate(-50%,-50%)}.faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}.faq-item[open] .faq-icon::after{opacity:0}.faq-item>div{padding:0 20px 18px}.faq-item p{margin:0;color:var(--color-muted,#6e6670);font-size:.9rem;line-height:1.6}
+  .sources-section{padding-top:34px}.sources-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.65fr);gap:20px;padding:clamp(24px,4vw,38px);border-radius:28px;background:rgba(255,255,255,.9)}.source-links{display:flex;flex-direction:column;justify-content:center;gap:8px}.source-links a{display:flex;min-height:45px;align-items:center;padding:0 13px;border:1px solid rgba(56,187,181,.14);border-radius:15px;color:#0f7773;font-size:.73rem;font-weight:800;text-decoration:none;background:rgba(219,246,243,.3)}
+  .price-final-cta{padding:42px 0 82px}.final-card{padding:clamp(30px,5vw,56px);border-radius:34px;text-align:center;background:linear-gradient(145deg,rgba(219,246,243,.68),rgba(255,242,246,.8)),rgba(255,255,255,.75)}.final-card>p:not(.signature){margin-inline:auto}.final-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-width:880px;margin:22px auto 0}.final-actions a{display:flex;min-height:54px;align-items:center;justify-content:center;border-radius:999px;font-size:.9rem;font-weight:820;text-decoration:none}
+  @media(max-width:980px){.price-hero-grid,.decision-grid,.expert-card,.sources-card{grid-template-columns:1fr}.scenario-scroll,.related-scroll{grid-template-columns:repeat(2,minmax(0,1fr))}.included-grid,.triage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:760px){
+    .price-hero{padding:112px 0 42px}.price-hero-grid{gap:11px}.price-hero-copy,.price-answer{border-radius:27px}.price-hero-copy{padding:23px 19px}.price-hero h1{font-size:clamp(2.25rem,10vw,3.2rem);line-height:1.01;letter-spacing:-.064em}.price-lead{margin-top:17px;font-size:.94rem;line-height:1.58}.price-hero-actions{display:grid;grid-template-columns:1fr}.price-hero-actions a{width:100%;min-height:49px}.price-answer{padding:23px 19px}.price-big{font-size:clamp(3.6rem,18vw,5.4rem)}.price-big-text{font-size:clamp(2rem,11vw,3.1rem);line-height:.98}.price-answer h2{font-size:1.55rem}.price-answer p:last-child{font-size:.85rem;line-height:1.55}
+    .price-nav{margin-inline:-16px;padding-inline:16px}.price-section{padding:48px 0}.price-heading h2,.decision-copy h2,.expert-card h2,.sources-card h2,.final-card h2{font-size:clamp(1.9rem,8.7vw,2.72rem);line-height:1.04}.price-heading>p:not(.section-kicker),.decision-copy>p:not(.section-kicker),.expert-card>div>p:not(.section-kicker),.sources-card>div>p:not(.section-kicker),.final-card>p:not(.signature){font-size:.87rem;line-height:1.55}
+    .scenario-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(76vw,285px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.scenario-scroll::-webkit-scrollbar{display:none}.scenario-card{min-height:248px;padding:18px;border-radius:21px;scroll-snap-align:start}.scenario-card>strong{margin-top:22px}.price-service-bridge,.qualification-strip{grid-template-columns:1fr;gap:12px;padding:16px;border-radius:20px}.price-service-actions{display:grid;grid-template-columns:1fr 1fr}.price-service-actions a,.qualification-strip>a{width:100%}
+    .included-grid,.triage-grid{grid-template-columns:1fr;gap:8px}.included-grid article,.triage-grid article{min-height:auto;padding:19px;border-radius:21px}.included-grid span,.triage-grid span{margin-bottom:20px}.decision-copy{padding:22px 18px;border-radius:23px}.decision-cards article{min-height:150px;padding:19px;border-radius:21px}.compare-list{border-radius:22px}.compare-list>div{grid-template-columns:1fr;gap:6px;padding:17px 18px}.expert-card,.sources-card{padding:20px 17px;border-radius:23px}.expert-card aside{padding:15px;border-radius:17px}
+    .related-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(76vw,280px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.related-scroll::-webkit-scrollbar{display:none}.related-scroll a{min-height:190px;padding:18px;border-radius:21px;scroll-snap-align:start}.faq-item{border-radius:18px}.faq-item summary{grid-template-columns:minmax(0,1fr) 34px;padding:16px;font-size:.94rem}.faq-icon{width:34px;height:34px}.faq-item>div{padding:0 16px 16px}.source-links a{min-height:43px}.price-final-cta{padding:28px 0 62px}.final-card{padding:27px 18px;border-radius:27px}.final-actions{grid-template-columns:1fr;gap:7px}.final-actions a{min-height:52px}
   }
 </style>
-
