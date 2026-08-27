@@ -1,10 +1,11 @@
----
+﻿---
 import "../styles/global.css";
 import { siteConfig, getCanonicalUrl, getOgImageUrl } from "../config/site";
 import AssistantWidget from "../components/AssistantWidget.astro";
 import SilkyPopup from "../components/SilkyPopup.astro";
 import GoogleAdsTag from "../components/GoogleAdsTag.astro";
 import CookieConsent from "../components/CookieConsent.astro";
+import PoradnikSocialBridge from "../components/PoradnikSocialBridge.astro";
 
 type JsonLd = Record<string, unknown>;
 
@@ -29,6 +30,7 @@ const {
 } = Astro.props;
 
 const canonicalUrl = getCanonicalUrl(canonicalPath ?? Astro.url.pathname);
+const isPoradnikArticle = Astro.url.pathname.startsWith("/poradnik/") && Astro.url.pathname !== "/poradnik/";
 const ogImageUrl = getOgImageUrl(ogImage);
 const ogImageAlt = "Bogusława Herda — makijaż permanentny Bielsko-Biała";
 
@@ -146,8 +148,12 @@ const structuredDataJson = JSON.stringify(allStructuredData).replace(/</g, "\\u0
   <body>
     <slot />
 
+    {isPoradnikArticle && <PoradnikSocialBridge />}
+
     <AssistantWidget />
     <SilkyPopup />
     <CookieConsent />
   </body>
 </html>
+
+
