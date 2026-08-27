@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
@@ -126,8 +126,13 @@ const structuredData = [
 
     <main>
       <section class="dop-hero">
+        <div class="dop-hero-glow dop-hero-glow-one" aria-hidden="true"></div>
+        <div class="dop-hero-glow dop-hero-glow-two" aria-hidden="true"></div>
+
         <div class="container dop-hero-grid">
           <div class="dop-hero-copy">
+            <p class="section-kicker">Poradnik PMU</p>
+
             <div class="dop-meta">
               <span>Brwi permanentne</span>
               <span>8–10 minut</span>
@@ -141,10 +146,6 @@ const structuredData = [
               i precyzyjnego uzupełnienia miejsc, w których pigment wymaga dopracowania.
             </p>
 
-            <div class="dop-hero-actions">
-              <a class="dop-primary" href="#odpowiedz">Odpowiedź w 20 sekund →</a>
-              <a class="dop-secondary" href="/makijaz-permanentny-brwi/#efekty-brwi">Zobacz efekty brwi</a>
-            </div>
           </div>
 
           <aside class="dop-answer" id="odpowiedz">
@@ -155,12 +156,25 @@ const structuredData = [
               <strong>Nie zawsze musi oznaczać dużą poprawkę.</strong> W gabinecie Bogusławy Herda dopigmentowanie
               po pierwszym zabiegu brwi jest bezpłatne do 2 miesięcy.
             </p>
+
+            <div class="dop-hero-actions">
+              <a class="dop-primary" href="#roznice">Dopigmentowanie czy odświeżenie? ↓</a>
+              <a class="dop-secondary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Wyślij zdjęcie / formularz →</a>
+            </div>
           </aside>
         </div>
       </section>
 
       <section class="dop-nav-section" aria-label="Najważniejsze informacje o dopigmentowaniu brwi">
         <div class="container">
+          <div class="dop-nav-heading">
+            <div>
+              <p class="section-kicker">4 najważniejsze odpowiedzi</p>
+              <h2>Dopigmentowanie nie zawsze oznacza to samo dla każdej skóry.</h2>
+            </div>
+            <p>Na telefonie przesuń karty palcem.</p>
+          </div>
+
           <nav class="dop-nav">
             <a href="#kiedy"><span>01 · Kiedy?</span><strong>Kiedy dopigmentować →</strong></a>
             <a href="#czy-konieczne"><span>02 · Czy trzeba?</span><strong>Kiedy można odpuścić →</strong></a>
@@ -412,6 +426,12 @@ const structuredData = [
             <a class="final-phone" href="tel:+48730900125">Zadzwoń</a>
             <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">Booksy <span aria-hidden="true">→</span></a>
           </div>
+          <div class="dop-final-secondary">
+            <a href="/makijaz-permanentny-brwi/#efekty-brwi">Efekty brwi</a>
+            <a href="/poradnik/jak-goja-sie-brwi-permanentne/">Gojenie</a>
+            <a href="/cennik-makijaz-permanentny/#price-group-1">Cennik brwi</a>
+          </div>
+          <a class="dop-back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
         </div>
       </section>
     </main>
@@ -446,5 +466,258 @@ const structuredData = [
     .dop-decision-section,.dop-content-section,.dop-price-section,.dop-process-section,.dop-related-section,.dop-faq-section{padding:48px 0}.dop-heading h2,.dop-content-copy h2,.dop-soft-card h2,.dop-old-grid h2,.dop-problem-card h2{font-size:clamp(1.95rem,8.8vw,2.75rem);line-height:1.04}.dop-heading>p:not(.section-kicker),.dop-content-copy>p:not(.section-kicker),.dop-soft-card p,.dop-old-grid p,.dop-problem-card p{font-size:.87rem;line-height:1.57}.dop-three-grid,.dop-price-grid{display:grid;grid-auto-flow:column;grid-auto-columns:min(78vw,300px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.dop-three-grid::-webkit-scrollbar,.dop-price-grid::-webkit-scrollbar{display:none}.dop-decision-card,.dop-price-grid article{scroll-snap-align:start}.dop-soft-card{gap:10px;padding:20px 16px;border-radius:23px}.dop-process-grid,.dop-related-grid{grid-template-columns:1fr}.dop-process-grid article{padding:17px}.dop-problem-card{padding:19px 16px;border-radius:23px}.dop-final-section{padding:30px 0 70px}.dop-final-card{padding:27px 17px;border-radius:25px}.dop-final-card h2{font-size:clamp(2rem,9vw,2.85rem)}.dop-final-actions{grid-template-columns:1fr;gap:8px}
   }
   @media(max-width:390px){.dop-nav{grid-auto-columns:80vw}.dop-checklist>div{grid-template-columns:32px 1fr}.dop-checklist span{width:32px;height:32px}}
-</style>
 
+
+  /* === ALIGN 2026: ten sam jezyk wizualny co Brwi po latach / Laser === */
+  .dop-page *, .dop-page *::before, .dop-page *::after { box-sizing: border-box; }
+  .dop-page main, .dop-page section, .dop-page .container, .dop-page article, .dop-page div, .dop-page aside { min-width: 0; }
+
+  .dop-hero { position: relative; overflow: hidden; padding: 144px 0 48px; }
+  .dop-hero-glow { position:absolute; border-radius:999px; pointer-events:none; }
+  .dop-hero-glow-one { top:2rem; right:-12rem; width:38rem; height:38rem; background:radial-gradient(circle,rgba(56,187,181,.18),transparent 68%); }
+  .dop-hero-glow-two { left:-10rem; bottom:-12rem; width:34rem; height:34rem; background:radial-gradient(circle,rgba(201,127,143,.14),transparent 68%); }
+  .dop-hero-grid { position:relative; z-index:1; grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr); gap:18px; align-items:stretch; }
+  .dop-hero-copy, .dop-answer, .dop-nav a, .dop-decision-card, .dop-price-grid article, .dop-process-grid article, .dop-checklist>div, .dop-problem-card, .dop-old-grid, .dop-related-grid a, .dop-faq-list details, .dop-final-card { border:1px solid rgba(183,101,118,.14); box-shadow:0 16px 48px rgba(89,53,67,.055); }
+  .dop-hero-copy { padding:clamp(32px,4.8vw,58px); border-radius:36px; background:rgba(255,255,255,.88); }
+  .dop-meta { gap:6px; margin-bottom:16px; }
+  .dop-meta span { min-height:28px; display:inline-flex; align-items:center; padding:0 10px; background:rgba(255,248,251,.94); color:var(--color-muted,#6e6670); font-size:.63rem; font-weight:790; letter-spacing:.07em; }
+  .dop-meta span:first-child { background:rgba(56,187,181,.12); color:var(--color-turquoise-dark,#0f7773); }
+  .dop-hero h1 { max-width:1000px; font-size:clamp(2.72rem,4.55vw,5rem); font-weight:780; line-height:1.01; letter-spacing:-.071em; }
+  .dop-lead { max-width:860px; margin-top:21px; font-size:clamp(1.02rem,1.2vw,1.14rem); line-height:1.65; }
+
+  .dop-answer { display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(27px,3.7vw,42px); border-color:rgba(183,101,118,.14); border-radius:36px; color:#fff; background:radial-gradient(circle at 88% 12%,rgba(255,255,255,.22),transparent 13rem),linear-gradient(145deg,#0f7773 0%,#1aa5a0 48%,#138a86 100%); box-shadow:0 26px 68px rgba(35,156,150,.18); }
+  .dop-answer>span { margin:0 auto 38px 0; color:rgba(255,255,255,.72); font-size:.67rem; font-weight:850; letter-spacing:.14em; }
+  .dop-answer h2 { margin:0; color:#fff; font-size:clamp(2rem,3vw,3.1rem); font-weight:790; line-height:1; letter-spacing:-.06em; }
+  .dop-answer p { margin:16px 0 0; color:rgba(255,255,255,.9); font-size:.89rem; line-height:1.57; }
+  .dop-answer strong { color:#fff; }
+  .dop-hero-actions { gap:7px; margin-top:17px; }
+  .dop-hero-actions a { min-height:40px; padding:0 13px; border:1px solid rgba(255,255,255,.24); background:rgba(255,255,255,.11); color:#fff; font-size:.7rem; }
+  .dop-primary, .dop-secondary { background:rgba(255,255,255,.11); color:#fff; }
+
+  .dop-nav-section { padding:0 0 35px; scroll-margin-top:96px; }
+  .dop-nav-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:17px; }
+  .dop-nav-heading h2, .dop-heading h2, .dop-content-copy h2, .dop-soft-card h2, .dop-old-grid h2, .dop-problem-card h2, .dop-final-card h2 { margin:0; color:var(--color-text,#17151d); font-size:clamp(2.05rem,3.45vw,3.7rem); font-weight:770; line-height:1.02; letter-spacing:-.066em; }
+  .dop-nav-heading>p { margin:0 0 4px; color:var(--color-muted,#6e6670); font-size:.78rem; }
+  .dop-nav { grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; }
+  .dop-nav a { min-height:190px; padding:20px; border-radius:23px; background:radial-gradient(circle at 92% 8%,rgba(56,187,181,.07),transparent 11rem),rgba(255,255,255,.91); }
+  .dop-nav span { color:#9d5c70; font-size:.58rem; font-weight:820; }
+  .dop-nav strong { margin-top:auto; color:var(--color-text,#17151d); font-size:1.22rem; font-weight:780; line-height:1.08; letter-spacing:-.04em; }
+
+  .dop-decision-section,.dop-content-section,.dop-price-section,.dop-process-section,.dop-related-section,.dop-faq-section { padding:58px 0; }
+  .dop-soft-section,.dop-problem-section,.dop-old-section { padding:58px 0; }
+  .dop-decision-card,.dop-price-grid article,.dop-process-grid article { border-radius:23px; box-shadow:0 16px 48px rgba(89,53,67,.045); }
+  .dop-decision-card { min-height:250px; display:flex; flex-direction:column; }
+  .dop-decision-card a { margin-top:auto; padding-top:16px; }
+  .dop-price-grid article { min-height:230px; }
+  .dop-price-featured { background:linear-gradient(145deg,rgba(219,246,243,.76),rgba(255,255,255,.94)); }
+  .dop-process-grid article { min-height:205px; }
+  .dop-problem-card,.dop-old-grid { border-radius:28px; background:rgba(255,255,255,.9); }
+  .dop-faq-list details { border-radius:18px; background:rgba(255,255,255,.91); }
+
+  .dop-final-card { max-width:1040px; padding:clamp(30px,5vw,58px); border-radius:34px; background:radial-gradient(circle at 85% 15%,rgba(56,187,181,.11),transparent 16rem),rgba(255,255,255,.94); text-align:center; }
+  .dop-final-card>p:not(.section-kicker) { max-width:760px; margin:16px auto 0; }
+  .dop-final-actions { max-width:900px; margin:24px auto 0; }
+  .dop-final-secondary { display:flex; justify-content:center; flex-wrap:wrap; gap:7px; margin-top:12px; }
+  .dop-final-secondary a { display:inline-flex; min-height:38px; align-items:center; padding:0 12px; border:1px solid rgba(56,187,181,.14); border-radius:999px; background:rgba(255,255,255,.62); color:#0f7773; font-size:.69rem; font-weight:800; text-decoration:none; }
+  .dop-back-link { display:inline-flex; margin-top:18px; color:var(--color-muted,#6e6670); font-size:.7rem; font-weight:760; text-decoration:none; }
+
+  @media(max-width:760px){
+    .dop-page :global(.section-kicker){min-height:27px;margin-bottom:11px;padding-inline:9px;font-size:.57rem;letter-spacing:.105em}
+    .dop-hero{padding:103px 0 25px}
+    .dop-hero-grid{gap:9px}
+    .dop-hero-copy,.dop-answer{border-radius:23px}
+    .dop-hero-copy{padding:21px 16px 20px}
+    .dop-meta{gap:4px;margin-bottom:13px}
+    .dop-meta span{min-height:24px;padding-inline:7px;font-size:.54rem;letter-spacing:.045em}
+    .dop-hero h1{font-size:clamp(2rem,9.4vw,2.82rem);line-height:1.02;letter-spacing:-.06em}
+    .dop-lead{margin-top:14px;font-size:.88rem;line-height:1.53}
+    .dop-answer{padding:19px 16px}
+    .dop-answer>span{margin-bottom:17px;font-size:.58rem}
+    .dop-answer h2{font-size:2.05rem}
+    .dop-answer p{margin-top:12px;font-size:.8rem;line-height:1.5}
+    .dop-hero-actions{display:grid;grid-template-columns:1fr;width:100%;margin-top:13px}
+    .dop-hero-actions a{justify-content:center;padding-inline:7px;font-size:.64rem;text-align:center}
+    .dop-nav-section{padding-bottom:20px}
+    .dop-nav-heading{display:block;margin-bottom:13px}
+    .dop-nav-heading h2,.dop-heading h2,.dop-content-copy h2,.dop-soft-card h2,.dop-old-grid h2,.dop-problem-card h2,.dop-final-card h2{font-size:clamp(1.84rem,8.3vw,2.55rem);line-height:1.04;letter-spacing:-.057em}
+    .dop-nav-heading>p{margin-top:9px;font-size:.7rem}
+    .dop-nav{display:grid;grid-auto-flow:column;grid-auto-columns:min(78vw,300px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 9px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .dop-nav::-webkit-scrollbar{display:none}
+    .dop-nav a{min-height:230px;padding:17px;border-radius:20px;scroll-snap-align:start}
+    .dop-nav strong{font-size:1.27rem}
+    .dop-decision-section,.dop-content-section,.dop-price-section,.dop-process-section,.dop-related-section,.dop-faq-section,.dop-soft-section,.dop-problem-section,.dop-old-section{padding:44px 0}
+    .dop-three-grid,.dop-price-grid,.dop-process-grid{grid-template-columns:1fr}
+    .dop-content-grid,.dop-content-grid-reverse,.dop-old-grid{grid-template-columns:1fr}
+    .dop-decision-card,.dop-price-grid article,.dop-process-grid article{min-height:0;padding:18px;border-radius:20px}
+    .dop-problem-card,.dop-old-grid{padding:18px;border-radius:22px}
+    .dop-final-card{padding:24px 16px;border-radius:24px}
+    .dop-final-secondary{display:grid;grid-template-columns:1fr 1fr}
+    .dop-final-secondary a{justify-content:center;text-align:center}
+  }
+  @media(max-width:390px){.dop-nav{grid-auto-columns:81vw}.dop-final-secondary{grid-template-columns:1fr}}
+</style>
+'@
+
+Set-Content -Path $articlePath -Value $article -Encoding UTF8
+Write-Host "OK - utworzono nowy artykul: $articlePath" -ForegroundColor Green
+
+# ------------------------------------------------------------
+# 2. PORADNIK HUB — dodaj nowy wpis do articleCards automatycznie
+# ------------------------------------------------------------
+$hubPath = $null
+if (Test-Path "src\pages\poradnik.astro") {
+  $hubPath = "src\pages\poradnik.astro"
+} elseif (Test-Path "src\pages\poradnik\index.astro") {
+  $hubPath = "src\pages\poradnik\index.astro"
+}
+
+if ($hubPath) {
+  $hub = Get-Content -Raw -Encoding UTF8 $hubPath
+
+  if ($hub -notmatch '/poradnik/dopigmentowanie-brwi-permanentnych/') {
+    $cardsMatch = [regex]::Match($hub, '(?s)const articleCards\s*=\s*\[(.*?)\];')
+
+    if ($cardsMatch.Success) {
+      $cardsBlock = $cardsMatch.Value
+      $numberMatches = [regex]::Matches($cardsBlock, '"number"\s*:\s*"(\d+)"')
+      $maxNumber = 0
+      foreach ($m in $numberMatches) {
+        $n = [int]$m.Groups[1].Value
+        if ($n -gt $maxNumber) { $maxNumber = $n }
+      }
+      $nextNumber = ($maxNumber + 1).ToString("00")
+
+      $newCard = @"
+,
+  {
+    "slug": "dopigmentowanie-brwi-permanentnych",
+    "title": "Dopigmentowanie brwi permanentnych — kiedy jest potrzebne i ile trwa?",
+    "category": "Gojenie i dopigmentowanie",
+    "description": "Dopigmentowanie brwi permanentnych: kiedy jest potrzebne, czy zawsze trzeba je robić, ile trwa, ile kosztuje i czym różni się od odświeżenia brwi.",
+    "href": "/poradnik/dopigmentowanie-brwi-permanentnych/",
+    "readingTime": "8–10 minut",
+    "number": "$nextNumber",
+    "groups": [
+      "brwi",
+      "gojenie",
+      "korekta"
+    ],
+    "featured": false
+  }
+"@
+
+      $newCardsBlock = $cardsBlock.Substring(0, $cardsBlock.LastIndexOf("];")) + $newCard + "`r`n];"
+      $hub = $hub.Substring(0, $cardsMatch.Index) + $newCardsBlock + $hub.Substring($cardsMatch.Index + $cardsMatch.Length)
+      Set-Content -Path $hubPath -Value $hub -Encoding UTF8
+      Write-Host "OK - dodano wpis do Poradnika jako numer $nextNumber" -ForegroundColor Green
+    } else {
+      Write-Warning "Nie znaleziono tablicy articleCards w $hubPath. Artykul zostal utworzony, ale hub nie zostal zmieniony."
+    }
+  } else {
+    Write-Host "INFO - wpis juz istnieje w Poradniku, pomijam." -ForegroundColor DarkGray
+  }
+} else {
+  Write-Warning "Nie znaleziono $hubPath"
+}
+
+# ------------------------------------------------------------
+# 3. SITEMAP — dodaj nowy URL bez usuwania obecnych wpisow
+# ------------------------------------------------------------
+$sitemapPath = "src\pages\sitemap.xml.ts"
+if (Test-Path $sitemapPath) {
+  $sitemap = Get-Content -Raw -Encoding UTF8 $sitemapPath
+  $newUrl = '/poradnik/dopigmentowanie-brwi-permanentnych/'
+
+  if (-not $sitemap.Contains($newUrl)) {
+    $needle = '    path: "/sercemmalowane/",'
+    $idx = $sitemap.IndexOf($needle)
+
+    if ($idx -ge 0) {
+      $start = $sitemap.LastIndexOf("  {", $idx)
+      if ($start -lt 0) { throw "Nie znaleziono poczatku wpisu /sercemmalowane/ w sitemap." }
+
+      $sitemapEntry = @'
+  {
+    path: "/poradnik/dopigmentowanie-brwi-permanentnych/",
+    priority: "0.82",
+    changefreq: "monthly"
+  },
+'@
+
+      $sitemap = $sitemap.Substring(0, $start) + $sitemapEntry + "`r`n" + $sitemap.Substring($start)
+      Set-Content -Path $sitemapPath -Value $sitemap -Encoding UTF8
+      Write-Host "OK - dodano URL do sitemap.xml.ts" -ForegroundColor Green
+    } else {
+      Write-Warning "Nie znaleziono markera /sercemmalowane/ w sitemap."
+    }
+  } else {
+    Write-Host "INFO - URL juz istnieje w sitemap, pomijam." -ForegroundColor DarkGray
+  }
+} else {
+  Write-Warning "Nie znaleziono $sitemapPath"
+}
+
+# ------------------------------------------------------------
+# 4. BRWI SERVICE — dodaj mocny internal link z glownej uslugi
+# ------------------------------------------------------------
+$browPath = "src\pages\makijaz-permanentny-brwi.astro"
+if (Test-Path $browPath) {
+  $brow = Get-Content -Raw -Encoding UTF8 $browPath
+
+  if ($brow -notmatch '/poradnik/dopigmentowanie-brwi-permanentnych/') {
+    $hrefMarker = 'href: "/poradnik/brwi-permanentne-po-latach/" },'
+    $idxHref = $brow.IndexOf($hrefMarker)
+
+    if ($idxHref -ge 0) {
+      $lineEnd = $brow.IndexOf("`n", $idxHref)
+      if ($lineEnd -lt 0) { $lineEnd = $brow.Length }
+      $insert = '            { label: "Dopigmentowanie", title: "Kiedy jest potrzebne? ->", href: "/poradnik/dopigmentowanie-brwi-permanentnych/" },' + "`r`n"
+      $brow = $brow.Insert($lineEnd + 1, $insert)
+      Set-Content -Path $browPath -Value $brow -Encoding UTF8
+      Write-Host "OK - dodano link Dopigmentowanie do sekcji szybkiej decyzji na stronie Brwi" -ForegroundColor Green
+    } else {
+      Write-Warning "Nie znaleziono linku Brwi po latach w stronie Brwi. Artykul i sitemap nadal zostana wdrozone."
+    }
+  } else {
+    Write-Host "INFO - strona Brwi juz linkuje do dopigmentowania, pomijam." -ForegroundColor DarkGray
+  }
+} else {
+  Write-Warning "Nie znaleziono $browPath"
+}
+
+# ------------------------------------------------------------
+# 5. WALIDACJA PLIKU / PODSUMOWANIE
+# ------------------------------------------------------------
+$created = Get-Content -Raw -Encoding UTF8 $articlePath
+$required = @(
+  'canonicalPath="/poradnik/dopigmentowanie-brwi-permanentnych/"',
+  'id="odpowiedz"',
+  'id="kiedy"',
+  'id="czy-konieczne"',
+  'id="ile-trwa"',
+  'id="cena"',
+  'id="faq"',
+  'class="final-form"',
+  'class="final-phone"',
+  'class="final-booksy"',
+  '/poradnik/odswiezenie-makijazu-permanentnego-cena/',
+  '/poradnik/brwi-permanentne-po-latach/',
+  '/poradnik/laserowe-usuwanie-brwi-permanentnych/'
+)
+
+foreach ($item in $required) {
+  if (-not $created.Contains($item)) {
+    throw "Walidacja nieudana. Brakuje: $item"
+  }
+}
+
+Write-Host "" 
+Write-Host "GOTOWE." -ForegroundColor Green
+Write-Host "Patch zrobil wszystko sam:" -ForegroundColor Cyan
+Write-Host "- utworzyl osobny artykul dopigmentowanie brwi"
+Write-Host "- dodal go do Poradnika"
+Write-Host "- dodal URL do sitemap"
+Write-Host "- dodal internal link z glownej strony Brwi"
+Write-Host "- zachowal osobne intencje: dopigmentowanie / odswiezenie / stare PMU"
+Write-Host "" 
+Write-Host "Teraz uruchom: npm.cmd run build" -ForegroundColor Yellow
