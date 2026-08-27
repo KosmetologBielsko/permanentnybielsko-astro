@@ -4,220 +4,213 @@ const facebookUrl = "https://www.facebook.com/PermanentnyBielsko";
 ---
 
 <aside
-  class="poradnik-social-bridge"
-  data-poradnik-social-bridge
-  aria-label="Zapytaj o makijaż permanentny i obserwuj PermanentnyBielsko"
+  class="poradnik-social-inline"
+  data-poradnik-social-inline
+  aria-label="PermanentnyBielsko w social media"
 >
-  <button
-    class="poradnik-social-close"
-    type="button"
-    aria-label="Ukryj podpowiedź social media"
-    data-social-close
-  >
-    ×
-  </button>
+  <div class="poradnik-social-shell">
+    <div class="poradnik-social-copy">
+      <span class="poradnik-social-kicker">PORADNIK • POROZMAWIAJMY</span>
+      <h2>Masz pytanie o swój przypadek?</h2>
+      <p>
+        Nie musisz od razu rezerwować wizyty. Na Instagramie pokazujemy wygojone efekty,
+        omawiamy różne przypadki PMU i odpowiadamy na pytania przed decyzją.
+      </p>
 
-  <div class="poradnik-social-copy">
-    <span>PORADNIK • POROZMAWIAJMY</span>
-    <strong>Masz pytanie o PMU?</strong>
-    <p>
-      Nie musisz od razu rezerwować wizyty. Na Instagramie pokazujemy wygojone efekty,
-      omawiamy różne przypadki i odpowiadamy na pytania przed decyzją.
-    </p>
+      <div class="poradnik-social-trust">
+        <span>Bogusława Herda</span>
+        <span>PermanentnyBielsko</span>
+        <span>PMU • Bielsko-Biała</span>
+      </div>
+    </div>
+
+    <div class="poradnik-social-actions">
+      <a
+        class="poradnik-social-instagram"
+        href={instagramUrl}
+        target="_blank"
+        rel="me noopener noreferrer"
+        data-social-platform="instagram"
+        aria-label="Zapytaj PermanentnyBielsko na Instagramie"
+      >
+        <span class="poradnik-social-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect>
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <circle cx="17.25" cy="6.75" r="1.15"></circle>
+          </svg>
+        </span>
+
+        <span class="poradnik-social-action-copy">
+          <small>Instagram</small>
+          <strong>Zapytaj / obserwuj</strong>
+          <em>@permanentnybielsko</em>
+        </span>
+
+        <b aria-hidden="true">→</b>
+      </a>
+
+      <a
+        class="poradnik-social-facebook"
+        href={facebookUrl}
+        target="_blank"
+        rel="me noopener noreferrer"
+        data-social-platform="facebook"
+        aria-label="Obserwuj PermanentnyBielsko na Facebooku"
+      >
+        <span class="poradnik-social-icon poradnik-social-icon-fb" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M14.05 8.2V6.7c0-.72.24-1.2 1.31-1.2H17V2.7c-.8-.1-1.58-.16-2.38-.16-2.36 0-3.98 1.44-3.98 4.08V8.2H8v3.14h2.64v10.12h3.41V11.34h2.67l.42-3.14h-3.09Z"></path>
+          </svg>
+        </span>
+
+        <span class="poradnik-social-action-copy">
+          <small>Facebook</small>
+          <strong>Obserwuj profil</strong>
+          <em>PermanentnyBielsko</em>
+        </span>
+      </a>
+    </div>
   </div>
-
-  <div class="poradnik-social-actions">
-    <a
-      class="poradnik-social-instagram"
-      href={instagramUrl}
-      target="_blank"
-      rel="me noopener noreferrer"
-      data-social-platform="instagram"
-      aria-label="Zapytaj i obserwuj PermanentnyBielsko na Instagramie"
-    >
-      <span class="poradnik-social-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect>
-          <circle cx="12" cy="12" r="4.2"></circle>
-          <circle cx="17.25" cy="6.75" r="1.15"></circle>
-        </svg>
-      </span>
-      <span class="poradnik-social-action-copy">
-        <small>Instagram</small>
-        <strong>Zapytaj / obserwuj</strong>
-      </span>
-      <b aria-hidden="true">→</b>
-    </a>
-
-    <a
-      class="poradnik-social-facebook"
-      href={facebookUrl}
-      target="_blank"
-      rel="me noopener noreferrer"
-      data-social-platform="facebook"
-      aria-label="Obserwuj PermanentnyBielsko na Facebooku"
-    >
-      <span class="poradnik-social-icon poradnik-social-icon-fb" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M14.05 8.2V6.7c0-.72.24-1.2 1.31-1.2H17V2.7c-.8-.1-1.58-.16-2.38-.16-2.36 0-3.98 1.44-3.98 4.08V8.2H8v3.14h2.64v10.12h3.41V11.34h2.67l.42-3.14h-3.09Z"></path>
-        </svg>
-      </span>
-      <span class="poradnik-social-action-copy">
-        <small>Facebook</small>
-        <strong>Obserwuj</strong>
-      </span>
-    </a>
-  </div>
-
-  <p class="poradnik-social-trust">
-    Bogusława Herda • PermanentnyBielsko • wiedza, efekty i odpowiedzi na pytania o makijaż permanentny
-  </p>
 </aside>
 
 <style>
-  .poradnik-social-bridge,
-  .poradnik-social-bridge * {
+  .poradnik-social-inline,
+  .poradnik-social-inline * {
     box-sizing: border-box;
   }
 
-  .poradnik-social-bridge {
-    position: fixed;
-    left: 22px;
-    bottom: max(20px, env(safe-area-inset-bottom));
-    z-index: 85;
-    width: min(390px, calc(100vw - 44px));
-    padding: 18px;
+  .poradnik-social-inline {
+    width: min(1180px, calc(100% - 32px));
+    margin: 34px auto;
+  }
+
+  .poradnik-social-shell {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+    gap: 20px;
+    align-items: center;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 26px;
+    padding: clamp(24px, 4vw, 40px);
+    border: 1px solid rgba(56, 187, 181, 0.18);
+    border-radius: 30px;
     background:
-      radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.22), transparent 11rem),
-      radial-gradient(circle at 92% 86%, rgba(228, 143, 164, 0.22), transparent 13rem),
-      linear-gradient(145deg, rgba(9, 112, 106, 0.97), rgba(22, 162, 150, 0.97));
-    box-shadow: 0 24px 70px rgba(15, 91, 88, 0.25);
+      radial-gradient(circle at 8% 10%, rgba(255,255,255,.16), transparent 16rem),
+      radial-gradient(circle at 92% 90%, rgba(220,133,157,.16), transparent 18rem),
+      linear-gradient(145deg, #0f7773 0%, #15978f 58%, #12877f 100%);
+    box-shadow: 0 22px 64px rgba(30, 109, 104, 0.16);
     color: #fff;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(18px) scale(0.985);
-    transition:
-      opacity 0.28s ease,
-      transform 0.28s ease;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
   }
 
-  .poradnik-social-bridge.is-visible {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0) scale(1);
-  }
-
-  .poradnik-social-bridge::before {
+  .poradnik-social-shell::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      115deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.12) 42%,
-      transparent 68%
-    );
     pointer-events: none;
-  }
-
-  .poradnik-social-close {
-    position: absolute;
-    top: 9px;
-    right: 9px;
-    z-index: 2;
-    display: grid;
-    width: 30px;
-    height: 30px;
-    place-items: center;
-    padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.23);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    font: inherit;
-    font-size: 1.05rem;
-    line-height: 1;
-    cursor: pointer;
+    background:
+      linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(255,255,255,.07) 38%,
+        transparent 61%
+      );
   }
 
   .poradnik-social-copy,
-  .poradnik-social-actions,
-  .poradnik-social-trust {
+  .poradnik-social-actions {
     position: relative;
     z-index: 1;
+    min-width: 0;
   }
 
-  .poradnik-social-copy > span {
+  .poradnik-social-kicker {
     display: block;
-    padding-right: 34px;
-    color: rgba(255, 255, 255, 0.67);
-    font-size: 0.58rem;
+    color: rgba(255,255,255,.64);
+    font-size: .62rem;
     font-weight: 900;
-    letter-spacing: 0.13em;
+    letter-spacing: .14em;
   }
 
-  .poradnik-social-copy > strong {
-    display: block;
-    margin-top: 8px;
+  .poradnik-social-copy h2 {
+    margin: 10px 0 0;
     color: #fff;
-    font-size: 1.55rem;
-    font-weight: 820;
-    line-height: 1.02;
-    letter-spacing: -0.05em;
+    font-size: clamp(2rem, 3.3vw, 3.45rem);
+    font-weight: 800;
+    line-height: 1.01;
+    letter-spacing: -.06em;
   }
 
-  .poradnik-social-copy > p {
-    margin: 8px 0 0;
-    color: rgba(255, 255, 255, 0.86);
-    font-size: 0.76rem;
-    line-height: 1.48;
+  .poradnik-social-copy p {
+    max-width: 690px;
+    margin: 14px 0 0;
+    color: rgba(255,255,255,.87);
+    font-size: .91rem;
+    line-height: 1.58;
+  }
+
+  .poradnik-social-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .poradnik-social-trust span {
+    display: inline-flex;
+    min-height: 28px;
+    align-items: center;
+    padding: 0 9px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 999px;
+    background: rgba(255,255,255,.08);
+    color: rgba(255,255,255,.78);
+    font-size: .58rem;
+    font-weight: 780;
   }
 
   .poradnik-social-actions {
     display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
-    gap: 7px;
-    margin-top: 13px;
+    gap: 8px;
   }
 
   .poradnik-social-actions a {
+    display: flex;
     min-width: 0;
+    min-height: 76px;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 13px;
+    border-radius: 20px;
     text-decoration: none;
+    transition:
+      transform .18s ease,
+      box-shadow .18s ease;
   }
 
-  .poradnik-social-instagram,
-  .poradnik-social-facebook {
-    display: flex;
-    min-height: 55px;
-    align-items: center;
-    gap: 9px;
-    padding: 8px 10px;
-    border-radius: 17px;
+  .poradnik-social-actions a:hover {
+    transform: translateY(-2px);
   }
 
   .poradnik-social-instagram {
-    color: #155852;
-    background: rgba(255, 255, 255, 0.95);
+    color: #144f4b;
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 14px 36px rgba(0,0,0,.08);
   }
 
   .poradnik-social-facebook {
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(255,255,255,.09);
   }
 
   .poradnik-social-icon {
     display: grid;
-    width: 34px;
-    height: 34px;
+    width: 44px;
+    height: 44px;
     flex: 0 0 auto;
     place-items: center;
-    border-radius: 12px;
+    border-radius: 14px;
     background:
       radial-gradient(circle at 32% 100%, #ffd36a 0 19%, transparent 20%),
       radial-gradient(circle at 20% 100%, #ff543e 0 34%, transparent 35%),
@@ -227,8 +220,8 @@ const facebookUrl = "https://www.facebook.com/PermanentnyBielsko";
   }
 
   .poradnik-social-icon svg {
-    width: 19px;
-    height: 19px;
+    width: 23px;
+    height: 23px;
     fill: none;
     stroke: currentColor;
     stroke-width: 1.8;
@@ -248,174 +241,173 @@ const facebookUrl = "https://www.facebook.com/PermanentnyBielsko";
   }
 
   .poradnik-social-action-copy small,
-  .poradnik-social-action-copy strong {
+  .poradnik-social-action-copy strong,
+  .poradnik-social-action-copy em {
     display: block;
   }
 
   .poradnik-social-action-copy small {
-    opacity: 0.66;
-    font-size: 0.54rem;
-    font-weight: 760;
+    opacity: .64;
+    font-size: .55rem;
+    font-weight: 780;
     line-height: 1;
   }
 
   .poradnik-social-action-copy strong {
-    margin-top: 3px;
-    overflow: hidden;
-    font-size: 0.7rem;
+    margin-top: 4px;
+    font-size: .83rem;
     font-weight: 900;
     line-height: 1.1;
+  }
+
+  .poradnik-social-action-copy em {
+    margin-top: 4px;
+    overflow: hidden;
+    opacity: .66;
+    font-size: .6rem;
+    font-style: normal;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   .poradnik-social-instagram > b {
     margin-left: auto;
-    font-size: 1rem;
+    font-size: 1.12rem;
   }
 
-  .poradnik-social-trust {
-    margin: 10px 0 0;
-    color: rgba(255, 255, 255, 0.62);
-    font-size: 0.55rem;
-    line-height: 1.35;
-  }
-
-  @media (max-width: 760px) {
-    .poradnik-social-bridge {
-      left: 10px;
-      right: 74px;
-      bottom: max(10px, env(safe-area-inset-bottom));
-      width: auto;
-      padding: 11px;
-      border-radius: 20px;
-      box-shadow: 0 18px 52px rgba(15, 91, 88, 0.27);
-    }
-
-    .poradnik-social-close {
-      top: 6px;
-      right: 6px;
-      width: 25px;
-      height: 25px;
-      font-size: 0.9rem;
-    }
-
-    .poradnik-social-copy > span {
-      padding-right: 28px;
-      font-size: 0.5rem;
-      letter-spacing: 0.1em;
-    }
-
-    .poradnik-social-copy > strong {
-      margin-top: 5px;
-      font-size: 1.03rem;
-      letter-spacing: -0.035em;
-    }
-
-    .poradnik-social-copy > p {
-      display: none;
+  @media (max-width: 860px) {
+    .poradnik-social-shell {
+      grid-template-columns: 1fr;
     }
 
     .poradnik-social-actions {
-      grid-template-columns: minmax(0, 1.42fr) minmax(0, 0.78fr);
-      gap: 5px;
-      margin-top: 8px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .poradnik-social-inline {
+      width: calc(100% - 24px);
+      margin: 22px auto;
     }
 
-    .poradnik-social-instagram,
-    .poradnik-social-facebook {
-      min-height: 44px;
-      gap: 7px;
-      padding: 6px 7px;
-      border-radius: 14px;
+    .poradnik-social-shell {
+      gap: 15px;
+      padding: 18px 14px;
+      border-radius: 23px;
     }
 
-    .poradnik-social-icon {
-      width: 29px;
-      height: 29px;
-      border-radius: 10px;
+    .poradnik-social-kicker {
+      font-size: .52rem;
+      letter-spacing: .11em;
     }
 
-    .poradnik-social-icon svg {
-      width: 17px;
-      height: 17px;
+    .poradnik-social-copy h2 {
+      margin-top: 7px;
+      font-size: clamp(1.72rem, 8.2vw, 2.38rem);
+      line-height: 1.03;
+      letter-spacing: -.055em;
     }
 
-    .poradnik-social-action-copy small {
-      font-size: 0.48rem;
-    }
-
-    .poradnik-social-action-copy strong {
-      font-size: 0.62rem;
-    }
-
-    .poradnik-social-instagram > b {
-      display: none;
+    .poradnik-social-copy p {
+      margin-top: 10px;
+      font-size: .8rem;
+      line-height: 1.5;
     }
 
     .poradnik-social-trust {
-      display: none;
+      gap: 5px;
+      margin-top: 11px;
+    }
+
+    .poradnik-social-trust span {
+      min-height: 24px;
+      padding-inline: 7px;
+      font-size: .51rem;
+    }
+
+    .poradnik-social-actions {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .poradnik-social-actions a {
+      min-height: 58px;
+      gap: 9px;
+      padding: 8px 10px;
+      border-radius: 16px;
+    }
+
+    .poradnik-social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+    }
+
+    .poradnik-social-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .poradnik-social-action-copy strong {
+      font-size: .72rem;
+    }
+
+    .poradnik-social-action-copy em {
+      font-size: .55rem;
     }
   }
 
   @media (max-width: 390px) {
-    .poradnik-social-bridge {
-      right: 68px;
-      padding: 9px;
+    .poradnik-social-inline {
+      width: calc(100% - 20px);
     }
 
-    .poradnik-social-copy > strong {
-      font-size: 0.95rem;
+    .poradnik-social-shell {
+      padding: 16px 12px;
+      border-radius: 21px;
     }
 
-    .poradnik-social-action-copy strong {
-      font-size: 0.58rem;
-    }
-
-    .poradnik-social-icon {
-      width: 27px;
-      height: 27px;
+    .poradnik-social-copy h2 {
+      font-size: 1.68rem;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .poradnik-social-bridge {
+    .poradnik-social-actions a {
       transition: none;
     }
   }
 </style>
 
 <script>
-  const bridge = document.querySelector("[data-poradnik-social-bridge]");
-  const close = bridge?.querySelector("[data-social-close]");
+  const socialBridge = document.querySelector("[data-poradnik-social-inline]");
 
-  if (bridge instanceof HTMLElement) {
-    const hiddenForSession =
-      sessionStorage.getItem("pb_poradnik_social_hidden") === "1";
+  if (socialBridge instanceof HTMLElement) {
+    const main = document.querySelector("main");
 
-    const showBridge = () => {
-      if (hiddenForSession) return;
-      const scrollable = Math.max(
-        1,
-        document.documentElement.scrollHeight - window.innerHeight
-      );
-      const progress = window.scrollY / scrollable;
+    if (main) {
+      const sections = Array.from(main.children).filter((element) => {
+        if (!(element instanceof HTMLElement)) return false;
+        if (element === socialBridge) return false;
 
-      if (progress >= 0.12 || window.scrollY >= 520) {
-        bridge.classList.add("is-visible");
-        window.removeEventListener("scroll", showBridge);
+        return (
+          element.tagName === "SECTION" ||
+          element.tagName === "ARTICLE" ||
+          element.classList.contains("article-section")
+        );
+      });
+
+      // Wstawiamy po drugim pełnym bloku treści.
+      // Jeżeli artykuł ma nietypową strukturę, komponent zostaje bezpiecznie na końcu.
+      const target = sections[1];
+
+      if (target) {
+        target.insertAdjacentElement("afterend", socialBridge);
       }
-    };
+    }
 
-    window.addEventListener("scroll", showBridge, { passive: true });
-    showBridge();
-
-    close?.addEventListener("click", () => {
-      bridge.classList.remove("is-visible");
-      sessionStorage.setItem("pb_poradnik_social_hidden", "1");
-    });
-
-    bridge.querySelectorAll("[data-social-platform]").forEach((link) => {
+    socialBridge.querySelectorAll("[data-social-platform]").forEach((link) => {
       link.addEventListener("click", () => {
         const platform = link.getAttribute("data-social-platform") || "social";
         const gtag = window["gtag"];
@@ -423,7 +415,7 @@ const facebookUrl = "https://www.facebook.com/PermanentnyBielsko";
         if (typeof gtag === "function") {
           gtag("event", `social_${platform}_click`, {
             event_category: "engagement",
-            event_label: "Poradnik global social bridge",
+            event_label: "Poradnik inline social bridge",
             page_path: window.location.pathname,
           });
         }
