@@ -1,4 +1,4 @@
-import type { APIRoute } from "astro";
+﻿import type { APIRoute } from "astro";
 import { siteConfig } from "../config/site";
 
 const pages = [
@@ -377,6 +377,11 @@ const pages = [
     changefreq: "monthly"
   },
 
+  {
+    path: "/poradnik/dopigmentowanie-brwi-permanentnych/",
+    priority: "0.82",
+    changefreq: "monthly"
+  },
   {
     path: "/sercemmalowane/",
     priority: "0.6",

@@ -1,0 +1,449 @@
+﻿---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PmuExpertAuthority from "../../components/PmuExpertAuthority.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const pageUrl = "https://www.permanentnybielsko.com/poradnik/dopigmentowanie-brwi-permanentnych/";
+const pageTitle = "Dopigmentowanie brwi permanentnych — kiedy jest potrzebne i ile trwa?";
+const pageDescription =
+  "Dopigmentowanie brwi permanentnych: kiedy jest potrzebne, czy zawsze trzeba je robić, ile trwa, ile kosztuje i czym różni się od odświeżenia brwi.";
+
+const faqItems = [
+  {
+    question: "Co to jest dopigmentowanie brwi permanentnych?",
+    answer:
+      "Dopigmentowanie to etap dopracowania efektu po wygojeniu pierwszej pigmentacji. Linergistka ocenia kolor, nasycenie, symetrię i miejsca, w których skóra przyjęła pigment słabiej, a następnie uzupełnia tylko to, co rzeczywiście tego wymaga.",
+  },
+  {
+    question: "Czy dopigmentowanie brwi jest zawsze konieczne?",
+    answer:
+      "Nie zawsze. Decyzję podejmuje się po wygojeniu skóry i ocenie efektu. Jeśli pigment wygoił się równomiernie, kolor i kształt są zgodne z planem, zakres dopracowania może być minimalny albo może nie być potrzebny.",
+  },
+  {
+    question: "Kiedy robi się dopigmentowanie brwi?",
+    answer:
+      "Nie powinno się oceniać potrzeby dopigmentowania na świeżej skórze. Najpierw brwi muszą przejść proces gojenia i stabilizacji efektu. Termin ustala linergistka na podstawie stanu skóry i wygojenia; w gabinecie Bogusławy Herda dopigmentowanie po pierwszym zabiegu jest przewidziane bezpłatnie do 2 miesięcy.",
+  },
+  {
+    question: "Ile trwa dopigmentowanie brwi?",
+    answer:
+      "Nie ma jednej stałej długości wizyty. Dopigmentowanie jest zwykle bardziej skoncentrowane niż pierwszy zabieg, ponieważ nie projektuje się brwi od początku. Czas zależy od liczby miejsc wymagających uzupełnienia, techniki i reakcji skóry.",
+  },
+  {
+    question: "Ile kosztuje dopigmentowanie brwi?",
+    answer:
+      "W gabinecie Bogusławy Herda dopigmentowanie będące częścią pierwszego zabiegu brwi permanentnych jest bezpłatne do 2 miesięcy. Późniejszy powrót koloru po dłuższym czasie jest odświeżeniem, a nie tym samym etapem zabiegu.",
+  },
+  {
+    question: "Dopigmentowanie a odświeżenie brwi — jaka jest różnica?",
+    answer:
+      "Dopigmentowanie domyka pierwszy proces pigmentacji po wygojeniu. Odświeżenie wykonuje się po dłuższym czasie, gdy wcześniej wygojony makijaż permanentny stopniowo zblednie i wymaga ponownego wzmocnienia.",
+  },
+  {
+    question: "Czy na dopigmentowaniu można zmienić kształt brwi?",
+    answer:
+      "Dopigmentowanie służy przede wszystkim dopracowaniu wcześniej zaplanowanego efektu, a nie projektowaniu zupełnie nowych brwi. Jeśli potrzebna jest większa zmiana kształtu, koloru lub korekta starego PMU, wymaga to osobnej oceny.",
+  },
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${pageUrl}#article`,
+    url: pageUrl,
+    headline: pageTitle,
+    description: pageDescription,
+    datePublished: "2026-08-27",
+    dateModified: "2026-08-27",
+    inLanguage: "pl-PL",
+    author: {
+      "@type": "Person",
+      name: "Bogusława Herda",
+      url: "https://www.permanentnybielsko.com/makijaz-permanentny-bielsko/#boguslawa-herda",
+    },
+    publisher: {
+      "@id": "https://www.permanentnybielsko.com/#localbusiness",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Strona główna",
+        item: "https://www.permanentnybielsko.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Poradnik PMU",
+        item: "https://www.permanentnybielsko.com/poradnik/",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Dopigmentowanie brwi permanentnych",
+        item: pageUrl,
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  },
+];
+---
+
+<Layout
+  title={`${pageTitle} | Poradnik PMU Bogusławy Herda`}
+  description={pageDescription}
+  canonicalPath="/poradnik/dopigmentowanie-brwi-permanentnych/"
+  structuredData={structuredData}
+>
+  <div class="dop-page">
+    <Header />
+
+    <main>
+      <section class="dop-hero">
+        <div class="container dop-hero-grid">
+          <div class="dop-hero-copy">
+            <div class="dop-meta">
+              <span>Brwi permanentne</span>
+              <span>8–10 minut</span>
+              <span>Aktualizacja 2026</span>
+            </div>
+
+            <h1>Dopigmentowanie brwi permanentnych — kiedy jest potrzebne i ile trwa?</h1>
+
+            <p class="dop-lead">
+              Dopigmentowanie nie oznacza wykonywania brwi od początku. To etap oceny wygojonego efektu
+              i precyzyjnego uzupełnienia miejsc, w których pigment wymaga dopracowania.
+            </p>
+
+            <div class="dop-hero-actions">
+              <a class="dop-primary" href="#odpowiedz">Odpowiedź w 20 sekund →</a>
+              <a class="dop-secondary" href="/makijaz-permanentny-brwi/#efekty-brwi">Zobacz efekty brwi</a>
+            </div>
+          </div>
+
+          <aside class="dop-answer" id="odpowiedz">
+            <span>Odpowiedź w 20 sekund</span>
+            <h2>Dopigmentowanie domyka pierwszy zabieg po wygojeniu.</h2>
+            <p>
+              Służy wyrównaniu nasycenia, drobnych ubytków i miejsc, w których skóra przyjęła pigment słabiej.
+              <strong>Nie zawsze musi oznaczać dużą poprawkę.</strong> W gabinecie Bogusławy Herda dopigmentowanie
+              po pierwszym zabiegu brwi jest bezpłatne do 2 miesięcy.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="dop-nav-section" aria-label="Najważniejsze informacje o dopigmentowaniu brwi">
+        <div class="container">
+          <nav class="dop-nav">
+            <a href="#kiedy"><span>01 · Kiedy?</span><strong>Kiedy dopigmentować →</strong></a>
+            <a href="#czy-konieczne"><span>02 · Czy trzeba?</span><strong>Kiedy można odpuścić →</strong></a>
+            <a href="#ile-trwa"><span>03 · Czas</span><strong>Ile trwa wizyta →</strong></a>
+            <a href="#cena"><span>04 · Cena</span><strong>Ile kosztuje →</strong></a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="dop-decision-section" id="roznice">
+        <div class="container">
+          <div class="dop-heading">
+            <p class="section-kicker">Najważniejsze rozróżnienie</p>
+            <h2>Dopigmentowanie, odświeżenie i korekta starego PMU to trzy różne sytuacje.</h2>
+            <p>
+              Te pojęcia są często używane zamiennie, ale opisują inny etap pracy. Rozdzielenie ich pomaga
+              zrozumieć, czego naprawdę potrzebują brwi.
+            </p>
+          </div>
+
+          <div class="dop-three-grid">
+            <article class="dop-decision-card dop-decision-card-strong">
+              <span>Dopigmentowanie</span>
+              <h3>Domknięcie pierwszego procesu</h3>
+              <p>Ocena wygojenia i uzupełnienie tego, co po pierwszej pigmentacji wymaga dopracowania.</p>
+              <a href="#kiedy">Sprawdź, kiedy ma sens →</a>
+            </article>
+
+            <article class="dop-decision-card">
+              <span>Odświeżenie</span>
+              <h3>Powrót koloru po czasie</h3>
+              <p>Dotyczy wcześniej wygojonych brwi, które po miesiącach lub latach stopniowo straciły intensywność.</p>
+              <a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">Odświeżenie a korekta →</a>
+            </article>
+
+            <article class="dop-decision-card">
+              <span>Stare PMU</span>
+              <h3>Najpierw ocena pigmentu</h3>
+              <p>Jeśli kształt, kolor lub nasycenie starej pigmentacji są problemem, samo dopigmentowanie nie jest rozwiązaniem.</p>
+              <a href="/poradnik/brwi-permanentne-po-latach/">Brwi permanentne po latach →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dop-content-section" id="kiedy">
+        <div class="container dop-content-grid">
+          <div class="dop-content-copy">
+            <p class="section-kicker">Kiedy dopigmentować?</p>
+            <h2>Decyzję podejmuje się po wygojeniu, nie na podstawie świeżych brwi.</h2>
+            <p>
+              Bezpośrednio po zabiegu pigment jest intensywniejszy, skóra może być zaczerwieniona lub lekko obrzęknięta,
+              a później pojawia się etap łuszczenia i przejściowego rozjaśnienia. Dlatego świeży efekt nie jest podstawą
+              do planowania kolejnej pracy.
+            </p>
+            <p>
+              Dopiero po uspokojeniu skóry można ocenić, czy kolor jest równy, czy pojawiły się drobne ubytki,
+              czy nasycenie jest zgodne z planem i czy całość zachowuje wcześniej zaakceptowany kształt.
+            </p>
+          </div>
+
+          <div class="dop-checklist">
+            <div><span>01</span><p>po wygojeniu widać pojedyncze jaśniejsze miejsca</p></div>
+            <div><span>02</span><p>jedna część brwi przyjęła pigment słabiej</p></div>
+            <div><span>03</span><p>efekt jest poprawny, ale wymaga delikatnego wyrównania nasycenia</p></div>
+            <div><span>04</span><p>linergistka chce dopracować detal techniki po ocenie skóry</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dop-soft-section" id="czy-konieczne">
+        <div class="container dop-soft-card">
+          <div>
+            <p class="section-kicker">Czy zawsze jest konieczne?</p>
+            <h2>Nie każda dobrze wygojona pigmentacja wymaga dokładania koloru.</h2>
+          </div>
+          <div>
+            <p>
+              Celem nie jest wykonanie drugiego pełnego zabiegu „bo tak wypada”. Jeśli skóra przyjęła pigment równomiernie,
+              kształt jest spójny, a intensywność zgodna z planem, zakres dopigmentowania może być bardzo mały.
+            </p>
+            <p>
+              Ważniejsza od automatycznego dokładania pigmentu jest ocena, czy dodatkowa praca poprawi efekt.
+              Zbyt duże nasycanie wygojonych brwi tylko dlatego, że są subtelniejsze niż w pierwszym dniu, nie jest dobrym celem.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="dop-content-section" id="ile-trwa">
+        <div class="container dop-content-grid dop-content-grid-reverse">
+          <div class="dop-time-card">
+            <span>Ile trwa?</span>
+            <strong>Zwykle krócej niż pierwszy zabieg</strong>
+            <p>
+              Nie podajemy sztucznej jednej liczby minut. Zakres zależy od techniki, liczby miejsc do uzupełnienia
+              i tego, jak wygoiła się skóra.
+            </p>
+          </div>
+
+          <div class="dop-content-copy">
+            <p class="section-kicker">Czas wizyty</p>
+            <h2>Na dopigmentowaniu nie projektujemy wszystkiego od zera.</h2>
+            <p>
+              Pierwsza pigmentacja obejmuje analizę, rysunek wstępny, dobór techniki, koloru i pełną pracę nad kształtem.
+              Przy dopigmentowaniu punkt wyjścia już istnieje — najpierw oceniamy rezultat po wygojeniu, a później pracujemy
+              tylko w miejscach, które rzeczywiście wymagają uzupełnienia.
+            </p>
+            <p>
+              Dlatego czas może być krótszy, ale nie warto obiecywać jednej stałej długości wizyty dla każdej osoby.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="dop-price-section" id="cena">
+        <div class="container">
+          <div class="dop-heading">
+            <p class="section-kicker">Cena dopigmentowania</p>
+            <h2>W pierwszym procesie brwi — 0 zł do 2 miesięcy.</h2>
+            <p>
+              W gabinecie Bogusławy Herda dopigmentowanie po pierwszym zabiegu brwi permanentnych jest przewidziane
+              bezpłatnie do 2 miesięcy. Późniejszy powrót pigmentu po dłuższym czasie jest już inną usługą — odświeżeniem.
+            </p>
+          </div>
+
+          <div class="dop-price-grid">
+            <article>
+              <span>Pierwsza pigmentacja</span>
+              <strong>1200–1400 zł</strong>
+              <p>Cena zależy od wybranej metody brwi.</p>
+              <a href="/cennik-makijaz-permanentny/#price-group-1">Aktualny cennik brwi →</a>
+            </article>
+            <article class="dop-price-featured">
+              <span>Dopigmentowanie</span>
+              <strong>0 zł</strong>
+              <p>Bez opłaty do 2 miesięcy po pierwszym zabiegu w gabinecie.</p>
+              <a href="/makijaz-permanentny-brwi/#efekty-brwi">Zobacz efekty →</a>
+            </article>
+            <article>
+              <span>Odświeżenie po czasie</span>
+              <strong>osobna usługa</strong>
+              <p>Dotyczy wcześniej wygojonych brwi, które z czasem zbledły.</p>
+              <a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">Sprawdź różnicę →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dop-process-section" id="proces">
+        <div class="container">
+          <div class="dop-heading">
+            <p class="section-kicker">Jak wygląda dopigmentowanie?</p>
+            <h2>Najpierw ocena. Potem tylko tyle pigmentu, ile naprawdę potrzeba.</h2>
+          </div>
+
+          <div class="dop-process-grid">
+            <article><span>01</span><h3>Ocena wygojenia</h3><p>Sprawdzamy skórę, nasycenie, kolor i równomierność efektu.</p></article>
+            <article><span>02</span><h3>Porównanie z planem</h3><p>Oceniamy, czy kształt i intensywność odpowiadają efektowi ustalonemu przed pierwszym zabiegiem.</p></article>
+            <article><span>03</span><h3>Dopigmentowanie</h3><p>Uzupełniane są tylko miejsca wymagające dodatkowej pracy.</p></article>
+            <article><span>04</span><h3>Ponowne gojenie</h3><p>Skóra znów przechodzi proces regeneracji, dlatego rezultat ocenia się dopiero po jej uspokojeniu.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dop-problem-section" id="nierowny-pigment">
+        <div class="container dop-problem-card">
+          <div>
+            <p class="section-kicker">Pigment miejscami zniknął?</p>
+            <h2>Nierówny efekt po gojeniu nie zawsze oznacza źle wykonane brwi.</h2>
+            <p>
+              Skóra jest żywą tkanką i nie w każdym miejscu musi przyjąć pigment identycznie. Znaczenie mają m.in.
+              typ skóry, ilość sebum, sposób gojenia, naturalne włoski i indywidualna reakcja organizmu.
+            </p>
+          </div>
+          <a href="/poradnik/dlaczego-pigment-po-wygojeniu-miejscami-znika/">
+            <span>Osobny poradnik</span>
+            <strong>Dlaczego pigment po wygojeniu miejscami „znika”? →</strong>
+          </a>
+        </div>
+      </section>
+
+      <section class="dop-old-section" id="stare-pmu">
+        <div class="container dop-old-grid">
+          <div>
+            <p class="section-kicker">Stare brwi permanentne</p>
+            <h2>Nie nazywajmy dopigmentowaniem przykrywania starej, niekorzystnej pigmentacji.</h2>
+            <p>
+              Jeśli brwi są zbyt ciemne, zmieniły kolor, mają niekorzystny kształt albo wiele warstw pigmentu,
+              potrzebna jest osobna kwalifikacja. Czasem właściwą decyzją jest korekta, a czasem wcześniejsze rozjaśnienie.
+            </p>
+          </div>
+          <div class="dop-old-links">
+            <a href="/poradnik/brwi-permanentne-po-latach/"><span>Stary pigment</span><strong>Brwi permanentne po latach →</strong></a>
+            <a href="/poradnik/laserowe-usuwanie-brwi-permanentnych/"><span>Rozjaśnianie</span><strong>Laserowe usuwanie brwi →</strong></a>
+          </div>
+        </div>
+      </section>
+
+      <PmuExpertAuthority
+        title="Dopigmentowanie ma dopracować efekt — nie automatycznie go przyciemnić."
+        lead="W praktyce PMU najważniejsza jest ocena wygojonej skóry. Dopiero wtedy można zdecydować, czy brwi potrzebują uzupełnienia, gdzie pracować ponownie i jak zachować lekkość wcześniejszego projektu."
+      />
+
+      <section class="dop-related-section" id="powiazane">
+        <div class="container">
+          <div class="dop-heading">
+            <p class="section-kicker">Powiązane</p>
+            <h2>Jeśli jesteś po zabiegu, te odpowiedzi będą najbardziej przydatne.</h2>
+          </div>
+
+          <div class="dop-related-grid">
+            <a href="/poradnik/jak-goja-sie-brwi-permanentne/"><span>Gojenie</span><strong>Jak goją się brwi permanentne? →</strong></a>
+            <a href="/poradnik/brwi-permanentne-dzien-po-dniu/"><span>Dzień po dniu</span><strong>Jak zmienia się kolor po zabiegu? →</strong></a>
+            <a href="/makijaz-permanentny-brwi/#metody-brwi"><span>Metody</span><strong>Zobacz metody brwi →</strong></a>
+            <a href="/cennik-makijaz-permanentny/#price-group-1"><span>Cennik</span><strong>Aktualne ceny brwi →</strong></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="dop-faq-section" id="faq">
+        <div class="container">
+          <div class="dop-heading">
+            <p class="section-kicker">FAQ</p>
+            <h2>Najczęstsze pytania o dopigmentowanie brwi.</h2>
+          </div>
+
+          <div class="dop-faq-list">
+            {faqItems.map((item) => (
+              <details>
+                <summary>{item.question}<span aria-hidden="true">+</span></summary>
+                <div><p>{item.answer}</p></div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="dop-final-section" id="kontakt">
+        <div class="container dop-final-card">
+          <p class="section-kicker">Twój przypadek</p>
+          <h2>Nie wiesz, czy potrzebujesz dopigmentowania, odświeżenia czy korekty?</h2>
+          <p>
+            Jeśli brwi są już po wygojeniu, opisz kiedy był wykonany zabieg i co dokładnie widzisz w efekcie.
+            Przy starszym PMU warto dołączyć zdjęcie i zacząć od kwalifikacji.
+          </p>
+          <div class="final-actions dop-final-actions">
+            <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Formularz PMU <span aria-hidden="true">→</span></a>
+            <a class="final-phone" href="tel:+48730900125">Zadzwoń</a>
+            <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">Booksy <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .dop-page{min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 80% 8%,rgba(56,187,181,.10),transparent 28rem),radial-gradient(circle at 8% 38%,rgba(201,127,143,.10),transparent 24rem),linear-gradient(180deg,#fffdfd 0%,#fff8fa 52%,#fff 100%)}
+  .dop-page :global(.section-kicker){display:inline-flex;width:fit-content;min-height:30px;align-items:center;margin:0 0 15px;padding:0 12px;border:1px solid rgba(56,187,181,.17);border-radius:999px;background:rgba(219,246,243,.7);color:var(--color-turquoise-dark,#0f7773);font-size:.64rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+  .dop-hero{padding:clamp(48px,7vw,92px) 0 44px}
+  .dop-hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.72fr);gap:clamp(22px,4vw,56px);align-items:center}
+  .dop-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}.dop-meta span{padding:7px 10px;border:1px solid rgba(183,101,118,.13);border-radius:999px;background:rgba(255,255,255,.72);color:#746872;font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+  .dop-hero h1{max-width:930px;margin:0;color:var(--color-text,#17151d);font-size:clamp(2.7rem,5.4vw,5.7rem);font-weight:770;line-height:.96;letter-spacing:-.074em}.dop-lead{max-width:780px;margin:20px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(1rem,1.3vw,1.14rem);line-height:1.67}
+  .dop-hero-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.dop-hero-actions a{display:inline-flex;min-height:50px;align-items:center;justify-content:center;padding:0 17px;border-radius:999px;text-decoration:none;font-size:.82rem;font-weight:850}.dop-primary{background:linear-gradient(135deg,#dc8fa3,#b85d78);color:#fff}.dop-secondary{border:1px solid rgba(56,187,181,.18);background:rgba(255,255,255,.85);color:#0f7773}
+  .dop-answer{padding:clamp(22px,3vw,34px);border:1px solid rgba(56,187,181,.16);border-radius:30px;background:linear-gradient(145deg,rgba(219,246,243,.76),rgba(255,255,255,.94));box-shadow:0 20px 56px rgba(67,92,91,.08)}.dop-answer>span{color:#0f7773;font-size:.63rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.dop-answer h2{margin:11px 0 12px;color:#17151d;font-size:clamp(1.7rem,2.6vw,2.55rem);line-height:1.06;letter-spacing:-.045em}.dop-answer p{margin:0;color:#625b63;font-size:.9rem;line-height:1.62}.dop-answer strong{color:#17151d}
+  .dop-nav-section{padding:8px 0 62px}.dop-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.dop-nav a{display:flex;min-height:102px;flex-direction:column;justify-content:space-between;padding:16px;border:1px solid rgba(183,101,118,.13);border-radius:21px;background:rgba(255,255,255,.9);text-decoration:none;box-shadow:0 13px 36px rgba(89,53,67,.04)}.dop-nav span{color:#776d75;font-size:.59rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}.dop-nav strong{color:#0f7773;font-size:.79rem;line-height:1.26}
+  .dop-decision-section,.dop-content-section,.dop-price-section,.dop-process-section,.dop-related-section,.dop-faq-section{padding:68px 0}.dop-heading{max-width:940px;margin-bottom:25px}.dop-heading h2,.dop-content-copy h2,.dop-soft-card h2,.dop-old-grid h2,.dop-problem-card h2{margin:0;color:#17151d;font-size:clamp(2.15rem,3.8vw,4rem);font-weight:760;line-height:1.02;letter-spacing:-.065em}.dop-heading>p:not(.section-kicker),.dop-content-copy>p:not(.section-kicker),.dop-soft-card p,.dop-old-grid p,.dop-problem-card p{color:#6e6670;font-size:.95rem;line-height:1.66}.dop-three-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.dop-decision-card{padding:23px;border:1px solid rgba(183,101,118,.13);border-radius:24px;background:rgba(255,255,255,.88)}.dop-decision-card-strong{background:linear-gradient(145deg,rgba(219,246,243,.65),rgba(255,255,255,.94));border-color:rgba(56,187,181,.2)}.dop-decision-card>span{color:#0f7773;font-size:.62rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.dop-decision-card h3{margin:13px 0 9px;color:#17151d;font-size:1.35rem;line-height:1.1;letter-spacing:-.025em}.dop-decision-card p{margin:0;color:#716970;font-size:.84rem;line-height:1.55}.dop-decision-card a{display:inline-flex;margin-top:17px;color:#0f7773;font-size:.72rem;font-weight:850;text-decoration:none}
+  .dop-content-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.75fr);gap:clamp(22px,4vw,52px);align-items:center}.dop-content-grid-reverse{grid-template-columns:minmax(320px,.72fr) minmax(0,1.08fr)}.dop-content-copy p{max-width:790px}.dop-checklist{display:grid;gap:8px}.dop-checklist>div{display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:center;padding:13px 14px;border:1px solid rgba(56,187,181,.13);border-radius:17px;background:rgba(255,255,255,.84)}.dop-checklist span{display:grid;width:36px;height:36px;place-items:center;border-radius:50%;background:rgba(219,246,243,.8);color:#0f7773;font-size:.66rem;font-weight:850}.dop-checklist p{margin:0;color:#5f5960;font-size:.82rem;line-height:1.42}
+  .dop-soft-section{padding:30px 0 68px}.dop-soft-card{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:clamp(24px,4vw,40px);border:1px solid rgba(183,101,118,.12);border-radius:30px;background:linear-gradient(145deg,rgba(255,242,246,.72),rgba(255,255,255,.92))}.dop-soft-card p{margin-top:0}.dop-time-card{padding:26px;border:1px solid rgba(56,187,181,.16);border-radius:26px;background:linear-gradient(145deg,rgba(219,246,243,.66),rgba(255,255,255,.94))}.dop-time-card span{display:block;color:#0f7773;font-size:.62rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.dop-time-card strong{display:block;margin:13px 0 9px;color:#17151d;font-size:clamp(1.55rem,2.8vw,2.55rem);line-height:1.04;letter-spacing:-.045em}.dop-time-card p{margin:0;color:#6e6670;font-size:.86rem;line-height:1.58}
+  .dop-price-section{background:rgba(255,255,255,.45)}.dop-price-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.dop-price-grid article{display:flex;min-height:220px;flex-direction:column;padding:23px;border:1px solid rgba(183,101,118,.12);border-radius:24px;background:#fff}.dop-price-grid article>span{color:#746b72;font-size:.62rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.dop-price-grid article>strong{margin:18px 0 8px;color:#17151d;font-size:clamp(1.65rem,2.8vw,2.7rem);letter-spacing:-.05em}.dop-price-grid article p{margin:0;color:#70676f;font-size:.83rem;line-height:1.5}.dop-price-grid article a{margin-top:auto;padding-top:17px;color:#0f7773;font-size:.72rem;font-weight:850;text-decoration:none}.dop-price-grid .dop-price-featured{border-color:rgba(56,187,181,.22);background:linear-gradient(145deg,rgba(219,246,243,.72),#fff)}
+  .dop-process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.dop-process-grid article{padding:20px;border:1px solid rgba(183,101,118,.12);border-radius:22px;background:rgba(255,255,255,.88)}.dop-process-grid span{color:#ca718b;font-size:.7rem;font-weight:900}.dop-process-grid h3{margin:24px 0 8px;color:#17151d;font-size:1.15rem}.dop-process-grid p{margin:0;color:#6e6670;font-size:.8rem;line-height:1.5}
+  .dop-problem-section,.dop-old-section{padding:50px 0}.dop-problem-card{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.7fr);gap:24px;align-items:center;padding:clamp(23px,4vw,38px);border:1px solid rgba(56,187,181,.14);border-radius:29px;background:rgba(219,246,243,.33)}.dop-problem-card>a{display:flex;min-height:130px;flex-direction:column;justify-content:space-between;padding:20px;border-radius:22px;background:#fff;color:inherit;text-decoration:none}.dop-problem-card>a span,.dop-old-links span,.dop-related-grid span{color:#776d75;font-size:.6rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.dop-problem-card>a strong,.dop-old-links strong,.dop-related-grid strong{color:#0f7773;font-size:.82rem;line-height:1.3}
+  .dop-old-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.75fr);gap:25px;align-items:center}.dop-old-links{display:grid;gap:8px}.dop-old-links a,.dop-related-grid a{display:flex;min-height:92px;flex-direction:column;justify-content:space-between;padding:17px;border:1px solid rgba(183,101,118,.12);border-radius:20px;background:rgba(255,255,255,.9);color:inherit;text-decoration:none}
+  .dop-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.dop-faq-list{display:grid;gap:8px;max-width:980px}.dop-faq-list details{border:1px solid rgba(183,101,118,.13);border-radius:20px;background:rgba(255,255,255,.88);overflow:hidden}.dop-faq-list summary{display:grid;grid-template-columns:1fr 38px;gap:12px;align-items:center;padding:17px 18px;cursor:pointer;list-style:none;color:#17151d;font-size:.9rem;font-weight:800}.dop-faq-list summary::-webkit-details-marker{display:none}.dop-faq-list summary span{display:grid;width:34px;height:34px;place-items:center;border-radius:50%;background:rgba(219,246,243,.7);color:#0f7773}.dop-faq-list details[open] summary span{transform:rotate(45deg)}.dop-faq-list details>div{padding:0 18px 18px}.dop-faq-list p{margin:0;color:#6e6670;font-size:.84rem;line-height:1.58}
+  .dop-final-section{padding:42px 0 90px}.dop-final-card{padding:clamp(27px,5vw,50px);border:1px solid rgba(56,187,181,.14);border-radius:32px;background:radial-gradient(circle at 90% 10%,rgba(56,187,181,.1),transparent 18rem),linear-gradient(145deg,rgba(255,242,246,.72),rgba(255,255,255,.95));text-align:center}.dop-final-card h2{max-width:900px;margin:0 auto;color:#17151d;font-size:clamp(2.15rem,4vw,4.1rem);line-height:1.02;letter-spacing:-.065em}.dop-final-card>p:not(.section-kicker){max-width:760px;margin:17px auto 0;color:#6e6670;line-height:1.62}.dop-final-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-width:820px;margin:24px auto 0}.dop-final-actions a{display:inline-flex;min-height:54px;align-items:center;justify-content:center;padding:0 15px;border-radius:999px;text-decoration:none;font-size:.86rem;font-weight:850}
+  @media(max-width:980px){.dop-hero-grid,.dop-content-grid,.dop-content-grid-reverse,.dop-problem-card,.dop-old-grid{grid-template-columns:1fr}.dop-three-grid,.dop-price-grid{grid-template-columns:1fr 1fr}.dop-process-grid,.dop-related-grid{grid-template-columns:1fr 1fr}.dop-soft-card{grid-template-columns:1fr}}
+  @media(max-width:760px){
+    .dop-hero{padding:37px 0 30px}.dop-hero-grid{gap:18px}.dop-hero h1{font-size:clamp(2.45rem,12vw,3.65rem);line-height:.98}.dop-lead{font-size:.94rem;line-height:1.58}.dop-hero-actions{display:grid;grid-template-columns:1fr}.dop-answer{padding:19px 16px;border-radius:23px}.dop-answer h2{font-size:1.75rem}
+    .dop-nav-section{padding-bottom:43px}.dop-nav{grid-auto-flow:column;grid-auto-columns:min(74vw,278px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}.dop-nav::-webkit-scrollbar{display:none}.dop-nav a{min-height:93px;padding:14px;border-radius:19px;scroll-snap-align:start}
+    .dop-decision-section,.dop-content-section,.dop-price-section,.dop-process-section,.dop-related-section,.dop-faq-section{padding:48px 0}.dop-heading h2,.dop-content-copy h2,.dop-soft-card h2,.dop-old-grid h2,.dop-problem-card h2{font-size:clamp(1.95rem,8.8vw,2.75rem);line-height:1.04}.dop-heading>p:not(.section-kicker),.dop-content-copy>p:not(.section-kicker),.dop-soft-card p,.dop-old-grid p,.dop-problem-card p{font-size:.87rem;line-height:1.57}.dop-three-grid,.dop-price-grid{display:grid;grid-auto-flow:column;grid-auto-columns:min(78vw,300px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.dop-three-grid::-webkit-scrollbar,.dop-price-grid::-webkit-scrollbar{display:none}.dop-decision-card,.dop-price-grid article{scroll-snap-align:start}.dop-soft-card{gap:10px;padding:20px 16px;border-radius:23px}.dop-process-grid,.dop-related-grid{grid-template-columns:1fr}.dop-process-grid article{padding:17px}.dop-problem-card{padding:19px 16px;border-radius:23px}.dop-final-section{padding:30px 0 70px}.dop-final-card{padding:27px 17px;border-radius:25px}.dop-final-card h2{font-size:clamp(2rem,9vw,2.85rem)}.dop-final-actions{grid-template-columns:1fr;gap:8px}
+  }
+  @media(max-width:390px){.dop-nav{grid-auto-columns:80vw}.dop-checklist>div{grid-template-columns:32px 1fr}.dop-checklist span{width:32px;height:32px}}
+</style>
