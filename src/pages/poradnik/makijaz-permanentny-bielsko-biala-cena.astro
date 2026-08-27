@@ -7,60 +7,24 @@ const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const article = {
-  slug: "makijaz-permanentny-brwi-cena",
-  title: "Makijaż permanentny brwi cena 2026 — ile kosztują brwi permanentne?",
+  slug: "makijaz-permanentny-bielsko-biala-cena",
+  title: "Makijaż permanentny Bielsko-Biała cena — ile kosztują brwi, usta i kreski?",
   eyebrow: "Poradnik PMU",
-  category: "Ceny PMU",
-  datePublished: "2026-06-21",
-  dateModified: "2026-08-27",
-  readingTime: "9–11 minut",
-  description:
-    "Makijaż permanentny brwi cena 2026. Sprawdź ceny cieniowania, metody włoskowej, włosa z cieniem, korekty i odświeżenia brwi oraz co obejmuje cena zabiegu.",
-  lead:
-    "Ile kosztują brwi permanentne? Najważniejsza różnica wynika z metody, zakresu pracy i tego, czy mówimy o pierwszym zabiegu, odświeżeniu czy pracy ze starym PMU. Poniżej znajdziesz aktualne ceny i krótkie wyjaśnienie, za co realnie płacisz.",
-  shortAnswer:
-    "W gabinecie Bogusławy Herda w Bielsku-Białej brwi cieniowane kosztują 1200 zł, metoda włoskowa 1400 zł, a włos z cieniem 1400 zł. Cena zabiegu głównego obejmuje korektę w terminie 1–3 miesiące. Odświeżenie brwi wykonanych w gabinecie do 2 lat kosztuje 500–700 zł. Stare lub wykonane w innym gabinecie PMU wymaga indywidualnej kwalifikacji.",
-  canonicalPath: "/poradnik/makijaz-permanentny-brwi-cena/",
+  category: "Ceny PMU Bielsko-Biała",
+  datePublished: "2026-07-05",
+  dateModified: "2026-08-20",
+  readingTime: "8–10 minut",
+  description: "Makijaż permanentny Bielsko-Biała cena: ile kosztują brwi permanentne, usta permanentne i kreski permanentne? Sprawdź, co obejmuje cena i od czego zależy wycena PMU.",
+  lead: "Cena makijażu permanentnego w Bielsku-Białej nie powinna być analizowana wyłącznie jako kwota za sam zabieg. Przy brwiach, ustach i kreskach liczy się konsultacja, rysunek wstępny, dobór techniki, praca ze skórą, bezpieczeństwo i ocena efektu po wygojeniu.",
+  shortAnswer: "Cena PMU w Bielsku-Białej zależy od obszaru zabiegu, metody, skóry, wcześniejszych pigmentacji i zakresu pracy. Warto porównywać nie tylko kwoty, ale też to, czy cena obejmuje konsultację, projekt, korektę, zalecenia i doświadczenie linergistki.",
+  canonicalPath: "/poradnik/makijaz-permanentny-bielsko-biala-cena/",
   mainService: {
-    href: "/makijaz-permanentny-brwi/",
-    title: "Brwi permanentne",
+    href: "/cennik-makijaz-permanentny/",
+    title: "Cennik makijażu permanentnego",
   },
 };
 
 const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
-
-const faqItems = [
-  {
-    question: "Ile kosztuje makijaż permanentny brwi?",
-    answer:
-      "Brwi cieniowane kosztują 1200 zł, a metoda włoskowa oraz włos z cieniem 1400 zł. Cena zabiegu głównego obejmuje korektę w terminie 1–3 miesiące.",
-  },
-  {
-    question: "Ile kosztują brwi permanentne metodą włoskową?",
-    answer:
-      "Makijaż permanentny brwi metodą włoskową kosztuje 1400 zł. Technika wymaga precyzyjnego zaplanowania kierunku włosa oraz kwalifikacji skóry.",
-  },
-  {
-    question: "Czy korekta brwi permanentnych jest w cenie?",
-    answer:
-      "Tak. W cenie zabiegu głównego uwzględniona jest korekta w terminie 1–3 miesiące. Jej celem jest ocena wygojonego efektu i ewentualne dopracowanie nasycenia lub detalu.",
-  },
-  {
-    question: "Ile kosztuje odświeżenie brwi permanentnych?",
-    answer:
-      "Odświeżenie makijażu permanentnego brwi wykonanego w gabinecie do 2 lat kosztuje 500–700 zł. Starsze pigmentacje lub prace z innego gabinetu wymagają indywidualnej oceny.",
-  },
-  {
-    question: "Dlaczego metoda włoskowa kosztuje więcej niż cieniowanie?",
-    answer:
-      "Metoda włoskowa wymaga większej precyzji, kontroli kierunku i rytmu włosa oraz odpowiedniej kwalifikacji skóry. Nie każda skóra nadaje się do efektu włoskowego.",
-  },
-  {
-    question: "Ile kosztuje poprawa brwi permanentnych po innym gabinecie?",
-    answer:
-      "Nie ma jednej stałej ceny. Najpierw trzeba ocenić kolor, nasycenie, kształt, stan skóry i możliwość wykonania nowej pigmentacji. Czasem konieczne jest wcześniejsze rozjaśnienie starego PMU.",
-  },
-];
 
 const structuredData = [
   {
@@ -87,7 +51,7 @@ const structuredData = [
     },
     citation: [
       "https://pubmed.ncbi.nlm.nih.gov/38901732/",
-      "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet",
+      "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet"
     ],
   },
   {
@@ -119,14 +83,48 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Ile kosztuje makijaż permanentny w Bielsku-Białej?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Cena zależy od obszaru zabiegu, techniki i zakresu pracy. Inaczej wycenia się brwi, usta, kreski, odświeżenie i korektę starego pigmentu.",
+        },
       },
-    })),
+      {
+        "@type": "Question",
+        name: "Czy korekta jest w cenie zabiegu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "W wielu zabiegach głównych korekta po wygojeniu jest elementem procesu, ale zawsze warto sprawdzić konkretny cennik i termin wykonania korekty.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Dlaczego metoda włoskowa brwi może kosztować więcej?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Wymaga bardzo precyzyjnej pracy, kwalifikacji skóry, kontroli kierunku włosa i doświadczenia w uzyskiwaniu naturalnego efektu.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Czy tani makijaż permanentny to zły wybór?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Nie zawsze, ale sama niska cena nie wystarczy. Trzeba sprawdzić doświadczenie, zdjęcia wygojonych efektów, higienę, konsultację i zasady korekty.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Gdzie sprawdzić aktualne ceny PMU?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Najlepiej w aktualnym cenniku na stronie oraz podczas konsultacji, jeśli zabieg dotyczy starego pigmentu, korekty albo indywidualnego przypadku.",
+        },
+      }
+    ],
   },
 ];
 ---
@@ -137,380 +135,183 @@ const structuredData = [
   canonicalPath={article.canonicalPath}
   structuredData={structuredData}
 >
-  <div class="brow-price-guide">
+  <div class="expert-article-page">
     <Header />
 
     <main>
-      <section class="guide-hero">
-        <div class="guide-glow guide-glow-one" aria-hidden="true"></div>
-        <div class="guide-glow guide-glow-two" aria-hidden="true"></div>
+      <section class="expert-article-hero">
+        <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
+        <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
 
-        <div class="container guide-hero-grid">
-          <div class="guide-hero-copy">
+        <div class="container expert-article-hero-grid">
+          <div class="expert-article-hero-copy">
             <p class="section-kicker">{article.eyebrow}</p>
 
-            <div class="guide-meta">
+            <div class="expert-article-meta">
               <span>Ekspercki poradnik</span>
               <span>{article.category}</span>
               <span>{article.readingTime}</span>
             </div>
 
             <h1>{article.title}</h1>
-            <p class="guide-lead">{article.lead}</p>
+            <p class="expert-article-lead">{article.lead}</p>
           </div>
 
-          <aside class="guide-answer" aria-label="Odpowiedź w 20 sekund">
-            <p class="guide-answer-label">Odpowiedź w 20 sekund</p>
-
-            <div class="guide-answer-price">
-              <span>Brwi permanentne</span>
-              <strong>od 1200 zł</strong>
-            </div>
-
+          <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
+            <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
+            <h2>Najważniejsze bez powtarzania.</h2>
             <p>{article.shortAnswer}</p>
-
-            <a href="#ceny-brwi">Zobacz ceny ↓</a>
           </aside>
         </div>
       </section>
 
-      <section class="quick-price-section" aria-label="Najważniejsze ceny brwi permanentnych">
+      <section class="expert-article-nav-section">
         <div class="container">
-          <div class="quick-price-scroll">
-            <article>
-              <span>01</span>
-              <strong>Cieniowanie</strong>
-              <em>1200 zł</em>
-              <p>Miękkie wypełnienie i uporządkowany kształt.</p>
-            </article>
-
-            <article>
-              <span>02</span>
-              <strong>Metoda włoskowa</strong>
-              <em>1400 zł</em>
-              <p>Efekt pojedynczych włosków przy odpowiednich warunkach skóry.</p>
-            </article>
-
-            <article>
-              <span>03</span>
-              <strong>Włos + cień</strong>
-              <em>1400 zł</em>
-              <p>Połączenie struktury włosa z delikatnym wypełnieniem.</p>
-            </article>
-
-            <article>
-              <span>04</span>
-              <strong>Odświeżenie</strong>
-              <em>500–700 zł</em>
-              <p>Dotyczy brwi wykonanych w gabinecie do 2 lat.</p>
-            </article>
-          </div>
-
-          <p class="quick-price-note">
-            Zabieg główny obejmuje korektę w terminie 1–3 miesiące. Stare PMU lub pigmentacja wykonana w innym gabinecie wymaga indywidualnej kwalifikacji.
-          </p>
-        </div>
-      </section>
-
-      <section class="guide-nav-section">
-        <div class="container">
-          <nav class="guide-nav" aria-label="Spis treści artykułu">
-            <a href="#ceny-brwi">Ceny brwi</a>
-            <a href="#co-obejmuje-cena">Co jest w cenie</a>
-            <a href="#metody">1200 czy 1400 zł?</a>
-            <a href="#korekta-odswiezenie">Korekta i odświeżenie</a>
-            <a href="#stare-pmu">Stare PMU</a>
+          <nav class="expert-article-nav" aria-label="Spis treści artykułu">
+            <a href="#cena-i-zakres">Cena PMU</a>
+            <a href="#brwi-usta-kreski">Brwi, usta, kreski</a>
+            <a href="#taniej-czy-drozej">Porównywanie ofert</a>
+            <a href="#jak-sprawdzic-cennik">Praktycznie</a>
             <a href="#praktyka">Praktyka</a>
+            <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
           </nav>
         </div>
       </section>
 
-      <section class="guide-section" id="ceny-brwi">
+      <section class="expert-article-section" id="cena-i-zakres">
         <div class="container">
-          <div class="guide-heading">
-            <p class="section-kicker">Ceny brwi PMU</p>
-            <h2>Ile kosztują brwi permanentne w 2026 roku?</h2>
-            <p>
-              Najważniejsze jest rozróżnienie pierwszego zabiegu, techniki oraz odświeżenia starszej pigmentacji. Samo słowo „brwi permanentne” może więc oznaczać kilka różnych zakresów pracy.
-            </p>
+          <div class="expert-article-heading">
+            <p class="section-kicker">Cena PMU</p>
+            <h2>Cena makijażu permanentnego to nie tylko sam moment pigmentacji.</h2>
           </div>
 
-          <div class="price-compare" aria-label="Porównanie cen metod brwi permanentnych">
-            <article class="price-card">
-              <div>
-                <span>Cieniowanie</span>
-                <strong>1200 zł</strong>
-              </div>
-              <h3>Brwi cieniowane</h3>
-              <p>
-                Miękki, pudrowy lub bardziej nasycony efekt. Dobre rozwiązanie, gdy celem jest uporządkowanie kształtu i równomierne wypełnienie.
-              </p>
-              <a href="/makijaz-permanentny-brwi/#metody-brwi">Zobacz metodę →</a>
-            </article>
-
-            <article class="price-card price-card-accent">
-              <div>
-                <span>Włos maszynowy</span>
-                <strong>1400 zł</strong>
-              </div>
-              <h3>Metoda włoskowa</h3>
-              <p>
-                Efekt pojedynczych włosków prowadzonych zgodnie z naturalnym kierunkiem brwi. Technika wymaga odpowiednich warunków skóry.
-              </p>
-              <a href="/poradnik/czy-kazda-skora-nadaje-sie-do-metody-wloskowej/">Czy moja skóra się nadaje? →</a>
-            </article>
-
-            <article class="price-card">
-              <div>
-                <span>Technika łączona</span>
-                <strong>1400 zł</strong>
-              </div>
-              <h3>Włos z cieniem</h3>
-              <p>
-                Łączy strukturę włosa z lekkim cieniem. Może dać pełniejszą oprawę oka bez ciężkiej, graficznej formy.
-              </p>
-              <a href="/poradnik/metody-brwi-permanentnych-ombre-pudrowe-wloskowe/">Porównaj techniki →</a>
-            </article>
-
-            <article class="price-card price-card-soft">
-              <div>
-                <span>Do 2 lat</span>
-                <strong>500–700 zł</strong>
-              </div>
-              <h3>Odświeżenie brwi</h3>
-              <p>
-                Dotyczy makijażu permanentnego wykonanego w gabinecie, kiedy po czasie efekt wymaga ponownego nasycenia.
-              </p>
-              <a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">Korekta czy odświeżenie? →</a>
-            </article>
+          <div class="expert-legacy-copy">
+            <p>Kiedy klientka wpisuje w Google „makijaż permanentny Bielsko-Biała cena”, najczęściej chce szybko porównać oferty. Warto jednak wiedzieć, że cena zabiegu powinna obejmować znacznie więcej niż wprowadzenie pigmentu w skórę. To także konsultacja, rysunek wstępny, dobór techniki, dobór koloru, kwalifikacja skóry, zalecenia i kontrola efektu po wygojeniu.</p>
+            <p>W profesjonalnym PMU płaci się za przewidywalność, doświadczenie i odpowiedzialność za efekt. Brwi, usta albo kreski są widoczne na twarzy codziennie, dlatego decyzja oparta wyłącznie na najniższej cenie może później oznaczać konieczność korekty, rozjaśniania albo usuwania pigmentu.</p>
           </div>
-
-          <div class="decision-bridge">
-            <div>
-              <span>Nie wiesz, którą metodę wybrać?</span>
-              <strong>Nie wybieraj techniki tylko po cenie.</strong>
-            </div>
-
-            <div class="decision-actions">
-              <a href="/makijaz-permanentny-brwi/">Zobacz brwi</a>
-              <a href="/cennik-makijaz-permanentny/#price-group-1">Pełny cennik</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="guide-section guide-section-soft" id="co-obejmuje-cena">
-        <div class="container">
-          <div class="guide-heading">
-            <p class="section-kicker">Co obejmuje cena?</p>
-            <h2>1200 lub 1400 zł to nie tylko moment pigmentacji.</h2>
-            <p>
-              Cena zabiegu obejmuje cały proces prowadzący do efektu: od kwalifikacji i projektu brwi po ocenę wygojenia i korektę.
-            </p>
-          </div>
-
-          <div class="included-grid">
+          <div class="expert-legacy-cards">
             <article>
-              <span>01</span>
-              <h3>Konsultacja i kwalifikacja</h3>
-              <p>Ocena skóry, naturalnych brwi, wcześniejszych zabiegów i oczekiwanego efektu.</p>
+              <h3>Konsultacja</h3>
+              <p>Pomaga ocenić skórę, przeciwwskazania, oczekiwania i ewentualny stary pigment.</p>
             </article>
-
             <article>
-              <span>02</span>
               <h3>Rysunek wstępny</h3>
-              <p>Kształt, proporcje i kierunek brwi są omawiane przed rozpoczęciem pigmentacji.</p>
+              <p>Pozwala zobaczyć kształt i proporcję przed pigmentacją.</p>
             </article>
-
             <article>
-              <span>03</span>
-              <h3>Dobór metody i koloru</h3>
-              <p>Technika i pigment wynikają ze skóry, urody, naturalnego włosa i oczekiwanej intensywności.</p>
+              <h3>Technika</h3>
+              <p>Metoda powinna wynikać ze skóry i oczekiwanego efektu, nie tylko z cennika.</p>
             </article>
-
             <article>
-              <span>04</span>
-              <h3>Pigmentacja</h3>
-              <p>Precyzyjna praca z kontrolą nasycenia, kształtu i reakcji skóry.</p>
+              <h3>Korekta</h3>
+              <p>W wielu usługach korekta jest elementem procesu po wygojeniu, a nie naprawą błędu.</p>
             </article>
-
-            <article>
-              <span>05</span>
-              <h3>Zalecenia po zabiegu</h3>
-              <p>Pielęgnacja po pigmentacji i informacje o tym, czego spodziewać się podczas gojenia.</p>
-            </article>
-
-            <article>
-              <span>06</span>
-              <h3>Korekta 1–3 miesiące</h3>
-              <p>Ocena wygojonego efektu i ewentualne dopracowanie nasycenia, koloru lub detalu.</p>
-            </article>
-          </div>
-
-          <div class="article-link-row">
-            <a href="/poradnik/rysunek-wstepny-przed-makijazem-permanentnym/">
-              <span>Rysunek wstępny</span>
-              <strong>Dlaczego jest tak ważny? →</strong>
-            </a>
-
-            <a href="/poradnik/jak-goja-sie-brwi-permanentne/">
-              <span>Po zabiegu</span>
-              <strong>Zobacz, jak goją się brwi →</strong>
-            </a>
           </div>
         </div>
       </section>
 
-      <section class="guide-section" id="metody">
+      <section class="expert-article-section expert-article-soft" id="brwi-usta-kreski">
         <div class="container">
-          <div class="guide-heading">
-            <p class="section-kicker">1200 czy 1400 zł?</p>
-            <h2>Dlaczego metoda włoskowa kosztuje więcej niż cieniowanie?</h2>
-            <p>
-              Różnica nie wynika z samej nazwy techniki. Włos maszynowy wymaga planowania każdego kierunku, odpowiedniej kwalifikacji skóry i bardzo precyzyjnej kontroli pracy.
-            </p>
+          <div class="expert-article-heading">
+            <p class="section-kicker">Brwi, usta, kreski</p>
+            <h2>Od czego zależy cena brwi, ust i kresek permanentnych?</h2>
           </div>
 
-          <div class="method-accordion">
-            <details open>
-              <summary>
-                <span>01</span>
-                <strong>Cieniowanie — 1200 zł</strong>
-                <em>+</em>
-              </summary>
-              <div>
-                <p>
-                  Cieniowanie buduje miękkie wypełnienie. Może być bardzo delikatne albo bardziej wyraźne, ale nie wymaga imitowania każdego pojedynczego włosa.
-                </p>
-                <a href="/makijaz-permanentny-brwi/#metody-brwi">Zobacz opis metody →</a>
-              </div>
-            </details>
-
-            <details>
-              <summary>
-                <span>02</span>
-                <strong>Metoda włoskowa — 1400 zł</strong>
-                <em>+</em>
-              </summary>
-              <div>
-                <p>
-                  Każdy włosek jest projektowany pod kątem kierunku, długości, odstępu i naturalnego wzrostu. Technika nie jest automatycznie najlepsza dla każdego typu skóry.
-                </p>
-                <a href="/poradnik/czy-kazda-skora-nadaje-sie-do-metody-wloskowej/">Sprawdź kwalifikację skóry →</a>
-              </div>
-            </details>
-
-            <details>
-              <summary>
-                <span>03</span>
-                <strong>Włos z cieniem — 1400 zł</strong>
-                <em>+</em>
-              </summary>
-              <div>
-                <p>
-                  To połączenie struktury włosa z delikatnym cieniem. Stosuje się je wtedy, gdy sama metoda włoskowa byłaby zbyt lekka dla oczekiwanego efektu.
-                </p>
-                <a href="/poradnik/metody-brwi-permanentnych-ombre-pudrowe-wloskowe/">Porównaj wszystkie metody →</a>
-              </div>
-            </details>
+          <div class="expert-legacy-copy">
+            <p>Cena brwi permanentnych zależy między innymi od wybranej metody: cieniowania, metody włoskowej albo połączenia włosa z cieniem. Techniki dają różne efekty i mają różny poziom trudności, dlatego nie powinny być porównywane wyłącznie jako pozycje z tabeli.</p>
+            <p>Przy ustach znaczenie ma dobór koloru, naturalna granica czerwieni wargowej, skłonność do opryszczki i oczekiwany efekt po wygojeniu. Przy kreskach ważna jest budowa oka, powieka, linia rzęs i to, czy lepsze będzie subtelne zagęszczenie, czy wyraźniejsza kreska. Każdy obszar wymaga innego czasu i innej odpowiedzialności.</p>
           </div>
-
-          <div class="expert-note">
-            <p class="section-kicker">Ważne</p>
-            <h3>Droższa metoda nie oznacza automatycznie lepszej metody dla Ciebie.</h3>
-            <p>
-              Jeśli skóra nie daje dobrych warunków do stabilnego efektu włoskowego, bardziej przewidywalnym kierunkiem może być cieniowanie lub technika łączona. Metodę warto dobierać do skóry i efektu, nie do samej ceny.
-            </p>
+          <div class="expert-legacy-cards">
+            <article>
+              <h3>Brwi permanentne</h3>
+              <p>Cena zależy od techniki, skóry, rysunku, wcześniejszego PMU i oczekiwanego efektu.</p>
+            </article>
+            <article>
+              <h3>Usta permanentne</h3>
+              <p>Ważny jest kolor, kontur, symetria, opryszczka i naturalny efekt po wygojeniu.</p>
+            </article>
+            <article>
+              <h3>Kreski permanentne</h3>
+              <p>Cena wynika z rodzaju kreski, delikatności okolicy oka i precyzji pracy.</p>
+            </article>
+            <article>
+              <h3>Odświeżenie</h3>
+              <p>To inna usługa niż korekta po pierwszym zabiegu i zwykle wymaga osobnej wyceny.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="guide-section guide-section-soft" id="korekta-odswiezenie">
+      <section class="expert-article-section" id="taniej-czy-drozej">
         <div class="container">
-          <div class="guide-heading">
-            <p class="section-kicker">Korekta, dopigmentowanie, odświeżenie</p>
-            <h2>To trzy różne sytuacje — i nie powinny być wrzucane do jednego worka.</h2>
+          <div class="expert-article-heading">
+            <p class="section-kicker">Porównywanie ofert</p>
+            <h2>Czy tańszy makijaż permanentny w Bielsku-Białej może być dobry?</h2>
           </div>
 
-          <div class="scenario-grid">
-            <article>
-              <span>Korekta</span>
-              <h3>Po pierwszym zabiegu</h3>
-              <p>
-                Oceniamy wygojony efekt i w razie potrzeby dopracowujemy drobne elementy. W zabiegu głównym jest uwzględniona w cenie i wykonywana w terminie 1–3 miesiące.
-              </p>
-            </article>
-
-            <article>
-              <span>Dopigmentowanie</span>
-              <h3>Dopracowanie efektu po gojeniu</h3>
-              <p>
-                W języku klientek słowo „dopigmentowanie” często oznacza etap korekty. Kluczowe jest to, że decyzję podejmuje się po ocenie skóry i przyjęcia pigmentu.
-              </p>
-            </article>
-
-            <article>
-              <span>Odświeżenie</span>
-              <h3>Powrót do pigmentacji po czasie</h3>
-              <p>
-                Gdy starsze brwi tracą intensywność, można rozważyć odświeżenie. Dla prac wykonanych w gabinecie do 2 lat cena wynosi 500–700 zł.
-              </p>
-            </article>
+          <div class="expert-legacy-copy">
+            <p>Niska cena nie oznacza automatycznie złego zabiegu, a wysoka cena nie gwarantuje idealnego efektu. Ważne jest to, co faktycznie stoi za ceną: doświadczenie osoby wykonującej zabieg, jakość konsultacji, bezpieczeństwo, styl pracy i gotowość do spokojnego omówienia ograniczeń.</p>
+            <p>Największe ryzyko pojawia się wtedy, gdy cena jest jedynym argumentem. Jeśli nie ma rysunku wstępnego, rozmowy o przeciwwskazaniach, kwalifikacji starego pigmentu albo informacji o gojeniu, sama promocja nie daje klientce wystarczającego bezpieczeństwa.</p>
           </div>
-
-          <a class="wide-link" href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">
-            Korekta czy odświeżenie? Zobacz pełne wyjaśnienie <span>→</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="guide-section" id="stare-pmu">
-        <div class="container old-pmu-panel">
-          <div>
-            <p class="section-kicker">Stare PMU</p>
-            <h2>Brwi po innym gabinecie nie mają jednej stałej ceny.</h2>
-            <p>
-              Jeśli pigment jest stary, ciemny, chłodny, nierówny albo wychodzi poza korzystny kształt, nie powinno się automatycznie dokładać kolejnej warstwy. Najpierw trzeba ocenić, czy możliwa jest korekta, czy lepszym pierwszym krokiem będzie rozjaśnienie.
-            </p>
-
-            <div class="old-pmu-actions">
-              <a href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Formularz PMU →</a>
-              <a href="/usuwanie-makijazu-permanentnego/">Usuwanie starego PMU →</a>
-            </div>
-          </div>
-
-          <div class="old-pmu-list">
-            <div>
-              <strong>Kolor</strong>
-              <span>czy pigment jest chłodny, czerwony, szary lub bardzo ciemny</span>
-            </div>
-            <div>
-              <strong>Nasycenie</strong>
-              <span>czy skóra ma jeszcze przestrzeń na nową, estetyczną pigmentację</span>
-            </div>
-            <div>
-              <strong>Kształt</strong>
-              <span>czy stare PMU mieści się w planowanym projekcie nowych brwi</span>
-            </div>
-            <div>
-              <strong>Stan skóry</strong>
-              <span>czy skóra jest gotowa na kolejny zabieg i jaki kierunek jest bezpieczny</span>
-            </div>
+          <div class="expert-legacy-cards">
+            <article>
+              <h3>Cena nie jest jedynym kryterium</h3>
+              <p>Przy PMU warto oceniać proces, nie tylko kwotę.</p>
+            </article>
+            <article>
+              <h3>Poprawki bywają droższe</h3>
+              <p>Naprawa nieudanego PMU może wymagać wielu etapów, rozjaśniania albo usuwania.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="guide-section" id="praktyka">
-        <div class="container author-note">
+      <section class="expert-article-section expert-article-soft" id="jak-sprawdzic-cennik">
+        <div class="container">
+          <div class="expert-article-heading">
+            <p class="section-kicker">Praktycznie</p>
+            <h2>Jak sprawdzić aktualną cenę i termin?</h2>
+          </div>
+
+          <div class="expert-legacy-copy">
+            <p>Najlepiej sprawdzić aktualny cennik na stronie oraz dostępne terminy w systemie rezerwacji. Przy klasycznym pierwszym zabiegu decyzja bywa prosta, ale przy starym pigmencie, asymetrii, bliznach, wcześniejszych zabiegach albo problemach skórnych cena może wymagać indywidualnej konsultacji.</p>
+            <p>Warto traktować konsultację jako inwestycję w dobrą decyzję. Czasem po rozmowie okazuje się, że trzeba zmienić metodę, przełożyć zabieg, najpierw rozjaśnić pigment albo wybrać bardziej naturalny efekt niż ten ze zdjęcia inspiracyjnego.</p>
+          </div>
+          <div class="expert-legacy-cards">
+            <article>
+              <h3>Cennik na stronie</h3>
+              <p>Dobry punkt startowy do porównania brwi, ust, kresek, odświeżeń i konsultacji.</p>
+            </article>
+            <article>
+              <h3>Booksy</h3>
+              <p>Najprostsze miejsce do sprawdzenia dostępnych terminów i rezerwacji wizyty.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="expert-article-section">
+        <div class="container">
+          <div class="expert-source-inline">
+            <span>Ważne</span>
+            <h3 style="margin:0 0 9px;color:var(--color-text,#17151d);font-size:1.25rem;">Kiedy cena nie powinna być podana automatycznie?</h3>
+            <p>Przy starym makijażu permanentnym, bliznach, asymetrii, nietypowym kolorze pigmentu, aktywnych problemach skórnych albo konieczności rozjaśniania najpierw potrzebna jest ocena indywidualna.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="expert-article-section" id="praktyka">
+        <div class="container expert-author-note">
           <div>
             <p class="section-kicker">Praktyka gabinetowa</p>
-            <h2>Jak przekładam cenę na realny plan zabiegu?</h2>
+            <h2>Jak przekładam tę wiedzę na realny zabieg?</h2>
             <p>
-              Nie zaczynam od pytania „którą metodę Pani wybiera?”. Najpierw oceniam naturalne brwi, skórę, rysy twarzy, wcześniejsze pigmentacje i oczekiwany efekt. Dopiero później dobieramy technikę.
-            </p>
-            <p>
-              Dzięki temu cena wynika z konkretnego zakresu pracy, a nie z przypadkowo wybranej nazwy zabiegu.
+              Nie stosuję jednej odpowiedzi dla każdej skóry i każdej klientki.
+              Najpierw oceniam aktualny stan skóry, wcześniejszy makijaż permanentny,
+              naturalną anatomię oraz oczekiwany efekt. Dopiero potem wybieramy metodę
+              i plan postępowania.
             </p>
           </div>
 
@@ -518,134 +319,157 @@ const structuredData = [
             <span>Bogusława Herda</span>
             <strong>Trenerka Long-Time-Liner®</strong>
             <strong>Autorka Silky Hairstroke Brows</strong>
-            <a href="/makijaz-permanentny-bielsko/#boguslawa-herda">
-              Poznaj doświadczenie i podejście →
+            <a href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
+              Przejdź do kwalifikacji PMU →
             </a>
           </aside>
         </div>
       </section>
 
-      <section class="guide-section guide-related-section">
+      <section class="expert-article-section expert-article-related-section">
         <div class="container">
-          <div class="guide-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Powiązane tematy</p>
-            <h2>Jeśli cena jest już jasna, przejdź do następnej decyzji.</h2>
+            <h2>Nie opisujemy wszystkiego drugi raz — przejdź do właściwego zagadnienia.</h2>
           </div>
 
-          <div class="related-grid">
-            <a href="/makijaz-permanentny-brwi/">
-              <span>Brwi</span>
-              <h3>Brwi permanentne</h3>
-              <p>Zobacz efekty, metody, proces i kwalifikację skóry.</p>
-              <strong>Zobacz usługę →</strong>
+          <div class="expert-related-grid">
+            <a href="/poradnik/makijaz-permanentny-bielsko-biala/">
+              <h3>Makijaż permanentny Bielsko-Biała</h3>
+              <p>Regionalny przewodnik po brwiach, ustach, kreskach i konsultacji PMU.</p>
+              <span>Czytaj dalej →</span>
             </a>
-
-            <a href="/poradnik/jak-przygotowac-sie-do-makijazu-permanentnego-brwi/">
-              <span>Przed zabiegiem</span>
-              <h3>Jak się przygotować?</h3>
-              <p>Praktyczne przygotowanie skóry i decyzje przed pierwszą pigmentacją.</p>
-              <strong>Czytaj →</strong>
+            <a href="/poradnik/makijaz-permanentny-brwi-bielsko-biala/">
+              <h3>Makijaż permanentny brwi Bielsko-Biała</h3>
+              <p>Metoda włoskowa, cieniowanie, włos z cieniem i naturalny efekt brwi.</p>
+              <span>Czytaj dalej →</span>
             </a>
-
-            <a href="/poradnik/jak-goja-sie-brwi-permanentne/">
-              <span>Po zabiegu</span>
-              <h3>Jak goją się brwi?</h3>
-              <p>Kolor, łuszczenie, strupki i moment oceny efektu po wygojeniu.</p>
-              <strong>Czytaj →</strong>
+            <a href="/cennik-makijaz-permanentny/">
+              <h3>Cennik PMU</h3>
+              <p>Aktualne ceny brwi, ust, kresek, odświeżeń, konsultacji i usuwania.</p>
+              <span>Czytaj dalej →</span>
             </a>
-
-            <a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">
-              <span>Po czasie</span>
-              <h3>Odświeżenie PMU</h3>
-              <p>Kiedy odświeżać, czym różni się od korekty i jak rozumieć cenę.</p>
-              <strong>Czytaj →</strong>
+            <a href="/usuwanie-makijazu-permanentnego/">
+              <h3>Usuwanie i korekta PMU</h3>
+              <p>Stary pigment, laser, remover, korekta i etapowy plan działania.</p>
+              <span>Czytaj dalej →</span>
             </a>
           </div>
         </div>
       </section>
 
-      <section class="guide-section" id="zrodla">
+      <section class="expert-article-section" id="zrodla">
         <div class="container">
-          <div class="guide-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Źródła i materiały odniesienia</p>
-            <h2>Cena pochodzi z aktualnego cennika. Bezpieczeństwo — ze źródeł medycznych.</h2>
+            <h2>Na czym opieramy informacje medyczne i techniczne?</h2>
+            <p>
+              Wiedzę gabinetową oddzielamy od informacji dermatologicznych i instytucjonalnych.
+              Tam, gdzie nie istnieje jedna uniwersalna reguła, nie przedstawiamy jej jako pewnika.
+            </p>
           </div>
 
-          <div class="source-grid">
+          <div class="expert-source-grid">
             <a href="/cennik-makijaz-permanentny/">
               <span>PermanentnyBielsko.com</span>
               <h3>Aktualny cennik makijażu permanentnego</h3>
-              <p>Źródło cen zabiegów publikowanych przez gabinet.</p>
-              <strong>Zobacz cennik →</strong>
+              <p>Źródło aktualnych cen usług publikowanych przez gabinet.</p>
+              <strong>Zobacz na stronie →</strong>
             </a>
-
             <a href="https://pubmed.ncbi.nlm.nih.gov/38901732/" target="_blank" rel="noopener noreferrer">
               <span>JAAD / PubMed</span>
-              <h3>Permanent makeup: review techniki i możliwych powikłań</h3>
-              <p>Przegląd dotyczący permanent makeup, bezpieczeństwa i potencjalnych powikłań.</p>
+              <h3>Permanent makeup: A review of its technique, regulation, and complications</h3>
+              <p>Przegląd dermatologiczny PMU: technika, regulacje oraz możliwe powikłania.</p>
               <strong>Otwórz źródło ↗</strong>
             </a>
-
             <a href="https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet" target="_blank" rel="noopener noreferrer">
               <span>FDA</span>
               <h3>Tattoos & Permanent Makeup: Fact Sheet</h3>
-              <p>Instytucjonalne informacje o pigmentacji skóry i możliwych reakcjach.</p>
+              <p>Informacje instytucjonalne o permanent makeup jako formie pigmentacji skóry, bezpieczeństwie i możliwych reakcjach.</p>
               <strong>Otwórz źródło ↗</strong>
             </a>
           </div>
 
-          <p class="medical-note">
+          <p class="expert-medical-note">
             Treść ma charakter edukacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej.
+            Przy nasilonych, nietypowych lub utrzymujących się objawach skontaktuj się z lekarzem.
           </p>
         </div>
       </section>
 
-      <section class="guide-section guide-faq-section" id="faq">
+      <section class="expert-article-section expert-article-faq-section" id="faq">
         <div class="container">
-          <div class="guide-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">FAQ</p>
-            <h2>Najczęstsze pytania o cenę brwi permanentnych.</h2>
+            <h2>Najczęstsze pytania związane z tym tematem.</h2>
           </div>
 
-          <div class="faq-list">
-            {faqItems.map((item) => (
-              <details>
-                <summary>
-                  <span>{item.question}</span>
-                  <span class="faq-icon" aria-hidden="true"></span>
-                </summary>
-                <div>
-                  <p>{item.answer}</p>
-                </div>
-              </details>
-            ))}
+          <div class="expert-faq-list">
+            <details>
+              <summary>
+                <span>Ile kosztuje makijaż permanentny w Bielsku-Białej?</span>
+                <span class="expert-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div><p>Cena zależy od obszaru zabiegu, techniki i zakresu pracy. Inaczej wycenia się brwi, usta, kreski, odświeżenie i korektę starego pigmentu.</p></div>
+            </details>
+            <details>
+              <summary>
+                <span>Czy korekta jest w cenie zabiegu?</span>
+                <span class="expert-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div><p>W wielu zabiegach głównych korekta po wygojeniu jest elementem procesu, ale zawsze warto sprawdzić konkretny cennik i termin wykonania korekty.</p></div>
+            </details>
+            <details>
+              <summary>
+                <span>Dlaczego metoda włoskowa brwi może kosztować więcej?</span>
+                <span class="expert-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div><p>Wymaga bardzo precyzyjnej pracy, kwalifikacji skóry, kontroli kierunku włosa i doświadczenia w uzyskiwaniu naturalnego efektu.</p></div>
+            </details>
+            <details>
+              <summary>
+                <span>Czy tani makijaż permanentny to zły wybór?</span>
+                <span class="expert-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div><p>Nie zawsze, ale sama niska cena nie wystarczy. Trzeba sprawdzić doświadczenie, zdjęcia wygojonych efektów, higienę, konsultację i zasady korekty.</p></div>
+            </details>
+            <details>
+              <summary>
+                <span>Gdzie sprawdzić aktualne ceny PMU?</span>
+                <span class="expert-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div><p>Najlepiej w aktualnym cenniku na stronie oraz podczas konsultacji, jeśli zabieg dotyczy starego pigmentu, korekty albo indywidualnego przypadku.</p></div>
+            </details>
           </div>
         </div>
       </section>
 
-      <section class="guide-section">
-        <div class="container final-card">
+      <section class="expert-article-section">
+        <div class="container expert-final-card">
           <p class="signature cta-signature">Powrót do natury</p>
-          <h2>Wiesz już, ile kosztują brwi. Teraz dobierzmy właściwy kierunek.</h2>
+          <h2>Chcesz ocenić swój przypadek przed zabiegiem?</h2>
           <p>
-            Jeśli wiesz, czego potrzebujesz — sprawdź terminy. Jeśli masz stare PMU albo nie wiesz, czy lepszy będzie włos czy cieniowanie, zacznij od kwalifikacji.
+            Jeśli wiesz, jakiego zabiegu potrzebujesz — sprawdź terminy.
+            Jeśli masz stare PMU, wcześniejsze zabiegi albo wątpliwości, zacznij od kwalifikacji.
           </p>
 
-          <div class="final-actions">
-            <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
+          <div class="expert-final-actions">
+            <a class="expert-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+              Booksy <span aria-hidden="true">→</span>
+            </a>
+
+            <a class="button-primary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
               Formularz PMU <span aria-hidden="true">→</span>
             </a>
 
-            <a class="final-phone" href="tel:+48730900125">
-              Zadzwoń
-            </a>
-
-            <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-              Booksy <span aria-hidden="true">→</span>
+            <a class="button-secondary" href={article.mainService.href}>
+              {article.mainService.title}
             </a>
           </div>
 
-          <a class="back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
+          <a class="expert-back-link" href="/poradnik/">
+            ← Wróć do całego poradnika PMU
+          </a>
         </div>
       </section>
     </main>
@@ -655,1471 +479,126 @@ const structuredData = [
 </Layout>
 
 <style>
-  .brow-price-guide {
-    min-height: 100vh;
-    overflow-x: hidden;
-    background:
-      radial-gradient(circle at 82% 10%, rgba(56, 187, 181, 0.10), transparent 28rem),
-      radial-gradient(circle at 12% 42%, rgba(201, 127, 143, 0.10), transparent 26rem),
-      linear-gradient(180deg, #fffdfd 0%, #fff8fa 48%, #ffffff 100%);
+  .expert-article-page{min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 82% 10%,rgba(56,187,181,.10),transparent 28rem),radial-gradient(circle at 12% 42%,rgba(201,127,143,.10),transparent 26rem),linear-gradient(180deg,#fffdfd 0%,#fff8fa 48%,#fff 100%)}
+  .expert-article-page*,.expert-article-page *::before,.expert-article-page *::after{box-sizing:border-box}.expert-article-page main,.expert-article-page section,.expert-article-page .container,.expert-article-page article,.expert-article-page div{min-width:0}
+  .expert-article-page .section-kicker{display:inline-flex;width:fit-content;max-width:100%;min-height:31px;align-items:center;justify-content:center;margin:0 0 17px;padding:0 12px;border:1px solid rgba(56,187,181,.18);border-radius:999px;background:rgba(219,246,243,.76);color:var(--color-turquoise-dark,#0f7773);font:850 .67rem/1 inherit;letter-spacing:.15em;text-transform:uppercase}.expert-article-page .section-kicker-light{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.13);color:#fff}
+  .expert-article-hero{padding:144px 0 66px}.expert-article-hero-grid{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(340px,.87fr);gap:22px;align-items:stretch}.expert-article-hero-copy,.expert-article-answer,.expert-timeline-card,.expert-article-note,.expert-factor-grid article,.expert-source-inline,.expert-area-grid a,.expert-author-note,.expert-related-grid a,.expert-source-grid a,.expert-faq-list details,.expert-final-card{border:1px solid rgba(183,101,118,.14);box-shadow:0 18px 54px rgba(89,53,67,.065)}
+  .expert-article-hero-copy{padding:clamp(34px,5vw,62px);border-radius:38px;background:radial-gradient(circle at 96% 10%,rgba(56,187,181,.07),transparent 16rem),rgba(255,255,255,.84)}.expert-article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}.expert-article-meta span{display:inline-flex;min-height:29px;align-items:center;padding:0 11px;border-radius:999px;background:rgba(255,248,251,.94);color:var(--color-muted,#6e6670);font-size:.68rem;font-weight:790;letter-spacing:.08em;text-transform:uppercase}.expert-article-meta span:first-child{background:rgba(56,187,181,.12);color:var(--color-turquoise-dark,#0f7773)}
+  .expert-article-hero-copy h1{max-width:1050px;margin:0;color:var(--color-text,#17151d);font-size:clamp(2.8rem,4.8vw,5.4rem);font-weight:780;line-height:1.01;letter-spacing:-.074em}.expert-article-lead{max-width:900px;margin:24px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(1.04rem,1.3vw,1.2rem);line-height:1.7}
+  .expert-article-answer{display:flex;min-height:100%;flex-direction:column;justify-content:flex-end;padding:clamp(30px,4vw,46px);border-radius:38px;color:#fff;background:radial-gradient(circle at 88% 12%,rgba(255,255,255,.24),transparent 13rem),linear-gradient(145deg,#0f7773 0%,#1aa5a0 45%,#138a86 100%);box-shadow:0 26px 68px rgba(35,156,150,.18)}.expert-article-answer-label{margin:0 auto auto 0;color:rgba(255,255,255,.72);font-size:.7rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.expert-article-answer h2{margin:54px 0 0;color:#fff;font-size:clamp(2rem,3.1vw,3.4rem);font-weight:780;line-height:1;letter-spacing:-.07em}.expert-article-answer p:not(.expert-article-answer-label){margin:18px 0 0;color:rgba(255,255,255,.88);font-size:.98rem;line-height:1.64}
+  .expert-article-nav-section{padding:0 0 14px}.expert-article-nav{display:flex;gap:8px;overflow-x:auto;padding:5px 2px 10px;scroll-snap-type:x mandatory;scrollbar-width:none}.expert-article-nav::-webkit-scrollbar{display:none}.expert-article-nav a{min-height:43px;display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;padding:0 15px;border:1px solid rgba(56,187,181,.17);border-radius:999px;background:rgba(255,255,255,.88);color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:820;letter-spacing:.07em;text-decoration:none;scroll-snap-align:start}
+  .expert-article-section{padding:70px 0;scroll-margin-top:96px}.expert-article-soft,.expert-article-faq-section{background:rgba(255,255,255,.52)}.expert-article-heading{max-width:980px;margin-bottom:30px}.expert-article-heading h2,.expert-author-note h2,.expert-final-card h2{margin:0;color:var(--color-text,#17151d);font-size:clamp(2.2rem,3.7vw,4rem);font-weight:770;line-height:1.02;letter-spacing:-.07em}.expert-article-heading>p:not(.section-kicker),.expert-author-note>div>p:not(.section-kicker),.expert-final-card>p:not(.signature){max-width:840px;margin:17px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(.98rem,1.1vw,1.06rem);line-height:1.7}
+  .expert-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.expert-timeline-card{min-height:305px;padding:24px;border-radius:28px;background:rgba(255,255,255,.9)}.expert-timeline-card.is-danger{border-top:4px solid rgba(180,72,90,.58)}.expert-timeline-card.is-warning{border-top:4px solid rgba(201,127,143,.58)}.expert-timeline-card.is-good,.expert-timeline-card.is-best{border-top:4px solid rgba(56,187,181,.58)}.expert-timeline-top{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-bottom:52px}.expert-timeline-top strong{color:var(--color-text,#17151d);font-size:1.02rem;font-weight:840}.expert-timeline-top span{display:inline-flex;min-height:29px;align-items:center;padding:0 9px;border-radius:999px;background:rgba(219,246,243,.7);color:var(--color-turquoise-dark,#0f7773);font-size:.61rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.expert-timeline-card.is-danger .expert-timeline-top span,.expert-timeline-card.is-warning .expert-timeline-top span{background:rgba(246,220,227,.68);color:#8d4057}
+  .expert-timeline-card h3,.expert-factor-grid h3,.expert-area-grid h3,.expert-related-grid h3,.expert-source-grid h3{margin:0;color:var(--color-text,#17151d);font-size:clamp(1.38rem,1.8vw,1.85rem);font-weight:770;line-height:1.04;letter-spacing:-.052em}.expert-timeline-card p,.expert-factor-grid p,.expert-area-grid p,.expert-related-grid p,.expert-source-grid p{margin:13px 0 0;color:var(--color-muted,#6e6670);font-size:.92rem;line-height:1.6}
+  .expert-article-note{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 20px;align-items:start;margin-top:14px;padding:20px 22px;border-radius:22px;background:rgba(255,255,255,.88)}.expert-article-note strong{color:var(--color-turquoise-dark,#0f7773);font-size:.88rem;font-weight:840}.expert-article-note p{margin:0;color:var(--color-muted,#6e6670);font-size:.94rem;line-height:1.6}
+  .expert-factor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.expert-factor-grid article{min-height:210px;padding:25px;border-radius:26px;background:radial-gradient(circle at 94% 10%,rgba(56,187,181,.07),transparent 11rem),rgba(255,255,255,.88)}.expert-source-inline{margin-top:14px;padding:23px 25px;border-radius:24px;background:linear-gradient(145deg,rgba(219,246,243,.62),rgba(255,248,251,.86)),rgba(255,255,255,.84)}.expert-source-inline span{display:block;margin-bottom:8px;color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.expert-source-inline p{max-width:940px;margin:0;color:var(--color-muted,#6e6670);font-size:.94rem;line-height:1.66}
+  .expert-area-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.expert-area-grid a{min-height:300px;display:flex;flex-direction:column;padding:26px;border-radius:28px;color:inherit;text-decoration:none;background:radial-gradient(circle at 94% 10%,rgba(56,187,181,.08),transparent 11rem),rgba(255,255,255,.9)}.expert-area-grid a>span{display:block;margin-bottom:52px;color:var(--color-turquoise-dark,#0f7773);font-size:.7rem;font-weight:850;letter-spacing:.17em}.expert-area-grid a>strong{display:inline-flex;width:fit-content;margin-top:auto;padding-top:20px;color:var(--color-turquoise-dark,#0f7773);font-size:.76rem;font-weight:850}
+  .expert-article-plan-section{background:rgba(255,255,255,.48)}.expert-plan-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;padding:clamp(30px,5vw,52px);border-radius:38px;color:#fff;background:radial-gradient(circle at 92% 12%,rgba(255,255,255,.22),transparent 16rem),linear-gradient(145deg,#0f7773 0%,#1aa5a0 42%,#138a86 100%);box-shadow:0 28px 72px rgba(35,156,150,.18)}.expert-plan-copy h2{margin:0;color:#fff;font-size:clamp(2.35rem,4vw,4.4rem);font-weight:780;line-height:.99;letter-spacing:-.075em}.expert-plan-copy>p:not(.section-kicker){margin:18px 0 0;color:rgba(255,255,255,.87);font-size:.96rem;line-height:1.65}.expert-plan-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.expert-plan-steps>div{min-height:168px;padding:20px;border:1px solid rgba(255,255,255,.18);border-radius:21px;background:rgba(255,255,255,.11)}.expert-plan-steps span{display:block;margin-bottom:17px;color:rgba(255,255,255,.65);font-size:.65rem;font-weight:850;letter-spacing:.16em}.expert-plan-steps strong{display:block;color:#fff;font-size:.97rem;font-weight:790}.expert-plan-steps p{margin:7px 0 0;color:rgba(255,255,255,.79);font-size:.84rem;line-height:1.5}
+  .expert-author-note{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(280px,.68fr);gap:24px;align-items:stretch;padding:clamp(28px,4vw,44px);border-radius:32px;background:rgba(255,255,255,.9)}.expert-author-note aside{display:flex;flex-direction:column;justify-content:center;padding:22px;border:1px solid rgba(56,187,181,.15);border-radius:23px;background:rgba(219,246,243,.46)}.expert-author-note aside span{color:var(--color-turquoise-dark,#0f7773);font-size:.68rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.expert-author-note aside strong{display:block;margin-top:8px;color:var(--color-text,#17151d);font-size:.92rem;font-weight:760}.expert-author-note aside a{display:inline-flex;width:fit-content;margin-top:19px;color:var(--color-turquoise-dark,#0f7773);font-size:.76rem;font-weight:850;text-decoration:none}
+  .expert-article-related-section{background:radial-gradient(circle at 12% 20%,rgba(56,187,181,.08),transparent 22rem),rgba(255,255,255,.54)}.expert-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.expert-related-grid a,.expert-source-grid a{min-height:245px;display:flex;flex-direction:column;padding:23px;border-radius:24px;color:inherit;text-decoration:none;background:rgba(255,255,255,.88)}.expert-related-grid a>span,.expert-source-grid a>strong{display:inline-flex;width:fit-content;margin-top:auto;padding-top:18px;color:var(--color-turquoise-dark,#0f7773);font-size:.72rem;font-weight:850}.expert-source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.expert-source-grid a>span{display:block;margin-bottom:16px;color:var(--color-turquoise-dark,#0f7773);font-size:.62rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.expert-medical-note{max-width:940px;margin:16px 0 0;padding:18px 20px;border-left:3px solid rgba(201,127,143,.56);border-radius:0 18px 18px 0;background:rgba(255,248,251,.8);color:var(--color-muted,#6e6670);font-size:.86rem;line-height:1.6}
+  .expert-faq-list{display:grid;max-width:980px;gap:10px}.expert-faq-list details{overflow:hidden;border-radius:21px;background:rgba(255,255,255,.9)}.expert-faq-list summary{display:grid;grid-template-columns:minmax(0,1fr) 38px;gap:14px;align-items:center;padding:19px 21px;color:var(--color-text,#17151d);font-size:clamp(1rem,1.25vw,1.16rem);font-weight:760;line-height:1.34;letter-spacing:-.025em;cursor:pointer;list-style:none}.expert-faq-list summary::-webkit-details-marker{display:none}.expert-faq-icon{position:relative;width:38px;height:38px;border:1px solid rgba(56,187,181,.17);border-radius:999px;background:rgba(219,246,243,.58)}.expert-faq-icon::before,.expert-faq-icon::after{content:"";position:absolute;top:50%;left:50%;width:13px;height:2px;border-radius:999px;background:var(--color-turquoise-dark,#0f7773);transform:translate(-50%,-50%)}.expert-faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}.expert-faq-list details[open] .expert-faq-icon::after{opacity:0}.expert-faq-list details>div{padding:0 21px 19px}.expert-faq-list p{margin:0;color:var(--color-muted,#6e6670);font-size:.93rem;line-height:1.62}
+  .expert-final-card{padding:clamp(32px,5vw,56px);border-radius:36px;text-align:center;background:linear-gradient(145deg,rgba(219,246,243,.70),rgba(255,242,246,.82)),rgba(255,255,255,.76)}.expert-final-card>p:not(.signature){margin-inline:auto}.expert-final-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:900px;margin:25px auto 0}.expert-final-actions>a{display:inline-flex;width:100%;min-height:56px;align-items:center;justify-content:center;gap:7px;padding:0 17px;border-radius:999px;font-family:inherit;font-size:.94rem;font-weight:820;line-height:1;text-align:center;text-decoration:none}.expert-booksy{border:1px solid rgba(8,111,91,.16);background:linear-gradient(135deg,#18a889 0%,#0f8f78 55%,#0b7868 100%);color:#fff;box-shadow:0 14px 34px rgba(15,143,120,.16)}.expert-back-link{display:inline-flex;margin-top:22px;color:var(--color-turquoise-dark,#0f7773);font-size:.78rem;font-weight:820;text-decoration:none}
+  @media(max-width:1080px){.expert-article-hero-grid,.expert-plan-panel,.expert-author-note{grid-template-columns:1fr}.expert-timeline,.expert-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.expert-source-grid{grid-template-columns:1fr}}
+  @media(max-width:760px){.expert-article-page .section-kicker{min-height:29px;margin-bottom:14px;padding:0 10px;font-size:.61rem;letter-spacing:.12em}.expert-article-hero{padding:112px 0 44px}.expert-article-hero-grid{grid-template-columns:1fr;gap:13px}.expert-article-hero-copy,.expert-article-answer,.expert-timeline-card,.expert-article-note,.expert-factor-grid article,.expert-source-inline,.expert-area-grid a,.expert-author-note,.expert-related-grid a,.expert-source-grid a,.expert-final-card{border-radius:25px}.expert-article-hero-copy,.expert-article-answer{padding:24px 20px}.expert-article-hero-copy h1{font-size:clamp(2.25rem,10.2vw,3.35rem);line-height:1.02;letter-spacing:-.064em}.expert-article-lead{margin-top:18px;font-size:.98rem;line-height:1.62}.expert-article-answer h2{margin-top:54px;font-size:clamp(1.9rem,8.4vw,2.65rem);line-height:1.02}.expert-article-nav a{min-height:41px;padding-inline:14px;font-size:.66rem}.expert-article-section{padding:50px 0}.expert-article-heading{margin-bottom:23px}.expert-article-heading h2,.expert-author-note h2,.expert-final-card h2{font-size:clamp(1.95rem,8.6vw,2.8rem);line-height:1.04;letter-spacing:-.06em}.expert-article-heading>p:not(.section-kicker),.expert-author-note>div>p:not(.section-kicker),.expert-final-card>p:not(.signature){font-size:.94rem;line-height:1.62}.expert-timeline,.expert-factor-grid,.expert-area-grid,.expert-related-grid,.expert-plan-steps{grid-template-columns:1fr;gap:9px}.expert-timeline-card{min-height:auto;padding:21px}.expert-timeline-top{margin-bottom:28px}.expert-article-note{grid-template-columns:1fr;padding:18px}.expert-factor-grid article,.expert-area-grid a{min-height:auto;padding:21px}.expert-area-grid a>span{margin-bottom:28px}.expert-plan-panel{gap:20px;padding:25px 18px;border-radius:28px}.expert-plan-copy h2{font-size:clamp(2.15rem,9.8vw,3.05rem)}.expert-plan-steps>div{min-height:auto;padding:17px}.expert-author-note{gap:17px;padding:22px 18px}.expert-related-grid a,.expert-source-grid a{min-height:auto;padding:20px}.expert-medical-note{padding:16px 17px;font-size:.82rem}.expert-faq-list summary{grid-template-columns:minmax(0,1fr) 35px;gap:10px;padding:16px;font-size:.96rem}.expert-faq-icon{width:35px;height:35px}.expert-faq-list details>div{padding:0 16px 16px}.expert-final-card{padding:27px 18px}.expert-final-actions{grid-template-columns:1fr;gap:9px;margin-top:22px}.expert-final-actions>a{min-height:55px}}
+  @media(max-width:390px){.expert-article-hero-copy{padding-inline:18px}.expert-article-hero-copy h1{font-size:clamp(2.12rem,10.6vw,2.85rem)}.expert-article-meta{gap:5px}.expert-article-meta span{min-height:27px;padding-inline:9px;font-size:.62rem}}
+</style>
+
+<style>
+  .expert-legacy-copy {
+    max-width: 940px;
   }
 
-  .brow-price-guide *,
-  .brow-price-guide *::before,
-  .brow-price-guide *::after {
-    box-sizing: border-box;
-  }
-
-  .brow-price-guide main,
-  .brow-price-guide section,
-  .brow-price-guide .container,
-  .brow-price-guide article,
-  .brow-price-guide div {
-    min-width: 0;
-  }
-
-  .brow-price-guide .section-kicker {
-    display: inline-flex;
-    width: fit-content;
-    max-width: 100%;
-    min-height: 31px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 17px;
-    padding: 0 12px;
-    border: 1px solid rgba(56, 187, 181, 0.18);
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.76);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.67rem;
-    font-weight: 850;
-    line-height: 1;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .guide-hero {
-    position: relative;
-    overflow: hidden;
-    padding: 144px 0 52px;
-  }
-
-  .guide-glow {
-    position: absolute;
-    border-radius: 999px;
-    pointer-events: none;
-  }
-
-  .guide-glow-one {
-    top: 2rem;
-    right: -12rem;
-    width: 38rem;
-    height: 38rem;
-    background: radial-gradient(circle, rgba(56, 187, 181, 0.18), transparent 68%);
-  }
-
-  .guide-glow-two {
-    left: -10rem;
-    bottom: -12rem;
-    width: 34rem;
-    height: 34rem;
-    background: radial-gradient(circle, rgba(201, 127, 143, 0.14), transparent 68%);
-  }
-
-  .guide-hero-grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.14fr) minmax(330px, 0.86fr);
-    gap: 20px;
-    align-items: stretch;
-  }
-
-  .guide-hero-copy,
-  .guide-answer,
-  .price-card,
-  .included-grid article,
-  .expert-note,
-  .scenario-grid article,
-  .old-pmu-panel,
-  .author-note,
-  .related-grid a,
-  .source-grid a,
-  .faq-list details,
-  .final-card {
-    border: 1px solid rgba(183, 101, 118, 0.14);
-    box-shadow: 0 16px 48px rgba(89, 53, 67, 0.06);
-  }
-
-  .guide-hero-copy {
-    padding: clamp(34px, 4.8vw, 60px);
-    border-radius: 38px;
-    background:
-      radial-gradient(circle at 96% 10%, rgba(56, 187, 181, 0.07), transparent 16rem),
-      rgba(255, 255, 255, 0.86);
-  }
-
-  .guide-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 17px;
-  }
-
-  .guide-meta span {
-    display: inline-flex;
-    min-height: 28px;
-    align-items: center;
-    padding: 0 10px;
-    border-radius: 999px;
-    background: rgba(255, 248, 251, 0.94);
-    color: var(--color-muted, #6e6670);
-    font-size: 0.65rem;
-    font-weight: 790;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-  }
-
-  .guide-meta span:first-child {
-    background: rgba(56, 187, 181, 0.12);
-    color: var(--color-turquoise-dark, #0f7773);
-  }
-
-  .guide-hero-copy h1 {
-    max-width: 1040px;
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(2.75rem, 4.6vw, 5.15rem);
-    font-weight: 780;
-    line-height: 1.01;
-    letter-spacing: -0.072em;
-  }
-
-  .guide-lead {
-    max-width: 880px;
-    margin: 22px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: clamp(1.02rem, 1.22vw, 1.14rem);
-    line-height: 1.66;
-  }
-
-  .guide-answer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: clamp(28px, 3.7vw, 44px);
-    border-radius: 38px;
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.24), transparent 13rem),
-      linear-gradient(145deg, #0f7773 0%, #1aa5a0 45%, #138a86 100%);
-    box-shadow: 0 26px 68px rgba(35, 156, 150, 0.18);
-  }
-
-  .guide-answer-label {
-    margin: 0 0 auto;
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 0.68rem;
-    font-weight: 850;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .guide-answer-price {
-    margin-top: 48px;
-  }
-
-  .guide-answer-price span,
-  .guide-answer-price strong {
-    display: block;
-  }
-
-  .guide-answer-price span {
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 0.78rem;
-    font-weight: 740;
-  }
-
-  .guide-answer-price strong {
-    margin-top: 4px;
-    color: #ffffff;
-    font-size: clamp(2.6rem, 4vw, 4.2rem);
-    font-weight: 850;
-    line-height: 0.96;
-    letter-spacing: -0.07em;
-  }
-
-  .guide-answer > p:not(.guide-answer-label) {
-    margin: 18px 0 0;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.91rem;
-    line-height: 1.58;
-  }
-
-  .guide-answer > a {
-    display: inline-flex;
-    width: fit-content;
-    min-height: 40px;
-    align-items: center;
-    margin-top: 18px;
-    padding: 0 13px;
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.12);
-    color: #ffffff;
-    font-size: 0.72rem;
-    font-weight: 840;
-    text-decoration: none;
-  }
-
-  .quick-price-section {
-    padding: 0 0 20px;
-  }
-
-  .quick-price-scroll {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .quick-price-scroll article {
-    min-height: 178px;
-    padding: 20px;
-    border: 1px solid rgba(56, 187, 181, 0.13);
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.84);
-    box-shadow: 0 12px 34px rgba(89, 53, 67, 0.045);
-  }
-
-  .quick-price-scroll article > span {
-    display: block;
-    margin-bottom: 22px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.64rem;
-    font-weight: 900;
-    letter-spacing: 0.14em;
-  }
-
-  .quick-price-scroll strong,
-  .quick-price-scroll em {
-    display: block;
-  }
-
-  .quick-price-scroll strong {
-    color: var(--color-text, #17151d);
-    font-size: 0.95rem;
-    font-weight: 790;
-  }
-
-  .quick-price-scroll em {
-    margin-top: 5px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 1.45rem;
-    font-style: normal;
-    font-weight: 850;
-    letter-spacing: -0.045em;
-  }
-
-  .quick-price-scroll p {
-    margin: 10px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.78rem;
-    line-height: 1.48;
-  }
-
-  .quick-price-note {
-    margin: 11px 0 0;
-    padding: 13px 15px;
-    border-left: 3px solid rgba(56, 187, 181, 0.48);
-    border-radius: 0 15px 15px 0;
-    background: rgba(219, 246, 243, 0.35);
-    color: var(--color-muted, #6e6670);
-    font-size: 0.79rem;
-    line-height: 1.48;
-  }
-
-  .guide-nav-section {
-    padding: 2px 0 8px;
-  }
-
-  .guide-nav {
-    display: flex;
-    gap: 7px;
-    overflow-x: auto;
-    padding: 5px 2px 10px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-
-  .guide-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .guide-nav a {
-    display: inline-flex;
-    flex: 0 0 auto;
-    min-height: 41px;
-    align-items: center;
-    justify-content: center;
-    padding: 0 14px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.68rem;
-    font-weight: 820;
-    text-decoration: none;
-    scroll-snap-align: start;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .guide-section {
-    padding: 64px 0;
-    scroll-margin-top: 96px;
-  }
-
-  .guide-section-soft,
-  .guide-faq-section {
-    background: rgba(255, 255, 255, 0.52);
-  }
-
-  .guide-heading {
-    max-width: 960px;
-    margin-bottom: 26px;
-  }
-
-  .guide-heading h2,
-  .author-note h2,
-  .old-pmu-panel h2,
-  .final-card h2 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(2.15rem, 3.55vw, 3.85rem);
-    font-weight: 770;
-    line-height: 1.02;
-    letter-spacing: -0.068em;
-  }
-
-  .guide-heading > p:not(.section-kicker),
-  .author-note > div > p:not(.section-kicker),
-  .old-pmu-panel > div:first-child > p:not(.section-kicker),
-  .final-card > p:not(.signature) {
-    max-width: 840px;
+  .expert-legacy-copy p {
     margin: 16px 0 0;
     color: var(--color-muted, #6e6670);
-    font-size: 0.98rem;
-    line-height: 1.66;
+    font-size: clamp(0.98rem, 1.1vw, 1.06rem);
+    line-height: 1.72;
   }
 
-  .price-compare {
+  .expert-legacy-copy p:first-of-type {
+    margin-top: 0;
+  }
+
+  .expert-legacy-cards {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 11px;
+    gap: 12px;
+    margin-top: 24px;
   }
 
-  .price-card {
-    min-height: 270px;
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-    border-radius: 26px;
+  .expert-legacy-cards article {
+    min-height: 150px;
+    padding: 23px;
+    border: 1px solid rgba(56, 187, 181, 0.16);
+    border-radius: 24px;
     background:
       radial-gradient(circle at 94% 10%, rgba(56, 187, 181, 0.07), transparent 11rem),
-      rgba(255, 255, 255, 0.9);
+      rgba(255, 255, 255, 0.90);
+    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.055);
   }
 
-  .price-card-accent {
-    border-color: rgba(56, 187, 181, 0.25);
-    background:
-      radial-gradient(circle at 92% 12%, rgba(56, 187, 181, 0.14), transparent 12rem),
-      rgba(249, 255, 254, 0.94);
-  }
-
-  .price-card-soft {
-    border-color: rgba(201, 127, 143, 0.18);
-    background:
-      radial-gradient(circle at 94% 10%, rgba(246, 220, 227, 0.5), transparent 11rem),
-      rgba(255, 255, 255, 0.92);
-  }
-
-  .price-card > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 14px;
-    align-items: center;
-    margin-bottom: 38px;
-  }
-
-  .price-card > div span {
-    color: var(--color-muted, #6e6670);
-    font-size: 0.64rem;
-    font-weight: 820;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .price-card > div strong {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 1.25rem;
-    font-weight: 860;
-  }
-
-  .price-card h3,
-  .included-grid h3,
-  .scenario-grid h3,
-  .related-grid h3,
-  .source-grid h3,
-  .expert-note h3 {
+  .expert-legacy-cards h3 {
     margin: 0;
     color: var(--color-text, #17151d);
-    font-size: clamp(1.35rem, 1.75vw, 1.8rem);
+    font-size: clamp(1.25rem, 1.6vw, 1.72rem);
     font-weight: 770;
     line-height: 1.05;
     letter-spacing: -0.05em;
   }
 
-  .price-card p,
-  .included-grid p,
-  .scenario-grid p,
-  .related-grid p,
-  .source-grid p,
-  .expert-note p:not(.section-kicker) {
-    margin: 12px 0 0;
+  .expert-legacy-cards p {
+    margin: 11px 0 0;
     color: var(--color-muted, #6e6670);
-    font-size: 0.89rem;
-    line-height: 1.58;
+    font-size: 0.92rem;
+    line-height: 1.62;
   }
 
-  .price-card > a {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: auto;
-    padding-top: 18px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.74rem;
-    font-weight: 850;
-    text-decoration: none;
-  }
-
-  .decision-bridge {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 20px;
-    align-items: center;
-    margin-top: 13px;
-    padding: 20px 21px;
-    border: 1px solid rgba(56, 187, 181, 0.15);
-    border-radius: 22px;
-    background:
-      linear-gradient(135deg, rgba(219, 246, 243, 0.58), rgba(255, 242, 246, 0.54)),
-      rgba(255, 255, 255, 0.84);
-  }
-
-  .decision-bridge span,
-  .decision-bridge strong {
-    display: block;
-  }
-
-  .decision-bridge span {
-    color: var(--color-muted, #6e6670);
-    font-size: 0.68rem;
-    font-weight: 760;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .decision-bridge strong {
-    margin-top: 4px;
-    color: var(--color-text, #17151d);
-    font-size: 1rem;
-    font-weight: 830;
-  }
-
-  .decision-actions {
-    display: flex;
-    gap: 8px;
-  }
-
-  .decision-actions a {
-    display: inline-flex;
-    min-height: 42px;
-    align-items: center;
-    justify-content: center;
-    padding: 0 14px;
-    border-radius: 999px;
-    font-size: 0.74rem;
-    font-weight: 830;
-    text-decoration: none;
-  }
-
-  .decision-actions a:first-child {
-    border: 1px solid rgba(56, 187, 181, 0.18);
-    background: rgba(255, 255, 255, 0.84);
-    color: var(--color-turquoise-dark, #0f7773);
-  }
-
-  .decision-actions a:last-child {
-    background: linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
-    color: #ffffff;
-  }
-
-  .included-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .included-grid article {
-    min-height: 210px;
-    padding: 22px;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  .included-grid article > span {
-    display: block;
-    margin-bottom: 34px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.63rem;
-    font-weight: 900;
-    letter-spacing: 0.14em;
-  }
-
-  .article-link-row {
+  .expert-focus-links {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
-    margin-top: 12px;
+    gap: 10px;
+    margin-top: 18px;
   }
 
-  .article-link-row a {
+  .expert-focus-links a {
     display: flex;
-    min-height: 74px;
+    min-height: 76px;
     align-items: center;
     justify-content: space-between;
     gap: 14px;
-    padding: 16px 17px;
-    border: 1px solid rgba(56, 187, 181, 0.14);
+    padding: 17px 18px;
+    border: 1px solid rgba(56, 187, 181, 0.16);
     border-radius: 18px;
-    background: rgba(219, 246, 243, 0.36);
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .article-link-row span {
-    color: var(--color-muted, #6e6670);
-    font-size: 0.68rem;
-    font-weight: 740;
-  }
-
-  .article-link-row strong {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.78rem;
-    font-weight: 850;
-    text-align: right;
-  }
-
-  .method-accordion {
-    display: grid;
-    max-width: 980px;
-    gap: 9px;
-  }
-
-  .method-accordion details {
-    overflow: hidden;
-    border: 1px solid rgba(56, 187, 181, 0.14);
-    border-radius: 21px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 12px 34px rgba(89, 53, 67, 0.045);
-  }
-
-  .method-accordion summary {
-    display: grid;
-    grid-template-columns: 36px minmax(0, 1fr) 30px;
-    gap: 12px;
-    align-items: center;
-    min-height: 72px;
-    padding: 12px 15px;
-    cursor: pointer;
-    list-style: none;
-  }
-
-  .method-accordion summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .method-accordion summary > span {
-    display: grid;
-    width: 32px;
-    height: 32px;
-    place-items: center;
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.72);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.62rem;
-    font-weight: 900;
-  }
-
-  .method-accordion summary > strong {
-    color: var(--color-text, #17151d);
-    font-size: 0.97rem;
-    font-weight: 790;
-  }
-
-  .method-accordion summary > em {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 1.22rem;
-    font-style: normal;
-    font-weight: 500;
-    text-align: center;
-  }
-
-  .method-accordion details[open] summary > em {
-    transform: rotate(45deg);
-  }
-
-  .method-accordion details > div {
-    padding: 0 15px 16px 63px;
-  }
-
-  .method-accordion details p {
-    max-width: 760px;
-    margin: 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.87rem;
-    line-height: 1.58;
-  }
-
-  .method-accordion details a {
-    display: inline-flex;
-    margin-top: 11px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.74rem;
-    font-weight: 850;
-    text-decoration: none;
-  }
-
-  .expert-note {
-    max-width: 980px;
-    margin-top: 12px;
-    padding: 22px;
-    border-radius: 22px;
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.58), rgba(255, 248, 251, 0.86)),
-      rgba(255, 255, 255, 0.84);
-  }
-
-  .scenario-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .scenario-grid article {
-    min-height: 230px;
-    padding: 22px;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  .scenario-grid article > span {
-    display: inline-flex;
-    min-height: 29px;
-    align-items: center;
-    margin-bottom: 34px;
-    padding: 0 10px;
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.7);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.63rem;
-    font-weight: 850;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .wide-link {
-    display: flex;
-    min-height: 58px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    margin-top: 11px;
-    padding: 0 18px;
-    border: 1px solid rgba(56, 187, 181, 0.14);
-    border-radius: 18px;
-    background: rgba(219, 246, 243, 0.34);
-    color: var(--color-text, #17151d);
-    font-size: 0.82rem;
-    font-weight: 780;
-    text-decoration: none;
-  }
-
-  .wide-link span {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 1rem;
-  }
-
-  .old-pmu-panel {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(310px, 0.72fr);
-    gap: 24px;
-    padding: clamp(26px, 4vw, 42px);
-    border-radius: 32px;
-    background:
-      radial-gradient(circle at 94% 10%, rgba(246, 220, 227, 0.44), transparent 16rem),
-      rgba(255, 255, 255, 0.9);
-  }
-
-  .old-pmu-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 20px;
-  }
-
-  .old-pmu-actions a {
-    display: inline-flex;
-    min-height: 42px;
-    align-items: center;
-    padding: 0 14px;
-    border-radius: 999px;
-    font-size: 0.74rem;
-    font-weight: 830;
-    text-decoration: none;
-  }
-
-  .old-pmu-actions a:first-child {
-    color: #ffffff;
-    background: linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
-  }
-
-  .old-pmu-actions a:last-child {
-    border: 1px solid rgba(183, 101, 118, 0.18);
-    background: rgba(255, 255, 255, 0.82);
-    color: #9d4f68;
-  }
-
-  .old-pmu-list {
-    display: grid;
-    gap: 8px;
-  }
-
-  .old-pmu-list > div {
-    padding: 15px 16px;
-    border: 1px solid rgba(183, 101, 118, 0.12);
-    border-radius: 17px;
-    background: rgba(255, 255, 255, 0.7);
-  }
-
-  .old-pmu-list strong,
-  .old-pmu-list span {
-    display: block;
-  }
-
-  .old-pmu-list strong {
-    color: var(--color-text, #17151d);
-    font-size: 0.84rem;
-    font-weight: 810;
-  }
-
-  .old-pmu-list span {
-    margin-top: 4px;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.74rem;
-    line-height: 1.45;
-  }
-
-  .author-note {
-    display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.68fr);
-    gap: 22px;
-    padding: clamp(26px, 4vw, 42px);
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  .author-note aside {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    border: 1px solid rgba(56, 187, 181, 0.14);
-    border-radius: 21px;
-    background: rgba(219, 246, 243, 0.44);
-  }
-
-  .author-note aside span {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.67rem;
-    font-weight: 850;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-  }
-
-  .author-note aside strong {
-    display: block;
-    margin-top: 7px;
+    background: rgba(219, 246, 243, 0.38);
     color: var(--color-text, #17151d);
     font-size: 0.88rem;
     font-weight: 760;
+    line-height: 1.35;
+    text-decoration: none;
   }
 
-  .author-note aside a {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: 18px;
+  .expert-focus-links a span {
     color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.74rem;
     font-weight: 850;
-    text-decoration: none;
-  }
-
-  .guide-related-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 22rem),
-      rgba(255, 255, 255, 0.54);
-  }
-
-  .related-grid,
-  .source-grid {
-    display: grid;
-    gap: 10px;
-  }
-
-  .related-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .source-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .related-grid a,
-  .source-grid a {
-    min-height: 230px;
-    display: flex;
-    flex-direction: column;
-    padding: 21px;
-    border-radius: 22px;
-    color: inherit;
-    text-decoration: none;
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  .related-grid a > span,
-  .source-grid a > span {
-    display: block;
-    margin-bottom: 28px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.62rem;
-    font-weight: 850;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-  }
-
-  .related-grid a > strong,
-  .source-grid a > strong {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: auto;
-    padding-top: 16px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.71rem;
-    font-weight: 850;
-  }
-
-  .medical-note {
-    max-width: 940px;
-    margin: 14px 0 0;
-    padding: 16px 18px;
-    border-left: 3px solid rgba(201, 127, 143, 0.54);
-    border-radius: 0 17px 17px 0;
-    background: rgba(255, 248, 251, 0.8);
-    color: var(--color-muted, #6e6670);
-    font-size: 0.82rem;
-    line-height: 1.55;
-  }
-
-  .faq-list {
-    display: grid;
-    max-width: 980px;
-    gap: 8px;
-  }
-
-  .faq-list details {
-    overflow: hidden;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.92);
-  }
-
-  .faq-list summary {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 36px;
-    gap: 12px;
-    align-items: center;
-    padding: 17px 18px;
-    color: var(--color-text, #17151d);
-    font-size: 1rem;
-    font-weight: 760;
-    line-height: 1.34;
-    cursor: pointer;
-    list-style: none;
-  }
-
-  .faq-list summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-icon {
-    position: relative;
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.58);
-  }
-
-  .faq-icon::before,
-  .faq-icon::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 2px;
-    border-radius: 999px;
-    background: var(--color-turquoise-dark, #0f7773);
-    transform: translate(-50%, -50%);
-  }
-
-  .faq-icon::after {
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
-
-  .faq-list details[open] .faq-icon::after {
-    opacity: 0;
-  }
-
-  .faq-list details > div {
-    padding: 0 18px 17px;
-  }
-
-  .faq-list p {
-    margin: 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.9rem;
-    line-height: 1.58;
-  }
-
-  .final-card {
-    padding: clamp(30px, 5vw, 52px);
-    border-radius: 34px;
-    text-align: center;
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
-      rgba(255, 255, 255, 0.76);
-  }
-
-  .final-card > p:not(.signature) {
-    margin-inline: auto;
-  }
-
-  .final-actions {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 9px;
-    max-width: 900px;
-    margin: 23px auto 0;
-  }
-
-  .final-actions > a {
-    display: inline-flex;
-    width: 100%;
-    min-height: 54px;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    padding: 0 16px;
-    border-radius: 999px;
-    font-size: 0.92rem;
-    font-weight: 820;
-    line-height: 1;
-    text-decoration: none;
-  }
-
-  .final-form,
-  .final-booksy {
-    color: #ffffff;
-    background: linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
-  }
-
-  .final-phone {
-    border: 1px solid rgba(56, 187, 181, 0.18);
-    background: rgba(255, 255, 255, 0.82);
-    color: var(--color-turquoise-dark, #0f7773);
-  }
-
-  .back-link {
-    display: inline-flex;
-    margin-top: 20px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.76rem;
-    font-weight: 820;
-    text-decoration: none;
-  }
-
-  @media (max-width: 1080px) {
-    .guide-hero-grid,
-    .old-pmu-panel,
-    .author-note {
-      grid-template-columns: 1fr;
-    }
-
-    .included-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .related-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .source-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
   @media (max-width: 760px) {
-    .brow-price-guide .section-kicker {
-      min-height: 28px;
-      margin-bottom: 12px;
-      padding: 0 9px;
-      font-size: 0.59rem;
-      letter-spacing: 0.11em;
-    }
-
-    .guide-hero {
-      padding: 104px 0 28px;
-    }
-
-    .guide-hero-grid {
+    .expert-legacy-cards,
+    .expert-focus-links {
       grid-template-columns: 1fr;
-      gap: 10px;
+      gap: 9px;
     }
 
-    .guide-hero-copy,
-    .guide-answer {
-      border-radius: 24px;
-    }
-
-    .guide-hero-copy {
-      padding: 22px 17px 21px;
-    }
-
-    .guide-meta {
-      gap: 4px;
-      margin-bottom: 14px;
-    }
-
-    .guide-meta span {
-      min-height: 25px;
-      padding: 0 8px;
-      font-size: 0.58rem;
-      letter-spacing: 0.055em;
-    }
-
-    .guide-hero-copy h1 {
-      font-size: clamp(2.06rem, 9.8vw, 2.95rem);
-      line-height: 1.02;
-      letter-spacing: -0.06em;
-    }
-
-    .guide-lead {
-      margin-top: 15px;
-      font-size: 0.91rem;
-      line-height: 1.55;
-    }
-
-    .guide-answer {
-      padding: 20px 17px;
-    }
-
-    .guide-answer-label {
-      font-size: 0.6rem;
-    }
-
-    .guide-answer-price {
-      margin-top: 20px;
-    }
-
-    .guide-answer-price strong {
-      font-size: 2.7rem;
-    }
-
-    .guide-answer > p:not(.guide-answer-label) {
-      margin-top: 13px;
-      font-size: 0.82rem;
-      line-height: 1.52;
-    }
-
-    .guide-answer > a {
-      min-height: 38px;
-      margin-top: 14px;
-      font-size: 0.68rem;
-    }
-
-    .quick-price-section {
-      padding: 3px 0 15px;
-    }
-
-    .quick-price-scroll {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: min(76vw, 285px);
-      grid-template-columns: none;
-      gap: 8px;
-      margin-inline: -16px;
-      padding: 2px 16px 9px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .quick-price-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .quick-price-scroll article {
-      min-height: 156px;
-      padding: 17px;
-      border-radius: 21px;
-      scroll-snap-align: start;
-    }
-
-    .quick-price-scroll article > span {
-      margin-bottom: 17px;
-    }
-
-    .quick-price-scroll em {
-      font-size: 1.34rem;
-    }
-
-    .quick-price-scroll p {
-      font-size: 0.73rem;
-      line-height: 1.43;
-    }
-
-    .quick-price-note {
-      margin-top: 7px;
-      padding: 11px 12px;
-      font-size: 0.72rem;
-      line-height: 1.44;
-    }
-
-    .guide-nav-section {
-      padding-top: 0;
-    }
-
-    .guide-nav {
-      margin-inline: -16px;
-      padding-inline: 16px;
-    }
-
-    .guide-nav a {
-      min-height: 39px;
-      padding-inline: 12px;
-      font-size: 0.63rem;
-    }
-
-    .guide-section {
-      padding: 46px 0;
-    }
-
-    .guide-heading {
-      margin-bottom: 19px;
-    }
-
-    .guide-heading h2,
-    .author-note h2,
-    .old-pmu-panel h2,
-    .final-card h2 {
-      font-size: clamp(1.9rem, 8.5vw, 2.65rem);
-      line-height: 1.04;
-      letter-spacing: -0.058em;
-    }
-
-    .guide-heading > p:not(.section-kicker),
-    .author-note > div > p:not(.section-kicker),
-    .old-pmu-panel > div:first-child > p:not(.section-kicker),
-    .final-card > p:not(.signature) {
-      margin-top: 13px;
-      font-size: 0.88rem;
-      line-height: 1.56;
-    }
-
-    .price-compare,
-    .included-grid,
-    .scenario-grid,
-    .related-grid,
-    .article-link-row {
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-
-    .price-card {
+    .expert-legacy-cards article {
       min-height: auto;
-      padding: 19px 17px;
+      padding: 20px;
       border-radius: 21px;
     }
 
-    .price-card > div {
-      margin-bottom: 22px;
-    }
-
-    .price-card > div span {
-      font-size: 0.58rem;
-    }
-
-    .price-card > div strong {
-      font-size: 1.13rem;
-    }
-
-    .price-card h3,
-    .included-grid h3,
-    .scenario-grid h3,
-    .related-grid h3,
-    .source-grid h3,
-    .expert-note h3 {
-      font-size: 1.32rem;
-    }
-
-    .price-card p,
-    .included-grid p,
-    .scenario-grid p,
-    .related-grid p,
-    .source-grid p,
-    .expert-note p:not(.section-kicker) {
-      font-size: 0.82rem;
-      line-height: 1.52;
-    }
-
-    .price-card > a {
-      margin-top: 12px;
-      padding-top: 0;
-    }
-
-    .decision-bridge {
-      grid-template-columns: 1fr;
-      gap: 12px;
-      padding: 16px;
-      border-radius: 20px;
-    }
-
-    .decision-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-    }
-
-    .decision-actions a {
-      min-width: 0;
-      padding-inline: 8px;
-      text-align: center;
-    }
-
-    .included-grid article {
-      min-height: auto;
-      padding: 18px 17px;
-      border-radius: 20px;
-    }
-
-    .included-grid article > span {
-      margin-bottom: 21px;
-    }
-
-    .article-link-row a {
-      min-height: 66px;
-      padding: 14px;
-    }
-
-    .article-link-row strong {
-      max-width: 62%;
-      font-size: 0.72rem;
-    }
-
-    .method-accordion summary {
-      grid-template-columns: 32px minmax(0, 1fr) 28px;
-      min-height: 66px;
-      gap: 9px;
-      padding: 10px 12px;
-    }
-
-    .method-accordion summary > span {
-      width: 29px;
-      height: 29px;
-      font-size: 0.57rem;
-    }
-
-    .method-accordion summary > strong {
-      font-size: 0.88rem;
-      line-height: 1.25;
-    }
-
-    .method-accordion details > div {
-      padding: 0 12px 14px;
-    }
-
-    .method-accordion details p {
-      font-size: 0.8rem;
-      line-height: 1.5;
-    }
-
-    .expert-note {
-      padding: 17px;
-      border-radius: 20px;
-    }
-
-    .scenario-grid article {
-      min-height: auto;
-      padding: 18px 17px;
-      border-radius: 20px;
-    }
-
-    .scenario-grid article > span {
-      margin-bottom: 22px;
-    }
-
-    .wide-link {
-      min-height: 54px;
-      padding: 12px 14px;
-      font-size: 0.75rem;
-      line-height: 1.36;
-    }
-
-    .old-pmu-panel,
-    .author-note {
-      gap: 15px;
-      padding: 20px 17px;
-      border-radius: 24px;
-    }
-
-    .old-pmu-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 7px;
-      margin-top: 17px;
-    }
-
-    .old-pmu-actions a {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .old-pmu-list > div {
-      padding: 13px 14px;
-    }
-
-    .author-note aside {
-      padding: 17px;
-      border-radius: 19px;
-    }
-
-    .related-grid a,
-    .source-grid a {
-      min-height: auto;
-      padding: 18px 17px;
-      border-radius: 20px;
-    }
-
-    .related-grid a > span,
-    .source-grid a > span {
-      margin-bottom: 20px;
-    }
-
-    .medical-note {
-      padding: 14px 15px;
-      font-size: 0.76rem;
-    }
-
-    .faq-list {
-      gap: 7px;
-    }
-
-    .faq-list details {
-      border-radius: 18px;
-    }
-
-    .faq-list summary {
-      grid-template-columns: minmax(0, 1fr) 33px;
-      gap: 9px;
-      padding: 14px;
-      font-size: 0.9rem;
-    }
-
-    .faq-icon {
-      width: 33px;
-      height: 33px;
-    }
-
-    .faq-list details > div {
-      padding: 0 14px 14px;
-    }
-
-    .faq-list p {
-      font-size: 0.82rem;
-      line-height: 1.53;
-    }
-
-    .final-card {
-      padding: 24px 16px;
-      border-radius: 25px;
-    }
-
-    .final-actions {
-      grid-template-columns: 1fr;
-      gap: 8px;
-      margin-top: 19px;
-    }
-
-    .final-actions > a {
-      min-height: 52px;
-      font-size: 0.88rem;
-    }
-
-    .back-link {
-      margin-top: 18px;
-      font-size: 0.72rem;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .guide-hero-copy {
-      padding-inline: 15px;
-    }
-
-    .guide-hero-copy h1 {
-      font-size: clamp(1.96rem, 10vw, 2.55rem);
-    }
-
-    .guide-meta span {
-      padding-inline: 7px;
-      font-size: 0.55rem;
-    }
-
-    .quick-price-scroll {
-      grid-auto-columns: 80vw;
+    .expert-focus-links a {
+      min-height: 68px;
+      padding: 15px 16px;
     }
   }
 </style>
 
-<script>
-  document.querySelectorAll<HTMLDetailsElement>(".method-accordion details").forEach((item) => {
-    item.addEventListener("toggle", () => {
-      if (!item.open) return;
-
-      document.querySelectorAll<HTMLDetailsElement>(".method-accordion details[open]").forEach((other) => {
-        if (other !== item) other.open = false;
-      });
-    });
-  });
-</script>
