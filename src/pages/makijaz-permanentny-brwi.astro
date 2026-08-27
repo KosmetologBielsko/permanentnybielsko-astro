@@ -2,6 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import PmuServiceFinalLinks from "../components/PmuServiceFinalLinks.astro";
+import PmuExpertAuthority from "../components/PmuExpertAuthority.astro";
+import PmuServiceCompass from "../components/PmuServiceCompass.astro";
 import SilkyVideoShowcaseV3 from "../components/SilkyVideoShowcaseV3.astro";
 
 const booksyUrl =
@@ -366,7 +369,7 @@ const structuredData = [
       </section>
 
 
-      <section class="brow-natural-section" aria-label="Naturalny efekt brwi permanentnych">
+      <section class="brow-natural-section" id="naturalny-efekt-brwi" aria-label="Naturalny efekt brwi permanentnych">
         <div class="container brow-natural-card">
           <figure class="brow-media-frame brow-natural-photo">
             <img
@@ -414,6 +417,25 @@ const structuredData = [
           </div>
         </div>
       </section>
+
+      <div data-pmu-compass="brows">
+        <PmuServiceCompass
+          eyebrow="Brwi permanentne — szybka decyzja"
+          title="Najpierw efekt i skóra. Potem metoda."
+          lead="Cieniowanie, włos maszynowy i Silky nie są wybierane z samej nazwy. Najpierw oceniamy naturalne brwi, skórę, stare pigmentacje i efekt, który ma współpracować z twarzą."
+          items={[
+            { label: "Efekty", title: "Zobacz realne brwi →", href: "#efekty-brwi" },
+            { label: "Metody", title: "Porównaj techniki →", href: "#metody-brwi" },
+            { label: "Cena", title: "1200–1400 zł →", href: "/cennik-makijaz-permanentny/#price-group-1" },
+            { label: "Gojenie", title: "Jak goją się brwi? →", href: "/poradnik/jak-goja-sie-brwi-permanentne/" }
+          ]}
+          secondary={[
+            { label: "Stare PMU", title: "Brwi permanentne po latach →", href: "/poradnik/brwi-permanentne-po-latach/" },
+            { label: "Rozjaśnianie", title: "Laserowe usuwanie brwi →", href: "/poradnik/laserowe-usuwanie-brwi-permanentnych/" },
+            { label: "Kwalifikacja", title: "Opisz swój przypadek →", href: "/makijaz-permanentny-bielsko/#kwalifikacja-pmu" }
+          ]}
+        />
+      </div>
 
       <section class="brow-methods-section pmu-methods-unified" id="metody-brwi">
         <div class="container">
@@ -795,7 +817,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="brow-process-section">
+      <section class="brow-process-section" id="proces-brwi">
         <div class="container">
           <div class="brow-process-intro">
             <div class="brow-process-copy">
@@ -858,7 +880,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="brow-correction-section">
+      <section class="brow-correction-section" id="stare-brwi-pmu">
         <div class="container brow-correction-grid">
           <div class="brow-correction-copy">
             <p class="section-kicker">Stare brwi permanentne</p>
@@ -901,6 +923,13 @@ const structuredData = [
         </div>
       </section>
 
+      <div data-pmu-authority="brows">
+        <PmuExpertAuthority
+          title="Brwi projektowane do twarzy, skóry i naturalnego wzrostu włosa."
+          lead="Doświadczenie w metodzie włoskowej, cieniowaniu i autorskiej technice Silky Hairstroke Brows pozwala dobrać kierunek pracy do realnych warunków skóry — zamiast dopasowywać klientkę do jednej techniki."
+        />
+      </div>
+
       <section class="brow-faq-section">
         <div class="container">
           <div class="brow-section-heading">
@@ -923,37 +952,24 @@ const structuredData = [
           </div>
         </div>
       </section>
-
       <section class="brow-final-cta" id="kontakt">
         <div class="container brow-final-card">
           <p class="signature cta-signature">Powrót do natury</p>
           <h2>Chcesz sprawdzić, jakie brwi będą najlepsze dla Twojej twarzy?</h2>
-          <p>
-            Jeśli wiesz, czego potrzebujesz — sprawdź terminy. Jeśli masz stare PMU
-            lub wątpliwości, zacznij od krótkiej kwalifikacji.
-          </p>
+          <p>Jeśli masz stare PMU lub nie wiesz, czy lepszy będzie włos, cień czy Silky — zacznij od krótkiej kwalifikacji. Jeśli decyzja jest już podjęta, możesz od razu sprawdzić terminy.</p>
 
-          <div class="brow-final-actions">
-            <a
-              class="button-booksy"
-              href={booksyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Booksy <span aria-hidden="true">→</span>
-            </a>
-
-            <a
-              class="button-primary"
-              href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
-            >
-              Formularz PMU <span aria-hidden="true">→</span>
-            </a>
-
-            <a class="button-secondary" href="tel:+48730900125">
-              Zadzwoń
-            </a>
+          <div class="final-actions brow-final-actions">
+            <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Formularz PMU <span aria-hidden="true">→</span></a>
+            <a class="final-phone" href="tel:+48730900125">Zadzwoń</a>
+            <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">Booksy <span aria-hidden="true">→</span></a>
           </div>
+
+          <PmuServiceFinalLinks items={[
+            { label: "Efekty brwi", href: "#efekty-brwi" },
+            { label: "Metody", href: "#metody-brwi" },
+            { label: "Cennik brwi", href: "/cennik-makijaz-permanentny/#price-group-1" },
+            { label: "Stare PMU", href: "/poradnik/brwi-permanentne-po-latach/" }
+          ]} />
         </div>
       </section>
     </main>

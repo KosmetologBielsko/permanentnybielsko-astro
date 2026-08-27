@@ -2,6 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import PmuServiceFinalLinks from "../components/PmuServiceFinalLinks.astro";
+import PmuExpertAuthority from "../components/PmuExpertAuthority.astro";
+import PmuServiceCompass from "../components/PmuServiceCompass.astro";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
@@ -9,7 +12,7 @@ const booksyUrl =
 const pageUrl = "https://www.permanentnybielsko.com/makijaz-permanentny-ust/";
 const pageTitle = "Makijaż permanentny ust Bielsko-Biała | Usta permanentne 1400 zł";
 const pageDescription =
-  "Makijaż permanentny ust Bielsko-Biała u Bogusławy Herda. Naturalny kolor, miękki kontur i indywidualny dobór pigmentu. Cena 1400 zł. Zobacz efekty i terminy.";
+  "Makijaż permanentny ust Bielsko-Biała u Bogusławy Herda. Naturalne usta permanentne, dobór koloru, miękki kontur, efekty, gojenie i cena 1400 zł.";
 
 const lipsGalleryNumbers = [
   "02",
@@ -342,8 +345,9 @@ const structuredData = [
 
             <p class="lips-hero-lead">
               Naturalny kolor, miękki kontur i pigmentacja dopasowana do urody.
-              Usta permanentne kosztują 1400 zł, a każdy zabieg poprzedza analiza
-              czerwieni wargowej i rysunek wstępny.
+              Makijaż permanentny ust nie powiększa objętości — porządkuje kolor
+              czerwieni wargowej i kształt. Usta permanentne kosztują 1400 zł,
+              a każdy zabieg poprzedza analiza ust i rysunek wstępny.
             </p>
 
             <div class="lips-hero-actions" aria-label="Makijaż permanentny ust — szybkie działania">
@@ -442,7 +446,25 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="lips-intro-section">
+      <div data-pmu-compass="lips">
+        <PmuServiceCompass
+          eyebrow="Usta permanentne — szybka decyzja"
+          title="Najpierw efekt. Potem metoda."
+          lead="Nie musisz znać nazwy techniki przed wizytą. Najpierw zobacz wygojony kierunek, sprawdź cenę i proces gojenia, a dopiero później dobieramy pigmentację do Twoich ust."
+          items={[
+            { label: "Efekty", title: "Zobacz realne usta →", href: "#efekty-ust" },
+            { label: "Metody", title: "Dobór pigmentacji →", href: "#zakres-ust" },
+            { label: "Cena", title: "1400 zł →", href: "/cennik-makijaz-permanentny/#price-group-3" },
+            { label: "Gojenie", title: "Dzień po dniu →", href: "/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/" }
+          ]}
+          secondary={[
+            { label: "Kolor", title: "Jak dobrać kolor ust? →", href: "/poradnik/makijaz-permanentny-ust-jak-wybrac-kolor/" },
+            { label: "Kwalifikacja", title: "Opisz swój przypadek →", href: "/makijaz-permanentny-bielsko/#kwalifikacja-pmu" }
+          ]}
+        />
+      </div>
+
+      <section class="lips-intro-section" id="naturalny-kolor-ust">
         <div class="container lips-natural-look-card">
         <figure class="lips-natural-look-media">
               <img
@@ -694,7 +716,7 @@ const structuredData = [
 
       
 
-      <section class="lips-process-section">
+      <section class="lips-process-section" id="proces-ust">
   <div class="container">
     <div class="lips-process-visual-intro">
       <div class="lips-process-visual-copy">
@@ -800,6 +822,13 @@ const structuredData = [
         </div>
       </section>
 
+      <div data-pmu-authority="lips">
+        <PmuExpertAuthority
+          title="Kolor ust dobierany do twarzy, nie do próbki pigmentu."
+          lead="W pigmentacji ust liczy się przede wszystkim wygojony efekt: zgodność koloru z czerwienią wargową, skórą, proporcjami twarzy i codziennym stylem klientki."
+        />
+      </div>
+
       <section class="lips-faq-section">
         <div class="container">
           <div class="lips-section-heading">
@@ -822,27 +851,24 @@ const structuredData = [
           </div>
         </div>
       </section>
-
       <section class="lips-final-cta" id="kontakt">
         <div class="container lips-final-card">
           <p class="signature cta-signature">Powrót do natury</p>
-          <h2>Chcesz sprawdzić, jaki kolor ust będzie najlepszy dla Twojej urody?</h2>
-          <p>
-            Umów konsultację i zobacz, jak może wyglądać naturalny efekt ust dopasowany
-            do Twojego koloru skóry, czerwieni wargowej i codzienności.
-          </p>
+          <h2>Chcesz sprawdzić, jaki kolor i efekt ust będzie najlepszy dla Twojej urody?</h2>
+          <p>Możesz od razu zarezerwować termin albo najpierw opisać swoją sytuację w formularzu PMU. Jeśli masz wcześniejszą pigmentację, skłonność do opryszczki lub po prostu nie wiesz, jaki efekt wybrać — zacznij od kwalifikacji.</p>
 
-          <div class="lips-final-actions">
-            <a class="button-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-              Booksy <span aria-hidden="true">→</span>
-            </a>
-            <a class="button-primary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
-              Formularz PMU <span aria-hidden="true">→</span>
-            </a>
-            <a class="button-secondary" href="tel:+48730900125">
-              Zadzwoń
-            </a>
+          <div class="final-actions lips-final-actions">
+            <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Formularz PMU <span aria-hidden="true">→</span></a>
+            <a class="final-phone" href="tel:+48730900125">Zadzwoń</a>
+            <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">Booksy <span aria-hidden="true">→</span></a>
           </div>
+
+          <PmuServiceFinalLinks items={[
+            { label: "Efekty ust", href: "#efekty-ust" },
+            { label: "Metody", href: "#zakres-ust" },
+            { label: "Cena 1400 zł", href: "/cennik-makijaz-permanentny/#price-group-3" },
+            { label: "Gojenie ust", href: "/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/" }
+          ]} />
         </div>
       </section>
     </main>

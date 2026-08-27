@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  lead: string;
+}
+
+const { title, lead } = Astro.props;
+---
+
+<section class="pmu-authority">
+  <div class="container pmu-authority-card">
+    <div>
+      <p class="section-kicker">Ekspert PMU</p>
+      <h2>{title}</h2>
+      <p>{lead}</p>
+    </div>
+
+    <aside>
+      <span>Bogusława Herda</span>
+      <strong>8× mistrzyni PMU</strong>
+      <strong>Wicemistrzyni świata</strong>
+      <strong>Europejski trener Long-Time-Liner®</strong>
+      <a href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj doświadczenie i podejście →</a>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .pmu-authority{padding:64px 0}
+  .pmu-authority-card{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(290px,.68fr);gap:22px;padding:clamp(25px,4vw,40px);border:1px solid rgba(183,101,118,.14);border-radius:30px;background:radial-gradient(circle at 94% 10%,rgba(56,187,181,.08),transparent 15rem),rgba(255,255,255,.92);box-shadow:0 16px 48px rgba(89,53,67,.055)}
+  .pmu-authority-card h2{margin:0;color:var(--color-text,#17151d);font-size:clamp(2.05rem,3.45vw,3.7rem);font-weight:760;line-height:1.02;letter-spacing:-.064em}
+  .pmu-authority-card>div>p:not(.section-kicker){max-width:860px;margin:15px 0 0;color:var(--color-muted,#6e6670);font-size:.95rem;line-height:1.62}
+  .pmu-authority-card aside{display:flex;flex-direction:column;justify-content:center;padding:18px;border:1px solid rgba(56,187,181,.14);border-radius:20px;background:rgba(219,246,243,.42)}
+  .pmu-authority-card aside>span{margin-bottom:8px;color:var(--color-turquoise-dark,#0f7773);font-size:.63rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+  .pmu-authority-card aside>strong{margin-top:6px;color:var(--color-text,#17151d);font-size:.86rem;font-weight:790}
+  .pmu-authority-card aside a{display:inline-flex;width:fit-content;margin-top:15px;color:var(--color-turquoise-dark,#0f7773);font-size:.72rem;font-weight:850;text-decoration:none}
+  @media(max-width:900px){.pmu-authority-card{grid-template-columns:1fr}}
+  @media(max-width:760px){
+    .pmu-authority{padding:46px 0}
+    .pmu-authority-card{gap:14px;padding:19px 16px;border-radius:23px}
+    .pmu-authority-card h2{font-size:clamp(1.9rem,8.4vw,2.62rem);line-height:1.04}
+    .pmu-authority-card>div>p:not(.section-kicker){margin-top:12px;font-size:.86rem;line-height:1.55}
+    .pmu-authority-card aside{padding:15px;border-radius:18px}
+  }
+</style>

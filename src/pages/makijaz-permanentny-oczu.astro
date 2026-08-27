@@ -2,6 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import PmuServiceFinalLinks from "../components/PmuServiceFinalLinks.astro";
+import PmuExpertAuthority from "../components/PmuExpertAuthority.astro";
+import PmuServiceCompass from "../components/PmuServiceCompass.astro";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
@@ -396,7 +399,26 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="eye-natural-section">
+      <div data-pmu-compass="eyes">
+        <PmuServiceCompass
+          eyebrow="Kreski permanentne — szybka decyzja"
+          title="Najpierw oko i powieka. Potem kreska."
+          lead="Najlepszy wariant wynika z budowy oka, linii rzęs, asymetrii i opadania skóry. Dlatego najpierw zobacz efekty i zakres, a dopiero później wybieraj intensywność."
+          items={[
+            { label: "Efekty", title: "Zobacz realne kreski →", href: "#efekty-kresek" },
+            { label: "Rodzaje", title: "Porównaj warianty →", href: "#zakres-kresek" },
+            { label: "Cena", title: "500–1400 zł →", href: "/cennik-makijaz-permanentny/#price-group-2" },
+            { label: "Wybór", title: "Jak wybrać kreskę? →", href: "/poradnik/kreska-permanentna-jak-wybrac-rodzaj/" }
+          ]}
+          secondary={[
+            { label: "Opadająca powieka", title: "Co zmienia budowa oka? →", href: "/poradnik/kreska-permanentna-przy-opadajacej-powiece/" },
+            { label: "Cena — poradnik", title: "Ile kosztuje kreska? →", href: "/poradnik/kreska-permanentna-cena/" },
+            { label: "Kwalifikacja", title: "Opisz swoje oczy →", href: "/makijaz-permanentny-bielsko/#kwalifikacja-pmu" }
+          ]}
+        />
+      </div>
+
+      <section class="eye-natural-section" id="naturalny-efekt-kreski">
         <div class="container eye-natural-card">
           <figure class="eye-photo-frame eye-natural-photo">
             <img
@@ -622,7 +644,7 @@ const structuredData = [
 
       
 
-      <section class="eye-for-section" aria-label="Kiedy warto wykonać kreskę permanentną">
+      <section class="eye-for-section" id="dla-kogo-kreski" aria-label="Kiedy warto wykonać kreskę permanentną">
         <div class="container">
           <div class="eye-section-heading">
             <p class="section-kicker">Kiedy warto?</p>
@@ -650,7 +672,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="eye-process-section">
+      <section class="eye-process-section" id="proces-kreski">
         <div class="container">
           <div class="eye-process-intro">
             <div class="eye-process-copy">
@@ -686,7 +708,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="eye-safety-section">
+      <section class="eye-safety-section" id="kwalifikacja-kreski">
         <div class="container eye-safety-grid">
           <div class="eye-safety-card">
             <p class="section-kicker">Bezpieczna kwalifikacja</p>
@@ -715,6 +737,13 @@ const structuredData = [
         </div>
       </section>
 
+      <div data-pmu-authority="eyes">
+        <PmuExpertAuthority
+          title="Kreska dobierana do anatomii oka, nie do zdjęcia z internetu."
+          lead="Przy pigmentacji powiek liczą się linia rzęs, ruch powieki, asymetria, opadanie skóry i to, jak kreska będzie zachowywać się po wygojeniu. Dlatego kwalifikacja jest częścią projektu, a nie dodatkiem."
+        />
+      </div>
+
       <section class="eye-faq-section">
         <div class="container">
           <div class="eye-section-heading">
@@ -737,37 +766,24 @@ const structuredData = [
           </div>
         </div>
       </section>
-
       <section class="eye-final-cta" id="kontakt">
         <div class="container eye-final-card">
           <p class="signature cta-signature">Powrót do natury</p>
           <h2>Chcesz sprawdzić, jaka kreska będzie najlepsza dla Twoich oczu?</h2>
-          <p>
-            Jeśli jesteś zdecydowana — sprawdź terminy. Jeśli masz opadającą powiekę,
-            stare PMU lub wątpliwości, zacznij od kwalifikacji.
-          </p>
+          <p>Jeśli masz opadającą powiekę, stare PMU, asymetrię lub po prostu nie wiesz, który wariant wybrać — zacznij od kwalifikacji. Jeśli decyzja jest już podjęta, sprawdź dostępne terminy.</p>
 
-          <div class="eye-final-actions">
-            <a
-              class="button-booksy"
-              href={booksyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Booksy <span aria-hidden="true">→</span>
-            </a>
-
-            <a
-              class="button-primary"
-              href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
-            >
-              Formularz PMU <span aria-hidden="true">→</span>
-            </a>
-
-            <a class="button-secondary" href="tel:+48730900125">
-              Zadzwoń
-            </a>
+          <div class="final-actions eye-final-actions">
+            <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Formularz PMU <span aria-hidden="true">→</span></a>
+            <a class="final-phone" href="tel:+48730900125">Zadzwoń</a>
+            <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">Booksy <span aria-hidden="true">→</span></a>
           </div>
+
+          <PmuServiceFinalLinks items={[
+            { label: "Efekty kresek", href: "#efekty-kresek" },
+            { label: "Rodzaje", href: "#zakres-kresek" },
+            { label: "Cennik", href: "/cennik-makijaz-permanentny/#price-group-2" },
+            { label: "Opadająca powieka", href: "/poradnik/kreska-permanentna-przy-opadajacej-powiece/" }
+          ]} />
         </div>
       </section>
     </main>

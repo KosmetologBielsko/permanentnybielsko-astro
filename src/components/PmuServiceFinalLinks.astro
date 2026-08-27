@@ -1,0 +1,17 @@
+---
+interface LinkItem {
+  label: string;
+  href: string;
+}
+interface Props { items: LinkItem[]; }
+const { items } = Astro.props;
+---
+<div class="pmu-final-links">
+  {items.map((item) => <a href={item.href}>{item.label}</a>)}
+</div>
+<style>
+  .pmu-final-links{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin-top:12px}
+  .pmu-final-links a{display:inline-flex;min-height:38px;align-items:center;justify-content:center;padding:0 12px;border:1px solid rgba(56,187,181,.14);border-radius:999px;background:rgba(255,255,255,.62);color:var(--color-turquoise-dark,#0f7773);font-size:.69rem;font-weight:800;text-decoration:none}
+  @media(max-width:760px){.pmu-final-links{display:grid;grid-template-columns:1fr 1fr}.pmu-final-links a{min-height:40px;text-align:center}}
+  @media(max-width:390px){.pmu-final-links{grid-template-columns:1fr}}
+</style>
