@@ -1,0 +1,543 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const booksyUrl =
+  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+
+const article = {
+  slug: "makijaz-permanentny-ust-cena",
+  title: "Makijaż permanentny ust cena 2026 — ile kosztują usta permanentne?",
+  eyebrow: "Poradnik PMU",
+  category: "Ceny PMU",
+  datePublished: "2026-08-27",
+  dateModified: "2026-08-27",
+  readingTime: "8–10 minut",
+  description:
+    "Makijaż permanentny ust cena 2026: sprawdź, ile kosztują usta permanentne w Bielsku-Białej, co obejmuje cena 1400 zł, korekta, odświeżenie i kwalifikacja.",
+  lead:
+    "Cena makijażu permanentnego ust ma sens dopiero wtedy, gdy wiadomo, co obejmuje zabieg. Warto odróżnić nową pigmentację, korektę po wygojeniu, późniejsze odświeżenie oraz pracę na wcześniejszym PMU.",
+  shortAnswer:
+    "W gabinecie Bogusławy Herda w Bielsku-Białej makijaż permanentny ust kosztuje 1400 zł. Aktualny cennik wskazuje, że pozycje oznaczone gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące. Stare PMU, korekta pracy z innego gabinetu lub konieczność wcześniejszego rozjaśnienia wymagają osobnej kwalifikacji.",
+  canonicalPath: "/poradnik/makijaz-permanentny-ust-cena/",
+};
+
+const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
+
+const priceScenarios = [
+  {
+    label: "Nowa pigmentacja",
+    price: "1400 zł",
+    text: "Makijaż permanentny ust wykonywany od początku po kwalifikacji, analizie czerwieni wargowej, doborze koloru i rysunku wstępnym.",
+    href: "/makijaz-permanentny-ust/",
+    cta: "Zobacz usługę",
+  },
+  {
+    label: "Korekta po wygojeniu",
+    price: "w cenie*",
+    text: "W aktualnym cenniku pozycje oznaczone gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące.",
+    href: "/cennik-makijaz-permanentny/#price-group-3",
+    cta: "Sprawdź cennik",
+  },
+  {
+    label: "Odświeżenie po czasie",
+    price: "osobny etap",
+    text: "To nie jest ta sama sytuacja co korekta po zabiegu. Po miesiącach lub latach najpierw ocenia się kolor, nasycenie i aktualny kształt PMU.",
+    href: "/poradnik/odswiezenie-makijazu-permanentnego-cena/",
+    cta: "Cena odświeżenia",
+  },
+  {
+    label: "Stare PMU z innego gabinetu",
+    price: "kwalifikacja",
+    text: "Nie każdą wcześniejszą pigmentację można bezpiecznie przykryć. Czasem potrzebna jest korekta koloru, plan etapowy albo wcześniejsze rozjaśnienie.",
+    href: "/makijaz-permanentny-bielsko/#kwalifikacja-pmu",
+    cta: "Wyślij kwalifikację",
+  },
+];
+
+const includedItems = [
+  {
+    title: "Kwalifikacja i rozmowa",
+    text: "Ocena oczekiwań, naturalnego koloru ust, wcześniejszych pigmentacji i istotnych informacji przed zabiegiem.",
+  },
+  {
+    title: "Analiza koloru",
+    text: "Pigment nie jest wybierany wyłącznie z próbnika. Liczy się czerwień wargowa, skóra, uroda i efekt oczekiwany po wygojeniu.",
+  },
+  {
+    title: "Rysunek wstępny",
+    text: "Zakres pigmentacji i miękki kontur są omawiane przed rozpoczęciem pracy.",
+  },
+  {
+    title: "Pigmentacja",
+    text: "Właściwy zabieg wykonywany z kontrolą nasycenia, symetrii, koloru i reakcji skóry.",
+  },
+  {
+    title: "Zalecenia po zabiegu",
+    text: "Instrukcja dotycząca gojenia i pielęgnacji ust po pigmentacji.",
+  },
+  {
+    title: "Korekta zgodnie z cennikiem*",
+    text: "Dla pozycji oznaczonych gwiazdką aktualny cennik obejmuje korektę w terminie 1–3 miesiące.",
+  },
+];
+
+const faqItems = [
+  {
+    question: "Ile kosztuje makijaż permanentny ust w 2026 roku?",
+    answer:
+      "W gabinecie Bogusławy Herda w Bielsku-Białej makijaż permanentny ust kosztuje 1400 zł.",
+  },
+  {
+    question: "Czy cena 1400 zł obejmuje korektę ust?",
+    answer:
+      "Aktualny cennik wskazuje, że ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące. Przed rezerwacją warto sprawdzić bieżący cennik.",
+  },
+  {
+    question: "Czy Natural Lips, kontur z cieniowaniem i pełniejsze nasycenie mają inną cenę?",
+    answer:
+      "Na stronie usługi usta permanentne są wycenione na 1400 zł. Kierunek pigmentacji dobierany jest do ust i oczekiwanego efektu, a nie wyłącznie do nazwy techniki.",
+  },
+  {
+    question: "Czy poprawa starego makijażu permanentnego ust kosztuje tyle samo?",
+    answer:
+      "Nie należy zakładać tego automatycznie. Wcześniejszy pigment trzeba najpierw ocenić pod kątem koloru, nasycenia, kształtu i możliwości dalszej pracy. Czasem potrzebny jest inny plan niż nowa pigmentacja.",
+  },
+  {
+    question: "Czy odświeżenie ust permanentnych to to samo co korekta?",
+    answer:
+      "Nie. Korekta jest etapem związanym z oceną efektu po wygojeniu zabiegu głównego, natomiast odświeżenie wykonuje się później, gdy pigment z czasem wyblakł lub zmienił intensywność.",
+  },
+  {
+    question: "Czy cena powinna być najważniejszym kryterium wyboru linergistki?",
+    answer:
+      "Nie. Przy PMU ust równie ważne są doświadczenie, sposób kwalifikacji, analiza koloru, rysunek wstępny, zdjęcia realnych efektów i plan postępowania przy wcześniejszym pigmentowaniu.",
+  },
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${pageUrl}#article`,
+    url: pageUrl,
+    headline: article.title,
+    description: article.description,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
+    inLanguage: "pl-PL",
+    author: {
+      "@type": "Person",
+      name: "Bogusława Herda",
+      url: "https://www.permanentnybielsko.com/makijaz-permanentny-bielsko/#boguslawa-herda",
+    },
+    publisher: {
+      "@id": "https://www.permanentnybielsko.com/#localbusiness",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+    },
+    citation: [
+      "https://pubmed.ncbi.nlm.nih.gov/38901732/",
+      "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Strona główna",
+        item: "https://www.permanentnybielsko.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Poradnik PMU",
+        item: "https://www.permanentnybielsko.com/poradnik/",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.title,
+        item: pageUrl,
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  },
+];
+---
+
+<Layout
+  title={`${article.title} | Poradnik PMU Bogusławy Herda`}
+  description={article.description}
+  canonicalPath={article.canonicalPath}
+  structuredData={structuredData}
+>
+  <div class="price-guide-page">
+    <Header />
+
+    <main>
+      <section class="price-hero">
+        <div class="price-glow price-glow-one" aria-hidden="true"></div>
+        <div class="price-glow price-glow-two" aria-hidden="true"></div>
+
+        <div class="container price-hero-grid">
+          <div class="price-hero-copy">
+            <p class="section-kicker">{article.eyebrow}</p>
+
+            <div class="price-meta">
+              <span>{article.category}</span>
+              <span>{article.readingTime}</span>
+              <span>Aktualizacja: 27.08.2026</span>
+            </div>
+
+            <h1>{article.title}</h1>
+            <p class="price-lead">{article.lead}</p>
+
+            <div class="price-hero-actions">
+              <a class="price-primary" href="#cena-ust">Zobacz cenę <span aria-hidden="true">→</span></a>
+              <a class="price-secondary" href="/makijaz-permanentny-ust/#efekty-ust">Zobacz efekty ust</a>
+            </div>
+          </div>
+
+          <aside class="price-answer" aria-label="Odpowiedź w 20 sekund">
+            <p class="price-answer-label">Odpowiedź w 20 sekund</p>
+            <strong class="price-big">1400 zł</strong>
+            <h2>Tyle kosztuje nowy makijaż permanentny ust.</h2>
+            <p>{article.shortAnswer}</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="price-nav-section">
+        <div class="container">
+          <nav class="price-nav" aria-label="Spis treści">
+            <a href="#cena-ust">Cena 1400 zł</a>
+            <a href="#co-obejmuje">Co obejmuje?</a>
+            <a href="#korekta-czy-odswiezenie">Korekta czy odświeżenie?</a>
+            <a href="#stare-pmu">Stare PMU</a>
+            <a href="#jak-porownywac">Jak porównywać ceny?</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="price-section" id="cena-ust">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">Cena PMU ust</p>
+            <h2>1400 zł — ale ważniejsze jest, co dokładnie oznacza ta cena.</h2>
+            <p>
+              Dla nowego makijażu permanentnego ust cena bazowa w aktualnej ofercie wynosi 1400 zł.
+              Nie rozbijamy jej na „tańszy naturalny kolor” i „droższą technikę”, ponieważ kierunek pigmentacji
+              powinien wynikać z ust, skóry i oczekiwanego efektu po wygojeniu.
+            </p>
+          </div>
+
+          <div class="scenario-scroll" aria-label="Scenariusze cenowe makijażu permanentnego ust">
+            {priceScenarios.map((item) => (
+              <article class="scenario-card">
+                <span>{item.label}</span>
+                <strong>{item.price}</strong>
+                <p>{item.text}</p>
+                <a href={item.href}>{item.cta} →</a>
+              </article>
+            ))}
+          </div>
+
+          <div class="price-service-bridge">
+            <div>
+              <span>Główna strona usługi</span>
+              <strong>Chcesz zobaczyć realne efekty i metody ust?</strong>
+            </div>
+            <div class="price-service-actions">
+              <a href="/makijaz-permanentny-ust/#efekty-ust">Efekty ust</a>
+              <a href="/makijaz-permanentny-ust/#zakres-ust">Metody</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section price-soft" id="co-obejmuje">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">Co obejmuje cena?</p>
+            <h2>Nie płacisz wyłącznie za czas pigmentacji.</h2>
+            <p>
+              W dobrze zaplanowanym PMU ust większość ważnych decyzji zapada jeszcze przed pierwszym przejściem maszyną.
+              Kolor, kontur, stan skóry i wcześniejsze zabiegi wpływają na cały plan pracy.
+            </p>
+          </div>
+
+          <div class="included-grid">
+            {includedItems.map((item, index) => (
+              <article>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section" id="korekta-czy-odswiezenie">
+        <div class="container decision-grid">
+          <div class="decision-copy">
+            <p class="section-kicker">Korekta ≠ odświeżenie</p>
+            <h2>Dwa podobne słowa, ale dwa różne etapy.</h2>
+            <p>
+              Korekta po wygojeniu służy ocenie i dopracowaniu świeżo wykonanego makijażu permanentnego.
+              Odświeżenie dotyczy pigmentacji, która po dłuższym czasie straciła intensywność albo zmieniła charakter.
+            </p>
+            <p>
+              To rozróżnienie jest ważne przy porównywaniu cenników. Oferta, która wygląda taniej na pierwszym ekranie,
+              może mieć inaczej rozliczony etap korekty albo późniejsze dopigmentowanie.
+            </p>
+          </div>
+
+          <div class="decision-cards">
+            <article>
+              <span>Korekta</span>
+              <strong>Po zabiegu głównym</strong>
+              <p>Ocena wygojonego koloru, równomierności i tego, jak skóra przyjęła pigment.</p>
+            </article>
+            <article>
+              <span>Odświeżenie</span>
+              <strong>Po dłuższym czasie</strong>
+              <p>Nowa decyzja po ocenie koloru, nasycenia, kształtu i stanu wcześniejszego PMU.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section price-soft" id="stare-pmu">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">Wcześniejsza pigmentacja</p>
+            <h2>Stare usta permanentne nie zawsze są „zwykłym nowym zabiegiem”.</h2>
+            <p>
+              Jeżeli na ustach znajduje się wcześniejszy pigment, cena nie powinna być jedyną rzeczą ustalaną przed wizytą.
+              Najpierw trzeba sprawdzić jego kolor, nasycenie, granice oraz to, czy nowa praca rzeczywiście ma dobre warunki.
+            </p>
+          </div>
+
+          <div class="triage-grid">
+            <article>
+              <span>01</span>
+              <h3>Pigment jest lekki i równy</h3>
+              <p>Możliwe, że plan będzie prostszy, ale nadal wymaga oceny koloru i kształtu.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Kolor jest nierówny lub zmieniony</h3>
+              <p>Najpierw potrzebna jest diagnoza tego, co rzeczywiście znajduje się w skórze i jaki efekt można osiągnąć.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Kontur lub nasycenie blokują nowy plan</h3>
+              <p>Przykrywanie problemu kolejną warstwą nie powinno być automatyczną decyzją.</p>
+            </article>
+          </div>
+
+          <div class="qualification-strip">
+            <div>
+              <span>Masz wcześniejsze PMU ust?</span>
+              <strong>Najpierw kwalifikacja, później wycena właściwego planu.</strong>
+            </div>
+            <a href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Formularz kwalifikacji PMU →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section" id="jak-porownywac">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">Jak porównywać oferty?</p>
+            <h2>Porównuj zakres i doświadczenie, nie tylko liczbę przy „zł”.</h2>
+            <p>
+              Przy trwałej pigmentacji efekt pozostaje z Tobą znacznie dłużej niż jednorazowy makijaż. Dlatego sensowne porównanie ofert powinno obejmować nie tylko cenę bazową.
+            </p>
+          </div>
+
+          <div class="compare-list">
+            <div><strong>Czy cena obejmuje korektę?</strong><span>Sprawdź, czy korekta po wygojeniu jest wliczona, czy rozliczana osobno.</span></div>
+            <div><strong>Czy oglądasz realne efekty?</strong><span>Zdjęcia prac pomagają ocenić styl, miękkość konturu i poziom nasycenia.</span></div>
+            <div><strong>Czy jest rysunek wstępny i analiza koloru?</strong><span>To część procesu decyzyjnego, a nie dodatek marketingowy.</span></div>
+            <div><strong>Co dzieje się przy wcześniejszym PMU?</strong><span>Dobra oferta powinna przewidywać kwalifikację zamiast automatycznego przykrywania starego pigmentu.</span></div>
+            <div><strong>Kto wykonuje zabieg?</strong><span>Doświadczenie, praktyka i sposób prowadzenia trudniejszych przypadków mają znaczenie dla decyzji.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section expert-section">
+        <div class="container expert-card">
+          <div>
+            <p class="section-kicker">Ekspert PMU</p>
+            <h2>Cena jest prosta. Dobór efektu już nie.</h2>
+            <p>
+              Bogusława Herda jest kosmetologiem i linergistką z ponad 10-letnim doświadczeniem,
+              8-krotną mistrzynią PMU, wicemistrzynią świata oraz europejskim trenerem Long-Time-Liner®.
+              W pigmentacji ust najważniejszy jest plan dopasowany do czerwieni wargowej, twarzy i efektu po wygojeniu.
+            </p>
+          </div>
+          <aside>
+            <span>Bogusława Herda</span>
+            <strong>8× mistrzyni PMU</strong>
+            <strong>Wicemistrzyni świata</strong>
+            <strong>Europejski trener Long-Time-Liner®</strong>
+            <a href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj doświadczenie →</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="price-section price-soft" id="powiazane">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">Powiązane odpowiedzi</p>
+            <h2>Jeśli cena jest już jasna, następna decyzja dotyczy efektu.</h2>
+          </div>
+
+          <div class="related-scroll">
+            <a href="/makijaz-permanentny-ust/">
+              <span>Usługa</span>
+              <strong>Makijaż permanentny ust</strong>
+              <p>Efekty, metody, proces i kwalifikacja.</p>
+            </a>
+            <a href="/poradnik/makijaz-permanentny-ust-jak-wybrac-kolor/">
+              <span>Kolor</span>
+              <strong>Jak dobrać kolor ust?</strong>
+              <p>Naturalna czerwień, pigment i efekt po wygojeniu.</p>
+            </a>
+            <a href="/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/">
+              <span>Gojenie</span>
+              <strong>Usta dzień po dniu</strong>
+              <p>Etapy gojenia i pielęgnacja po zabiegu.</p>
+            </a>
+            <a href="/poradnik/usta-permanentne-po-wygojeniu/">
+              <span>Efekt</span>
+              <strong>Usta po wygojeniu</strong>
+              <p>Kiedy naprawdę oceniać kolor i nasycenie.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section" id="faq">
+        <div class="container">
+          <div class="price-heading">
+            <p class="section-kicker">FAQ</p>
+            <h2>Najczęstsze pytania o cenę makijażu permanentnego ust.</h2>
+          </div>
+
+          <div class="faq-list">
+            {faqItems.map((item) => (
+              <details class="faq-item">
+                <summary>
+                  <span>{item.question}</span>
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div><p>{item.answer}</p></div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section sources-section" id="zrodla">
+        <div class="container sources-card">
+          <div>
+            <p class="section-kicker">Źródła i aktualność</p>
+            <h2>Cena pochodzi z aktualnego cennika gabinetu.</h2>
+            <p>
+              Informacje o cenie 1400 zł i zasadzie korekty odnoszą się do aktualnej oferty PermanentnyBielsko.
+              Źródła medyczne poniżej służą wyłącznie jako ogólne tło dotyczące makijażu permanentnego jako procedury pigmentacji skóry.
+            </p>
+          </div>
+          <div class="source-links">
+            <a href="/cennik-makijaz-permanentny/#price-group-3">Aktualny cennik PMU →</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/38901732/" target="_blank" rel="noopener noreferrer">Przegląd PMU — PubMed →</a>
+            <a href="https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet" target="_blank" rel="noopener noreferrer">FDA — Tattoos & Permanent Makeup →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-final-cta">
+        <div class="container final-card">
+          <p class="signature cta-signature">Powrót do natury</p>
+          <h2>1400 zł jest już jasne. Teraz sprawdź, jaki efekt będzie właściwy dla Twoich ust.</h2>
+          <p>
+            Jeśli nie masz wcześniejszej pigmentacji, możesz przejść do efektów i terminów. Jeśli masz stare PMU,
+            wypełniacze, skłonność do opryszczki lub wątpliwości dotyczące koloru — zacznij od kwalifikacji.
+          </p>
+
+          <div class="final-actions">
+            <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Formularz PMU →</a>
+            <a class="final-phone" href="tel:+48730900125">Zadzwoń</a>
+            <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">Booksy →</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .price-guide-page{min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 78% 10%,rgba(56,187,181,.08),transparent 27rem),radial-gradient(circle at 10% 34%,rgba(201,127,143,.1),transparent 24rem),linear-gradient(180deg,#fffdfd 0%,#fff8fa 54%,#fff 100%)}
+  .price-guide-page *,.price-guide-page *::before,.price-guide-page *::after{box-sizing:border-box}
+  .price-guide-page main,.price-guide-page section,.price-guide-page .container,.price-guide-page div{min-width:0}
+  .price-guide-page .section-kicker{display:inline-flex;width:fit-content;min-height:30px;align-items:center;margin:0 0 16px;padding:0 12px;border:1px solid rgba(56,187,181,.16);border-radius:999px;background:rgba(219,246,243,.72);color:var(--color-turquoise-dark,#0f7773);font-size:.66rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+  .price-hero{position:relative;padding:136px 0 62px;overflow:hidden}
+  .price-glow{position:absolute;border-radius:999px;pointer-events:none}.price-glow-one{top:2rem;right:-12rem;width:38rem;height:38rem;background:radial-gradient(circle,rgba(56,187,181,.16),transparent 68%)}.price-glow-two{left:-10rem;bottom:-16rem;width:36rem;height:36rem;background:radial-gradient(circle,rgba(201,127,143,.14),transparent 68%)}
+  .price-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(330px,.72fr);gap:18px;align-items:stretch}
+  .price-hero-copy,.price-answer,.scenario-card,.included-grid article,.decision-copy,.decision-cards article,.triage-grid article,.compare-list,.expert-card,.related-scroll a,.faq-item,.sources-card,.final-card{border:1px solid rgba(183,101,118,.14);box-shadow:0 16px 48px rgba(89,53,67,.06)}
+  .price-hero-copy{padding:clamp(30px,5vw,62px);border-radius:36px;background:rgba(255,255,255,.86)}
+  .price-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}.price-meta span{display:inline-flex;min-height:30px;align-items:center;padding:0 10px;border-radius:999px;background:rgba(246,220,227,.44);color:#8e5163;font-size:.66rem;font-weight:760}
+  .price-hero h1{max-width:980px;margin:0;color:var(--color-text,#17151d);font-size:clamp(2.8rem,5vw,5.7rem);font-weight:770;line-height:.99;letter-spacing:-.074em}
+  .price-lead{max-width:780px;margin:22px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(1rem,1.2vw,1.1rem);line-height:1.66}
+  .price-hero-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.price-hero-actions a{display:inline-flex;min-height:49px;align-items:center;justify-content:center;padding:0 17px;border-radius:999px;font-size:.82rem;font-weight:830;text-decoration:none}.price-primary{background:linear-gradient(135deg,#dc8fa3 0%,#ca718b 52%,#b85d78 100%);color:#fff;box-shadow:0 12px 28px rgba(184,93,120,.18)}.price-secondary{border:1px solid rgba(56,187,181,.16);background:#fff;color:#0f7773}
+  .price-answer{display:flex;flex-direction:column;justify-content:center;padding:clamp(27px,4vw,42px);border-radius:36px;background:radial-gradient(circle at 88% 12%,rgba(255,255,255,.3),transparent 12rem),linear-gradient(145deg,#d992a7 0%,#c97894 42%,#a8506a 100%);color:#fff}
+  .price-answer-label{margin:0;color:rgba(255,255,255,.72);font-size:.67rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.price-big{display:block;margin:17px 0 5px;font-size:clamp(3.8rem,7vw,6.3rem);font-weight:860;line-height:.9;letter-spacing:-.08em}.price-answer h2{margin:13px 0 0;color:#fff;font-size:clamp(1.55rem,2.5vw,2.3rem);font-weight:760;line-height:1.02;letter-spacing:-.05em}.price-answer p:last-child{margin:16px 0 0;color:rgba(255,255,255,.9);font-size:.92rem;line-height:1.6}
+  .price-nav-section{padding:0 0 28px}.price-nav{display:flex;gap:7px;overflow-x:auto;padding:3px 0 9px;scrollbar-width:none}.price-nav::-webkit-scrollbar{display:none}.price-nav a{flex:0 0 auto;display:inline-flex;min-height:39px;align-items:center;padding:0 12px;border:1px solid rgba(56,187,181,.14);border-radius:999px;background:rgba(255,255,255,.84);color:#0f7773;font-size:.7rem;font-weight:800;text-decoration:none}
+  .price-section{padding:66px 0;scroll-margin-top:100px}.price-soft{background:radial-gradient(circle at 90% 12%,rgba(56,187,181,.06),transparent 20rem),rgba(255,255,255,.52)}
+  .price-heading{max-width:980px;margin-bottom:24px}.price-heading h2,.decision-copy h2,.expert-card h2,.sources-card h2,.final-card h2{margin:0;color:var(--color-text,#17151d);font-size:clamp(2.1rem,3.8vw,3.9rem);font-weight:760;line-height:1.02;letter-spacing:-.068em}.price-heading>p:not(.section-kicker),.decision-copy>p:not(.section-kicker),.expert-card>div>p:not(.section-kicker),.sources-card>div>p:not(.section-kicker),.final-card>p:not(.signature){max-width:860px;margin:15px 0 0;color:var(--color-muted,#6e6670);font-size:.96rem;line-height:1.64}
+  .scenario-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,1fr);grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.scenario-card{display:flex;min-height:270px;flex-direction:column;padding:22px;border-radius:25px;background:rgba(255,255,255,.9)}.scenario-card>span{color:#0f7773;font-size:.65rem;font-weight:840;letter-spacing:.1em;text-transform:uppercase}.scenario-card>strong{margin-top:28px;color:var(--color-text,#17151d);font-size:clamp(1.65rem,2.5vw,2.35rem);font-weight:830;line-height:1;letter-spacing:-.05em}.scenario-card p{margin:13px 0 0;color:var(--color-muted,#6e6670);font-size:.87rem;line-height:1.55}.scenario-card a{width:fit-content;margin-top:auto;padding-top:18px;color:#0f7773;font-size:.73rem;font-weight:840;text-decoration:none}
+  .price-service-bridge,.qualification-strip{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;margin-top:13px;padding:18px 20px;border:1px solid rgba(56,187,181,.15);border-radius:22px;background:linear-gradient(135deg,rgba(219,246,243,.56),rgba(255,242,246,.52)),rgba(255,255,255,.8)}.price-service-bridge span,.qualification-strip span{display:block;color:var(--color-muted,#6e6670);font-size:.65rem;font-weight:760;letter-spacing:.08em;text-transform:uppercase}.price-service-bridge strong,.qualification-strip strong{display:block;margin-top:4px;color:var(--color-text,#17151d);font-size:.95rem;font-weight:820}.price-service-actions{display:flex;gap:7px}.price-service-actions a,.qualification-strip>a{display:inline-flex;min-height:42px;align-items:center;justify-content:center;padding:0 14px;border-radius:999px;font-size:.73rem;font-weight:820;text-decoration:none}.price-service-actions a:first-child{border:1px solid rgba(56,187,181,.17);background:#fff;color:#0f7773}.price-service-actions a:last-child,.qualification-strip>a{background:linear-gradient(135deg,#18a889 0%,#0f8f78 55%,#0b7868 100%);color:#fff}
+  .included-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.included-grid article{min-height:190px;padding:22px;border-radius:24px;background:rgba(255,255,255,.9)}.included-grid span,.triage-grid span{display:block;margin-bottom:28px;color:#0f7773;font-size:.67rem;font-weight:860;letter-spacing:.14em}.included-grid h3,.triage-grid h3{margin:0;color:var(--color-text,#17151d);font-size:1.25rem;font-weight:790;line-height:1.06;letter-spacing:-.045em}.included-grid p,.triage-grid p{margin:10px 0 0;color:var(--color-muted,#6e6670);font-size:.87rem;line-height:1.55}
+  .decision-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:15px}.decision-copy{padding:clamp(25px,4vw,38px);border-radius:28px;background:rgba(255,255,255,.9)}.decision-copy>p:not(.section-kicker){margin-top:15px}.decision-cards{display:grid;gap:10px}.decision-cards article{display:flex;min-height:175px;flex-direction:column;justify-content:center;padding:23px;border-radius:25px;background:radial-gradient(circle at 92% 12%,rgba(56,187,181,.08),transparent 11rem),rgba(255,255,255,.9)}.decision-cards span{color:#0f7773;font-size:.65rem;font-weight:850;text-transform:uppercase;letter-spacing:.1em}.decision-cards strong{margin-top:8px;color:var(--color-text,#17151d);font-size:1.35rem;font-weight:810}.decision-cards p{margin:9px 0 0;color:var(--color-muted,#6e6670);font-size:.88rem;line-height:1.55}
+  .triage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.triage-grid article{min-height:210px;padding:22px;border-radius:24px;background:rgba(255,255,255,.9)}
+  .compare-list{overflow:hidden;border-radius:27px;background:rgba(255,255,255,.9)}.compare-list>div{display:grid;grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr);gap:18px;padding:20px 23px;border-bottom:1px solid rgba(56,187,181,.12)}.compare-list>div:last-child{border-bottom:0}.compare-list strong{color:var(--color-text,#17151d);font-size:.9rem;font-weight:800}.compare-list span{color:var(--color-muted,#6e6670);font-size:.87rem;line-height:1.5}
+  .expert-section{padding-top:40px}.expert-card{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(285px,.7fr);gap:20px;padding:clamp(26px,4vw,40px);border-radius:30px;background:rgba(255,255,255,.92)}.expert-card aside{display:flex;flex-direction:column;justify-content:center;padding:18px;border:1px solid rgba(56,187,181,.14);border-radius:20px;background:rgba(219,246,243,.42)}.expert-card aside>span{margin-bottom:7px;color:#0f7773;font-size:.63rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.expert-card aside>strong{margin-top:6px;color:var(--color-text,#17151d);font-size:.85rem;font-weight:790}.expert-card aside a{margin-top:14px;color:#0f7773;font-size:.72rem;font-weight:850;text-decoration:none}
+  .related-scroll{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.related-scroll a{display:flex;min-height:210px;flex-direction:column;padding:21px;border-radius:24px;background:rgba(255,255,255,.9);color:inherit;text-decoration:none}.related-scroll span{color:#0f7773;font-size:.63rem;font-weight:840;text-transform:uppercase;letter-spacing:.1em}.related-scroll strong{margin-top:32px;color:var(--color-text,#17151d);font-size:1.18rem;font-weight:800;line-height:1.05;letter-spacing:-.04em}.related-scroll p{margin:10px 0 0;color:var(--color-muted,#6e6670);font-size:.85rem;line-height:1.5}
+  .faq-list{display:grid;max-width:980px;gap:9px}.faq-item{overflow:hidden;border-radius:21px;background:rgba(255,255,255,.9)}.faq-item summary{display:grid;grid-template-columns:minmax(0,1fr) 38px;gap:12px;align-items:center;padding:18px 20px;color:var(--color-text,#17151d);font-size:1rem;font-weight:760;line-height:1.3;cursor:pointer;list-style:none}.faq-item summary::-webkit-details-marker{display:none}.faq-icon{position:relative;width:38px;height:38px;border:1px solid rgba(56,187,181,.16);border-radius:999px;background:rgba(219,246,243,.55)}.faq-icon::before,.faq-icon::after{content:"";position:absolute;top:50%;left:50%;width:12px;height:2px;border-radius:99px;background:#0f7773;transform:translate(-50%,-50%)}.faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}.faq-item[open] .faq-icon::after{opacity:0}.faq-item>div{padding:0 20px 18px}.faq-item p{margin:0;color:var(--color-muted,#6e6670);font-size:.9rem;line-height:1.6}
+  .sources-section{padding-top:34px}.sources-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.65fr);gap:20px;padding:clamp(24px,4vw,38px);border-radius:28px;background:rgba(255,255,255,.9)}.source-links{display:flex;flex-direction:column;justify-content:center;gap:8px}.source-links a{display:flex;min-height:45px;align-items:center;padding:0 13px;border:1px solid rgba(56,187,181,.14);border-radius:15px;color:#0f7773;font-size:.73rem;font-weight:800;text-decoration:none;background:rgba(219,246,243,.3)}
+  .price-final-cta{padding:42px 0 82px}.final-card{padding:clamp(30px,5vw,56px);border-radius:34px;text-align:center;background:linear-gradient(145deg,rgba(219,246,243,.68),rgba(255,242,246,.8)),rgba(255,255,255,.75)}.final-card>p:not(.signature){margin-inline:auto}.final-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-width:880px;margin:22px auto 0}.final-actions a{display:flex;min-height:54px;align-items:center;justify-content:center;border-radius:999px;font-size:.9rem;font-weight:820;text-decoration:none}
+  @media(max-width:980px){.price-hero-grid,.decision-grid,.expert-card,.sources-card{grid-template-columns:1fr}.scenario-scroll,.related-scroll{grid-template-columns:repeat(2,minmax(0,1fr))}.included-grid,.triage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:760px){
+    .price-hero{padding:112px 0 42px}.price-hero-grid{gap:11px}.price-hero-copy,.price-answer{border-radius:27px}.price-hero-copy{padding:23px 19px}.price-hero h1{font-size:clamp(2.25rem,10vw,3.2rem);line-height:1.01;letter-spacing:-.064em}.price-lead{margin-top:17px;font-size:.94rem;line-height:1.58}.price-hero-actions{display:grid;grid-template-columns:1fr}.price-hero-actions a{width:100%;min-height:49px}.price-answer{padding:23px 19px}.price-big{font-size:clamp(3.6rem,18vw,5.4rem)}.price-answer h2{font-size:1.55rem}.price-answer p:last-child{font-size:.85rem;line-height:1.55}
+    .price-nav{margin-inline:-16px;padding-inline:16px}.price-section{padding:48px 0}.price-heading h2,.decision-copy h2,.expert-card h2,.sources-card h2,.final-card h2{font-size:clamp(1.9rem,8.7vw,2.72rem);line-height:1.04}.price-heading>p:not(.section-kicker),.decision-copy>p:not(.section-kicker),.expert-card>div>p:not(.section-kicker),.sources-card>div>p:not(.section-kicker),.final-card>p:not(.signature){font-size:.87rem;line-height:1.55}
+    .scenario-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(76vw,285px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.scenario-scroll::-webkit-scrollbar{display:none}.scenario-card{min-height:248px;padding:18px;border-radius:21px;scroll-snap-align:start}.scenario-card>strong{margin-top:22px}.price-service-bridge,.qualification-strip{grid-template-columns:1fr;gap:12px;padding:16px;border-radius:20px}.price-service-actions{display:grid;grid-template-columns:1fr 1fr}.price-service-actions a,.qualification-strip>a{width:100%}
+    .included-grid,.triage-grid{grid-template-columns:1fr;gap:8px}.included-grid article,.triage-grid article{min-height:auto;padding:19px;border-radius:21px}.included-grid span,.triage-grid span{margin-bottom:20px}.decision-copy{padding:22px 18px;border-radius:23px}.decision-cards article{min-height:150px;padding:19px;border-radius:21px}.compare-list{border-radius:22px}.compare-list>div{grid-template-columns:1fr;gap:6px;padding:17px 18px}.expert-card,.sources-card{padding:20px 17px;border-radius:23px}.expert-card aside{padding:15px;border-radius:17px}
+    .related-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(76vw,280px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.related-scroll::-webkit-scrollbar{display:none}.related-scroll a{min-height:190px;padding:18px;border-radius:21px;scroll-snap-align:start}.faq-item{border-radius:18px}.faq-item summary{grid-template-columns:minmax(0,1fr) 34px;padding:16px;font-size:.94rem}.faq-icon{width:34px;height:34px}.faq-item>div{padding:0 16px 16px}.source-links a{min-height:43px}.price-final-cta{padding:28px 0 62px}.final-card{padding:27px 18px;border-radius:27px}.final-actions{grid-template-columns:1fr;gap:7px}.final-actions a{min-height:52px}
+  }
+</style>
