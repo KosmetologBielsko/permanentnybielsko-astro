@@ -2,13 +2,16 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import PmuExpertAuthority from "../../components/PmuExpertAuthority.astro";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
-const pageUrl = "https://www.permanentnybielsko.com/poradnik/dopigmentowanie-brwi-permanentnych/";
-const pageTitle = "Dopigmentowanie brwi permanentnych — kiedy jest potrzebne i ile trwa?";
+const pageUrl =
+  "https://www.permanentnybielsko.com/poradnik/dopigmentowanie-brwi-permanentnych/";
+
+const pageTitle =
+  "Dopigmentowanie brwi permanentnych — kiedy jest potrzebne i ile trwa?";
+
 const pageDescription =
   "Dopigmentowanie brwi permanentnych: kiedy jest potrzebne, czy zawsze trzeba je robić, ile trwa, ile kosztuje i czym różni się od odświeżenia brwi.";
 
@@ -16,38 +19,38 @@ const faqItems = [
   {
     question: "Co to jest dopigmentowanie brwi permanentnych?",
     answer:
-      "Dopigmentowanie to etap dopracowania efektu po wygojeniu pierwszej pigmentacji. Linergistka ocenia kolor, nasycenie, symetrię i miejsca, w których skóra przyjęła pigment słabiej, a następnie uzupełnia tylko to, co rzeczywiście tego wymaga.",
+      "Dopigmentowanie to etap oceny i dopracowania efektu po wygojeniu pierwszej pigmentacji. Uzupełnia się tylko miejsca, w których kolor, nasycenie lub równomierność wymagają dodatkowej pracy."
   },
   {
     question: "Czy dopigmentowanie brwi jest zawsze konieczne?",
     answer:
-      "Nie zawsze. Decyzję podejmuje się po wygojeniu skóry i ocenie efektu. Jeśli pigment wygoił się równomiernie, kolor i kształt są zgodne z planem, zakres dopracowania może być minimalny albo może nie być potrzebny.",
+      "Nie zawsze. Decyzję podejmuje się po wygojeniu skóry. Jeśli pigment przyjął się równomiernie, a kolor i kształt są zgodne z planem, zakres dodatkowej pracy może być minimalny albo może nie być potrzebny."
   },
   {
     question: "Kiedy robi się dopigmentowanie brwi?",
     answer:
-      "Nie powinno się oceniać potrzeby dopigmentowania na świeżej skórze. Najpierw brwi muszą przejść proces gojenia i stabilizacji efektu. Termin ustala linergistka na podstawie stanu skóry i wygojenia; w gabinecie Bogusławy Herda dopigmentowanie po pierwszym zabiegu jest przewidziane bezpłatnie do 2 miesięcy.",
+      "Potrzebę dopigmentowania ocenia się po wygojeniu, a nie na świeżych brwiach. Termin zależy od stanu skóry i stabilizacji efektu. W gabinecie Bogusławy Herda dopigmentowanie po pierwszym zabiegu brwi jest bezpłatne do 2 miesięcy."
   },
   {
     question: "Ile trwa dopigmentowanie brwi?",
     answer:
-      "Nie ma jednej stałej długości wizyty. Dopigmentowanie jest zwykle bardziej skoncentrowane niż pierwszy zabieg, ponieważ nie projektuje się brwi od początku. Czas zależy od liczby miejsc wymagających uzupełnienia, techniki i reakcji skóry.",
+      "Nie ma jednej stałej długości wizyty. Zwykle zakres jest mniejszy niż podczas pierwszej pigmentacji, ponieważ brwi nie są projektowane od początku. Czas zależy od techniki, skóry i liczby miejsc wymagających uzupełnienia."
   },
   {
     question: "Ile kosztuje dopigmentowanie brwi?",
     answer:
-      "W gabinecie Bogusławy Herda dopigmentowanie będące częścią pierwszego zabiegu brwi permanentnych jest bezpłatne do 2 miesięcy. Późniejszy powrót koloru po dłuższym czasie jest odświeżeniem, a nie tym samym etapem zabiegu.",
+      "W gabinecie Bogusławy Herda dopigmentowanie będące częścią pierwszego procesu pigmentacji brwi jest bezpłatne do 2 miesięcy. Późniejszy powrót koloru po dłuższym czasie jest odświeżeniem i stanowi inną usługę."
   },
   {
     question: "Dopigmentowanie a odświeżenie brwi — jaka jest różnica?",
     answer:
-      "Dopigmentowanie domyka pierwszy proces pigmentacji po wygojeniu. Odświeżenie wykonuje się po dłuższym czasie, gdy wcześniej wygojony makijaż permanentny stopniowo zblednie i wymaga ponownego wzmocnienia.",
+      "Dopigmentowanie domyka pierwszy proces pigmentacji po wygojeniu. Odświeżenie wykonuje się po dłuższym czasie, gdy wcześniej wygojony makijaż permanentny stopniowo traci intensywność."
   },
   {
-    question: "Czy na dopigmentowaniu można zmienić kształt brwi?",
+    question: "Czy podczas dopigmentowania można całkowicie zmienić kształt brwi?",
     answer:
-      "Dopigmentowanie służy przede wszystkim dopracowaniu wcześniej zaplanowanego efektu, a nie projektowaniu zupełnie nowych brwi. Jeśli potrzebna jest większa zmiana kształtu, koloru lub korekta starego PMU, wymaga to osobnej oceny.",
-  },
+      "Dopigmentowanie służy przede wszystkim dopracowaniu wcześniej zaplanowanego efektu. Większa zmiana kształtu, koloru albo praca na starym PMU wymaga osobnej oceny i może oznaczać inny plan postępowania."
+  }
 ];
 
 const structuredData = [
@@ -64,15 +67,15 @@ const structuredData = [
     author: {
       "@type": "Person",
       name: "Bogusława Herda",
-      url: "https://www.permanentnybielsko.com/makijaz-permanentny-bielsko/#boguslawa-herda",
+      url: "https://www.permanentnybielsko.com/makijaz-permanentny-bielsko/#boguslawa-herda"
     },
     publisher: {
-      "@id": "https://www.permanentnybielsko.com/#localbusiness",
+      "@id": "https://www.permanentnybielsko.com/#localbusiness"
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${pageUrl}#webpage`,
-    },
+      "@id": `${pageUrl}#webpage`
+    }
   },
   {
     "@context": "https://schema.org",
@@ -83,21 +86,21 @@ const structuredData = [
         "@type": "ListItem",
         position: 1,
         name: "Strona główna",
-        item: "https://www.permanentnybielsko.com/",
+        item: "https://www.permanentnybielsko.com/"
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Poradnik PMU",
-        item: "https://www.permanentnybielsko.com/poradnik/",
+        item: "https://www.permanentnybielsko.com/poradnik/"
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Dopigmentowanie brwi permanentnych",
-        item: pageUrl,
-      },
-    ],
+        item: pageUrl
+      }
+    ]
   },
   {
     "@context": "https://schema.org",
@@ -108,10 +111,10 @@ const structuredData = [
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  },
+        text: item.answer
+      }
+    }))
+  }
 ];
 ---
 
@@ -121,317 +124,423 @@ const structuredData = [
   canonicalPath="/poradnik/dopigmentowanie-brwi-permanentnych/"
   structuredData={structuredData}
 >
-  <div class="dop-page">
+  <div class="guide-page">
     <Header />
 
     <main>
-      <section class="dop-hero">
-        <div class="dop-hero-glow dop-hero-glow-one" aria-hidden="true"></div>
-        <div class="dop-hero-glow dop-hero-glow-two" aria-hidden="true"></div>
+      <!-- HERO — dokładnie ten sam język wizualny co poradnik Cena Ust -->
+      <section class="guide-hero">
+        <div class="container">
+          <div class="guide-hero-card">
+            <p class="guide-eyebrow">Poradnik PMU</p>
 
-        <div class="container dop-hero-grid">
-          <div class="dop-hero-copy">
-            <p class="section-kicker">Poradnik PMU</p>
-
-            <div class="dop-meta">
+            <div class="guide-meta">
               <span>Brwi permanentne</span>
               <span>8–10 minut</span>
-              <span>Aktualizacja 2026</span>
+              <span>Aktualizacja: 27.08.2026</span>
             </div>
 
             <h1>Dopigmentowanie brwi permanentnych — kiedy jest potrzebne i ile trwa?</h1>
 
-            <p class="dop-lead">
+            <p class="guide-lead">
               Dopigmentowanie nie oznacza wykonywania brwi od początku. To etap oceny wygojonego efektu
-              i precyzyjnego uzupełnienia miejsc, w których pigment wymaga dopracowania.
+              i precyzyjnego uzupełnienia miejsc, w których pigment rzeczywiście wymaga dopracowania.
             </p>
 
+            <div class="guide-hero-actions">
+              <a class="guide-btn-primary" href="#odpowiedz">Odpowiedź w 20 sekund ↓</a>
+              <a class="guide-btn-secondary" href="/makijaz-permanentny-brwi/#efekty-brwi">Zobacz efekty brwi</a>
+            </div>
           </div>
 
-          <aside class="dop-answer" id="odpowiedz">
-            <span>Odpowiedź w 20 sekund</span>
-            <h2>Dopigmentowanie domyka pierwszy zabieg po wygojeniu.</h2>
+          <aside class="guide-answer" id="odpowiedz">
+            <span class="guide-answer-label">Odpowiedź w 20 sekund</span>
+            <strong class="guide-answer-value">0 zł*</strong>
+            <h2>Dopigmentowanie domyka pierwszy proces po wygojeniu.</h2>
             <p>
-              Służy wyrównaniu nasycenia, drobnych ubytków i miejsc, w których skóra przyjęła pigment słabiej.
-              <strong>Nie zawsze musi oznaczać dużą poprawkę.</strong> W gabinecie Bogusławy Herda dopigmentowanie
-              po pierwszym zabiegu brwi jest bezpłatne do 2 miesięcy.
+              Służy wyrównaniu drobnych ubytków i nasycenia tam, gdzie skóra przyjęła pigment słabiej.
+              <strong>Nie zawsze oznacza dużą poprawkę i nie zawsze jest potrzebne.</strong>
+              W gabinecie Bogusławy Herda dopigmentowanie po pierwszym zabiegu brwi jest bezpłatne do 2 miesięcy.
             </p>
-
-            <div class="dop-hero-actions">
-              <a class="dop-primary" href="#roznice">Dopigmentowanie czy odświeżenie? ↓</a>
-              <a class="dop-secondary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Wyślij zdjęcie / formularz →</a>
-            </div>
+            <small>* Dotyczy dopigmentowania po pierwszym zabiegu wykonanym w gabinecie.</small>
           </aside>
-        </div>
-      </section>
 
-      <section class="dop-nav-section" aria-label="Najważniejsze informacje o dopigmentowaniu brwi">
-        <div class="container">
-          <div class="dop-nav-heading">
-            <div>
-              <p class="section-kicker">4 najważniejsze odpowiedzi</p>
-              <h2>Dopigmentowanie nie zawsze oznacza to samo dla każdej skóry.</h2>
-            </div>
-            <p>Na telefonie przesuń karty palcem.</p>
-          </div>
-
-          <nav class="dop-nav">
-            <a href="#kiedy"><span>01 · Kiedy?</span><strong>Kiedy dopigmentować →</strong></a>
-            <a href="#czy-konieczne"><span>02 · Czy trzeba?</span><strong>Kiedy można odpuścić →</strong></a>
-            <a href="#ile-trwa"><span>03 · Czas</span><strong>Ile trwa wizyta →</strong></a>
-            <a href="#cena"><span>04 · Cena</span><strong>Ile kosztuje →</strong></a>
+          <nav class="guide-anchor-nav" aria-label="Najważniejsze informacje o dopigmentowaniu brwi">
+            <a href="#kiedy">Kiedy jest potrzebne?</a>
+            <a href="#czy-konieczne">Czy zawsze trzeba?</a>
+            <a href="#ile-trwa">Ile trwa?</a>
+            <a href="#cena">Cena</a>
+            <a href="#roznice">Dopigmentowanie czy odświeżenie?</a>
+            <a href="#faq">FAQ</a>
           </nav>
         </div>
       </section>
 
-      <section class="dop-decision-section" id="roznice">
+      <section class="guide-section" id="roznice">
         <div class="container">
-          <div class="dop-heading">
-            <p class="section-kicker">Najważniejsze rozróżnienie</p>
+          <div class="guide-heading">
+            <p class="guide-eyebrow">Najważniejsze rozróżnienie</p>
             <h2>Dopigmentowanie, odświeżenie i korekta starego PMU to trzy różne sytuacje.</h2>
             <p>
-              Te pojęcia są często używane zamiennie, ale opisują inny etap pracy. Rozdzielenie ich pomaga
+              Te pojęcia bywają używane zamiennie, ale opisują inny etap pracy. Rozdzielenie ich pomaga
               zrozumieć, czego naprawdę potrzebują brwi.
             </p>
           </div>
 
-          <div class="dop-three-grid">
-            <article class="dop-decision-card dop-decision-card-strong">
+          <div class="guide-cards guide-cards-three">
+            <article class="guide-card guide-card-accent">
               <span>Dopigmentowanie</span>
               <h3>Domknięcie pierwszego procesu</h3>
-              <p>Ocena wygojenia i uzupełnienie tego, co po pierwszej pigmentacji wymaga dopracowania.</p>
+              <p>Ocena wygojenia i uzupełnienie tylko tego, co po pierwszej pigmentacji wymaga dopracowania.</p>
               <a href="#kiedy">Sprawdź, kiedy ma sens →</a>
             </article>
 
-            <article class="dop-decision-card">
+            <article class="guide-card">
               <span>Odświeżenie</span>
               <h3>Powrót koloru po czasie</h3>
               <p>Dotyczy wcześniej wygojonych brwi, które po miesiącach lub latach stopniowo straciły intensywność.</p>
-              <a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">Odświeżenie a korekta →</a>
+              <a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">Odświeżenie — cena i zasady →</a>
             </article>
 
-            <article class="dop-decision-card">
+            <article class="guide-card">
               <span>Stare PMU</span>
               <h3>Najpierw ocena pigmentu</h3>
-              <p>Jeśli kształt, kolor lub nasycenie starej pigmentacji są problemem, samo dopigmentowanie nie jest rozwiązaniem.</p>
+              <p>Jeśli problemem jest kształt, kolor lub wysokie nasycenie starej pigmentacji, samo dopigmentowanie nie jest rozwiązaniem.</p>
               <a href="/poradnik/brwi-permanentne-po-latach/">Brwi permanentne po latach →</a>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="dop-content-section" id="kiedy">
-        <div class="container dop-content-grid">
-          <div class="dop-content-copy">
-            <p class="section-kicker">Kiedy dopigmentować?</p>
+      <section class="guide-section guide-section-soft" id="kiedy">
+        <div class="container">
+          <div class="guide-heading">
+            <p class="guide-eyebrow">Kiedy dopigmentować?</p>
             <h2>Decyzję podejmuje się po wygojeniu, nie na podstawie świeżych brwi.</h2>
             <p>
-              Bezpośrednio po zabiegu pigment jest intensywniejszy, skóra może być zaczerwieniona lub lekko obrzęknięta,
-              a później pojawia się etap łuszczenia i przejściowego rozjaśnienia. Dlatego świeży efekt nie jest podstawą
-              do planowania kolejnej pracy.
-            </p>
-            <p>
-              Dopiero po uspokojeniu skóry można ocenić, czy kolor jest równy, czy pojawiły się drobne ubytki,
-              czy nasycenie jest zgodne z planem i czy całość zachowuje wcześniej zaakceptowany kształt.
+              Bezpośrednio po zabiegu kolor jest intensywniejszy, a później przechodzi przez kolejne etapy gojenia.
+              Dopiero po uspokojeniu skóry można ocenić, co faktycznie wymaga dodatkowej pracy.
             </p>
           </div>
 
-          <div class="dop-checklist">
-            <div><span>01</span><p>po wygojeniu widać pojedyncze jaśniejsze miejsca</p></div>
-            <div><span>02</span><p>jedna część brwi przyjęła pigment słabiej</p></div>
-            <div><span>03</span><p>efekt jest poprawny, ale wymaga delikatnego wyrównania nasycenia</p></div>
-            <div><span>04</span><p>linergistka chce dopracować detal techniki po ocenie skóry</p></div>
+          <div class="guide-number-grid">
+            <article>
+              <span>01</span>
+              <h3>Pojedyncze jaśniejsze miejsca</h3>
+              <p>Po wygojeniu widać drobne obszary, w których pigment przyjął się słabiej.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Nierówne nasycenie</h3>
+              <p>Jedna część brwi wygląda subtelniej i wymaga delikatnego wyrównania.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Detal techniki</h3>
+              <p>Po ocenie skóry linergistka może dopracować element włosa, cieniowania albo przejścia koloru.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Efekt nadal jest zgodny z projektem</h3>
+              <p>Dopigmentowanie powinno rozwijać zaakceptowany plan, a nie projektować zupełnie nowe brwi.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="dop-soft-section" id="czy-konieczne">
-        <div class="container dop-soft-card">
-          <div>
-            <p class="section-kicker">Czy zawsze jest konieczne?</p>
-            <h2>Nie każda dobrze wygojona pigmentacja wymaga dokładania koloru.</h2>
-          </div>
-          <div>
-            <p>
-              Celem nie jest wykonanie drugiego pełnego zabiegu „bo tak wypada”. Jeśli skóra przyjęła pigment równomiernie,
-              kształt jest spójny, a intensywność zgodna z planem, zakres dopigmentowania może być bardzo mały.
-            </p>
-            <p>
-              Ważniejsza od automatycznego dokładania pigmentu jest ocena, czy dodatkowa praca poprawi efekt.
-              Zbyt duże nasycanie wygojonych brwi tylko dlatego, że są subtelniejsze niż w pierwszym dniu, nie jest dobrym celem.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="dop-content-section" id="ile-trwa">
-        <div class="container dop-content-grid dop-content-grid-reverse">
-          <div class="dop-time-card">
-            <span>Ile trwa?</span>
-            <strong>Zwykle krócej niż pierwszy zabieg</strong>
-            <p>
-              Nie podajemy sztucznej jednej liczby minut. Zakres zależy od techniki, liczby miejsc do uzupełnienia
-              i tego, jak wygoiła się skóra.
-            </p>
-          </div>
-
-          <div class="dop-content-copy">
-            <p class="section-kicker">Czas wizyty</p>
-            <h2>Na dopigmentowaniu nie projektujemy wszystkiego od zera.</h2>
-            <p>
-              Pierwsza pigmentacja obejmuje analizę, rysunek wstępny, dobór techniki, koloru i pełną pracę nad kształtem.
-              Przy dopigmentowaniu punkt wyjścia już istnieje — najpierw oceniamy rezultat po wygojeniu, a później pracujemy
-              tylko w miejscach, które rzeczywiście wymagają uzupełnienia.
-            </p>
-            <p>
-              Dlatego czas może być krótszy, ale nie warto obiecywać jednej stałej długości wizyty dla każdej osoby.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="dop-price-section" id="cena">
+      <section class="guide-section" id="czy-konieczne">
         <div class="container">
-          <div class="dop-heading">
-            <p class="section-kicker">Cena dopigmentowania</p>
+          <div class="guide-split">
+            <div class="guide-heading">
+              <p class="guide-eyebrow">Czy zawsze jest konieczne?</p>
+              <h2>Nie każda dobrze wygojona pigmentacja wymaga dokładania koloru.</h2>
+            </div>
+
+            <div class="guide-text-card">
+              <p>
+                Celem nie jest wykonanie drugiego pełnego zabiegu tylko dlatego, że istnieje możliwość dopigmentowania.
+                Jeśli skóra przyjęła pigment równomiernie, kształt jest spójny, a intensywność zgodna z planem,
+                zakres dodatkowej pracy może być bardzo mały.
+              </p>
+              <p>
+                Ważniejsza od automatycznego przyciemniania brwi jest ocena, czy dodatkowy pigment rzeczywiście poprawi efekt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section guide-section-soft" id="ile-trwa">
+        <div class="container">
+          <div class="guide-heading">
+            <p class="guide-eyebrow">Ile trwa?</p>
+            <h2>Zwykle krócej niż pierwszy zabieg — ale nie ma jednej uczciwej liczby minut dla każdego.</h2>
+            <p>
+              Przy dopigmentowaniu nie projektujemy brwi od początku. Punkt wyjścia już istnieje, dlatego pracujemy
+              tylko w miejscach, które po wygojeniu wymagają uzupełnienia.
+            </p>
+          </div>
+
+          <div class="guide-feature-row">
+            <div class="guide-feature-value">
+              <span>Czas wizyty</span>
+              <strong>indywidualnie</strong>
+            </div>
+            <p>
+              Zakres zależy od techniki, liczby miejsc do uzupełnienia, reakcji skóry i tego, jak wygoił się pierwszy zabieg.
+              Dlatego nie obiecujemy jednej sztucznej długości wizyty.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="cena">
+        <div class="container">
+          <div class="guide-heading">
+            <p class="guide-eyebrow">Cena dopigmentowania</p>
             <h2>W pierwszym procesie brwi — 0 zł do 2 miesięcy.</h2>
             <p>
-              W gabinecie Bogusławy Herda dopigmentowanie po pierwszym zabiegu brwi permanentnych jest przewidziane
-              bezpłatnie do 2 miesięcy. Późniejszy powrót pigmentu po dłuższym czasie jest już inną usługą — odświeżeniem.
+              Późniejszy powrót koloru po dłuższym czasie jest już inną usługą — odświeżeniem.
+              To ważne rozróżnienie przy czytaniu cennika.
             </p>
           </div>
 
-          <div class="dop-price-grid">
-            <article>
+          <div class="guide-cards guide-price-cards">
+            <article class="guide-card">
               <span>Pierwsza pigmentacja</span>
-              <strong>1200–1400 zł</strong>
-              <p>Cena zależy od wybranej metody brwi.</p>
+              <strong class="guide-price">1200–1400 zł</strong>
+              <p>Cena zależy od metody brwi permanentnych.</p>
               <a href="/cennik-makijaz-permanentny/#price-group-1">Aktualny cennik brwi →</a>
             </article>
-            <article class="dop-price-featured">
+
+            <article class="guide-card guide-card-accent">
               <span>Dopigmentowanie</span>
-              <strong>0 zł</strong>
-              <p>Bez opłaty do 2 miesięcy po pierwszym zabiegu w gabinecie.</p>
-              <a href="/makijaz-permanentny-brwi/#efekty-brwi">Zobacz efekty →</a>
+              <strong class="guide-price">0 zł*</strong>
+              <p>Bez opłaty do 2 miesięcy po pierwszym zabiegu wykonanym w gabinecie.</p>
+              <a href="/makijaz-permanentny-brwi/#efekty-brwi">Zobacz efekty brwi →</a>
             </article>
-            <article>
+
+            <article class="guide-card">
               <span>Odświeżenie po czasie</span>
-              <strong>osobna usługa</strong>
+              <strong class="guide-price guide-price-text">osobna usługa</strong>
               <p>Dotyczy wcześniej wygojonych brwi, które z czasem zbledły.</p>
-              <a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">Sprawdź różnicę →</a>
+              <a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">Sprawdź odświeżenie →</a>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="dop-process-section" id="proces">
+      <section class="guide-bridge">
         <div class="container">
-          <div class="dop-heading">
-            <p class="section-kicker">Jak wygląda dopigmentowanie?</p>
+          <div class="guide-bridge-card">
+            <div>
+              <p class="guide-eyebrow">Główna strona usługi</p>
+              <h2>Chcesz zobaczyć realne efekty i metody brwi?</h2>
+            </div>
+            <div class="guide-bridge-actions">
+              <a href="/makijaz-permanentny-brwi/#efekty-brwi">Efekty brwi →</a>
+              <a href="/makijaz-permanentny-brwi/#metody-brwi">Metody brwi →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section guide-section-soft" id="proces">
+        <div class="container">
+          <div class="guide-heading">
+            <p class="guide-eyebrow">Jak wygląda dopigmentowanie?</p>
             <h2>Najpierw ocena. Potem tylko tyle pigmentu, ile naprawdę potrzeba.</h2>
           </div>
 
-          <div class="dop-process-grid">
-            <article><span>01</span><h3>Ocena wygojenia</h3><p>Sprawdzamy skórę, nasycenie, kolor i równomierność efektu.</p></article>
-            <article><span>02</span><h3>Porównanie z planem</h3><p>Oceniamy, czy kształt i intensywność odpowiadają efektowi ustalonemu przed pierwszym zabiegiem.</p></article>
-            <article><span>03</span><h3>Dopigmentowanie</h3><p>Uzupełniane są tylko miejsca wymagające dodatkowej pracy.</p></article>
-            <article><span>04</span><h3>Ponowne gojenie</h3><p>Skóra znów przechodzi proces regeneracji, dlatego rezultat ocenia się dopiero po jej uspokojeniu.</p></article>
+          <div class="guide-number-grid">
+            <article>
+              <span>01</span>
+              <h3>Ocena wygojenia</h3>
+              <p>Sprawdzamy skórę, kolor, nasycenie i równomierność efektu.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Porównanie z planem</h3>
+              <p>Oceniamy, czy kształt i intensywność odpowiadają efektowi ustalonemu przed pierwszym zabiegiem.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Precyzyjne uzupełnienie</h3>
+              <p>Pigmentowane są tylko miejsca, które faktycznie wymagają dodatkowej pracy.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Ponowne gojenie</h3>
+              <p>Skóra znów się regeneruje, dlatego rezultat ocenia się po jej uspokojeniu.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="dop-problem-section" id="nierowny-pigment">
-        <div class="container dop-problem-card">
-          <div>
-            <p class="section-kicker">Pigment miejscami zniknął?</p>
-            <h2>Nierówny efekt po gojeniu nie zawsze oznacza źle wykonane brwi.</h2>
-            <p>
-              Skóra jest żywą tkanką i nie w każdym miejscu musi przyjąć pigment identycznie. Znaczenie mają m.in.
-              typ skóry, ilość sebum, sposób gojenia, naturalne włoski i indywidualna reakcja organizmu.
-            </p>
+      <section class="guide-section">
+        <div class="container">
+          <div class="guide-split">
+            <div class="guide-heading">
+              <p class="guide-eyebrow">Pigment miejscami zniknął?</p>
+              <h2>Nierówny efekt po gojeniu nie zawsze oznacza źle wykonane brwi.</h2>
+            </div>
+
+            <div class="guide-text-card guide-text-card-link">
+              <p>
+                Skóra jest żywą tkanką i nie w każdym miejscu musi przyjąć pigment identycznie.
+                Znaczenie mają m.in. typ skóry, ilość sebum, sposób gojenia i indywidualna reakcja.
+              </p>
+              <a href="/poradnik/dlaczego-pigment-po-wygojeniu-miejscami-znika/">
+                Dlaczego pigment po wygojeniu miejscami „znika”? →
+              </a>
+            </div>
           </div>
-          <a href="/poradnik/dlaczego-pigment-po-wygojeniu-miejscami-znika/">
-            <span>Osobny poradnik</span>
-            <strong>Dlaczego pigment po wygojeniu miejscami „znika”? →</strong>
-          </a>
         </div>
       </section>
 
-      <section class="dop-old-section" id="stare-pmu">
-        <div class="container dop-old-grid">
-          <div>
-            <p class="section-kicker">Stare brwi permanentne</p>
-            <h2>Nie nazywajmy dopigmentowaniem przykrywania starej, niekorzystnej pigmentacji.</h2>
+      <section class="guide-section guide-section-soft" id="stare-pmu">
+        <div class="container">
+          <div class="guide-heading">
+            <p class="guide-eyebrow">Wcześniejsza pigmentacja</p>
+            <h2>Stare brwi permanentne nie są zwykłym dopigmentowaniem.</h2>
             <p>
               Jeśli brwi są zbyt ciemne, zmieniły kolor, mają niekorzystny kształt albo wiele warstw pigmentu,
-              potrzebna jest osobna kwalifikacja. Czasem właściwą decyzją jest korekta, a czasem wcześniejsze rozjaśnienie.
+              najpierw potrzebna jest kwalifikacja. Czasem właściwą decyzją jest korekta, a czasem wcześniejsze rozjaśnienie.
             </p>
           </div>
-          <div class="dop-old-links">
-            <a href="/poradnik/brwi-permanentne-po-latach/"><span>Stary pigment</span><strong>Brwi permanentne po latach →</strong></a>
-            <a href="/poradnik/laserowe-usuwanie-brwi-permanentnych/"><span>Rozjaśnianie</span><strong>Laserowe usuwanie brwi →</strong></a>
+
+          <div class="guide-cards guide-cards-two">
+            <article class="guide-card">
+              <span>Stary pigment</span>
+              <h3>Brwi permanentne po latach</h3>
+              <p>Jak ocenić kolor, kształt i nasycenie starego PMU przed kolejną decyzją.</p>
+              <a href="/poradnik/brwi-permanentne-po-latach/">Przeczytaj poradnik →</a>
+            </article>
+            <article class="guide-card">
+              <span>Rozjaśnianie</span>
+              <h3>Laserowe usuwanie brwi</h3>
+              <p>Kiedy stary pigment warto najpierw rozjaśnić zamiast dokładać kolejną warstwę.</p>
+              <a href="/poradnik/laserowe-usuwanie-brwi-permanentnych/">Zobacz możliwości →</a>
+            </article>
           </div>
         </div>
       </section>
 
-      <PmuExpertAuthority
-        title="Dopigmentowanie ma dopracować efekt — nie automatycznie go przyciemnić."
-        lead="W praktyce PMU najważniejsza jest ocena wygojonej skóry. Dopiero wtedy można zdecydować, czy brwi potrzebują uzupełnienia, gdzie pracować ponownie i jak zachować lekkość wcześniejszego projektu."
-      />
-
-      <section class="dop-related-section" id="powiazane">
+      <section class="guide-section">
         <div class="container">
-          <div class="dop-heading">
-            <p class="section-kicker">Powiązane</p>
-            <h2>Jeśli jesteś po zabiegu, te odpowiedzi będą najbardziej przydatne.</h2>
-          </div>
-
-          <div class="dop-related-grid">
-            <a href="/poradnik/jak-goja-sie-brwi-permanentne/"><span>Gojenie</span><strong>Jak goją się brwi permanentne? →</strong></a>
-            <a href="/poradnik/brwi-permanentne-dzien-po-dniu/"><span>Dzień po dniu</span><strong>Jak zmienia się kolor po zabiegu? →</strong></a>
-            <a href="/makijaz-permanentny-brwi/#metody-brwi"><span>Metody</span><strong>Zobacz metody brwi →</strong></a>
-            <a href="/cennik-makijaz-permanentny/#price-group-1"><span>Cennik</span><strong>Aktualne ceny brwi →</strong></a>
+          <div class="guide-expert">
+            <div>
+              <p class="guide-eyebrow">Ekspert PMU</p>
+              <h2>Dopigmentowanie ma dopracować efekt — nie automatycznie go przyciemnić.</h2>
+              <p>
+                Bogusława Herda jest kosmetologiem i linergistką z ponad 10-letnim doświadczeniem,
+                8-krotną mistrzynią PMU, wicemistrzynią świata oraz europejskim trenerem Long-Time-Liner®.
+                W praktyce PMU najważniejsza jest ocena wygojonej skóry i świadoma decyzja, gdzie kolejna praca rzeczywiście poprawi efekt.
+              </p>
+            </div>
+            <aside>
+              <span>Bogusława Herda</span>
+              <strong>8× mistrzyni PMU</strong>
+              <strong>Wicemistrzyni świata</strong>
+              <strong>Europejski trener Long-Time-Liner®</strong>
+              <a href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj doświadczenie →</a>
+            </aside>
           </div>
         </div>
       </section>
 
-      <section class="dop-faq-section" id="faq">
+      <section class="guide-section guide-section-soft" id="powiazane">
         <div class="container">
-          <div class="dop-heading">
-            <p class="section-kicker">FAQ</p>
+          <div class="guide-heading">
+            <p class="guide-eyebrow">Powiązane odpowiedzi</p>
+            <h2>Jeśli jesteś po zabiegu, te poradniki będą najbardziej przydatne.</h2>
+          </div>
+
+          <div class="guide-related">
+            <a href="/poradnik/jak-goja-sie-brwi-permanentne/">
+              <span>Gojenie</span><strong>Jak goją się brwi permanentne? →</strong>
+            </a>
+            <a href="/poradnik/brwi-permanentne-dzien-po-dniu/">
+              <span>Dzień po dniu</span><strong>Jak zmieniają się brwi po zabiegu? →</strong>
+            </a>
+            <a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">
+              <span>Odświeżenie</span><strong>Kiedy to już nie dopigmentowanie? →</strong>
+            </a>
+            <a href="/cennik-makijaz-permanentny/#price-group-1">
+              <span>Cennik</span><strong>Aktualne ceny brwi →</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="faq">
+        <div class="container">
+          <div class="guide-heading">
+            <p class="guide-eyebrow">FAQ</p>
             <h2>Najczęstsze pytania o dopigmentowanie brwi.</h2>
           </div>
 
-          <div class="dop-faq-list">
+          <div class="guide-faq">
             {faqItems.map((item) => (
               <details>
-                <summary>{item.question}<span aria-hidden="true">+</span></summary>
-                <div><p>{item.answer}</p></div>
+                <summary>
+                  {item.question}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <div>
+                  <p>{item.answer}</p>
+                </div>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section class="dop-final-section" id="kontakt">
-        <div class="container dop-final-card">
-          <p class="section-kicker">Twój przypadek</p>
-          <h2>Nie wiesz, czy potrzebujesz dopigmentowania, odświeżenia czy korekty?</h2>
-          <p>
-            Jeśli brwi są już po wygojeniu, opisz kiedy był wykonany zabieg i co dokładnie widzisz w efekcie.
-            Przy starszym PMU warto dołączyć zdjęcie i zacząć od kwalifikacji.
-          </p>
-          <div class="final-actions dop-final-actions">
-            <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Formularz PMU <span aria-hidden="true">→</span></a>
-            <a class="final-phone" href="tel:+48730900125">Zadzwoń</a>
-            <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">Booksy <span aria-hidden="true">→</span></a>
+      <section class="guide-section guide-sources">
+        <div class="container">
+          <div class="guide-heading">
+            <p class="guide-eyebrow">Źródła i aktualność</p>
+            <h2>Cena i zasady odnoszą się do aktualnej oferty gabinetu.</h2>
+            <p>
+              Informacja o bezpłatnym dopigmentowaniu do 2 miesięcy dotyczy pierwszego procesu pigmentacji brwi
+              wykonywanego w gabinecie Bogusławy Herda. Szczegóły cen nowych zabiegów znajdują się w aktualnym cenniku.
+            </p>
           </div>
-          <div class="dop-final-secondary">
-            <a href="/makijaz-permanentny-brwi/#efekty-brwi">Efekty brwi</a>
-            <a href="/poradnik/jak-goja-sie-brwi-permanentne/">Gojenie</a>
-            <a href="/cennik-makijaz-permanentny/#price-group-1">Cennik brwi</a>
+          <div class="guide-source-links">
+            <a href="/cennik-makijaz-permanentny/#price-group-1">Aktualny cennik PMU →</a>
+            <a href="/makijaz-permanentny-brwi/#metody-brwi">Metody brwi →</a>
+            <a href="/poradnik/jak-goja-sie-brwi-permanentne/">Gojenie brwi →</a>
           </div>
-          <a class="dop-back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
+        </div>
+      </section>
+
+      <section class="guide-final" id="kontakt">
+        <div class="container">
+          <div class="guide-final-card">
+            <p class="guide-eyebrow">Powrót do natury</p>
+            <h2>Nie wiesz, czy potrzebujesz dopigmentowania, odświeżenia czy korekty?</h2>
+            <p>
+              Jeśli brwi są już po wygojeniu, opisz kiedy wykonano zabieg i co dokładnie widzisz w efekcie.
+              Przy starszym PMU warto dołączyć zdjęcie i zacząć od kwalifikacji.
+            </p>
+
+            <div class="final-actions guide-final-actions">
+              <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
+                Formularz PMU <span aria-hidden="true">→</span>
+              </a>
+              <a class="final-phone" href="tel:+48730900125">Zadzwoń</a>
+              <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+                Booksy <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div class="guide-final-secondary">
+              <a href="/makijaz-permanentny-brwi/#efekty-brwi">Efekty brwi</a>
+              <a href="/makijaz-permanentny-brwi/#metody-brwi">Metody</a>
+              <a href="/cennik-makijaz-permanentny/#price-group-1">Cennik brwi</a>
+              <a href="/poradnik/brwi-permanentne-po-latach/">Brwi po latach</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -441,283 +550,964 @@ const structuredData = [
 </Layout>
 
 <style>
-  .dop-page{min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 80% 8%,rgba(56,187,181,.10),transparent 28rem),radial-gradient(circle at 8% 38%,rgba(201,127,143,.10),transparent 24rem),linear-gradient(180deg,#fffdfd 0%,#fff8fa 52%,#fff 100%)}
-  .dop-page :global(.section-kicker){display:inline-flex;width:fit-content;min-height:30px;align-items:center;margin:0 0 15px;padding:0 12px;border:1px solid rgba(56,187,181,.17);border-radius:999px;background:rgba(219,246,243,.7);color:var(--color-turquoise-dark,#0f7773);font-size:.64rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
-  .dop-hero{padding:clamp(48px,7vw,92px) 0 44px}
-  .dop-hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.72fr);gap:clamp(22px,4vw,56px);align-items:center}
-  .dop-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}.dop-meta span{padding:7px 10px;border:1px solid rgba(183,101,118,.13);border-radius:999px;background:rgba(255,255,255,.72);color:#746872;font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-  .dop-hero h1{max-width:930px;margin:0;color:var(--color-text,#17151d);font-size:clamp(2.7rem,5.4vw,5.7rem);font-weight:770;line-height:.96;letter-spacing:-.074em}.dop-lead{max-width:780px;margin:20px 0 0;color:var(--color-muted,#6e6670);font-size:clamp(1rem,1.3vw,1.14rem);line-height:1.67}
-  .dop-hero-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.dop-hero-actions a{display:inline-flex;min-height:50px;align-items:center;justify-content:center;padding:0 17px;border-radius:999px;text-decoration:none;font-size:.82rem;font-weight:850}.dop-primary{background:linear-gradient(135deg,#dc8fa3,#b85d78);color:#fff}.dop-secondary{border:1px solid rgba(56,187,181,.18);background:rgba(255,255,255,.85);color:#0f7773}
-  .dop-answer{padding:clamp(22px,3vw,34px);border:1px solid rgba(56,187,181,.16);border-radius:30px;background:linear-gradient(145deg,rgba(219,246,243,.76),rgba(255,255,255,.94));box-shadow:0 20px 56px rgba(67,92,91,.08)}.dop-answer>span{color:#0f7773;font-size:.63rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.dop-answer h2{margin:11px 0 12px;color:#17151d;font-size:clamp(1.7rem,2.6vw,2.55rem);line-height:1.06;letter-spacing:-.045em}.dop-answer p{margin:0;color:#625b63;font-size:.9rem;line-height:1.62}.dop-answer strong{color:#17151d}
-  .dop-nav-section{padding:8px 0 62px}.dop-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.dop-nav a{display:flex;min-height:102px;flex-direction:column;justify-content:space-between;padding:16px;border:1px solid rgba(183,101,118,.13);border-radius:21px;background:rgba(255,255,255,.9);text-decoration:none;box-shadow:0 13px 36px rgba(89,53,67,.04)}.dop-nav span{color:#776d75;font-size:.59rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}.dop-nav strong{color:#0f7773;font-size:.79rem;line-height:1.26}
-  .dop-decision-section,.dop-content-section,.dop-price-section,.dop-process-section,.dop-related-section,.dop-faq-section{padding:68px 0}.dop-heading{max-width:940px;margin-bottom:25px}.dop-heading h2,.dop-content-copy h2,.dop-soft-card h2,.dop-old-grid h2,.dop-problem-card h2{margin:0;color:#17151d;font-size:clamp(2.15rem,3.8vw,4rem);font-weight:760;line-height:1.02;letter-spacing:-.065em}.dop-heading>p:not(.section-kicker),.dop-content-copy>p:not(.section-kicker),.dop-soft-card p,.dop-old-grid p,.dop-problem-card p{color:#6e6670;font-size:.95rem;line-height:1.66}.dop-three-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.dop-decision-card{padding:23px;border:1px solid rgba(183,101,118,.13);border-radius:24px;background:rgba(255,255,255,.88)}.dop-decision-card-strong{background:linear-gradient(145deg,rgba(219,246,243,.65),rgba(255,255,255,.94));border-color:rgba(56,187,181,.2)}.dop-decision-card>span{color:#0f7773;font-size:.62rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.dop-decision-card h3{margin:13px 0 9px;color:#17151d;font-size:1.35rem;line-height:1.1;letter-spacing:-.025em}.dop-decision-card p{margin:0;color:#716970;font-size:.84rem;line-height:1.55}.dop-decision-card a{display:inline-flex;margin-top:17px;color:#0f7773;font-size:.72rem;font-weight:850;text-decoration:none}
-  .dop-content-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.75fr);gap:clamp(22px,4vw,52px);align-items:center}.dop-content-grid-reverse{grid-template-columns:minmax(320px,.72fr) minmax(0,1.08fr)}.dop-content-copy p{max-width:790px}.dop-checklist{display:grid;gap:8px}.dop-checklist>div{display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:center;padding:13px 14px;border:1px solid rgba(56,187,181,.13);border-radius:17px;background:rgba(255,255,255,.84)}.dop-checklist span{display:grid;width:36px;height:36px;place-items:center;border-radius:50%;background:rgba(219,246,243,.8);color:#0f7773;font-size:.66rem;font-weight:850}.dop-checklist p{margin:0;color:#5f5960;font-size:.82rem;line-height:1.42}
-  .dop-soft-section{padding:30px 0 68px}.dop-soft-card{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:clamp(24px,4vw,40px);border:1px solid rgba(183,101,118,.12);border-radius:30px;background:linear-gradient(145deg,rgba(255,242,246,.72),rgba(255,255,255,.92))}.dop-soft-card p{margin-top:0}.dop-time-card{padding:26px;border:1px solid rgba(56,187,181,.16);border-radius:26px;background:linear-gradient(145deg,rgba(219,246,243,.66),rgba(255,255,255,.94))}.dop-time-card span{display:block;color:#0f7773;font-size:.62rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.dop-time-card strong{display:block;margin:13px 0 9px;color:#17151d;font-size:clamp(1.55rem,2.8vw,2.55rem);line-height:1.04;letter-spacing:-.045em}.dop-time-card p{margin:0;color:#6e6670;font-size:.86rem;line-height:1.58}
-  .dop-price-section{background:rgba(255,255,255,.45)}.dop-price-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.dop-price-grid article{display:flex;min-height:220px;flex-direction:column;padding:23px;border:1px solid rgba(183,101,118,.12);border-radius:24px;background:#fff}.dop-price-grid article>span{color:#746b72;font-size:.62rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.dop-price-grid article>strong{margin:18px 0 8px;color:#17151d;font-size:clamp(1.65rem,2.8vw,2.7rem);letter-spacing:-.05em}.dop-price-grid article p{margin:0;color:#70676f;font-size:.83rem;line-height:1.5}.dop-price-grid article a{margin-top:auto;padding-top:17px;color:#0f7773;font-size:.72rem;font-weight:850;text-decoration:none}.dop-price-grid .dop-price-featured{border-color:rgba(56,187,181,.22);background:linear-gradient(145deg,rgba(219,246,243,.72),#fff)}
-  .dop-process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.dop-process-grid article{padding:20px;border:1px solid rgba(183,101,118,.12);border-radius:22px;background:rgba(255,255,255,.88)}.dop-process-grid span{color:#ca718b;font-size:.7rem;font-weight:900}.dop-process-grid h3{margin:24px 0 8px;color:#17151d;font-size:1.15rem}.dop-process-grid p{margin:0;color:#6e6670;font-size:.8rem;line-height:1.5}
-  .dop-problem-section,.dop-old-section{padding:50px 0}.dop-problem-card{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.7fr);gap:24px;align-items:center;padding:clamp(23px,4vw,38px);border:1px solid rgba(56,187,181,.14);border-radius:29px;background:rgba(219,246,243,.33)}.dop-problem-card>a{display:flex;min-height:130px;flex-direction:column;justify-content:space-between;padding:20px;border-radius:22px;background:#fff;color:inherit;text-decoration:none}.dop-problem-card>a span,.dop-old-links span,.dop-related-grid span{color:#776d75;font-size:.6rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.dop-problem-card>a strong,.dop-old-links strong,.dop-related-grid strong{color:#0f7773;font-size:.82rem;line-height:1.3}
-  .dop-old-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.75fr);gap:25px;align-items:center}.dop-old-links{display:grid;gap:8px}.dop-old-links a,.dop-related-grid a{display:flex;min-height:92px;flex-direction:column;justify-content:space-between;padding:17px;border:1px solid rgba(183,101,118,.12);border-radius:20px;background:rgba(255,255,255,.9);color:inherit;text-decoration:none}
-  .dop-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.dop-faq-list{display:grid;gap:8px;max-width:980px}.dop-faq-list details{border:1px solid rgba(183,101,118,.13);border-radius:20px;background:rgba(255,255,255,.88);overflow:hidden}.dop-faq-list summary{display:grid;grid-template-columns:1fr 38px;gap:12px;align-items:center;padding:17px 18px;cursor:pointer;list-style:none;color:#17151d;font-size:.9rem;font-weight:800}.dop-faq-list summary::-webkit-details-marker{display:none}.dop-faq-list summary span{display:grid;width:34px;height:34px;place-items:center;border-radius:50%;background:rgba(219,246,243,.7);color:#0f7773}.dop-faq-list details[open] summary span{transform:rotate(45deg)}.dop-faq-list details>div{padding:0 18px 18px}.dop-faq-list p{margin:0;color:#6e6670;font-size:.84rem;line-height:1.58}
-  .dop-final-section{padding:42px 0 90px}.dop-final-card{padding:clamp(27px,5vw,50px);border:1px solid rgba(56,187,181,.14);border-radius:32px;background:radial-gradient(circle at 90% 10%,rgba(56,187,181,.1),transparent 18rem),linear-gradient(145deg,rgba(255,242,246,.72),rgba(255,255,255,.95));text-align:center}.dop-final-card h2{max-width:900px;margin:0 auto;color:#17151d;font-size:clamp(2.15rem,4vw,4.1rem);line-height:1.02;letter-spacing:-.065em}.dop-final-card>p:not(.section-kicker){max-width:760px;margin:17px auto 0;color:#6e6670;line-height:1.62}.dop-final-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-width:820px;margin:24px auto 0}.dop-final-actions a{display:inline-flex;min-height:54px;align-items:center;justify-content:center;padding:0 15px;border-radius:999px;text-decoration:none;font-size:.86rem;font-weight:850}
-  @media(max-width:980px){.dop-hero-grid,.dop-content-grid,.dop-content-grid-reverse,.dop-problem-card,.dop-old-grid{grid-template-columns:1fr}.dop-three-grid,.dop-price-grid{grid-template-columns:1fr 1fr}.dop-process-grid,.dop-related-grid{grid-template-columns:1fr 1fr}.dop-soft-card{grid-template-columns:1fr}}
-  @media(max-width:760px){
-    .dop-hero{padding:37px 0 30px}.dop-hero-grid{gap:18px}.dop-hero h1{font-size:clamp(2.45rem,12vw,3.65rem);line-height:.98}.dop-lead{font-size:.94rem;line-height:1.58}.dop-hero-actions{display:grid;grid-template-columns:1fr}.dop-answer{padding:19px 16px;border-radius:23px}.dop-answer h2{font-size:1.75rem}
-    .dop-nav-section{padding-bottom:43px}.dop-nav{grid-auto-flow:column;grid-auto-columns:min(74vw,278px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}.dop-nav::-webkit-scrollbar{display:none}.dop-nav a{min-height:93px;padding:14px;border-radius:19px;scroll-snap-align:start}
-    .dop-decision-section,.dop-content-section,.dop-price-section,.dop-process-section,.dop-related-section,.dop-faq-section{padding:48px 0}.dop-heading h2,.dop-content-copy h2,.dop-soft-card h2,.dop-old-grid h2,.dop-problem-card h2{font-size:clamp(1.95rem,8.8vw,2.75rem);line-height:1.04}.dop-heading>p:not(.section-kicker),.dop-content-copy>p:not(.section-kicker),.dop-soft-card p,.dop-old-grid p,.dop-problem-card p{font-size:.87rem;line-height:1.57}.dop-three-grid,.dop-price-grid{display:grid;grid-auto-flow:column;grid-auto-columns:min(78vw,300px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.dop-three-grid::-webkit-scrollbar,.dop-price-grid::-webkit-scrollbar{display:none}.dop-decision-card,.dop-price-grid article{scroll-snap-align:start}.dop-soft-card{gap:10px;padding:20px 16px;border-radius:23px}.dop-process-grid,.dop-related-grid{grid-template-columns:1fr}.dop-process-grid article{padding:17px}.dop-problem-card{padding:19px 16px;border-radius:23px}.dop-final-section{padding:30px 0 70px}.dop-final-card{padding:27px 17px;border-radius:25px}.dop-final-card h2{font-size:clamp(2rem,9vw,2.85rem)}.dop-final-actions{grid-template-columns:1fr;gap:8px}
+  .guide-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 90% 7%, rgba(56, 187, 181, .065), transparent 28rem),
+      linear-gradient(180deg, #fff 0%, #fffafb 48%, #fff 100%);
   }
-  @media(max-width:390px){.dop-nav{grid-auto-columns:80vw}.dop-checklist>div{grid-template-columns:32px 1fr}.dop-checklist span{width:32px;height:32px}}
 
-
-  /* === ALIGN 2026: ten sam jezyk wizualny co Brwi po latach / Laser === */
-  .dop-page *, .dop-page *::before, .dop-page *::after { box-sizing: border-box; }
-  .dop-page main, .dop-page section, .dop-page .container, .dop-page article, .dop-page div, .dop-page aside { min-width: 0; }
-
-  .dop-hero { position: relative; overflow: hidden; padding: 144px 0 48px; }
-  .dop-hero-glow { position:absolute; border-radius:999px; pointer-events:none; }
-  .dop-hero-glow-one { top:2rem; right:-12rem; width:38rem; height:38rem; background:radial-gradient(circle,rgba(56,187,181,.18),transparent 68%); }
-  .dop-hero-glow-two { left:-10rem; bottom:-12rem; width:34rem; height:34rem; background:radial-gradient(circle,rgba(201,127,143,.14),transparent 68%); }
-  .dop-hero-grid { position:relative; z-index:1; grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr); gap:18px; align-items:stretch; }
-  .dop-hero-copy, .dop-answer, .dop-nav a, .dop-decision-card, .dop-price-grid article, .dop-process-grid article, .dop-checklist>div, .dop-problem-card, .dop-old-grid, .dop-related-grid a, .dop-faq-list details, .dop-final-card { border:1px solid rgba(183,101,118,.14); box-shadow:0 16px 48px rgba(89,53,67,.055); }
-  .dop-hero-copy { padding:clamp(32px,4.8vw,58px); border-radius:36px; background:rgba(255,255,255,.88); }
-  .dop-meta { gap:6px; margin-bottom:16px; }
-  .dop-meta span { min-height:28px; display:inline-flex; align-items:center; padding:0 10px; background:rgba(255,248,251,.94); color:var(--color-muted,#6e6670); font-size:.63rem; font-weight:790; letter-spacing:.07em; }
-  .dop-meta span:first-child { background:rgba(56,187,181,.12); color:var(--color-turquoise-dark,#0f7773); }
-  .dop-hero h1 { max-width:1000px; font-size:clamp(2.72rem,4.55vw,5rem); font-weight:780; line-height:1.01; letter-spacing:-.071em; }
-  .dop-lead { max-width:860px; margin-top:21px; font-size:clamp(1.02rem,1.2vw,1.14rem); line-height:1.65; }
-
-  .dop-answer { display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(27px,3.7vw,42px); border-color:rgba(183,101,118,.14); border-radius:36px; color:#fff; background:radial-gradient(circle at 88% 12%,rgba(255,255,255,.22),transparent 13rem),linear-gradient(145deg,#0f7773 0%,#1aa5a0 48%,#138a86 100%); box-shadow:0 26px 68px rgba(35,156,150,.18); }
-  .dop-answer>span { margin:0 auto 38px 0; color:rgba(255,255,255,.72); font-size:.67rem; font-weight:850; letter-spacing:.14em; }
-  .dop-answer h2 { margin:0; color:#fff; font-size:clamp(2rem,3vw,3.1rem); font-weight:790; line-height:1; letter-spacing:-.06em; }
-  .dop-answer p { margin:16px 0 0; color:rgba(255,255,255,.9); font-size:.89rem; line-height:1.57; }
-  .dop-answer strong { color:#fff; }
-  .dop-hero-actions { gap:7px; margin-top:17px; }
-  .dop-hero-actions a { min-height:40px; padding:0 13px; border:1px solid rgba(255,255,255,.24); background:rgba(255,255,255,.11); color:#fff; font-size:.7rem; }
-  .dop-primary, .dop-secondary { background:rgba(255,255,255,.11); color:#fff; }
-
-  .dop-nav-section { padding:0 0 35px; scroll-margin-top:96px; }
-  .dop-nav-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:17px; }
-  .dop-nav-heading h2, .dop-heading h2, .dop-content-copy h2, .dop-soft-card h2, .dop-old-grid h2, .dop-problem-card h2, .dop-final-card h2 { margin:0; color:var(--color-text,#17151d); font-size:clamp(2.05rem,3.45vw,3.7rem); font-weight:770; line-height:1.02; letter-spacing:-.066em; }
-  .dop-nav-heading>p { margin:0 0 4px; color:var(--color-muted,#6e6670); font-size:.78rem; }
-  .dop-nav { grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; }
-  .dop-nav a { min-height:190px; padding:20px; border-radius:23px; background:radial-gradient(circle at 92% 8%,rgba(56,187,181,.07),transparent 11rem),rgba(255,255,255,.91); }
-  .dop-nav span { color:#9d5c70; font-size:.58rem; font-weight:820; }
-  .dop-nav strong { margin-top:auto; color:var(--color-text,#17151d); font-size:1.22rem; font-weight:780; line-height:1.08; letter-spacing:-.04em; }
-
-  .dop-decision-section,.dop-content-section,.dop-price-section,.dop-process-section,.dop-related-section,.dop-faq-section { padding:58px 0; }
-  .dop-soft-section,.dop-problem-section,.dop-old-section { padding:58px 0; }
-  .dop-decision-card,.dop-price-grid article,.dop-process-grid article { border-radius:23px; box-shadow:0 16px 48px rgba(89,53,67,.045); }
-  .dop-decision-card { min-height:250px; display:flex; flex-direction:column; }
-  .dop-decision-card a { margin-top:auto; padding-top:16px; }
-  .dop-price-grid article { min-height:230px; }
-  .dop-price-featured { background:linear-gradient(145deg,rgba(219,246,243,.76),rgba(255,255,255,.94)); }
-  .dop-process-grid article { min-height:205px; }
-  .dop-problem-card,.dop-old-grid { border-radius:28px; background:rgba(255,255,255,.9); }
-  .dop-faq-list details { border-radius:18px; background:rgba(255,255,255,.91); }
-
-  .dop-final-card { max-width:1040px; padding:clamp(30px,5vw,58px); border-radius:34px; background:radial-gradient(circle at 85% 15%,rgba(56,187,181,.11),transparent 16rem),rgba(255,255,255,.94); text-align:center; }
-  .dop-final-card>p:not(.section-kicker) { max-width:760px; margin:16px auto 0; }
-  .dop-final-actions { max-width:900px; margin:24px auto 0; }
-  .dop-final-secondary { display:flex; justify-content:center; flex-wrap:wrap; gap:7px; margin-top:12px; }
-  .dop-final-secondary a { display:inline-flex; min-height:38px; align-items:center; padding:0 12px; border:1px solid rgba(56,187,181,.14); border-radius:999px; background:rgba(255,255,255,.62); color:#0f7773; font-size:.69rem; font-weight:800; text-decoration:none; }
-  .dop-back-link { display:inline-flex; margin-top:18px; color:var(--color-muted,#6e6670); font-size:.7rem; font-weight:760; text-decoration:none; }
-
-  @media(max-width:760px){
-    .dop-page :global(.section-kicker){min-height:27px;margin-bottom:11px;padding-inline:9px;font-size:.57rem;letter-spacing:.105em}
-    .dop-hero{padding:103px 0 25px}
-    .dop-hero-grid{gap:9px}
-    .dop-hero-copy,.dop-answer{border-radius:23px}
-    .dop-hero-copy{padding:21px 16px 20px}
-    .dop-meta{gap:4px;margin-bottom:13px}
-    .dop-meta span{min-height:24px;padding-inline:7px;font-size:.54rem;letter-spacing:.045em}
-    .dop-hero h1{font-size:clamp(2rem,9.4vw,2.82rem);line-height:1.02;letter-spacing:-.06em}
-    .dop-lead{margin-top:14px;font-size:.88rem;line-height:1.53}
-    .dop-answer{padding:19px 16px}
-    .dop-answer>span{margin-bottom:17px;font-size:.58rem}
-    .dop-answer h2{font-size:2.05rem}
-    .dop-answer p{margin-top:12px;font-size:.8rem;line-height:1.5}
-    .dop-hero-actions{display:grid;grid-template-columns:1fr;width:100%;margin-top:13px}
-    .dop-hero-actions a{justify-content:center;padding-inline:7px;font-size:.64rem;text-align:center}
-    .dop-nav-section{padding-bottom:20px}
-    .dop-nav-heading{display:block;margin-bottom:13px}
-    .dop-nav-heading h2,.dop-heading h2,.dop-content-copy h2,.dop-soft-card h2,.dop-old-grid h2,.dop-problem-card h2,.dop-final-card h2{font-size:clamp(1.84rem,8.3vw,2.55rem);line-height:1.04;letter-spacing:-.057em}
-    .dop-nav-heading>p{margin-top:9px;font-size:.7rem}
-    .dop-nav{display:grid;grid-auto-flow:column;grid-auto-columns:min(78vw,300px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 9px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-    .dop-nav::-webkit-scrollbar{display:none}
-    .dop-nav a{min-height:230px;padding:17px;border-radius:20px;scroll-snap-align:start}
-    .dop-nav strong{font-size:1.27rem}
-    .dop-decision-section,.dop-content-section,.dop-price-section,.dop-process-section,.dop-related-section,.dop-faq-section,.dop-soft-section,.dop-problem-section,.dop-old-section{padding:44px 0}
-    .dop-three-grid,.dop-price-grid,.dop-process-grid{grid-template-columns:1fr}
-    .dop-content-grid,.dop-content-grid-reverse,.dop-old-grid{grid-template-columns:1fr}
-    .dop-decision-card,.dop-price-grid article,.dop-process-grid article{min-height:0;padding:18px;border-radius:20px}
-    .dop-problem-card,.dop-old-grid{padding:18px;border-radius:22px}
-    .dop-final-card{padding:24px 16px;border-radius:24px}
-    .dop-final-secondary{display:grid;grid-template-columns:1fr 1fr}
-    .dop-final-secondary a{justify-content:center;text-align:center}
+  .guide-page :global(.container) {
+    width: min(1180px, calc(100% - 32px));
   }
-  @media(max-width:390px){.dop-nav{grid-auto-columns:81vw}.dop-final-secondary{grid-template-columns:1fr}}
+
+  .guide-eyebrow {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 29px;
+    align-items: center;
+    margin: 0 0 14px;
+    padding: 0 11px;
+    border: 1px solid rgba(56, 187, 181, .18);
+    border-radius: 999px;
+    background: rgba(219, 246, 243, .72);
+    color: #0f7773;
+    font-size: .62rem;
+    font-weight: 850;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .guide-hero {
+    padding: clamp(105px, 10vw, 142px) 0 35px;
+  }
+
+  .guide-hero-card {
+    padding: clamp(28px, 4.4vw, 54px);
+    border: 1px solid rgba(183, 101, 118, .12);
+    border-radius: 34px;
+    background: rgba(255, 255, 255, .94);
+    box-shadow: 0 20px 58px rgba(76, 49, 60, .065);
+  }
+
+  .guide-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 17px;
+  }
+
+  .guide-meta span {
+    display: inline-flex;
+    min-height: 28px;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid rgba(183, 101, 118, .12);
+    border-radius: 999px;
+    background: #fff9fa;
+    color: #746872;
+    font-size: .61rem;
+    font-weight: 780;
+    letter-spacing: .045em;
+  }
+
+  .guide-hero h1,
+  .guide-heading h2,
+  .guide-split h2,
+  .guide-expert h2,
+  .guide-final h2,
+  .guide-bridge h2 {
+    margin: 0;
+    color: #17151d;
+    font-weight: 780;
+    line-height: 1.02;
+    letter-spacing: -.06em;
+  }
+
+  .guide-hero h1 {
+    max-width: 1040px;
+    font-size: clamp(2.65rem, 5.7vw, 5.25rem);
+  }
+
+  .guide-lead {
+    max-width: 890px;
+    margin: 20px 0 0;
+    color: #675f68;
+    font-size: clamp(.98rem, 1.35vw, 1.14rem);
+    line-height: 1.62;
+  }
+
+  .guide-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 25px;
+  }
+
+  .guide-hero-actions a {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px;
+    border-radius: 999px;
+    font-size: .79rem;
+    font-weight: 850;
+    text-decoration: none;
+  }
+
+  .guide-btn-primary {
+    background: linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
+    color: #fff;
+    box-shadow: 0 12px 26px rgba(15, 143, 120, .16);
+  }
+
+  .guide-btn-secondary {
+    border: 1px solid rgba(56, 187, 181, .17);
+    background: #fff;
+    color: #0f7773;
+  }
+
+  .guide-answer {
+    margin-top: 12px;
+    padding: clamp(24px, 4vw, 42px);
+    border: 1px solid rgba(56, 187, 181, .18);
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 92% 12%, rgba(255, 255, 255, .48), transparent 14rem),
+      linear-gradient(135deg, rgba(221, 247, 243, .98), rgba(237, 250, 248, .92));
+    box-shadow: 0 18px 48px rgba(15, 143, 120, .075);
+  }
+
+  .guide-answer-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #0f7773;
+    font-size: .66rem;
+    font-weight: 900;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+
+  .guide-answer-value {
+    display: block;
+    margin-bottom: 8px;
+    color: #0b7868;
+    font-size: clamp(3.2rem, 6.2vw, 5.8rem);
+    font-weight: 860;
+    line-height: .9;
+    letter-spacing: -.065em;
+  }
+
+  .guide-answer h2 {
+    max-width: 900px;
+    margin: 0;
+    color: #17151d;
+    font-size: clamp(1.55rem, 2.7vw, 2.55rem);
+    line-height: 1.06;
+    letter-spacing: -.045em;
+  }
+
+  .guide-answer p {
+    max-width: 900px;
+    margin: 15px 0 0;
+    color: #4e5d59;
+    font-size: .94rem;
+    line-height: 1.62;
+  }
+
+  .guide-answer small {
+    display: block;
+    margin-top: 12px;
+    color: #64706d;
+    font-size: .68rem;
+    line-height: 1.45;
+  }
+
+  .guide-anchor-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 12px;
+  }
+
+  .guide-anchor-nav a {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    padding: 0 13px;
+    border: 1px solid rgba(183, 101, 118, .13);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .9);
+    color: #625a62;
+    font-size: .68rem;
+    font-weight: 820;
+    text-decoration: none;
+  }
+
+  .guide-section {
+    padding: 68px 0;
+    scroll-margin-top: 100px;
+  }
+
+  .guide-section-soft {
+    background: rgba(255, 248, 250, .58);
+    border-block: 1px solid rgba(183, 101, 118, .07);
+  }
+
+  .guide-heading {
+    max-width: 970px;
+    margin-bottom: 24px;
+  }
+
+  .guide-heading h2,
+  .guide-split h2,
+  .guide-expert h2,
+  .guide-final h2,
+  .guide-bridge h2 {
+    font-size: clamp(2.15rem, 4vw, 4rem);
+  }
+
+  .guide-heading > p:not(.guide-eyebrow),
+  .guide-split p,
+  .guide-expert p,
+  .guide-final p {
+    max-width: 860px;
+    margin: 15px 0 0;
+    color: #6e6670;
+    font-size: .95rem;
+    line-height: 1.65;
+  }
+
+  .guide-cards {
+    display: grid;
+    gap: 10px;
+  }
+
+  .guide-cards-three,
+  .guide-price-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .guide-cards-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guide-card {
+    display: flex;
+    min-height: 255px;
+    flex-direction: column;
+    padding: 23px;
+    border: 1px solid rgba(183, 101, 118, .13);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .94);
+    box-shadow: 0 13px 36px rgba(83, 53, 65, .045);
+  }
+
+  .guide-card-accent {
+    border-color: rgba(56, 187, 181, .18);
+    background:
+      radial-gradient(circle at 92% 10%, rgba(255, 255, 255, .55), transparent 10rem),
+      rgba(224, 248, 245, .72);
+  }
+
+  .guide-card > span,
+  .guide-related span,
+  .guide-expert aside > span,
+  .guide-feature-value span {
+    color: #0f7773;
+    font-size: .62rem;
+    font-weight: 880;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+  .guide-card h3 {
+    margin: 14px 0 0;
+    color: #1b181f;
+    font-size: 1.25rem;
+    line-height: 1.13;
+    letter-spacing: -.03em;
+  }
+
+  .guide-card p {
+    margin: 12px 0 0;
+    color: #706871;
+    font-size: .82rem;
+    line-height: 1.56;
+  }
+
+  .guide-card a {
+    width: fit-content;
+    margin-top: auto;
+    padding-top: 18px;
+    color: #0f7773;
+    font-size: .74rem;
+    font-weight: 850;
+    text-decoration: none;
+  }
+
+  .guide-price {
+    display: block;
+    margin-top: 13px;
+    color: #17151d;
+    font-size: clamp(2rem, 3.1vw, 3rem);
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: -.055em;
+  }
+
+  .guide-price-text {
+    font-size: clamp(1.55rem, 2.35vw, 2.2rem);
+  }
+
+  .guide-number-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .guide-number-grid article {
+    padding: 22px;
+    border: 1px solid rgba(183, 101, 118, .12);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, .94);
+  }
+
+  .guide-number-grid article > span {
+    color: #ca718b;
+    font-size: .66rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+  }
+
+  .guide-number-grid h3 {
+    margin: 19px 0 0;
+    color: #1b181f;
+    font-size: 1.08rem;
+    line-height: 1.18;
+  }
+
+  .guide-number-grid p {
+    margin: 9px 0 0;
+    color: #706871;
+    font-size: .79rem;
+    line-height: 1.54;
+  }
+
+  .guide-split {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .guide-split .guide-heading {
+    margin: 0;
+    padding: 28px;
+    border: 1px solid rgba(183, 101, 118, .11);
+    border-radius: 26px;
+    background: #fff;
+  }
+
+  .guide-text-card {
+    padding: 28px;
+    border: 1px solid rgba(56, 187, 181, .15);
+    border-radius: 26px;
+    background: rgba(224, 248, 245, .48);
+  }
+
+  .guide-text-card p {
+    margin: 0;
+  }
+
+  .guide-text-card p + p {
+    margin-top: 13px;
+  }
+
+  .guide-text-card a {
+    display: inline-flex;
+    margin-top: 18px;
+    color: #0f7773;
+    font-size: .78rem;
+    font-weight: 850;
+    text-decoration: none;
+  }
+
+  .guide-feature-row {
+    display: grid;
+    grid-template-columns: minmax(240px, .45fr) minmax(0, 1.55fr);
+    gap: 10px;
+  }
+
+  .guide-feature-value,
+  .guide-feature-row > p {
+    margin: 0;
+    padding: 26px;
+    border-radius: 24px;
+  }
+
+  .guide-feature-value {
+    border: 1px solid rgba(56, 187, 181, .17);
+    background: rgba(224, 248, 245, .72);
+  }
+
+  .guide-feature-value strong {
+    display: block;
+    margin-top: 12px;
+    color: #17151d;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: -.045em;
+  }
+
+  .guide-feature-row > p {
+    border: 1px solid rgba(183, 101, 118, .11);
+    background: #fff;
+    color: #6e6670;
+    font-size: .9rem;
+    line-height: 1.62;
+  }
+
+  .guide-bridge {
+    padding: 12px 0 22px;
+  }
+
+  .guide-bridge-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 25px 28px;
+    border: 1px solid rgba(56, 187, 181, .14);
+    border-radius: 26px;
+    background: rgba(224, 248, 245, .42);
+  }
+
+  .guide-bridge h2 {
+    max-width: 720px;
+    font-size: clamp(1.65rem, 2.6vw, 2.6rem);
+  }
+
+  .guide-bridge-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  .guide-bridge-actions a {
+    display: inline-flex;
+    min-height: 43px;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: #fff;
+    color: #0f7773;
+    font-size: .72rem;
+    font-weight: 850;
+    text-decoration: none;
+  }
+
+  .guide-expert {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, .65fr);
+    gap: 18px;
+    padding: clamp(26px, 4vw, 42px);
+    border: 1px solid rgba(183, 101, 118, .12);
+    border-radius: 30px;
+    background: #fff;
+    box-shadow: 0 16px 44px rgba(83, 53, 65, .05);
+  }
+
+  .guide-expert aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 19px;
+    border: 1px solid rgba(56, 187, 181, .14);
+    border-radius: 20px;
+    background: rgba(224, 248, 245, .48);
+  }
+
+  .guide-expert aside strong {
+    margin-top: 6px;
+    color: #1b181f;
+    font-size: .86rem;
+  }
+
+  .guide-expert aside a {
+    margin-top: 15px;
+    color: #0f7773;
+    font-size: .72rem;
+    font-weight: 850;
+    text-decoration: none;
+  }
+
+  .guide-related {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .guide-related a {
+    display: flex;
+    min-height: 115px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 17px;
+    border: 1px solid rgba(183, 101, 118, .12);
+    border-radius: 21px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .guide-related strong {
+    color: #0f7773;
+    font-size: .78rem;
+    line-height: 1.3;
+  }
+
+  .guide-faq {
+    display: grid;
+    gap: 7px;
+    max-width: 980px;
+  }
+
+  .guide-faq details {
+    overflow: hidden;
+    border: 1px solid rgba(183, 101, 118, .12);
+    border-radius: 18px;
+    background: #fff;
+  }
+
+  .guide-faq summary {
+    display: flex;
+    min-height: 62px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 15px 18px;
+    color: #252128;
+    font-size: .86rem;
+    font-weight: 820;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .guide-faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .guide-faq summary span {
+    color: #0f7773;
+    font-size: 1.1rem;
+  }
+
+  .guide-faq details > div {
+    padding: 0 18px 17px;
+  }
+
+  .guide-faq p {
+    margin: 0;
+    color: #706871;
+    font-size: .81rem;
+    line-height: 1.58;
+  }
+
+  .guide-source-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .guide-source-links a {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    padding: 0 13px;
+    border: 1px solid rgba(56, 187, 181, .14);
+    border-radius: 999px;
+    background: #fff;
+    color: #0f7773;
+    font-size: .69rem;
+    font-weight: 820;
+    text-decoration: none;
+  }
+
+  .guide-final {
+    padding: 28px 0 76px;
+  }
+
+  .guide-final-card {
+    padding: clamp(30px, 5vw, 56px);
+    border: 1px solid rgba(183, 101, 118, .12);
+    border-radius: 32px;
+    background:
+      radial-gradient(circle at 88% 12%, rgba(56, 187, 181, .09), transparent 16rem),
+      #fff;
+    text-align: center;
+    box-shadow: 0 18px 54px rgba(83, 53, 65, .055);
+  }
+
+  .guide-final-card .guide-eyebrow {
+    margin-inline: auto;
+  }
+
+  .guide-final-card > p:not(.guide-eyebrow) {
+    margin-inline: auto;
+  }
+
+  .guide-final-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+    max-width: 900px;
+    margin: 24px auto 0;
+  }
+
+  .guide-final-actions a {
+    display: inline-flex;
+    min-height: 55px;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 15px;
+    border-radius: 999px;
+    font-size: .9rem;
+    font-weight: 830;
+    text-decoration: none;
+  }
+
+  .guide-final-secondary {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 11px;
+  }
+
+  .guide-final-secondary a {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    padding: 0 12px;
+    border: 1px solid rgba(56, 187, 181, .13);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .82);
+    color: #0f7773;
+    font-size: .68rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  @media (max-width: 900px) {
+    .guide-cards-three,
+    .guide-price-cards,
+    .guide-number-grid,
+    .guide-related {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .guide-split,
+    .guide-expert {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .guide-page :global(.container) {
+      width: min(100% - 24px, 1180px);
+    }
+
+    .guide-hero {
+      padding: 92px 0 23px;
+    }
+
+    .guide-hero-card {
+      padding: 20px 15px 19px;
+      border-radius: 23px;
+    }
+
+    .guide-eyebrow {
+      min-height: 27px;
+      margin-bottom: 10px;
+      padding-inline: 9px;
+      font-size: .56rem;
+      letter-spacing: .1em;
+    }
+
+    .guide-meta {
+      gap: 4px;
+      margin-bottom: 13px;
+    }
+
+    .guide-meta span {
+      min-height: 24px;
+      padding-inline: 7px;
+      font-size: .53rem;
+    }
+
+    .guide-hero h1 {
+      font-size: clamp(2.02rem, 9.6vw, 2.85rem);
+      line-height: 1.01;
+      letter-spacing: -.06em;
+    }
+
+    .guide-lead {
+      margin-top: 13px;
+      font-size: .86rem;
+      line-height: 1.54;
+    }
+
+    .guide-hero-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin-top: 17px;
+    }
+
+    .guide-hero-actions a {
+      min-height: 43px;
+      padding-inline: 9px;
+      font-size: .61rem;
+      text-align: center;
+    }
+
+    .guide-answer {
+      margin-top: 8px;
+      padding: 20px 16px;
+      border-radius: 22px;
+    }
+
+    .guide-answer-label {
+      margin-bottom: 9px;
+      font-size: .56rem;
+    }
+
+    .guide-answer-value {
+      margin-bottom: 7px;
+      font-size: 3.45rem;
+    }
+
+    .guide-answer h2 {
+      font-size: 1.78rem;
+      line-height: 1.04;
+    }
+
+    .guide-answer p {
+      margin-top: 11px;
+      font-size: .79rem;
+      line-height: 1.53;
+    }
+
+    .guide-anchor-nav {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      margin-inline: -12px;
+      padding: 3px 12px 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .guide-anchor-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .guide-anchor-nav a {
+      min-height: 36px;
+      font-size: .61rem;
+      white-space: nowrap;
+    }
+
+    .guide-section {
+      padding: 44px 0;
+    }
+
+    .guide-heading {
+      margin-bottom: 16px;
+    }
+
+    .guide-heading h2,
+    .guide-split h2,
+    .guide-expert h2,
+    .guide-final h2,
+    .guide-bridge h2 {
+      font-size: clamp(1.85rem, 8.3vw, 2.52rem);
+      line-height: 1.03;
+      letter-spacing: -.057em;
+    }
+
+    .guide-heading > p:not(.guide-eyebrow),
+    .guide-split p,
+    .guide-expert p,
+    .guide-final p {
+      margin-top: 11px;
+      font-size: .83rem;
+      line-height: 1.56;
+    }
+
+    .guide-cards-three,
+    .guide-price-cards {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: min(78vw, 300px);
+      grid-template-columns: none;
+      gap: 8px;
+      margin-inline: -12px;
+      padding: 2px 12px 9px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .guide-cards-three::-webkit-scrollbar,
+    .guide-price-cards::-webkit-scrollbar {
+      display: none;
+    }
+
+    .guide-cards-three .guide-card,
+    .guide-price-cards .guide-card {
+      scroll-snap-align: start;
+    }
+
+    .guide-cards-two,
+    .guide-number-grid,
+    .guide-related {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-card {
+      min-height: 226px;
+      padding: 18px;
+      border-radius: 20px;
+    }
+
+    .guide-card h3 {
+      font-size: 1.16rem;
+    }
+
+    .guide-number-grid {
+      gap: 7px;
+    }
+
+    .guide-number-grid article {
+      padding: 17px;
+      border-radius: 19px;
+    }
+
+    .guide-split {
+      gap: 8px;
+    }
+
+    .guide-split .guide-heading,
+    .guide-text-card {
+      padding: 18px;
+      border-radius: 21px;
+    }
+
+    .guide-feature-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .guide-feature-value,
+    .guide-feature-row > p {
+      padding: 18px;
+      border-radius: 20px;
+    }
+
+    .guide-bridge {
+      padding: 5px 0 16px;
+    }
+
+    .guide-bridge-card {
+      display: block;
+      padding: 18px;
+      border-radius: 21px;
+    }
+
+    .guide-bridge-actions {
+      justify-content: flex-start;
+      margin-top: 15px;
+    }
+
+    .guide-expert {
+      gap: 13px;
+      padding: 19px 16px;
+      border-radius: 23px;
+    }
+
+    .guide-expert aside {
+      padding: 15px;
+      border-radius: 18px;
+    }
+
+    .guide-related a {
+      min-height: 91px;
+      padding: 15px;
+      border-radius: 18px;
+    }
+
+    .guide-faq summary {
+      min-height: 58px;
+      padding: 13px 15px;
+      font-size: .79rem;
+    }
+
+    .guide-faq details > div {
+      padding: 0 15px 15px;
+    }
+
+    .guide-final {
+      padding: 16px 0 56px;
+    }
+
+    .guide-final-card {
+      padding: 23px 15px;
+      border-radius: 23px;
+    }
+
+    .guide-final-actions {
+      grid-template-columns: 1fr;
+      gap: 7px;
+      margin-top: 19px;
+    }
+
+    .guide-final-actions a {
+      min-height: 52px;
+      font-size: .84rem;
+    }
+
+    .guide-final-secondary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .guide-final-secondary a {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .guide-hero-actions {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-cards-three,
+    .guide-price-cards {
+      grid-auto-columns: 82vw;
+    }
+
+    .guide-final-secondary {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
-'@
-
-Set-Content -Path $articlePath -Value $article -Encoding UTF8
-Write-Host "OK - utworzono nowy artykul: $articlePath" -ForegroundColor Green
-
-# ------------------------------------------------------------
-# 2. PORADNIK HUB — dodaj nowy wpis do articleCards automatycznie
-# ------------------------------------------------------------
-$hubPath = $null
-if (Test-Path "src\pages\poradnik.astro") {
-  $hubPath = "src\pages\poradnik.astro"
-} elseif (Test-Path "src\pages\poradnik\index.astro") {
-  $hubPath = "src\pages\poradnik\index.astro"
-}
-
-if ($hubPath) {
-  $hub = Get-Content -Raw -Encoding UTF8 $hubPath
-
-  if ($hub -notmatch '/poradnik/dopigmentowanie-brwi-permanentnych/') {
-    $cardsMatch = [regex]::Match($hub, '(?s)const articleCards\s*=\s*\[(.*?)\];')
-
-    if ($cardsMatch.Success) {
-      $cardsBlock = $cardsMatch.Value
-      $numberMatches = [regex]::Matches($cardsBlock, '"number"\s*:\s*"(\d+)"')
-      $maxNumber = 0
-      foreach ($m in $numberMatches) {
-        $n = [int]$m.Groups[1].Value
-        if ($n -gt $maxNumber) { $maxNumber = $n }
-      }
-      $nextNumber = ($maxNumber + 1).ToString("00")
-
-      $newCard = @"
-,
-  {
-    "slug": "dopigmentowanie-brwi-permanentnych",
-    "title": "Dopigmentowanie brwi permanentnych — kiedy jest potrzebne i ile trwa?",
-    "category": "Gojenie i dopigmentowanie",
-    "description": "Dopigmentowanie brwi permanentnych: kiedy jest potrzebne, czy zawsze trzeba je robić, ile trwa, ile kosztuje i czym różni się od odświeżenia brwi.",
-    "href": "/poradnik/dopigmentowanie-brwi-permanentnych/",
-    "readingTime": "8–10 minut",
-    "number": "$nextNumber",
-    "groups": [
-      "brwi",
-      "gojenie",
-      "korekta"
-    ],
-    "featured": false
-  }
-"@
-
-      $newCardsBlock = $cardsBlock.Substring(0, $cardsBlock.LastIndexOf("];")) + $newCard + "`r`n];"
-      $hub = $hub.Substring(0, $cardsMatch.Index) + $newCardsBlock + $hub.Substring($cardsMatch.Index + $cardsMatch.Length)
-      Set-Content -Path $hubPath -Value $hub -Encoding UTF8
-      Write-Host "OK - dodano wpis do Poradnika jako numer $nextNumber" -ForegroundColor Green
-    } else {
-      Write-Warning "Nie znaleziono tablicy articleCards w $hubPath. Artykul zostal utworzony, ale hub nie zostal zmieniony."
-    }
-  } else {
-    Write-Host "INFO - wpis juz istnieje w Poradniku, pomijam." -ForegroundColor DarkGray
-  }
-} else {
-  Write-Warning "Nie znaleziono $hubPath"
-}
-
-# ------------------------------------------------------------
-# 3. SITEMAP — dodaj nowy URL bez usuwania obecnych wpisow
-# ------------------------------------------------------------
-$sitemapPath = "src\pages\sitemap.xml.ts"
-if (Test-Path $sitemapPath) {
-  $sitemap = Get-Content -Raw -Encoding UTF8 $sitemapPath
-  $newUrl = '/poradnik/dopigmentowanie-brwi-permanentnych/'
-
-  if (-not $sitemap.Contains($newUrl)) {
-    $needle = '    path: "/sercemmalowane/",'
-    $idx = $sitemap.IndexOf($needle)
-
-    if ($idx -ge 0) {
-      $start = $sitemap.LastIndexOf("  {", $idx)
-      if ($start -lt 0) { throw "Nie znaleziono poczatku wpisu /sercemmalowane/ w sitemap." }
-
-      $sitemapEntry = @'
-  {
-    path: "/poradnik/dopigmentowanie-brwi-permanentnych/",
-    priority: "0.82",
-    changefreq: "monthly"
-  },
-'@
-
-      $sitemap = $sitemap.Substring(0, $start) + $sitemapEntry + "`r`n" + $sitemap.Substring($start)
-      Set-Content -Path $sitemapPath -Value $sitemap -Encoding UTF8
-      Write-Host "OK - dodano URL do sitemap.xml.ts" -ForegroundColor Green
-    } else {
-      Write-Warning "Nie znaleziono markera /sercemmalowane/ w sitemap."
-    }
-  } else {
-    Write-Host "INFO - URL juz istnieje w sitemap, pomijam." -ForegroundColor DarkGray
-  }
-} else {
-  Write-Warning "Nie znaleziono $sitemapPath"
-}
-
-# ------------------------------------------------------------
-# 4. BRWI SERVICE — dodaj mocny internal link z glownej uslugi
-# ------------------------------------------------------------
-$browPath = "src\pages\makijaz-permanentny-brwi.astro"
-if (Test-Path $browPath) {
-  $brow = Get-Content -Raw -Encoding UTF8 $browPath
-
-  if ($brow -notmatch '/poradnik/dopigmentowanie-brwi-permanentnych/') {
-    $hrefMarker = 'href: "/poradnik/brwi-permanentne-po-latach/" },'
-    $idxHref = $brow.IndexOf($hrefMarker)
-
-    if ($idxHref -ge 0) {
-      $lineEnd = $brow.IndexOf("`n", $idxHref)
-      if ($lineEnd -lt 0) { $lineEnd = $brow.Length }
-      $insert = '            { label: "Dopigmentowanie", title: "Kiedy jest potrzebne? ->", href: "/poradnik/dopigmentowanie-brwi-permanentnych/" },' + "`r`n"
-      $brow = $brow.Insert($lineEnd + 1, $insert)
-      Set-Content -Path $browPath -Value $brow -Encoding UTF8
-      Write-Host "OK - dodano link Dopigmentowanie do sekcji szybkiej decyzji na stronie Brwi" -ForegroundColor Green
-    } else {
-      Write-Warning "Nie znaleziono linku Brwi po latach w stronie Brwi. Artykul i sitemap nadal zostana wdrozone."
-    }
-  } else {
-    Write-Host "INFO - strona Brwi juz linkuje do dopigmentowania, pomijam." -ForegroundColor DarkGray
-  }
-} else {
-  Write-Warning "Nie znaleziono $browPath"
-}
-
-# ------------------------------------------------------------
-# 5. WALIDACJA PLIKU / PODSUMOWANIE
-# ------------------------------------------------------------
-$created = Get-Content -Raw -Encoding UTF8 $articlePath
-$required = @(
-  'canonicalPath="/poradnik/dopigmentowanie-brwi-permanentnych/"',
-  'id="odpowiedz"',
-  'id="kiedy"',
-  'id="czy-konieczne"',
-  'id="ile-trwa"',
-  'id="cena"',
-  'id="faq"',
-  'class="final-form"',
-  'class="final-phone"',
-  'class="final-booksy"',
-  '/poradnik/odswiezenie-makijazu-permanentnego-cena/',
-  '/poradnik/brwi-permanentne-po-latach/',
-  '/poradnik/laserowe-usuwanie-brwi-permanentnych/'
-)
-
-foreach ($item in $required) {
-  if (-not $created.Contains($item)) {
-    throw "Walidacja nieudana. Brakuje: $item"
-  }
-}
-
-Write-Host "" 
-Write-Host "GOTOWE." -ForegroundColor Green
-Write-Host "Patch zrobil wszystko sam:" -ForegroundColor Cyan
-Write-Host "- utworzyl osobny artykul dopigmentowanie brwi"
-Write-Host "- dodal go do Poradnika"
-Write-Host "- dodal URL do sitemap"
-Write-Host "- dodal internal link z glownej strony Brwi"
-Write-Host "- zachowal osobne intencje: dopigmentowanie / odswiezenie / stare PMU"
-Write-Host "" 
-Write-Host "Teraz uruchom: npm.cmd run build" -ForegroundColor Yellow
