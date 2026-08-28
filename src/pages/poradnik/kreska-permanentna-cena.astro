@@ -15,9 +15,12 @@ const article = {
   datePublished: "2026-06-21",
   dateModified: "2026-08-20",
   readingTime: "8–10 minut",
-  description: "Kreska permanentna cena 2026. Sprawdź, ile kosztuje kreska zagęszczająca, dekoracyjna, dolna i cieniowana, co obejmuje cena oraz od czego zależy dobór kreski PMU.",
-  lead: "Cena kreski permanentnej zależy od rodzaju pigmentacji, zakresu pracy i budowy oka. Inaczej wyceniana jest subtelna kreska zagęszczająca linię rzęs, inaczej dekoracyjny eyeliner, kreska dolna albo połączenie kilku zakresów w jednej wizycie.",
-  shortAnswer: "W gabinecie Bogusława Herda w Bielsku-Białej kreska permanentna kosztuje od 500 zł za kreskę dolną, 800 zł za kreskę zagęszczającą, 1100 zł za kreskę dekoracyjną lub eyeliner oraz do 1400 zł przy połączeniu kreski dolnej z dekoracyjną. Ceny zabiegów oznaczonych gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące.",
+  description:
+    "Kreska permanentna cena 2026. Sprawdź, ile kosztuje kreska zagęszczająca, dekoracyjna, dolna i cieniowana, co obejmuje cena oraz od czego zależy dobór kreski PMU.",
+  lead:
+    "Cena kreski permanentnej zależy od rodzaju pigmentacji, zakresu pracy i budowy oka. Inaczej wyceniana jest subtelna kreska zagęszczająca linię rzęs, inaczej dekoracyjny eyeliner, kreska dolna albo połączenie kilku zakresów w jednej wizycie.",
+  shortAnswer:
+    "W gabinecie Bogusława Herda w Bielsku-Białej kreska permanentna kosztuje od 500 zł za kreskę dolną, 800 zł za kreskę zagęszczającą, 1100 zł za kreskę dekoracyjną lub eyeliner oraz do 1400 zł przy połączeniu kreski dolnej z dekoracyjną. Ceny zabiegów oznaczonych gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące.",
   canonicalPath: "/poradnik/kreska-permanentna-cena/",
   mainService: {
     href: "/makijaz-permanentny-oczu/",
@@ -26,6 +29,117 @@ const article = {
 };
 
 const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
+
+const priceCards = [
+  {
+    label: "Kreska dolna",
+    price: "500 zł",
+    text: "subtelne podkreślenie dolnej powieki, wymagające ostrożnego doboru efektu.",
+  },
+  {
+    label: "Kreska zagęszczająca",
+    price: "800 zł",
+    text: "pigmentacja przy linii rzęs, która ma optycznie zagęścić spojrzenie bez efektu mocnego eyelinera.",
+  },
+  {
+    label: "Kreska dekoracyjna",
+    price: "1100 zł",
+    text: "eyeliner lub kreska cieniowana, dobierana do powieki i oczekiwanego efektu.",
+  },
+  {
+    label: "Kreska dolna + dekoracyjna",
+    price: "1400 zł",
+    text: "większy zakres pracy obejmujący połączenie dolnej i górnej kreski dekoracyjnej.",
+  },
+];
+
+const kinds = [
+  {
+    title: "Efekt naturalny",
+    text: "Najczęściej uzyskuje się go przy kresce zagęszczającej, która podkreśla oko bez ciężkiego konturu.",
+  },
+  {
+    title: "Efekt makijażowy",
+    text: "Kreska dekoracyjna daje mocniejsze podkreślenie, ale musi być dopasowana do anatomii oka.",
+  },
+  {
+    title: "Kreska dolna",
+    text: "Nie zawsze jest najlepszym wyborem dla każdej osoby. Wymaga oceny budowy oka i oczekiwanego efektu.",
+  },
+  {
+    title: "Kreska cieniowana",
+    text: "Może dawać miększy rezultat niż klasyczny eyeliner, ale wymaga doświadczenia i kontroli techniki.",
+  },
+];
+
+const included = [
+  {
+    title: "Kwalifikacja oka",
+    text: "Przed zabiegiem trzeba ocenić budowę powieki, oczekiwania i możliwość wykonania konkretnego rodzaju kreski.",
+  },
+  {
+    title: "Dobór kreski",
+    text: "Nie każda kreska pasuje do każdego oka. Czasem lepiej wybrać subtelne zagęszczenie niż mocny eyeliner.",
+  },
+  {
+    title: "Zalecenia po zabiegu",
+    text: "Prawidłowe gojenie okolicy oka ma znaczenie dla komfortu, bezpieczeństwa i trwałości efektu.",
+  },
+  {
+    title: "Korekta po wygojeniu",
+    text: "Po czasie można ocenić, jak pigment przyjął się w skórze i czy efekt wymaga dopracowania.",
+  },
+];
+
+const authorityCards = [
+  {
+    title: "Precyzja techniczna",
+    text: "Kreska powinna podkreślać oko, a nie optycznie je obciążać lub postarzać.",
+  },
+  {
+    title: "Bezpieczna kwalifikacja",
+    text: "Nie każdy rodzaj kreski będzie dobrym wyborem przy każdej powiece i każdej skórze.",
+  },
+];
+
+const choiceCards = [
+  {
+    title: "Opadająca powieka",
+    text: "Przy opadającej powiece mocna kreska nie zawsze jest dobrym kierunkiem. Czasem lepszy jest delikatniejszy efekt.",
+  },
+  {
+    title: "Naturalne spojrzenie",
+    text: "Kreska powinna współgrać z rzęsami i okiem, a nie dominować nad twarzą.",
+  },
+];
+
+const faqItems = [
+  {
+    question: "Ile kosztuje kreska permanentna?",
+    answer:
+      "Cena zależy od rodzaju kreski. W gabinecie Bogusława Herda kreska dolna kosztuje 500 zł, kreska zagęszczająca 800 zł, kreska dekoracyjna 1100 zł, a połączenie kreski dolnej z dekoracyjną 1400 zł.",
+  },
+  {
+    question: "Ile kosztuje kreska zagęszczająca?",
+    answer:
+      "Kreska zagęszczająca kosztuje 800 zł. To subtelna pigmentacja przy linii rzęs, która ma optycznie zagęścić spojrzenie bez efektu mocnego eyelinera.",
+  },
+  {
+    question: "Ile kosztuje kreska dekoracyjna permanentna?",
+    answer:
+      "Kreska dekoracyjna, eyeliner lub kreska cieniowana kosztuje 1100 zł. Ostateczny wybór efektu zależy od budowy oka, powieki i kwalifikacji zabiegowej.",
+  },
+  {
+    question: "Czy cena kreski permanentnej obejmuje korektę?",
+    answer:
+      "W przypadku usług oznaczonych gwiazdką cena obejmuje zabieg główny wraz z korektą w terminie 1–3 miesiące.",
+  },
+  {
+    question: "Czy kreska dolna jest dla każdego?",
+    answer:
+      "Nie zawsze. Kreska dolna wymaga ostrożnej kwalifikacji, ponieważ może optycznie zmienić kształt oka. Decyzję najlepiej podjąć po rozmowie i ocenie budowy oka.",
+  },
+];
 
 const structuredData = [
   {
@@ -52,7 +166,7 @@ const structuredData = [
     },
     citation: [
       "https://pubmed.ncbi.nlm.nih.gov/38901732/",
-      "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet"
+      "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet",
     ],
   },
   {
@@ -84,48 +198,14 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Ile kosztuje kreska permanentna?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Cena zależy od rodzaju kreski. W gabinecie Bogusława Herda kreska dolna kosztuje 500 zł, kreska zagęszczająca 800 zł, kreska dekoracyjna 1100 zł, a połączenie kreski dolnej z dekoracyjną 1400 zł.",
-        },
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
       },
-      {
-        "@type": "Question",
-        name: "Ile kosztuje kreska zagęszczająca?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Kreska zagęszczająca kosztuje 800 zł. To subtelna pigmentacja przy linii rzęs, która ma optycznie zagęścić spojrzenie bez efektu mocnego eyelinera.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Ile kosztuje kreska dekoracyjna permanentna?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Kreska dekoracyjna, eyeliner lub kreska cieniowana kosztuje 1100 zł. Ostateczny wybór efektu zależy od budowy oka, powieki i kwalifikacji zabiegowej.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Czy cena kreski permanentnej obejmuje korektę?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "W przypadku usług oznaczonych gwiazdką cena obejmuje zabieg główny wraz z korektą w terminie 1–3 miesiące.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Czy kreska dolna jest dla każdego?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Nie zawsze. Kreska dolna wymaga ostrożnej kwalifikacji, ponieważ może optycznie zmienić kształt oka. Decyzję najlepiej podjąć po rozmowie i ocenie budowy oka.",
-        },
-      }
-    ],
+    })),
   },
 ];
 ---
@@ -136,39 +216,49 @@ const structuredData = [
   canonicalPath={article.canonicalPath}
   structuredData={structuredData}
 >
-  <div class="expert-article-page">
+  <div class="price-guide-page">
     <Header />
 
     <main>
-      <section class="expert-article-hero">
-        <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
-        <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
+      <section class="price-hero">
+        <div class="price-glow price-glow-one" aria-hidden="true"></div>
+        <div class="price-glow price-glow-two" aria-hidden="true"></div>
 
-        <div class="container expert-article-hero-grid">
-          <div class="expert-article-hero-copy">
+        <div class="container price-hero-grid">
+          <div class="price-hero-copy">
             <p class="section-kicker">{article.eyebrow}</p>
 
-            <div class="expert-article-meta">
+            <div class="price-meta">
               <span>Ekspercki poradnik</span>
               <span>{article.category}</span>
               <span>{article.readingTime}</span>
             </div>
 
             <h1>{article.title}</h1>
-            <p class="expert-article-lead">{article.lead}</p>
+            <p class="price-lead">{article.lead}</p>
+
+            <div class="price-hero-actions">
+              <a class="price-primary" href="#ceny-kreski">
+                Ceny kresek PMU <span aria-hidden="true">→</span>
+              </a>
+              <a class="price-secondary" href={article.mainService.href}>
+                {article.mainService.title}
+              </a>
+            </div>
           </div>
 
-          <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
-            <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
+          <aside class="price-answer" aria-label="Odpowiedź w 20 sekund">
+            <p class="price-answer-label">Odpowiedź w 20 sekund</p>
+            <strong class="price-big">500–1400 zł</strong>
             <h2>Najważniejsze bez powtarzania.</h2>
             <p>{article.shortAnswer}</p>
           </aside>
         </div>
       </section>
 
-      <section class="expert-article-nav-section">
+      <section class="price-nav-section">
         <div class="container">
-          <nav class="expert-article-nav" aria-label="Spis treści artykułu">
+          <nav class="price-nav" aria-label="Spis treści artykułu">
             <a href="#ceny-kreski">Ceny kresek PMU</a>
             <a href="#rodzaje-kresek">Rodzaje kresek</a>
             <a href="#co-obejmuje-cena">Zakres ceny</a>
@@ -180,163 +270,155 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-section" id="ceny-kreski">
+      <section class="price-section" id="ceny-kreski">
         <div class="container">
-          <div class="expert-article-heading">
+          <div class="price-heading">
             <p class="section-kicker">Ceny kresek PMU</p>
             <h2>Ile kosztuje kreska permanentna w 2026 roku?</h2>
           </div>
 
-          <div class="expert-legacy-copy">
-            <p>Cennik makijażu permanentnego oczu obejmuje kilka rodzajów kresek. Każda z nich ma inny zakres pracy, inny efekt i inną trudność techniczną. Dlatego przed wyborem ceny warto najpierw zrozumieć, czym różnią się poszczególne typy pigmentacji.</p>
-            <p>Najdelikatniejszym rozwiązaniem jest kreska zagęszczająca linię rzęs. Bardziej wyrazisty efekt daje kreska dekoracyjna, eyeliner lub kreska cieniowana. Kreska dolna jest osobną usługą, a przy połączeniu dolnej i górnej zakres pracy jest większy.</p>
+          <div class="decision-copy">
+            <p>
+              Cennik makijażu permanentnego oczu obejmuje kilka rodzajów kresek. Każda z nich ma inny zakres pracy, inny efekt i inną trudność techniczną. Dlatego przed wyborem ceny warto najpierw zrozumieć, czym różnią się poszczególne typy pigmentacji.
+            </p>
+            <p>
+              Najdelikatniejszym rozwiązaniem jest kreska zagęszczająca linię rzęs. Bardziej wyrazisty efekt daje kreska dekoracyjna, eyeliner lub kreska cieniowana. Kreska dolna jest osobną usługą, a przy połączeniu dolnej i górnej zakres pracy jest większy.
+            </p>
           </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Kreska dolna</h3>
-              <p>500 zł — subtelne podkreślenie dolnej powieki, wymagające ostrożnego doboru efektu.</p>
-            </article>
-            <article>
-              <h3>Kreska zagęszczająca</h3>
-              <p>800 zł — pigmentacja przy linii rzęs, która ma optycznie zagęścić spojrzenie bez efektu mocnego eyelinera.</p>
-            </article>
-            <article>
-              <h3>Kreska dekoracyjna</h3>
-              <p>1100 zł — eyeliner lub kreska cieniowana, dobierana do powieki i oczekiwanego efektu.</p>
-            </article>
-            <article>
-              <h3>Kreska dolna + dekoracyjna</h3>
-              <p>1400 zł — większy zakres pracy obejmujący połączenie dolnej i górnej kreski dekoracyjnej.</p>
-            </article>
+
+          <div class="scenario-scroll" aria-label="Ceny kresek permanentnych">
+            {priceCards.map((item) => (
+              <article class="scenario-card">
+                <span>{item.label}</span>
+                <strong>{item.price}</strong>
+                <p>{item.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section class="expert-article-section expert-article-soft" id="rodzaje-kresek">
+      <section class="price-section price-soft" id="rodzaje-kresek">
         <div class="container">
-          <div class="expert-article-heading">
+          <div class="price-heading">
             <p class="section-kicker">Rodzaje kresek</p>
             <h2>Kreska zagęszczająca, dekoracyjna, dolna — czym się różnią?</h2>
           </div>
 
-          <div class="expert-legacy-copy">
-            <p>Kreska zagęszczająca jest zwykle najbardziej subtelna. Jej celem jest optyczne zagęszczenie linii rzęs i podkreślenie oka bez wyraźnego efektu makijażu. To rozwiązanie dla osób, które chcą wyglądać naturalnie i świeżo na co dzień.</p>
-            <p>Kreska dekoracyjna lub eyeliner są bardziej widoczne. Mogą mocniej podkreślać oko, ale wymagają bardzo uważnej kwalifikacji, szczególnie przy opadającej powiece, asymetrii, wrażliwej skórze i oczekiwaniu trwałego efektu.</p>
+          <div class="decision-copy">
+            <p>
+              Kreska zagęszczająca jest zwykle najbardziej subtelna. Jej celem jest optyczne zagęszczenie linii rzęs i podkreślenie oka bez wyraźnego efektu makijażu. To rozwiązanie dla osób, które chcą wyglądać naturalnie i świeżo na co dzień.
+            </p>
+            <p>
+              Kreska dekoracyjna lub eyeliner są bardziej widoczne. Mogą mocniej podkreślać oko, ale wymagają bardzo uważnej kwalifikacji, szczególnie przy opadającej powiece, asymetrii, wrażliwej skórze i oczekiwaniu trwałego efektu.
+            </p>
           </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Efekt naturalny</h3>
-              <p>Najczęściej uzyskuje się go przy kresce zagęszczającej, która podkreśla oko bez ciężkiego konturu.</p>
-            </article>
-            <article>
-              <h3>Efekt makijażowy</h3>
-              <p>Kreska dekoracyjna daje mocniejsze podkreślenie, ale musi być dopasowana do anatomii oka.</p>
-            </article>
-            <article>
-              <h3>Kreska dolna</h3>
-              <p>Nie zawsze jest najlepszym wyborem dla każdej osoby. Wymaga oceny budowy oka i oczekiwanego efektu.</p>
-            </article>
-            <article>
-              <h3>Kreska cieniowana</h3>
-              <p>Może dawać miększy rezultat niż klasyczny eyeliner, ale wymaga doświadczenia i kontroli techniki.</p>
-            </article>
+
+          <div class="included-grid">
+            {kinds.map((item, index) => (
+              <article>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section class="expert-article-section" id="co-obejmuje-cena">
+      <section class="price-section" id="co-obejmuje-cena">
         <div class="container">
-          <div class="expert-article-heading">
+          <div class="price-heading">
             <p class="section-kicker">Zakres ceny</p>
             <h2>Co obejmuje cena makijażu permanentnego oczu?</h2>
           </div>
 
-          <div class="expert-legacy-copy">
-            <p>Cena kreski permanentnej obejmuje nie tylko samą pigmentację. Ważna jest rozmowa, kwalifikacja, ocena powieki, dobór rodzaju kreski, omówienie przeciwwskazań, wykonanie zabiegu, zalecenia pozabiegowe oraz korekta w terminie 1–3 miesiące, jeśli dana pozycja jest oznaczona gwiazdką w cenniku.</p>
-            <p>Przy makijażu permanentnym oczu szczególnie istotne jest bezpieczeństwo i ostrożność. Oko, powieka i linia rzęs są delikatnym obszarem, dlatego cena powinna odzwierciedlać doświadczenie osoby wykonującej zabieg i odpowiedzialność za efekt.</p>
+          <div class="decision-copy">
+            <p>
+              Cena kreski permanentnej obejmuje nie tylko samą pigmentację. Ważna jest rozmowa, kwalifikacja, ocena powieki, dobór rodzaju kreski, omówienie przeciwwskazań, wykonanie zabiegu, zalecenia pozabiegowe oraz korekta w terminie 1–3 miesiące, jeśli dana pozycja jest oznaczona gwiazdką w cenniku.
+            </p>
+            <p>
+              Przy makijażu permanentnym oczu szczególnie istotne jest bezpieczeństwo i ostrożność. Oko, powieka i linia rzęs są delikatnym obszarem, dlatego cena powinna odzwierciedlać doświadczenie osoby wykonującej zabieg i odpowiedzialność za efekt.
+            </p>
           </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Kwalifikacja oka</h3>
-              <p>Przed zabiegiem trzeba ocenić budowę powieki, oczekiwania i możliwość wykonania konkretnego rodzaju kreski.</p>
-            </article>
-            <article>
-              <h3>Dobór kreski</h3>
-              <p>Nie każda kreska pasuje do każdego oka. Czasem lepiej wybrać subtelne zagęszczenie niż mocny eyeliner.</p>
-            </article>
-            <article>
-              <h3>Zalecenia po zabiegu</h3>
-              <p>Prawidłowe gojenie okolicy oka ma znaczenie dla komfortu, bezpieczeństwa i trwałości efektu.</p>
-            </article>
-            <article>
-              <h3>Korekta po wygojeniu</h3>
-              <p>Po czasie można ocenić, jak pigment przyjął się w skórze i czy efekt wymaga dopracowania.</p>
-            </article>
+
+          <div class="included-grid">
+            {included.map((item, index) => (
+              <article>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section class="expert-article-section expert-article-soft" id="doswiadczenie">
-        <div class="container">
-          <div class="expert-article-heading">
+      <section class="price-section price-soft" id="doswiadczenie">
+        <div class="container expert-card">
+          <div>
             <p class="section-kicker">Autorytet</p>
             <h2>Przy kresce permanentnej doświadczenie ma szczególne znaczenie.</h2>
+            <p>
+              Makijaż permanentny oczu wymaga dużej precyzji i odpowiedzialności. Praca odbywa się w delikatnej okolicy, a efekt powinien być dopasowany do oka, powieki, rzęs i naturalnej mimiki twarzy.
+            </p>
+            <p>
+              Bogusława Herda to dyplomowana linergistka i trenerka makijażu permanentnego, Elite Top Linergist Long-Time-Liner®, trenerka i prelegentka międzynarodowa, wicemistrzyni świata oraz mistrzyni Polski. Takie doświadczenie ma znaczenie szczególnie przy zabiegach, gdzie kilka milimetrów może zmienić cały odbiór spojrzenia.
+            </p>
           </div>
 
-          <div class="expert-legacy-copy">
-            <p>Makijaż permanentny oczu wymaga dużej precyzji i odpowiedzialności. Praca odbywa się w delikatnej okolicy, a efekt powinien być dopasowany do oka, powieki, rzęs i naturalnej mimiki twarzy.</p>
-            <p>Bogusława Herda to dyplomowana linergistka i trenerka makijażu permanentnego, Elite Top Linergist Long-Time-Liner®, trenerka i prelegentka międzynarodowa, wicemistrzyni świata oraz mistrzyni Polski. Takie doświadczenie ma znaczenie szczególnie przy zabiegach, gdzie kilka milimetrów może zmienić cały odbiór spojrzenia.</p>
-          </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Precyzja techniczna</h3>
-              <p>Kreska powinna podkreślać oko, a nie optycznie je obciążać lub postarzać.</p>
-            </article>
-            <article>
-              <h3>Bezpieczna kwalifikacja</h3>
-              <p>Nie każdy rodzaj kreski będzie dobrym wyborem przy każdej powiece i każdej skórze.</p>
-            </article>
-          </div>
+          <aside>
+            <span>Bogusława Herda</span>
+            {authorityCards.map((item) => (
+              <>
+                <strong>{item.title}</strong>
+                <p>{item.text}</p>
+              </>
+            ))}
+          </aside>
         </div>
       </section>
 
-      <section class="expert-article-section" id="dobor">
-        <div class="container">
-          <div class="expert-article-heading">
+      <section class="price-section" id="dobor">
+        <div class="container decision-grid">
+          <div class="decision-copy">
             <p class="section-kicker">Dobór zabiegu</p>
             <h2>Dlaczego nie warto wybierać kreski tylko po cenie?</h2>
+            <p>
+              Najniższa cena nie powinna być głównym kryterium przy wyborze kreski permanentnej. To zabieg wykonywany w widocznej i wrażliwej okolicy, dlatego ważniejsze są kwalifikacja, umiar, doświadczenie oraz realne dopasowanie efektu do twarzy.
+            </p>
+            <p>
+              Dobrze dobrana kreska nie musi być mocna, żeby była widoczna. Często najlepszy efekt daje subtelne zagęszczenie linii rzęs, które podkreśla spojrzenie, ale nie wygląda ciężko po wygojeniu.
+            </p>
           </div>
 
-          <div class="expert-legacy-copy">
-            <p>Najniższa cena nie powinna być głównym kryterium przy wyborze kreski permanentnej. To zabieg wykonywany w widocznej i wrażliwej okolicy, dlatego ważniejsze są kwalifikacja, umiar, doświadczenie oraz realne dopasowanie efektu do twarzy.</p>
-            <p>Dobrze dobrana kreska nie musi być mocna, żeby była widoczna. Często najlepszy efekt daje subtelne zagęszczenie linii rzęs, które podkreśla spojrzenie, ale nie wygląda ciężko po wygojeniu.</p>
-          </div>
-          <div class="expert-legacy-cards">
-            <article>
-              <h3>Opadająca powieka</h3>
-              <p>Przy opadającej powiece mocna kreska nie zawsze jest dobrym kierunkiem. Czasem lepszy jest delikatniejszy efekt.</p>
-            </article>
-            <article>
-              <h3>Naturalne spojrzenie</h3>
-              <p>Kreska powinna współgrać z rzęsami i okiem, a nie dominować nad twarzą.</p>
-            </article>
+          <div class="decision-cards">
+            {choiceCards.map((item) => (
+              <article>
+                <strong>{item.title}</strong>
+                <p>{item.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-
-      <section class="expert-article-section">
+      <section class="price-section price-soft">
         <div class="container">
-          <div class="expert-source-inline">
-            <span>Ważne</span>
-            <h3 style="margin:0 0 9px;color:var(--color-text,#17151d);font-size:1.25rem;">Kiedy potrzebna jest konsultacja przed kreską permanentną?</h3>
-            <p>Konsultacja jest szczególnie ważna przy opadającej powiece, wrażliwych oczach, wcześniejszych pigmentacjach, asymetrii, bliznach, tendencji do obrzęków albo oczekiwaniu mocnej kreski dekoracyjnej. W takich sytuacjach najpierw trzeba ocenić, jaki efekt będzie bezpieczny i estetyczny po wygojeniu.</p>
+          <div class="qualification-strip">
+            <div>
+              <span>Ważne</span>
+              <strong>Kiedy potrzebna jest konsultacja przed kreską permanentną?</strong>
+              <p>
+                Konsultacja jest szczególnie ważna przy opadającej powiece, wrażliwych oczach, wcześniejszych pigmentacjach, asymetrii, bliznach, tendencji do obrzęków albo oczekiwaniu mocnej kreski dekoracyjnej. W takich sytuacjach najpierw trzeba ocenić, jaki efekt będzie bezpieczny i estetyczny po wygojeniu.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="expert-article-section" id="praktyka">
-        <div class="container expert-author-note">
+      <section class="price-section expert-section" id="praktyka">
+        <div class="container expert-card">
           <div>
             <p class="section-kicker">Praktyka gabinetowa</p>
             <h2>Jak przekładam tę wiedzę na realny zabieg?</h2>
@@ -359,67 +441,71 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-section expert-article-related-section">
+      <section class="price-section price-soft">
         <div class="container">
-          <div class="expert-article-heading">
+          <div class="price-heading">
             <p class="section-kicker">Powiązane tematy</p>
             <h2>Nie opisujemy wszystkiego drugi raz — przejdź do właściwego zagadnienia.</h2>
           </div>
 
-          <div class="expert-related-grid">
+          <div class="related-scroll">
             <a href="/makijaz-permanentny-oczu/">
-              <h3>Makijaż permanentny oczu</h3>
+              <span>Makijaż permanentny oczu</span>
+              <strong>Makijaż permanentny oczu</strong>
               <p>Poznaj rodzaje kresek permanentnych i sposób doboru efektu.</p>
-              <span>Czytaj dalej →</span>
             </a>
+
             <a href="/cennik-makijaz-permanentny/">
-              <h3>Cennik PMU</h3>
+              <span>Cennik PMU</span>
+              <strong>Cennik PMU</strong>
               <p>Zobacz ceny brwi, ust, kresek, odświeżeń i usuwania PMU.</p>
-              <span>Czytaj dalej →</span>
             </a>
+
             <a href="/poradnik/kreska-permanentna-jak-wybrac-rodzaj/">
-              <h3>Jak wybrać rodzaj kreski?</h3>
+              <span>Jak wybrać rodzaj kreski?</span>
+              <strong>Jak wybrać rodzaj kreski?</strong>
               <p>Sprawdź, czym różni się kreska zagęszczająca, dekoracyjna i cieniowana.</p>
-              <span>Czytaj dalej →</span>
             </a>
+
             <a href="/poradnik/kreska-permanentna-przy-opadajacej-powiece/">
-              <h3>Kreska przy opadającej powiece</h3>
+              <span>Kreska przy opadającej powiece</span>
+              <strong>Kreska przy opadającej powiece</strong>
               <p>Zobacz, dlaczego przy opadającej powiece dobór kreski wymaga ostrożności.</p>
-              <span>Czytaj dalej →</span>
             </a>
           </div>
         </div>
       </section>
 
-      <section class="expert-article-section" id="zrodla">
+      <section class="price-section sources-section" id="zrodla">
         <div class="container">
-          <div class="expert-article-heading">
-            <p class="section-kicker">Źródła i materiały odniesienia</p>
-            <h2>Na czym opieramy informacje medyczne i techniczne?</h2>
-            <p>
-              Wiedzę gabinetową oddzielamy od informacji dermatologicznych i instytucjonalnych.
-              Tam, gdzie nie istnieje jedna uniwersalna reguła, nie przedstawiamy jej jako pewnika.
-            </p>
+          <div class="sources-card">
+            <div>
+              <p class="section-kicker">Źródła i materiały odniesienia</p>
+              <h2>Na czym opieramy informacje medyczne i techniczne?</h2>
+              <p>
+                Wiedzę gabinetową oddzielamy od informacji dermatologicznych i instytucjonalnych.
+                Tam, gdzie nie istnieje jedna uniwersalna reguła, nie przedstawiamy jej jako pewnika.
+              </p>
+            </div>
           </div>
 
-          <div class="expert-source-grid">
+          <div class="related-scroll">
             <a href="/cennik-makijaz-permanentny/">
               <span>PermanentnyBielsko.com</span>
-              <h3>Aktualny cennik makijażu permanentnego</h3>
+              <strong>Aktualny cennik makijażu permanentnego</strong>
               <p>Źródło aktualnych cen usług publikowanych przez gabinet.</p>
-              <strong>Zobacz na stronie →</strong>
             </a>
+
             <a href="https://pubmed.ncbi.nlm.nih.gov/38901732/" target="_blank" rel="noopener noreferrer">
               <span>JAAD / PubMed</span>
-              <h3>Permanent makeup: A review of its technique, regulation, and complications</h3>
+              <strong>Permanent makeup: A review of its technique, regulation, and complications</strong>
               <p>Przegląd dermatologiczny PMU: technika, regulacje oraz możliwe powikłania.</p>
-              <strong>Otwórz źródło ↗</strong>
             </a>
+
             <a href="https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet" target="_blank" rel="noopener noreferrer">
               <span>FDA</span>
-              <h3>Tattoos & Permanent Makeup: Fact Sheet</h3>
+              <strong>Tattoos & Permanent Makeup: Fact Sheet</strong>
               <p>Informacje instytucjonalne o permanent makeup jako formie pigmentacji skóry, bezpieczeństwie i możliwych reakcjach.</p>
-              <strong>Otwórz źródło ↗</strong>
             </a>
           </div>
 
@@ -430,55 +516,29 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-section expert-article-faq-section" id="faq">
+      <section class="price-section" id="faq">
         <div class="container">
-          <div class="expert-article-heading">
+          <div class="price-heading">
             <p class="section-kicker">FAQ</p>
             <h2>Najczęstsze pytania związane z tym tematem.</h2>
           </div>
 
-          <div class="expert-faq-list">
-            <details>
-              <summary>
-                <span>Ile kosztuje kreska permanentna?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Cena zależy od rodzaju kreski. W gabinecie Bogusława Herda kreska dolna kosztuje 500 zł, kreska zagęszczająca 800 zł, kreska dekoracyjna 1100 zł, a połączenie kreski dolnej z dekoracyjną 1400 zł.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Ile kosztuje kreska zagęszczająca?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Kreska zagęszczająca kosztuje 800 zł. To subtelna pigmentacja przy linii rzęs, która ma optycznie zagęścić spojrzenie bez efektu mocnego eyelinera.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Ile kosztuje kreska dekoracyjna permanentna?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Kreska dekoracyjna, eyeliner lub kreska cieniowana kosztuje 1100 zł. Ostateczny wybór efektu zależy od budowy oka, powieki i kwalifikacji zabiegowej.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Czy cena kreski permanentnej obejmuje korektę?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>W przypadku usług oznaczonych gwiazdką cena obejmuje zabieg główny wraz z korektą w terminie 1–3 miesiące.</p></div>
-            </details>
-            <details>
-              <summary>
-                <span>Czy kreska dolna jest dla każdego?</span>
-                <span class="expert-faq-icon" aria-hidden="true"></span>
-              </summary>
-              <div><p>Nie zawsze. Kreska dolna wymaga ostrożnej kwalifikacji, ponieważ może optycznie zmienić kształt oka. Decyzję najlepiej podjąć po rozmowie i ocenie budowy oka.</p></div>
-            </details>
+          <div class="faq-list">
+            {faqItems.map((item) => (
+              <details class="faq-item">
+                <summary>
+                  <span>{item.question}</span>
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div><p>{item.answer}</p></div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
 
-      <section class="expert-article-section">
-        <div class="container expert-final-card">
+      <section class="price-final-cta">
+        <div class="container final-card">
           <p class="signature cta-signature">Powrót do natury</p>
           <h2>Chcesz ocenić swój przypadek przed zabiegiem?</h2>
           <p>
@@ -486,17 +546,17 @@ const structuredData = [
             Jeśli masz stare PMU, wcześniejsze zabiegi albo wątpliwości, zacznij od kwalifikacji.
           </p>
 
-          <div class="expert-final-actions">
-            <a class="expert-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-              Booksy <span aria-hidden="true">→</span>
+          <div class="final-actions">
+            <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
+              Formularz PMU →
             </a>
 
-            <a class="button-primary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
-              Formularz PMU <span aria-hidden="true">→</span>
-            </a>
-
-            <a class="button-secondary" href={article.mainService.href}>
+            <a class="final-phone" href={article.mainService.href}>
               {article.mainService.title}
+            </a>
+
+            <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+              Booksy →
             </a>
           </div>
 
@@ -510,103 +570,3 @@ const structuredData = [
     <Footer />
   </div>
 </Layout>
-
-<style>
-  .expert-legacy-copy {
-    max-width: 940px;
-  }
-
-  .expert-legacy-copy p {
-    margin: 16px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: clamp(0.98rem, 1.1vw, 1.06rem);
-    line-height: 1.72;
-  }
-
-  .expert-legacy-copy p:first-of-type {
-    margin-top: 0;
-  }
-
-  .expert-legacy-cards {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 24px;
-  }
-
-  .expert-legacy-cards article {
-    min-height: 150px;
-    padding: 23px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 24px;
-    background:
-      radial-gradient(circle at 94% 10%, rgba(56, 187, 181, 0.07), transparent 11rem),
-      rgba(255, 255, 255, 0.90);
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.055);
-  }
-
-  .expert-legacy-cards h3 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(1.25rem, 1.6vw, 1.72rem);
-    font-weight: 770;
-    line-height: 1.05;
-    letter-spacing: -0.05em;
-  }
-
-  .expert-legacy-cards p {
-    margin: 11px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.92rem;
-    line-height: 1.62;
-  }
-
-  .expert-focus-links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 18px;
-  }
-
-  .expert-focus-links a {
-    display: flex;
-    min-height: 76px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    padding: 17px 18px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 18px;
-    background: rgba(219, 246, 243, 0.38);
-    color: var(--color-text, #17151d);
-    font-size: 0.88rem;
-    font-weight: 760;
-    line-height: 1.35;
-    text-decoration: none;
-  }
-
-  .expert-focus-links a span {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-weight: 850;
-  }
-
-  @media (max-width: 760px) {
-    .expert-legacy-cards,
-    .expert-focus-links {
-      grid-template-columns: 1fr;
-      gap: 9px;
-    }
-
-    .expert-legacy-cards article {
-      min-height: auto;
-      padding: 20px;
-      border-radius: 21px;
-    }
-
-    .expert-focus-links a {
-      min-height: 68px;
-      padding: 15px 16px;
-    }
-  }
-</style>
-
