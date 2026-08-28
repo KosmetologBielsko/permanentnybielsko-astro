@@ -853,3 +853,88 @@
   .expert-final-actions{grid-template-columns:1fr;gap:7px}
   .expert-final-actions a{min-height:52px}
 }
+
+/* =========================================================
+   PMU GUIDE SYSTEM — PREMIUM SPACING FIX
+   28.08.2026
+   Więcej oddechu pomiędzy dużymi blokami i kafelkami.
+   Nie zmienia typografii, kolorów ani konstrukcji artykułów.
+   ========================================================= */
+
+/* Kiedy po dużym białym bloku tekstowym zaczynają się kafelki,
+   zostawiamy wyraźną przerwę zamiast optycznego sklejenia sekcji. */
+.price-guide-page .price-section > .container > .decision-copy + .scenario-scroll,
+.price-guide-page .price-section > .container > .decision-copy + .included-grid,
+.price-guide-page .price-section > .container > .decision-copy + .triage-grid,
+.price-guide-page .price-section > .container > .decision-copy + .related-scroll {
+  margin-top: 26px;
+}
+
+/* Źródła: duża karta wprowadzająca i karty źródeł nie mogą się stykać. */
+.price-guide-page .sources-card + .related-scroll,
+.price-guide-page .sources-card + .source-links {
+  margin-top: 26px;
+}
+
+/* Delikatnie większy rytm pomiędzy kafelkami na desktopie. */
+.price-guide-page .scenario-scroll,
+.price-guide-page .included-grid,
+.price-guide-page .triage-grid,
+.price-guide-page .related-scroll {
+  gap: 16px;
+}
+
+/* Więcej przestrzeni wewnątrz głównych kafelków,
+   szczególnie przy 3 kolumnach na szerokim ekranie. */
+.price-guide-page .included-grid article,
+.price-guide-page .triage-grid article {
+  padding: 26px;
+}
+
+/* Rozdzielenie sekcji tekstowej od następnej zawartości również wtedy,
+   gdy nie występuje bezpośrednio siatka kafelków. */
+.price-guide-page .qualification-strip {
+  margin-top: 24px;
+}
+
+/* Desktop: większy pionowy oddech w artykułach typu price guide. */
+@media (min-width: 761px) {
+  .price-guide-page .price-section {
+    padding-top: 74px;
+    padding-bottom: 74px;
+  }
+
+  .price-guide-page .price-heading {
+    margin-bottom: 30px;
+  }
+}
+
+/* Mobile pozostaje kompaktowy — zwiększamy tylko odstęp między blokami,
+   nie zabierając miejsca na ekranie. */
+@media (max-width: 760px) {
+  .price-guide-page .price-section > .container > .decision-copy + .scenario-scroll,
+  .price-guide-page .price-section > .container > .decision-copy + .included-grid,
+  .price-guide-page .price-section > .container > .decision-copy + .triage-grid,
+  .price-guide-page .price-section > .container > .decision-copy + .related-scroll,
+  .price-guide-page .sources-card + .related-scroll,
+  .price-guide-page .sources-card + .source-links {
+    margin-top: 18px;
+  }
+
+  .price-guide-page .scenario-scroll,
+  .price-guide-page .included-grid,
+  .price-guide-page .triage-grid,
+  .price-guide-page .related-scroll {
+    gap: 10px;
+  }
+
+  .price-guide-page .included-grid article,
+  .price-guide-page .triage-grid article {
+    padding: 20px;
+  }
+
+  .price-guide-page .qualification-strip {
+    margin-top: 18px;
+  }
+}
+
