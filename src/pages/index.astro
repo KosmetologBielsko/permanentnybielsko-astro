@@ -4368,4 +4368,120 @@ const structuredData = [
 
 </style>
 
+<style is:global>
+/* HOME_27_WIDE_DESKTOP_V1_START */
+/* DuĹĽe monitory: mocniejszy hero bez wpĹ‚ywu na laptop/tablet/mobile. */
+@media (min-width: 1500px) {
+  .home-page .hero-section-home {
+    min-height: min(980px, calc(100svh - 18px)) !important;
+    padding-top: clamp(126px, 8vh, 158px) !important;
+    padding-bottom: 54px !important;
+  }
 
+  .home-page .hero-section-home .hero-grid {
+    width: min(1680px, calc(100% - 80px)) !important;
+    max-width: 1680px !important;
+    grid-template-columns:
+      minmax(650px, 1.06fr)
+      minmax(560px, 0.94fr) !important;
+    gap: clamp(72px, 5.4vw, 138px) !important;
+    align-items: end !important;
+  }
+
+  .home-page .hero-copy {
+    max-width: 900px !important;
+    align-self: center !important;
+  }
+
+  .home-page .hero-copy h1 {
+    max-width: 900px !important;
+    font-size: clamp(6rem, 5.65vw, 7.6rem) !important;
+    line-height: 0.86 !important;
+    letter-spacing: -0.078em !important;
+  }
+
+  .home-page .hero-person {
+    margin-top: 24px !important;
+  }
+
+  .home-page .signature {
+    margin-top: 20px !important;
+  }
+
+  .home-page .hero-actions {
+    gap: 14px !important;
+    margin-top: 24px !important;
+  }
+
+  .home-page .hero-actions a {
+    min-height: 54px !important;
+    padding-inline: 25px !important;
+    font-size: 0.96rem !important;
+  }
+
+  .home-page .hero-visual {
+    min-width: 0 !important;
+    width: 100% !important;
+    align-self: end !important;
+    justify-self: stretch !important;
+  }
+
+  .home-page .hero-portrait {
+    display: block !important;
+    width: min(100%, 700px) !important;
+    max-width: 700px !important;
+    height: auto !important;
+    max-height: min(86vh, 920px) !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+
+  .home-page .authority-section .authority-grid {
+    width: min(1680px, calc(100% - 80px)) !important;
+    max-width: 1680px !important;
+  }
+
+  .home-page .authority-grid > div {
+    padding-inline: clamp(18px, 1.5vw, 28px) !important;
+  }
+}
+
+/* 27" QHD / bardzo szerokie monitory */
+@media (min-width: 2100px) {
+  .home-page .hero-section-home .hero-grid,
+  .home-page .authority-section .authority-grid {
+    width: min(1960px, calc(100% - 120px)) !important;
+    max-width: 1960px !important;
+  }
+
+  .home-page .hero-section-home .hero-grid {
+    grid-template-columns:
+      minmax(760px, 1.08fr)
+      minmax(680px, 0.92fr) !important;
+    gap: clamp(110px, 5vw, 168px) !important;
+  }
+
+  .home-page .hero-copy {
+    max-width: 1020px !important;
+  }
+
+  .home-page .hero-copy h1 {
+    max-width: 1020px !important;
+    font-size: clamp(7.2rem, 5.25vw, 8.5rem) !important;
+  }
+
+  .home-page .hero-portrait {
+    width: min(100%, 790px) !important;
+    max-width: 790px !important;
+    max-height: min(86vh, 980px) !important;
+  }
+
+  .home-page .hero-actions a {
+    min-height: 58px !important;
+    padding-inline: 28px !important;
+    font-size: 1rem !important;
+  }
+}
+/* HOME_27_WIDE_DESKTOP_V1_END */
+</style>

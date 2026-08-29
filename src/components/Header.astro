@@ -1170,3 +1170,95 @@ const isActive = (href: string) => {
     }
   }
 </style>
+
+<style is:global>
+/* HEADER_27_WIDE_DESKTOP_V1_START */
+/* DuĹĽe monitory: szerszy i bardziej proporcjonalny header. Mobile bez zmian. */
+@media (min-width: 1500px) {
+  .site-header {
+    top: 16px !important;
+    padding-inline: 28px !important;
+  }
+
+  .site-header .header-shell {
+    width: min(1760px, 100%) !important;
+    max-width: 1760px !important;
+    min-height: 82px !important;
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    gap: 16px !important;
+    padding: 11px 16px 11px 22px !important;
+  }
+
+  .site-header .header-logo-image-link {
+    width: clamp(255px, 15.5vw, 320px) !important;
+    max-width: 320px !important;
+  }
+
+  .site-header .header-logo-picture,
+  .site-header .header-logo-picture img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .site-header .desktop-nav {
+    gap: 5px !important;
+  }
+
+  .site-header .desktop-nav a {
+    min-height: 46px !important;
+    padding-inline: clamp(11px, 0.72vw, 17px) !important;
+    font-size: clamp(0.88rem, 0.72vw, 1rem) !important;
+  }
+
+  .site-header .header-actions {
+    gap: 10px !important;
+  }
+
+  .site-header .header-social-orb {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .site-header .header-booksy {
+    min-height: 50px !important;
+    padding-inline: 22px !important;
+    font-size: 0.92rem !important;
+  }
+}
+
+@media (min-width: 2100px) {
+  .site-header {
+    padding-inline: 38px !important;
+  }
+
+  .site-header .header-shell {
+    width: min(2060px, 100%) !important;
+    max-width: 2060px !important;
+    min-height: 86px !important;
+    padding-inline: 24px 18px !important;
+  }
+
+  .site-header .header-logo-image-link {
+    width: 340px !important;
+    max-width: 340px !important;
+  }
+
+  .site-header .desktop-nav {
+    gap: 7px !important;
+  }
+
+  .site-header .desktop-nav a {
+    padding-inline: 18px !important;
+    font-size: 1rem !important;
+  }
+
+  .site-header .header-booksy {
+    min-height: 54px !important;
+    padding-inline: 26px !important;
+    font-size: 0.96rem !important;
+  }
+}
+/* HEADER_27_WIDE_DESKTOP_V1_END */
+</style>
