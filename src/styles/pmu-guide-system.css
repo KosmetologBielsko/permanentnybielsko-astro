@@ -31,9 +31,9 @@
   @media(max-width:760px){
     .price-hero{padding:112px 0 42px}.price-hero-grid{gap:11px}.price-hero-copy,.price-answer{border-radius:27px}.price-hero-copy{padding:23px 19px}.price-hero h1{font-size:clamp(2.25rem,10vw,3.2rem);line-height:1.01;letter-spacing:-.064em}.price-lead{margin-top:17px;font-size:.94rem;line-height:1.58}.price-hero-actions{display:grid;grid-template-columns:1fr}.price-hero-actions a{width:100%;min-height:49px}.price-answer{padding:23px 19px}.price-big{font-size:clamp(3.6rem,18vw,5.4rem)}.price-answer h2{font-size:1.55rem}.price-answer p:last-child{font-size:.85rem;line-height:1.55}
     .price-nav{margin-inline:-16px;padding-inline:16px}.price-section{padding:48px 0}.price-heading h2,.decision-copy h2,.expert-card h2,.sources-card h2,.final-card h2{font-size:clamp(1.9rem,8.7vw,2.72rem);line-height:1.04}.price-heading>p:not(.section-kicker),.decision-copy>p:not(.section-kicker),.expert-card>div>p:not(.section-kicker),.sources-card>div>p:not(.section-kicker),.final-card>p:not(.signature){font-size:.87rem;line-height:1.55}
-    .scenario-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(76vw,285px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.scenario-scroll::-webkit-scrollbar{display:none}.scenario-card{min-height:248px;padding:18px;border-radius:21px;scroll-snap-align:start}.scenario-card>strong{margin-top:22px}.price-service-bridge,.qualification-strip{grid-template-columns:1fr;gap:12px;padding:16px;border-radius:20px}.price-service-actions{display:grid;grid-template-columns:1fr 1fr}.price-service-actions a,.qualification-strip>a{width:100%}
+    .scenario-scroll{display:grid;grid-template-columns:minmax(0,1fr);grid-auto-flow:row;grid-auto-columns:auto;gap:10px;margin-inline:0;padding:0;overflow:visible;scroll-snap-type:none;scrollbar-width:auto}.scenario-card{width:100%;min-width:0;max-width:100%;min-height:auto;padding:18px;border-radius:21px;scroll-snap-align:none}.scenario-card>strong{margin-top:22px}.price-service-bridge,.qualification-strip{grid-template-columns:1fr;gap:12px;padding:16px;border-radius:20px}.price-service-actions{display:grid;grid-template-columns:1fr 1fr}.price-service-actions a,.qualification-strip>a{width:100%}
     .included-grid,.triage-grid{grid-template-columns:1fr;gap:8px}.included-grid article,.triage-grid article{min-height:auto;padding:19px;border-radius:21px}.included-grid span,.triage-grid span{margin-bottom:20px}.decision-copy{padding:22px 18px;border-radius:23px}.decision-cards article{min-height:150px;padding:19px;border-radius:21px}.compare-list{border-radius:22px}.compare-list>div{grid-template-columns:1fr;gap:6px;padding:17px 18px}.expert-card,.sources-card{padding:20px 17px;border-radius:23px}.expert-card aside{padding:15px;border-radius:17px}
-    .related-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(76vw,280px);grid-template-columns:none;gap:8px;margin-inline:-16px;padding:2px 16px 10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.related-scroll::-webkit-scrollbar{display:none}.related-scroll a{min-height:190px;padding:18px;border-radius:21px;scroll-snap-align:start}.faq-item{border-radius:18px}.faq-item summary{grid-template-columns:minmax(0,1fr) 34px;padding:16px;font-size:.94rem}.faq-icon{width:34px;height:34px}.faq-item>div{padding:0 16px 16px}.source-links a{min-height:43px}.price-final-cta{padding:28px 0 62px}.final-card{padding:27px 18px;border-radius:27px}.final-actions{grid-template-columns:1fr;gap:7px}.final-actions a{min-height:52px}
+    .related-scroll{display:grid;grid-template-columns:minmax(0,1fr);grid-auto-flow:row;grid-auto-columns:auto;gap:10px;margin-inline:0;padding:0;overflow:visible;scroll-snap-type:none;scrollbar-width:auto}.related-scroll a{width:100%;min-width:0;max-width:100%;min-height:auto;padding:18px;border-radius:21px;scroll-snap-align:none}.faq-item{border-radius:18px}.faq-item summary{grid-template-columns:minmax(0,1fr) 34px;padding:16px;font-size:.94rem}.faq-icon{width:34px;height:34px}.faq-item>div{padding:0 16px 16px}.source-links a{min-height:43px}.price-final-cta{padding:28px 0 62px}.final-card{padding:27px 18px;border-radius:27px}.final-actions{grid-template-columns:1fr;gap:7px}.final-actions a{min-height:52px}
   }
 
 /* =========================================================
@@ -791,39 +791,55 @@
   }
   .expert-legacy-copy p{font-size:.88rem;line-height:1.58}
 
+  /* Mobile: pełne karty jedna pod drugą. Bez poziomego swipe i bez ucinania poprzedniej karty. */
   .expert-timeline,
   .expert-legacy-cards,
   .expert-factor-grid,
   .expert-area-grid,
   .expert-related-grid{
     display:grid;
-    grid-auto-flow:column;
-    grid-auto-columns:min(76vw,285px);
-    grid-template-columns:none;
-    gap:8px;
-    margin-inline:-16px;
-    padding:2px 16px 10px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    scrollbar-width:none;
-    -webkit-overflow-scrolling:touch;
+    grid-template-columns:minmax(0,1fr);
+    grid-auto-flow:row;
+    grid-auto-columns:auto;
+    gap:10px;
+    width:100%;
+    margin-inline:0;
+    padding:0;
+    overflow:visible;
+    scroll-snap-type:none;
+    scrollbar-width:auto;
   }
-  .expert-timeline::-webkit-scrollbar,
-  .expert-legacy-cards::-webkit-scrollbar,
-  .expert-factor-grid::-webkit-scrollbar,
-  .expert-area-grid::-webkit-scrollbar,
-  .expert-related-grid::-webkit-scrollbar{display:none}
   .expert-timeline > *,
   .expert-legacy-cards > *,
   .expert-factor-grid > *,
   .expert-area-grid > *,
-  .expert-related-grid > *{scroll-snap-align:start}
+  .expert-related-grid > *{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    scroll-snap-align:none;
+  }
 
-  .expert-timeline-card{min-height:248px;padding:18px;border-radius:21px}
+  .expert-timeline-card{min-height:auto;padding:18px;border-radius:21px}
   .expert-legacy-cards article,
-  .expert-factor-grid article{min-height:190px;padding:19px;border-radius:21px}
+  .expert-factor-grid article{min-height:auto;padding:19px;border-radius:21px}
   .expert-area-grid a,
-  .expert-area-grid article{min-height:205px;padding:19px;border-radius:21px}
+  .expert-area-grid article{min-height:auto;padding:19px;border-radius:21px}
+
+  .expert-timeline-card h3,
+  .expert-timeline-card p,
+  .expert-legacy-cards h3,
+  .expert-legacy-cards p,
+  .expert-factor-grid h3,
+  .expert-factor-grid p,
+  .expert-area-grid h3,
+  .expert-area-grid p,
+  .expert-related-grid h3,
+  .expert-related-grid p{
+    max-width:100%;
+    overflow-wrap:break-word;
+    word-break:normal;
+  }
 
   .expert-plan-copy{padding:22px 18px;border-radius:23px}
   .expert-plan-steps > div{padding:17px 18px;border-radius:20px}
@@ -831,7 +847,7 @@
   .expert-author-note{padding:20px 17px;border-radius:23px}
   .expert-author-note aside{padding:15px;border-radius:17px}
 
-  .expert-related-grid a{min-height:190px;padding:18px;border-radius:21px}
+  .expert-related-grid a{min-height:auto;padding:18px;border-radius:21px}
 
   .expert-source-grid{
     grid-template-columns:1fr;
@@ -853,6 +869,11 @@
   .expert-final-actions{grid-template-columns:1fr;gap:7px}
   .expert-final-actions a{min-height:52px}
 }
+
+/* =========================================================
+   PMU GUIDE SYSTEM — MOBILE STACK FIX 29.08.2026
+   Poziome karuzele kart na mobile zostały zastąpione pełną kolumną.
+   ========================================================= */
 
 /* =========================================================
    PMU GUIDE SYSTEM — PREMIUM SPACING FIX
