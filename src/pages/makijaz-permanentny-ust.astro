@@ -14,27 +14,44 @@ const pageTitle = "Makijaż permanentny ust Bielsko-Biała | Usta permanentne 14
 const pageDescription =
   "Makijaż permanentny ust Bielsko-Biała u Bogusławy Herda. Naturalne usta permanentne, dobór koloru, miękki kontur, efekty, gojenie i cena 1400 zł.";
 
-const lipsGalleryNumbers = [
-  "02",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12",
-  "13",
-  "14",
-  "15",
-  "16",
-  "17",
-  "18",
+const lipsGalleryImages = [
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-01.webp", alt: "Makijaż permanentny ust Bielsko-Biała — naturalny róż i miękki kontur", width: 1122, height: 1402 },
+  { src: "/images/makijaz-permanentny-ust-intensywna-fuksja-zblizenie-01.webp", alt: "Makijaż permanentny ust — intensywna fuksja w zbliżeniu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-02.webp", alt: "Makijaż permanentny ust — wyrazista czerwień i precyzyjny kontur", width: 1122, height: 1402 },
+  { src: "/images/makijaz-permanentny-ust-naturalny-koral-zblizenie-16.webp", alt: "Makijaż permanentny ust — naturalny koralowy kolor w zbliżeniu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-03.webp", alt: "Makijaż permanentny ust Bielsko-Biała — nasycony różowy efekt", width: 1122, height: 1402 },
+  { src: "/images/makijaz-permanentny-ust-satynowy-efekt-03.webp", alt: "Makijaż permanentny ust — satynowe wykończenie koloru", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-04.webp", alt: "Makijaż permanentny ust — intensywny kolor z połyskiem", width: 1122, height: 1402 },
+  { src: "/images/makijaz-permanentny-ust-naturalny-roz-zblizenie-04.webp", alt: "Makijaż permanentny ust — naturalny róż i subtelny połysk", width: 941, height: 1672 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-05.webp", alt: "Makijaż permanentny ust Bielsko-Biała — różowe usta po zabiegu", width: 1122, height: 1402 },
+  { src: "/images/makijaz-permanentny-ust-rozowy-polysk-05.webp", alt: "Makijaż permanentny ust — różowy kolor i świeży połysk", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-06.webp", alt: "Makijaż permanentny ust — koralowy odcień i miękka linia", width: 1122, height: 1402 },
+  { src: "/images/makijaz-permanentny-ust-intensywny-roz-zblizenie-06.webp", alt: "Makijaż permanentny ust — intensywny róż w zbliżeniu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-07.webp", alt: "Makijaż permanentny ust Bielsko-Biała — naturalny, zgaszony róż", width: 1122, height: 1402 },
+  { src: "/images/makijaz-permanentny-ust-blyszczace-usta-zblizenie-07.webp", alt: "Makijaż permanentny ust — błyszczący efekt w zbliżeniu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-08.webp", alt: "Makijaż permanentny ust — delikatne różowe podkreślenie", width: 1122, height: 1402 },
+  { src: "/images/makijaz-permanentny-ust-delikatny-roz-makro-08.webp", alt: "Makijaż permanentny ust — delikatny róż w ujęciu makro", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-09.webp", alt: "Makijaż permanentny ust Bielsko-Biała — subtelny beżowy róż", width: 1122, height: 1402 },
+  { src: "/images/makijaz-permanentny-ust-efekt-po-zabiegu-zblizenie-09.webp", alt: "Makijaż permanentny ust — efekt bezpośrednio po zabiegu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-10.webp", alt: "Makijaż permanentny ust — nasycona fuksja z połyskiem", width: 1122, height: 1402 },
+  { src: "/images/makijaz-permanentny-ust-glossy-efekt-zblizenie-10.webp", alt: "Makijaż permanentny ust — efekt glossy w zbliżeniu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-11.webp", alt: "Makijaż permanentny ust Bielsko-Biała — malinowy kolor", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-nasycony-roz-zblizenie-11.webp", alt: "Makijaż permanentny ust — nasycony róż w zbliżeniu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-12.webp", alt: "Makijaż permanentny ust — naturalny kolor z mocnym połyskiem", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-satynowe-wykonczenie-12.webp", alt: "Makijaż permanentny ust — satynowe różowe wykończenie", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-13.webp", alt: "Makijaż permanentny ust Bielsko-Biała — zdefiniowany różowy kontur", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-zdefiniowany-kontur-zblizenie-13.webp", alt: "Makijaż permanentny ust — zdefiniowany kontur w zbliżeniu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-14.webp", alt: "Makijaż permanentny ust — różowy połysk i równy kontur", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-polysk-i-kontur-14.webp", alt: "Makijaż permanentny ust — połysk i precyzyjny kontur", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-15.webp", alt: "Makijaż permanentny ust Bielsko-Biała — intensywnie różowy efekt", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-intensywny-polysk-15.webp", alt: "Makijaż permanentny ust — intensywny połysk po pigmentacji", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-16.webp", alt: "Makijaż permanentny ust — naturalne koralowe podkreślenie", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-naturalny-koral-zblizenie-16-2.webp", alt: "Makijaż permanentny ust — drugi efekt naturalnego koralu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-17.webp", alt: "Makijaż permanentny ust Bielsko-Biała — delikatny róż", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-delikatny-roz-zblizenie-17.webp", alt: "Makijaż permanentny ust — delikatny róż w zbliżeniu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-18.webp", alt: "Makijaż permanentny ust — świeży różowy kolor po zabiegu", width: 900, height: 1600 },
+  { src: "/images/makijaz-permanentny-ust-naturalny-kolor-zblizenie.webp", alt: "Makijaż permanentny ust — naturalny kolor w zbliżeniu", width: 900, height: 1600 },
 ];
-
-const lipsGalleryImages = lipsGalleryNumbers.map((number) => ({
-  src: `/images/makijaz-permanentny-ust-bielsko-biala-efekt-${number}.webp`,
-  alt: `Makijaż permanentny ust Bielsko-Biała — efekt pigmentacji ust ${number}`,
-}));
 
 const forWhoItems = [
   {
@@ -397,22 +414,24 @@ const structuredData = [
 
         <div class="container">
           <div class="pmu-effects-scroll" data-pmu-effects-track>
-            {lipsGalleryImages.map((image) => (
+            {lipsGalleryImages.map((image, index) => (
               <button
                 type="button"
                 class="pmu-effect-card"
                 data-pmu-effect-image
                 data-image-src={image.src}
                 data-image-alt={image.alt}
+                data-image-index={index}
                 aria-label={`Powiększ zdjęcie: ${image.alt}`}
               >
                 <img
                   src={image.src}
                   alt={image.alt}
-                  width="900"
-                  height="1200"
+                  width={image.width}
+                  height={image.height}
                   loading="lazy"
                   decoding="async"
+                  sizes="(max-width: 760px) 78vw, (max-width: 1200px) 32vw, 330px"
                 />
                 <span class="pmu-effect-zoom" aria-hidden="true">↗</span>
               </button>
@@ -879,6 +898,9 @@ const structuredData = [
 <dialog class="pmu-effect-dialog" data-pmu-effect-dialog>
       <div class="pmu-effect-dialog-shell">
         <img src="" alt="" data-pmu-effect-dialog-image />
+        <button type="button" class="pmu-effect-dialog-nav pmu-effect-dialog-prev" data-pmu-effect-dialog-prev aria-label="Poprzednie zdjęcie">←</button>
+        <button type="button" class="pmu-effect-dialog-nav pmu-effect-dialog-next" data-pmu-effect-dialog-next aria-label="Następne zdjęcie">→</button>
+        <p class="pmu-effect-dialog-counter" data-pmu-effect-dialog-counter aria-live="polite"></p>
         <button
           type="button"
           class="pmu-effect-dialog-close"
@@ -1446,6 +1468,7 @@ const structuredData = [
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
+    object-position: center center !important;
     transition: transform 0.28s ease;
   }
 
@@ -1804,6 +1827,43 @@ const structuredData = [
     cursor: pointer;
   }
 
+  .pmu-effect-dialog-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #17151d;
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+
+  .pmu-effect-dialog-prev { left: 18px; }
+  .pmu-effect-dialog-next { right: 18px; }
+
+  .pmu-effect-dialog-counter {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    z-index: 3;
+    margin: 0;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: rgba(12, 16, 18, 0.72);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 750;
+    transform: translateX(-50%);
+    backdrop-filter: blur(8px);
+  }
+
   @media (max-width: 760px) {
     .pmu-effects-top {
       padding: 34px 0 42px !important;
@@ -1980,6 +2040,18 @@ const structuredData = [
       width: 44px;
       height: 44px;
     }
+
+    .pmu-effect-dialog-nav {
+      top: auto;
+      bottom: 12px;
+      width: 44px;
+      height: 44px;
+      transform: none;
+    }
+
+    .pmu-effect-dialog-prev { left: 12px; }
+    .pmu-effect-dialog-next { right: 12px; }
+    .pmu-effect-dialog-counter { bottom: 17px; }
   }
 </style>
 
@@ -2049,6 +2121,20 @@ const structuredData = [
     const dialog = document.querySelector<HTMLDialogElement>("[data-pmu-effect-dialog]");
     const dialogImage = dialog?.querySelector<HTMLImageElement>("[data-pmu-effect-dialog-image]");
     const close = dialog?.querySelector<HTMLButtonElement>("[data-pmu-effect-dialog-close]");
+    const previous = dialog?.querySelector<HTMLButtonElement>("[data-pmu-effect-dialog-prev]");
+    const next = dialog?.querySelector<HTMLButtonElement>("[data-pmu-effect-dialog-next]");
+    const counter = dialog?.querySelector<HTMLElement>("[data-pmu-effect-dialog-counter]");
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-pmu-effect-image]"));
+    let activeIndex = 0;
+
+    const showImage = (index: number) => {
+      if (!dialogImage || cards.length === 0) return;
+      activeIndex = (index + cards.length) % cards.length;
+      const card = cards[activeIndex];
+      dialogImage.src = card.dataset.imageSrc ?? "";
+      dialogImage.alt = card.dataset.imageAlt ?? "";
+      if (counter) counter.textContent = `${activeIndex + 1} / ${cards.length}`;
+    };
 
     const closeDialog = () => {
       if (!dialog) return;
@@ -2059,12 +2145,10 @@ const structuredData = [
       document.body.style.overflow = "";
     };
 
-    document.querySelectorAll<HTMLElement>("[data-pmu-effect-image]").forEach((card) => {
+    cards.forEach((card, index) => {
       card.addEventListener("click", () => {
         if (!dialog || !dialogImage) return;
-
-        dialogImage.src = card.dataset.imageSrc ?? "";
-        dialogImage.alt = card.dataset.imageAlt ?? "";
+        showImage(index);
 
         if (typeof dialog.showModal === "function") dialog.showModal();
         else dialog.setAttribute("open", "");
@@ -2075,6 +2159,13 @@ const structuredData = [
     });
 
     close?.addEventListener("click", closeDialog);
+    previous?.addEventListener("click", () => showImage(activeIndex - 1));
+    next?.addEventListener("click", () => showImage(activeIndex + 1));
+
+    dialog?.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") showImage(activeIndex - 1);
+      if (event.key === "ArrowRight") showImage(activeIndex + 1);
+    });
 
     dialog?.addEventListener("click", (event) => {
       if (event.target === dialog) closeDialog();
@@ -2088,4 +2179,3 @@ const structuredData = [
 
   bindUnifiedPmuUx();
 </script>
-
