@@ -22,6 +22,36 @@
       "permanent": true
     },
     {
+      "source": "/blog/boguslawa-herda-mistrzyni-makijazu-permanentnego-w-bielsku-bialej",
+      "destination": "https://www.permanentnybielsko.com/makijaz-permanentny-bielsko/#boguslawa-herda",
+      "permanent": true
+    },
+    {
+      "source": "/blog/boguslawa-herda-mistrzyni-makijazu-permanentnego-w-bielsku-bialej/",
+      "destination": "https://www.permanentnybielsko.com/makijaz-permanentny-bielsko/#boguslawa-herda",
+      "permanent": true
+    },
+    {
+      "source": "/blog/contour-sculpt-rf",
+      "destination": "https://kosmetologiabielsko.com/blog/contour-sculpt-pro-bielsko-biala-modelowanie-sylwetki",
+      "permanent": true
+    },
+    {
+      "source": "/blog/contour-sculpt-rf/",
+      "destination": "https://kosmetologiabielsko.com/blog/contour-sculpt-pro-bielsko-biala-modelowanie-sylwetki",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peeling-weglowy-bielsko-biala",
+      "destination": "https://kosmetologiabielsko.com/blog/peeling-weglowy-black-doll-bielsko-biala",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peeling-weglowy-bielsko-biala/",
+      "destination": "https://kosmetologiabielsko.com/blog/peeling-weglowy-black-doll-bielsko-biala",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
