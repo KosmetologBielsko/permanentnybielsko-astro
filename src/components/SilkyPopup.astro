@@ -1,10 +1,10 @@
 ---
 const videoSrc = "/videos/silky-hairstroke-brows-popup.mp4";
 const posterSrc = "/images/silky-hairstroke-brows-popup-poster.webp";
-const ctaHref = "/makijaz-permanentny-brwi/#autorska-metoda-boguslawy-herda";
+const ctaHref = "/makijaz-permanentny-brwi/#silky-hairstroke-brows";
 const storageKey = "shb-popup-dismissed-until";
 const daysHidden = 7;
-const showDelay = 4000;
+const showDelay = 12000;
 const scrollThreshold = 0.3;
 ---
 
@@ -79,151 +79,147 @@ const scrollThreshold = 0.3;
 
 <script is:inline>
   (() => {
-    if (typeof window === "undefined") return;
+    function initPopup() {
+      const popup = document.getElementById("shb-popup");
+      if (!popup) return;
 
-    const popup = document.getElementById("shb-popup");
-    if (!popup) return;
-
-    const storageKey = popup.dataset.storageKey || "shb-popup-dismissed-until";
-    const daysHidden = Number(popup.dataset.daysHidden || "7");
-    const showDelayMs = Number(popup.dataset.showDelay || "4000");
-    const scrollThreshold = Number(popup.dataset.scrollThreshold || "0.3");
-    const dismissMs = daysHidden * 24 * 60 * 60 * 1000;
-
-    const safeLocalStorage = {
-      get(key) {
-        try {
-          return window.localStorage.getItem(key);
-        } catch {
-          return null;
-        }
-      },
-      set(key, value) {
-        try {
-          window.localStorage.setItem(key, value);
-        } catch {
-          // localStorage może być zablokowany — popup nadal działa w tej sesji.
-        }
+      const storageKey = popup.dataset.storageKey || "shb-popup-dismissed-until";
+      const dismissMs = Number(popup.dataset.daysHidden || "7") * 86400000;
+      const showDelayMs = Number(popup.dataset.showDelay || "12000");
+      const scrollThreshold = Number(popup.dataset.scrollThreshold || "0.3");
+      try {
+        if (Number(window.localStorage.getItem(storageKey)) > Date.now()) return;
+      } catch {
+        // Brak dostępu do pamięci nie blokuje strony.
       }
-    };
 
-    const dismissedUntil = Number(safeLocalStorage.get(storageKey) || 0);
-    if (dismissedUntil && dismissedUntil > Date.now()) return;
+      const video = popup.querySelector("[data-shb-video]");
+      const cookieBanner = document.querySelector("[data-cookie-consent]");
+      const menuButton = document.querySelector("[data-menu-button]");
+      const assistantLauncher = document.querySelector(".pmu-assistant__launcher");
+      const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+      const shouldLoadVideo = !reduceMotion && !navigator.connection?.saveData;
+      let hasShown = false;
+      let delayElapsed = false;
+      let delayTimer = null;
+      let previousFocus = null;
 
-    const video = popup.querySelector("[data-shb-video]");
-    const closeButtons = popup.querySelectorAll("[data-shb-close]");
-    const cta = popup.querySelector("[data-shb-cta]");
+      function isBlocked() {
+        return Boolean(
+          (cookieBanner && !cookieBanner.hidden) ||
+          menuButton?.getAttribute("aria-expanded") === "true" ||
+          assistantLauncher?.getAttribute("aria-expanded") === "true"
+        );
+      }
 
-    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-    const saveData = Boolean(navigator.connection?.saveData);
-    const shouldLoadVideo = !prefersReducedMotion && !saveData;
-
-    let hasShown = false;
-    let delayTimer = null;
-
-    const rememberDismiss = () => {
-      safeLocalStorage.set(storageKey, String(Date.now() + dismissMs));
-    };
-
-    const cleanupTriggers = () => {
-      if (delayTimer) {
-        window.clearTimeout(delayTimer);
+      function clearDelay() {
+        if (delayTimer !== null) window.clearTimeout(delayTimer);
         delayTimer = null;
       }
 
-      window.removeEventListener("scroll", handleScroll);
-      document.removeEventListener("keydown", handleKeydown);
-    };
-
-    const loadVideo = () => {
-      if (!video || !shouldLoadVideo) {
-        popup.classList.add("shb-popup--static");
-        return;
-      }
-
-      video.muted = true;
-      video.defaultMuted = true;
-      video.playsInline = true;
-      video.setAttribute("muted", "");
-      video.setAttribute("playsinline", "");
-      video.setAttribute("webkit-playsinline", "");
-
-      if (!video.getAttribute("src")) {
-        const src = video.dataset.src || popup.dataset.videoSrc || "";
-
-        if (!src) {
+      function loadVideo() {
+        if (!video || !shouldLoadVideo) {
           popup.classList.add("shb-popup--static");
           return;
         }
-
-        video.setAttribute("src", src);
-        video.load();
-      }
-
-      const playPromise = video.play();
-
-      if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch(() => {
-          window.setTimeout(() => {
-            video.play().catch(() => {
-              popup.classList.add("shb-popup--static");
-            });
-          }, 180);
+        const src = video.dataset.src || popup.dataset.videoSrc;
+        if (!src) return;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+        if (!video.getAttribute("src")) {
+          video.setAttribute("src", src);
+          video.load();
+        }
+        video.play()?.catch(() => {
+          if (!popup.hidden) popup.classList.add("shb-popup--static");
         });
       }
-    };
 
-    const showPopup = () => {
-      if (hasShown) return;
-
-      hasShown = true;
-      cleanupTriggers();
-      popup.hidden = false;
-
-      window.requestAnimationFrame(() => {
-        popup.classList.add("shb-popup--visible");
-        loadVideo();
-      });
-    };
-
-    const closePopup = () => {
-      rememberDismiss();
-      popup.classList.remove("shb-popup--visible");
-
-      if (video) {
-        video.pause();
-        video.muted = true;
+      function rememberDismiss() {
+        try {
+          window.localStorage.setItem(storageKey, String(Date.now() + dismissMs));
+        } catch {
+          // W tej odsłonie popup i tak nie pokaże się ponownie.
+        }
       }
 
-      window.setTimeout(() => {
+      function closePopup(remember = true) {
+        if (popup.hidden) return;
+        const restoreFocus = popup.contains(document.activeElement);
+        if (remember) rememberDismiss();
         popup.hidden = true;
-      }, 280);
-    };
-
-    function handleScroll() {
-      const scrollableHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-      const progress = window.scrollY / scrollableHeight;
-
-      if (progress >= scrollThreshold) {
-        showPopup();
+        popup.classList.remove("shb-popup--visible");
+        video?.pause();
+        clearDelay();
+        observer.disconnect();
+        window.removeEventListener("scroll", maybeShow);
+        document.removeEventListener("keydown", handleKeydown);
+        if (restoreFocus && previousFocus?.isConnected &&
+            !previousFocus.closest("[hidden], [inert]") && previousFocus.getClientRects().length) {
+          previousFocus.focus({ preventScroll: true });
+        }
       }
+
+      function maybeShow() {
+        if (hasShown || !delayElapsed || isBlocked()) return;
+        const scrollableHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        if (window.scrollY / scrollableHeight < scrollThreshold) return;
+        hasShown = true;
+        previousFocus = document.activeElement;
+        clearDelay();
+        window.removeEventListener("scroll", maybeShow);
+        popup.hidden = false;
+        window.requestAnimationFrame(() => {
+          if (popup.hidden) return;
+          popup.classList.add("shb-popup--visible");
+          loadVideo();
+        });
+      }
+
+      function syncAvailability() {
+        if (isBlocked()) {
+          clearDelay();
+          delayElapsed = false;
+          // Menu i wybory użytkownika mają pierwszeństwo, także po otwarciu popupu.
+          closePopup(false);
+          return;
+        }
+        if (hasShown) return;
+        if (delayTimer === null && !delayElapsed) {
+          delayTimer = window.setTimeout(() => {
+            delayTimer = null;
+            delayElapsed = true;
+            maybeShow();
+          }, showDelayMs);
+        }
+        maybeShow();
+      }
+
+      function handleKeydown(event) {
+        if (event.key === "Escape") closePopup();
+      }
+
+      const observer = new MutationObserver(syncAvailability);
+      if (cookieBanner) observer.observe(cookieBanner, { attributes: true, attributeFilter: ["hidden"] });
+      for (const element of [menuButton, assistantLauncher]) {
+        if (element) observer.observe(element, { attributes: true, attributeFilter: ["aria-expanded"] });
+      }
+      popup.querySelectorAll("[data-shb-close]").forEach((button) => {
+        button.addEventListener("click", () => closePopup());
+      });
+      popup.querySelector("[data-shb-cta]")?.addEventListener("click", () => closePopup());
+      window.addEventListener("scroll", maybeShow, { passive: true });
+      document.addEventListener("keydown", handleKeydown);
+      syncAvailability();
     }
 
-    function handleKeydown(event) {
-      if (event.key === "Escape" && !popup.hidden) {
-        closePopup();
-      }
+    // Cookies i asystent są renderowane obok popupu, więc czekamy na cały dokument.
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initPopup, { once: true });
+    } else {
+      initPopup();
     }
-
-    delayTimer = window.setTimeout(showPopup, showDelayMs);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    document.addEventListener("keydown", handleKeydown);
-
-    closeButtons.forEach((button) => {
-      button.addEventListener("click", closePopup);
-    });
-
-    cta?.addEventListener("click", rememberDismiss);
   })();
 </script>
 
@@ -260,7 +256,8 @@ const scrollThreshold = 0.3;
     width: min(900px, calc(100vw - 48px));
     min-height: 520px;
     max-height: calc(100svh - 72px);
-    overflow: hidden;
+    overflow: auto;
+    overscroll-behavior: contain;
     border: 1px solid rgba(191, 146, 86, 0.26);
     border-radius: 38px;
     background:

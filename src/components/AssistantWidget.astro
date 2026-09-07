@@ -16,7 +16,7 @@ const starters = [
 ];
 ---
 
-<div class="pmu-assistant" data-pmu-assistant>
+<div class="pmu-assistant is-overlay-blocked" data-pmu-assistant inert aria-hidden="true">
   <button
     class="pmu-assistant__launcher"
     type="button"
@@ -36,6 +36,7 @@ const starters = [
     class="pmu-assistant__panel"
     id="pmu-assistant-panel"
     aria-hidden="true"
+    inert
   >
     <header class="pmu-assistant__header">
       <div class="pmu-assistant__header-main">
@@ -788,28 +789,21 @@ const starters = [
     }
   }
 
-  /* Launcher pod hamburgerem / znika po otwarciu menu mobilnego. */
-  @media (max-width: 900px) {
+  /* Jedna aktywna nakładka; reguła działa również powyżej 900 px. */
+  .pmu-assistant.is-overlay-blocked {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(12px) scale(0.88) !important;
+  }
+
+  @media (max-width: 1080px) {
     .pmu-assistant:not(.is-open) {
       z-index: 30 !important;
     }
 
     .pmu-assistant.is-open {
       z-index: 10000 !important;
-    }
-
-    .pmu-assistant.is-mobile-menu-open {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-      transform: translateY(12px) scale(0.88) !important;
-    }
-
-    .pmu-assistant.is-open {
-      opacity: 1 !important;
-      visibility: visible !important;
-      pointer-events: auto !important;
-      transform: none !important;
     }
   }
 </style>
@@ -997,6 +991,8 @@ const starters = [
   }
 
   function setOpen(isOpen) {
+    if (isOpen && root?.inert) return;
+    if (panel) panel.inert = !isOpen;
     root?.classList.toggle("is-open", isOpen);
     launcher?.setAttribute("aria-expanded", String(isOpen));
     panel?.setAttribute("aria-hidden", String(!isOpen));
@@ -1009,7 +1005,9 @@ const starters = [
       const isCompactMobile = window.matchMedia?.("(max-width: 640px)").matches;
 
       if (!isCompactMobile) {
-        setTimeout(() => input?.focus(), 100);
+        setTimeout(() => {
+          if (root?.classList.contains("is-open") && !root.inert) input?.focus();
+        }, 100);
       }
     }
   }
@@ -1210,157 +1208,38 @@ const starters = [
     });
   });
 
-  function setupMobileMenuWatcher() {
-    const mobileMenuLabels = new Set([
-      "PMU",
-      "BRWI",
-      "USTA",
-      "KRESKI",
-      "USUWANIE",
-      "SZKOLENIA",
-      "PORADNIK",
-      "GALERIA",
-      "CENNIK",
-      "KONTAKT",
-    ]);
+  function setupOverlayWatcher() {
+    if (!root) return;
+    const menuButton = document.querySelector("[data-menu-button]");
+    const cookieBanner = document.querySelector("[data-cookie-consent]");
+    const silkyPopup = document.getElementById("shb-popup");
 
-    function isMobileViewport() {
-      return (
-        window.matchMedia?.("(max-width: 900px)").matches ??
-        window.innerWidth <= 900
+    function syncOverlays() {
+      const blocked = Boolean(
+        menuButton?.getAttribute("aria-expanded") === "true" ||
+        (cookieBanner && !cookieBanner.hidden) ||
+        (silkyPopup && !silkyPopup.hidden)
       );
+      if (blocked && root.classList.contains("is-open")) setOpen(false);
+      root.classList.toggle("is-overlay-blocked", blocked);
+      root.inert = blocked;
+      if (blocked) root.setAttribute("aria-hidden", "true");
+      else root.removeAttribute("aria-hidden");
     }
 
-    function normalizeText(value) {
-      return String(value || "")
-        .replace(/\s+/g, " ")
-        .trim()
-        .toUpperCase();
+    // Obserwujemy tylko trzy konkretne kontrolki, bez skanowania DOM i interwału.
+    const observer = new MutationObserver(syncOverlays);
+    if (menuButton) observer.observe(menuButton, { attributes: true, attributeFilter: ["aria-expanded"] });
+    for (const element of [cookieBanner, silkyPopup]) {
+      if (element) observer.observe(element, { attributes: true, attributeFilter: ["hidden"] });
     }
-
-    function isElementVisible(element) {
-      if (!element || root?.contains(element)) return false;
-
-      const style = window.getComputedStyle(element);
-
-      if (
-        style.display === "none" ||
-        style.visibility === "hidden" ||
-        Number(style.opacity) < 0.05
-      ) {
-        return false;
-      }
-
-      const rect = element.getBoundingClientRect();
-
-      return (
-        rect.width > 100 &&
-        rect.height > 40 &&
-        rect.bottom > 0 &&
-        rect.top < window.innerHeight
-      );
-    }
-
-    function visibleMobileMenuCardsCount() {
-      const elements = Array.from(
-        document.querySelectorAll("a, button")
-      );
-
-      return elements.filter((element) => {
-        const text = normalizeText(element.textContent);
-
-        if (!mobileMenuLabels.has(text)) return false;
-        if (!isElementVisible(element)) return false;
-
-        const rect = element.getBoundingClientRect();
-
-        return rect.width > 140 && rect.height > 55;
-      }).length;
-    }
-
-    function hasExpandedHeaderButton() {
-      const buttons = Array.from(
-        document.querySelectorAll("button[aria-expanded='true']")
-      );
-
-      return buttons.some((button) => {
-        if (root?.contains(button)) return false;
-
-        const rect = button.getBoundingClientRect();
-
-        return (
-          rect.width > 20 &&
-          rect.height > 20 &&
-          rect.top >= 0 &&
-          rect.top < 160 &&
-          rect.right > window.innerWidth - 180
-        );
-      });
-    }
-
-    function syncAssistantWithMobileMenu() {
-      if (!isMobileViewport()) {
-        root?.classList.remove("is-mobile-menu-open");
-        return;
-      }
-
-      const menuOpen =
-        visibleMobileMenuCardsCount() >= 4 ||
-        hasExpandedHeaderButton();
-
-      if (menuOpen && root?.classList.contains("is-open")) {
-        setOpen(false);
-      }
-
-      root?.classList.toggle(
-        "is-mobile-menu-open",
-        menuOpen
-      );
-    }
-
-    syncAssistantWithMobileMenu();
-
-    const observer = new MutationObserver(() => {
-      window.requestAnimationFrame(
-        syncAssistantWithMobileMenu
-      );
-    });
-
-    observer.observe(document.documentElement, {
-      subtree: true,
-      childList: true,
-      attributes: true,
-      attributeFilter: [
-        "class",
-        "style",
-        "aria-expanded",
-        "aria-hidden",
-        "data-state",
-        "data-open",
-      ],
-    });
-
-    document.addEventListener("click", () => {
-      window.setTimeout(syncAssistantWithMobileMenu, 80);
-      window.setTimeout(syncAssistantWithMobileMenu, 220);
-    });
-
-    document.addEventListener("touchend", () => {
-      window.setTimeout(syncAssistantWithMobileMenu, 80);
-      window.setTimeout(syncAssistantWithMobileMenu, 220);
-    });
-
-    window.addEventListener(
-      "resize",
-      syncAssistantWithMobileMenu
-    );
-
-    window.setInterval(
-      syncAssistantWithMobileMenu,
-      350
-    );
+    syncOverlays();
   }
 
   restoreConversation();
-  setupMobileMenuWatcher();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupOverlayWatcher, { once: true });
+  } else {
+    setupOverlayWatcher();
+  }
 </script>

@@ -1,4 +1,4 @@
-﻿---
+---
 import "../styles/global.css";
 import { siteConfig, getCanonicalUrl, getOgImageUrl } from "../config/site";
 import AssistantWidget from "../components/AssistantWidget.astro";
@@ -30,7 +30,9 @@ const {
 } = Astro.props;
 
 const canonicalUrl = getCanonicalUrl(canonicalPath ?? Astro.url.pathname);
-const isPoradnikArticle = Astro.url.pathname.startsWith("/poradnik/") && Astro.url.pathname !== "/poradnik/";
+const pagePath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isPoradnikArticle = pagePath.startsWith("/poradnik/");
+const showSilkyPopup = pagePath === "/" || pagePath === "/makijaz-permanentny-brwi";
 const ogImageUrl = getOgImageUrl(ogImage);
 const ogImageAlt = "Bogusława Herda — makijaż permanentny Bielsko-Biała";
 
@@ -108,9 +110,8 @@ const structuredDataJson = JSON.stringify(allStructuredData).replace(/</g, "\\u0
 <!doctype html>
 <html lang="pl">
   <head>
-    <GoogleAdsTag />
-
     <meta charset="UTF-8" />
+    <GoogleAdsTag />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>{title}</title>
@@ -151,7 +152,7 @@ const structuredDataJson = JSON.stringify(allStructuredData).replace(/</g, "\\u0
     {isPoradnikArticle && <PoradnikSocialBridge />}
 
     <AssistantWidget />
-    <SilkyPopup />
+    {showSilkyPopup && <SilkyPopup />}
     <CookieConsent />
   </body>
 </html>

@@ -1,4 +1,4 @@
-<div class="cookie-consent" data-cookie-consent hidden>
+<div class="cookie-consent" data-cookie-consent role="region" aria-label="Ustawienia prywatności" hidden>
   <div class="cookie-consent__content">
     <p class="cookie-consent__title">Dbamy o Twoją prywatność</p>
     <p class="cookie-consent__text">
@@ -111,6 +111,19 @@
       currentChoice = null;
     }
 
+    if (currentChoice !== 'accepted' && currentChoice !== 'rejected') currentChoice = null;
+    var menuButton = document.querySelector('[data-menu-button]');
+
+    function syncBannerVisibility() {
+      var menuOpen = menuButton && menuButton.getAttribute('aria-expanded') === 'true';
+      banner.hidden = Boolean(currentChoice || menuOpen);
+    }
+
+    if (menuButton) {
+      var menuObserver = new MutationObserver(syncBannerVisibility);
+      menuObserver.observe(menuButton, { attributes: true, attributeFilter: ['aria-expanded'] });
+    }
+
     function updateGoogleConsent(status) {
       if (typeof window.gtag !== 'function') return;
 
@@ -156,19 +169,17 @@
       }
     }
 
-    if (!currentChoice) {
-      banner.hidden = false;
-    } else {
-      applyConsent(currentChoice);
-    }
+    if (currentChoice) applyConsent(currentChoice);
+    syncBannerVisibility();
 
     acceptButton.addEventListener('click', function () {
       try {
         window.localStorage.setItem(storageKey, 'accepted');
       } catch (error) {}
 
-      applyConsent('accepted');
-      banner.hidden = true;
+      currentChoice = 'accepted';
+      applyConsent(currentChoice);
+      syncBannerVisibility();
     });
 
     rejectButton.addEventListener('click', function () {
@@ -176,8 +187,9 @@
         window.localStorage.setItem(storageKey, 'rejected');
       } catch (error) {}
 
-      applyConsent('rejected');
-      banner.hidden = true;
+      currentChoice = 'rejected';
+      applyConsent(currentChoice);
+      syncBannerVisibility();
     });
   })();
 </script>
