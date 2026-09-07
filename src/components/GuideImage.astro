@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption: string;
+  kind: "gallery" | "illustration";
+  sizes?: string;
+}
+const { src, alt, caption, kind, sizes = "(max-width: 760px) calc(100vw - 36px), 1100px" } = Astro.props;
+const width = Math.min(src.width, 1200);
+const widths = [...new Set([360, 540, 760, width].filter(value => value <= width))].sort((a, b) => a - b);
+---
+
+<figure class="guide-image">
+  <Image src={src} alt={alt} width={width} widths={widths} sizes={sizes}
+    format="webp" quality={80} loading="lazy" decoding="async" />
+  <figcaption>
+    <span>{kind === "illustration" ? "Ilustracja AI" : "Z galerii gabinetu"}</span>
+    {caption}
+  </figcaption>
+</figure>
+
+<style>
+  .guide-image { margin: 0; min-width: 0; }
+  .guide-image img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 24px; background: #f3ebe7; }
+  .guide-image figcaption { padding: 12px 2px 0; font-size: .875rem; line-height: 1.6; color: #615958; }
+  .guide-image figcaption span { display: block; margin-bottom: 3px; color: #176963; font-size: .72rem; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+  @media (max-width: 600px) { .guide-image img { border-radius: 18px; } }
+</style>

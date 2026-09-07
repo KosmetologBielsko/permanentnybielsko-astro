@@ -1,572 +1,367 @@
 ---
+import { getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
+import GuideImage from "../../components/GuideImage.astro";
+import cover from "../../assets/poradnik/kreska-cena-okladka-ai.png";
+import subtleEye from "../../assets/poradnik/kreska-delikatna-galeria.webp";
+import decorativeEye from "../../assets/poradnik/kreska-dekoracyjna-galeria.webp";
 
-const booksyUrl =
-  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
-
+const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 const article = {
-  slug: "kreska-permanentna-cena",
   title: "Kreska permanentna cena 2026 — ile kosztuje makijaż permanentny oczu?",
-  eyebrow: "Poradnik PMU",
-  category: "Ceny PMU",
-  datePublished: "2026-06-21",
-  dateModified: "2026-08-20",
-  readingTime: "8–10 minut",
-  description:
-    "Kreska permanentna cena 2026. Sprawdź, ile kosztuje kreska zagęszczająca, dekoracyjna, dolna i cieniowana, co obejmuje cena oraz od czego zależy dobór kreski PMU.",
-  lead:
-    "Cena kreski permanentnej zależy od rodzaju pigmentacji, zakresu pracy i budowy oka. Inaczej wyceniana jest subtelna kreska zagęszczająca linię rzęs, inaczej dekoracyjny eyeliner, kreska dolna albo połączenie kilku zakresów w jednej wizycie.",
-  shortAnswer:
-    "W gabinecie Bogusława Herda w Bielsku-Białej kreska permanentna kosztuje od 500 zł za kreskę dolną, 800 zł za kreskę zagęszczającą, 1100 zł za kreskę dekoracyjną lub eyeliner oraz do 1400 zł przy połączeniu kreski dolnej z dekoracyjną. Ceny zabiegów oznaczonych gwiazdką obejmują zabieg główny wraz z korektą w terminie 1–3 miesiące.",
+  description: "Kreska permanentna cena 2026. Sprawdź, ile kosztuje kreska zagęszczająca, dekoracyjna, dolna i cieniowana, co obejmuje cena oraz od czego zależy dobór kreski PMU.",
   canonicalPath: "/poradnik/kreska-permanentna-cena/",
-  mainService: {
-    href: "/makijaz-permanentny-oczu/",
-    title: "Makijaż permanentny oczu",
-  },
+  datePublished: "2026-06-21",
+  dateModified: "2026-09-07",
 };
-
 const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
+const coverAlt = "Ilustracja AI: naturalne spojrzenie z delikatnie podkreśloną górną linią rzęs";
+const socialCover = await getImage({ src: cover, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const socialCoverUrl = new URL(socialCover.src, "https://www.permanentnybielsko.com").toString();
 
-const priceCards = [
-  {
-    label: "Kreska dolna",
-    price: "500 zł",
-    text: "subtelne podkreślenie dolnej powieki, wymagające ostrożnego doboru efektu.",
-  },
-  {
-    label: "Kreska zagęszczająca",
-    price: "800 zł",
-    text: "pigmentacja przy linii rzęs, która ma optycznie zagęścić spojrzenie bez efektu mocnego eyelinera.",
-  },
-  {
-    label: "Kreska dekoracyjna",
-    price: "1100 zł",
-    text: "eyeliner lub kreska cieniowana, dobierana do powieki i oczekiwanego efektu.",
-  },
-  {
-    label: "Kreska dolna + dekoracyjna",
-    price: "1400 zł",
-    text: "większy zakres pracy obejmujący połączenie dolnej i górnej kreski dekoracyjnej.",
-  },
+const prices = [
+  { name: "Kreska dolna", price: "500 zł", detail: "Podkreślenie dolnej powieki.", href: "#rodzaje-kresek" },
+  { name: "Kreska zagęszczająca", price: "800 zł", detail: "Subtelna pigmentacja przy górnej linii rzęs.", href: "/poradnik/kreska-zageszczajaca-linie-rzes/" },
+  { name: "Kreska dekoracyjna", price: "1100 zł", detail: "Eyeliner lub kreska cieniowana, po dobraniu efektu do powieki.", href: "/poradnik/kreski-permanentne-cieniowane/" },
+  { name: "Kreska dolna + górna zagęszczająca", price: "1100 zł", detail: "Połączenie dolnej kreski z podkreśleniem górnej linii rzęs.", href: "/makijaz-permanentny-oczu/" },
+  { name: "Kreska dolna + dekoracyjna", price: "1400 zł", detail: "Połączenie dolnej kreski i górnego eyelinera lub cieniowania.", href: "/makijaz-permanentny-oczu/" },
 ];
-
-const kinds = [
-  {
-    title: "Efekt naturalny",
-    text: "Najczęściej uzyskuje się go przy kresce zagęszczającej, która podkreśla oko bez ciężkiego konturu.",
-  },
-  {
-    title: "Efekt makijażowy",
-    text: "Kreska dekoracyjna daje mocniejsze podkreślenie, ale musi być dopasowana do anatomii oka.",
-  },
-  {
-    title: "Kreska dolna",
-    text: "Nie zawsze jest najlepszym wyborem dla każdej osoby. Wymaga oceny budowy oka i oczekiwanego efektu.",
-  },
-  {
-    title: "Kreska cieniowana",
-    text: "Może dawać miększy rezultat niż klasyczny eyeliner, ale wymaga doświadczenia i kontroli techniki.",
-  },
-];
-
 const included = [
-  {
-    title: "Kwalifikacja oka",
-    text: "Przed zabiegiem trzeba ocenić budowę powieki, oczekiwania i możliwość wykonania konkretnego rodzaju kreski.",
-  },
-  {
-    title: "Dobór kreski",
-    text: "Nie każda kreska pasuje do każdego oka. Czasem lepiej wybrać subtelne zagęszczenie niż mocny eyeliner.",
-  },
-  {
-    title: "Zalecenia po zabiegu",
-    text: "Prawidłowe gojenie okolicy oka ma znaczenie dla komfortu, bezpieczeństwa i trwałości efektu.",
-  },
-  {
-    title: "Korekta po wygojeniu",
-    text: "Po czasie można ocenić, jak pigment przyjął się w skórze i czy efekt wymaga dopracowania.",
-  },
+  { title: "Rozmowa i kwalifikacja", text: "Ocena budowy oka i powieki, wcześniejszej pigmentacji oraz oczekiwań. Omawiamy też przeciwwskazania i przygotowanie." },
+  { title: "Dobór rodzaju kreski", text: "Ustalamy zakres podkreślenia. Subtelne zagęszczenie rzęs i dekoracyjny eyeliner dają inny efekt — wybór powinien pasować do Twojego oka." },
+  { title: "Zabieg i zalecenia", text: "Pigmentacja wybranego zakresu oraz indywidualne zalecenia dotyczące pielęgnacji okolicy oka po zabiegu." },
+  { title: "Korekta do 2 miesięcy", text: "Przy zabiegu głównym oznaczonym gwiazdką korekta jest w cenie. Wykonujemy ją po wygojeniu, do 2 miesięcy od zabiegu głównego." },
 ];
-
-const authorityCards = [
-  {
-    title: "Precyzja techniczna",
-    text: "Kreska powinna podkreślać oko, a nie optycznie je obciążać lub postarzać.",
-  },
-  {
-    title: "Bezpieczna kwalifikacja",
-    text: "Nie każdy rodzaj kreski będzie dobrym wyborem przy każdej powiece i każdej skórze.",
-  },
-];
-
-const choiceCards = [
-  {
-    title: "Opadająca powieka",
-    text: "Przy opadającej powiece mocna kreska nie zawsze jest dobrym kierunkiem. Czasem lepszy jest delikatniejszy efekt.",
-  },
-  {
-    title: "Naturalne spojrzenie",
-    text: "Kreska powinna współgrać z rzęsami i okiem, a nie dominować nad twarzą.",
-  },
-];
-
 const faqItems = [
-  {
-    question: "Ile kosztuje kreska permanentna?",
-    answer:
-      "Cena zależy od rodzaju kreski. W gabinecie Bogusława Herda kreska dolna kosztuje 500 zł, kreska zagęszczająca 800 zł, kreska dekoracyjna 1100 zł, a połączenie kreski dolnej z dekoracyjną 1400 zł.",
-  },
-  {
-    question: "Ile kosztuje kreska zagęszczająca?",
-    answer:
-      "Kreska zagęszczająca kosztuje 800 zł. To subtelna pigmentacja przy linii rzęs, która ma optycznie zagęścić spojrzenie bez efektu mocnego eyelinera.",
-  },
-  {
-    question: "Ile kosztuje kreska dekoracyjna permanentna?",
-    answer:
-      "Kreska dekoracyjna, eyeliner lub kreska cieniowana kosztuje 1100 zł. Ostateczny wybór efektu zależy od budowy oka, powieki i kwalifikacji zabiegowej.",
-  },
-  {
-    question: "Czy cena kreski permanentnej obejmuje korektę?",
-    answer:
-      "W przypadku usług oznaczonych gwiazdką cena obejmuje zabieg główny wraz z korektą w terminie 1–3 miesiące.",
-  },
-  {
-    question: "Czy kreska dolna jest dla każdego?",
-    answer:
-      "Nie zawsze. Kreska dolna wymaga ostrożnej kwalifikacji, ponieważ może optycznie zmienić kształt oka. Decyzję najlepiej podjąć po rozmowie i ocenie budowy oka.",
-  },
+  { question: "Ile kosztuje kreska permanentna?", answer: "W gabinecie Bogusława Herda w Bielsku-Białej ceny wynoszą od 500 zł za kreskę dolną do 1400 zł za połączenie kreski dolnej i dekoracyjnej. Kreska zagęszczająca kosztuje 800 zł, dekoracyjna 1100 zł, a dolna z górną zagęszczającą 1100 zł." },
+  { question: "Ile kosztuje kreska zagęszczająca?", answer: "Kreska zagęszczająca kosztuje 800 zł. To subtelna pigmentacja przy górnej linii rzęs. W cenie zabiegu głównego jest korekta po wygojeniu, do 2 miesięcy od pierwszej pigmentacji." },
+  { question: "Ile kosztuje kreska dekoracyjna permanentna?", answer: "Kreska dekoracyjna — eyeliner lub kreska cieniowana — kosztuje 1100 zł. Ostateczny wybór efektu zależy od budowy oka, powieki i kwalifikacji zabiegowej." },
+  { question: "Czy cena kreski permanentnej obejmuje korektę?", answer: "Tak. Ceny zabiegów głównych oznaczonych w cenniku gwiazdką obejmują korektę po wygojeniu, do 2 miesięcy od zabiegu głównego. W tym terminie korekta nie wymaga dodatkowej opłaty." },
+  { question: "Czy kreska dolna jest dla każdego?", answer: "Nie zawsze. Kreska dolna wymaga indywidualnej kwalifikacji, ponieważ może optycznie zmienić kształt oka. Decyzję podejmujemy po rozmowie i ocenie budowy oka." },
+  { question: "Czy poprawienie starej kreski kosztuje tyle samo?", answer: "Wcześniejsza pigmentacja wymaga osobnej oceny. Znaczenie mają jej kolor, kształt, nasycenie i stan skóry. Nie każdą starą kreskę można od razu przykryć nową; zakres postępowania i wycenę ustalamy po kwalifikacji." },
 ];
-
 const structuredData = [
   {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": `${pageUrl}#article`,
-    url: pageUrl,
-    headline: article.title,
-    description: article.description,
-    datePublished: article.datePublished,
-    dateModified: article.dateModified,
-    inLanguage: "pl-PL",
-    author: {
-      "@type": "Person",
-      name: "Bogusława Herda",
-      url: "https://www.permanentnybielsko.com/",
-    },
-    publisher: {
-      "@id": "https://www.permanentnybielsko.com/#localbusiness",
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${pageUrl}#webpage`,
-    },
-    citation: [
-      "https://pubmed.ncbi.nlm.nih.gov/38901732/",
-      "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet",
-    ],
+    "@context": "https://schema.org", "@type": "Article", "@id": `${pageUrl}#article`,
+    url: pageUrl, headline: article.title, description: article.description,
+    datePublished: article.datePublished, dateModified: article.dateModified, inLanguage: "pl-PL",
+    image: { "@type": "ImageObject", url: socialCoverUrl, width: 1200, height: 630, caption: coverAlt },
+    author: { "@type": "Person", name: "Bogusława Herda", url: "https://www.permanentnybielsko.com/makijaz-permanentny-bielsko/#boguslawa-herda" },
+    publisher: { "@id": "https://www.permanentnybielsko.com/#localbusiness" },
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+    citation: ["https://pubmed.ncbi.nlm.nih.gov/38901732/", "https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet"],
   },
   {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "@id": `${pageUrl}#breadcrumb`,
+    "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": `${pageUrl}#breadcrumb`,
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Strona główna",
-        item: "https://www.permanentnybielsko.com/",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Poradnik PMU",
-        item: "https://www.permanentnybielsko.com/poradnik/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: article.title,
-        item: pageUrl,
-      },
+      { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://www.permanentnybielsko.com/" },
+      { "@type": "ListItem", position: 2, name: "Poradnik PMU", item: "https://www.permanentnybielsko.com/poradnik/" },
+      { "@type": "ListItem", position: 3, name: article.title, item: pageUrl },
     ],
   },
   {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${pageUrl}#faq`,
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    "@context": "https://schema.org", "@type": "FAQPage", "@id": `${pageUrl}#faq`,
+    mainEntity: faqItems.map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })),
   },
 ];
 ---
 
-<Layout
-  title={`${article.title} | Poradnik PMU Bogusławy Herda`}
-  description={article.description}
-  canonicalPath={article.canonicalPath}
-  structuredData={structuredData}
->
-  <div class="price-guide-page">
-    <Header />
-
-    <main>
-      <section class="price-hero">
-        <div class="price-glow price-glow-one" aria-hidden="true"></div>
-        <div class="price-glow price-glow-two" aria-hidden="true"></div>
-
-        <div class="container price-hero-grid">
-          <div class="price-hero-copy">
-            <p class="section-kicker">{article.eyebrow}</p>
-
-            <div class="price-meta">
-              <span>Ekspercki poradnik</span>
-              <span>{article.category}</span>
-              <span>{article.readingTime}</span>
-            </div>
-
+<Layout title={`${article.title} | Poradnik PMU Bogusławy Herda`}
+  description={article.description} canonicalPath={article.canonicalPath}
+  ogType="article" ogImage={socialCover.src} ogImageAlt={coverAlt}
+  showGuideSocial={false} structuredData={structuredData}>
+  <Header />
+  <main class="pmu-guide" id="poradnik-kreska-cena">
+    <div class="guide-shell">
+      <header class="guide-hero">
+        <nav class="guide-breadcrumbs" aria-label="Ścieżka strony">
+          <a href="/">Strona główna</a><span aria-hidden="true">/</span><a href="/poradnik/">Poradnik PMU</a><span aria-hidden="true">/</span><span>Ceny kresek</span>
+        </nav>
+        <div class="guide-meta"><span>Ceny PMU · Bielsko-Biała</span><span>Aktualizacja: <time datetime={article.dateModified}>7.09.2026</time></span></div>
+        <div class="guide-hero-grid">
+          <div>
             <h1>{article.title}</h1>
-            <p class="price-lead">{article.lead}</p>
-
-            <div class="price-hero-actions">
-              <a class="price-primary" href="#ceny-kreski">
-                Ceny kresek PMU <span aria-hidden="true">→</span>
-              </a>
-              <a class="price-secondary" href={article.mainService.href}>
-                {article.mainService.title}
-              </a>
-            </div>
+            <p class="guide-lead">Subtelne zagęszczenie rzęs czy wyraźniejszy eyeliner? Zobacz ceny, porównaj zakres zabiegów i sprawdź, co obejmuje korekta.</p>
+            <a class="guide-author-link" href="#doswiadczenie">Bogusława Herda <span>· linergistka i trenerka PMU</span></a>
           </div>
-
-          <aside class="price-answer" aria-label="Odpowiedź w 20 sekund">
-            <p class="price-answer-label">Odpowiedź w 20 sekund</p>
-            <strong class="price-big">500–1400 zł</strong>
-            <h2>Najważniejsze bez powtarzania.</h2>
-            <p>{article.shortAnswer}</p>
+          <aside class="guide-answer" aria-label="Cena kreski permanentnej w skrócie">
+            <p class="guide-kicker">Odpowiedź w 20 sekund</p>
+            <strong class="guide-price-range">500–1400 <span>zł</span></strong>
+            <p>W gabinecie Bogusława Herda: dolna <b>500 zł</b>, zagęszczająca <b>800 zł</b>, dekoracyjna <b>1100 zł</b>.</p>
+            <p class="guide-answer-note">Korekta zabiegu głównego w cenie — po wygojeniu, <b>do 2 miesięcy</b>.</p>
+            <a class="guide-button" href="#ceny-kreski">Porównaj wszystkie warianty <span aria-hidden="true">↓</span></a>
           </aside>
         </div>
+      </header>
+
+      <details class="guide-toc">
+        <summary>Przejdź do wybranej odpowiedzi <span aria-hidden="true">+</span></summary>
+        <nav aria-label="Spis treści poradnika">
+          <a href="#ceny-kreski">Ceny kresek PMU</a><a href="#rodzaje-kresek">Różnice i zdjęcia</a>
+          <a href="#co-obejmuje-cena">Co obejmuje cena?</a><a href="#dobor">Jak dobrać kreskę?</a>
+          <a href="#doswiadczenie">Doświadczenie</a><a href="#praktyka">Stanowisko Bogusława Herda</a>
+          <a href="#faq">Pytania i odpowiedzi</a><a href="#zrodla">Źródła</a>
+        </nav>
+      </details>
+
+      <section class="guide-section" id="ceny-kreski">
+        <p class="guide-kicker">01 / Konkretnie o cenach</p>
+        <h2>Ile kosztuje kreska permanentna w 2026 roku?</h2>
+        <p class="guide-measure">Cena zależy od rodzaju pigmentacji i zakresu pracy. Poniżej znajdziesz ceny z cennika gabinetu Bogusława Herda w Bielsku-Białej — wraz z wariantami łączonymi.</p>
+        <div class="guide-price-table-wrap">
+          <table class="guide-price-table">
+            <caption>Ceny makijażu permanentnego oczu — gabinet Bogusława Herda</caption>
+            <thead><tr><th scope="col">Rodzaj kreski</th><th scope="col">Cena*</th></tr></thead>
+            <tbody>{prices.map(item => (
+              <tr><th scope="row"><a href={item.href}>{item.name}</a><span>{item.detail}</span></th><td>{item.price}</td></tr>
+            ))}</tbody>
+          </table>
+          <p class="guide-price-note">* Zabieg główny wraz z korektą po wygojeniu, do 2 miesięcy od zabiegu głównego. Stare PMU lub praca wykonana w innym gabinecie wymaga indywidualnej kwalifikacji.</p>
+        </div>
+        <a class="guide-text-link" href="/cennik-makijaz-permanentny/#price-group-2" data-guide-action="price_list">Pełny cennik makijażu permanentnego oczu <span aria-hidden="true">→</span></a>
       </section>
 
-      <section class="price-nav-section">
-        <div class="container">
-          <nav class="price-nav" aria-label="Spis treści artykułu">
-            <a href="#ceny-kreski">Ceny kresek PMU</a>
-            <a href="#rodzaje-kresek">Rodzaje kresek</a>
-            <a href="#co-obejmuje-cena">Zakres ceny</a>
-            <a href="#doswiadczenie">Autorytet</a>
-            <a href="#dobor">Dobór zabiegu</a>
-            <a href="#praktyka">Praktyka</a>
-            <a href="#zrodla">Źródła</a>
-          </nav>
+      <div class="guide-cover">
+        <GuideImage src={cover} alt={coverAlt} kind="illustration"
+          caption="Subtelne podkreślenie spojrzenia — ilustracja poradnika. Indywidualny projekt kreski dobieramy podczas kwalifikacji." />
+      </div>
+
+      <section class="guide-section" id="rodzaje-kresek">
+        <p class="guide-kicker">02 / Efekt i zakres pracy</p>
+        <h2>Kreska zagęszczająca, dekoracyjna, dolna — czym się różnią?</h2>
+        <div class="guide-copy-columns">
+          <p><b>Kreska zagęszczająca linię rzęs</b> jest zwykle najbardziej subtelna. Pigmentacja przy rzęsach podkreśla spojrzenie bez wyraźnego, szerokiego konturu nad nimi. Jeżeli zależy Ci na dyskretnym efekcie na co dzień, od tego wariantu warto rozpocząć rozmowę.</p>
+          <p><b>Kreska dekoracyjna, eyeliner lub cieniowana</b> daje bardziej widoczne podkreślenie. W cenniku należy do zakresu za 1100 zł. Kształt, grubość i zakończenie wymagają dopasowania do konkretnej powieki — zdjęcie inspiracji jest punktem wyjścia do konsultacji.</p>
+        </div>
+        <div class="guide-photo-grid">
+          <GuideImage src={subtleEye} kind="gallery" sizes="(max-width: 600px) calc((100vw - 48px) / 2), 430px"
+            alt="Brązowe oko z wąskim podkreśleniem górnej linii rzęs"
+            caption="Delikatniejsze podkreślenie przy linii rzęs." />
+          <GuideImage src={decorativeEye} kind="gallery" sizes="(max-width: 600px) calc((100vw - 48px) / 2), 430px"
+            alt="Niebieskie oko z wyraźniejszą kreską i miękkim zakończeniem w zewnętrznym kąciku"
+            caption="Wyraźniejszy kontur i miękkie zakończenie kreski." />
+        </div>
+        <p class="guide-measure"><b>Kreska dolna</b> jest osobną usługą za 500 zł. Można ją również połączyć z górną zagęszczającą lub dekoracyjną. Nie jest jednak automatycznie najlepszym wyborem dla każdego oka — zakres ustalamy po ocenie proporcji i oczekiwanego rezultatu.</p>
+        <a class="guide-text-link" href="/poradnik/kreska-permanentna-jak-wybrac-rodzaj/">Zobacz dokładne porównanie rodzajów kresek <span aria-hidden="true">→</span></a>
+      </section>
+
+      <aside class="guide-social" aria-label="Porozmawiaj z gabinetem o kresce">
+        <div><p class="guide-kicker">Masz swoją inspirację?</p><h2>Porozmawiajmy o Twoim spojrzeniu.</h2><p>Zobacz więcej materiałów z gabinetu i zapytaj o dobór kreski.</p></div>
+        <div class="guide-actions">
+          <a class="guide-button" href="https://www.instagram.com/permanentnybielsko" target="_blank" rel="noopener noreferrer" data-guide-action="instagram">Instagram <span aria-hidden="true">↗</span></a>
+          <a class="guide-button guide-button-light" href="https://www.facebook.com/PermanentnyBielsko" target="_blank" rel="noopener noreferrer" data-guide-action="facebook">Facebook <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+
+      <section class="guide-section" id="co-obejmuje-cena">
+        <p class="guide-kicker">03 / Zabieg i korekta</p>
+        <h2>Co obejmuje cena makijażu permanentnego oczu?</h2>
+        <p class="guide-measure">Na cenę składa się cały proces: rozmowa, kwalifikacja, dobór kreski, pigmentacja, zalecenia pozabiegowe i korekta. W usługach głównych oznaczonych gwiazdką korekta po wygojeniu jest wliczona w cenę i odbywa się do 2 miesięcy od zabiegu głównego.</p>
+        <ol class="guide-process">{included.map((item, index) => (
+          <li><span class="guide-step" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><div><h3>{item.title}</h3><p>{item.text}</p></div></li>
+        ))}</ol>
+        <p class="guide-note">Korekta w ramach zabiegu głównego i odświeżenie starszego makijażu to różne zakresy pracy. Przy wcześniejszej pigmentacji najpierw ustalamy, jaki sposób postępowania będzie odpowiedni.</p>
+      </section>
+
+      <section class="guide-section" id="dobor">
+        <p class="guide-kicker">04 / Świadomy wybór</p>
+        <h2>Dlaczego nie warto wybierać kreski tylko po cenie?</h2>
+        <div class="guide-copy-columns">
+          <p>Makijaż permanentny oczu wymaga precyzji, kwalifikacji i umiaru. Inny zakres pracy ma podkreślenie rzęs, inny rozbudowany eyeliner. Porównując oferty, sprawdź rodzaj kreski, zakres korekty, doświadczenie osoby wykonującej zabieg i sposób kwalifikacji.</p>
+          <p>Przy opadającej powiece mocna kreska nie zawsze będzie dobrym kierunkiem. Znaczenie mają również asymetria, wcześniejszy makijaż, wrażliwość okolicy oka oraz oczekiwany efekt. Dobrze dobrana kreska może być subtelna i nadal wyraźnie podkreślać spojrzenie.</p>
+        </div>
+        <div class="guide-callout"><h3>Masz opadającą powiekę lub wcześniejszą pigmentację?</h3><p>Zacznij od konsultacji. Oceniamy budowę powieki, wcześniejszy pigment i możliwości wykonania nowego projektu.</p><div class="guide-inline-links"><a href="/poradnik/kreska-permanentna-przy-opadajacej-powiece/">Kreska przy opadającej powiece →</a><a href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu" data-guide-action="qualification">Opisz swój przypadek →</a></div></div>
+      </section>
+
+      <section class="guide-section guide-expert" id="doswiadczenie">
+        <div><p class="guide-kicker">05 / Doświadczenie ma znaczenie</p><h2>Bogusława Herda</h2><p class="guide-expert-role">Linergistka · trenerka makijażu permanentnego</p></div>
+        <div><p>Dyplomowana linergistka, Elite Top Linergist Long-Time-Liner®, trenerka i prelegentka międzynarodowa, wicemistrzyni świata oraz mistrzyni Polski. W makijażu permanentnym oczu najważniejsze są dla niej precyzja, odpowiedzialność i dopasowanie podkreślenia do naturalnej anatomii.</p><a class="guide-text-link" href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj doświadczenie Bogusława Herda →</a></div>
+      </section>
+
+      <section class="guide-section" id="praktyka">
+        <p class="guide-kicker">Stanowisko Bogusława Herda</p>
+        <h2>Jak przekładam tę wiedzę na realny zabieg?</h2>
+        <blockquote><p>Nie stosuję jednej odpowiedzi dla każdej skóry i każdej klientki. Najpierw oceniam aktualny stan skóry, wcześniejszy makijaż permanentny, naturalną anatomię oraz oczekiwany efekt. Dopiero potem wybieramy metodę i plan postępowania.</p><footer>Bogusława Herda · praktyka gabinetowa</footer></blockquote>
+        <p class="guide-measure">Przed rezerwacją warto ustalić, czy interesuje Cię delikatne podkreślenie rzęs, czy bardziej widoczny eyeliner. Ostateczny projekt powstaje po ocenie oka i powieki. Jeśli masz stare PMU, zgłoś je już przy pierwszym kontakcie.</p>
+      </section>
+
+      <section class="guide-section" id="faq">
+        <p class="guide-kicker">Pytania przed rezerwacją</p><h2>Kreska permanentna — pytania o cenę i korektę</h2>
+        <div class="guide-faq">{faqItems.map(item => (<details><summary>{item.question}<span aria-hidden="true">+</span></summary><div><p>{item.answer}</p></div></details>))}</div>
+      </section>
+
+      <section class="guide-section" id="zrodla">
+        <p class="guide-kicker">Źródła i aktualność</p><h2>Skąd pochodzą ceny i informacje?</h2>
+        <p class="guide-measure">Ceny i termin korekty pochodzą z <a href="/cennik-makijaz-permanentny/#price-group-2">cennika gabinetu Bogusława Herda</a>. Ostatnia aktualizacja tego poradnika: <time datetime={article.dateModified}>7 września 2026 r.</time></p>
+        <p class="guide-measure">Informacje o specyfice pigmentacji i możliwych powikłaniach uzupełniamy materiałami dermatologicznymi oraz instytucjonalnymi. Źródła te dotyczą PMU i bezpieczeństwa — ceny określa gabinet.</p>
+        <ul class="guide-sources">
+          <li><a href="https://pubmed.ncbi.nlm.nih.gov/38901732/" target="_blank" rel="noopener noreferrer">Permanent makeup: A review of its technique, regulation, and complications</a><span>Przegląd dermatologiczny · PubMed</span></li>
+          <li><a href="https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet" target="_blank" rel="noopener noreferrer">Tattoos &amp; Permanent Makeup: Fact Sheet</a><span>Materiały informacyjne · FDA</span></li>
+        </ul>
+        <p class="guide-small">Treść ma charakter edukacyjny i nie zastępuje indywidualnej kwalifikacji ani konsultacji medycznej. Przy nasilonych, nietypowych lub utrzymujących się objawach skontaktuj się z lekarzem.</p>
+      </section>
+
+      <section class="guide-booking" aria-labelledby="guide-booking-title">
+        <p class="guide-kicker">Twój następny krok</p><h2 id="guide-booking-title">Wybierz kreskę dopasowaną do siebie.</h2><p>Sprawdź terminy albo porozmawiaj z gabinetem o swojej powiece i oczekiwanym efekcie.</p>
+        <div class="guide-actions">
+          <a class="guide-button" href={booksyUrl} target="_blank" rel="noopener noreferrer" data-guide-action="booksy">Sprawdź terminy w Booksy ↗</a>
+          <a class="guide-button guide-button-light" href="tel:+48730900125" data-guide-action="phone">Zadzwoń: 730 900 125</a>
+          <a class="guide-text-link" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu" data-guide-action="qualification">Formularz PMU →</a>
         </div>
       </section>
 
-      <section class="price-section" id="ceny-kreski">
-        <div class="container">
-          <div class="price-heading">
-            <p class="section-kicker">Ceny kresek PMU</p>
-            <h2>Ile kosztuje kreska permanentna w 2026 roku?</h2>
-          </div>
-
-          <div class="decision-copy">
-            <p>
-              Cennik makijażu permanentnego oczu obejmuje kilka rodzajów kresek. Każda z nich ma inny zakres pracy, inny efekt i inną trudność techniczną. Dlatego przed wyborem ceny warto najpierw zrozumieć, czym różnią się poszczególne typy pigmentacji.
-            </p>
-            <p>
-              Najdelikatniejszym rozwiązaniem jest kreska zagęszczająca linię rzęs. Bardziej wyrazisty efekt daje kreska dekoracyjna, eyeliner lub kreska cieniowana. Kreska dolna jest osobną usługą, a przy połączeniu dolnej i górnej zakres pracy jest większy.
-            </p>
-          </div>
-
-          <div class="scenario-scroll" aria-label="Ceny kresek permanentnych">
-            {priceCards.map((item) => (
-              <article class="scenario-card">
-                <span>{item.label}</span>
-                <strong>{item.price}</strong>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="price-section price-soft" id="rodzaje-kresek">
-        <div class="container">
-          <div class="price-heading">
-            <p class="section-kicker">Rodzaje kresek</p>
-            <h2>Kreska zagęszczająca, dekoracyjna, dolna — czym się różnią?</h2>
-          </div>
-
-          <div class="decision-copy">
-            <p>
-              Kreska zagęszczająca jest zwykle najbardziej subtelna. Jej celem jest optyczne zagęszczenie linii rzęs i podkreślenie oka bez wyraźnego efektu makijażu. To rozwiązanie dla osób, które chcą wyglądać naturalnie i świeżo na co dzień.
-            </p>
-            <p>
-              Kreska dekoracyjna lub eyeliner są bardziej widoczne. Mogą mocniej podkreślać oko, ale wymagają bardzo uważnej kwalifikacji, szczególnie przy opadającej powiece, asymetrii, wrażliwej skórze i oczekiwaniu trwałego efektu.
-            </p>
-          </div>
-
-          <div class="included-grid">
-            {kinds.map((item, index) => (
-              <article>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="price-section" id="co-obejmuje-cena">
-        <div class="container">
-          <div class="price-heading">
-            <p class="section-kicker">Zakres ceny</p>
-            <h2>Co obejmuje cena makijażu permanentnego oczu?</h2>
-          </div>
-
-          <div class="decision-copy">
-            <p>
-              Cena kreski permanentnej obejmuje nie tylko samą pigmentację. Ważna jest rozmowa, kwalifikacja, ocena powieki, dobór rodzaju kreski, omówienie przeciwwskazań, wykonanie zabiegu, zalecenia pozabiegowe oraz korekta w terminie 1–3 miesiące, jeśli dana pozycja jest oznaczona gwiazdką w cenniku.
-            </p>
-            <p>
-              Przy makijażu permanentnym oczu szczególnie istotne jest bezpieczeństwo i ostrożność. Oko, powieka i linia rzęs są delikatnym obszarem, dlatego cena powinna odzwierciedlać doświadczenie osoby wykonującej zabieg i odpowiedzialność za efekt.
-            </p>
-          </div>
-
-          <div class="included-grid">
-            {included.map((item, index) => (
-              <article>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="price-section price-soft" id="doswiadczenie">
-        <div class="container expert-card">
-          <div>
-            <p class="section-kicker">Autorytet</p>
-            <h2>Przy kresce permanentnej doświadczenie ma szczególne znaczenie.</h2>
-            <p>
-              Makijaż permanentny oczu wymaga dużej precyzji i odpowiedzialności. Praca odbywa się w delikatnej okolicy, a efekt powinien być dopasowany do oka, powieki, rzęs i naturalnej mimiki twarzy.
-            </p>
-            <p>
-              Bogusława Herda to dyplomowana linergistka i trenerka makijażu permanentnego, Elite Top Linergist Long-Time-Liner®, trenerka i prelegentka międzynarodowa, wicemistrzyni świata oraz mistrzyni Polski. Takie doświadczenie ma znaczenie szczególnie przy zabiegach, gdzie kilka milimetrów może zmienić cały odbiór spojrzenia.
-            </p>
-          </div>
-
-          <aside>
-            <span>Bogusława Herda</span>
-            {authorityCards.map((item) => (
-              <>
-                <strong>{item.title}</strong>
-                <p>{item.text}</p>
-              </>
-            ))}
-          </aside>
-        </div>
-      </section>
-
-      <section class="price-section" id="dobor">
-        <div class="container decision-grid">
-          <div class="decision-copy">
-            <p class="section-kicker">Dobór zabiegu</p>
-            <h2>Dlaczego nie warto wybierać kreski tylko po cenie?</h2>
-            <p>
-              Najniższa cena nie powinna być głównym kryterium przy wyborze kreski permanentnej. To zabieg wykonywany w widocznej i wrażliwej okolicy, dlatego ważniejsze są kwalifikacja, umiar, doświadczenie oraz realne dopasowanie efektu do twarzy.
-            </p>
-            <p>
-              Dobrze dobrana kreska nie musi być mocna, żeby była widoczna. Często najlepszy efekt daje subtelne zagęszczenie linii rzęs, które podkreśla spojrzenie, ale nie wygląda ciężko po wygojeniu.
-            </p>
-          </div>
-
-          <div class="decision-cards">
-            {choiceCards.map((item) => (
-              <article>
-                <strong>{item.title}</strong>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="price-section price-soft">
-        <div class="container">
-          <div class="qualification-strip">
-            <div>
-              <span>Ważne</span>
-              <strong>Kiedy potrzebna jest konsultacja przed kreską permanentną?</strong>
-              <p>
-                Konsultacja jest szczególnie ważna przy opadającej powiece, wrażliwych oczach, wcześniejszych pigmentacjach, asymetrii, bliznach, tendencji do obrzęków albo oczekiwaniu mocnej kreski dekoracyjnej. W takich sytuacjach najpierw trzeba ocenić, jaki efekt będzie bezpieczny i estetyczny po wygojeniu.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="price-section expert-section" id="praktyka">
-        <div class="container expert-card">
-          <div>
-            <p class="section-kicker">Praktyka gabinetowa</p>
-            <h2>Jak przekładam tę wiedzę na realny zabieg?</h2>
-            <p>
-              Nie stosuję jednej odpowiedzi dla każdej skóry i każdej klientki.
-              Najpierw oceniam aktualny stan skóry, wcześniejszy makijaż permanentny,
-              naturalną anatomię oraz oczekiwany efekt. Dopiero potem wybieramy metodę
-              i plan postępowania.
-            </p>
-          </div>
-
-          <aside>
-            <span>Bogusława Herda</span>
-            <strong>Trenerka Long-Time-Liner®</strong>
-            <strong>Autorka Silky Hairstroke Brows</strong>
-            <a href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
-              Przejdź do kwalifikacji PMU →
-            </a>
-          </aside>
-        </div>
-      </section>
-
-      <section class="price-section price-soft">
-        <div class="container">
-          <div class="price-heading">
-            <p class="section-kicker">Powiązane tematy</p>
-            <h2>Nie opisujemy wszystkiego drugi raz — przejdź do właściwego zagadnienia.</h2>
-          </div>
-
-          <div class="related-scroll">
-            <a href="/makijaz-permanentny-oczu/">
-              <span>Makijaż permanentny oczu</span>
-              <strong>Makijaż permanentny oczu</strong>
-              <p>Poznaj rodzaje kresek permanentnych i sposób doboru efektu.</p>
-            </a>
-
-            <a href="/cennik-makijaz-permanentny/">
-              <span>Cennik PMU</span>
-              <strong>Cennik PMU</strong>
-              <p>Zobacz ceny brwi, ust, kresek, odświeżeń i usuwania PMU.</p>
-            </a>
-
-            <a href="/poradnik/kreska-permanentna-jak-wybrac-rodzaj/">
-              <span>Jak wybrać rodzaj kreski?</span>
-              <strong>Jak wybrać rodzaj kreski?</strong>
-              <p>Sprawdź, czym różni się kreska zagęszczająca, dekoracyjna i cieniowana.</p>
-            </a>
-
-            <a href="/poradnik/kreska-permanentna-przy-opadajacej-powiece/">
-              <span>Kreska przy opadającej powiece</span>
-              <strong>Kreska przy opadającej powiece</strong>
-              <p>Zobacz, dlaczego przy opadającej powiece dobór kreski wymaga ostrożności.</p>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="price-section sources-section" id="zrodla">
-        <div class="container">
-          <div class="sources-card">
-            <div>
-              <p class="section-kicker">Źródła i materiały odniesienia</p>
-              <h2>Na czym opieramy informacje medyczne i techniczne?</h2>
-              <p>
-                Wiedzę gabinetową oddzielamy od informacji dermatologicznych i instytucjonalnych.
-                Tam, gdzie nie istnieje jedna uniwersalna reguła, nie przedstawiamy jej jako pewnika.
-              </p>
-            </div>
-          </div>
-
-          <div class="related-scroll">
-            <a href="/cennik-makijaz-permanentny/">
-              <span>PermanentnyBielsko.com</span>
-              <strong>Aktualny cennik makijażu permanentnego</strong>
-              <p>Źródło aktualnych cen usług publikowanych przez gabinet.</p>
-            </a>
-
-            <a href="https://pubmed.ncbi.nlm.nih.gov/38901732/" target="_blank" rel="noopener noreferrer">
-              <span>JAAD / PubMed</span>
-              <strong>Permanent makeup: A review of its technique, regulation, and complications</strong>
-              <p>Przegląd dermatologiczny PMU: technika, regulacje oraz możliwe powikłania.</p>
-            </a>
-
-            <a href="https://www.fda.gov/cosmetics/cosmetic-products/tattoos-permanent-makeup-fact-sheet" target="_blank" rel="noopener noreferrer">
-              <span>FDA</span>
-              <strong>Tattoos & Permanent Makeup: Fact Sheet</strong>
-              <p>Informacje instytucjonalne o permanent makeup jako formie pigmentacji skóry, bezpieczeństwie i możliwych reakcjach.</p>
-            </a>
-          </div>
-
-          <p class="expert-medical-note">
-            Treść ma charakter edukacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej.
-            Przy nasilonych, nietypowych lub utrzymujących się objawach skontaktuj się z lekarzem.
-          </p>
-        </div>
-      </section>
-
-      <section class="price-section" id="faq">
-        <div class="container">
-          <div class="price-heading">
-            <p class="section-kicker">FAQ</p>
-            <h2>Najczęstsze pytania związane z tym tematem.</h2>
-          </div>
-
-          <div class="faq-list">
-            {faqItems.map((item) => (
-              <details class="faq-item">
-                <summary>
-                  <span>{item.question}</span>
-                  <span class="faq-icon" aria-hidden="true"></span>
-                </summary>
-                <div><p>{item.answer}</p></div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="price-final-cta">
-        <div class="container final-card">
-          <p class="signature cta-signature">Powrót do natury</p>
-          <h2>Chcesz ocenić swój przypadek przed zabiegiem?</h2>
-          <p>
-            Jeśli wiesz, jakiego zabiegu potrzebujesz — sprawdź terminy.
-            Jeśli masz stare PMU, wcześniejsze zabiegi albo wątpliwości, zacznij od kwalifikacji.
-          </p>
-
-          <div class="final-actions">
-            <a class="final-form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">
-              Formularz PMU →
-            </a>
-
-            <a class="final-phone" href={article.mainService.href}>
-              {article.mainService.title}
-            </a>
-
-            <a class="final-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">
-              Booksy →
-            </a>
-          </div>
-
-          <a class="expert-back-link" href="/poradnik/">
-            ← Wróć do całego poradnika PMU
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <Footer />
-  </div>
+      <nav class="guide-related" aria-label="Czytaj dalej o makijażu permanentnym oczu">
+        <a href="/makijaz-permanentny-oczu/">Oferta makijażu permanentnego oczu →</a>
+        <a href="/poradnik/kreska-permanentna-gojenie/">Jak goi się kreska permanentna? →</a>
+        <a href="/poradnik/kreski-permanentne-cieniowane/">Kreski cieniowane →</a>
+        <a href="/poradnik/">← Wszystkie poradniki PMU</a>
+      </nav>
+    </div>
+  </main>
+  <Footer />
 </Layout>
+
+<script>
+  // Zdarzenie pomocnicze do analizy kliknięć; nie zastępuje istniejących konwersji.
+  document.querySelectorAll<HTMLAnchorElement>("[data-guide-action]").forEach(link => {
+    link.addEventListener("click", () => {
+      const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+      if (typeof gtag === "function") gtag("event", "pmu_guide_cta_click", {
+        action: link.dataset.guideAction, page_path: window.location.pathname,
+      });
+    });
+  });
+</script>
+
+<style>
+  .pmu-guide { --guide-ink: #292323; --guide-muted: #625958; --guide-teal: #126b65; --guide-line: #e8ded8; color: var(--guide-ink); background: linear-gradient(180deg, #fffaf7 0, #fff 1000px); padding: 122px 0 64px; font-size: 1rem; line-height: 1.75; }
+  .guide-shell { width: min(1100px, calc(100% - 56px)); margin-inline: auto; }
+  .pmu-guide :is(h1,h2,h3,p,figure,blockquote) { margin-top: 0; }
+  .pmu-guide :is(h1,h2,h3) { color: var(--guide-ink); text-wrap: balance; }
+  .pmu-guide h1 { font-size: clamp(2.1rem, 4.4vw, 3.65rem); line-height: 1.08; letter-spacing: -.045em; font-weight: 760; margin-bottom: 22px; }
+  .pmu-guide h2 { font-size: clamp(1.75rem, 3.2vw, 2.6rem); line-height: 1.17; letter-spacing: -.035em; font-weight: 720; margin-bottom: 22px; max-width: 850px; }
+  .pmu-guide h3 { font-size: 1.12rem; line-height: 1.35; font-weight: 750; margin-bottom: 9px; letter-spacing: -.012em; }
+  .pmu-guide p { margin-bottom: 18px; color: var(--guide-muted); }
+  .pmu-guide a { color: var(--guide-teal); text-underline-offset: 4px; }
+  .pmu-guide a:focus-visible, .pmu-guide summary:focus-visible { outline: 3px solid #126b65; outline-offset: 5px; border-radius: 4px; }
+  .guide-breadcrumbs { display: flex; flex-wrap: wrap; gap: 6px 10px; color: var(--guide-muted); font-size: .8rem; margin-bottom: 26px; }
+  .guide-meta { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: .78rem; font-weight: 600; color: #706460; margin-bottom: 18px; }
+  .guide-meta > span:first-child { color: var(--guide-teal); }
+  .guide-hero-grid { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); align-items: center; gap: 42px; }
+  .guide-lead { font-size: 1.1rem; line-height: 1.7; max-width: 650px; }
+  .guide-author-link { display: inline-block; font-size: .875rem; font-weight: 700; margin: 2px 0 14px; }
+  .guide-author-link span { font-weight: 400; color: var(--guide-muted); }
+  .guide-answer { border: 1px solid #cce5df; border-radius: 28px; padding: 28px; background: linear-gradient(130deg,#f0fbf7,#fff); }
+  .pmu-guide .guide-kicker { margin-bottom: 12px; color: var(--guide-teal); font-size: .73rem; line-height: 1.4; font-weight: 800; letter-spacing: .105em; text-transform: uppercase; }
+  .guide-price-range { display: block; color: #195c57; font-size: clamp(2.75rem, 4vw, 3.8rem); line-height: 1.05; font-weight: 780; letter-spacing: -.04em; margin-bottom: 20px; white-space: nowrap; }
+  .guide-price-range span { font-size: .5em; font-weight: 600; }
+  .guide-answer-note { border-top: 1px solid #cce5df; padding-top: 14px; font-size: .9rem; }
+  .pmu-guide .guide-button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; border-radius: 15px; background: #126b65; color: #fff; text-decoration: none; text-align: center; font-size: .9rem; line-height: 1.4; font-weight: 720; border: 1px solid #126b65; }
+  .pmu-guide .guide-button:hover { background: #0b514c; }
+  .pmu-guide .guide-button-light { background: #fff; color: #126b65; border-color: #b9d4cd; }
+  .pmu-guide .guide-button-light:hover { background: #edf7f2; }
+  .guide-answer .guide-button { width: 100%; }
+  .guide-toc { border-block: 1px solid var(--guide-line); margin: 36px 0 0; }
+  .guide-toc summary, .guide-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; cursor: pointer; font-weight: 700; list-style: none; line-height: 1.5; }
+  .pmu-guide summary::-webkit-details-marker { display: none; }
+  .pmu-guide summary > span { flex: 0 0 24px; color: var(--guide-teal); text-align: center; font-size: 1.5rem; font-weight: 400; }
+  .pmu-guide details[open] > summary > span { transform: rotate(45deg); }
+  .guide-toc nav { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px 20px; padding: 0 0 20px; }
+  .guide-toc nav a { display: block; padding: 7px 0; font-size: .9rem; }
+  .guide-section { padding: 56px 0; scroll-margin-top: 112px; }
+  .guide-section + .guide-section { border-top: 1px solid var(--guide-line); }
+  .guide-measure { max-width: 780px; }
+  .guide-price-table-wrap { margin: 28px 0 14px; border: 1px solid var(--guide-line); border-radius: 22px; overflow: hidden; }
+  .guide-price-table { width: 100%; border-collapse: collapse; table-layout: fixed; background: #fff; }
+  .guide-price-table caption { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+  .guide-price-table :is(th,td) { padding: 20px 24px; border-bottom: 1px solid var(--guide-line); text-align: left; vertical-align: middle; }
+  .guide-price-table thead th { font-size: .8rem; letter-spacing: .05em; font-weight: 750; text-transform: uppercase; background: #f8f4f0; }
+  .guide-price-table thead th:last-child { width: 150px; text-align: right; }
+  .guide-price-table tbody th { font-weight: 700; line-height: 1.45; }
+  .guide-price-table tbody th span { display: block; margin-top: 5px; font-size: .9rem; font-weight: 400; line-height: 1.5; color: var(--guide-muted); }
+  .guide-price-table td { font-size: 1.35rem; line-height: 1.2; font-weight: 760; color: #195c57; white-space: nowrap; text-align: right; }
+  .pmu-guide .guide-price-note { padding: 18px 24px; margin: 0; font-size: .875rem; line-height: 1.65; background: #fffcfa; }
+  .guide-text-link { display: inline-block; padding: 8px 0; font-size: .94rem; line-height: 1.55; font-weight: 700; }
+  .guide-cover { max-width: 940px; margin: 0 auto 8px; }
+  .guide-copy-columns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px; }
+  .guide-photo-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; max-width: 888px; margin: 18px auto 28px; }
+  .guide-social { display: flex; align-items: center; justify-content: space-between; gap: 30px; border: 1px solid #cce5df; border-radius: 26px; padding: 30px; background: #f2faf7; }
+  .guide-social h2 { font-size: 1.6rem; margin-bottom: 12px; }
+  .guide-social p:last-child { margin-bottom: 0; }
+  .guide-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .guide-process { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px 40px; list-style: none; padding: 0; margin: 30px 0; }
+  .guide-process li { display: flex; align-items: flex-start; gap: 15px; }
+  .guide-step { display: inline-flex; flex: 0 0 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid #cce5df; border-radius: 50%; color: #126b65; font-size: .85rem; font-weight: 700; }
+  .guide-process p { font-size: .95rem; margin: 0; }
+  .pmu-guide .guide-note { padding: 18px 22px; margin-bottom: 0; background: #faf4ef; border-radius: 18px; font-size: .94rem; }
+  .guide-callout { padding: 25px 28px; border-left: 4px solid #297d73; border-radius: 0 22px 22px 0; background: #f2faf7; margin-top: 12px; }
+  .guide-inline-links { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: .9rem; font-weight: 650; }
+  .guide-inline-links a { padding-block: 8px; }
+  .guide-expert { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 38px; }
+  .guide-expert h2 { margin-bottom: 12px; }
+  .pmu-guide .guide-expert-role { font-size: .95rem; color: var(--guide-teal); }
+  .pmu-guide blockquote { margin-inline: 0; padding: 28px 30px; border-radius: 24px; background: #faf4ef; border: 1px solid var(--guide-line); }
+  .pmu-guide blockquote p { font-size: 1.1rem; color: #463c38; }
+  .pmu-guide blockquote footer { font-size: .875rem; font-weight: 700; color: #126b65; }
+  .guide-faq { border-top: 1px solid var(--guide-line); }
+  .guide-faq details { border-bottom: 1px solid var(--guide-line); }
+  .guide-faq details > div { max-width: 850px; padding: 0 28px 8px 0; }
+  .guide-faq details p { margin-bottom: 14px; }
+  .guide-sources { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 18px; }
+  .guide-sources li { border-left: 2px solid #cce5df; padding-left: 18px; }
+  .guide-sources a { font-weight: 650; }
+  .guide-sources span { display: block; font-size: .85rem; margin-top: 3px; color: var(--guide-muted); }
+  .pmu-guide .guide-small { max-width: 850px; font-size: .875rem; }
+  .guide-booking { border-radius: 28px; border: 1px solid #cce5df; background: linear-gradient(120deg,#edf8f3,#fffbf6); padding: 38px; }
+  .guide-booking h2 { max-width: 730px; }
+  .guide-booking > p { max-width: 680px; }
+  .guide-related { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px 28px; margin-top: 28px; }
+  .guide-related a { padding: 12px 0; font-size: .94rem; }
+  @media (max-width: 900px) {
+    .guide-hero-grid { grid-template-columns: 1fr; gap: 22px; }
+    .guide-answer { max-width: 640px; }
+    .guide-toc nav { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .guide-social { align-items: flex-start; flex-direction: column; gap: 22px; }
+    .guide-copy-columns { grid-template-columns: 1fr; gap: 0; }
+    .guide-expert { grid-template-columns: 1fr; gap: 12px; }
+  }
+  @media (max-width: 600px) {
+    .pmu-guide { padding-top: 104px; padding-bottom: 42px; line-height: 1.7; }
+    .guide-shell { width: calc(100% - 36px); }
+    .guide-breadcrumbs { font-size: .76rem; margin-bottom: 20px; }
+    .guide-meta { font-size: .73rem; gap: 5px 14px; margin-bottom: 14px; }
+    .pmu-guide h1 { font-size: clamp(1.95rem, 8.5vw, 2.55rem); letter-spacing: -.036em; margin-bottom: 16px; }
+    .pmu-guide h2 { font-size: clamp(1.65rem,7.1vw,2rem); margin-bottom: 18px; }
+    .guide-lead { font-size: 1rem; }
+    .guide-author-link { font-size: .81rem; margin-bottom: 0; }
+    .guide-answer { padding: 22px; border-radius: 22px; }
+    .guide-price-range { font-size: clamp(2.5rem,11vw,3.2rem); margin-bottom: 14px; }
+    .guide-section { padding: 38px 0; scroll-margin-top: 102px; }
+    .guide-toc { margin-top: 26px; }
+    .guide-toc summary { font-size: .9rem; }
+    .guide-toc nav a { font-size: .86rem; }
+    .guide-price-table-wrap { border-radius: 18px; margin-top: 22px; }
+    .guide-price-table :is(th,td) { padding: 15px 13px; }
+    .guide-price-table thead th:last-child { width: 105px; }
+    .guide-price-table thead th { font-size: .7rem; }
+    .guide-price-table tbody th { font-size: .95rem; }
+    .guide-price-table tbody th span { font-size: .85rem; }
+    .guide-price-table td { font-size: 1.1rem; }
+    .pmu-guide .guide-price-note { padding: 16px; font-size: .83rem; }
+    .guide-photo-grid { gap: 12px; margin-top: 12px; }
+    .guide-social { padding: 24px 20px; border-radius: 22px; }
+    .guide-social h2 { font-size: 1.5rem; }
+    .guide-social .guide-actions { width: 100%; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .guide-process { grid-template-columns: 1fr; gap: 23px; }
+    .guide-callout { padding: 22px 20px; }
+    .pmu-guide blockquote { padding: 24px 22px; border-radius: 20px; }
+    .pmu-guide blockquote p { font-size: 1rem; }
+    .guide-faq summary { font-size: .96rem; }
+    .guide-booking { padding: 28px 22px; border-radius: 22px; }
+    .guide-booking .guide-actions { display: grid; grid-template-columns: 1fr; }
+    .guide-booking .guide-text-link { text-align: center; }
+    .guide-related { grid-template-columns: 1fr; gap: 0; }
+  }
+</style>

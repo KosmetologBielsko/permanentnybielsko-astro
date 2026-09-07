@@ -28,11 +28,11 @@ const faqItems = [
   { q:"Czy pigment może wyglądać, jakby zniknął?", a:"Po złuszczeniu pigment może optycznie wyglądać bardzo jasno lub miejscami słabiej. Wnioski wyciąga się dopiero po stabilizacji skóry." },
   { q:"Czy można odrywać strupki?", a:"Nie. Odrywanie strupków lub łusek może naruszyć regenerującą się skórę i wpłynąć na gojenie oraz wygląd pigmentacji." },
   { q:"Czy można myć brwi po makijażu permanentnym?", a:"Higiena jest ważna, ale sposób mycia powinien odpowiadać zaleceniom po zabiegu. Nie należy szorować, pocierać ani nadmiernie moczyć świeżej pigmentacji." },
-  { q:"Kiedy ocenić potrzebę dopigmentowania?", a:"Dopiero po wygojeniu i uspokojeniu skóry. W naszym gabinecie korekta głównego zabiegu jest planowana w przedziale 1–3 miesięcy." },
+  { q:"Kiedy ocenić potrzebę dopigmentowania?", a:"Dopiero po wygojeniu i uspokojeniu skóry. W naszym gabinecie korekta głównego zabiegu jest planowana do 2 miesięcy od zabiegu głównego." },
 ];
 
 const structuredData = [
-  { "@context":"https://schema.org", "@type":"Article", "@id":`${pageUrl}#article`, url:pageUrl, headline:"Jak goją się brwi permanentne i czego nie robić po zabiegu?", description:"Jak goją się brwi permanentne? Etapy gojenia, strupki, łuszczenie, ciemny kolor, brwi po odpadnięciu strupków, pielęgnacja i moment oceny pigmentu.", dateModified:"2026-08-27", inLanguage:"pl-PL", author:{"@type":"Person",name:"Bogusława Herda",url:"https://www.permanentnybielsko.com/"}, publisher:{"@id":"https://www.permanentnybielsko.com/#localbusiness"}, mainEntityOfPage:{"@type":"WebPage","@id":`${pageUrl}#webpage`}, citation:["https://pubmed.ncbi.nlm.nih.gov/38901732/","https://pubmed.ncbi.nlm.nih.gov/34605159/","https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/tattoo-skin-reactions","https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/caring-for-tattooed-skin"] },
+  { "@context":"https://schema.org", "@type":"Article", "@id":`${pageUrl}#article`, url:pageUrl, headline:"Jak goją się brwi permanentne i czego nie robić po zabiegu?", description:"Jak goją się brwi permanentne? Etapy gojenia, strupki, łuszczenie, ciemny kolor, brwi po odpadnięciu strupków, pielęgnacja i moment oceny pigmentu.", dateModified:"2026-09-07", inLanguage:"pl-PL", author:{"@type":"Person",name:"Bogusława Herda",url:"https://www.permanentnybielsko.com/"}, publisher:{"@id":"https://www.permanentnybielsko.com/#localbusiness"}, mainEntityOfPage:{"@type":"WebPage","@id":`${pageUrl}#webpage`}, citation:["https://pubmed.ncbi.nlm.nih.gov/38901732/","https://pubmed.ncbi.nlm.nih.gov/34605159/","https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/tattoo-skin-reactions","https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/caring-for-tattooed-skin"] },
   { "@context":"https://schema.org", "@type":"BreadcrumbList", itemListElement:[{"@type":"ListItem",position:1,name:"Strona główna",item:"https://www.permanentnybielsko.com/"},{"@type":"ListItem",position:2,name:"Poradnik PMU",item:"https://www.permanentnybielsko.com/poradnik/"},{"@type":"ListItem",position:3,name:"Jak goją się brwi permanentne?",item:pageUrl}] },
   { "@context":"https://schema.org", "@type":"FAQPage", mainEntity:faqItems.map(i=>({"@type":"Question",name:i.q,acceptedAnswer:{"@type":"Answer",text:i.a}})) },
 ];
@@ -46,7 +46,7 @@ const structuredData = [
         <div class="container hero-grid">
           <div class="hero-copy card">
             <p class="kicker">Poradnik PMU</p>
-            <div class="meta"><span>Gojenie brwi</span><span>10–12 minut</span><span>27.08.2026</span></div>
+            <div class="meta"><span>Gojenie brwi</span><span>10–12 minut</span><span>Aktualizacja: <time datetime="2026-09-07">7.09.2026</time></span></div>
             <h1>Jak goją się brwi permanentne i czego nie robić po zabiegu?</h1>
             <p class="lead">Gojenie nie jest liniowe. Świeże brwi mogą być mocniejsze, później skóra zaczyna się złuszczać, a po odpadnięciu łusek kolor może chwilowo wyglądać bardzo jasno lub nierówno. Ostatecznego efektu nie ocenia się w połowie procesu.</p>
           </div>
@@ -110,7 +110,7 @@ const structuredData = [
 
       <section class="section soft" id="dopigmentowanie">
         <div class="container split card">
-          <div><p class="kicker">Dopigmentowanie i korekta</p><h2>Nie poprawiamy brwi w połowie gojenia.</h2><p>Dopiero wygojona skóra pokazuje, jak równomiernie przyjął się pigment. W aktualnym cenniku korekta głównego zabiegu brwi jest ujęta w cenie i wykonywana w przedziale 1–3 miesięcy.</p><p>Dopigmentowanie nie jest automatycznie „naprawą błędu”. To moment, w którym po wygojeniu można świadomie dopracować efekt.</p><div class="pill-links"><a href="/cennik-makijaz-permanentny/#price-group-1">Cennik brwi i korekta →</a><a href="/poradnik/makijaz-permanentny-brwi-cena/">Co obejmuje cena brwi? →</a></div></div>
+          <div><p class="kicker">Dopigmentowanie i korekta</p><h2>Nie poprawiamy brwi w połowie gojenia.</h2><p>Dopiero wygojona skóra pokazuje, jak równomiernie przyjął się pigment. W aktualnym cenniku korekta głównego zabiegu brwi jest ujęta w cenie i wykonywana do 2 miesięcy od zabiegu głównego.</p><p>Dopigmentowanie nie jest automatycznie „naprawą błędu”. To moment, w którym po wygojeniu można świadomie dopracować efekt.</p><div class="pill-links"><a href="/cennik-makijaz-permanentny/#price-group-1">Cennik brwi i korekta →</a><a href="/poradnik/makijaz-permanentny-brwi-cena/">Co obejmuje cena brwi? →</a></div></div>
           <aside class="rule"><span>Nie myl pojęć</span><div><strong>Korekta</strong><p>dopracowanie głównego zabiegu po gojeniu</p></div><div><strong>Odświeżenie</strong><p>powrót do pigmentacji po dłuższym czasie</p></div><a href="/poradnik/odswiezenie-makijazu-permanentnego-cena/">Korekta a odświeżenie →</a></aside>
         </div>
       </section>

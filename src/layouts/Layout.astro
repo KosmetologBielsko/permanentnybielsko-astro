@@ -14,6 +14,8 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  showGuideSocial?: boolean;
   ogType?: "website" | "article";
   robots?: string;
   structuredData?: JsonLd | JsonLd[];
@@ -24,6 +26,8 @@ const {
   description = siteConfig.defaultDescription,
   canonicalPath,
   ogImage = siteConfig.defaultOgImage,
+  ogImageAlt = "Bogusława Herda — makijaż permanentny Bielsko-Biała",
+  showGuideSocial = true,
   ogType = "website",
   robots,
   structuredData
@@ -34,7 +38,6 @@ const pagePath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 const isPoradnikArticle = pagePath.startsWith("/poradnik/");
 const showSilkyPopup = pagePath === "/" || pagePath === "/makijaz-permanentny-brwi";
 const ogImageUrl = getOgImageUrl(ogImage);
-const ogImageAlt = "Bogusława Herda — makijaż permanentny Bielsko-Biała";
 
 const robotsContent =
   robots ??
@@ -149,12 +152,11 @@ const structuredDataJson = JSON.stringify(allStructuredData).replace(/</g, "\\u0
   <body>
     <slot />
 
-    {isPoradnikArticle && <PoradnikSocialBridge />}
+    {isPoradnikArticle && showGuideSocial && <PoradnikSocialBridge />}
 
     <AssistantWidget />
     {showSilkyPopup && <SilkyPopup />}
     <CookieConsent />
   </body>
 </html>
-
 
