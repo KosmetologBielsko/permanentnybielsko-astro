@@ -17,7 +17,7 @@ const article = {
   dateModified: "2026-09-07",
 };
 const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
-const coverAlt = "Ilustracja AI: naturalne spojrzenie z delikatnie podkreśloną górną linią rzęs";
+const coverAlt = "Ilustracja kreski na górnej powiece — delikatne podkreślenie linii rzęs";
 const socialCover = await getImage({ src: cover, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
 const socialCoverUrl = new URL(socialCover.src, "https://www.permanentnybielsko.com").toString();
 
@@ -125,7 +125,7 @@ const structuredData = [
 
       <div class="guide-cover">
         <GuideImage src={cover} alt={coverAlt} kind="illustration"
-          caption="Subtelne podkreślenie spojrzenia — ilustracja poradnika. Indywidualny projekt kreski dobieramy podczas kwalifikacji." />
+          caption="Kreska na górnej powiece — subtelne podkreślenie linii rzęs. Indywidualny projekt kreski dobieramy podczas kwalifikacji." />
       </div>
 
       <section class="guide-section" id="rodzaje-kresek">

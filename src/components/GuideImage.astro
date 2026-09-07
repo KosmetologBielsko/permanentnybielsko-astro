@@ -18,7 +18,7 @@ const widths = [...new Set([360, 540, 760, width].filter(value => value <= width
   <Image src={src} alt={alt} width={width} widths={widths} sizes={sizes}
     format="webp" quality={80} loading="lazy" decoding="async" />
   <figcaption>
-    <span>{kind === "illustration" ? "Ilustracja AI" : "Z galerii gabinetu"}</span>
+    <span>{kind === "illustration" ? "Ilustracja" : "Z galerii gabinetu"}</span>
     {caption}
   </figcaption>
 </figure>
