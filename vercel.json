@@ -2,6 +2,26 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/blog/makijaz-permanentny-brwi-cena",
+      "destination": "https://www.permanentnybielsko.com/poradnik/makijaz-permanentny-brwi-cena/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/makijaz-permanentny-brwi-cena/",
+      "destination": "https://www.permanentnybielsko.com/poradnik/makijaz-permanentny-brwi-cena/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/silky-hairstroke-brows-rewolucja-w-makijazu-permanentnym-brwi",
+      "destination": "https://www.permanentnybielsko.com/poradnik/silky-hairstroke-brows-naturalny-wlos-maszynowy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/silky-hairstroke-brows-rewolucja-w-makijazu-permanentnym-brwi/",
+      "destination": "https://www.permanentnybielsko.com/poradnik/silky-hairstroke-brows-naturalny-wlos-maszynowy/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
