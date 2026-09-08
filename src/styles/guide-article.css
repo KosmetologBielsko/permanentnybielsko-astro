@@ -6,9 +6,9 @@
 }
 .pmu-guide-v3 *, .pmu-guide-v3 *::before, .pmu-guide-v3 *::after { box-sizing:border-box; }
 .pmu-guide-v3 :is(div,section,aside,article,nav) { min-width:0; }
-.pmu-guide-v3 .container { width:min(820px,calc(100% - 64px)); margin-inline:auto; }
+.pmu-guide-v3 .container { width:min(1100px,calc(100% - 56px)); max-width:100%; margin-inline:auto; }
 .pmu-guide-v3 :is(h1,h2,h3,h4) { color:var(--guide-ink); overflow-wrap:anywhere; text-wrap:pretty; }
-.pmu-guide-v3 h1 { margin:18px 0 24px; font-size:clamp(2.05rem,4.8vw,3.6rem); line-height:1.1; font-weight:750; letter-spacing:-.055em; }
+main.pmu-guide-v3 h1 { max-width:none; margin:18px 0 22px; font-size:clamp(2.1rem,4.4vw,3.65rem); line-height:1.08; font-weight:760; letter-spacing:-.045em; }
 .pmu-guide-v3 h2 { margin:0 0 22px; font-size:clamp(1.6rem,3.3vw,2.3rem); line-height:1.2; letter-spacing:-.04em; font-weight:730; }
 .pmu-guide-v3 h3 { margin:0 0 12px; font-size:1.18rem; line-height:1.35; font-weight:720; letter-spacing:-.025em; }
 .pmu-guide-v3 p { margin:0 0 20px; line-height:1.78; color:var(--guide-muted); }
@@ -21,16 +21,21 @@
 .pmu-guide-v3 :is(a,button,summary):focus-visible { outline:3px solid #13776f; outline-offset:5px; border-radius:4px; }
 .pmu-guide-v3 :is([id],details) { scroll-margin-top:125px; }
 .pmu-guide-v3 :is(.section-kicker,.kicker,.guide-media-label) { display:block; width:auto; min-height:0; padding:0; margin:0 0 16px; border:0; border-radius:0; background:none; color:var(--guide-teal); font-size:.72rem; font-weight:780; line-height:1.5; letter-spacing:.1em; text-transform:uppercase; }
-.pmu-guide-v3 :is(.expert-article-hero,.price-hero,.hero,.eye-guide-hero) { padding:142px 0 36px; background:linear-gradient(155deg,#fff 35%,#f5faf7); position:relative; }
+.pmu-guide-v3 :is(.expert-article-hero,.price-hero,.hero,.eye-guide-hero) { padding:142px 0 36px; background:linear-gradient(180deg,#fffaf7,#fff); position:relative; }
 .pmu-guide-v3 :is(.expert-article-glow,.eye-guide-glow,.price-glow) { display:none; }
-.pmu-guide-v3 :is(.expert-article-hero-grid,.price-hero-grid,.hero-grid,.eye-guide-hero-grid) { display:grid; gap:30px; }
-.pmu-guide-v3 .hero-copy.card { padding:0; border:0; border-radius:0; background:none; box-shadow:none; }
+/* Jawne kolumny i wysokość izolują poradniki od .hero-grid strony głównej
+   (minmax(520px, 1.1fr), min-height:750px). Samo display:grid nie zeruje tych reguł. */
+.pmu-guide-v3 :is(.expert-article-hero-grid,.price-hero-grid,.hero-grid,.eye-guide-hero-grid) { display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:none; grid-auto-flow:row; gap:26px; min-height:0; align-items:center; position:relative; z-index:auto; }
+.pmu-guide-v3 :is(.expert-article-hero-grid,.price-hero-grid,.hero-grid,.eye-guide-hero-grid) > * { min-width:0; max-width:100%; }
+.pmu-guide-v3 .hero-copy.card { width:100%; max-width:none; min-height:0; padding:0; border:0; border-radius:0; background:none; box-shadow:none; position:static; z-index:auto; align-self:auto; }
+.pmu-guide-v3 .hero-copy h1 { max-width:none; }
 .pmu-guide-v3 :is(.expert-article-meta,.price-meta,.meta,.eye-guide-meta) { display:flex; flex-wrap:wrap; gap:8px 16px; font-size:.75rem; line-height:1.5; color:#69635e; }
 .pmu-guide-v3 :is(.expert-article-lead,.price-lead,.lead,.eye-guide-lead) { font-size:1.12rem; line-height:1.75; }
 .pmu-guide-v3 :is(.expert-article-answer,.price-answer,.hero-answer.card,.eye-guide-answer) { padding:28px 32px; border:1px solid #d8e7df; border-radius:24px; background:linear-gradient(130deg,#eef8f3,#fdfbf7); box-shadow:none; }
 .pmu-guide-v3 :is(.expert-article-answer,.price-answer,.hero-answer,.eye-guide-answer) h2 { font-size:1.55rem; margin-bottom:16px; }
 .pmu-guide-v3 :is(.expert-article-answer-label,.price-answer-label,.answer-label) { color:var(--guide-teal); font-size:.72rem; font-weight:780; letter-spacing:.1em; text-transform:uppercase; margin-bottom:12px; }
 .pmu-guide-v3 .guide-byline { display:flex; align-items:center; gap:12px; padding-top:6px; font-size:.8rem; line-height:1.5; }
+.pmu-guide-v3 .guide-byline > div { flex:1; min-width:0; }
 .pmu-guide-v3 .guide-byline img { width:44px; height:44px; border-radius:50%; flex:0 0 44px; }
 .pmu-guide-v3 .guide-byline a { display:block; font-weight:700; }
 .pmu-guide-v3 .guide-byline span { display:block; color:var(--guide-muted); margin-top:2px; }
@@ -137,6 +142,10 @@
 .pmu-guide-v3 .guide-social { margin-block:30px; }
 .pmu-guide-v3 .guide-help { padding-top:6px; }
 .pmu-guide-v3 .note { font-size:.92rem; margin-top:22px; }
+@media (min-width:1000px) {
+  .pmu-guide-v3 :is(.expert-article-hero-grid,.price-hero-grid,.hero-grid,.eye-guide-hero-grid) { grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:42px; }
+  .pmu-guide-v3 .guide-toc nav { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
 @media (max-width:899px) {
   .pmu-guide-v3 .container { width:calc(100% - 36px); }
   .pmu-guide-v3 :is(.scenario-scroll,.expert-timeline) { grid-template-columns:1fr; }
@@ -145,7 +154,7 @@
   .pmu-guide-v3 { font-size:16px; padding-bottom:44px; }
   .pmu-guide-v3 :is([id],details) { scroll-margin-top:88px; }
   .pmu-guide-v3 :is(.expert-article-hero,.price-hero,.hero,.eye-guide-hero) { padding:98px 0 26px; }
-  .pmu-guide-v3 h1 { font-size:clamp(1.95rem,8.5vw,2.6rem); margin-top:16px; }
+  main.pmu-guide-v3 h1 { font-size:clamp(1.95rem,8.5vw,2.6rem); margin-top:16px; }
   .pmu-guide-v3 h2 { font-size:clamp(1.55rem,7vw,2rem); }
   .pmu-guide-v3 h3 { font-size:1.12rem; }
   .pmu-guide-v3 :is(.expert-article-lead,.price-lead,.lead,.eye-guide-lead) { font-size:1.04rem; }

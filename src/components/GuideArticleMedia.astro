@@ -4,8 +4,10 @@ import type { GuidePhoto } from "../data/guide-series-01";
 interface Props { photos: GuidePhoto[]; label?: string; cover?: boolean; }
 const { photos, label, cover = false } = Astro.props;
 const sizes = photos.length > 1
-  ? "(max-width: 479px) calc(100vw - 36px), (max-width: 899px) calc((100vw - 62px) / 2), 396px"
-  : "(max-width: 899px) calc(100vw - 36px), 820px";
+  ? "(max-width: 479px) calc(100vw - 36px), (max-width: 899px) calc((100vw - 62px) / 2), (max-width: 1156px) calc((100vw - 82px) / 2), 537px"
+  : cover
+    ? "(max-width: 899px) calc(100vw - 36px), (max-width: 1156px) calc(100vw - 56px), 1100px"
+    : "(max-width: 656px) calc(100vw - 36px), 620px";
 ---
 <div class:list={["container", "guide-media-block", { "guide-media-cover": cover }]}>
   {label && <p class="guide-media-label">{label}</p>}
