@@ -1,4 +1,5 @@
-﻿import type { APIRoute } from "astro";
+import type { APIRoute } from "astro";
+import { pageModified } from "../data/page-modified";
 import { siteConfig } from "../config/site";
 
 const pages = [
@@ -413,16 +414,15 @@ const escapeXml = (value: string) =>
     .replaceAll("'", "&apos;");
 
 export const GET: APIRoute = () => {
-  const lastmod = new Date().toISOString();
 
   const urls = pages
     .map((page) => {
+      const lastmod = pageModified[page.path];
       const loc = new URL(page.path, siteConfig.siteUrl).toString();
 
       return `  <url>
     <loc>${escapeXml(loc)}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>${page.changefreq}</changefreq>
+${lastmod ? `    <lastmod>${escapeXml(lastmod)}</lastmod>\n` : ""}    <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`;
     })

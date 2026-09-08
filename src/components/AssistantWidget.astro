@@ -1,4 +1,8 @@
 ---
+interface Props {
+  inlineLauncher?: boolean;
+}
+const { inlineLauncher = false } = Astro.props;
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
@@ -16,7 +20,7 @@ const starters = [
 ];
 ---
 
-<div class="pmu-assistant is-overlay-blocked" data-pmu-assistant inert aria-hidden="true">
+<div class="pmu-assistant is-overlay-blocked" data-pmu-assistant data-inline-launcher={inlineLauncher || undefined} inert aria-hidden="true">
   <button
     class="pmu-assistant__launcher"
     type="button"
@@ -35,6 +39,7 @@ const starters = [
   <section
     class="pmu-assistant__panel"
     id="pmu-assistant-panel"
+    aria-label="Rozmowa z asystentem PMU"
     aria-hidden="true"
     inert
   >
@@ -148,6 +153,10 @@ const starters = [
 
   .pmu-assistant * {
     box-sizing: border-box;
+  }
+
+  .pmu-assistant[data-inline-launcher]:not(.is-open) {
+    display: none;
   }
 
   .pmu-assistant__launcher {
@@ -814,6 +823,8 @@ const starters = [
   const STORAGE_KEY = "pmu_assistant_messages_v1";
   const root = document.querySelector("[data-pmu-assistant]");
   const launcher = root?.querySelector(".pmu-assistant__launcher");
+  const inlineLaunchers = Array.from(document.querySelectorAll("[data-pmu-assistant-open]"));
+  let activeOpener = launcher;
   const closeButton = root?.querySelector(".pmu-assistant__close");
   const clearButton = root?.querySelector("[data-clear]");
   const panel = root?.querySelector(".pmu-assistant__panel");
@@ -990,11 +1001,12 @@ const starters = [
     messageElement.appendChild(wrapper);
   }
 
-  function setOpen(isOpen) {
+  function setOpen(isOpen, restoreFocus = true) {
     if (isOpen && root?.inert) return;
     if (panel) panel.inert = !isOpen;
     root?.classList.toggle("is-open", isOpen);
     launcher?.setAttribute("aria-expanded", String(isOpen));
+    inlineLaunchers.forEach(button => button.setAttribute("aria-expanded", String(isOpen)));
     panel?.setAttribute("aria-hidden", String(!isOpen));
 
     if (isOpen) {
@@ -1004,11 +1016,15 @@ const starters = [
          Najpierw użytkownik widzi 4 szybkie wybory. */
       const isCompactMobile = window.matchMedia?.("(max-width: 640px)").matches;
 
+      if (isCompactMobile && inlineLaunchers.length) closeButton?.focus({ preventScroll: true });
+
       if (!isCompactMobile) {
         setTimeout(() => {
           if (root?.classList.contains("is-open") && !root.inert) input?.focus();
         }, 100);
       }
+    } else if (restoreFocus && inlineLaunchers.length && activeOpener?.isConnected) {
+      activeOpener.focus({ preventScroll: true });
     }
   }
 
@@ -1143,8 +1159,15 @@ const starters = [
     syncConversationState();
   }
 
-  launcher?.addEventListener("click", () => setOpen(true));
+  launcher?.addEventListener("click", () => { activeOpener = launcher; setOpen(true); });
+  inlineLaunchers.forEach(button => button.addEventListener("click", () => {
+    activeOpener = button;
+    setOpen(true);
+  }));
   closeButton?.addEventListener("click", () => setOpen(false));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && root?.classList.contains("is-open")) setOpen(false);
+  });
 
   clearButton?.addEventListener("click", () => {
     savedMessages = [];
@@ -1220,7 +1243,8 @@ const starters = [
         (cookieBanner && !cookieBanner.hidden) ||
         (silkyPopup && !silkyPopup.hidden)
       );
-      if (blocked && root.classList.contains("is-open")) setOpen(false);
+      if (blocked && root.classList.contains("is-open")) setOpen(false, false);
+      inlineLaunchers.forEach(button => { button.disabled = blocked; });
       root.classList.toggle("is-overlay-blocked", blocked);
       root.inert = blocked;
       if (blocked) root.setAttribute("aria-hidden", "true");

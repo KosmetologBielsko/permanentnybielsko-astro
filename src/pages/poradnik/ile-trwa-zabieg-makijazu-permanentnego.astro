@@ -1,9 +1,14 @@
 ---
+import "../../styles/guide-article.css";
+import { getImage } from "astro:assets";
+import GuideArticleByline from "../../components/GuideArticleByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-01";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const article = {
@@ -11,7 +16,7 @@ const article = {
   title: "Ile trwa zabieg makijażu permanentnego? Brwi, usta i kreski krok po kroku",
   category: "Przed zabiegiem",
   datePublished: "2026-08-20",
-  dateModified: "2026-08-20",
+  dateModified: "2026-09-08",
   readingTime: "8–10 minut",
   description: "Ile trwa makijaż permanentny brwi, ust i kresek? Sprawdź orientacyjny czas wizyty, rysunku wstępnego, pigmentacji i korekty w gabinecie Bogusławy Herda.",
   lead: "Czas wizyty to nie tylko samo wprowadzanie pigmentu. W dobrze zaplanowanym PMU część czasu zajmuje rozmowa, kwalifikacja, analiza twarzy lub oka, rysunek wstępny i dopiero później właściwa pigmentacja.",
@@ -74,18 +79,24 @@ const structuredData = [
     ],
   },
 ];
+const media = guideMedia["ile-trwa-zabieg-makijazu-permanentnego"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
+
 ---
 
-<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={structuredData}>
+<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={articleWithImages} ogImage={socialImage.src} ogImageAlt={media.cover.alt} ogType="article" showGuideSocial={false} inlineGuideAssistant>
   <div class="expert-article-page">
-    <Header />
-    <main>
+    <Header compact />
+    <main class="pmu-guide-v3">
       <section class="expert-article-hero">
         <div class="container expert-article-hero-grid">
           <div class="expert-article-hero-copy">
             <p class="section-kicker">Poradnik PMU</p>
             <div class="expert-article-meta"><span>56</span><span>{article.category}</span><span>{article.readingTime}</span></div>
             <h1>{article.title}</h1><p class="expert-article-lead">{article.lead}</p>
+<GuideArticleByline />
           </div>
           <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
             <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
@@ -94,14 +105,15 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-nav-section"><div class="container"><nav class="expert-article-nav" aria-label="Spis treści artykułu">
+      <section class="expert-article-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="expert-article-nav" aria-label="Spis treści artykułu">
             <a href="#czasy">Orientacyjne czasy</a>
             <a href="#etapy">Co zajmuje czas?</a>
             <a href="#dlaczego">Dlaczego nie przyspieszać?</a>
             <a href="#praktyka">Praktyka gabinetowa</a>
             <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
-      </nav></div></section>
+      </nav></details></div></section>
+<GuideArticleMedia photos={[media.cover]} cover />
 
       <section class="expert-article-section" id="czasy"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">Praktyczna odpowiedź</p><h2>Ile czasu zarezerwować na konkretny zabieg?</h2><p>Poniższe wartości wynikają z aktualnego cennika gabinetu i są dobrym punktem orientacyjnym przy planowaniu dnia.</p></div>
@@ -134,6 +146,7 @@ const structuredData = [
             <article><h3>Pigmentacja i kontrola efektu</h3><p>Właściwy zabieg jest wykonywany etapowo z kontrolą skóry, symetrii i stopnia nasycenia.</p></article>
         </div>
       </div></section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
 
       <section class="expert-article-section expert-article-plan-section" id="dlaczego"><div class="container expert-plan-panel">
         <div class="expert-plan-copy"><p class="section-kicker section-kicker-light">Plan decyzji</p><h2>Nie planuj PMU „na szybko między spotkaniami”.</h2><p>Nawet jeśli sama pigmentacja przebiega sprawnie, warto zostawić sobie komfort czasowy.</p></div>
@@ -173,7 +186,8 @@ const structuredData = [
         <p class="expert-medical-note">Treść ma charakter informacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej. Przy problemach zdrowotnych, nasilonych objawach lub wątpliwościach dotyczących leczenia skontaktuj się z lekarzem.</p>
       </div></section>
 
-      <section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
+      <GuideArticleSocial />
+<section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">FAQ</p><h2>{article.title}</h2></div>
         <div class="expert-faq-list">
             <details><summary><span>Ile trwa makijaż permanentny brwi?</span><span class="expert-faq-icon" aria-hidden="true"></span></summary><div><p>W aktualnym cenniku gabinetu brwi cieniowane mają zaplanowane około 120 minut, a metoda włoskowa i włos z cieniem około 130 minut.</p></div></details>
@@ -194,8 +208,8 @@ const structuredData = [
         </div>
         <a class="expert-back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
       </div></section>
-    </main>
+    <div class="container guide-help"><GuideAssistant /></div>
+</main>
     <Footer />
   </div>
 </Layout>
-

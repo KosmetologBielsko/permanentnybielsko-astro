@@ -1,0 +1,15 @@
+---
+import GuideImage from "./GuideImage.astro";
+import type { GuidePhoto } from "../data/guide-series-01";
+interface Props { photos: GuidePhoto[]; label?: string; cover?: boolean; }
+const { photos, label, cover = false } = Astro.props;
+const sizes = photos.length > 1
+  ? "(max-width: 479px) calc(100vw - 36px), (max-width: 899px) calc((100vw - 62px) / 2), 396px"
+  : "(max-width: 899px) calc(100vw - 36px), 820px";
+---
+<div class:list={["container", "guide-media-block", { "guide-media-cover": cover }]}>
+  {label && <p class="guide-media-label">{label}</p>}
+  <div class:list={["guide-media-grid", { "guide-media-pair": photos.length > 1 }]}>
+    {photos.map(photo => <GuideImage {...photo} sizes={sizes} />)}
+  </div>
+</div>

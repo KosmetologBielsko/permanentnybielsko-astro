@@ -1,9 +1,14 @@
 ---
+import "../../styles/guide-article.css";
+import { getImage } from "astro:assets";
+import GuideArticleByline from "../../components/GuideArticleByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-01";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const article = {
@@ -11,7 +16,7 @@ const article = {
   title: "Skutki uboczne makijażu permanentnego brwi — co jest typowe, a co wymaga konsultacji?",
   category: "Bezpieczeństwo brwi",
   datePublished: "2026-08-20",
-  dateModified: "2026-08-27",
+  dateModified: "2026-09-08",
   readingTime: "11–13 minut",
   description: "Skutki uboczne makijażu permanentnego brwi: typowe reakcje świeżej skóry, alergia, infekcja, reakcje zapalne, bliznowacenie i sytuacje wymagające konsultacji lekarskiej.",
   lead: "Makijaż permanentny jest formą tatuażu kosmetycznego, więc narusza ciągłość skóry i może wiązać się z reakcjami miejscowymi. Większość świeżych objawów jest łagodna, ale literatura medyczna opisuje też infekcje, alergie i przewlekłe reakcje zapalne.",
@@ -77,12 +82,17 @@ const structuredData = [
     ],
   },
 ];
+const media = guideMedia["skutki-uboczne-makijazu-permanentnego-brwi"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
+
 ---
 
-<Layout title={`${article.title} | Poradnik PMU Bogusławy Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={structuredData}>
+<Layout title={`${article.title} | Poradnik PMU Bogusławy Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={articleWithImages} ogImage={socialImage.src} ogImageAlt={media.cover.alt} ogType="article" showGuideSocial={false} inlineGuideAssistant>
   <div class="price-guide-page">
-    <Header />
-    <main>
+    <Header compact />
+    <main class="pmu-guide-v3">
       <section class="price-hero">
         <div class="container price-hero-grid">
           <div class="price-hero-copy">
@@ -93,6 +103,7 @@ const structuredData = [
               <span>Aktualizacja: 27.08.2026</span>
             </div>
             <h1>{article.title}</h1><p class="price-lead">{article.lead}</p>
+<GuideArticleByline />
 
             <div class="price-hero-actions">
               <a class="price-primary" href="#typowe">Typowe czy alarmowe? <span aria-hidden="true">→</span></a>
@@ -106,14 +117,15 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="price-nav-section"><div class="container"><nav class="price-nav" aria-label="Spis treści artykułu">
+      <section class="price-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="price-nav" aria-label="Spis treści artykułu">
             <a href="#typowe">Co bywa typowe?</a>
             <a href="#powiklania">Możliwe powikłania</a>
             <a href="#ryzyko">Jak ograniczać ryzyko?</a>
             <a href="#praktyka">Praktyka gabinetowa</a>
             <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
-      </nav></div></section>
+      </nav></details></div></section>
+<GuideArticleMedia photos={[media.cover]} cover />
 
       <section class="price-section" id="typowe"><div class="container">
         <div class="price-heading"><p class="section-kicker">Praktyczna odpowiedź</p><h2>Od typowej reakcji skóry do sygnału alarmowego</h2><p>Po pigmentacji liczy się kierunek zmian: świeża reakcja powinna stopniowo się uspokajać.</p></div>
@@ -156,6 +168,7 @@ const structuredData = [
             <div><span>04</span><strong>Reaguj na objawy alarmowe</strong><p>Przy narastającym bólu, gorączce, ropieniu lub rozległej wysypce potrzebna jest konsultacja lekarska.</p></div>
         </div>
       </div></section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
 
       <section class="price-section" id="praktyka"><div class="container expert-card">
         <div><p class="section-kicker">Praktyka gabinetowa</p><h2>W gabinecie oceniam przebieg gojenia, ale nie zastępuję diagnostyki lekarskiej.</h2><p>Mogę powiedzieć, czy wygląd skóry przypomina typowe gojenie po zabiegu i przypomnieć zalecenia. Jeżeli jednak objawy są nasilone, rozchodzą się poza obszar pigmentacji, pojawia się gorączka, ropienie albo silny świąd i wysypka, nie „ratujemy pigmentu” — kieruję klientkę do lekarza.</p></div>
@@ -191,7 +204,8 @@ const structuredData = [
         <p class="medical-note">Treść ma charakter informacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej. Przy problemach zdrowotnych, nasilonych objawach lub wątpliwościach dotyczących leczenia skontaktuj się z lekarzem.</p>
       </div></section>
 
-      <section class="price-section price-faq-section" id="faq"><div class="container">
+      <GuideArticleSocial />
+<section class="price-section price-faq-section" id="faq"><div class="container">
         <div class="price-heading"><p class="section-kicker">FAQ</p><h2>{article.title}</h2></div>
         <div class="faq-list">
             <details><summary><span>Czy zaczerwienienie po makijażu permanentnym brwi jest normalne?</span><span class="faq-icon" aria-hidden="true"></span></summary><div><p>Niewielkie miejscowe zaczerwienienie bezpośrednio po zabiegu może wystąpić. Niepokojące jest zaczerwienienie, które narasta lub rozszerza się.</p></div></details>
@@ -214,9 +228,8 @@ const structuredData = [
           </div>
         </div>
       </section>
-    </main>
+    <div class="container guide-help"><GuideAssistant /></div>
+</main>
     <Footer />
   </div>
 </Layout>
-
-

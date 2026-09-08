@@ -16,6 +16,7 @@ interface Props {
   ogImage?: string;
   ogImageAlt?: string;
   showGuideSocial?: boolean;
+  inlineGuideAssistant?: boolean;
   ogType?: "website" | "article";
   robots?: string;
   structuredData?: JsonLd | JsonLd[];
@@ -28,6 +29,7 @@ const {
   ogImage = siteConfig.defaultOgImage,
   ogImageAlt = "Bogusława Herda — makijaż permanentny Bielsko-Biała",
   showGuideSocial = true,
+  inlineGuideAssistant = false,
   ogType = "website",
   robots,
   structuredData
@@ -154,9 +156,8 @@ const structuredDataJson = JSON.stringify(allStructuredData).replace(/</g, "\\u0
 
     {isPoradnikArticle && showGuideSocial && <PoradnikSocialBridge />}
 
-    <AssistantWidget />
+    <AssistantWidget inlineLauncher={isPoradnikArticle && inlineGuideAssistant} />
     {showSilkyPopup && <SilkyPopup />}
     <CookieConsent />
   </body>
 </html>
-

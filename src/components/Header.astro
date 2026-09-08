@@ -1,4 +1,8 @@
 ---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
@@ -34,7 +38,7 @@ const isActive = (href: string) => {
 ---
 
 <!-- HEADER MOBILE V2: bez CTA w panelu + większe social media -->
-<header class="site-header" data-site-header>
+<header class="site-header" data-site-header data-compact={compact || undefined}>
   <div class="header-shell">
     <a
       class="header-logo header-logo-image-link"
@@ -1261,4 +1265,15 @@ const isActive = (href: string) => {
   }
 }
 /* HEADER_27_WIDE_DESKTOP_V1_END */
+  /* Kompaktowy pasek dla poradników korzystających z nowego szablonu. */
+  @media (max-width: 640px) {
+    .site-header[data-compact] { top: 8px; }
+    .site-header[data-compact] .header-shell { min-height: 60px; padding: 6px 8px; gap: 6px; }
+    .site-header[data-compact] .header-logo-image-link { width: clamp(116px, 36vw, 168px); max-width: 168px; height: 38px; }
+    .site-header[data-compact] .header-logo-image-link img { max-height: 38px; }
+    .site-header[data-compact] .header-actions { gap: 6px; }
+    .site-header[data-compact] .header-booksy { min-height: 40px; padding: 0 8px; font-size: .6rem; }
+    .site-header[data-compact] .mobile-menu-button { width: 44px; height: 44px; }
+    .site-header[data-compact] .mobile-menu-panel { top: 76px; bottom: 8px; height: calc(100dvh - 84px); max-height: calc(100dvh - 84px); }
+  }
 </style>

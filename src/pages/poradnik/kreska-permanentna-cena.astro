@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import GuideImage from "../../components/GuideImage.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
 import cover from "../../assets/poradnik/kreska-cena-okladka-ai.png";
 import subtleEye from "../../assets/poradnik/kreska-delikatna-galeria.webp";
 import decorativeEye from "../../assets/poradnik/kreska-dekoracyjna-galeria.webp";
@@ -71,8 +72,8 @@ const structuredData = [
 <Layout title={`${article.title} | Poradnik PMU Bogusławy Herda`}
   description={article.description} canonicalPath={article.canonicalPath}
   ogType="article" ogImage={socialCover.src} ogImageAlt={coverAlt}
-  showGuideSocial={false} structuredData={structuredData}>
-  <Header />
+  showGuideSocial={false} inlineGuideAssistant structuredData={structuredData}>
+  <Header compact />
   <main class="pmu-guide" id="poradnik-kreska-cena">
     <div class="guide-shell">
       <header class="guide-hero">
@@ -101,7 +102,7 @@ const structuredData = [
         <nav aria-label="Spis treści poradnika">
           <a href="#ceny-kreski">Ceny kresek PMU</a><a href="#rodzaje-kresek">Różnice i zdjęcia</a>
           <a href="#co-obejmuje-cena">Co obejmuje cena?</a><a href="#dobor">Jak dobrać kreskę?</a>
-          <a href="#doswiadczenie">Doświadczenie</a><a href="#praktyka">Stanowisko Bogusława Herda</a>
+          <a href="#doswiadczenie">Doświadczenie</a><a href="#praktyka">Stanowisko Bogusławy Herda</a>
           <a href="#faq">Pytania i odpowiedzi</a><a href="#zrodla">Źródła</a>
         </nav>
       </details>
@@ -137,11 +138,11 @@ const structuredData = [
         </div>
         <div class="guide-photo-grid">
           <GuideImage src={subtleEye} kind="gallery" sizes="(max-width: 600px) calc((100vw - 48px) / 2), 430px"
-            alt="Brązowe oko z wąskim podkreśleniem górnej linii rzęs"
-            caption="Delikatniejsze podkreślenie przy linii rzęs." />
+            alt="Brązowe oko z górną kreską wyciągniętą w zewnętrznym kąciku"
+            caption="Górna kreska z krótkim wyciągnięciem w zewnętrznym kąciku." />
           <GuideImage src={decorativeEye} kind="gallery" sizes="(max-width: 600px) calc((100vw - 48px) / 2), 430px"
-            alt="Niebieskie oko z wyraźniejszą kreską i miękkim zakończeniem w zewnętrznym kąciku"
-            caption="Wyraźniejszy kontur i miękkie zakończenie kreski." />
+            alt="Niebieskie oko z szerszą górną kreską zwężającą się w zewnętrznym kąciku"
+            caption="Szersza górna kreska ze zwężającym się zakończeniem." />
         </div>
         <p class="guide-measure"><b>Kreska dolna</b> jest osobną usługą za 500 zł. Można ją również połączyć z górną zagęszczającą lub dekoracyjną. Nie jest jednak automatycznie najlepszym wyborem dla każdego oka — zakres ustalamy po ocenie proporcji i oczekiwanego rezultatu.</p>
         <a class="guide-text-link" href="/poradnik/kreska-permanentna-jak-wybrac-rodzaj/">Zobacz dokładne porównanie rodzajów kresek <span aria-hidden="true">→</span></a>
@@ -173,15 +174,16 @@ const structuredData = [
           <p>Przy opadającej powiece mocna kreska nie zawsze będzie dobrym kierunkiem. Znaczenie mają również asymetria, wcześniejszy makijaż, wrażliwość okolicy oka oraz oczekiwany efekt. Dobrze dobrana kreska może być subtelna i nadal wyraźnie podkreślać spojrzenie.</p>
         </div>
         <div class="guide-callout"><h3>Masz opadającą powiekę lub wcześniejszą pigmentację?</h3><p>Zacznij od konsultacji. Oceniamy budowę powieki, wcześniejszy pigment i możliwości wykonania nowego projektu.</p><div class="guide-inline-links"><a href="/poradnik/kreska-permanentna-przy-opadajacej-powiece/">Kreska przy opadającej powiece →</a><a href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu" data-guide-action="qualification">Opisz swój przypadek →</a></div></div>
+        <GuideAssistant />
       </section>
 
       <section class="guide-section guide-expert" id="doswiadczenie">
         <div><p class="guide-kicker">05 / Doświadczenie ma znaczenie</p><h2>Bogusława Herda</h2><p class="guide-expert-role">Linergistka · trenerka makijażu permanentnego</p></div>
-        <div><p>Dyplomowana linergistka, Elite Top Linergist Long-Time-Liner®, trenerka i prelegentka międzynarodowa, wicemistrzyni świata oraz mistrzyni Polski. W makijażu permanentnym oczu najważniejsze są dla niej precyzja, odpowiedzialność i dopasowanie podkreślenia do naturalnej anatomii.</p><a class="guide-text-link" href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj doświadczenie Bogusława Herda →</a></div>
+        <div><p>Dyplomowana linergistka, Elite Top Linergist Long-Time-Liner®, trenerka i prelegentka międzynarodowa, wicemistrzyni świata oraz mistrzyni Polski. W makijażu permanentnym oczu najważniejsze są dla niej precyzja, odpowiedzialność i dopasowanie podkreślenia do naturalnej anatomii.</p><a class="guide-text-link" href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj doświadczenie Bogusławy Herda →</a></div>
       </section>
 
       <section class="guide-section" id="praktyka">
-        <p class="guide-kicker">Stanowisko Bogusława Herda</p>
+        <p class="guide-kicker">Stanowisko Bogusławy Herda</p>
         <h2>Jak przekładam tę wiedzę na realny zabieg?</h2>
         <blockquote><p>Nie stosuję jednej odpowiedzi dla każdej skóry i każdej klientki. Najpierw oceniam aktualny stan skóry, wcześniejszy makijaż permanentny, naturalną anatomię oraz oczekiwany efekt. Dopiero potem wybieramy metodę i plan postępowania.</p><footer>Bogusława Herda · praktyka gabinetowa</footer></blockquote>
         <p class="guide-measure">Przed rezerwacją warto ustalić, czy interesuje Cię delikatne podkreślenie rzęs, czy bardziej widoczny eyeliner. Ostateczny projekt powstaje po ocenie oka i powieki. Jeśli masz stare PMU, zgłoś je już przy pierwszym kontakcie.</p>
