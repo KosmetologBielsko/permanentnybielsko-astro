@@ -1,9 +1,16 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-04";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const article = {
@@ -11,7 +18,7 @@ const article = {
   title: "Retinol, kwasy i kosmetyki aktywne a makijaż permanentny brwi",
   category: "Przygotowanie skóry",
   datePublished: "2026-08-20",
-  dateModified: "2026-08-20",
+  dateModified: "2026-09-09",
   readingTime: "8–10 minut",
   description: "Retinol, kwasy AHA/BHA i kosmetyki aktywne a makijaż permanentny brwi. Co powiedzieć linergistce, kiedy skóra jest zbyt podrażniona i jak planować pielęgnację wokół PMU.",
   lead: "Retinol, retinoidy, kwasy AHA/BHA i mocne kuracje przeciwtrądzikowe zmieniają sposób, w jaki zachowuje się naskórek. To nie oznacza automatycznego zakazu PMU, ale oznacza, że przed zabiegiem trzeba ocenić realny stan skóry, a nie tylko nazwę kosmetyku.",
@@ -99,12 +106,22 @@ const structuredData = [
     ],
   },
 ];
+
+const media = guideMedia["retinol-kwasy-a-makijaz-permanentny"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
-<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={structuredData}>
+<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant>
   <div class="expert-article-page">
-    <Header />
-    <main>
+    <Header compact />
+    <main class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
         <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
@@ -114,6 +131,7 @@ const structuredData = [
             <div class="expert-article-meta"><span>39</span><span>{article.category}</span><span>{article.readingTime}</span></div>
             <h1>{article.title}</h1>
             <p class="expert-article-lead">{article.lead}</p>
+            <GuideSeriesByline />
           </div>
           <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
             <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
@@ -123,14 +141,18 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-nav-section"><div class="container"><nav class="expert-article-nav" aria-label="Spis treści artykułu">
+      <section class="expert-article-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="expert-article-nav" aria-label="Spis treści artykułu">
             <a href="#produkty">Jakie produkty mają znaczenie?</a>
             <a href="#skora">Co oceniamy w skórze?</a>
             <a href="#brwi">Dlaczego ważne przy brwiach?</a>
             <a href="#plan">Jak zaplanować?</a>
             <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
-      </nav></div></section>
+      </nav></details></div></section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
+
 
       <section class="expert-article-section" id="produkty"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">Praktyczna odpowiedź</p><h2>Które aktywne składniki najczęściej wymagają uwagi przed PMU?</h2><p>Nie chodzi o tworzenie czarnej listy kosmetyków. Chodzi o to, czy dany produkt powoduje w okolicy zabiegowej aktywne podrażnienie lub złuszczanie.</p></div>
@@ -194,6 +216,8 @@ const structuredData = [
             </a>
         </div>
       </div></section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
+
 
       <section class="expert-article-section expert-article-plan-section" id="plan"><div class="container expert-plan-panel">
         <div class="expert-plan-copy"><p class="section-kicker section-kicker-light">Plan krok po kroku</p><h2>Jak przygotować listę pielęgnacji przed konsultacją PMU?</h2><p>To prostsze niż zgadywanie, co trzeba odstawić.</p></div>
@@ -235,7 +259,8 @@ const structuredData = [
         <p class="expert-medical-note">Treść ma charakter informacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej. Przy nasilonych, nietypowych lub utrzymujących się objawach skontaktuj się z lekarzem.</p>
       </div></section>
 
-      <section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
+      <GuideArticleSocial />
+<section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">FAQ</p><h2>Retinol, kwasy i kosmetyki aktywne a makijaż permanentny brwi</h2></div>
         <div class="expert-faq-list">
             <details><summary><span>Czy trzeba odstawić retinol przed brwiami permanentnymi?</span><span class="expert-faq-icon" aria-hidden="true"></span></summary><div><p>Nie ma jednej uniwersalnej liczby dni odpowiedniej dla wszystkich produktów. Ważny jest konkretny preparat, miejsce stosowania i stan skóry. Ustal to przed zabiegiem z linergistką, a przy terapii lekowej także z dermatologiem.</p></div></details>
@@ -256,6 +281,7 @@ const structuredData = [
         </div>
         <a class="expert-back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
       </div></section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
     <Footer />
   </div>

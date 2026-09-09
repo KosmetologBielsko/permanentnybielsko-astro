@@ -1,9 +1,16 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-04";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const article = {
@@ -11,7 +18,7 @@ const article = {
   title: "Kreska zagęszczająca linię rzęs — subtelny makijaż permanentny oczu bez efektu eyelinera",
   category: "Kreski permanentne",
   datePublished: "2026-08-20",
-  dateModified: "2026-08-20",
+  dateModified: "2026-09-09",
   readingTime: "8–10 minut",
   description: "Kreska zagęszczająca linię rzęs: dla kogo, jak wygląda, czym różni się od klasycznej kreski permanentnej, jak się goi i ile kosztuje w gabinecie Bogusławy Herda.",
   lead: "To najsubtelniejszy wariant makijażu permanentnego oczu. Pigment pracuje blisko nasady rzęs, dzięki czemu spojrzenie może wyglądać wyraźniej, ale bez efektu narysowanego eyelinera na powiece.",
@@ -76,18 +83,29 @@ const structuredData = [
     ],
   },
 ];
+
+const media = guideMedia["kreska-zageszczajaca-linie-rzes"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
-<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={structuredData}>
+<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant>
   <div class="expert-article-page">
-    <Header />
-    <main>
+    <Header compact />
+    <main class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="container expert-article-hero-grid">
           <div class="expert-article-hero-copy">
             <p class="section-kicker">Poradnik PMU</p>
             <div class="expert-article-meta"><span>57</span><span>{article.category}</span><span>{article.readingTime}</span></div>
             <h1>{article.title}</h1><p class="expert-article-lead">{article.lead}</p>
+            <GuideSeriesByline />
           </div>
           <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
             <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
@@ -96,14 +114,18 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-nav-section"><div class="container"><nav class="expert-article-nav" aria-label="Spis treści artykułu">
+      <section class="expert-article-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="expert-article-nav" aria-label="Spis treści artykułu">
             <a href="#efekt">Jak wygląda?</a>
             <a href="#dla-kogo">Dla kogo?</a>
             <a href="#projekt">Jak projektujemy?</a>
             <a href="#praktyka">Praktyka gabinetowa</a>
             <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
-      </nav></div></section>
+      </nav></details></div></section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
+
 
       <section class="expert-article-section" id="efekt"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">Praktyczna odpowiedź</p><h2>Gdzie leży granica między zagęszczeniem a eyelinerem?</h2><p>Różnica nie sprowadza się tylko do grubości linii.</p></div>
@@ -146,6 +168,8 @@ const structuredData = [
             <div><span>04</span><strong>Plan gojenia</strong><p>Po zabiegu powieka może być przejściowo delikatna lub lekko obrzęknięta; finalny efekt oceniamy po wygojeniu.</p></div>
         </div>
       </div></section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
+
 
       <section class="expert-article-section" id="praktyka"><div class="container expert-author-note">
         <div><p class="section-kicker">Praktyka gabinetowa</p><h2>To jedna z tych technik, w których dyskrecja jest zaletą, nie brakiem efektu.</h2><p>Jeżeli klientka mówi, że chce „coś przy oczach, ale żeby nie było widać kreski”, bardzo często właśnie zagęszczenie linii rzęs jest dobrym kierunkiem. Szczególnie lubię tę opcję przy delikatnej oprawie oka i tam, gdzie większy eyeliner mógłby po kilku latach wyglądać zbyt ciężko.</p></div>
@@ -178,7 +202,8 @@ const structuredData = [
         <p class="expert-medical-note">Treść ma charakter informacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej. Przy problemach zdrowotnych, nasilonych objawach lub wątpliwościach dotyczących leczenia skontaktuj się z lekarzem.</p>
       </div></section>
 
-      <section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
+      <GuideArticleSocial />
+<section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">FAQ</p><h2>{article.title}</h2></div>
         <div class="expert-faq-list">
             <details><summary><span>Czy kreska zagęszczająca wygląda jak eyeliner?</span><span class="expert-faq-icon" aria-hidden="true"></span></summary><div><p>Nie. Jej zadaniem jest podkreślenie samej nasady rzęs, bez tworzenia wyraźnej dekoracyjnej linii na powiece.</p></div></details>
@@ -199,6 +224,7 @@ const structuredData = [
         </div>
         <a class="expert-back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
       </div></section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
     <Footer />
   </div>

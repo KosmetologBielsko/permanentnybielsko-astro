@@ -1,0 +1,11 @@
+---
+import { Image } from "astro:assets";
+import { guideAuthorPortrait } from "../data/guide-series-01";
+---
+<div class="guide-byline">
+  <Image src={guideAuthorPortrait} alt="Bogusława Herda" width={88} height={88} fit="cover" position="top" format="webp" quality={80} loading="lazy" decoding="async" />
+  <div>
+    <a href="/makijaz-permanentny-bielsko/#boguslawa-herda">Bogusława Herda</a>
+    <span>Aktualizacja: <time datetime="2026-09-09">9 września 2026</time></span>
+  </div>
+</div>

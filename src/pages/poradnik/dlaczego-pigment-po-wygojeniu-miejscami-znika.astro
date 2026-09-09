@@ -1,9 +1,16 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-04";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const article = {
@@ -11,7 +18,7 @@ const article = {
   title: "Dlaczego pigment po wygojeniu miejscami „znika”? Czy nierówne brwi są normalne?",
   category: "Gojenie i dopigmentowanie",
   datePublished: "2026-08-20",
-  dateModified: "2026-08-27",
+  dateModified: "2026-09-09",
   readingTime: "7–9 minut",
   description: "Dlaczego pigment po wygojeniu brwi miejscami znika? Wyjaśniamy wpływ gojenia, skóry, złuszczania, pielęgnacji i kiedy oceniać potrzebę dopigmentowania.",
   lead: "W połowie gojenia brwi potrafią wyglądać tak, jakby fragment pigmentu całkowicie zniknął. Czasem jest to tylko etap regeneracji skóry, a czasem po pełnym wygojeniu rzeczywiście zostają miejsca z mniejszą retencją pigmentu.",
@@ -99,12 +106,22 @@ const structuredData = [
     ],
   },
 ];
+
+const media = guideMedia["dlaczego-pigment-po-wygojeniu-miejscami-znika"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
-<Layout title={`${article.title} | Poradnik PMU Bogusławy Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={structuredData}>
+<Layout title={`${article.title} | Poradnik PMU Bogusławy Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant>
   <div class="price-guide-page">
-    <Header />
-    <main>
+    <Header compact />
+    <main class="pmu-guide-v3 pmu-guide-v4">
       <section class="price-hero">
         <div class="price-glow price-glow-one" aria-hidden="true"></div>
         <div class="price-glow price-glow-two" aria-hidden="true"></div>
@@ -114,10 +131,11 @@ const structuredData = [
             <div class="price-meta">
               <span>{article.category}</span>
               <span>{article.readingTime}</span>
-              <span>Aktualizacja: 27.08.2026</span>
+              
             </div>
             <h1>{article.title}</h1>
             <p class="price-lead">{article.lead}</p>
+            <GuideSeriesByline />
 
             <div class="price-hero-actions">
               <a class="price-primary" href="#etapy">Zobacz etapy gojenia <span aria-hidden="true">→</span></a>
@@ -132,14 +150,18 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="price-nav-section"><div class="container"><nav class="price-nav" aria-label="Spis treści artykułu">
+      <section class="price-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="price-nav" aria-label="Spis treści artykułu">
             <a href="#etapy">Co dzieje się w gojeniu?</a>
             <a href="#przyczyny">Skąd biorą się ubytki?</a>
             <a href="#co-robic">Co robić?</a>
             <a href="#dopigmentowanie">Dopigmentowanie</a>
             <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
-      </nav></div></section>
+      </nav></details></div></section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
+
 
       <section class="price-section" id="etapy"><div class="container">
         <div class="price-heading"><p class="section-kicker">Praktyczna odpowiedź</p><h2>Trzy różne rzeczy mogą wyglądać jak „znikający pigment”.</h2><p>Najpierw trzeba rozdzielić to, co widzimy w trakcie gojenia, od tego, co zostaje po stabilizacji skóry.</p></div>
@@ -203,6 +225,8 @@ const structuredData = [
             </a>
         </div>
       </div></section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
+
 
       <section class="price-section price-soft" id="dopigmentowanie"><div class="container plan-panel">
         <div class="plan-copy"><p class="section-kicker">Plan krok po kroku</p><h2>Jak wygląda sensowna ocena po wygojeniu?</h2><p>Nie zaczynamy od pytania „gdzie dołożyć pigment?”, tylko od oceny całej pracy.</p></div>
@@ -244,7 +268,8 @@ const structuredData = [
         <p class="medical-note">Treść ma charakter informacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej. Przy nasilonych, nietypowych lub utrzymujących się objawach skontaktuj się z lekarzem.</p>
       </div></section>
 
-      <section class="price-section price-faq-section" id="faq"><div class="container">
+      <GuideArticleSocial />
+<section class="price-section price-faq-section" id="faq"><div class="container">
         <div class="price-heading"><p class="section-kicker">FAQ</p><h2>Dlaczego pigment po wygojeniu miejscami „znika”? Czy nierówne brwi są normalne?</h2></div>
         <div class="faq-list">
             <details><summary><span>Czy pigment może całkiem zniknąć po złuszczeniu?</span><span class="faq-icon" aria-hidden="true"></span></summary><div><p>Czasem fragment może po wygojeniu pozostać wyraźnie jaśniejszy, ale podczas złuszczania nie warto wyciągać wniosków — wygląd jest wtedy niestabilny.</p></div></details>
@@ -267,6 +292,7 @@ const structuredData = [
           </div>
         </div>
       </section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
     <Footer />
   </div>

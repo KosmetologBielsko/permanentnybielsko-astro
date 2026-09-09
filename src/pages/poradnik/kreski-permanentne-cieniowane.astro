@@ -1,9 +1,16 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-04";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const article = {
@@ -11,7 +18,7 @@ const article = {
   title: "Kreski permanentne cieniowane — dla kogo, jaki efekt i czym różnią się od klasycznej kreski?",
   category: "Kreski permanentne",
   datePublished: "2026-08-20",
-  dateModified: "2026-08-20",
+  dateModified: "2026-09-09",
   readingTime: "9–11 minut",
   description: "Kreski permanentne cieniowane: czym różnią się od klasycznego eyelinera i zagęszczenia rzęs, dla kogo są odpowiednie i kiedy lepiej wybrać subtelniejszy efekt.",
   lead: "Kreska cieniowana nie jest po prostu „grubszym eyelinerem”. Jej charakter buduje miękkie przejście pigmentu nad linią rzęs. Dobrze zaprojektowana ma otwierać spojrzenie, a nie tworzyć ciężką plamę na powiece.",
@@ -76,18 +83,29 @@ const structuredData = [
     ],
   },
 ];
+
+const media = guideMedia["kreski-permanentne-cieniowane"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
-<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={structuredData}>
+<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant>
   <div class="expert-article-page">
-    <Header />
-    <main>
+    <Header compact />
+    <main class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="container expert-article-hero-grid">
           <div class="expert-article-hero-copy">
             <p class="section-kicker">Poradnik PMU</p>
             <div class="expert-article-meta"><span>53</span><span>{article.category}</span><span>{article.readingTime}</span></div>
             <h1>{article.title}</h1><p class="expert-article-lead">{article.lead}</p>
+            <GuideSeriesByline />
           </div>
           <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
             <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
@@ -96,14 +114,18 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-nav-section"><div class="container"><nav class="expert-article-nav" aria-label="Spis treści artykułu">
+      <section class="expert-article-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="expert-article-nav" aria-label="Spis treści artykułu">
             <a href="#porownanie">3 rodzaje efektu</a>
             <a href="#dobor">Dla kogo?</a>
             <a href="#projekt">Jak projektować?</a>
             <a href="#praktyka">Praktyka gabinetowa</a>
             <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
-      </nav></div></section>
+      </nav></details></div></section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
+
 
       <section class="expert-article-section" id="porownanie"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">Praktyczna odpowiedź</p><h2>Zagęszczenie, klasyczna kreska czy cieniowanie?</h2><p>To trzy różne poziomy widoczności i trzy różne decyzje projektowe.</p></div>
@@ -146,6 +168,8 @@ const structuredData = [
             <div><span>04</span><strong>Czy istnieje stary eyeliner?</strong><p>Nowy projekt nie powinien automatycznie przykrywać starego, jeśli poprzednia pigmentacja jest szeroka lub niekorzystna.</p></div>
         </div>
       </div></section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
+
 
       <section class="expert-article-section" id="praktyka"><div class="container expert-author-note">
         <div><p class="section-kicker">Praktyka gabinetowa</p><h2>Przy kreskach „mniej” bardzo często daje bardziej elegancki efekt na lata.</h2><p>W praktyce gabinetowej najpierw patrzę na oko przy otwartej powiece. Jeżeli cieniowanie ma naturalną przestrzeń i naprawdę pasuje do stylu klientki, może pięknie zmiękczyć spojrzenie. Jeżeli powieka mocno opada albo klientka chce bardzo naturalny efekt, często proponuję samo zagęszczenie rzęs zamiast dużej formy dekoracyjnej.</p></div>
@@ -178,7 +202,8 @@ const structuredData = [
         <p class="expert-medical-note">Treść ma charakter informacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej. Przy problemach zdrowotnych, nasilonych objawach lub wątpliwościach dotyczących leczenia skontaktuj się z lekarzem.</p>
       </div></section>
 
-      <section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
+      <GuideArticleSocial />
+<section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">FAQ</p><h2>{article.title}</h2></div>
         <div class="expert-faq-list">
             <details><summary><span>Czym różni się kreska cieniowana od klasycznej?</span><span class="expert-faq-icon" aria-hidden="true"></span></summary><div><p>Klasyczna kreska ma bardziej wyraźną linię, a cieniowana buduje miękkie, rozproszone przejście pigmentu nad linią rzęs.</p></div></details>
@@ -199,6 +224,7 @@ const structuredData = [
         </div>
         <a class="expert-back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
       </div></section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
     <Footer />
   </div>

@@ -1,9 +1,16 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-04";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
@@ -13,7 +20,7 @@ const article = {
   eyebrow: "Poradnik PMU",
   category: "Usuwanie PMU",
   datePublished: "2026-06-08",
-  dateModified: "2026-08-27",
+  dateModified: "2026-09-09",
   readingTime: "9–12 minut",
   description:
     "Kiedy usuwać stary makijaż permanentny, a kiedy można go poprawić? Sprawdź, kiedy potrzebne jest rozjaśnianie laserem, remover, korekta lub plan etapowy.",
@@ -185,18 +192,28 @@ const structuredData = [
     })),
   },
 ];
+
+const media = guideMedia["kiedy-usuwac-stary-makijaz-permanentny"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
 <Layout
   title={`${article.title} | Poradnik PMU Bogusławy Herda`}
   description={article.description}
   canonicalPath={article.canonicalPath}
-  structuredData={structuredData}
+  structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant
 >
   <div class="price-guide-page">
-    <Header />
+    <Header compact />
 
-    <main>
+    <main class="pmu-guide-v3 pmu-guide-v4">
       <section class="price-hero">
         <div class="price-glow price-glow-one" aria-hidden="true"></div>
         <div class="price-glow price-glow-two" aria-hidden="true"></div>
@@ -208,11 +225,12 @@ const structuredData = [
             <div class="price-meta">
               <span>{article.category}</span>
               <span>{article.readingTime}</span>
-              <span>Aktualizacja: 27.08.2026</span>
+              
             </div>
 
             <h1>{article.title}</h1>
             <p class="price-lead">{article.lead}</p>
+            <GuideSeriesByline />
 
             <div class="price-hero-actions">
               <a class="price-primary" href="#decyzja">Sprawdź decyzję <span aria-hidden="true">→</span></a>
@@ -231,16 +249,20 @@ const structuredData = [
 
       <section class="price-nav-section">
         <div class="container">
-          <nav class="price-nav" aria-label="Spis treści">
+          <details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="price-nav" aria-label="Spis treści">
             <a href="#decyzja">Usuwać czy poprawiać?</a>
             <a href="#kiedy-rozjasniac">Kiedy rozjaśniać?</a>
             <a href="#laser-remover">Laser czy remover?</a>
             <a href="#plan">Plan etapowy</a>
             <a href="#nowe-pmu">Nowy makijaż</a>
             <a href="#faq">FAQ</a>
-          </nav>
+          </nav></details>
         </div>
       </section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
+
 
       <section class="price-section" id="decyzja">
         <div class="container">
@@ -330,6 +352,8 @@ const structuredData = [
           </div>
         </div>
       </section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
+
 
       <section class="price-section price-soft" id="kolor-pigmentu">
         <div class="container">
@@ -532,7 +556,8 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="price-section" id="faq">
+      <GuideArticleSocial />
+<section class="price-section" id="faq">
         <div class="container">
           <div class="price-heading">
             <p class="section-kicker">FAQ</p>
@@ -587,6 +612,7 @@ const structuredData = [
           </div>
         </div>
       </section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
 
     <Footer />

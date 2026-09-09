@@ -1,9 +1,16 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-04";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const article = {
@@ -11,7 +18,7 @@ const article = {
   title: "Czy można zrobić makijaż permanentny na bliźnie?",
   category: "Blizny i PMU",
   datePublished: "2026-08-20",
-  dateModified: "2026-08-20",
+  dateModified: "2026-09-09",
   readingTime: "9–11 minut",
   description: "Czy można wykonać makijaż permanentny na bliźnie? Wyjaśniamy, które blizny wymagają szczególnej ostrożności, kiedy potrzebna jest konsultacja lekarska i jak planować pigmentację.",
   lead: "Pigmentacja medyczna jest wykorzystywana także do kamuflażu niektórych blizn, ale zdanie „na bliźnie można robić PMU” jest zbyt ogólne. Blizny różnią się wiekiem, kolorem, grubością, napięciem, unaczynieniem i skłonnością do przerostu.",
@@ -99,12 +106,22 @@ const structuredData = [
     ],
   },
 ];
+
+const media = guideMedia["makijaz-permanentny-na-bliznie"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
-<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={structuredData}>
+<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant>
   <div class="expert-article-page">
-    <Header />
-    <main>
+    <Header compact />
+    <main class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
         <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
@@ -114,6 +131,7 @@ const structuredData = [
             <div class="expert-article-meta"><span>48</span><span>{article.category}</span><span>{article.readingTime}</span></div>
             <h1>{article.title}</h1>
             <p class="expert-article-lead">{article.lead}</p>
+            <GuideSeriesByline />
           </div>
           <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
             <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
@@ -123,14 +141,18 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-nav-section"><div class="container"><nav class="expert-article-nav" aria-label="Spis treści artykułu">
+      <section class="expert-article-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="expert-article-nav" aria-label="Spis treści artykułu">
             <a href="#typy">Jakie blizny?</a>
             <a href="#ryzyko">Kiedy ostrożność?</a>
             <a href="#obszary">Brwi / Usta</a>
             <a href="#plan">Jak kwalifikować?</a>
             <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
-      </nav></div></section>
+      </nav></details></div></section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
+
 
       <section class="expert-article-section" id="typy"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">Praktyczna odpowiedź</p><h2>Blizna bliźnie nierówna — cztery sytuacje wymagające innego podejścia.</h2><p>Kolor to tylko jedna cecha blizny. Ważniejsze są jej aktywność i struktura.</p></div>
@@ -194,6 +216,8 @@ const structuredData = [
             </a>
         </div>
       </div></section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
+
 
       <section class="expert-article-section expert-article-plan-section" id="plan"><div class="container expert-plan-panel">
         <div class="expert-plan-copy"><p class="section-kicker section-kicker-light">Plan krok po kroku</p><h2>Jak wygląda bezpieczna kwalifikacja blizny?</h2><p>Najpierw tkanka, dopiero potem kolor.</p></div>
@@ -235,7 +259,8 @@ const structuredData = [
         <p class="expert-medical-note">Treść ma charakter informacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej. Przy nasilonych, nietypowych lub utrzymujących się objawach skontaktuj się z lekarzem.</p>
       </div></section>
 
-      <section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
+      <GuideArticleSocial />
+<section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">FAQ</p><h2>Czy można zrobić makijaż permanentny na bliźnie?</h2></div>
         <div class="expert-faq-list">
             <details><summary><span>Czy można pigmentować świeżą bliznę?</span><span class="expert-faq-icon" aria-hidden="true"></span></summary><div><p>Nie powinno się traktować świeżej lub aktywnej blizny jak zdrowej skóry. Jeżeli blizna nadal się zmienia, potrzebna jest ocena i czas na stabilizację.</p></div></details>
@@ -256,6 +281,7 @@ const structuredData = [
         </div>
         <a class="expert-back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
       </div></section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
     <Footer />
   </div>

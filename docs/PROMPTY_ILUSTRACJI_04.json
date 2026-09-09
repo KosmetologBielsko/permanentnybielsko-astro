@@ -1,0 +1,14 @@
+{
+  "note": "Rekonstrukcja briefów obrazów wygenerowanych 9 września 2026; opis założeń, nie dosłowny zapis wszystkich parametrów narzędzia.",
+  "common": "Fotorealistyczne naturalne światło, poziomy kadr 1536x1024, widoczne pory i naturalna asymetria, paleta kremowa i miętowa. Bez napisów, logo, kolaży, porównań przed i po ani udawanej dokumentacji medycznej. Oryginalna praca PMU jako odniesienie do detalu; nowa twarz stanowi ilustrację, nie zdjęcie klientki.",
+  "briefs": {
+    "brwi-higiena": "Nowa dorosła twarz: 35 lat, ciemny blond, piwne oczy, kremowy sweter, spokojna scena przy umywalce. Brwi i skóra suche, bez pocierania.",
+    "pielegnacja-spokojna": "Martwa natura: zamknięta neutralna tubka, tkanina, woda, kamienny blat, miękkie światło okna, bez marek i napisów.",
+    "brwi-tekstura-skory": "Nowa dorosła twarz około 30 lat, oliwkowa skóra, ciemne oczy, zbliżenie obu brwi, naturalne pory i lekki połysk, bez zmian chorobowych.",
+    "kosmetyki-planowanie": "Trzy zamknięte neutralne pojemniki kosmetyczne: bursztynowy zakraplacz, kremowa pompka, przezroczysta butelka; taca i turkusowa tkanina, bez marek.",
+    "konsultacja-telefon": "Nowa dorosła kobieta około 45 lat, ciemne kręcone włosy, oliwkowa skóra, spokojna rozmowa telefoniczna przy oknie.",
+    "brwi-skora-dojrzala": "Nowa dorosła twarz: około 58 lat, srebrny bob, zielone oczy, naturalne zmarszczki i pory, miękkie brązowe włoski brwi, lniana bluzka przy oknie.",
+    "ruch-planowanie": "Nowa dorosła kobieta około 32 lat, spięte ciemne włosy, turkusowa kurtka sportowa, ławka w parku, zamknięta butelka wody. Odpoczynek i planowanie, bez potu i świeżych ran.",
+    "kreska-nowa-twarz": "Nowa dorosła twarz: około 42 lat, kasztanowy bob, szaroniebieskie oczy, piegi, cienka górna kreska z krótkim miękkim zakończeniem, bez dolnej kreski."
+  }
+}

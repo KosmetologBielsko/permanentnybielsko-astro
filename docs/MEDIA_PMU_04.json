@@ -1,0 +1,407 @@
+{
+  "assets": [
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi-higiena.png",
+      "source": "recover-media/BPHM/Naturalne brwi w miękkim świetle(1).png",
+      "caption": "Spokojna codzienna higiena. Pielęgnację po pigmentacji ustalamy indywidualnie.",
+      "kind": "illustration"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi01.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-delikatny-efekt-oczy-zamkniete-02.webp",
+      "caption": "Delikatne podkreślenie brwi i naturalna oprawa oczu.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi02.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-detal-precyzyjnej-pigmentacji.webp",
+      "caption": "Detal brwi: gęstość włosków, kierunek i zaznaczenie kształtu.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi05.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-konsultacja.webp",
+      "caption": "Praca przy pigmentacji brwi w gabinecie.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/pielegnacja-spokojna.png",
+      "source": "recover-media/BPHM/Minimalistyczny zestaw pielęgnacyjny w porannym świetle.png",
+      "caption": "Delikatność i prostota pielęgnacji. Konkretny preparat dobiera gabinet.",
+      "kind": "illustration"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi12.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-naturalny-wlos-zblizenie.webp",
+      "caption": "Detal brwi: cienkie linie, włoski i budowanie kształtu.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi-tekstura-skory.png",
+      "source": "recover-media/BPHM/Naturalne brwi w miękkim świetle(2).png",
+      "caption": "Brwi i naturalna struktura skóry w zbliżeniu. Warunki pigmentacji są indywidualne.",
+      "kind": "illustration"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi06.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-makro-struktura-wlosa.webp",
+      "caption": "Makrofotografia włosków brwi i faktury skóry.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi17.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-zblizenie-oko-i-brew.webp",
+      "caption": "Brwi i oczy w jednym kadrze — materiał z galerii gabinetu.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/usta05.webp",
+      "source": "work/baseline/public/images/makijaz-permanentny-ust-bielsko-biala-efekt-05.webp",
+      "caption": "Malinowy odcień ust — materiał z galerii gabinetu.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/usta07.webp",
+      "source": "work/baseline/public/images/makijaz-permanentny-ust-bielsko-biala-efekt-07.webp",
+      "caption": "Cieplejszy odcień czerwieni i kształt ust.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/usta08.webp",
+      "source": "work/baseline/public/images/makijaz-permanentny-ust-bielsko-biala-efekt-08.webp",
+      "caption": "Różowy odcień z nutą brązu i połysk na ustach.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/kosmetyki-planowanie.png",
+      "source": "recover-media/BPHM/Eleganckie butelki pielęgnacyjne w miękkim świetle.png",
+      "caption": "Kosmetyki i terminy pielęgnacji warto omówić przed wizytą.",
+      "kind": "illustration"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi09.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-naturalna-uroda-twarzy.webp",
+      "caption": "Brwi i kierunek włosków widziane z boku.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/konsultacja-telefon.png",
+      "source": "recover-media/BPHM/Kobieta rozmawia przez telefon przy oknie.png",
+      "caption": "Wątpliwości dotyczące pigmentacji warto omówić z gabinetem.",
+      "kind": "illustration"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi-skora-dojrzala.png",
+      "source": "recover-media/BPHM/Naturalne brwi na dojrzałej twarzy.png",
+      "caption": "Dojrzała twarz, naturalna struktura skóry i miękko zaznaczone brwi.",
+      "kind": "illustration"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/gabinet04.webp",
+      "source": "work/baseline/public/images/ekspert-boguslawa-herda-portret-pmu.webp",
+      "caption": "Bogusława Herda w gabinecie — rozmowa o oczekiwaniach i możliwościach.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/oczy03.webp",
+      "source": "work/baseline/public/images/makijaz-permanentny-oczu-bielsko-biala-efekt-03.webp",
+      "caption": "Subtelna pigmentacja przy górnej linii rzęs.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/oczy01.webp",
+      "source": "work/baseline/public/images/makijaz-permanentny-oczu-bielsko-biala-efekt-01.webp",
+      "caption": "Delikatne podkreślenie górnej powieki z cienkim zakończeniem kreski.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/oczy04.webp",
+      "source": "work/baseline/public/images/makijaz-permanentny-oczu-bielsko-biala-efekt-05.webp",
+      "caption": "Podkreślenie górnej powieki widziane z boku.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/gabinet28.webp",
+      "source": "work/baseline/public/images/szkolenia-pmu-praktyka-zabiegowa-long-time-liner.webp",
+      "caption": "Praca przy zabiegu PMU w szerszym ujęciu.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi07.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-makro-wlos-maszynowy.webp",
+      "caption": "Łuk brwiowy i okolica oka w zbliżeniu.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/ruch-planowanie.png",
+      "source": "recover-media/BPHM/Spokojna chwila przed wizytą PMU.png",
+      "caption": "Planowanie aktywności w kalendarzu zabiegu i gojenia.",
+      "kind": "illustration"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi16.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-zblizenie-oka-naturalny-efekt.webp",
+      "caption": "Zbliżenie łuku brwiowego i oprawy oka.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi10.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-naturalny-efekt-portret-01.webp",
+      "caption": "Brwi jako część naturalnej oprawy twarzy.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/gabinet31.webp",
+      "source": "work/baseline/public/images/wizerunek-boguslawa-herda-biala-koszula.webp",
+      "caption": "Bogusława Herda — portret w jasnym wnętrzu.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi04.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-efekt-po-zabiegu-portret.webp",
+      "caption": "Oprawa oczu i kształt brwi widziane z bliska.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/gabinet18.webp",
+      "source": "work/baseline/public/images/powrot-do-natury-boguslawa-herda-kapelusz.webp",
+      "caption": "Bogusława Herda — powrót do natury.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi08.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-naturalna-pigmentacja-portret-04.webp",
+      "caption": "Kształt brwi w proporcjach całej twarzy.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/brwi14.webp",
+      "source": "work/baseline/public/images/brwi-permanentne-pigmentacja.webp",
+      "caption": "Praca w gabinecie przy pigmentacji okolicy brwi.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/gabinet21.webp",
+      "source": "work/baseline/public/images/szkolenia-pmu-edukacja-long-time-liner-elite.webp",
+      "caption": "Bogusława Herda i edukacja w makijażu permanentnym.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/gabinet20.webp",
+      "source": "work/baseline/public/images/szkolenia-pmu-certyfikat-masterclass-long-time-liner.webp",
+      "caption": "Bogusława Herda podczas wręczenia certyfikatu szkoleniowego.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/gabinet26.webp",
+      "source": "work/baseline/public/images/szkolenia-pmu-praktyka-zabieg-pion.webp",
+      "caption": "Praktyczna część szkolenia PMU: praca przy klientce.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/oczy06.webp",
+      "source": "work/baseline/public/images/makijaz-permanentny-oczu-bielsko-biala-efekt-07.webp",
+      "caption": "Praca przy pigmentacji powieki w gabinecie.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/kreska-nowa-twarz.png",
+      "source": "recover-media/BPHM/Subtelna kreska na górnej powiece.png",
+      "caption": "Górna kreska z miękkim zakończeniem dopasowana do oprawy oczu.",
+      "kind": "illustration"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/oczy02.webp",
+      "source": "work/baseline/public/images/makijaz-permanentny-oczu-bielsko-biala-efekt-02.webp",
+      "caption": "Wyraźniejsza górna kreska z miękkim cieniowaniem.",
+      "kind": "gallery"
+    },
+    {
+      "asset": "src/assets/poradnik/seria-04/oczy05.webp",
+      "source": "work/baseline/public/images/makijaz-permanentny-oczu-bielsko-biala-efekt-06.webp",
+      "caption": "Miękkie cieniowanie i wyraźniejsza oprawa górnej powieki.",
+      "kind": "gallery"
+    }
+  ],
+  "articles": [
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/kiedy-mozna-myc-brwi-po-makijazu-permanentnym/",
+      "cover": "brwi-higiena",
+      "photos": [
+        "brwi01"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/dopigmentowanie-brwi-permanentnych/",
+      "cover": "brwi02",
+      "photos": [
+        "brwi05"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/czym-smarowac-brwi-po-makijazu-permanentnym/",
+      "cover": "pielegnacja-spokojna",
+      "photos": [
+        "brwi12"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/makijaz-permanentny-na-bliznie/",
+      "cover": "brwi-tekstura-skory",
+      "photos": [
+        "brwi06"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/czego-nie-wolno-po-makijazu-permanentnym-brwi/",
+      "cover": "brwi17",
+      "photos": [
+        "pielegnacja-spokojna"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/makijaz-permanentny-ust-cena/",
+      "cover": "usta05",
+      "photos": [
+        "usta07",
+        "usta08"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/retinol-kwasy-a-makijaz-permanentny/",
+      "cover": "kosmetyki-planowanie",
+      "photos": [
+        "brwi09"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/reakcja-alergiczna-czy-normalne-gojenie-po-pmu/",
+      "cover": "konsultacja-telefon",
+      "photos": [
+        "pielegnacja-spokojna"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/brwi-permanentne-po-latach/",
+      "cover": "brwi-skora-dojrzala",
+      "photos": [
+        "gabinet04"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/kreska-zageszczajaca-linie-rzes/",
+      "cover": "oczy03",
+      "photos": [
+        "oczy01",
+        "oczy04"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/botoks-a-makijaz-permanentny-brwi/",
+      "cover": "brwi09",
+      "photos": [
+        "gabinet28"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/brwi-permanentne-dzien-po-dniu/",
+      "cover": "brwi01",
+      "photos": [
+        "brwi02"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/czy-kazda-skora-nadaje-sie-do-metody-wloskowej/",
+      "cover": "brwi07",
+      "photos": [
+        "brwi06",
+        "brwi12"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/czy-makijaz-permanentny-boli/",
+      "cover": "gabinet28",
+      "photos": [
+        "gabinet04"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/czy-mozna-cwiczyc-po-makijazu-permanentnym/",
+      "cover": "ruch-planowanie",
+      "photos": [
+        "kosmetyki-planowanie"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/dlaczego-brwi-permanentne-sa-ciemne-po-zabiegu/",
+      "cover": "brwi16",
+      "photos": [
+        "brwi17"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/dlaczego-makijaz-permanentny-zmienia-kolor/",
+      "cover": "brwi10",
+      "photos": [
+        "gabinet31"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/dlaczego-pigment-po-wygojeniu-miejscami-znika/",
+      "cover": "brwi04",
+      "photos": [
+        "brwi05"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/jak-dlugo-utrzymuje-sie-makijaz-permanentny/",
+      "cover": "gabinet18",
+      "photos": [
+        "brwi08"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/jak-przygotowac-sie-do-makijazu-permanentnego-brwi/",
+      "cover": "brwi14",
+      "photos": [
+        "gabinet04"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/jak-wybrac-gabinet-makijazu-permanentnego-bielsko-biala/",
+      "cover": "gabinet31",
+      "photos": [
+        "gabinet21"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/jak-wybrac-szkolenie-pmu/",
+      "cover": "gabinet20",
+      "photos": [
+        "gabinet26"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/kiedy-usuwac-stary-makijaz-permanentny/",
+      "cover": "gabinet04",
+      "photos": [
+        "brwi-skora-dojrzala"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/kreska-permanentna-gojenie/",
+      "cover": "oczy04",
+      "photos": [
+        "oczy06"
+      ]
+    },
+    {
+      "url": "https://www.permanentnybielsko.com/poradnik/kreski-permanentne-cieniowane/",
+      "cover": "kreska-nowa-twarz",
+      "photos": [
+        "oczy02",
+        "oczy05"
+      ]
+    }
+  ]
+}
