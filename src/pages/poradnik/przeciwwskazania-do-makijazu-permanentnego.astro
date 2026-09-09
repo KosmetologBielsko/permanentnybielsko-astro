@@ -1,9 +1,16 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-05";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const article = {
@@ -11,7 +18,7 @@ const article = {
   title: "Przeciwwskazania do makijażu permanentnego — kiedy zabieg trzeba przełożyć lub skonsultować z lekarzem?",
   category: "Kwalifikacja i bezpieczeństwo",
   datePublished: "2026-08-20",
-  dateModified: "2026-08-20",
+  dateModified: "2026-09-09",
   readingTime: "12–14 minut",
   description: "Przeciwwskazania do makijażu permanentnego: aktywne choroby skóry, infekcje, ciąża, leczenie immunosupresyjne, zaburzenia krzepnięcia i sytuacje wymagające zgody lekarza.",
   lead: "Nie istnieje jedna krótka lista, która rozstrzyga każdy przypadek. Część sytuacji oznacza po prostu przełożenie zabiegu, a część wymaga indywidualnej konsultacji z lekarzem prowadzącym i oceny ryzyka.",
@@ -77,18 +84,29 @@ const structuredData = [
     ],
   },
 ];
+
+const media = guideMedia["przeciwwskazania-do-makijazu-permanentnego"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
-<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={structuredData}>
+<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant>
   <div class="expert-article-page">
-    <Header />
-    <main>
+    <Header compact />
+    <main class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="container expert-article-hero-grid">
           <div class="expert-article-hero-copy">
             <p class="section-kicker">Poradnik PMU</p>
             <div class="expert-article-meta"><span>55</span><span>{article.category}</span><span>{article.readingTime}</span></div>
             <h1>{article.title}</h1><p class="expert-article-lead">{article.lead}</p>
+            <GuideSeriesByline />
           </div>
           <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
             <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
@@ -97,14 +115,18 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-nav-section"><div class="container"><nav class="expert-article-nav" aria-label="Spis treści artykułu">
+      <section class="expert-article-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="expert-article-nav" aria-label="Spis treści artykułu">
             <a href="#przelozyc">Kiedy przełożyć?</a>
             <a href="#lekarz">Kiedy lekarz?</a>
             <a href="#leki">Leki i zabiegi</a>
             <a href="#praktyka">Praktyka gabinetowa</a>
             <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
-      </nav></div></section>
+      </nav></details></div></section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
+
 
       <section class="expert-article-section" id="przelozyc"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">Praktyczna odpowiedź</p><h2>Trzy poziomy decyzji przed PMU</h2><p>Kwalifikacja nie powinna sprowadzać się do automatycznego odhaczania „tak/nie”.</p></div>
@@ -147,6 +169,8 @@ const structuredData = [
             <div><span>04</span><strong>W razie wątpliwości — lekarz</strong><p>Jeżeli ryzyko zależy od choroby lub leczenia, decyzję o bezpieczeństwie wspieramy opinią lekarza prowadzącego.</p></div>
         </div>
       </div></section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
+
 
       <section class="expert-article-section" id="praktyka"><div class="container expert-author-note">
         <div><p class="section-kicker">Praktyka gabinetowa</p><h2>Nie szukam sposobu, żeby „obejść przeciwwskazanie”. Szukam bezpiecznego momentu na zabieg.</h2><p>Jeśli skóra jest aktywnie zmieniona albo klientka jest w trakcie leczenia, które może wpływać na gojenie, wolę przełożyć zabieg. Przy chorobach przewlekłych nie wydaję medycznych zgód — proszę o konsultację z lekarzem prowadzącym. I nigdy nie zalecam samodzielnego odstawiania leków dla potrzeb PMU.</p></div>
@@ -182,7 +206,8 @@ const structuredData = [
         <p class="expert-medical-note">Treść ma charakter informacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej. Przy problemach zdrowotnych, nasilonych objawach lub wątpliwościach dotyczących leczenia skontaktuj się z lekarzem.</p>
       </div></section>
 
-      <section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
+      <GuideArticleSocial />
+<section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">FAQ</p><h2>{article.title}</h2></div>
         <div class="expert-faq-list">
             <details><summary><span>Czy ciąża jest przeciwwskazaniem do makijażu permanentnego?</span><span class="expert-faq-icon" aria-hidden="true"></span></summary><div><p>PMU jest zabiegiem planowym, a dane bezpieczeństwa procedur kosmetycznych w ciąży są ograniczone, dlatego najbezpieczniejszym podejściem jest odroczenie zabiegu.</p></div></details>
@@ -203,6 +228,7 @@ const structuredData = [
         </div>
         <a class="expert-back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
       </div></section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
     <Footer />
   </div>

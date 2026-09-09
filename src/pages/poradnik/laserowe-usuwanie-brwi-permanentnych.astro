@@ -1,4 +1,13 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-05";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
@@ -11,7 +20,7 @@ const article = {
   title: "Laserowe usuwanie brwi permanentnych — kiedy warto rozjaśnić stary pigment?",
   eyebrow: "Poradnik PMU",
   category: "Korekta i usuwanie PMU",
-  dateModified: "2026-08-27",
+  dateModified: "2026-09-09",
   readingTime: "12–15 minut",
   description:
     "Laserowe usuwanie brwi permanentnych: kiedy warto rozjaśnić stary pigment, laser czy remover, od czego zależy liczba zabiegów, zmiana koloru i plan nowych brwi.",
@@ -231,37 +240,48 @@ const structuredData = [
     })),
   },
 ];
+
+const media = guideMedia["laserowe-usuwanie-brwi-permanentnych"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
 <Layout
   title={`${article.title} | Bogusława Herda`}
   description={article.description}
   canonicalPath={article.canonicalPath}
-  structuredData={structuredData}
+  structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant
 >
   <div class="laser-guide-page">
-    <Header />
+    <Header compact />
 
-    <main>
-      <section class="laser-hero">
-        <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
-        <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+    <main class="pmu-guide-v3 pmu-guide-v4">
+      <section class="expert-article-hero">
+        <div class="expert-article-glow hero-glow-one" aria-hidden="true"></div>
+        <div class="expert-article-glow hero-glow-two" aria-hidden="true"></div>
 
-        <div class="container laser-hero-grid">
-          <div class="hero-copy">
+        <div class="container expert-article-hero-grid">
+          <div class="expert-article-hero-copy">
             <p class="section-kicker">{article.eyebrow}</p>
 
-            <div class="article-meta">
+            <div class="expert-article-meta">
               <span>{article.category}</span>
               <span>{article.readingTime}</span>
-              <span>aktualizacja 27.08.2026</span>
+              
             </div>
 
             <h1>{article.title}</h1>
-            <p class="hero-lead">{article.lead}</p>
+            <p class="expert-article-lead">{article.lead}</p>
+            <GuideSeriesByline />
           </div>
 
-          <aside class="quick-answer" aria-label="Odpowiedź w 20 sekund">
+          <aside class="expert-article-answer" aria-label="Odpowiedź w 20 sekund">
             <p class="answer-label">Odpowiedź w 20 sekund</p>
             <h2>Nie zawsze trzeba usuwać do zera.</h2>
             <p>{article.shortAnswer}</p>
@@ -273,10 +293,15 @@ const structuredData = [
           </aside>
         </div>
       </section>
+<section class="expert-article-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav aria-label="Spis treści artykułu"><a href="#czy-warto">Kiedy warto?</a><a href="#jak-dziala">Jak działa?</a><a href="#kwalifikacja">Kwalifikacja</a><a href="#laser-czy-remover">Laser czy remover?</a><a href="#zmiana-koloru">Zmiana koloru</a><a href="#ile-zabiegow">Liczba zabiegów</a><a href="#proces">Przebieg</a><a href="#nowe-brwi">Nowa pigmentacja</a><a href="#praktyka">Praktyka</a><a href="#zrodla">Źródła</a><a href="#powiazane">Powiązane tematy</a><a href="#faq">Pytania i odpowiedzi</a></nav></details></div></section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
 
-      <section class="decision-section" id="czy-warto">
+
+      <section class="expert-article-section" id="czy-warto">
         <div class="container">
-          <div class="decision-heading">
+          <div class="expert-article-heading">
             <div>
               <p class="section-kicker">Kiedy laser ma sens?</p>
               <h2>Najpierw określ problem. Dopiero później metodę.</h2>
@@ -315,9 +340,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section laser-soft" id="jak-dziala">
+      <section class="expert-article-section laser-soft" id="jak-dziala">
         <div class="container">
-          <div class="section-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Jak działa laser?</p>
             <h2>Energia lasera oddziałuje na pigment. Organizm potrzebuje czasu na dalszy proces.</h2>
             <p>
@@ -360,9 +385,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section" id="kwalifikacja">
+      <section class="expert-article-section" id="kwalifikacja">
         <div class="container">
-          <div class="section-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Kwalifikacja</p>
             <h2>Pięć rzeczy ważniejszych niż pytanie „ile sesji?”.</h2>
             <p>
@@ -388,8 +413,10 @@ const structuredData = [
           </a>
         </div>
       </section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
 
-      <section class="laser-section laser-soft" id="laser-czy-remover">
+
+      <section class="expert-article-section laser-soft" id="laser-czy-remover">
         <div class="container split-panel">
           <div>
             <p class="section-kicker">Laser czy remover?</p>
@@ -428,9 +455,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section" id="zmiana-koloru">
+      <section class="expert-article-section" id="zmiana-koloru">
         <div class="container">
-          <div class="section-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Bardzo ważne</p>
             <h2>Po laserze pigment może zmienić kolor — także ściemnieć.</h2>
             <p>
@@ -476,9 +503,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section laser-soft" id="ile-zabiegow">
+      <section class="expert-article-section laser-soft" id="ile-zabiegow">
         <div class="container">
-          <div class="section-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Liczba zabiegów</p>
             <h2>Nie obiecujemy „1–2 zabiegów”, jeśli pigmentu jeszcze nie widzieliśmy.</h2>
             <p>
@@ -513,9 +540,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section" id="proces">
+      <section class="expert-article-section" id="proces">
         <div class="container">
-          <div class="section-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Proces krok po kroku</p>
             <h2>Usuwanie jest serią decyzji, nie jednym „strzałem lasera”.</h2>
           </div>
@@ -532,7 +559,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section laser-soft" id="nowe-brwi">
+      <section class="expert-article-section laser-soft" id="nowe-brwi">
         <div class="container split-panel new-brows-panel">
           <div>
             <p class="section-kicker">Co dalej?</p>
@@ -563,7 +590,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section" id="praktyka">
+      <section class="expert-article-section" id="praktyka">
         <div class="container author-panel">
           <div>
             <p class="section-kicker">Praktyka gabinetowa</p>
@@ -591,9 +618,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section laser-soft" id="zrodla">
+      <section class="expert-article-section laser-soft" id="zrodla">
         <div class="container">
-          <div class="section-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Źródła medyczne</p>
             <h2>Przy laserowym usuwaniu nie upraszczamy zachowania pigmentów.</h2>
             <p>
@@ -638,9 +665,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section" id="powiazane">
+      <section class="expert-article-section" id="powiazane">
         <div class="container">
-          <div class="section-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Powiązane odpowiedzi</p>
             <h2>Stare PMU to proces: ocena → rozjaśnienie → decyzja o nowych brwiach.</h2>
           </div>
@@ -677,9 +704,10 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section laser-soft" id="faq">
+      <GuideArticleSocial />
+<section class="expert-article-section laser-soft" id="faq">
         <div class="container">
-          <div class="section-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">FAQ</p>
             <h2>Najczęstsze pytania o laserowe usuwanie brwi permanentnych.</h2>
           </div>
@@ -698,7 +726,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="laser-section">
+      <section class="expert-article-section">
         <div class="container final-card">
           <p class="signature cta-signature">Powrót do natury</p>
           <h2>Masz stare brwi i nie wiesz, czy potrzebujesz lasera, removera czy korekty?</h2>
@@ -728,1203 +756,11 @@ const structuredData = [
           <a class="back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
         </div>
       </section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
 
     <Footer />
   </div>
 </Layout>
 
-<style>
-  .laser-guide-page {
-    min-height: 100vh;
-    overflow-x: hidden;
-    background:
-      radial-gradient(circle at 84% 8%, rgba(56,187,181,.10), transparent 28rem),
-      radial-gradient(circle at 11% 46%, rgba(201,127,143,.10), transparent 26rem),
-      linear-gradient(180deg,#fffdfd 0%,#fff8fa 48%,#fff 100%);
-  }
 
-  .laser-guide-page *,
-  .laser-guide-page *::before,
-  .laser-guide-page *::after { box-sizing: border-box; }
-
-  .laser-guide-page main,
-  .laser-guide-page section,
-  .laser-guide-page .container,
-  .laser-guide-page article,
-  .laser-guide-page div,
-  .laser-guide-page aside { min-width: 0; }
-
-  .laser-guide-page .section-kicker {
-    display: inline-flex;
-    width: fit-content;
-    min-height: 30px;
-    align-items: center;
-    margin: 0 0 16px;
-    padding: 0 11px;
-    border: 1px solid rgba(56,187,181,.18);
-    border-radius: 999px;
-    background: rgba(219,246,243,.76);
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .65rem;
-    font-weight: 850;
-    line-height: 1;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-  }
-
-  .laser-hero {
-    position: relative;
-    overflow: hidden;
-    padding: 144px 0 48px;
-  }
-
-  .hero-glow {
-    position: absolute;
-    border-radius: 999px;
-    pointer-events: none;
-  }
-
-  .hero-glow-one {
-    top: 2rem;
-    right: -12rem;
-    width: 38rem;
-    height: 38rem;
-    background: radial-gradient(circle,rgba(56,187,181,.18),transparent 68%);
-  }
-
-  .hero-glow-two {
-    left: -10rem;
-    bottom: -12rem;
-    width: 34rem;
-    height: 34rem;
-    background: radial-gradient(circle,rgba(201,127,143,.14),transparent 68%);
-  }
-
-  .laser-hero-grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0,1.12fr) minmax(340px,.88fr);
-    gap: 18px;
-  }
-
-  .hero-copy,
-  .quick-answer,
-  .decision-card,
-  .mechanism-flow article,
-  .assessment-list article,
-  .split-panel,
-  .risk-grid article,
-  .count-grid article,
-  .process-scroll article,
-  .author-panel,
-  .source-grid a,
-  .related-grid a,
-  .faq-list details,
-  .final-card {
-    border: 1px solid rgba(183,101,118,.14);
-    box-shadow: 0 16px 48px rgba(89,53,67,.055);
-  }
-
-  .hero-copy {
-    padding: clamp(32px,4.8vw,58px);
-    border-radius: 36px;
-    background:
-      radial-gradient(circle at 96% 10%,rgba(56,187,181,.07),transparent 16rem),
-      rgba(255,255,255,.88);
-  }
-
-  .article-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-
-  .article-meta span {
-    display: inline-flex;
-    min-height: 28px;
-    align-items: center;
-    padding: 0 10px;
-    border-radius: 999px;
-    background: rgba(255,248,251,.94);
-    color: var(--color-muted,#6e6670);
-    font-size: .63rem;
-    font-weight: 790;
-    letter-spacing: .07em;
-    text-transform: uppercase;
-  }
-
-  .article-meta span:first-child {
-    background: rgba(56,187,181,.12);
-    color: var(--color-turquoise-dark,#0f7773);
-  }
-
-  .laser-hero h1 {
-    max-width: 1000px;
-    margin: 0;
-    color: var(--color-text,#17151d);
-    font-size: clamp(2.7rem,4.5vw,4.95rem);
-    font-weight: 780;
-    line-height: 1.01;
-    letter-spacing: -.071em;
-  }
-
-  .hero-lead {
-    max-width: 860px;
-    margin: 21px 0 0;
-    color: var(--color-muted,#6e6670);
-    font-size: clamp(1.02rem,1.2vw,1.14rem);
-    line-height: 1.65;
-  }
-
-  .quick-answer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: clamp(27px,3.7vw,42px);
-    border-radius: 36px;
-    color: #fff;
-    background:
-      radial-gradient(circle at 88% 12%,rgba(255,255,255,.22),transparent 13rem),
-      linear-gradient(145deg,#0f7773 0%,#1aa5a0 48%,#138a86 100%);
-    box-shadow: 0 26px 68px rgba(35,156,150,.18);
-  }
-
-  .answer-label {
-    margin: 0 auto 38px 0;
-    color: rgba(255,255,255,.72);
-    font-size: .67rem;
-    font-weight: 850;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-  }
-
-  .quick-answer h2 {
-    margin: 0;
-    color: #fff;
-    font-size: clamp(2rem,3vw,3.08rem);
-    font-weight: 790;
-    line-height: 1;
-    letter-spacing: -.06em;
-  }
-
-  .quick-answer > p:not(.answer-label) {
-    margin: 16px 0 0;
-    color: rgba(255,255,255,.9);
-    font-size: .88rem;
-    line-height: 1.56;
-  }
-
-  .answer-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 17px;
-  }
-
-  .answer-actions a {
-    display: inline-flex;
-    min-height: 40px;
-    align-items: center;
-    padding: 0 13px;
-    border: 1px solid rgba(255,255,255,.24);
-    border-radius: 999px;
-    background: rgba(255,255,255,.11);
-    color: #fff;
-    font-size: .69rem;
-    font-weight: 840;
-    text-decoration: none;
-  }
-
-  .decision-section {
-    padding: 0 0 35px;
-    scroll-margin-top: 96px;
-  }
-
-  .decision-heading {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 24px;
-    margin-bottom: 17px;
-  }
-
-  .decision-heading h2,
-  .section-heading h2,
-  .split-panel h2,
-  .author-panel h2,
-  .final-card h2 {
-    margin: 0;
-    color: var(--color-text,#17151d);
-    font-size: clamp(2.05rem,3.45vw,3.7rem);
-    font-weight: 770;
-    line-height: 1.02;
-    letter-spacing: -.066em;
-  }
-
-  .decision-heading > p {
-    margin: 0 0 4px;
-    color: var(--color-muted,#6e6670);
-    font-size: .78rem;
-  }
-
-  .decision-scroll {
-    display: grid;
-    grid-template-columns: repeat(4,minmax(0,1fr));
-    gap: 9px;
-  }
-
-  .decision-card {
-    min-height: 285px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 23px;
-    background:
-      radial-gradient(circle at 92% 8%,rgba(56,187,181,.07),transparent 11rem),
-      rgba(255,255,255,.91);
-  }
-
-  .decision-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 28px;
-  }
-
-  .decision-top span {
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .6rem;
-    font-weight: 900;
-    letter-spacing: .13em;
-  }
-
-  .decision-top em {
-    color: #9d5c70;
-    font-size: .57rem;
-    font-style: normal;
-    font-weight: 820;
-    text-align: right;
-    text-transform: uppercase;
-  }
-
-  .decision-card h3,
-  .mechanism-flow h3,
-  .risk-grid h3,
-  .process-scroll h3,
-  .source-grid h3,
-  .related-grid h3 {
-    margin: 0;
-    color: var(--color-text,#17151d);
-    font-size: 1.3rem;
-    font-weight: 780;
-    line-height: 1.06;
-    letter-spacing: -.046em;
-  }
-
-  .decision-card p,
-  .mechanism-flow p,
-  .risk-grid p,
-  .process-scroll p,
-  .source-grid p,
-  .related-grid p {
-    margin: 11px 0 0;
-    color: var(--color-muted,#6e6670);
-    font-size: .8rem;
-    line-height: 1.52;
-  }
-
-  .decision-card a {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: auto;
-    padding-top: 14px;
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .7rem;
-    font-weight: 850;
-    text-decoration: none;
-  }
-
-  .top-bridge {
-    display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
-    gap: 8px;
-    margin-top: 10px;
-  }
-
-  .top-bridge a {
-    display: flex;
-    min-height: 66px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 13px 15px;
-    border: 1px solid rgba(56,187,181,.14);
-    border-radius: 18px;
-    background: rgba(219,246,243,.34);
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .top-bridge span {
-    color: var(--color-muted,#6e6670);
-    font-size: .64rem;
-    font-weight: 740;
-  }
-
-  .top-bridge strong {
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .74rem;
-    font-weight: 850;
-    text-align: right;
-  }
-
-  .laser-section {
-    padding: 62px 0;
-    scroll-margin-top: 94px;
-  }
-
-  .laser-soft { background: rgba(255,255,255,.52); }
-
-  .section-heading {
-    max-width: 960px;
-    margin-bottom: 24px;
-  }
-
-  .section-heading > p:not(.section-kicker),
-  .split-panel > div > p:not(.section-kicker),
-  .author-panel > div > p:not(.section-kicker),
-  .final-card > p:not(.signature) {
-    max-width: 860px;
-    margin: 15px 0 0;
-    color: var(--color-muted,#6e6670);
-    font-size: .96rem;
-    line-height: 1.64;
-  }
-
-  .mechanism-flow {
-    display: grid;
-    grid-template-columns: repeat(7,auto);
-    align-items: center;
-    justify-content: start;
-    gap: 9px;
-    overflow-x: auto;
-    padding-bottom: 5px;
-    scrollbar-width: none;
-  }
-
-  .mechanism-flow::-webkit-scrollbar { display: none; }
-
-  .mechanism-flow article {
-    min-width: 220px;
-    min-height: 205px;
-    padding: 19px;
-    border-radius: 21px;
-    background: rgba(255,255,255,.92);
-  }
-
-  .mechanism-flow article > span,
-  .risk-grid article > span,
-  .process-scroll article > span {
-    display: block;
-    margin-bottom: 30px;
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .59rem;
-    font-weight: 900;
-    letter-spacing: .12em;
-  }
-
-  .mechanism-flow article > strong {
-    color: var(--color-text,#17151d);
-    font-size: 1.05rem;
-    font-weight: 820;
-  }
-
-  .mechanism-flow > i {
-    color: rgba(15,119,115,.5);
-    font-style: normal;
-    font-weight: 900;
-  }
-
-  .science-note,
-  .count-note,
-  .medical-note {
-    margin: 11px 0 0;
-    padding: 14px 16px;
-    border-left: 3px solid rgba(56,187,181,.48);
-    border-radius: 0 16px 16px 0;
-    background: rgba(219,246,243,.34);
-    color: var(--color-muted,#6e6670);
-    font-size: .78rem;
-    line-height: 1.5;
-  }
-
-  .assessment-list {
-    display: grid;
-    max-width: 980px;
-    gap: 8px;
-  }
-
-  .assessment-list article {
-    display: grid;
-    grid-template-columns: 42px minmax(0,1fr);
-    gap: 14px;
-    align-items: center;
-    padding: 15px 17px;
-    border-radius: 19px;
-    background: rgba(255,255,255,.92);
-  }
-
-  .assessment-list article > span {
-    display: grid;
-    width: 36px;
-    height: 36px;
-    place-items: center;
-    border-radius: 999px;
-    background: rgba(219,246,243,.72);
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .59rem;
-    font-weight: 900;
-  }
-
-  .assessment-list h3 {
-    margin: 0;
-    color: var(--color-text,#17151d);
-    font-size: .93rem;
-    font-weight: 810;
-  }
-
-  .assessment-list p {
-    margin: 4px 0 0;
-    color: var(--color-muted,#6e6670);
-    font-size: .79rem;
-    line-height: 1.45;
-  }
-
-  .wide-link {
-    display: flex;
-    min-height: 58px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    max-width: 980px;
-    margin-top: 10px;
-    padding: 0 17px;
-    border: 1px solid rgba(56,187,181,.14);
-    border-radius: 18px;
-    background: rgba(219,246,243,.34);
-    color: var(--color-text,#17151d);
-    font-size: .8rem;
-    font-weight: 790;
-    text-decoration: none;
-  }
-
-  .wide-link span { color: var(--color-turquoise-dark,#0f7773); }
-
-  .split-panel,
-  .author-panel {
-    display: grid;
-    grid-template-columns: minmax(0,1.12fr) minmax(290px,.68fr);
-    gap: 22px;
-    padding: clamp(25px,4vw,40px);
-    border-radius: 30px;
-    background:
-      radial-gradient(circle at 94% 10%,rgba(56,187,181,.08),transparent 15rem),
-      rgba(255,255,255,.92);
-  }
-
-  .compare-box,
-  .author-panel aside {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 18px;
-    border: 1px solid rgba(56,187,181,.14);
-    border-radius: 20px;
-    background: rgba(219,246,243,.42);
-  }
-
-  .compare-box > span,
-  .author-panel aside > span {
-    margin-bottom: 8px;
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .63rem;
-    font-weight: 850;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-  }
-
-  .compare-box > div {
-    padding: 11px 0;
-    border-top: 1px solid rgba(56,187,181,.11);
-  }
-
-  .compare-box strong,
-  .author-panel aside > strong {
-    display: block;
-    margin-top: 5px;
-    color: var(--color-text,#17151d);
-    font-size: .86rem;
-    font-weight: 790;
-  }
-
-  .compare-box p {
-    margin: 4px 0 0;
-    color: var(--color-muted,#6e6670);
-    font-size: .73rem;
-    line-height: 1.42;
-  }
-
-  .split-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 16px;
-  }
-
-  .split-actions a,
-  .author-panel aside a {
-    display: inline-flex;
-    width: fit-content;
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .72rem;
-    font-weight: 850;
-    text-decoration: none;
-  }
-
-  .split-actions a {
-    min-height: 40px;
-    align-items: center;
-    padding: 0 12px;
-    border: 1px solid rgba(56,187,181,.14);
-    border-radius: 999px;
-    background: rgba(255,255,255,.74);
-  }
-
-  .author-panel aside a { margin-top: 15px; }
-
-  .risk-grid,
-  .count-grid {
-    display: grid;
-    gap: 9px;
-  }
-
-  .risk-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
-  .count-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
-
-  .risk-grid article,
-  .count-grid article {
-    padding: 20px;
-    border-radius: 22px;
-    background: rgba(255,255,255,.92);
-  }
-
-  .risk-grid article { min-height: 215px; }
-
-  .count-grid article {
-    min-height: 180px;
-    border: 1px solid rgba(56,187,181,.12);
-  }
-
-  .count-grid strong {
-    color: var(--color-text,#17151d);
-    font-size: 1rem;
-    font-weight: 820;
-  }
-
-  .count-grid p {
-    margin: 9px 0 0;
-    color: var(--color-muted,#6e6670);
-    font-size: .78rem;
-    line-height: 1.47;
-  }
-
-  .related-inline {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 11px;
-  }
-
-  .related-inline a {
-    display: inline-flex;
-    min-height: 40px;
-    align-items: center;
-    padding: 0 13px;
-    border: 1px solid rgba(56,187,181,.14);
-    border-radius: 999px;
-    background: rgba(219,246,243,.34);
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .7rem;
-    font-weight: 840;
-    text-decoration: none;
-  }
-
-  .process-scroll {
-    display: grid;
-    grid-template-columns: repeat(5,minmax(0,1fr));
-    gap: 8px;
-  }
-
-  .process-scroll article {
-    min-height: 225px;
-    padding: 19px;
-    border-radius: 21px;
-    background: rgba(255,255,255,.92);
-  }
-
-  .new-brows-panel {
-    background:
-      radial-gradient(circle at 92% 10%,rgba(201,127,143,.1),transparent 16rem),
-      rgba(255,255,255,.93);
-  }
-
-  .source-grid,
-  .related-grid {
-    display: grid;
-    gap: 9px;
-  }
-
-  .source-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .related-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
-
-  .source-grid a,
-  .related-grid a {
-    min-height: 225px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 22px;
-    background: rgba(255,255,255,.92);
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .source-grid a > span,
-  .related-grid a > span {
-    display: block;
-    margin-bottom: 27px;
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .6rem;
-    font-weight: 850;
-    letter-spacing: .09em;
-    text-transform: uppercase;
-  }
-
-  .source-grid a > strong,
-  .related-grid a > strong {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: auto;
-    padding-top: 15px;
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .7rem;
-    font-weight: 850;
-  }
-
-  .medical-note {
-    border-left-color: rgba(201,127,143,.54);
-    background: rgba(255,248,251,.8);
-  }
-
-  .faq-list {
-    display: grid;
-    max-width: 990px;
-    gap: 8px;
-  }
-
-  .faq-list details {
-    overflow: hidden;
-    border-radius: 20px;
-    background: rgba(255,255,255,.93);
-  }
-
-  .faq-list summary {
-    display: grid;
-    grid-template-columns: minmax(0,1fr) 34px;
-    gap: 11px;
-    align-items: center;
-    padding: 15px 16px;
-    cursor: pointer;
-    list-style: none;
-  }
-
-  .faq-list summary::-webkit-details-marker { display: none; }
-
-  .faq-list summary span {
-    color: var(--color-text,#17151d);
-    font-size: .94rem;
-    font-weight: 780;
-    line-height: 1.32;
-  }
-
-  .faq-list summary i {
-    position: relative;
-    width: 34px;
-    height: 34px;
-    border: 1px solid rgba(56,187,181,.16);
-    border-radius: 999px;
-    background: rgba(219,246,243,.58);
-  }
-
-  .faq-list summary i::before,
-  .faq-list summary i::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 11px;
-    height: 2px;
-    border-radius: 999px;
-    background: var(--color-turquoise-dark,#0f7773);
-    transform: translate(-50%,-50%);
-  }
-
-  .faq-list summary i::after { transform: translate(-50%,-50%) rotate(90deg); }
-  .faq-list details[open] summary i::after { opacity: 0; }
-
-  .faq-list details > div { padding: 0 16px 15px; }
-
-  .faq-list p {
-    max-width: 810px;
-    margin: 0;
-    color: var(--color-muted,#6e6670);
-    font-size: .84rem;
-    line-height: 1.56;
-  }
-
-  .final-card {
-    padding: clamp(29px,5vw,50px);
-    border-radius: 32px;
-    text-align: center;
-    background:
-      linear-gradient(145deg,rgba(219,246,243,.7),rgba(255,242,246,.82)),
-      rgba(255,255,255,.76);
-  }
-
-  .final-card > p:not(.signature) { margin-inline: auto; }
-
-  .final-actions {
-    display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
-    gap: 8px;
-    max-width: 880px;
-    margin: 22px auto 0;
-  }
-
-  .final-actions a {
-    display: inline-flex;
-    min-height: 53px;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 0 15px;
-    border-radius: 999px;
-    font-size: .9rem;
-    font-weight: 820;
-    text-decoration: none;
-  }
-
-  .final-form {
-    color: #fff;
-    background: linear-gradient(135deg,#dc8fa3 0%,#ca718b 52%,#b85d78 100%);
-  }
-
-  .final-booksy {
-    color: #fff;
-    background: linear-gradient(135deg,#18a889 0%,#0f8f78 55%,#0b7868 100%);
-  }
-
-  .final-phone {
-    border: 1px solid rgba(56,187,181,.18);
-    background: rgba(255,255,255,.82);
-    color: var(--color-turquoise-dark,#0f7773);
-  }
-
-  .final-secondary {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 11px;
-  }
-
-  .final-secondary a {
-    display: inline-flex;
-    min-height: 37px;
-    align-items: center;
-    padding: 0 11px;
-    border: 1px solid rgba(56,187,181,.14);
-    border-radius: 999px;
-    background: rgba(255,255,255,.56);
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .68rem;
-    font-weight: 800;
-    text-decoration: none;
-  }
-
-  .back-link {
-    display: inline-flex;
-    margin-top: 18px;
-    color: var(--color-turquoise-dark,#0f7773);
-    font-size: .74rem;
-    font-weight: 820;
-    text-decoration: none;
-  }
-
-  @media (max-width: 1080px) {
-    .laser-hero-grid,
-    .split-panel,
-    .author-panel { grid-template-columns: 1fr; }
-
-    .decision-scroll,
-    .risk-grid,
-    .count-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-
-    .process-scroll { grid-template-columns: repeat(3,minmax(0,1fr)); }
-    .related-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  }
-
-  @media (max-width: 760px) {
-    .laser-guide-page .section-kicker {
-      min-height: 27px;
-      margin-bottom: 11px;
-      padding-inline: 9px;
-      font-size: .57rem;
-      letter-spacing: .105em;
-    }
-
-    .laser-hero { padding: 103px 0 25px; }
-    .laser-hero-grid { gap: 9px; }
-
-    .hero-copy,
-    .quick-answer { border-radius: 23px; }
-
-    .hero-copy { padding: 21px 16px 20px; }
-
-    .article-meta {
-      gap: 4px;
-      margin-bottom: 13px;
-    }
-
-    .article-meta span {
-      min-height: 24px;
-      padding-inline: 7px;
-      font-size: .54rem;
-      letter-spacing: .045em;
-    }
-
-    .laser-hero h1 {
-      font-size: clamp(1.98rem,9.25vw,2.77rem);
-      line-height: 1.02;
-      letter-spacing: -.06em;
-    }
-
-    .hero-lead {
-      margin-top: 14px;
-      font-size: .88rem;
-      line-height: 1.53;
-    }
-
-    .quick-answer { padding: 19px 16px; }
-
-    .answer-label {
-      margin-bottom: 17px;
-      font-size: .58rem;
-    }
-
-    .quick-answer h2 { font-size: 2.03rem; }
-
-    .quick-answer > p:not(.answer-label) {
-      margin-top: 12px;
-      font-size: .8rem;
-      line-height: 1.5;
-    }
-
-    .answer-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-      width: 100%;
-      margin-top: 13px;
-    }
-
-    .answer-actions a {
-      justify-content: center;
-      padding-inline: 7px;
-      font-size: .64rem;
-      text-align: center;
-    }
-
-    .decision-section { padding-bottom: 20px; }
-
-    .decision-heading {
-      display: block;
-      margin-bottom: 13px;
-    }
-
-    .decision-heading h2,
-    .section-heading h2,
-    .split-panel h2,
-    .author-panel h2,
-    .final-card h2 {
-      font-size: clamp(1.84rem,8.3vw,2.55rem);
-      line-height: 1.04;
-      letter-spacing: -.057em;
-    }
-
-    .decision-heading > p {
-      margin-top: 9px;
-      font-size: .7rem;
-    }
-
-    .decision-scroll {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: min(78vw,300px);
-      grid-template-columns: none;
-      gap: 8px;
-      margin-inline: -16px;
-      padding: 2px 16px 9px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .decision-scroll::-webkit-scrollbar { display: none; }
-
-    .decision-card {
-      min-height: 255px;
-      padding: 17px;
-      border-radius: 20px;
-      scroll-snap-align: start;
-    }
-
-    .decision-top { margin-bottom: 21px; }
-    .decision-card h3 { font-size: 1.25rem; }
-
-    .decision-card p {
-      font-size: .76rem;
-      line-height: 1.49;
-    }
-
-    .top-bridge {
-      grid-template-columns: 1fr;
-      gap: 6px;
-      margin-top: 7px;
-    }
-
-    .top-bridge a {
-      min-height: 57px;
-      padding: 11px 13px;
-    }
-
-    .laser-section { padding: 44px 0; }
-    .section-heading { margin-bottom: 18px; }
-
-    .section-heading > p:not(.section-kicker),
-    .split-panel > div > p:not(.section-kicker),
-    .author-panel > div > p:not(.section-kicker),
-    .final-card > p:not(.signature) {
-      margin-top: 12px;
-      font-size: .86rem;
-      line-height: 1.54;
-    }
-
-    .mechanism-flow {
-      margin-inline: -16px;
-      padding: 2px 16px 9px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .mechanism-flow article {
-      min-width: 74vw;
-      min-height: 195px;
-      padding: 17px;
-      border-radius: 19px;
-      scroll-snap-align: start;
-    }
-
-    .science-note,
-    .count-note,
-    .medical-note {
-      padding: 12px 13px;
-      font-size: .72rem;
-      line-height: 1.47;
-    }
-
-    .assessment-list article {
-      grid-template-columns: 36px minmax(0,1fr);
-      gap: 10px;
-      padding: 13px;
-      border-radius: 17px;
-    }
-
-    .assessment-list article > span {
-      width: 32px;
-      height: 32px;
-      font-size: .55rem;
-    }
-
-    .assessment-list h3 { font-size: .85rem; }
-    .assessment-list p { font-size: .75rem; }
-
-    .wide-link {
-      min-height: 52px;
-      padding: 11px 13px;
-      font-size: .73rem;
-      line-height: 1.36;
-    }
-
-    .split-panel,
-    .author-panel {
-      gap: 14px;
-      padding: 19px 16px;
-      border-radius: 23px;
-    }
-
-    .compare-box,
-    .author-panel aside {
-      padding: 15px;
-      border-radius: 18px;
-    }
-
-    .split-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    .split-actions a {
-      justify-content: center;
-      text-align: center;
-    }
-
-    .risk-grid,
-    .count-grid,
-    .source-grid,
-    .related-grid {
-      grid-template-columns: 1fr;
-      gap: 7px;
-    }
-
-    .risk-grid article,
-    .count-grid article,
-    .source-grid a,
-    .related-grid a {
-      min-height: auto;
-      padding: 17px 16px;
-      border-radius: 19px;
-    }
-
-    .related-inline {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    .related-inline a {
-      justify-content: center;
-      text-align: center;
-    }
-
-    .process-scroll {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: min(74vw,285px);
-      grid-template-columns: none;
-      gap: 8px;
-      margin-inline: -16px;
-      padding: 2px 16px 9px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .process-scroll::-webkit-scrollbar { display: none; }
-
-    .process-scroll article {
-      min-height: 210px;
-      padding: 17px;
-      border-radius: 19px;
-      scroll-snap-align: start;
-    }
-
-    .source-grid a > span,
-    .related-grid a > span {
-      margin-bottom: 18px;
-    }
-
-    .source-grid h3,
-    .related-grid h3 {
-      font-size: 1.22rem;
-    }
-
-    .source-grid p,
-    .related-grid p {
-      font-size: .77rem;
-      line-height: 1.48;
-    }
-
-    .faq-list summary {
-      grid-template-columns: minmax(0,1fr) 31px;
-      padding: 13px;
-    }
-
-    .faq-list summary span { font-size: .86rem; }
-
-    .faq-list summary i {
-      width: 31px;
-      height: 31px;
-    }
-
-    .faq-list details > div { padding: 0 13px 13px; }
-
-    .faq-list p {
-      font-size: .79rem;
-      line-height: 1.51;
-    }
-
-    .final-card {
-      padding: 23px 15px;
-      border-radius: 24px;
-    }
-
-    .final-actions {
-      grid-template-columns: 1fr;
-      gap: 7px;
-      margin-top: 18px;
-    }
-
-    .final-actions a {
-      min-height: 51px;
-      font-size: .86rem;
-    }
-
-    .final-secondary {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    .final-secondary a {
-      justify-content: center;
-      text-align: center;
-    }
-
-    .back-link { font-size: .7rem; }
-  }
-
-  @media (max-width: 390px) {
-    .hero-copy { padding-inline: 14px; }
-
-    .laser-hero h1 {
-      font-size: clamp(1.88rem,9.7vw,2.42rem);
-    }
-
-    .decision-scroll { grid-auto-columns: 81vw; }
-    .mechanism-flow article { min-width: 79vw; }
-    .process-scroll { grid-auto-columns: 80vw; }
-  }
-</style>

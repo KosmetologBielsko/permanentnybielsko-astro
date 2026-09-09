@@ -1,4 +1,13 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-05";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
@@ -12,7 +21,7 @@ const article = {
   eyebrow: "Poradnik PMU",
   category: "Ceny PMU",
   datePublished: "2026-06-21",
-  dateModified: "2026-09-07",
+  dateModified: "2026-09-09",
   readingTime: "9–11 minut",
   description:
     "Makijaż permanentny brwi cena 2026. Sprawdź ceny cieniowania, metody włoskowej, włosa z cieniem, korekty i odświeżenia brwi oraz co obejmuje cena zabiegu.",
@@ -129,38 +138,49 @@ const structuredData = [
     })),
   },
 ];
+
+const media = guideMedia["makijaz-permanentny-brwi-cena"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
 <Layout
   title={`${article.title} | Poradnik PMU Bogusławy Herda`}
   description={article.description}
   canonicalPath={article.canonicalPath}
-  structuredData={structuredData}
+  structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant
 >
   <div class="brow-price-guide">
-    <Header />
+    <Header compact />
 
-    <main>
-      <section class="guide-hero">
-        <div class="guide-glow guide-glow-one" aria-hidden="true"></div>
-        <div class="guide-glow guide-glow-two" aria-hidden="true"></div>
+    <main class="pmu-guide-v3 pmu-guide-v4">
+      <section class="expert-article-hero">
+        <div class="expert-article-glow guide-glow-one" aria-hidden="true"></div>
+        <div class="expert-article-glow guide-glow-two" aria-hidden="true"></div>
 
-        <div class="container guide-hero-grid">
-          <div class="guide-hero-copy">
+        <div class="container expert-article-hero-grid">
+          <div class="expert-article-hero-copy">
             <p class="section-kicker">{article.eyebrow}</p>
 
-            <div class="guide-meta">
+            <div class="expert-article-meta">
               <span>Ekspercki poradnik</span>
               <span>{article.category}</span>
               <span>{article.readingTime}</span>
             </div>
 
             <h1>{article.title}</h1>
-            <p class="guide-lead">{article.lead}</p>
+            <p class="expert-article-lead">{article.lead}</p>
+            <GuideSeriesByline />
           </div>
 
-          <aside class="guide-answer" aria-label="Odpowiedź w 20 sekund">
-            <p class="guide-answer-label">Odpowiedź w 20 sekund</p>
+          <aside class="expert-article-answer" aria-label="Odpowiedź w 20 sekund">
+            <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
 
             <div class="guide-answer-price">
               <span>Brwi permanentne</span>
@@ -174,7 +194,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="quick-price-section" aria-label="Najważniejsze ceny brwi permanentnych">
+      <section class="expert-article-section" aria-label="Najważniejsze ceny brwi permanentnych">
         <div class="container">
           <div class="quick-price-scroll">
             <article>
@@ -212,9 +232,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="guide-nav-section">
+      <section class="expert-article-nav-section">
         <div class="container">
-          <nav class="guide-nav" aria-label="Spis treści artykułu">
+          <details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="expert-article-nav" aria-label="Spis treści artykułu">
             <a href="#ceny-brwi">Ceny brwi</a>
             <a href="#co-obejmuje-cena">Co jest w cenie</a>
             <a href="#metody">1200 czy 1400 zł?</a>
@@ -222,13 +242,17 @@ const structuredData = [
             <a href="#stare-pmu">Stare PMU</a>
             <a href="#praktyka">Praktyka</a>
             <a href="#faq">FAQ</a>
-          </nav>
+          </nav></details>
         </div>
       </section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
 
-      <section class="guide-section" id="ceny-brwi">
+
+      <section class="expert-article-section" id="ceny-brwi">
         <div class="container">
-          <div class="guide-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Ceny brwi PMU</p>
             <h2>Ile kosztują brwi permanentne w 2026 roku?</h2>
             <p>
@@ -300,9 +324,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="guide-section guide-section-soft" id="co-obejmuje-cena">
+      <section class="expert-article-section guide-section-soft" id="co-obejmuje-cena">
         <div class="container">
-          <div class="guide-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Co obejmuje cena?</p>
             <h2>1200 lub 1400 zł to nie tylko moment pigmentacji.</h2>
             <p>
@@ -362,9 +386,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="guide-section" id="metody">
+      <section class="expert-article-section" id="metody">
         <div class="container">
-          <div class="guide-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">1200 czy 1400 zł?</p>
             <h2>Dlaczego metoda włoskowa kosztuje więcej niż cieniowanie?</h2>
             <p>
@@ -425,10 +449,12 @@ const structuredData = [
           </div>
         </div>
       </section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
 
-      <section class="guide-section guide-section-soft" id="korekta-odswiezenie">
+
+      <section class="expert-article-section guide-section-soft" id="korekta-odswiezenie">
         <div class="container">
-          <div class="guide-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Korekta, dopigmentowanie, odświeżenie</p>
             <h2>To trzy różne sytuacje — i nie powinny być wrzucane do jednego worka.</h2>
           </div>
@@ -465,7 +491,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="guide-section" id="stare-pmu">
+      <section class="expert-article-section" id="stare-pmu">
         <div class="container old-pmu-panel">
           <div>
             <p class="section-kicker">Stare PMU</p>
@@ -501,7 +527,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="guide-section" id="praktyka">
+      <section class="expert-article-section" id="praktyka">
         <div class="container author-note">
           <div>
             <p class="section-kicker">Praktyka gabinetowa</p>
@@ -525,9 +551,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="guide-section guide-related-section">
+      <section class="expert-article-section expert-article-related-section">
         <div class="container">
-          <div class="guide-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Powiązane tematy</p>
             <h2>Jeśli cena jest już jasna, przejdź do następnej decyzji.</h2>
           </div>
@@ -564,9 +590,9 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="guide-section" id="zrodla">
+      <section class="expert-article-section" id="zrodla">
         <div class="container">
-          <div class="guide-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">Źródła i materiały odniesienia</p>
             <h2>Cena pochodzi z aktualnego cennika. Bezpieczeństwo — ze źródeł medycznych.</h2>
           </div>
@@ -600,9 +626,10 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="guide-section guide-faq-section" id="faq">
+      <GuideArticleSocial />
+<section class="expert-article-section expert-article-faq-section" id="faq">
         <div class="container">
-          <div class="guide-heading">
+          <div class="expert-article-heading">
             <p class="section-kicker">FAQ</p>
             <h2>Najczęstsze pytania o cenę brwi permanentnych.</h2>
           </div>
@@ -623,7 +650,7 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="guide-section">
+      <section class="expert-article-section">
         <div class="container final-card">
           <p class="signature cta-signature">Powrót do natury</p>
           <h2>Wiesz już, ile kosztują brwi. Teraz dobierzmy właściwy kierunek.</h2>
@@ -648,1469 +675,14 @@ const structuredData = [
           <a class="back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
         </div>
       </section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
 
     <Footer />
   </div>
 </Layout>
 
-<style>
-  .brow-price-guide {
-    min-height: 100vh;
-    overflow-x: hidden;
-    background:
-      radial-gradient(circle at 82% 10%, rgba(56, 187, 181, 0.10), transparent 28rem),
-      radial-gradient(circle at 12% 42%, rgba(201, 127, 143, 0.10), transparent 26rem),
-      linear-gradient(180deg, #fffdfd 0%, #fff8fa 48%, #ffffff 100%);
-  }
 
-  .brow-price-guide *,
-  .brow-price-guide *::before,
-  .brow-price-guide *::after {
-    box-sizing: border-box;
-  }
-
-  .brow-price-guide main,
-  .brow-price-guide section,
-  .brow-price-guide .container,
-  .brow-price-guide article,
-  .brow-price-guide div {
-    min-width: 0;
-  }
-
-  .brow-price-guide .section-kicker {
-    display: inline-flex;
-    width: fit-content;
-    max-width: 100%;
-    min-height: 31px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 17px;
-    padding: 0 12px;
-    border: 1px solid rgba(56, 187, 181, 0.18);
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.76);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.67rem;
-    font-weight: 850;
-    line-height: 1;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .guide-hero {
-    position: relative;
-    overflow: hidden;
-    padding: 144px 0 52px;
-  }
-
-  .guide-glow {
-    position: absolute;
-    border-radius: 999px;
-    pointer-events: none;
-  }
-
-  .guide-glow-one {
-    top: 2rem;
-    right: -12rem;
-    width: 38rem;
-    height: 38rem;
-    background: radial-gradient(circle, rgba(56, 187, 181, 0.18), transparent 68%);
-  }
-
-  .guide-glow-two {
-    left: -10rem;
-    bottom: -12rem;
-    width: 34rem;
-    height: 34rem;
-    background: radial-gradient(circle, rgba(201, 127, 143, 0.14), transparent 68%);
-  }
-
-  .guide-hero-grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.14fr) minmax(330px, 0.86fr);
-    gap: 20px;
-    align-items: stretch;
-  }
-
-  .guide-hero-copy,
-  .guide-answer,
-  .price-card,
-  .included-grid article,
-  .expert-note,
-  .scenario-grid article,
-  .old-pmu-panel,
-  .author-note,
-  .related-grid a,
-  .source-grid a,
-  .faq-list details,
-  .final-card {
-    border: 1px solid rgba(183, 101, 118, 0.14);
-    box-shadow: 0 16px 48px rgba(89, 53, 67, 0.06);
-  }
-
-  .guide-hero-copy {
-    padding: clamp(34px, 4.8vw, 60px);
-    border-radius: 38px;
-    background:
-      radial-gradient(circle at 96% 10%, rgba(56, 187, 181, 0.07), transparent 16rem),
-      rgba(255, 255, 255, 0.86);
-  }
-
-  .guide-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 17px;
-  }
-
-  .guide-meta span {
-    display: inline-flex;
-    min-height: 28px;
-    align-items: center;
-    padding: 0 10px;
-    border-radius: 999px;
-    background: rgba(255, 248, 251, 0.94);
-    color: var(--color-muted, #6e6670);
-    font-size: 0.65rem;
-    font-weight: 790;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-  }
-
-  .guide-meta span:first-child {
-    background: rgba(56, 187, 181, 0.12);
-    color: var(--color-turquoise-dark, #0f7773);
-  }
-
-  .guide-hero-copy h1 {
-    max-width: 1040px;
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(2.75rem, 4.6vw, 5.15rem);
-    font-weight: 780;
-    line-height: 1.01;
-    letter-spacing: -0.072em;
-  }
-
-  .guide-lead {
-    max-width: 880px;
-    margin: 22px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: clamp(1.02rem, 1.22vw, 1.14rem);
-    line-height: 1.66;
-  }
-
-  .guide-answer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: clamp(28px, 3.7vw, 44px);
-    border-radius: 38px;
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.24), transparent 13rem),
-      linear-gradient(145deg, #0f7773 0%, #1aa5a0 45%, #138a86 100%);
-    box-shadow: 0 26px 68px rgba(35, 156, 150, 0.18);
-  }
-
-  .guide-answer-label {
-    margin: 0 0 auto;
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 0.68rem;
-    font-weight: 850;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .guide-answer-price {
-    margin-top: 48px;
-  }
-
-  .guide-answer-price span,
-  .guide-answer-price strong {
-    display: block;
-  }
-
-  .guide-answer-price span {
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 0.78rem;
-    font-weight: 740;
-  }
-
-  .guide-answer-price strong {
-    margin-top: 4px;
-    color: #ffffff;
-    font-size: clamp(2.6rem, 4vw, 4.2rem);
-    font-weight: 850;
-    line-height: 0.96;
-    letter-spacing: -0.07em;
-  }
-
-  .guide-answer > p:not(.guide-answer-label) {
-    margin: 18px 0 0;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.91rem;
-    line-height: 1.58;
-  }
-
-  .guide-answer > a {
-    display: inline-flex;
-    width: fit-content;
-    min-height: 40px;
-    align-items: center;
-    margin-top: 18px;
-    padding: 0 13px;
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.12);
-    color: #ffffff;
-    font-size: 0.72rem;
-    font-weight: 840;
-    text-decoration: none;
-  }
-
-  .quick-price-section {
-    padding: 0 0 20px;
-  }
-
-  .quick-price-scroll {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .quick-price-scroll article {
-    min-height: 178px;
-    padding: 20px;
-    border: 1px solid rgba(56, 187, 181, 0.13);
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.84);
-    box-shadow: 0 12px 34px rgba(89, 53, 67, 0.045);
-  }
-
-  .quick-price-scroll article > span {
-    display: block;
-    margin-bottom: 22px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.64rem;
-    font-weight: 900;
-    letter-spacing: 0.14em;
-  }
-
-  .quick-price-scroll strong,
-  .quick-price-scroll em {
-    display: block;
-  }
-
-  .quick-price-scroll strong {
-    color: var(--color-text, #17151d);
-    font-size: 0.95rem;
-    font-weight: 790;
-  }
-
-  .quick-price-scroll em {
-    margin-top: 5px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 1.45rem;
-    font-style: normal;
-    font-weight: 850;
-    letter-spacing: -0.045em;
-  }
-
-  .quick-price-scroll p {
-    margin: 10px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.78rem;
-    line-height: 1.48;
-  }
-
-  .quick-price-note {
-    margin: 11px 0 0;
-    padding: 13px 15px;
-    border-left: 3px solid rgba(56, 187, 181, 0.48);
-    border-radius: 0 15px 15px 0;
-    background: rgba(219, 246, 243, 0.35);
-    color: var(--color-muted, #6e6670);
-    font-size: 0.79rem;
-    line-height: 1.48;
-  }
-
-  .guide-nav-section {
-    padding: 2px 0 8px;
-  }
-
-  .guide-nav {
-    display: flex;
-    gap: 7px;
-    overflow-x: auto;
-    padding: 5px 2px 10px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-
-  .guide-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .guide-nav a {
-    display: inline-flex;
-    flex: 0 0 auto;
-    min-height: 41px;
-    align-items: center;
-    justify-content: center;
-    padding: 0 14px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.68rem;
-    font-weight: 820;
-    text-decoration: none;
-    scroll-snap-align: start;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .guide-section {
-    padding: 64px 0;
-    scroll-margin-top: 96px;
-  }
-
-  .guide-section-soft,
-  .guide-faq-section {
-    background: rgba(255, 255, 255, 0.52);
-  }
-
-  .guide-heading {
-    max-width: 960px;
-    margin-bottom: 26px;
-  }
-
-  .guide-heading h2,
-  .author-note h2,
-  .old-pmu-panel h2,
-  .final-card h2 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(2.15rem, 3.55vw, 3.85rem);
-    font-weight: 770;
-    line-height: 1.02;
-    letter-spacing: -0.068em;
-  }
-
-  .guide-heading > p:not(.section-kicker),
-  .author-note > div > p:not(.section-kicker),
-  .old-pmu-panel > div:first-child > p:not(.section-kicker),
-  .final-card > p:not(.signature) {
-    max-width: 840px;
-    margin: 16px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.98rem;
-    line-height: 1.66;
-  }
-
-  .price-compare {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 11px;
-  }
-
-  .price-card {
-    min-height: 270px;
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-    border-radius: 26px;
-    background:
-      radial-gradient(circle at 94% 10%, rgba(56, 187, 181, 0.07), transparent 11rem),
-      rgba(255, 255, 255, 0.9);
-  }
-
-  .price-card-accent {
-    border-color: rgba(56, 187, 181, 0.25);
-    background:
-      radial-gradient(circle at 92% 12%, rgba(56, 187, 181, 0.14), transparent 12rem),
-      rgba(249, 255, 254, 0.94);
-  }
-
-  .price-card-soft {
-    border-color: rgba(201, 127, 143, 0.18);
-    background:
-      radial-gradient(circle at 94% 10%, rgba(246, 220, 227, 0.5), transparent 11rem),
-      rgba(255, 255, 255, 0.92);
-  }
-
-  .price-card > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 14px;
-    align-items: center;
-    margin-bottom: 38px;
-  }
-
-  .price-card > div span {
-    color: var(--color-muted, #6e6670);
-    font-size: 0.64rem;
-    font-weight: 820;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .price-card > div strong {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 1.25rem;
-    font-weight: 860;
-  }
-
-  .price-card h3,
-  .included-grid h3,
-  .scenario-grid h3,
-  .related-grid h3,
-  .source-grid h3,
-  .expert-note h3 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(1.35rem, 1.75vw, 1.8rem);
-    font-weight: 770;
-    line-height: 1.05;
-    letter-spacing: -0.05em;
-  }
-
-  .price-card p,
-  .included-grid p,
-  .scenario-grid p,
-  .related-grid p,
-  .source-grid p,
-  .expert-note p:not(.section-kicker) {
-    margin: 12px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.89rem;
-    line-height: 1.58;
-  }
-
-  .price-card > a {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: auto;
-    padding-top: 18px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.74rem;
-    font-weight: 850;
-    text-decoration: none;
-  }
-
-  .decision-bridge {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 20px;
-    align-items: center;
-    margin-top: 13px;
-    padding: 20px 21px;
-    border: 1px solid rgba(56, 187, 181, 0.15);
-    border-radius: 22px;
-    background:
-      linear-gradient(135deg, rgba(219, 246, 243, 0.58), rgba(255, 242, 246, 0.54)),
-      rgba(255, 255, 255, 0.84);
-  }
-
-  .decision-bridge span,
-  .decision-bridge strong {
-    display: block;
-  }
-
-  .decision-bridge span {
-    color: var(--color-muted, #6e6670);
-    font-size: 0.68rem;
-    font-weight: 760;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .decision-bridge strong {
-    margin-top: 4px;
-    color: var(--color-text, #17151d);
-    font-size: 1rem;
-    font-weight: 830;
-  }
-
-  .decision-actions {
-    display: flex;
-    gap: 8px;
-  }
-
-  .decision-actions a {
-    display: inline-flex;
-    min-height: 42px;
-    align-items: center;
-    justify-content: center;
-    padding: 0 14px;
-    border-radius: 999px;
-    font-size: 0.74rem;
-    font-weight: 830;
-    text-decoration: none;
-  }
-
-  .decision-actions a:first-child {
-    border: 1px solid rgba(56, 187, 181, 0.18);
-    background: rgba(255, 255, 255, 0.84);
-    color: var(--color-turquoise-dark, #0f7773);
-  }
-
-  .decision-actions a:last-child {
-    background: linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
-    color: #ffffff;
-  }
-
-  .included-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .included-grid article {
-    min-height: 210px;
-    padding: 22px;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  .included-grid article > span {
-    display: block;
-    margin-bottom: 34px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.63rem;
-    font-weight: 900;
-    letter-spacing: 0.14em;
-  }
-
-  .article-link-row {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
-    margin-top: 12px;
-  }
-
-  .article-link-row a {
-    display: flex;
-    min-height: 74px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    padding: 16px 17px;
-    border: 1px solid rgba(56, 187, 181, 0.14);
-    border-radius: 18px;
-    background: rgba(219, 246, 243, 0.36);
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .article-link-row span {
-    color: var(--color-muted, #6e6670);
-    font-size: 0.68rem;
-    font-weight: 740;
-  }
-
-  .article-link-row strong {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.78rem;
-    font-weight: 850;
-    text-align: right;
-  }
-
-  .method-accordion {
-    display: grid;
-    max-width: 980px;
-    gap: 9px;
-  }
-
-  .method-accordion details {
-    overflow: hidden;
-    border: 1px solid rgba(56, 187, 181, 0.14);
-    border-radius: 21px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 12px 34px rgba(89, 53, 67, 0.045);
-  }
-
-  .method-accordion summary {
-    display: grid;
-    grid-template-columns: 36px minmax(0, 1fr) 30px;
-    gap: 12px;
-    align-items: center;
-    min-height: 72px;
-    padding: 12px 15px;
-    cursor: pointer;
-    list-style: none;
-  }
-
-  .method-accordion summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .method-accordion summary > span {
-    display: grid;
-    width: 32px;
-    height: 32px;
-    place-items: center;
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.72);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.62rem;
-    font-weight: 900;
-  }
-
-  .method-accordion summary > strong {
-    color: var(--color-text, #17151d);
-    font-size: 0.97rem;
-    font-weight: 790;
-  }
-
-  .method-accordion summary > em {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 1.22rem;
-    font-style: normal;
-    font-weight: 500;
-    text-align: center;
-  }
-
-  .method-accordion details[open] summary > em {
-    transform: rotate(45deg);
-  }
-
-  .method-accordion details > div {
-    padding: 0 15px 16px 63px;
-  }
-
-  .method-accordion details p {
-    max-width: 760px;
-    margin: 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.87rem;
-    line-height: 1.58;
-  }
-
-  .method-accordion details a {
-    display: inline-flex;
-    margin-top: 11px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.74rem;
-    font-weight: 850;
-    text-decoration: none;
-  }
-
-  .expert-note {
-    max-width: 980px;
-    margin-top: 12px;
-    padding: 22px;
-    border-radius: 22px;
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.58), rgba(255, 248, 251, 0.86)),
-      rgba(255, 255, 255, 0.84);
-  }
-
-  .scenario-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .scenario-grid article {
-    min-height: 230px;
-    padding: 22px;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  .scenario-grid article > span {
-    display: inline-flex;
-    min-height: 29px;
-    align-items: center;
-    margin-bottom: 34px;
-    padding: 0 10px;
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.7);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.63rem;
-    font-weight: 850;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .wide-link {
-    display: flex;
-    min-height: 58px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    margin-top: 11px;
-    padding: 0 18px;
-    border: 1px solid rgba(56, 187, 181, 0.14);
-    border-radius: 18px;
-    background: rgba(219, 246, 243, 0.34);
-    color: var(--color-text, #17151d);
-    font-size: 0.82rem;
-    font-weight: 780;
-    text-decoration: none;
-  }
-
-  .wide-link span {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 1rem;
-  }
-
-  .old-pmu-panel {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(310px, 0.72fr);
-    gap: 24px;
-    padding: clamp(26px, 4vw, 42px);
-    border-radius: 32px;
-    background:
-      radial-gradient(circle at 94% 10%, rgba(246, 220, 227, 0.44), transparent 16rem),
-      rgba(255, 255, 255, 0.9);
-  }
-
-  .old-pmu-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 20px;
-  }
-
-  .old-pmu-actions a {
-    display: inline-flex;
-    min-height: 42px;
-    align-items: center;
-    padding: 0 14px;
-    border-radius: 999px;
-    font-size: 0.74rem;
-    font-weight: 830;
-    text-decoration: none;
-  }
-
-  .old-pmu-actions a:first-child {
-    color: #ffffff;
-    background: linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
-  }
-
-  .old-pmu-actions a:last-child {
-    border: 1px solid rgba(183, 101, 118, 0.18);
-    background: rgba(255, 255, 255, 0.82);
-    color: #9d4f68;
-  }
-
-  .old-pmu-list {
-    display: grid;
-    gap: 8px;
-  }
-
-  .old-pmu-list > div {
-    padding: 15px 16px;
-    border: 1px solid rgba(183, 101, 118, 0.12);
-    border-radius: 17px;
-    background: rgba(255, 255, 255, 0.7);
-  }
-
-  .old-pmu-list strong,
-  .old-pmu-list span {
-    display: block;
-  }
-
-  .old-pmu-list strong {
-    color: var(--color-text, #17151d);
-    font-size: 0.84rem;
-    font-weight: 810;
-  }
-
-  .old-pmu-list span {
-    margin-top: 4px;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.74rem;
-    line-height: 1.45;
-  }
-
-  .author-note {
-    display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.68fr);
-    gap: 22px;
-    padding: clamp(26px, 4vw, 42px);
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  .author-note aside {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    border: 1px solid rgba(56, 187, 181, 0.14);
-    border-radius: 21px;
-    background: rgba(219, 246, 243, 0.44);
-  }
-
-  .author-note aside span {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.67rem;
-    font-weight: 850;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-  }
-
-  .author-note aside strong {
-    display: block;
-    margin-top: 7px;
-    color: var(--color-text, #17151d);
-    font-size: 0.88rem;
-    font-weight: 760;
-  }
-
-  .author-note aside a {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: 18px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.74rem;
-    font-weight: 850;
-    text-decoration: none;
-  }
-
-  .guide-related-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.08), transparent 22rem),
-      rgba(255, 255, 255, 0.54);
-  }
-
-  .related-grid,
-  .source-grid {
-    display: grid;
-    gap: 10px;
-  }
-
-  .related-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .source-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .related-grid a,
-  .source-grid a {
-    min-height: 230px;
-    display: flex;
-    flex-direction: column;
-    padding: 21px;
-    border-radius: 22px;
-    color: inherit;
-    text-decoration: none;
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  .related-grid a > span,
-  .source-grid a > span {
-    display: block;
-    margin-bottom: 28px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.62rem;
-    font-weight: 850;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-  }
-
-  .related-grid a > strong,
-  .source-grid a > strong {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: auto;
-    padding-top: 16px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.71rem;
-    font-weight: 850;
-  }
-
-  .medical-note {
-    max-width: 940px;
-    margin: 14px 0 0;
-    padding: 16px 18px;
-    border-left: 3px solid rgba(201, 127, 143, 0.54);
-    border-radius: 0 17px 17px 0;
-    background: rgba(255, 248, 251, 0.8);
-    color: var(--color-muted, #6e6670);
-    font-size: 0.82rem;
-    line-height: 1.55;
-  }
-
-  .faq-list {
-    display: grid;
-    max-width: 980px;
-    gap: 8px;
-  }
-
-  .faq-list details {
-    overflow: hidden;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.92);
-  }
-
-  .faq-list summary {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 36px;
-    gap: 12px;
-    align-items: center;
-    padding: 17px 18px;
-    color: var(--color-text, #17151d);
-    font-size: 1rem;
-    font-weight: 760;
-    line-height: 1.34;
-    cursor: pointer;
-    list-style: none;
-  }
-
-  .faq-list summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-icon {
-    position: relative;
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.58);
-  }
-
-  .faq-icon::before,
-  .faq-icon::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 2px;
-    border-radius: 999px;
-    background: var(--color-turquoise-dark, #0f7773);
-    transform: translate(-50%, -50%);
-  }
-
-  .faq-icon::after {
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
-
-  .faq-list details[open] .faq-icon::after {
-    opacity: 0;
-  }
-
-  .faq-list details > div {
-    padding: 0 18px 17px;
-  }
-
-  .faq-list p {
-    margin: 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.9rem;
-    line-height: 1.58;
-  }
-
-  .final-card {
-    padding: clamp(30px, 5vw, 52px);
-    border-radius: 34px;
-    text-align: center;
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
-      rgba(255, 255, 255, 0.76);
-  }
-
-  .final-card > p:not(.signature) {
-    margin-inline: auto;
-  }
-
-  .final-actions {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 9px;
-    max-width: 900px;
-    margin: 23px auto 0;
-  }
-
-  .final-actions > a {
-    display: inline-flex;
-    width: 100%;
-    min-height: 54px;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    padding: 0 16px;
-    border-radius: 999px;
-    font-size: 0.92rem;
-    font-weight: 820;
-    line-height: 1;
-    text-decoration: none;
-  }
-
-  .final-form,
-  .final-booksy {
-    color: #ffffff;
-    background: linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
-  }
-
-  .final-phone {
-    border: 1px solid rgba(56, 187, 181, 0.18);
-    background: rgba(255, 255, 255, 0.82);
-    color: var(--color-turquoise-dark, #0f7773);
-  }
-
-  .back-link {
-    display: inline-flex;
-    margin-top: 20px;
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.76rem;
-    font-weight: 820;
-    text-decoration: none;
-  }
-
-  @media (max-width: 1080px) {
-    .guide-hero-grid,
-    .old-pmu-panel,
-    .author-note {
-      grid-template-columns: 1fr;
-    }
-
-    .included-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .related-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .source-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .brow-price-guide .section-kicker {
-      min-height: 28px;
-      margin-bottom: 12px;
-      padding: 0 9px;
-      font-size: 0.59rem;
-      letter-spacing: 0.11em;
-    }
-
-    .guide-hero {
-      padding: 104px 0 28px;
-    }
-
-    .guide-hero-grid {
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    .guide-hero-copy,
-    .guide-answer {
-      border-radius: 24px;
-    }
-
-    .guide-hero-copy {
-      padding: 22px 17px 21px;
-    }
-
-    .guide-meta {
-      gap: 4px;
-      margin-bottom: 14px;
-    }
-
-    .guide-meta span {
-      min-height: 25px;
-      padding: 0 8px;
-      font-size: 0.58rem;
-      letter-spacing: 0.055em;
-    }
-
-    .guide-hero-copy h1 {
-      font-size: clamp(2.06rem, 9.8vw, 2.95rem);
-      line-height: 1.02;
-      letter-spacing: -0.06em;
-    }
-
-    .guide-lead {
-      margin-top: 15px;
-      font-size: 0.91rem;
-      line-height: 1.55;
-    }
-
-    .guide-answer {
-      padding: 20px 17px;
-    }
-
-    .guide-answer-label {
-      font-size: 0.6rem;
-    }
-
-    .guide-answer-price {
-      margin-top: 20px;
-    }
-
-    .guide-answer-price strong {
-      font-size: 2.7rem;
-    }
-
-    .guide-answer > p:not(.guide-answer-label) {
-      margin-top: 13px;
-      font-size: 0.82rem;
-      line-height: 1.52;
-    }
-
-    .guide-answer > a {
-      min-height: 38px;
-      margin-top: 14px;
-      font-size: 0.68rem;
-    }
-
-    .quick-price-section {
-      padding: 3px 0 15px;
-    }
-
-    .quick-price-scroll {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: min(76vw, 285px);
-      grid-template-columns: none;
-      gap: 8px;
-      margin-inline: -16px;
-      padding: 2px 16px 9px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .quick-price-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .quick-price-scroll article {
-      min-height: 156px;
-      padding: 17px;
-      border-radius: 21px;
-      scroll-snap-align: start;
-    }
-
-    .quick-price-scroll article > span {
-      margin-bottom: 17px;
-    }
-
-    .quick-price-scroll em {
-      font-size: 1.34rem;
-    }
-
-    .quick-price-scroll p {
-      font-size: 0.73rem;
-      line-height: 1.43;
-    }
-
-    .quick-price-note {
-      margin-top: 7px;
-      padding: 11px 12px;
-      font-size: 0.72rem;
-      line-height: 1.44;
-    }
-
-    .guide-nav-section {
-      padding-top: 0;
-    }
-
-    .guide-nav {
-      margin-inline: -16px;
-      padding-inline: 16px;
-    }
-
-    .guide-nav a {
-      min-height: 39px;
-      padding-inline: 12px;
-      font-size: 0.63rem;
-    }
-
-    .guide-section {
-      padding: 46px 0;
-    }
-
-    .guide-heading {
-      margin-bottom: 19px;
-    }
-
-    .guide-heading h2,
-    .author-note h2,
-    .old-pmu-panel h2,
-    .final-card h2 {
-      font-size: clamp(1.9rem, 8.5vw, 2.65rem);
-      line-height: 1.04;
-      letter-spacing: -0.058em;
-    }
-
-    .guide-heading > p:not(.section-kicker),
-    .author-note > div > p:not(.section-kicker),
-    .old-pmu-panel > div:first-child > p:not(.section-kicker),
-    .final-card > p:not(.signature) {
-      margin-top: 13px;
-      font-size: 0.88rem;
-      line-height: 1.56;
-    }
-
-    .price-compare,
-    .included-grid,
-    .scenario-grid,
-    .related-grid,
-    .article-link-row {
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-
-    .price-card {
-      min-height: auto;
-      padding: 19px 17px;
-      border-radius: 21px;
-    }
-
-    .price-card > div {
-      margin-bottom: 22px;
-    }
-
-    .price-card > div span {
-      font-size: 0.58rem;
-    }
-
-    .price-card > div strong {
-      font-size: 1.13rem;
-    }
-
-    .price-card h3,
-    .included-grid h3,
-    .scenario-grid h3,
-    .related-grid h3,
-    .source-grid h3,
-    .expert-note h3 {
-      font-size: 1.32rem;
-    }
-
-    .price-card p,
-    .included-grid p,
-    .scenario-grid p,
-    .related-grid p,
-    .source-grid p,
-    .expert-note p:not(.section-kicker) {
-      font-size: 0.82rem;
-      line-height: 1.52;
-    }
-
-    .price-card > a {
-      margin-top: 12px;
-      padding-top: 0;
-    }
-
-    .decision-bridge {
-      grid-template-columns: 1fr;
-      gap: 12px;
-      padding: 16px;
-      border-radius: 20px;
-    }
-
-    .decision-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-    }
-
-    .decision-actions a {
-      min-width: 0;
-      padding-inline: 8px;
-      text-align: center;
-    }
-
-    .included-grid article {
-      min-height: auto;
-      padding: 18px 17px;
-      border-radius: 20px;
-    }
-
-    .included-grid article > span {
-      margin-bottom: 21px;
-    }
-
-    .article-link-row a {
-      min-height: 66px;
-      padding: 14px;
-    }
-
-    .article-link-row strong {
-      max-width: 62%;
-      font-size: 0.72rem;
-    }
-
-    .method-accordion summary {
-      grid-template-columns: 32px minmax(0, 1fr) 28px;
-      min-height: 66px;
-      gap: 9px;
-      padding: 10px 12px;
-    }
-
-    .method-accordion summary > span {
-      width: 29px;
-      height: 29px;
-      font-size: 0.57rem;
-    }
-
-    .method-accordion summary > strong {
-      font-size: 0.88rem;
-      line-height: 1.25;
-    }
-
-    .method-accordion details > div {
-      padding: 0 12px 14px;
-    }
-
-    .method-accordion details p {
-      font-size: 0.8rem;
-      line-height: 1.5;
-    }
-
-    .expert-note {
-      padding: 17px;
-      border-radius: 20px;
-    }
-
-    .scenario-grid article {
-      min-height: auto;
-      padding: 18px 17px;
-      border-radius: 20px;
-    }
-
-    .scenario-grid article > span {
-      margin-bottom: 22px;
-    }
-
-    .wide-link {
-      min-height: 54px;
-      padding: 12px 14px;
-      font-size: 0.75rem;
-      line-height: 1.36;
-    }
-
-    .old-pmu-panel,
-    .author-note {
-      gap: 15px;
-      padding: 20px 17px;
-      border-radius: 24px;
-    }
-
-    .old-pmu-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 7px;
-      margin-top: 17px;
-    }
-
-    .old-pmu-actions a {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .old-pmu-list > div {
-      padding: 13px 14px;
-    }
-
-    .author-note aside {
-      padding: 17px;
-      border-radius: 19px;
-    }
-
-    .related-grid a,
-    .source-grid a {
-      min-height: auto;
-      padding: 18px 17px;
-      border-radius: 20px;
-    }
-
-    .related-grid a > span,
-    .source-grid a > span {
-      margin-bottom: 20px;
-    }
-
-    .medical-note {
-      padding: 14px 15px;
-      font-size: 0.76rem;
-    }
-
-    .faq-list {
-      gap: 7px;
-    }
-
-    .faq-list details {
-      border-radius: 18px;
-    }
-
-    .faq-list summary {
-      grid-template-columns: minmax(0, 1fr) 33px;
-      gap: 9px;
-      padding: 14px;
-      font-size: 0.9rem;
-    }
-
-    .faq-icon {
-      width: 33px;
-      height: 33px;
-    }
-
-    .faq-list details > div {
-      padding: 0 14px 14px;
-    }
-
-    .faq-list p {
-      font-size: 0.82rem;
-      line-height: 1.53;
-    }
-
-    .final-card {
-      padding: 24px 16px;
-      border-radius: 25px;
-    }
-
-    .final-actions {
-      grid-template-columns: 1fr;
-      gap: 8px;
-      margin-top: 19px;
-    }
-
-    .final-actions > a {
-      min-height: 52px;
-      font-size: 0.88rem;
-    }
-
-    .back-link {
-      margin-top: 18px;
-      font-size: 0.72rem;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .guide-hero-copy {
-      padding-inline: 15px;
-    }
-
-    .guide-hero-copy h1 {
-      font-size: clamp(1.96rem, 10vw, 2.55rem);
-    }
-
-    .guide-meta span {
-      padding-inline: 7px;
-      font-size: 0.55rem;
-    }
-
-    .quick-price-scroll {
-      grid-auto-columns: 80vw;
-    }
-  }
-</style>
 
 <script>
   document.querySelectorAll<HTMLDetailsElement>(".method-accordion details").forEach((item) => {

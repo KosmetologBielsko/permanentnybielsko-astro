@@ -1,9 +1,16 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-05";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
@@ -13,7 +20,7 @@ const article = {
   eyebrow: "Poradnik PMU",
   category: "Ceny PMU",
   datePublished: "2026-06-21",
-  dateModified: "2026-08-20",
+  dateModified: "2026-09-09",
   readingTime: "8–10 minut",
   description: "Odświeżenie makijażu permanentnego cena. Sprawdź, ile kosztuje odświeżenie brwi, ust i oczu, czym różni się od korekty oraz kiedy potrzebna jest indywidualna wycena.",
   lead: "Odświeżenie makijażu permanentnego to zabieg wykonywany po czasie, kiedy pigment naturalnie traci intensywność, a klientka chce przywrócić świeżość efektu. Nie jest tym samym co korekta po pierwszym zabiegu.",
@@ -129,18 +136,28 @@ const structuredData = [
     ],
   },
 ];
+
+const media = guideMedia["odswiezenie-makijazu-permanentnego-cena"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
 <Layout
   title={`${article.title} | Poradnik PMU Bogusławy Herda`}
   description={article.description}
   canonicalPath={article.canonicalPath}
-  structuredData={structuredData}
+  structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant
 >
   <div class="expert-article-page">
-    <Header />
+    <Header compact />
 
-    <main>
+    <main class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
         <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
@@ -157,6 +174,7 @@ const structuredData = [
 
             <h1>{article.title}</h1>
             <p class="expert-article-lead">{article.lead}</p>
+            <GuideSeriesByline />
           </div>
 
           <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
@@ -169,7 +187,7 @@ const structuredData = [
 
       <section class="expert-article-nav-section">
         <div class="container">
-          <nav class="expert-article-nav" aria-label="Spis treści artykułu">
+          <details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="expert-article-nav" aria-label="Spis treści artykułu">
             <a href="#ceny-odswiezenia">Ceny odświeżenia</a>
             <a href="#korekta-a-odswiezenie">Różnice</a>
             <a href="#kiedy-warto">Kiedy warto?</a>
@@ -177,9 +195,13 @@ const structuredData = [
             <a href="#doswiadczenie">Autorytet</a>
             <a href="#praktyka">Praktyka</a>
             <a href="#zrodla">Źródła</a>
-          </nav>
+          </nav></details>
         </div>
       </section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
+
 
       <section class="expert-article-section" id="ceny-odswiezenia">
         <div class="container">
@@ -276,6 +298,8 @@ const structuredData = [
           </div>
         </div>
       </section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
+
 
       <section class="expert-article-section expert-article-soft" id="indywidualna-wycena">
         <div class="container">
@@ -439,7 +463,8 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-section expert-article-faq-section" id="faq">
+      <GuideArticleSocial />
+<section class="expert-article-section expert-article-faq-section" id="faq">
         <div class="container">
           <div class="expert-article-heading">
             <p class="section-kicker">FAQ</p>
@@ -514,108 +539,12 @@ const structuredData = [
           </a>
         </div>
       </section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
 
     <Footer />
   </div>
 </Layout>
 
-<style>
-  .expert-legacy-copy {
-    max-width: 940px;
-  }
 
-  .expert-legacy-copy p {
-    margin: 16px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: clamp(0.98rem, 1.1vw, 1.06rem);
-    line-height: 1.72;
-  }
-
-  .expert-legacy-copy p:first-of-type {
-    margin-top: 0;
-  }
-
-  .expert-legacy-cards {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 24px;
-  }
-
-  .expert-legacy-cards article {
-    min-height: 150px;
-    padding: 23px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 24px;
-    background:
-      radial-gradient(circle at 94% 10%, rgba(56, 187, 181, 0.07), transparent 11rem),
-      rgba(255, 255, 255, 0.90);
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.055);
-  }
-
-  .expert-legacy-cards h3 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(1.25rem, 1.6vw, 1.72rem);
-    font-weight: 770;
-    line-height: 1.05;
-    letter-spacing: -0.05em;
-  }
-
-  .expert-legacy-cards p {
-    margin: 11px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.92rem;
-    line-height: 1.62;
-  }
-
-  .expert-focus-links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 18px;
-  }
-
-  .expert-focus-links a {
-    display: flex;
-    min-height: 76px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    padding: 17px 18px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 18px;
-    background: rgba(219, 246, 243, 0.38);
-    color: var(--color-text, #17151d);
-    font-size: 0.88rem;
-    font-weight: 760;
-    line-height: 1.35;
-    text-decoration: none;
-  }
-
-  .expert-focus-links a span {
-    color: var(--color-turquoise-dark, #0f7773);
-    font-weight: 850;
-  }
-
-  @media (max-width: 760px) {
-    .expert-legacy-cards,
-    .expert-focus-links {
-      grid-template-columns: 1fr;
-      gap: 9px;
-    }
-
-    .expert-legacy-cards article {
-      min-height: auto;
-      padding: 20px;
-      border-radius: 21px;
-    }
-
-    .expert-focus-links a {
-      min-height: 68px;
-      padding: 15px 16px;
-    }
-  }
-</style>
 

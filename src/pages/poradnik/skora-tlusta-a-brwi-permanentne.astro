@@ -1,9 +1,16 @@
 ---
+import { getImage } from "astro:assets";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
+import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
+import GuideAssistant from "../../components/GuideAssistant.astro";
+import { guideMedia } from "../../data/guide-series-05";
+import "../../styles/guide-article.css";
+import "../../styles/guide-series-next.css";
+
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import "../../styles/pmu-guide-system.css";
-
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 
 const article = {
@@ -11,7 +18,7 @@ const article = {
   title: "Skóra tłusta a brwi permanentne — włos czy cieniowanie?",
   category: "Typ skóry",
   datePublished: "2026-08-20",
-  dateModified: "2026-08-20",
+  dateModified: "2026-09-09",
   readingTime: "8–10 minut",
   description: "Skóra tłusta a brwi permanentne: czy metoda włoskowa ma sens, kiedy lepsze jest cieniowanie i dlaczego pory, sebum oraz stary PMU są ważniejsze niż etykieta skóry.",
   lead: "„Mam tłustą skórę, więc nie mogę mieć włosków” — to zbyt proste zdanie. Skóra tłusta nie jest jedną kategorią. Jedna osoba ma wysoki poziom sebum, ale dość równą strukturę, inna ma duże pory, blizny potrądzikowe i stary pigment w brwiach.",
@@ -99,12 +106,22 @@ const structuredData = [
     ],
   },
 ];
+
+const media = guideMedia["skora-tlusta-a-brwi-permanentne"];
+const socialImage = await getImage({ src: media.cover.src, width: 1200, height: 630, fit: "cover", format: "webp", quality: 82 });
+const articleWithImages = structuredData.map(item => item["@type"] === "Article"
+  ? { ...item, image: [new URL(socialImage.src, "https://www.permanentnybielsko.com").href] } : item);
 ---
 
-<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={structuredData}>
+<Layout title={`${article.title} | Bogusława Herda`} description={article.description} canonicalPath={article.canonicalPath} structuredData={articleWithImages}
+  ogImage={socialImage.src}
+  ogImageAlt={media.cover.alt}
+  ogType="article"
+  showGuideSocial={false}
+  inlineGuideAssistant>
   <div class="expert-article-page">
-    <Header />
-    <main>
+    <Header compact />
+    <main class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
         <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
@@ -114,6 +131,7 @@ const structuredData = [
             <div class="expert-article-meta"><span>46</span><span>{article.category}</span><span>{article.readingTime}</span></div>
             <h1>{article.title}</h1>
             <p class="expert-article-lead">{article.lead}</p>
+            <GuideSeriesByline />
           </div>
           <aside class="expert-article-answer" aria-label="Odpowiedź w skrócie">
             <p class="expert-article-answer-label">Odpowiedź w 20 sekund</p>
@@ -123,14 +141,18 @@ const structuredData = [
         </div>
       </section>
 
-      <section class="expert-article-nav-section"><div class="container"><nav class="expert-article-nav" aria-label="Spis treści artykułu">
+      <section class="expert-article-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav class="expert-article-nav" aria-label="Spis treści artykułu">
             <a href="#ocena">Co oceniamy?</a>
             <a href="#wlos">Kiedy włos?</a>
             <a href="#cieniowanie">Kiedy cieniowanie?</a>
             <a href="#plan">Jak kwalifikuję?</a>
             <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
-      </nav></div></section>
+      </nav></details></div></section>
+<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
+  <GuideArticleMedia photos={[media.cover]} cover />
+</div>
+
 
       <section class="expert-article-section" id="ocena"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">Praktyczna odpowiedź</p><h2>Cztery cechy skóry, które mają większe znaczenie niż samo słowo „tłusta”.</h2><p>Sebum jest tylko jednym elementem układanki.</p></div>
@@ -194,6 +216,8 @@ const structuredData = [
             </a>
         </div>
       </div></section>
+<GuideArticleMedia photos={media.photos} label={media.label} />
+
 
       <section class="expert-article-section expert-article-plan-section" id="plan"><div class="container expert-plan-panel">
         <div class="expert-plan-copy"><p class="section-kicker section-kicker-light">Plan krok po kroku</p><h2>Jak kwalifikuję skórę tłustą do brwi?</h2><p>Nie obiecuję techniki przed obejrzeniem skóry.</p></div>
@@ -235,7 +259,8 @@ const structuredData = [
         <p class="expert-medical-note">Treść ma charakter informacyjny i nie zastępuje diagnozy ani indywidualnej konsultacji medycznej. Przy nasilonych, nietypowych lub utrzymujących się objawach skontaktuj się z lekarzem.</p>
       </div></section>
 
-      <section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
+      <GuideArticleSocial />
+<section class="expert-article-section expert-article-faq-section" id="faq"><div class="container">
         <div class="expert-article-heading"><p class="section-kicker">FAQ</p><h2>Skóra tłusta a brwi permanentne — włos czy cieniowanie?</h2></div>
         <div class="expert-faq-list">
             <details><summary><span>Czy na tłustej skórze brwi permanentne szybciej się rozmywają?</span><span class="expert-faq-icon" aria-hidden="true"></span></summary><div><p>Delikatne linie mogą być mniej przewidywalne przy wysokim sebum i dużych porach, ale nie da się tego sprowadzić do jednej reguły dla każdej osoby.</p></div></details>
@@ -256,6 +281,7 @@ const structuredData = [
         </div>
         <a class="expert-back-link" href="/poradnik/">← Wróć do całego poradnika PMU</a>
       </div></section>
+    <div class="container guide-help"><GuideAssistant /></div>
     </main>
     <Footer />
   </div>

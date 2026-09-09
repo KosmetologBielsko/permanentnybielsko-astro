@@ -1,0 +1,12 @@
+{
+  "note": "Rekonstrukcja briefów obrazów wygenerowanych 9 września 2026; opis założeń, nie dosłowny zapis wszystkich parametrów narzędzia.",
+  "common": "Fotorealistyczne naturalne światło, poziomy kadr 1536x1024, widoczne pory i naturalna asymetria, paleta kremowa i miętowa. Bez napisów, logo, kolaży, porównań przed i po ani udawanej dokumentacji medycznej. Oryginalna praca PMU jako odniesienie do detalu; nowa twarz stanowi ilustrację, nie zdjęcie klientki.",
+  "briefs": {
+    "usta-nowa-twarz-roz": "Nowa dorosła twarz: około 38 lat, falujące brązowe włosy, naturalne proporcje ust, przygaszony róż mauve, bez sztucznego powiększenia.",
+    "konsultacja-telefon": "Nowa dorosła kobieta około 45 lat, ciemne kręcone włosy, oliwkowa skóra, spokojna rozmowa telefoniczna przy oknie.",
+    "kosmetyki-planowanie": "Trzy zamknięte neutralne pojemniki kosmetyczne: bursztynowy zakraplacz, kremowa pompka, przezroczysta butelka; taca i turkusowa tkanina, bez marek.",
+    "wakacje-planowanie": "Nowa dorosła kobieta około 47 lat, kasztanowe włosy i piwne oczy, len, słomkowy kapelusz, cień werandy. Ilustracja planowania wyjazdu, bez sugerowania słońca zaraz po PMU.",
+    "brwi-skora-dojrzala": "Nowa dorosła twarz: około 58 lat, srebrny bob, zielone oczy, naturalne zmarszczki i pory, miękkie brązowe włoski brwi, lniana bluzka przy oknie.",
+    "brwi-tekstura-skory": "Nowa dorosła twarz około 30 lat, oliwkowa skóra, ciemne oczy, zbliżenie obu brwi, naturalne pory i lekki połysk, bez zmian chorobowych."
+  }
+}
