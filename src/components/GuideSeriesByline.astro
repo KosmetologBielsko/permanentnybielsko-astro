@@ -2,10 +2,91 @@
 import { Image } from "astro:assets";
 import { guideAuthorPortrait } from "../data/guide-series-01";
 ---
-<div class="guide-byline">
-  <Image src={guideAuthorPortrait} alt="Bogusława Herda" width={88} height={88} fit="cover" position="top" format="webp" quality={80} loading="lazy" decoding="async" />
-  <div>
-    <a href="/makijaz-permanentny-bielsko/#boguslawa-herda">Bogusława Herda</a>
-    <span>Aktualizacja: <time datetime="2026-09-09">9 września 2026</time></span>
+
+<!-- PMU GLOBAL BYLINE 06.2B: shared author component for the PMU hub and guide series. -->
+<div class="guide-byline" data-guide-byline>
+  <Image
+    class="guide-byline-photo"
+    src={guideAuthorPortrait}
+    alt="Bogusława Herda"
+    width={96}
+    height={96}
+    fit="cover"
+    position="top"
+    format="webp"
+    quality={82}
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="guide-byline-copy">
+    <a class="guide-byline-name" href="/makijaz-permanentny-bielsko/#boguslawa-herda">
+      Bogusława Herda
+    </a>
+    <span class="guide-byline-meta">
+      <span>Autorka poradnika</span>
+      <span class="guide-byline-separator" aria-hidden="true">·</span>
+      <span>aktualizacja <time datetime="2026-09-09">9 września 2026</time></span>
+    </span>
   </div>
 </div>
+
+<style>
+  .guide-byline {
+    display:flex;
+    width:fit-content;
+    max-width:100%;
+    min-width:0;
+    align-items:center;
+    gap:11px;
+    margin:0;
+    color:var(--color-text,#272323);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    font-size:.78rem;
+    line-height:1.35;
+  }
+  .guide-byline-photo {
+    display:block;
+    width:46px;
+    height:46px;
+    flex:0 0 46px;
+    overflow:hidden;
+    border:1px solid rgba(183,101,118,.18);
+    border-radius:999px;
+    object-fit:cover;
+    object-position:top;
+    background:#fff;
+    box-shadow:0 7px 20px rgba(89,53,67,.08);
+  }
+  .guide-byline-copy { display:grid; min-width:0; gap:3px; }
+  .guide-byline-name {
+    display:block;
+    width:fit-content;
+    color:var(--color-text,#272323);
+    font-size:.88rem;
+    font-weight:760;
+    line-height:1.18;
+    letter-spacing:-.02em;
+    text-decoration:none;
+  }
+  .guide-byline-meta {
+    display:flex;
+    min-width:0;
+    flex-wrap:wrap;
+    gap:2px 5px;
+    color:var(--color-muted,#625d5a);
+    font-size:.7rem;
+    font-weight:520;
+    line-height:1.35;
+  }
+  .guide-byline-separator { color:var(--color-pink,#c97f8f); }
+  @media (max-width:760px) {
+    .guide-byline { gap:10px; }
+    .guide-byline-photo { width:42px; height:42px; flex-basis:42px; }
+    .guide-byline-name { font-size:.84rem; }
+    .guide-byline-meta { font-size:.67rem; }
+  }
+  @media (max-width:360px) {
+    .guide-byline-separator { display:none; }
+    .guide-byline-meta { display:grid; gap:1px; }
+  }
+</style>
