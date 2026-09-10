@@ -1,8 +1,9 @@
 /* Wspólny układ poradników: style dotyczą wyłącznie main.pmu-guide-v3. */
+/* PMU PALETTE 06: biel + pudrowy róż; mięta pozostaje kolorem informacyjnym. */
 .pmu-guide-v3 {
-  --guide-ink:#272323; --guide-muted:#625d5a; --guide-teal:#176963; --guide-line:#e2ded9;
-  --guide-mint:#f0f8f5; --guide-cream:#faf5ef; --color-text:#272323; --color-turquoise-dark:#176963;
-  color:var(--guide-ink); background:#fff; padding-bottom:64px; font-size:18px; line-height:1.75; letter-spacing:-.015em;
+  --guide-ink:#272323; --guide-muted:#625d5a; --guide-teal:#176963; --guide-line:#eadfe3;
+  --guide-mint:#f0f8f5; --guide-cream:#fff3f6; --guide-pink:#f6dce3; --guide-pink-strong:#c97f8f; --color-text:#272323; --color-turquoise-dark:#176963;
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; color:var(--guide-ink); background:#fff; padding-bottom:64px; font-size:18px; line-height:1.75; letter-spacing:-.015em;
 }
 .pmu-guide-v3 *, .pmu-guide-v3 *::before, .pmu-guide-v3 *::after { box-sizing:border-box; }
 .pmu-guide-v3 :is(div,section,aside,article,nav) { min-width:0; }
@@ -21,7 +22,7 @@ main.pmu-guide-v3 h1 { max-width:none; margin:18px 0 22px; font-size:clamp(2.1re
 .pmu-guide-v3 :is(a,button,summary):focus-visible { outline:3px solid #13776f; outline-offset:5px; border-radius:4px; }
 .pmu-guide-v3 :is([id],details) { scroll-margin-top:125px; }
 .pmu-guide-v3 :is(.section-kicker,.kicker,.guide-media-label) { display:block; width:auto; min-height:0; padding:0; margin:0 0 16px; border:0; border-radius:0; background:none; color:var(--guide-teal); font-size:.72rem; font-weight:780; line-height:1.5; letter-spacing:.1em; text-transform:uppercase; }
-.pmu-guide-v3 :is(.expert-article-hero,.price-hero,.hero,.eye-guide-hero) { padding:142px 0 36px; background:linear-gradient(180deg,#fffaf7,#fff); position:relative; }
+.pmu-guide-v3 :is(.expert-article-hero,.price-hero,.hero,.eye-guide-hero) { padding:142px 0 36px; background:linear-gradient(180deg,#fff8fb,#fff); position:relative; }
 .pmu-guide-v3 :is(.expert-article-glow,.eye-guide-glow,.price-glow) { display:none; }
 /* Jawne kolumny i wysokość izolują poradniki od .hero-grid strony głównej
    (minmax(520px, 1.1fr), min-height:750px). Samo display:grid nie zeruje tych reguł. */

@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import GuideSeriesByline from "../components/GuideSeriesByline.astro";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
@@ -1048,6 +1049,10 @@ const structuredData = [
               Bez przeglądania przypadkowych artykułów — wybierasz swoją sytuację i przechodzisz do odpowiedzi.
             </p>
 
+            <div class="guide-hub-byline">
+              <GuideSeriesByline />
+            </div>
+
             <div class="guide-hero-actions">
               <a class="button-primary" href="#biblioteka-pmu">
                 Znajdź odpowiedź <span aria-hidden="true">→</span>
@@ -1091,50 +1096,6 @@ const structuredData = [
               </div>
             </div>
           </aside>
-        </div>
-      </section>
-
-      <section class="guide-proof-section" aria-label="Zakres poradnika PMU">
-        <div class="container guide-proof-grid">
-          <div>
-            <strong>Brwi · Usta · Kreski</strong>
-            <span>wybór metody i efektu</span>
-          </div>
-          <div>
-            <strong>Przed i po zabiegu</strong>
-            <span>przygotowanie, gojenie, pielęgnacja</span>
-          </div>
-          <div>
-            <strong>Skóra i bezpieczeństwo</strong>
-            <span>realne sytuacje wymagające oceny</span>
-          </div>
-          <div>
-            <strong>Stare PMU</strong>
-            <span>korekta, rozjaśnianie, usuwanie</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="guide-latest-section" aria-labelledby="guide-latest-heading">
-        <div class="container">
-          <div class="guide-latest-heading">
-            <div>
-              <p class="section-kicker">Nowe i ważne</p>
-              <h2 id="guide-latest-heading">Najświeższe odpowiedzi bez szukania.</h2>
-            </div>
-            <a href="#biblioteka-pmu">Cała biblioteka →</a>
-          </div>
-
-          <div class="guide-latest-scroll">
-            {latestArticles.map((article) => (
-              <a class="guide-latest-card" href={article.href}>
-                <span>{article.category}</span>
-                <h3>{article.title}</h3>
-                <p>{article.description}</p>
-                <strong>Czytaj →</strong>
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -1256,6 +1217,50 @@ const structuredData = [
                 <button type="button" id="guideEmptyReset">Wyczyść wyszukiwanie</button>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-latest-section" aria-labelledby="guide-latest-heading">
+        <div class="container">
+          <div class="guide-latest-heading">
+            <div>
+              <p class="section-kicker">Nowe i ważne</p>
+              <h2 id="guide-latest-heading">Najświeższe odpowiedzi bez szukania.</h2>
+            </div>
+            <a href="#biblioteka-pmu">Cała biblioteka →</a>
+          </div>
+
+          <div class="guide-latest-scroll">
+            {latestArticles.map((article) => (
+              <a class="guide-latest-card" href={article.href}>
+                <span>{article.category}</span>
+                <h3>{article.title}</h3>
+                <p>{article.description}</p>
+                <strong>Czytaj →</strong>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-proof-section" aria-label="Zakres poradnika PMU">
+        <div class="container guide-proof-grid">
+          <div>
+            <strong>Brwi · Usta · Kreski</strong>
+            <span>wybór metody i efektu</span>
+          </div>
+          <div>
+            <strong>Przed i po zabiegu</strong>
+            <span>przygotowanie, gojenie, pielęgnacja</span>
+          </div>
+          <div>
+            <strong>Skóra i bezpieczeństwo</strong>
+            <span>realne sytuacje wymagające oceny</span>
+          </div>
+          <div>
+            <strong>Stare PMU</strong>
+            <span>korekta, rozjaśnianie, usuwanie</span>
           </div>
         </div>
       </section>
@@ -2923,6 +2928,374 @@ const structuredData = [
       transition: none;
     }
   }
+
+  /* PMU HUB REFRESH 06
+     Lżejsza biblioteka mobile-first. Nie zmienia URL-i, SEO ani treści artykułów. */
+  .guide-page {
+    background: linear-gradient(180deg, #ffffff 0%, #fffafb 48%, #ffffff 100%);
+  }
+
+  .guide-hero {
+    padding-bottom: 38px;
+  }
+
+  .guide-hero-copy,
+  .guide-hero-card,
+  .guide-search-card,
+  .guide-filter-panel,
+  .guide-article-card,
+  .guide-expert-panel,
+  .guide-service-card,
+  .guide-faq-item,
+  .guide-final-card,
+  .guide-latest-card {
+    box-shadow: none;
+  }
+
+  .guide-hero-copy {
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 93% 8%, rgba(246, 220, 227, 0.45), transparent 16rem),
+      rgba(255, 255, 255, 0.94);
+  }
+
+  .guide-hero-card {
+    color: var(--color-text, #17151d);
+    background:
+      radial-gradient(circle at 15% 12%, rgba(255, 255, 255, 0.85), transparent 13rem),
+      linear-gradient(145deg, #fff3f6 0%, #f3faf7 100%);
+    border-color: rgba(201, 127, 143, 0.18);
+  }
+
+  .guide-hero-card-mark {
+    color: rgba(201, 127, 143, 0.10);
+  }
+
+  .guide-hero-card-content > p:first-child {
+    color: var(--color-turquoise-dark, #0f7773);
+  }
+
+  .guide-hero-card h2 {
+    color: var(--color-text, #17151d);
+  }
+
+  .guide-hero-stats > div {
+    border-color: rgba(201, 127, 143, 0.13);
+    background: rgba(255, 255, 255, 0.74);
+  }
+
+  .guide-hero-stats strong {
+    color: var(--color-turquoise-dark, #0f7773);
+  }
+
+  .guide-hero-stats span {
+    color: var(--color-muted, #6e6670);
+  }
+
+  .guide-hub-byline {
+    max-width: 520px;
+    margin-top: 21px;
+    padding-top: 17px;
+    border-top: 1px solid rgba(201, 127, 143, 0.16);
+  }
+
+  .guide-hub-byline .guide-byline {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .guide-hub-byline .guide-byline > div {
+    min-width: 0;
+  }
+
+  .guide-hub-byline .guide-byline img {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .guide-hub-byline .guide-byline a {
+    display: block;
+    color: var(--color-text, #17151d);
+    font-weight: 800;
+  }
+
+  .guide-hub-byline .guide-byline span {
+    display: block;
+    margin-top: 2px;
+    color: var(--color-muted, #6e6670);
+  }
+
+  .guide-library-section {
+    padding-top: 50px;
+    background:
+      radial-gradient(circle at 91% 7%, rgba(246, 220, 227, 0.27), transparent 22rem),
+      #ffffff;
+    border-top: 1px solid rgba(201, 127, 143, 0.08);
+  }
+
+  .guide-search-card,
+  .guide-filter-panel,
+  .guide-article-card,
+  .guide-latest-card,
+  .guide-service-card,
+  .guide-faq-item {
+    border-color: rgba(201, 127, 143, 0.13);
+  }
+
+  .guide-search-card {
+    background: #ffffff;
+  }
+
+  .guide-article-card,
+  .guide-latest-card,
+  .guide-service-card {
+    background:
+      radial-gradient(circle at 96% 7%, rgba(246, 220, 227, 0.30), transparent 9rem),
+      #ffffff;
+  }
+
+  .guide-article-card--featured {
+    background:
+      radial-gradient(circle at 96% 7%, rgba(246, 220, 227, 0.62), transparent 10rem),
+      #ffffff;
+  }
+
+  .guide-latest-section {
+    padding: 60px 0 42px;
+    background: #fffafb;
+  }
+
+  .guide-proof-section {
+    background: #ffffff;
+  }
+
+  .guide-expert-panel {
+    color: var(--color-text, #17151d);
+    background:
+      radial-gradient(circle at 95% 8%, rgba(240, 248, 245, 0.95), transparent 18rem),
+      linear-gradient(145deg, #fff7f9 0%, #ffffff 62%);
+    border-color: rgba(201, 127, 143, 0.16);
+  }
+
+  .guide-expert-panel .section-kicker-light {
+    border-color: rgba(56, 187, 181, 0.18);
+    background: rgba(219, 246, 243, 0.76);
+    color: var(--color-turquoise-dark, #0f7773);
+  }
+
+  .guide-expert-panel .guide-expert-copy h2 {
+    color: var(--color-text, #17151d);
+  }
+
+  .guide-expert-panel .guide-expert-copy > p:not(.section-kicker) {
+    color: var(--color-muted, #6e6670);
+  }
+
+  .guide-expert-panel .guide-expert-points > div {
+    border-color: rgba(201, 127, 143, 0.14);
+    background: rgba(255, 255, 255, 0.84);
+  }
+
+  .guide-expert-panel .guide-expert-points span {
+    color: var(--color-turquoise-dark, #0f7773);
+  }
+
+  .guide-expert-panel .guide-expert-points strong {
+    color: var(--color-text, #17151d);
+  }
+
+  .guide-expert-panel .guide-expert-points p {
+    color: var(--color-muted, #6e6670);
+  }
+
+  @media (max-width: 760px) {
+    .guide-hero {
+      padding: 98px 0 24px;
+    }
+
+    .guide-hero-card {
+      display: none;
+    }
+
+    .guide-hero-copy {
+      padding: 8px 1px 18px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .guide-hero-copy h1 {
+      max-width: 350px;
+    }
+
+    .guide-hero-lead {
+      max-width: 355px;
+    }
+
+    .guide-hub-byline {
+      max-width: 100%;
+      margin-top: 18px;
+      padding-top: 15px;
+    }
+
+    .guide-hero-actions {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .guide-hero-actions > .button-secondary {
+      display: none;
+    }
+
+    .guide-hero-actions > a {
+      min-height: 51px;
+      padding-inline: 12px;
+      font-size: 0.85rem !important;
+    }
+
+    .guide-library-section {
+      padding: 30px 0 48px;
+    }
+
+    .guide-library-heading {
+      margin-bottom: 14px;
+    }
+
+    .guide-library-heading > div > p:not(.section-kicker) {
+      display: none;
+    }
+
+    .guide-search-card {
+      margin-bottom: 10px;
+    }
+
+    .guide-article-card {
+      min-height: 188px;
+      border-radius: 18px;
+    }
+
+    .guide-latest-section {
+      padding: 45px 0 30px;
+    }
+
+    .guide-latest-scroll {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: min(82vw, 315px);
+      grid-template-columns: none;
+      gap: 8px;
+      margin-inline: -16px;
+      padding: 2px 16px 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .guide-latest-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .guide-latest-card {
+      min-height: 205px;
+      scroll-snap-align: start;
+    }
+
+    .guide-proof-section {
+      border-top: 0;
+    }
+
+    .guide-expert-panel {
+      padding: 23px 18px;
+    }
+  }
+
+
+  /* PMU HUB HOTFIX 06.1
+     Korekta po teście realnego mobile: hero, byline, CTA i nagłówek biblioteki. */
+  @media (max-width: 760px) {
+    .guide-hero {
+      padding: 118px 0 22px;
+    }
+
+    .guide-hero-copy {
+      padding: 3px 0 14px;
+    }
+
+    .guide-hero-copy h1 {
+      max-width: 100%;
+      font-size: clamp(2.02rem, 9vw, 2.68rem);
+      line-height: 1.045;
+      letter-spacing: -0.052em;
+    }
+
+    .guide-hero-copy h1 span {
+      margin-top: 2px;
+    }
+
+    .guide-hero-lead {
+      max-width: 100%;
+      margin-top: 14px;
+      font-size: 0.91rem;
+      line-height: 1.56;
+    }
+
+    .guide-hub-byline {
+      max-width: 100%;
+      margin-top: 15px;
+      padding-top: 13px;
+    }
+
+    .guide-hero-actions {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .guide-hero-actions > a:first-child {
+      grid-column: auto;
+    }
+
+    .guide-hero-actions > a {
+      min-width: 0;
+      min-height: 48px;
+      padding-inline: 10px;
+      font-size: 0.82rem !important;
+    }
+
+    .guide-library-section {
+      padding-top: 27px;
+    }
+
+    .guide-library-heading h2 {
+      font-size: clamp(1.78rem, 7.7vw, 2.28rem);
+      line-height: 1.055;
+      letter-spacing: -0.052em;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .guide-hero {
+      padding-top: 112px;
+    }
+
+    .guide-hero-copy h1 {
+      font-size: clamp(1.95rem, 9.2vw, 2.28rem);
+    }
+
+    .guide-hero-actions > a {
+      font-size: 0.78rem !important;
+    }
+  }
+
 </style>
 
 <script>
@@ -2964,7 +3337,9 @@ const structuredData = [
       const groups = String(card.getAttribute("data-groups") || "").split(" ");
       const haystack = normalizeGuideText(card.getAttribute("data-search") || "");
       const matchesFilter = activeFilter === "all" || groups.includes(activeFilter);
-      const matchesSearch = !query || haystack.includes(query);
+      const queryTerms = query.split(/\s+/).filter(Boolean);
+      const matchesSearch =
+        queryTerms.length === 0 || queryTerms.every((term) => haystack.includes(term));
       const show = matchesFilter && matchesSearch;
 
       card.hidden = !show;
