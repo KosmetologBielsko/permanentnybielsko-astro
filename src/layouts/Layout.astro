@@ -156,7 +156,7 @@ const structuredDataJson = JSON.stringify(allStructuredData).replace(/</g, "\\u0
 
     {isPoradnikArticle && showGuideSocial && <PoradnikSocialBridge />}
 
-    <AssistantWidget inlineLauncher={(isPoradnikArticle || pagePath === "/poradnik" || pagePath === "/cennik-makijaz-permanentny") && inlineGuideAssistant} />
+    <AssistantWidget inlineLauncher={(isPoradnikArticle || pagePath === "/poradnik" || pagePath === "/cennik-makijaz-permanentny" || pagePath === "/galeria") && inlineGuideAssistant} />
     {showSilkyPopup && <SilkyPopup />}
     <CookieConsent />
   </body>

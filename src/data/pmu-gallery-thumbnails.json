@@ -1,0 +1,422 @@
+{
+  "/images/brwi-permanentne-zblizenie-oka-naturalny-efekt.webp": {
+    "width": 1254,
+    "height": 1254,
+    "thumb": "/images/galeria-09/brwi-01-480.webp",
+    "srcset": "/images/galeria-09/brwi-01-240.webp 240w, /images/galeria-09/brwi-01-480.webp 480w, /images/galeria-09/brwi-01-720.webp 720w"
+  },
+  "/images/brwi-permanentne-makro-wlos-maszynowy.webp": {
+    "width": 1254,
+    "height": 1254,
+    "thumb": "/images/galeria-09/brwi-02-480.webp",
+    "srcset": "/images/galeria-09/brwi-02-240.webp 240w, /images/galeria-09/brwi-02-480.webp 480w, /images/galeria-09/brwi-02-720.webp 720w"
+  },
+  "/images/brwi-permanentne-pelne-spojrzenie-naturalna-pigmentacja.webp": {
+    "width": 1254,
+    "height": 1254,
+    "thumb": "/images/galeria-09/brwi-03-480.webp",
+    "srcset": "/images/galeria-09/brwi-03-240.webp 240w, /images/galeria-09/brwi-03-480.webp 480w, /images/galeria-09/brwi-03-720.webp 720w"
+  },
+  "/images/brwi-permanentne-zblizenie-oko-i-brew.webp": {
+    "width": 1170,
+    "height": 1345,
+    "thumb": "/images/galeria-09/brwi-04-480.webp",
+    "srcset": "/images/galeria-09/brwi-04-240.webp 240w, /images/galeria-09/brwi-04-480.webp 480w, /images/galeria-09/brwi-04-720.webp 720w"
+  },
+  "/images/brwi-permanentne-detal-precyzyjnej-pigmentacji.webp": {
+    "width": 1209,
+    "height": 1300,
+    "thumb": "/images/galeria-09/brwi-05-480.webp",
+    "srcset": "/images/galeria-09/brwi-05-240.webp 240w, /images/galeria-09/brwi-05-480.webp 480w, /images/galeria-09/brwi-05-720.webp 720w"
+  },
+  "/images/brwi-permanentne-naturalna-uroda-twarzy.webp": {
+    "width": 1254,
+    "height": 1254,
+    "thumb": "/images/galeria-09/brwi-06-480.webp",
+    "srcset": "/images/galeria-09/brwi-06-240.webp 240w, /images/galeria-09/brwi-06-480.webp 480w, /images/galeria-09/brwi-06-720.webp 720w"
+  },
+  "/images/brwi-permanentne-makro-struktura-wlosa.webp": {
+    "width": 1208,
+    "height": 1302,
+    "thumb": "/images/galeria-09/brwi-07-480.webp",
+    "srcset": "/images/galeria-09/brwi-07-240.webp 240w, /images/galeria-09/brwi-07-480.webp 480w, /images/galeria-09/brwi-07-720.webp 720w"
+  },
+  "/images/silky-hairstroke-brows-zblizenie-naturalny-efekt.webp": {
+    "width": 1448,
+    "height": 1086,
+    "thumb": "/images/galeria-09/brwi-08-480.webp",
+    "srcset": "/images/galeria-09/brwi-08-240.webp 240w, /images/galeria-09/brwi-08-480.webp 480w, /images/galeria-09/brwi-08-720.webp 720w"
+  },
+  "/images/brwi-permanentne-naturalny-efekt-zielen-stylizacja.webp": {
+    "width": 900,
+    "height": 1125,
+    "thumb": "/images/galeria-09/brwi-09-480.webp",
+    "srcset": "/images/galeria-09/brwi-09-240.webp 240w, /images/galeria-09/brwi-09-480.webp 480w, /images/galeria-09/brwi-09-720.webp 720w"
+  },
+  "/images/brwi-permanentne-efekt-po-zabiegu-portret.webp": {
+    "width": 1254,
+    "height": 1254,
+    "thumb": "/images/galeria-09/brwi-10-480.webp",
+    "srcset": "/images/galeria-09/brwi-10-240.webp 240w, /images/galeria-09/brwi-10-480.webp 480w, /images/galeria-09/brwi-10-720.webp 720w"
+  },
+  "/images/brwi-permanentne-naturalny-efekt-portret-01.webp": {
+    "width": 900,
+    "height": 1125,
+    "thumb": "/images/galeria-09/brwi-11-480.webp",
+    "srcset": "/images/galeria-09/brwi-11-240.webp 240w, /images/galeria-09/brwi-11-480.webp 480w, /images/galeria-09/brwi-11-720.webp 720w"
+  },
+  "/images/brwi-permanentne-delikatny-efekt-oczy-zamkniete-02.webp": {
+    "width": 900,
+    "height": 1125,
+    "thumb": "/images/galeria-09/brwi-12-480.webp",
+    "srcset": "/images/galeria-09/brwi-12-240.webp 240w, /images/galeria-09/brwi-12-480.webp 480w, /images/galeria-09/brwi-12-720.webp 720w"
+  },
+  "/images/brwi-permanentne-efekt-po-zabiegu-portret-03.webp": {
+    "width": 900,
+    "height": 1125,
+    "thumb": "/images/galeria-09/brwi-13-480.webp",
+    "srcset": "/images/galeria-09/brwi-13-240.webp 240w, /images/galeria-09/brwi-13-480.webp 480w, /images/galeria-09/brwi-13-720.webp 720w"
+  },
+  "/images/brwi-permanentne-naturalna-pigmentacja-portret-04.webp": {
+    "width": 900,
+    "height": 1125,
+    "thumb": "/images/galeria-09/brwi-14-480.webp",
+    "srcset": "/images/galeria-09/brwi-14-240.webp 240w, /images/galeria-09/brwi-14-480.webp 480w, /images/galeria-09/brwi-14-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-01.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/usta-01-480.webp",
+    "srcset": "/images/galeria-09/usta-01-240.webp 240w, /images/galeria-09/usta-01-480.webp 480w, /images/galeria-09/usta-01-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-intensywna-fuksja-zblizenie-01.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-02-480.webp",
+    "srcset": "/images/galeria-09/usta-02-240.webp 240w, /images/galeria-09/usta-02-480.webp 480w, /images/galeria-09/usta-02-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-02.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/usta-03-480.webp",
+    "srcset": "/images/galeria-09/usta-03-240.webp 240w, /images/galeria-09/usta-03-480.webp 480w, /images/galeria-09/usta-03-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-naturalny-koral-zblizenie-16.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-04-480.webp",
+    "srcset": "/images/galeria-09/usta-04-240.webp 240w, /images/galeria-09/usta-04-480.webp 480w, /images/galeria-09/usta-04-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-03.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/usta-05-480.webp",
+    "srcset": "/images/galeria-09/usta-05-240.webp 240w, /images/galeria-09/usta-05-480.webp 480w, /images/galeria-09/usta-05-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-satynowy-efekt-03.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-06-480.webp",
+    "srcset": "/images/galeria-09/usta-06-240.webp 240w, /images/galeria-09/usta-06-480.webp 480w, /images/galeria-09/usta-06-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-04.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/usta-07-480.webp",
+    "srcset": "/images/galeria-09/usta-07-240.webp 240w, /images/galeria-09/usta-07-480.webp 480w, /images/galeria-09/usta-07-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-naturalny-roz-zblizenie-04.webp": {
+    "width": 941,
+    "height": 1672,
+    "thumb": "/images/galeria-09/usta-08-480.webp",
+    "srcset": "/images/galeria-09/usta-08-240.webp 240w, /images/galeria-09/usta-08-480.webp 480w, /images/galeria-09/usta-08-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-05.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/usta-09-480.webp",
+    "srcset": "/images/galeria-09/usta-09-240.webp 240w, /images/galeria-09/usta-09-480.webp 480w, /images/galeria-09/usta-09-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-rozowy-polysk-05.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-10-480.webp",
+    "srcset": "/images/galeria-09/usta-10-240.webp 240w, /images/galeria-09/usta-10-480.webp 480w, /images/galeria-09/usta-10-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-06.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/usta-11-480.webp",
+    "srcset": "/images/galeria-09/usta-11-240.webp 240w, /images/galeria-09/usta-11-480.webp 480w, /images/galeria-09/usta-11-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-intensywny-roz-zblizenie-06.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-12-480.webp",
+    "srcset": "/images/galeria-09/usta-12-240.webp 240w, /images/galeria-09/usta-12-480.webp 480w, /images/galeria-09/usta-12-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-07.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/usta-13-480.webp",
+    "srcset": "/images/galeria-09/usta-13-240.webp 240w, /images/galeria-09/usta-13-480.webp 480w, /images/galeria-09/usta-13-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-blyszczace-usta-zblizenie-07.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-14-480.webp",
+    "srcset": "/images/galeria-09/usta-14-240.webp 240w, /images/galeria-09/usta-14-480.webp 480w, /images/galeria-09/usta-14-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-08.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/usta-15-480.webp",
+    "srcset": "/images/galeria-09/usta-15-240.webp 240w, /images/galeria-09/usta-15-480.webp 480w, /images/galeria-09/usta-15-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-delikatny-roz-makro-08.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-16-480.webp",
+    "srcset": "/images/galeria-09/usta-16-240.webp 240w, /images/galeria-09/usta-16-480.webp 480w, /images/galeria-09/usta-16-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-09.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/usta-17-480.webp",
+    "srcset": "/images/galeria-09/usta-17-240.webp 240w, /images/galeria-09/usta-17-480.webp 480w, /images/galeria-09/usta-17-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-efekt-po-zabiegu-zblizenie-09.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-18-480.webp",
+    "srcset": "/images/galeria-09/usta-18-240.webp 240w, /images/galeria-09/usta-18-480.webp 480w, /images/galeria-09/usta-18-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-10.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/usta-19-480.webp",
+    "srcset": "/images/galeria-09/usta-19-240.webp 240w, /images/galeria-09/usta-19-480.webp 480w, /images/galeria-09/usta-19-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-glossy-efekt-zblizenie-10.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-20-480.webp",
+    "srcset": "/images/galeria-09/usta-20-240.webp 240w, /images/galeria-09/usta-20-480.webp 480w, /images/galeria-09/usta-20-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-11.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-21-480.webp",
+    "srcset": "/images/galeria-09/usta-21-240.webp 240w, /images/galeria-09/usta-21-480.webp 480w, /images/galeria-09/usta-21-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-nasycony-roz-zblizenie-11.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-22-480.webp",
+    "srcset": "/images/galeria-09/usta-22-240.webp 240w, /images/galeria-09/usta-22-480.webp 480w, /images/galeria-09/usta-22-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-12.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-23-480.webp",
+    "srcset": "/images/galeria-09/usta-23-240.webp 240w, /images/galeria-09/usta-23-480.webp 480w, /images/galeria-09/usta-23-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-satynowe-wykonczenie-12.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-24-480.webp",
+    "srcset": "/images/galeria-09/usta-24-240.webp 240w, /images/galeria-09/usta-24-480.webp 480w, /images/galeria-09/usta-24-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-13.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-25-480.webp",
+    "srcset": "/images/galeria-09/usta-25-240.webp 240w, /images/galeria-09/usta-25-480.webp 480w, /images/galeria-09/usta-25-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-zdefiniowany-kontur-zblizenie-13.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-26-480.webp",
+    "srcset": "/images/galeria-09/usta-26-240.webp 240w, /images/galeria-09/usta-26-480.webp 480w, /images/galeria-09/usta-26-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-14.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-27-480.webp",
+    "srcset": "/images/galeria-09/usta-27-240.webp 240w, /images/galeria-09/usta-27-480.webp 480w, /images/galeria-09/usta-27-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-polysk-i-kontur-14.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-28-480.webp",
+    "srcset": "/images/galeria-09/usta-28-240.webp 240w, /images/galeria-09/usta-28-480.webp 480w, /images/galeria-09/usta-28-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-15.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-29-480.webp",
+    "srcset": "/images/galeria-09/usta-29-240.webp 240w, /images/galeria-09/usta-29-480.webp 480w, /images/galeria-09/usta-29-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-intensywny-polysk-15.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-30-480.webp",
+    "srcset": "/images/galeria-09/usta-30-240.webp 240w, /images/galeria-09/usta-30-480.webp 480w, /images/galeria-09/usta-30-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-16.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-31-480.webp",
+    "srcset": "/images/galeria-09/usta-31-240.webp 240w, /images/galeria-09/usta-31-480.webp 480w, /images/galeria-09/usta-31-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-naturalny-koral-zblizenie-16-2.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-32-480.webp",
+    "srcset": "/images/galeria-09/usta-32-240.webp 240w, /images/galeria-09/usta-32-480.webp 480w, /images/galeria-09/usta-32-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-17.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-33-480.webp",
+    "srcset": "/images/galeria-09/usta-33-240.webp 240w, /images/galeria-09/usta-33-480.webp 480w, /images/galeria-09/usta-33-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-delikatny-roz-zblizenie-17.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-34-480.webp",
+    "srcset": "/images/galeria-09/usta-34-240.webp 240w, /images/galeria-09/usta-34-480.webp 480w, /images/galeria-09/usta-34-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-bielsko-biala-efekt-18.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-35-480.webp",
+    "srcset": "/images/galeria-09/usta-35-240.webp 240w, /images/galeria-09/usta-35-480.webp 480w, /images/galeria-09/usta-35-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-ust-naturalny-kolor-zblizenie.webp": {
+    "width": 900,
+    "height": 1600,
+    "thumb": "/images/galeria-09/usta-36-480.webp",
+    "srcset": "/images/galeria-09/usta-36-240.webp 240w, /images/galeria-09/usta-36-480.webp 480w, /images/galeria-09/usta-36-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-oczu-kreska-klasyczna-brazowe-oko-01.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/kreski-01-480.webp",
+    "srcset": "/images/galeria-09/kreski-01-240.webp 240w, /images/galeria-09/kreski-01-480.webp 480w, /images/galeria-09/kreski-01-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-oczu-kreska-dekoracyjna-niebieskie-oko-02.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/kreski-02-480.webp",
+    "srcset": "/images/galeria-09/kreski-02-240.webp 240w, /images/galeria-09/kreski-02-480.webp 480w, /images/galeria-09/kreski-02-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-oczu-zageszczenie-linii-rzes-zamkniete-oko-03.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/kreski-03-480.webp",
+    "srcset": "/images/galeria-09/kreski-03-240.webp 240w, /images/galeria-09/kreski-03-480.webp 480w, /images/galeria-09/kreski-03-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-oczu-kreska-z-boku-niebiesko-zielone-oko-04.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/kreski-04-480.webp",
+    "srcset": "/images/galeria-09/kreski-04-240.webp 240w, /images/galeria-09/kreski-04-480.webp 480w, /images/galeria-09/kreski-04-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-oczu-przydymiona-kreska-zielone-oko-05.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/kreski-05-480.webp",
+    "srcset": "/images/galeria-09/kreski-05-240.webp 240w, /images/galeria-09/kreski-05-480.webp 480w, /images/galeria-09/kreski-05-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-oczu-kreska-w-trakcie-zabiegu-06.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/kreski-06-480.webp",
+    "srcset": "/images/galeria-09/kreski-06-240.webp 240w, /images/galeria-09/kreski-06-480.webp 480w, /images/galeria-09/kreski-06-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-oczu-efekt-softliner-zielone-oko-07.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/kreski-07-480.webp",
+    "srcset": "/images/galeria-09/kreski-07-240.webp 240w, /images/galeria-09/kreski-07-480.webp 480w, /images/galeria-09/kreski-07-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-oczu-kolaz-dwie-kreski-zielone-oczy-08.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/kreski-08-480.webp",
+    "srcset": "/images/galeria-09/kreski-08-240.webp 240w, /images/galeria-09/kreski-08-480.webp 480w, /images/galeria-09/kreski-08-720.webp 720w"
+  },
+  "/images/makijaz-permanentny-oczu-kolaz-dwie-kreski-brazowe-oczy-09.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/kreski-09-480.webp",
+    "srcset": "/images/galeria-09/kreski-09-240.webp 240w, /images/galeria-09/kreski-09-480.webp 480w, /images/galeria-09/kreski-09-720.webp 720w"
+  },
+  "/images/szkolenia-pmu-elite-top-linergist-boguslawa-herda.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/szkolenia-01-480.webp",
+    "srcset": "/images/galeria-09/szkolenia-01-240.webp 240w, /images/galeria-09/szkolenia-01-480.webp 480w, /images/galeria-09/szkolenia-01-720.webp 720w"
+  },
+  "/images/szkolenia-pmu-edukacja-long-time-liner-elite.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/szkolenia-02-480.webp",
+    "srcset": "/images/galeria-09/szkolenia-02-240.webp 240w, /images/galeria-09/szkolenia-02-480.webp 480w, /images/galeria-09/szkolenia-02-720.webp 720w"
+  },
+  "/images/szkolenia-pmu-certyfikat-masterclass-long-time-liner.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/szkolenia-03-480.webp",
+    "srcset": "/images/galeria-09/szkolenia-03-240.webp 240w, /images/galeria-09/szkolenia-03-480.webp 480w, /images/galeria-09/szkolenia-03-720.webp 720w"
+  },
+  "/images/szkolenia-pmu-praktyka-zabiegowa-long-time-liner.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/szkolenia-04-480.webp",
+    "srcset": "/images/galeria-09/szkolenia-04-240.webp 240w, /images/galeria-09/szkolenia-04-480.webp 480w, /images/galeria-09/szkolenia-04-720.webp 720w"
+  },
+  "/images/szkolenia-pmu-zespol-long-time-liner-boguslawa-herda.webp": {
+    "width": 1122,
+    "height": 1402,
+    "thumb": "/images/galeria-09/szkolenia-05-480.webp",
+    "srcset": "/images/galeria-09/szkolenia-05-240.webp 240w, /images/galeria-09/szkolenia-05-480.webp 480w, /images/galeria-09/szkolenia-05-720.webp 720w"
+  },
+  "/video/brwi-permanentne-silky-zblizenie-poster.webp": {
+    "width": 900,
+    "height": 900,
+    "thumb": "/images/galeria-09/wideo-1-480.webp",
+    "srcset": "/images/galeria-09/wideo-1-240.webp 240w, /images/galeria-09/wideo-1-480.webp 480w, /images/galeria-09/wideo-1-720.webp 720w"
+  },
+  "/video/metamorfozy-pmu-boguslawa-herda-poster.webp": {
+    "width": 540,
+    "height": 960,
+    "thumb": "/images/galeria-09/wideo-2-480.webp",
+    "srcset": "/images/galeria-09/wideo-2-240.webp 240w, /images/galeria-09/wideo-2-480.webp 480w, /images/galeria-09/wideo-2-720.webp 540w"
+  },
+  "/video/metoda-pracy-makijaz-permanentny-home-poster.webp": {
+    "width": 720,
+    "height": 1280,
+    "thumb": "/images/galeria-09/wideo-3-480.webp",
+    "srcset": "/images/galeria-09/wideo-3-240.webp 240w, /images/galeria-09/wideo-3-480.webp 480w, /images/galeria-09/wideo-3-720.webp 720w"
+  },
+  "/video/proces-makijazu-permanentnego-boguslawa-herda-poster.webp": {
+    "width": 720,
+    "height": 1280,
+    "thumb": "/images/galeria-09/wideo-4-480.webp",
+    "srcset": "/images/galeria-09/wideo-4-240.webp 240w, /images/galeria-09/wideo-4-480.webp 480w, /images/galeria-09/wideo-4-720.webp 720w"
+  },
+  "/video/szkolenia-pmu-autorska-metoda-natural-poster.webp": {
+    "width": 720,
+    "height": 1560,
+    "thumb": "/images/galeria-09/wideo-5-480.webp",
+    "srcset": "/images/galeria-09/wideo-5-240.webp 240w, /images/galeria-09/wideo-5-480.webp 480w, /images/galeria-09/wideo-5-720.webp 720w"
+  },
+  "/video/szkolenia-pmu-autorska-metoda-soft-glam-poster.webp": {
+    "width": 720,
+    "height": 1280,
+    "thumb": "/images/galeria-09/wideo-6-480.webp",
+    "srcset": "/images/galeria-09/wideo-6-240.webp 240w, /images/galeria-09/wideo-6-480.webp 480w, /images/galeria-09/wideo-6-720.webp 720w"
+  }
+}

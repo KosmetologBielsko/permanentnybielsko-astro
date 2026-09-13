@@ -1,0 +1,25 @@
+---
+import thumbnails from "../data/pmu-gallery-thumbnails.json";
+interface Props {
+  image: { src: string; alt: string; badge?: string; wide?: boolean };
+  priority?: boolean;
+  contain?: boolean;
+}
+const { image, priority = false, contain = false } = Astro.props;
+const media = thumbnails[image.src as keyof typeof thumbnails];
+const caption = image.alt.split(" — ").slice(1).join(" — ") || image.alt;
+---
+<figure class="pmu-gallery-photo">
+  <a href={image.src} target="_blank" rel="noopener" data-pmu-photo
+    data-media-alt={image.alt} data-media-caption={caption}
+    aria-label={`Powiększ zdjęcie: ${image.alt}`}>
+    <img src={media.thumb} srcset={media.srcset}
+      sizes="(max-width: 340px) calc(100vw - 36px), (max-width: 640px) calc((100vw - 48px) / 2), (max-width: 900px) calc((100vw - 74px) / 2), (max-width: 1156px) calc((100vw - 96px) / 3), 353px"
+      width={media.width} height={media.height} alt={image.alt}
+      class:list={{ "pmu-gallery-contain": contain || image.wide }}
+      loading={priority ? "eager" : "lazy"} fetchpriority={priority ? "high" : undefined} decoding="async" />
+    {image.badge && <span class="pmu-gallery-badge">{image.badge}</span>}
+    <span class="pmu-gallery-zoom" aria-hidden="true">↗</span>
+  </a>
+  <figcaption>{caption}</figcaption>
+</figure>
