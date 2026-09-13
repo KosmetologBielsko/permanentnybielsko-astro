@@ -1,13 +1,13 @@
 ---
 import thumbnails from "../data/pmu-gallery-thumbnails.json";
 interface Props {
-  image: { src: string; alt: string; badge?: string; wide?: boolean };
+  image: { src: string; alt: string; badge?: string; wide?: boolean; caption?: string };
   priority?: boolean;
   contain?: boolean;
 }
 const { image, priority = false, contain = false } = Astro.props;
 const media = thumbnails[image.src as keyof typeof thumbnails];
-const caption = image.alt.split(" — ").slice(1).join(" — ") || image.alt;
+const caption = image.caption || image.alt.split(" — ").slice(1).join(" — ") || image.alt;
 ---
 <figure class="pmu-gallery-photo">
   <a href={image.src} target="_blank" rel="noopener" data-pmu-photo

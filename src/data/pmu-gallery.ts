@@ -1,5 +1,5 @@
-// Materiały i metadane zachowane z galerii przed przebudową PMU 09.
-
+// PMU 10: metody według folderów przekazanych przez właściciela.
+import mediaLibrary from "./pmu-media-library.json";
 
 export const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
@@ -8,179 +8,7 @@ export const pageUrl = "https://www.permanentnybielsko.com/galeria/";
 export const pageTitle =
   "Galeria makijażu permanentnego Bielsko-Biała | Bogusława Herda";
 export const pageDescription =
-  "Galeria makijażu permanentnego Bogusławy Herda w Bielsku-Białej: brwi, Silky Hairstroke Brows, usta, kreski i filmy PMU. Zobacz realne efekty zabiegów.";
-
-export const galleryAreas = [
-  {
-    number: "01",
-    label: "Brwi",
-    title: "Brwi permanentne",
-    text: "Naturalna oprawa oka, miękki kształt i efekt dopasowany do twarzy.",
-    href: "#galeria-brwi",
-  },
-  {
-    number: "02",
-    label: "Silky",
-    title: "Silky Hairstroke Brows",
-    text: "Włos maszynowy, realistyczny kierunek i autorski charakter pracy.",
-    href: "#galeria-brwi",
-    accent: true,
-  },
-  {
-    number: "03",
-    label: "Usta",
-    title: "Usta permanentne",
-    text: "Kolor, kontur i świeżość czerwieni wargowej bez ciężkiego efektu.",
-    href: "#galeria-usta",
-  },
-  {
-    number: "04",
-    label: "Kreski",
-    title: "Kreski permanentne",
-    text: "Zagęszczenie rzęs, softliner i kreski dopasowane do oka.",
-    href: "#galeria-kreski",
-  },
-];
-
-export const browGalleryImages = [
-  {
-    src: "/images/brwi-permanentne-zblizenie-oka-naturalny-efekt.webp",
-    alt: "Brwi permanentne Bielsko-Biała — zbliżenie oka i naturalny efekt pigmentacji",
-  },
-  {
-    src: "/images/brwi-permanentne-makro-wlos-maszynowy.webp",
-    alt: "Brwi permanentne Bielsko-Biała — makro włosa maszynowego",
-  },
-  {
-    src: "/images/brwi-permanentne-pelne-spojrzenie-naturalna-pigmentacja.webp",
-    alt: "Brwi permanentne Bielsko-Biała — pełne spojrzenie i naturalna pigmentacja",
-  },
-  {
-    src: "/images/brwi-permanentne-zblizenie-oko-i-brew.webp",
-    alt: "Brwi permanentne Bielsko-Biała — zbliżenie oka i brwi",
-  },
-  {
-    src: "/images/brwi-permanentne-detal-precyzyjnej-pigmentacji.webp",
-    alt: "Brwi permanentne Bielsko-Biała — detal precyzyjnej pigmentacji",
-  },
-  {
-    src: "/images/brwi-permanentne-naturalna-uroda-twarzy.webp",
-    alt: "Brwi permanentne Bielsko-Biała — naturalna uroda twarzy",
-  },
-  {
-    src: "/images/brwi-permanentne-makro-struktura-wlosa.webp",
-    alt: "Brwi permanentne Bielsko-Biała — makro struktura włosa",
-  },
-  {
-    src: "/images/silky-hairstroke-brows-zblizenie-naturalny-efekt.webp",
-    alt: "Silky Hairstroke Brows — zbliżenie i naturalny efekt włosa maszynowego",
-    badge: "Silky",
-  },
-  {
-    src: "/images/brwi-permanentne-naturalny-efekt-zielen-stylizacja.webp",
-    alt: "Brwi permanentne Bielsko-Biała — naturalny efekt w stylizacji z zielenią",
-  },
-  {
-    src: "/images/brwi-permanentne-efekt-po-zabiegu-portret.webp",
-    alt: "Brwi permanentne Bielsko-Biała — efekt po zabiegu, portret",
-  },
-  {
-    src: "/images/brwi-permanentne-naturalny-efekt-portret-01.webp",
-    alt: "Brwi permanentne Bielsko-Biała — naturalny efekt, portret",
-  },
-  {
-    src: "/images/brwi-permanentne-delikatny-efekt-oczy-zamkniete-02.webp",
-    alt: "Brwi permanentne Bielsko-Biała — delikatny efekt, oczy zamknięte",
-  },
-  {
-    src: "/images/brwi-permanentne-efekt-po-zabiegu-portret-03.webp",
-    alt: "Brwi permanentne Bielsko-Biała — efekt po zabiegu, portret",
-  },
-  {
-    src: "/images/brwi-permanentne-naturalna-pigmentacja-portret-04.webp",
-    alt: "Brwi permanentne Bielsko-Biała — naturalna pigmentacja, portret",
-  },
-];
-
-export const lipGalleryImages = [
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-01.webp", alt: "Makijaż permanentny ust Bielsko-Biała — naturalny róż i miękki kontur" },
-  { src: "/images/makijaz-permanentny-ust-intensywna-fuksja-zblizenie-01.webp", alt: "Makijaż permanentny ust — intensywna fuksja w zbliżeniu" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-02.webp", alt: "Makijaż permanentny ust — wyrazista czerwień i precyzyjny kontur" },
-  { src: "/images/makijaz-permanentny-ust-naturalny-koral-zblizenie-16.webp", alt: "Makijaż permanentny ust — naturalny koralowy kolor w zbliżeniu" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-03.webp", alt: "Makijaż permanentny ust Bielsko-Biała — nasycony różowy efekt" },
-  { src: "/images/makijaz-permanentny-ust-satynowy-efekt-03.webp", alt: "Makijaż permanentny ust — satynowe wykończenie koloru" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-04.webp", alt: "Makijaż permanentny ust — intensywny kolor z połyskiem" },
-  { src: "/images/makijaz-permanentny-ust-naturalny-roz-zblizenie-04.webp", alt: "Makijaż permanentny ust — naturalny róż i subtelny połysk" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-05.webp", alt: "Makijaż permanentny ust Bielsko-Biała — różowe usta po zabiegu" },
-  { src: "/images/makijaz-permanentny-ust-rozowy-polysk-05.webp", alt: "Makijaż permanentny ust — różowy kolor i świeży połysk" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-06.webp", alt: "Makijaż permanentny ust — koralowy odcień i miękka linia" },
-  { src: "/images/makijaz-permanentny-ust-intensywny-roz-zblizenie-06.webp", alt: "Makijaż permanentny ust — intensywny róż w zbliżeniu" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-07.webp", alt: "Makijaż permanentny ust Bielsko-Biała — naturalny, zgaszony róż" },
-  { src: "/images/makijaz-permanentny-ust-blyszczace-usta-zblizenie-07.webp", alt: "Makijaż permanentny ust — błyszczący efekt w zbliżeniu" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-08.webp", alt: "Makijaż permanentny ust — delikatne różowe podkreślenie" },
-  { src: "/images/makijaz-permanentny-ust-delikatny-roz-makro-08.webp", alt: "Makijaż permanentny ust — delikatny róż w ujęciu makro" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-09.webp", alt: "Makijaż permanentny ust Bielsko-Biała — subtelny beżowy róż" },
-  { src: "/images/makijaz-permanentny-ust-efekt-po-zabiegu-zblizenie-09.webp", alt: "Makijaż permanentny ust — efekt bezpośrednio po zabiegu" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-10.webp", alt: "Makijaż permanentny ust — nasycona fuksja z połyskiem" },
-  { src: "/images/makijaz-permanentny-ust-glossy-efekt-zblizenie-10.webp", alt: "Makijaż permanentny ust — efekt glossy w zbliżeniu" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-11.webp", alt: "Makijaż permanentny ust Bielsko-Biała — malinowy kolor" },
-  { src: "/images/makijaz-permanentny-ust-nasycony-roz-zblizenie-11.webp", alt: "Makijaż permanentny ust — nasycony róż w zbliżeniu" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-12.webp", alt: "Makijaż permanentny ust — naturalny kolor z mocnym połyskiem" },
-  { src: "/images/makijaz-permanentny-ust-satynowe-wykonczenie-12.webp", alt: "Makijaż permanentny ust — satynowe różowe wykończenie" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-13.webp", alt: "Makijaż permanentny ust Bielsko-Biała — zdefiniowany różowy kontur" },
-  { src: "/images/makijaz-permanentny-ust-zdefiniowany-kontur-zblizenie-13.webp", alt: "Makijaż permanentny ust — zdefiniowany kontur w zbliżeniu" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-14.webp", alt: "Makijaż permanentny ust — różowy połysk i równy kontur" },
-  { src: "/images/makijaz-permanentny-ust-polysk-i-kontur-14.webp", alt: "Makijaż permanentny ust — połysk i precyzyjny kontur" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-15.webp", alt: "Makijaż permanentny ust Bielsko-Biała — intensywnie różowy efekt" },
-  { src: "/images/makijaz-permanentny-ust-intensywny-polysk-15.webp", alt: "Makijaż permanentny ust — intensywny połysk po pigmentacji" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-16.webp", alt: "Makijaż permanentny ust — naturalne koralowe podkreślenie" },
-  { src: "/images/makijaz-permanentny-ust-naturalny-koral-zblizenie-16-2.webp", alt: "Makijaż permanentny ust — drugi efekt naturalnego koralu" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-17.webp", alt: "Makijaż permanentny ust Bielsko-Biała — delikatny róż" },
-  { src: "/images/makijaz-permanentny-ust-delikatny-roz-zblizenie-17.webp", alt: "Makijaż permanentny ust — delikatny róż w zbliżeniu" },
-  { src: "/images/makijaz-permanentny-ust-bielsko-biala-efekt-18.webp", alt: "Makijaż permanentny ust — świeży różowy kolor po zabiegu" },
-  { src: "/images/makijaz-permanentny-ust-naturalny-kolor-zblizenie.webp", alt: "Makijaż permanentny ust — naturalny kolor w zbliżeniu" },
-];
-
-export const eyeGalleryImages = [
-  {
-    src: "/images/makijaz-permanentny-oczu-kreska-klasyczna-brazowe-oko-01.webp",
-    alt: "Makijaż permanentny oczu Bielsko-Biała — kreska klasyczna, brązowe oko",
-  },
-  {
-    src: "/images/makijaz-permanentny-oczu-kreska-dekoracyjna-niebieskie-oko-02.webp",
-    alt: "Makijaż permanentny oczu Bielsko-Biała — kreska dekoracyjna, niebieskie oko",
-  },
-  {
-    src: "/images/makijaz-permanentny-oczu-zageszczenie-linii-rzes-zamkniete-oko-03.webp",
-    alt: "Makijaż permanentny oczu Bielsko-Biała — zagęszczenie linii rzęs, zamknięte oko",
-  },
-  {
-    src: "/images/makijaz-permanentny-oczu-kreska-z-boku-niebiesko-zielone-oko-04.webp",
-    alt: "Makijaż permanentny oczu Bielsko-Biała — kreska z boku, niebiesko-zielone oko",
-  },
-  {
-    src: "/images/makijaz-permanentny-oczu-przydymiona-kreska-zielone-oko-05.webp",
-    alt: "Makijaż permanentny oczu Bielsko-Biała — przydymiona kreska, zielone oko",
-  },
-  {
-    src: "/images/makijaz-permanentny-oczu-kreska-w-trakcie-zabiegu-06.webp",
-    alt: "Makijaż permanentny oczu Bielsko-Biała — kreska permanentna w trakcie zabiegu",
-  },
-  {
-    src: "/images/makijaz-permanentny-oczu-efekt-softliner-zielone-oko-07.webp",
-    alt: "Makijaż permanentny oczu Bielsko-Biała — efekt softliner, zielone oko",
-  },
-  {
-    src: "/images/makijaz-permanentny-oczu-kolaz-dwie-kreski-zielone-oczy-08.webp",
-    alt: "Makijaż permanentny oczu Bielsko-Biała — kolaż dwóch kresek, zielone oczy",
-    wide: true,
-  },
-  {
-    src: "/images/makijaz-permanentny-oczu-kolaz-dwie-kreski-brazowe-oczy-09.webp",
-    alt: "Makijaż permanentny oczu Bielsko-Biała — kolaż dwóch kresek, brązowe oczy",
-    wide: true,
-  },
-];
+  "Galeria PMU Bogusławy Herda w Bielsku-Białej: Silky Hairstroke Brows, brwi metodą cienia, kreski i usta. Zobacz zdjęcia, kompozycje i filmy.";
 
 export const trainingGalleryImages = [
   {
@@ -240,53 +68,49 @@ export const videoGalleryItems = [
 
 export const sections = [
   {
-    id: "galeria-brwi",
-    label: "Brwi",
-    title: "Brwi, włos maszynowy i naturalne detale pigmentacji.",
-    text: "Od makro włosa po pełniejsze kadry twarzy. Zobacz efekty, w których brwi mają wspierać urodę, a nie dominować nad nią.",
-    items: browGalleryImages,
-    serviceHref: "/makijaz-permanentny-brwi/",
-    serviceLabel: "Zobacz brwi",
+    id: "galeria-silky", label: "Silky · włos maszynowy", title: "Silky Hairstroke Brows. Włos maszynowy.",
+    text: "Autorska technika Bogusławy Herda. Pigmentowane linie odtwarzają kierunek i układ włosków — zobacz zbliżenia oraz efekt w szerszym kadrze.",
+    items: mediaLibrary.silky, serviceHref: "/makijaz-permanentny-brwi/", serviceLabel: "Poznaj brwi Silky",
   },
   {
-    id: "galeria-usta",
-    label: "Usta",
-    title: "Kolor, kontur i świeżość ust permanentnych.",
-    text: "Różne odcienie i stopnie nasycenia — od delikatnego odświeżenia po bardziej widoczny kolor.",
-    items: lipGalleryImages,
-    serviceHref: "/makijaz-permanentny-ust/",
-    serviceLabel: "Zobacz usta",
+    id: "galeria-brwi", label: "Brwi · metoda cienia", title: "Brwi metodą cienia. Miękki kolor i kształt.",
+    text: "Cieniowanie buduje kolor i kształt brwi. Widoczne naturalne włoski pozostają częścią brwi; nie oznaczają wykonania pigmentacji metodą włoskową.",
+    items: mediaLibrary.cien, serviceHref: "/makijaz-permanentny-brwi/", serviceLabel: "Poznaj metodę cienia",
   },
   {
-    id: "galeria-kreski",
-    label: "Kreski",
-    title: "Kreski, softliner i zagęszczenie linii rzęs.",
-    text: "Różne warianty podkreślenia oka dopasowane do powieki, linii rzęs i charakteru spojrzenia.",
-    items: eyeGalleryImages,
-    serviceHref: "/makijaz-permanentny-oczu/",
-    serviceLabel: "Zobacz kreski",
+    id: "galeria-kreski", label: "Oczy · kreski", title: "Kreski. Podkreślenie spojrzenia.",
+    text: "Zbliżenia linii rzęs i powiek. Porównaj subtelne podkreślenie z bardziej widocznym konturem oraz miękkim wykończeniem.",
+    items: mediaLibrary.oczy, serviceHref: "/makijaz-permanentny-oczu/", serviceLabel: "Zobacz ofertę kresek",
   },
   {
-    id: "galeria-szkolenia",
-    label: "Szkolenia",
-    title: "Praktyka, edukacja i zaplecze eksperckie.",
+    id: "galeria-usta", label: "Usta", title: "Usta. Kolor, kontur i proporcje.",
+    text: "Zbliżenia ust oraz kompozycje pokazujące kolor w kontekście twarzy. Zobacz różne odcienie i wykończenia — od satynowych po połysk.",
+    items: mediaLibrary.usta, serviceHref: "/makijaz-permanentny-ust/", serviceLabel: "Zobacz ofertę ust",
+  },
+  {
+    id: "galeria-szkolenia", label: "Szkolenia", title: "Praktyka, edukacja i zaplecze eksperckie.",
     text: "Wybrane materiały pokazujące pracę szkoleniową, certyfikację i rozwój warsztatu.",
-    items: trainingGalleryImages,
-    serviceHref: "/szkolenie-makijaz-permanentny/",
-    serviceLabel: "Zobacz szkolenia",
+    items: trainingGalleryImages, serviceHref: "/szkolenie-makijaz-permanentny/", serviceLabel: "Zobacz szkolenia",
   },
+];
+
+export const galleryAreas = [
+  { label: "Silky", title: "Silky · włos maszynowy", text: "Pigmentowane włoski", href: "#galeria-silky", image: mediaLibrary.silky[2] },
+  { label: "Cień", title: "Brwi metodą cienia", text: "Miękki kolor i kształt", href: "#galeria-brwi", image: mediaLibrary.cien[0] },
+  { label: "Oczy", title: "Oczy · kreski", text: "Podkreślenie spojrzenia", href: "#galeria-kreski", image: mediaLibrary.oczy[0] },
+  { label: "Usta", title: "Usta", text: "Kolor i kontur", href: "#galeria-usta", image: mediaLibrary.usta[22] },
 ];
 
 export const faqItems = [
   {
-    question: "Czy galeria pokazuje realne prace?",
+    question: "Jakie materiały znajdę w galerii?",
     answer:
-      "Tak. Galeria została zbudowana z wybranych materiałów pokazujących rzeczywiste efekty i sposób pracy.",
+      "Galeria obejmuje zbliżenia pigmentacji oraz kompozycje ilustracyjne pokazujące kolor i kształt w kontekście twarzy. Materiały są punktem odniesienia do rozmowy o oczekiwanym efekcie; indywidualny projekt dobieramy podczas kwalifikacji.",
   },
   {
     question: "Czy zdjęcia pokazują tylko świeży efekt?",
     answer:
-      "Galeria może zawierać zarówno świeże efekty po zabiegu, jak i materiały pokazujące spokojniejszy rezultat po wygojeniu, jeśli taki materiał jest dostępny.",
+      "Na podstawie samego zdjęcia nie należy oceniać etapu gojenia ani przewidywać własnego rezultatu. O konkretny materiał i efekt po wygojeniu możesz zapytać gabinet.",
   },
   {
     question: "Czy mogę zobaczyć więcej prac z konkretnego zabiegu?",
@@ -319,7 +143,7 @@ export const structuredData = [
     primaryImageOfPage: {
       "@type": "ImageObject",
       url:
-        "https://www.permanentnybielsko.com/images/brwi-permanentne-zblizenie-oka-naturalny-efekt.webp",
+        `https://www.permanentnybielsko.com${mediaLibrary.silky[2].src}`,
     },
   },
   {

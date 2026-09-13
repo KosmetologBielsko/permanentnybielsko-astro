@@ -6,27 +6,38 @@ import GuideAssistant from "../components/GuideAssistant.astro";
 import GalleryPhoto from "../components/GalleryPhoto.astro";
 import { Image } from "astro:assets";
 import { guideAuthorPortrait } from "../data/guide-series-01";
-import { booksyUrl, pageTitle, pageDescription, sections, videoGalleryItems, faqItems, structuredData } from "../data/pmu-gallery";
+import { booksyUrl, pageTitle, pageDescription, sections, galleryAreas, videoGalleryItems, faqItems, structuredData } from "../data/pmu-gallery";
 import thumbnails from "../data/pmu-gallery-thumbnails.json";
 import "../styles/pmu-gallery.css";
 const previewCount = 6;
 ---
 <Layout title={pageTitle} description={pageDescription} canonicalPath="/galeria/" structuredData={structuredData} inlineGuideAssistant>
   <Header compact />
-  <a class="pmu-gallery-skip" href="#galeria-brwi">Przejdź do zdjęć</a>
+  <a class="pmu-gallery-skip" href="#galeria-silky">Przejdź do zdjęć</a>
   <main class="pmu-gallery">
     <div class="pmu-gallery-shell">
       <nav class="pmu-gallery-breadcrumbs" aria-label="Okruszki nawigacyjne">
         <a href="/">Strona główna</a><span aria-hidden="true">/</span><span aria-current="page">Galeria PMU</span>
       </nav>
       <section class="pmu-gallery-intro" aria-labelledby="galeria-tytul">
-        <div><p class="pmu-gallery-kicker">Prace z gabinetu · Bielsko-Biała</p><h1 id="galeria-tytul">Galeria makijażu permanentnego.</h1></div>
-        <div><p class="pmu-gallery-lead">Brwi, usta i kreski. Zobacz detal pigmentacji i wybierz efekt bliski sobie. Dotknij zdjęcia, aby obejrzeć cały kadr.</p>
+        <div class="pmu-gallery-intro-copy">
+          <p class="pmu-gallery-kicker">Galeria PMU · Bielsko-Biała</p>
+          <h1 id="galeria-tytul">Galeria makijażu permanentnego.</h1>
+          <p class="pmu-gallery-lead">Zobacz detal. Znajdź swój kierunek. Porównaj brwi Silky z metodą cienia, obejrzyj kreski i wybierz inspirację dla ust.</p>
           <a class="pmu-gallery-author" href="/makijaz-permanentny-bielsko/#boguslawa-herda">
             <Image src={guideAuthorPortrait} alt="" width={92} height={92} fit="cover" position="top" format="webp" quality={82} loading="lazy" decoding="async" />
             <span><strong>Bogusława Herda</strong><span>Makijaż permanentny · Powrót do natury</span></span>
           </a>
         </div>
+        <nav class="pmu-gallery-overview" aria-label="Wybierz swój kierunek">
+          <p class="pmu-gallery-kicker">Cztery kierunki. Twój wybór.</p>
+          <ul>{galleryAreas.map((area) => <li><a href={area.href}>
+            <img src={area.image.thumb} srcset={area.image.srcset} sizes="64px" width="64" height="64" alt="" loading="eager" decoding="async" />
+            <span><strong>{area.title}</strong><small>{area.text}</small></span><span class="pmu-gallery-overview-arrow" aria-hidden="true">↓</span>
+          </a></li>)}</ul>
+          <p class="pmu-gallery-overview-note">Otwórz wybrane zdjęcie, aby zobaczyć cały kadr.</p>
+          <a class="pmu-gallery-primary" href="/cennik-makijaz-permanentny/">Porównaj ceny zabiegów <span aria-hidden="true">→</span></a>
+        </nav>
       </section>
       <nav class="pmu-gallery-nav" aria-label="Kategorie galerii">
         {sections.map((section) => <a href={`#${section.id}`}>{section.label}<span>{section.items.length}</span></a>)}
@@ -37,11 +48,11 @@ const previewCount = 6;
         <section class="pmu-gallery-section" id={section.id} data-pmu-gallery-section data-media-label={section.label}
           data-service-href={section.serviceHref} data-service-label={section.serviceLabel} aria-labelledby={`${section.id}-tytul`}>
           <div class="pmu-gallery-section-heading">
-            <div><p class="pmu-gallery-kicker">{section.label === "Brwi" ? "Brwi i Silky Hairstroke Brows" : section.label}</p><h2 id={`${section.id}-tytul`}>{section.title}</h2><p>{section.text}</p></div>
+            <div><p class="pmu-gallery-kicker">{section.label}</p><h2 id={`${section.id}-tytul`}>{section.title}</h2><p>{section.text}</p></div>
             <a href={section.serviceHref}>{section.serviceLabel} <span aria-hidden="true">→</span></a>
           </div>
           <div class="pmu-gallery-grid">
-            {section.items.slice(0, previewCount).map((image, index) => <GalleryPhoto image={image} priority={sectionIndex === 0 && index === 0} contain={section.id === "galeria-szkolenia"} />)}
+            {section.items.slice(0, previewCount).map((image, index) => <GalleryPhoto image={image} priority={false} contain={section.id === "galeria-szkolenia"} />)}
           </div>
           {section.items.length > previewCount && (
             <details class="pmu-gallery-more">

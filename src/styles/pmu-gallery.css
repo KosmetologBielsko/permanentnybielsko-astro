@@ -1,4 +1,4 @@
-/* PMU 09. Styl galerii izolowany od poradników i cennika. */
+/* PMU 10. Styl galerii izolowany od poradników i cennika. */
 .pmu-gallery-skip { position:fixed; top:8px; left:16px; z-index:1000; transform:translateY(-180%); padding:14px 20px; border:2px solid #126b65; border-radius:12px; background:#fff; color:#126b65; }
 .pmu-gallery-skip:focus { transform:none; }
 main.pmu-gallery {
@@ -87,13 +87,13 @@ main.pmu-gallery h1 { max-width:none; margin:0; font-size:clamp(2.2rem,4.4vw,3.6
 .pmu-gallery .pmu-gallery-dialog { position:fixed; inset:0; margin:auto; width:min(1100px,calc(100% - 24px)); height:min(940px,calc(100dvh - 24px)); max-width:none; max-height:none; padding:0; overflow:hidden; border:1px solid var(--gallery-line); border-radius:22px; background:#fff; color:var(--gallery-ink); }
 .pmu-gallery .pmu-gallery-dialog:not([open]) { display:none; }
 .pmu-gallery .pmu-gallery-dialog::backdrop { background:#1e191acc; }
-.pmu-gallery .pmu-gallery-dialog-shell { display:grid; grid-template-rows:auto minmax(0,1fr) auto auto auto; width:100%; height:100%; padding:12px 20px; }
+.pmu-gallery .pmu-gallery-dialog-shell { display:grid; grid-template-rows:auto minmax(0,1fr) auto auto auto; min-height:0; width:100%; height:100%; padding:12px 20px; }
 .pmu-gallery .pmu-gallery-dialog-head { display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:10px; }
 .pmu-gallery .pmu-gallery-dialog-head p { color:var(--gallery-ink); font-size:.9rem; font-weight:700; }
 .pmu-gallery .pmu-gallery-dialog button { display:grid; place-items:center; flex:0 0 44px; min-width:44px; width:44px; height:44px; padding:0; border:1px solid #c9dad5; border-radius:50%; background:#fff; color:var(--gallery-teal); font:inherit; font-size:1.5rem; line-height:1; cursor:pointer; }
 .pmu-gallery .pmu-gallery-dialog button:hover { background:var(--gallery-mint); }
 .pmu-gallery .pmu-gallery-dialog-stage { position:relative; display:grid; place-items:center; min-height:0; overflow:hidden; border-radius:12px; background:#f7f5f4; touch-action:pan-y pinch-zoom; overscroll-behavior:contain; }
-.pmu-gallery .pmu-gallery-dialog-stage :is(img,video) { display:block; width:100%; height:100%; max-width:100%; max-height:100%; object-fit:contain; }
+.pmu-gallery .pmu-gallery-dialog-stage :is(img,video) { position:absolute; inset:0; display:block; margin:0; width:100%; height:100%; min-width:0; min-height:0; max-width:100%; max-height:100%; object-fit:contain; object-position:center; aspect-ratio:auto; transform:none; }
 .pmu-gallery .pmu-gallery-dialog-stage p { padding:24px; text-align:center; font-size:.94rem; }
 .pmu-gallery .pmu-gallery-dialog-caption { padding:12px 0 4px; font-size:.85rem; line-height:1.5; }
 .pmu-gallery .pmu-gallery-dialog-controls { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:12px; }
@@ -143,4 +143,29 @@ main.pmu-gallery h1 { max-width:none; margin:0; font-size:clamp(2.2rem,4.4vw,3.6
   .pmu-gallery .pmu-gallery-dialog-shell { grid-template-rows:auto minmax(0,1fr) auto; }
   .pmu-gallery .pmu-gallery-dialog-caption, .pmu-gallery .pmu-gallery-dialog-service { display:none; }
   .pmu-gallery .pmu-gallery-dialog-head { padding-bottom:4px; }
+}
+
+/* PMU 10: panel otwierający w stylu cennika. */
+.pmu-gallery .pmu-gallery-intro-copy h1 { margin-bottom:22px; }
+.pmu-gallery .pmu-gallery-intro-copy .pmu-gallery-lead { margin-bottom:26px; }
+.pmu-gallery .pmu-gallery-overview { padding:28px; border:1px solid #d4e7e2; border-radius:28px; background:linear-gradient(135deg,var(--gallery-mint),#fff); }
+.pmu-gallery .pmu-gallery-overview ul { margin:0; padding:0; list-style:none; }
+.pmu-gallery .pmu-gallery-overview li { margin:0; border-bottom:1px solid #d4e7e2; }
+.pmu-gallery .pmu-gallery-overview li a { display:grid; grid-template-columns:64px minmax(0,1fr) 22px; align-items:center; gap:14px; padding:13px 0; min-height:80px; }
+.pmu-gallery .pmu-gallery-overview li a:hover { text-decoration:none; }
+.pmu-gallery .pmu-gallery-overview li a:hover strong { text-decoration:underline; }
+.pmu-gallery .pmu-gallery-overview img { width:64px; height:64px; display:block; border-radius:14px; object-fit:cover; }
+.pmu-gallery .pmu-gallery-overview strong { display:block; color:var(--gallery-ink); font-size:1rem; line-height:1.4; }
+.pmu-gallery .pmu-gallery-overview small { display:block; margin-top:4px; color:var(--gallery-muted); font-size:.76rem; line-height:1.5; }
+.pmu-gallery .pmu-gallery-overview-arrow { color:var(--gallery-teal); font-size:1.3rem; }
+.pmu-gallery .pmu-gallery-overview .pmu-gallery-overview-note { margin:16px 0; font-size:.8rem; line-height:1.6; }
+.pmu-gallery .pmu-gallery-overview > .pmu-gallery-primary { width:100%; }
+@media (max-width:640px) {
+  .pmu-gallery .pmu-gallery-intro-copy h1 { margin-bottom:16px; }
+  .pmu-gallery .pmu-gallery-intro-copy .pmu-gallery-lead { margin-bottom:20px; }
+  .pmu-gallery .pmu-gallery-overview { padding:20px; border-radius:22px; }
+  .pmu-gallery .pmu-gallery-overview li a { grid-template-columns:48px minmax(0,1fr) 18px; gap:12px; min-height:68px; padding:10px 0; }
+  .pmu-gallery .pmu-gallery-overview img { width:48px; height:48px; border-radius:11px; }
+  .pmu-gallery .pmu-gallery-overview strong { font-size:.9rem; }
+  .pmu-gallery .pmu-gallery-overview small { font-size:.71rem; }
 }
