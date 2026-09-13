@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import type { GuideMedia } from "../data/guide-series-01";
+interface Props {
+  article: { slug: string; title: string; cardTitle: string; category: string; description: string; href: string; readingTime: string; groups: string[] };
+  media: GuideMedia;
+}
+const { article, media } = Astro.props;
+---
+<article class="hub-entry" data-hub-entry={article.slug}
+  data-title={article.title} data-groups={article.groups.join(" ")}
+  data-search={`${article.cardTitle} ${article.title} ${article.description} ${article.category}`}>
+  <a class="hub-entry-link" href={article.href} aria-label={article.title}>
+    <div class="hub-entry-photo">
+      <Image src={media.cover.src} alt={media.cover.alt} width={288} height={288}
+        widths={[96, 192, 288]} sizes="(max-width: 640px) 88px, 112px"
+        fit="cover" format="webp" quality={76} loading="lazy" decoding="async" />
+    </div>
+    <div class="hub-entry-copy">
+      <span class="hub-entry-category">{article.category}</span>
+      <h3>{article.cardTitle}</h3>
+      <p>{article.description}</p>
+      <span class="hub-entry-meta"><span>{article.readingTime}</span><span class="hub-entry-read">Czytaj <span aria-hidden="true">↗</span></span></span>
+    </div>
+  </a>
+</article>

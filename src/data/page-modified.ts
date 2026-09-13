@@ -1,6 +1,7 @@
 // Rzeczywiste daty zmian w treści. Zaktualizuj także metadata artykułu.
 // Nieznana data: pomijamy lastmod. Data builda nie jest datą aktualizacji.
 export const pageModified: Readonly<Record<string, string>> = {
+  "/poradnik/": "2026-09-13",
   "/poradnik/botoks-a-makijaz-permanentny-brwi/": "2026-09-09",
   "/poradnik/brwi-permanentne-dzien-po-dniu/": "2026-09-09",
   "/poradnik/brwi-permanentne-po-latach/": "2026-09-09",
