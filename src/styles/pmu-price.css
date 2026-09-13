@@ -1,0 +1,148 @@
+/* PMU 08: cennik w stylu zaakceptowanego poradnika 07. */
+.pmu-price-skip { position:fixed; top:8px; left:16px; z-index:1000; transform:translateY(-180%); padding:14px 20px; border:2px solid #126b65; border-radius:12px; background:#fff; color:#126b65; }
+.pmu-price-skip:focus { transform:none; }
+main.pmu-price {
+  --price-ink:#292323; --price-muted:#625958; --price-teal:#126b65;
+  --price-line:#e8dfe2; --price-rose:#fcf3f6; --price-mint:#eff8f5;
+  padding:126px 0 64px; background:linear-gradient(180deg,#fff9fb 0,#fff 850px);
+  color:var(--price-ink); font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  font-size:1rem; line-height:1.65; letter-spacing:-.015em;
+}
+.pmu-price *, .pmu-price *::before, .pmu-price *::after { box-sizing:border-box; }
+.pmu-price :is(section,div,aside,article,nav,dl,dt,dd) { min-width:0; }
+.pmu-price .pmu-price-shell { width:min(1100px,calc(100% - 56px)); margin-inline:auto; }
+.pmu-price :is(h1,h2,h3,p,dl,dd) { margin:0; }
+.pmu-price :is(h1,h2,h3) { color:var(--price-ink); text-wrap:balance; word-break:normal; overflow-wrap:break-word; }
+main.pmu-price h1 { max-width:none; margin:0 0 20px; font-size:clamp(2.2rem,4.4vw,3.65rem); line-height:1.08; font-weight:760; letter-spacing:-.045em; }
+.pmu-price h2 { margin:0 0 20px; font-size:clamp(1.7rem,3.2vw,2.6rem); line-height:1.18; font-weight:720; letter-spacing:-.035em; }
+.pmu-price h3 { margin:0 0 10px; font-size:1.35rem; line-height:1.3; font-weight:730; letter-spacing:-.025em; }
+.pmu-price p { color:var(--price-muted); line-height:1.7; }
+.pmu-price a { color:var(--price-teal); text-decoration:none; text-underline-offset:4px; }
+.pmu-price a:hover { text-decoration:underline; }
+.pmu-price :is(a,button,summary):focus-visible { outline:3px solid var(--price-teal); outline-offset:4px; }
+.pmu-price :is([id],details) { scroll-margin-top:120px; }
+.pmu-price .pmu-price-kicker { margin:0 0 12px; color:var(--price-teal); font-size:.73rem; font-weight:800; line-height:1.45; letter-spacing:.105em; text-transform:uppercase; }
+.pmu-price .pmu-price-breadcrumbs { display:flex; flex-wrap:wrap; gap:6px 10px; margin-bottom:30px; color:var(--price-muted); font-size:.8rem; }
+.pmu-price .pmu-price-intro { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); align-items:center; gap:48px; }
+.pmu-price .pmu-price-intro > * { min-width:0; max-width:100%; }
+.pmu-price .pmu-price-lead { margin-bottom:26px; font-size:1.12rem; line-height:1.7; }
+.pmu-price .pmu-price-author { display:flex; align-items:center; gap:11px; width:fit-content; max-width:100%; min-height:46px; }
+.pmu-price .pmu-price-author img { flex:0 0 46px; width:46px; height:46px; border:1px solid var(--price-line); border-radius:50%; object-fit:cover; object-position:top; background:#fff; }
+.pmu-price .pmu-price-author > span { display:grid; min-width:0; gap:3px; }
+.pmu-price .pmu-price-author strong { color:var(--price-ink); font-size:.88rem; font-weight:760; line-height:1.3; }
+.pmu-price .pmu-price-author span span { color:var(--price-muted); font-size:.75rem; line-height:1.45; }
+.pmu-price .pmu-price-overview { padding:28px; border:1px solid #d4e7e2; border-radius:28px; background:linear-gradient(135deg,var(--price-mint),#fff); }
+.pmu-price .pmu-price-overview ul { margin:0; padding:0; list-style:none; }
+.pmu-price .pmu-price-overview li { border-bottom:1px solid #d4e7e2; }
+.pmu-price .pmu-price-overview li a { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; align-items:center; padding:16px 0; }
+.pmu-price .pmu-price-overview li:first-child a { padding-top:6px; }
+.pmu-price .pmu-price-overview li strong { display:block; color:var(--price-ink); font-size:1.05rem; line-height:1.4; }
+.pmu-price .pmu-price-overview li small { display:block; margin-top:4px; color:var(--price-muted); font-size:.76rem; line-height:1.5; }
+.pmu-price .pmu-price-overview-amount { color:var(--price-teal); font-size:1.2rem; font-weight:760; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.pmu-price .pmu-price-overview-amount > span { font-size:1rem; font-weight:500; }
+.pmu-price .pmu-price-overview-note { margin:18px 0; font-size:.84rem; line-height:1.6; }
+.pmu-price :is(.pmu-price-primary,.pmu-price-secondary) { display:inline-flex; justify-content:center; align-items:center; gap:10px; min-height:48px; max-width:100%; padding:13px 20px; border:1px solid var(--price-teal); border-radius:14px; font-size:.95rem; line-height:1.45; font-weight:730; text-align:center; text-decoration:none; }
+.pmu-price .pmu-price-primary { background:var(--price-teal); color:#fff; }
+.pmu-price .pmu-price-primary:hover { background:#0e5752; color:#fff; text-decoration:none; }
+.pmu-price .pmu-price-secondary { border-color:#bfd6d0; background:#fff; }
+.pmu-price .pmu-price-secondary:hover { background:var(--price-mint); text-decoration:none; }
+.pmu-price .pmu-price-overview .pmu-price-primary { display:flex; width:100%; }
+.pmu-price .pmu-price-catalog { margin-top:52px; padding-top:36px; border-top:1px solid var(--price-line); }
+.pmu-price .pmu-price-catalog > h2 { max-width:780px; }
+.pmu-price .pmu-price-nav { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+.pmu-price .pmu-price-nav a { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:44px; max-width:100%; padding:9px 14px; border:1px solid var(--price-line); border-radius:999px; background:#fff; color:var(--price-ink); font-size:.87rem; line-height:1.4; }
+.pmu-price .pmu-price-nav a:hover { border-color:#a7c9bf; background:var(--price-mint); text-decoration:none; }
+.pmu-price .pmu-price-nav a span { color:var(--price-teal); }
+.pmu-price .pmu-price-catalog-note { margin-bottom:10px; font-size:.86rem; }
+.pmu-price .pmu-price-catalog-note a { text-decoration:underline; }
+.pmu-price .pmu-price-group { display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1.6fr); gap:48px; padding:36px 0; border-bottom:1px solid var(--price-line); }
+.pmu-price .pmu-price-group:target h3 { color:var(--price-teal); }
+.pmu-price .pmu-price-group-photo { display:block; width:96px; height:96px; margin-bottom:20px; border-radius:20px; object-fit:cover; background:var(--price-rose); }
+.pmu-price .pmu-price-group-intro p { font-size:.89rem; line-height:1.65; }
+.pmu-price .pmu-price-list { padding:0 22px; border:1px solid var(--price-line); border-radius:20px; background:#fff; }
+.pmu-price .pmu-price-row { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,auto); align-items:start; gap:10px 24px; padding:20px 0; border-bottom:1px solid var(--price-line); }
+.pmu-price .pmu-price-row:last-child { border-bottom:0; }
+.pmu-price .pmu-price-row dt { font-size:1rem; font-weight:650; line-height:1.5; overflow-wrap:break-word; }
+.pmu-price .pmu-price-time { display:block; margin-top:5px; color:var(--price-muted); font-size:.79rem; font-weight:400; line-height:1.5; }
+.pmu-price .pmu-price-row dd { color:var(--price-teal); font-size:1.22rem; line-height:1.4; font-weight:760; font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
+.pmu-price .pmu-price-row-text { grid-template-columns:minmax(0,1fr) minmax(0,.7fr); }
+.pmu-price .pmu-price-row-text dd { font-size:1rem; white-space:normal; overflow-wrap:break-word; }
+.pmu-price .pmu-price-details { margin:12px 0 0; padding:0; border:0; background:transparent; }
+.pmu-price summary { list-style:none; cursor:pointer; }
+.pmu-price summary::-webkit-details-marker { display:none; }
+.pmu-price .pmu-price-details > summary { display:flex; justify-content:space-between; align-items:center; gap:16px; min-height:44px; padding:10px 0; color:var(--price-muted); font-size:.86rem; font-weight:550; line-height:1.5; }
+.pmu-price summary > span { flex:0 0 20px; color:var(--price-teal); font-size:1.4rem; font-weight:400; text-align:center; }
+.pmu-price details[open] > summary > span { transform:rotate(45deg); }
+.pmu-price .pmu-price-details-copy { padding:8px 0; }
+.pmu-price .pmu-price-details-copy p { margin-bottom:12px; font-size:.9rem; }
+.pmu-price .pmu-price-group-links { display:flex; justify-content:space-between; flex-wrap:wrap; gap:0 24px; }
+.pmu-price .pmu-price-group-links a { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:8px 0; font-size:.86rem; font-weight:650; }
+.pmu-price .pmu-price-rules { margin-top:52px; }
+.pmu-price .pmu-price-rule-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.pmu-price .pmu-price-rule-grid article { padding:24px; border:1px solid var(--price-line); border-radius:22px; background:var(--price-rose); }
+.pmu-price .pmu-price-rule-grid h3 { font-size:1.13rem; }
+.pmu-price .pmu-price-rule-grid p { font-size:.9rem; }
+.pmu-price .pmu-price-rule-mark { display:block; margin-bottom:18px; color:var(--price-teal); font-size:.83rem; font-weight:750; }
+.pmu-price .pmu-price-formal { margin-top:20px; }
+.pmu-price .pmu-price-formal p { margin-bottom:10px; font-size:.83rem; }
+.pmu-price .pmu-price-formal a { text-decoration:underline; }
+.pmu-price .pmu-price-booking { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:36px; align-items:center; margin-top:48px; padding:32px; border:1px solid #d4e7e2; border-radius:28px; background:var(--price-mint); }
+.pmu-price .pmu-price-booking h2 { font-size:clamp(1.65rem,2.6vw,2.1rem); }
+.pmu-price .pmu-price-booking-actions { display:grid; min-width:0; gap:12px; }
+.pmu-price .pmu-price-text-link { display:flex; align-items:center; justify-content:center; min-height:44px; padding:8px 0; font-size:.87rem; font-weight:650; text-align:center; }
+.pmu-price .pmu-price-faq { margin-top:48px; padding-top:36px; border-top:1px solid var(--price-line); }
+.pmu-price .pmu-price-faq > details { margin:0; padding:0; border:0; border-bottom:1px solid var(--price-line); border-radius:0; background:transparent; box-shadow:none; }
+.pmu-price .pmu-price-faq > details > summary { display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:64px; padding:18px 0; font-size:1rem; line-height:1.5; font-weight:700; }
+.pmu-price .pmu-price-faq > details > p { max-width:75ch; margin:0; padding-bottom:22px; }
+.pmu-price .pmu-price-guide-link { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:4px 24px; margin-top:32px; }
+.pmu-price .pmu-price-guide-link a { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:8px 0; font-size:.94rem; font-weight:650; }
+@media (max-width:900px) {
+  .pmu-price .pmu-price-intro { grid-template-columns:minmax(0,1fr); gap:26px; }
+  .pmu-price .pmu-price-group { grid-template-columns:minmax(0,1fr); gap:20px; }
+  .pmu-price .pmu-price-group-intro { display:flex; align-items:center; gap:20px; }
+  .pmu-price .pmu-price-group-photo { flex:0 0 96px; margin-bottom:0; }
+  .pmu-price .pmu-price-group-intro > div { max-width:650px; }
+  .pmu-price .pmu-price-rule-grid { grid-template-columns:minmax(0,1fr); gap:12px; }
+  .pmu-price .pmu-price-rule-mark { margin-bottom:10px; }
+  .pmu-price .pmu-price-booking { grid-template-columns:minmax(0,1fr); gap:24px; }
+}
+@media (max-width:640px) {
+  main.pmu-price { padding-top:90px; padding-bottom:42px; }
+  .pmu-price .pmu-price-shell { width:calc(100% - 36px); }
+  .pmu-price .pmu-price-breadcrumbs { display:none; }
+  main.pmu-price h1 { margin-bottom:16px; font-size:clamp(1.95rem,8.5vw,2.6rem); line-height:1.1; }
+  .pmu-price h2 { font-size:clamp(1.55rem,7vw,2rem); }
+  .pmu-price .pmu-price-kicker { margin-bottom:10px; font-size:.67rem; }
+  .pmu-price .pmu-price-lead { margin-bottom:20px; font-size:1.06rem; line-height:1.65; }
+  .pmu-price .pmu-price-overview { padding:22px 20px; border-radius:22px; }
+  .pmu-price .pmu-price-overview li a { padding:13px 0; }
+  .pmu-price .pmu-price-overview li small { display:none; }
+  .pmu-price .pmu-price-overview-amount { font-size:1.18rem; }
+  .pmu-price .pmu-price-catalog { margin-top:32px; padding-top:28px; }
+  .pmu-price .pmu-price-nav { gap:8px 6px; }
+  .pmu-price .pmu-price-nav a { padding:9px 12px; font-size:.83rem; }
+  .pmu-price .pmu-price-group { padding:28px 0; gap:18px; }
+  .pmu-price .pmu-price-group-intro { gap:16px; align-items:start; }
+  .pmu-price .pmu-price-group-photo { flex-basis:64px; width:64px; height:64px; border-radius:15px; }
+  .pmu-price .pmu-price-group-intro h3 { margin-bottom:8px; font-size:1.22rem; text-wrap:pretty; }
+  .pmu-price .pmu-price-group-intro p { font-size:.84rem; }
+  .pmu-price .pmu-price-list { padding-inline:16px; border-radius:18px; }
+  .pmu-price .pmu-price-row { gap:10px 14px; padding:18px 0; }
+  .pmu-price .pmu-price-row dt { font-size:.95rem; }
+  .pmu-price .pmu-price-row dd { font-size:1.12rem; }
+  .pmu-price .pmu-price-row-text { grid-template-columns:minmax(0,1fr); gap:6px; }
+  .pmu-price .pmu-price-row-text dd { font-size:1rem; text-align:left; }
+  .pmu-price .pmu-price-group-links { gap:0 16px; }
+  .pmu-price .pmu-price-group-links a { font-size:.83rem; }
+  .pmu-price .pmu-price-rules { margin-top:32px; }
+  .pmu-price .pmu-price-rule-grid article { padding:22px 20px; }
+  .pmu-price .pmu-price-booking { margin-top:32px; padding:24px 20px; border-radius:22px; }
+  .pmu-price .pmu-price-faq { margin-top:32px; padding-top:28px; }
+  .pmu-price :is([id],details) { scroll-margin-top:90px; }
+}
+@media (max-width:360px) {
+  .pmu-price .pmu-price-overview { padding-inline:16px; }
+  .pmu-price .pmu-price-list { padding-inline:12px; }
+  .pmu-price .pmu-price-row { column-gap:10px; }
+  .pmu-price .pmu-price-row dd { font-size:1rem; }
+}
