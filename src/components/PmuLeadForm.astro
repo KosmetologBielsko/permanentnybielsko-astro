@@ -1,0 +1,312 @@
+---
+interface Props { pageUrl: string; }
+const { pageUrl } = Astro.props;
+---
+<form
+            class="pmu-lead-form"
+            action="https://formspree.io/f/mjgnwzvp"
+            method="POST"
+            data-pmu-lead-form
+          >
+            <div class="pmu-form-heading">
+              <strong>Formularz PMU</strong>
+              <span>Odpowiemy w sprawie kwalifikacji i dalszego kroku.</span>
+            </div>
+            <label>
+              Imię
+              <input
+                type="text"
+                name="name"
+                autocomplete="name"
+                required
+              />
+            </label>
+            <label>
+              Telefon
+              <input
+                type="tel"
+                name="phone"
+                autocomplete="tel"
+                inputmode="tel"
+                required
+              />
+            </label>
+            <label>
+              Jaki zabieg Cię interesuje?
+              <select name="service">
+                <option value="">Wybierz</option>
+                <option>Brwi permanentne</option>
+                <option>Usta permanentne</option>
+                <option>Kreska permanentna</option>
+                <option>Usuwanie PMU</option>
+                <option>Nie wiem — potrzebuję konsultacji</option>
+              </select>
+            </label>
+            <label>
+              Czy był wcześniej makijaż permanentny?
+              <select name="old_pmu">
+                <option value="">Wybierz</option>
+                <option>Tak</option>
+                <option>Nie</option>
+                <option>Nie jestem pewna</option>
+              </select>
+            </label>
+            <label class="pmu-lead-wide">
+              Krótka wiadomość
+              <textarea
+                name="message"
+                rows="4"
+                placeholder="Np. mam stare brwi permanentne i nie wiem, czy można je odświeżyć."
+              ></textarea>
+            </label>
+            <input
+              class="pmu-lead-hidden"
+              type="text"
+              name="_gotcha"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+            <input
+              type="hidden"
+              name="_subject"
+              value="Nowe zapytanie PMU — Permanentny Bielsko"
+            />
+            <input
+              type="hidden"
+              name="page"
+              value={pageUrl}
+            />
+            <label class="pmu-lead-consent">
+              <input type="checkbox" name="consent" value="yes" required />
+              <span>
+                Wyrażam zgodę na kontakt w odpowiedzi na przesłane zapytanie.
+              </span>
+            </label>
+            <p class="pmu-lead-privacy"><a href="/rodo-polityka-prywatnosci-regulamin/">Polityka prywatności i zasady kontaktu →</a></p>
+            <button class="pmu-lead-submit" type="submit">
+              Wyślij formularz PMU
+            </button>
+            <p
+              class="pmu-lead-status"
+              data-pmu-lead-status
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
+          </form>
+<script is:inline>
+
+  (() => {
+
+    const formElement = document.querySelector("[data-pmu-lead-form]");
+
+    if (!(formElement instanceof HTMLFormElement)) {
+
+      return;
+
+    }
+
+    const form = formElement;
+
+    const statusElement = form.querySelector("[data-pmu-lead-status]");
+
+    const endpoint = "https://formspree.io/f/mjgnwzvp";
+
+    form.addEventListener("submit", async (event) => {
+
+      event.preventDefault();
+
+      const submitButtonElement = form.querySelector('button[type="submit"]');
+
+      const submitButton =
+
+        submitButtonElement instanceof HTMLButtonElement
+
+          ? submitButtonElement
+
+          : null;
+
+      const status =
+
+        statusElement instanceof HTMLElement
+
+          ? statusElement
+
+          : null;
+
+      const formData = new FormData(form);
+
+      formData.set("page", window.location.href);
+
+      formData.set("_subject", "Nowe zapytanie PMU — Permanentny Bielsko");
+
+      if (submitButton) {
+
+        submitButton.disabled = true;
+
+        submitButton.textContent = "Wysyłanie...";
+
+      }
+
+      if (status) {
+
+        status.hidden = false;
+
+        status.textContent = "Wysyłamy zapytanie...";
+
+      }
+
+      try {
+
+        const response = await fetch(endpoint, {
+
+          method: "POST",
+
+          body: formData,
+
+          headers: {
+
+            Accept: "application/json"
+
+          }
+
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+
+          const errors =
+
+            data &&
+
+            typeof data === "object" &&
+
+            Array.isArray(data.errors)
+
+              ? data.errors
+
+              : [];
+
+          const formspreeMessage = errors
+
+            .map((item) => {
+
+              if (
+
+                item &&
+
+                typeof item === "object" &&
+
+                "message" in item &&
+
+                typeof item.message === "string"
+
+              ) {
+
+                return item.message;
+
+              }
+
+              return "";
+
+            })
+
+            .filter(Boolean)
+
+            .join(" ");
+
+          throw new Error(
+
+            formspreeMessage || "Nie udało się wysłać formularza."
+
+          );
+
+        }
+
+        if (status) {
+
+          status.textContent =
+
+            "Dziękujemy. Formularz został wysłany. Gabinet skontaktuje się w sprawie kwalifikacji.";
+
+        }
+
+        form.reset();
+
+        const gtag = window["gtag"];
+
+        if (typeof gtag === "function") {
+
+          gtag("event", "conversion", {
+
+            send_to: "AW-18200277713/3I8RCPuF8NIcENHlyOZD",
+
+            value: 1.0,
+
+            currency: "PLN"
+
+          });
+
+          gtag("event", "pmu_lead_submit", {
+
+            event_category: "lead",
+
+            event_label: "Formularz kwalifikacji PMU"
+
+          });
+
+        }
+
+      } catch (error) {
+
+        if (status) {
+
+          status.textContent =
+
+            error instanceof Error && error.message
+
+              ? error.message
+
+              : "Nie udało się wysłać zapytania. Prosimy zadzwonić do gabinetu.";
+
+        }
+
+      } finally {
+
+        if (submitButton) {
+
+          submitButton.disabled = false;
+
+          submitButton.textContent = "Wyślij formularz PMU";
+
+        }
+
+      }
+
+    });
+
+  })();
+
+</script>
+<style>
+.pmu-lead-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 18px; width:100%; min-width:0; margin:0; padding:28px; border:1px solid #e8dfe2; border-radius:24px; background:#fff; color:#292323; }
+.pmu-lead-form * { box-sizing:border-box; min-width:0; }
+.pmu-form-heading,.pmu-lead-wide,.pmu-lead-consent,.pmu-lead-submit,.pmu-lead-status,.pmu-lead-privacy { grid-column:1 / -1; }
+.pmu-form-heading strong { display:block; margin-bottom:5px; font-size:1.35rem; }
+.pmu-form-heading span { color:#625958; font-size:.88rem; }
+.pmu-lead-form label { display:grid; gap:8px; font-size:.88rem; line-height:1.5; font-weight:650; }
+.pmu-lead-form :is(input:not([type="checkbox"]),select,textarea) { width:100%; max-width:100%; min-height:50px; margin:0; padding:12px; border:1px solid #cdbfc3; border-radius:10px; background:#fff; color:#292323; font:inherit; font-size:1rem; font-weight:400; line-height:1.5; }
+.pmu-lead-form textarea { resize:vertical; min-height:126px; }
+.pmu-lead-form :is(input,select,textarea,button):focus-visible { outline:3px solid #126b65; outline-offset:3px; }
+.pmu-lead-form .pmu-lead-hidden { display:none; }
+.pmu-lead-form .pmu-lead-consent { display:flex; align-items:flex-start; gap:12px; min-height:44px; font-weight:400; }
+.pmu-lead-consent input { flex:0 0 22px; width:22px; height:22px; margin:2px 0 0; accent-color:#126b65; }
+.pmu-lead-form .pmu-lead-privacy { margin:-12px 0 0; font-size:.8rem; }
+.pmu-lead-form .pmu-lead-submit { width:100%; min-height:52px; padding:14px 18px; border:1px solid #126b65; border-radius:14px; background:#126b65; color:#fff; font:inherit; font-weight:730; line-height:1.4; cursor:pointer; }
+.pmu-lead-submit:hover { background:#0e5752; }.pmu-lead-submit:disabled { opacity:.6; cursor:wait; }
+.pmu-lead-form .pmu-lead-status { margin:0; padding:14px; border-radius:12px; background:#eff8f5; font-size:.92rem; overflow-wrap:anywhere; }
+.pmu-lead-status[hidden] { display:none; }
+@media(max-width:640px) { .pmu-lead-form { grid-template-columns:minmax(0,1fr); padding:22px 18px; gap:18px; border-radius:20px; } }
+</style>

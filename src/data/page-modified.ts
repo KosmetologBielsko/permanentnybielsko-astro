@@ -1,6 +1,7 @@
 // Rzeczywiste daty zmian w treści. Zaktualizuj także metadata artykułu.
 // Nieznana data: pomijamy lastmod. Data builda nie jest datą aktualizacji.
 export const pageModified: Readonly<Record<string, string>> = {
+  "/makijaz-permanentny-bielsko/": "2026-09-14",
   "/kontakt/": "2026-09-14",
   "/galeria/": "2026-09-13",
   "/cennik-makijaz-permanentny/": "2026-09-13",
