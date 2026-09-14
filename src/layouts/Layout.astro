@@ -38,7 +38,7 @@ const {
 const canonicalUrl = getCanonicalUrl(canonicalPath ?? Astro.url.pathname);
 const pagePath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 const isPoradnikArticle = pagePath.startsWith("/poradnik/");
-const showSilkyPopup = pagePath === "/" || pagePath === "/makijaz-permanentny-brwi";
+const showSilkyPopup = pagePath === "/makijaz-permanentny-brwi";
 const ogImageUrl = getOgImageUrl(ogImage);
 
 const robotsContent =
@@ -156,7 +156,7 @@ const structuredDataJson = JSON.stringify(allStructuredData).replace(/</g, "\\u0
 
     {isPoradnikArticle && showGuideSocial && <PoradnikSocialBridge />}
 
-    <AssistantWidget inlineLauncher={(isPoradnikArticle || pagePath === "/poradnik" || pagePath === "/cennik-makijaz-permanentny" || pagePath === "/galeria" || pagePath === "/kontakt" || pagePath === "/makijaz-permanentny-bielsko") && inlineGuideAssistant} />
+    <AssistantWidget inlineLauncher={(isPoradnikArticle || pagePath === "/" || pagePath === "/poradnik" || pagePath === "/cennik-makijaz-permanentny" || pagePath === "/galeria" || pagePath === "/kontakt" || pagePath === "/makijaz-permanentny-bielsko") && inlineGuideAssistant} />
     {showSilkyPopup && <SilkyPopup />}
     <CookieConsent />
   </body>

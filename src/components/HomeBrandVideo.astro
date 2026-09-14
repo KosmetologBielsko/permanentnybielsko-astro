@@ -1,0 +1,41 @@
+<figure class="home-brand-video" data-home-brand-video>
+  <video controls playsinline preload="none" poster="/video/boguslawa-herda-pmu-home-poster.webp" width="1280" height="720" aria-label="Powrót do natury w praktyce — film Bogusława Herda">
+    <source src="/video/boguslawa-herda-pmu-home-video-light.mp4" media="(max-width: 640px)" type="video/mp4" />
+    <source src="/video/boguslawa-herda-pmu-home-video.mp4" type="video/mp4" />
+    Twoja przeglądarka nie obsługuje filmu. <a href="/video/boguslawa-herda-pmu-home-video.mp4">Otwórz film</a>.
+  </video>
+  <figcaption><span>Bogusława Herda · Powrót do natury · 22 sekundy</span><button type="button" data-home-video-fullscreen hidden>Pełny ekran <span aria-hidden="true">↗</span></button></figcaption>
+  <p class="home-video-status" role="status" aria-live="polite" hidden></p>
+</figure>
+
+<script>
+  const wrapper = document.querySelector<HTMLElement>('[data-home-brand-video]');
+  const video = wrapper?.querySelector('video') as (HTMLVideoElement & { webkitEnterFullscreen?: () => void }) | null;
+  const button = wrapper?.querySelector<HTMLButtonElement>('[data-home-video-fullscreen]');
+  const status = wrapper?.querySelector<HTMLElement>('[role="status"]');
+  if (video && button && (typeof video.requestFullscreen === 'function' || typeof video.webkitEnterFullscreen === 'function')) {
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      try {
+        if (typeof video.webkitEnterFullscreen === 'function') video.webkitEnterFullscreen();
+        else await video.requestFullscreen();
+        if (status) status.hidden = true;
+      } catch {
+        if (status) { status.hidden = false; status.textContent = 'Uruchom film i użyj ikony pełnego ekranu w odtwarzaczu.'; }
+      }
+    });
+  }
+</script>
+
+<style>
+  .home-brand-video { width:100%; margin:0; min-width:0; }
+  .home-brand-video video { display:block; width:100%; height:auto; aspect-ratio:16 / 9; object-fit:contain; border-radius:26px; background:#222; }
+  .home-brand-video figcaption { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px 20px; margin-top:12px; color:#625958; font-size:.82rem; line-height:1.5; }
+  .home-brand-video button { min-height:44px; padding:9px 16px; border:1px solid #bfd6d0; border-radius:12px; background:#fff; color:#126b65; font:inherit; font-weight:700; cursor:pointer; }
+  .home-brand-video button:hover { background:#eff8f5; }
+  .home-brand-video button:focus-visible { outline:3px solid #126b65; outline-offset:3px; }
+  .home-brand-video [hidden] { display:none; }
+  .home-brand-video video:fullscreen { width:100vw; height:100vh; object-fit:contain; border-radius:0; }
+  .home-video-status { margin-top:10px; font-size:.85rem; }
+  @media(max-width:640px) { .home-brand-video video { border-radius:18px; } }
+</style>
