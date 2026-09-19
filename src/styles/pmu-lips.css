@@ -1,0 +1,16 @@
+/* PMU 15: korzysta z niezmienionego szablonu PMU 12/14 i galerii.
+   Tylko roznice strony Usta; selektory nie dotykaja innych podstron. */
+.pmu-lips .pmu-lips-hero-price { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; margin-top:20px; }
+.pmu-lips .pmu-lips-hero-price strong { color:var(--landing-teal); font-size:1.35rem; font-weight:750; white-space:nowrap; }
+.pmu-lips .pmu-lips-hero-price span { font-size:.82rem; }
+.pmu-lips .pmu-brows-hero-actions { margin-top:16px; }
+.pmu-lips .pmu-lips-photo-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.pmu-lips .pmu-lips-amount { display:block; margin-top:14px; color:var(--landing-teal); font-size:clamp(2.3rem,4.6vw,3.5rem); font-variant-numeric:tabular-nums; }
+.pmu-lips .pmu-brows-film > figure { width:min(100%,320px); }
+.pmu-lips .pmu-brows-film video { aspect-ratio:720 / 1558; max-height:65svh; object-fit:contain; }
+@media(max-width:900px) {
+  .pmu-lips .pmu-lips-photo-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:340px) {
+  .pmu-lips .pmu-lips-photo-grid { grid-template-columns:minmax(0,1fr); }
+}
