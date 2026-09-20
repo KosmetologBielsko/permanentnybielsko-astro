@@ -1,0 +1,16 @@
+/* PMU 16: korzysta z niezmienionego szablonu PMU 12/14 i galerii.
+   Tylko roznice strony Kreski; selektory nie dotykaja innych podstron. */
+.pmu-eyes .pmu-eyes-hero-price { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; margin-top:20px; }
+.pmu-eyes .pmu-eyes-hero-price strong { color:var(--landing-teal); font-size:1.1rem; font-weight:750; white-space:nowrap; }
+.pmu-eyes .pmu-eyes-hero-price span { font-size:.82rem; }
+.pmu-eyes .pmu-brows-hero-actions { margin-top:16px; }
+.pmu-eyes .pmu-eyes-photo-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.pmu-eyes .pmu-brows-film > figure { width:min(100%,440px); }
+.pmu-eyes .pmu-brows-film video { aspect-ratio:4 / 5; max-height:65svh; object-fit:contain; }
+@media(max-width:900px) {
+  .pmu-eyes .pmu-eyes-photo-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:340px) {
+  .pmu-eyes .pmu-eyes-photo-grid { grid-template-columns:minmax(0,1fr); }
+}
+.pmu-eyes .pmu-eyes-choice-note { margin-top:14px; }
