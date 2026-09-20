@@ -56,3 +56,8 @@
 @media(max-width:340px) {
   .pmu-brows .pmu-brows-photo-grid { grid-template-columns:minmax(0,1fr); }
 }
+
+/* Cena w HERO — jak na stronach Usta i Kreski. */
+.pmu-brows .pmu-brows-hero-price { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; margin-top:20px; }
+.pmu-brows .pmu-brows-hero-price strong { color:var(--landing-teal); font-size:1.35rem; font-weight:750; white-space:nowrap; }
+.pmu-brows .pmu-brows-hero-price span { font-size:.82rem; }

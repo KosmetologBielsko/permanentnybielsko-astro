@@ -3389,3 +3389,6 @@ img {
 }
 /* PB GLOBAL PORADNIK CTA END */
 
+
+/* PMU 18: wspólny zielony akcent nagłówka głównego. */
+main h1 > .bph-title-accent { color: #126b65; }
