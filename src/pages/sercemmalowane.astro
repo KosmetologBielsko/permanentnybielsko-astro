@@ -3,34 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const booksyUrl =
-  "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+import { Image } from "astro:assets";
+import heartPortrait from "../assets/home-13/sercem-malowane.webp";
+import "../styles/pmu-landing.css";
 
 const pageUrl = "https://www.permanentnybielsko.com/sercemmalowane/";
 const pageTitle = "#SercemMalowane | Bogusława Herda Bielsko-Biała";
 const pageDescription =
   "#SercemMalowane Bogusława Herda — bezpłatne zabiegi PMU w szczególnych historiach, m.in. po leczeniu onkologicznym, przy alopecji i po rozszczepie wargi. Zawsze po indywidualnej kwalifikacji.";
-
-const stories = [
-  {
-    image: "/images/sercem-malowane-po-rozszczepie-wargi.webp?v=20260709-v1",
-    alt: "SercemMalowane — pigmentacja po rozszczepie wargi",
-    label: "Po rozszczepie wargi",
-    text: "Praca z kolorem i konturem, kiedy estetyka spotyka się z bardzo osobistą historią."
-  },
-  {
-    image: "/images/sercem-malowane-po-leczeniu-onkologicznym.webp?v=20260709-v1",
-    alt: "SercemMalowane — makijaż permanentny po leczeniu onkologicznym",
-    label: "Po leczeniu onkologicznym",
-    text: "Delikatne uzupełnienie brwi lub pigmentacja, kiedy ważny jest spokojny powrót do siebie."
-  },
-  {
-    image: "/images/sercem-malowane-alopecja-utrata-brwi.webp?v=20260709-v1",
-    alt: "SercemMalowane — naturalna odbudowa brwi przy alopecji",
-    label: "Alopecja i utrata brwi",
-    text: "Naturalnie zaprojektowane brwi, które mają przywrócić oprawę twarzy, nie stworzyć maskę."
-  }
-];
 
 const structuredData = [
   {
@@ -74,775 +54,93 @@ const structuredData = [
 ];
 ---
 
-<Layout
-  title={pageTitle}
-  description={pageDescription}
-  canonicalPath="/sercemmalowane/"
-  structuredData={structuredData}
->
-  <div class="heart-page">
-    <Header />
+<Layout title={pageTitle} description={pageDescription} canonicalPath="/sercemmalowane/" structuredData={structuredData}>
+  <Header />
+  <a class="pmu-landing-skip" href="#sercem-historia">Przejdź do historii inicjatywy</a>
+  <main class="pmu-landing pmu-heart" id="sercemmalowane">
+    <div class="pmu-landing-shell">
+      <nav class="pmu-landing-breadcrumbs" aria-label="Okruszki nawigacyjne">
+        <a href="/">Strona główna</a><span aria-hidden="true">/</span><span aria-current="page">#SercemMalowane</span>
+      </nav>
 
-    <main>
-      <section class="heart-hero">
-        <div class="container heart-hero-grid">
-          <div class="heart-hero-copy">
-            <p class="heart-chip">#SercemMalowane</p>
-
-            <h1>Czasem makijaż permanentny znaczy więcej.</h1>
-
-            <p class="heart-lead">
-              Są historie, w których pigmentacja nie jest tylko zabiegiem estetycznym.
-              Może być małym krokiem w stronę odzyskania spokoju, pewności siebie
-              i poczucia, że znowu dobrze patrzy się na własną twarz.
-            </p>
-
-            <p class="heart-core">
-              W ramach <strong>#SercemMalowane</strong> wybrane zabiegi wykonuję
-              <strong>bezpłatnie</strong> — zawsze po rozmowie i indywidualnej kwalifikacji.
-            </p>
-
-            <div class="heart-actions">
-              <a
-                class="heart-button heart-button-primary"
-                href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
-              >
-                Formularz PMU <span>→</span>
-              </a>
-
-              <a
-                class="heart-button heart-button-secondary"
-                href="tel:+48730900125"
-              >
-                Zadzwoń
-              </a>
-
-              <a
-                class="heart-button heart-button-booksy"
-                href={booksyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Booksy <span>→</span>
-              </a>
-            </div>
-
-            <p class="heart-action-note">
-              #SercemMalowane wymaga wcześniejszej kwalifikacji — nie każda historia oznacza możliwość wykonania zabiegu od razu.
-            </p>
-          </div>
-
-          <figure class="heart-portrait-card">
-            <img
-              src="/images/portret-sercem-malowane-boguslawa-herda.webp"
-              alt="Bogusława Herda — Ambasador Serca Long-Time-Liner w projekcie SercemMalowane"
-              width="941"
-              height="1672"
-              loading="eager"
-              decoding="async"
-            />
-
-            <figcaption>
-              <span>Ambasador Serca</span>
-              <strong>Bogusława Herda · Long-Time-Liner®</strong>
-            </figcaption>
-          </figure>
+      <section class="pmu-landing-intro" aria-labelledby="sercem-tytul">
+        <div>
+          <p class="pmu-landing-kicker"><span class="pmu-heart-mark" aria-hidden="true">♥</span> #SercemMalowane</p>
+          <h1 id="sercem-tytul">Niektóre historie wymagają <span>więcej niż techniki.</span></h1>
+          <p class="pmu-landing-lead">Nie każda pigmentacja zaczyna się od potrzeby makijażu. Czasem zaczyna się od potrzeby, żeby znowu poczuć się dobrze ze swoją twarzą.</p>
+          <p>W inicjatywie #SercemMalowane łączę doświadczenie w makijażu permanentnym z uważnością na historię drugiej osoby.</p>
+          <a class="pmu-landing-intro-link" href="#kontakt">Zacznijmy od rozmowy <span aria-hidden="true">↓</span></a>
         </div>
+        <figure class="pmu-heart-portrait">
+          <Image src={heartPortrait} alt="Bogusława Herda z dyplomem Ambasador Serca podczas wydarzenia #SercemMalowane Long-Time-Liner" width={360} widths={[240,360,540,720]} sizes="(max-width:640px) 240px, (max-width:900px) 280px, 360px" format="webp" quality={83} loading="eager" fetchpriority="high" decoding="async" />
+          <figcaption><strong>Ambasador Serca</strong><span>Bogusława Herda · Long-Time-Liner®</span></figcaption>
+        </figure>
       </section>
 
-      <section class="heart-quote-section">
-        <div class="container">
-          <div class="heart-quote-card">
-            <span class="heart-mark" aria-hidden="true">♥</span>
-            <p>
-              „Nie każda pigmentacja zaczyna się od potrzeby makijażu.
-              Czasem zaczyna się od potrzeby, żeby znowu poczuć się dobrze ze swoją twarzą.”
-            </p>
-          </div>
+      <section class="pmu-landing-section pmu-heart-story" id="sercem-historia" aria-labelledby="sercem-historia-tytul">
+        <div>
+          <p class="pmu-landing-kicker">Historia, od której zaczynamy</p>
+          <h2 id="sercem-historia-tytul">Czasem chodzi o coś więcej niż makijaż.</h2>
+          <p>Utrata naturalnych brwi, zmiany wyglądu po leczeniu czy asymetria ust po rozszczepie wargi mogą wpływać na to, jak patrzymy na swoją twarz. Każda z tych historii wymaga osobnego podejścia.</p>
+          <p>Makijaż permanentny może optycznie uzupełnić brwi lub podkreślić kolor i kontur ust. To praca z wyglądem — nie leczenie ani terapia. Możliwości pigmentacji ustalamy dopiero po kwalifikacji.</p>
         </div>
+        <aside class="pmu-landing-stance" aria-labelledby="sercem-pomoc">
+          <p class="pmu-landing-kicker">W ramach inicjatywy</p>
+          <h3 id="sercem-pomoc">Uważność na Twoją historię.</h3>
+          <p>Wybrane zabiegi wykonuję <strong>bezpłatnie</strong> — zawsze po rozmowie i indywidualnej kwalifikacji. Zgłoszenie nie oznacza automatycznej decyzji o zabiegu.</p>
+          <p class="pmu-heart-signature">Bogusława Herda</p>
+        </aside>
       </section>
 
-      <section class="heart-process-section">
-        <div class="container heart-process-card">
-          <div class="heart-process-copy">
-            <p class="heart-chip heart-chip-light">Jak to wygląda?</p>
-            <h2>Najpierw rozmowa. Potem decyzja.</h2>
-            <p>
-              Nie ma automatycznych zapisów i obietnic bez oceny sytuacji.
-              Bezpieczeństwo i sens zabiegu są ważniejsze niż sam termin.
-            </p>
-          </div>
-
-          <div class="heart-process-steps">
-            <div>
-              <span>01</span>
-              <strong>Napisz lub zadzwoń</strong>
-              <p>Krótko opisz swoją historię i czego potrzebujesz.</p>
-            </div>
-
-            <div>
-              <span>02</span>
-              <strong>Kwalifikacja</strong>
-              <p>Oceniamy skórę, przeciwwskazania i możliwości wykonania pracy.</p>
-            </div>
-
-            <div>
-              <span>03</span>
-              <strong>Jeśli możemy pomóc</strong>
-              <p>Ustalamy spokojnie zakres pracy i termin bezpłatnego zabiegu.</p>
-            </div>
-          </div>
+      <section class="pmu-landing-section" aria-labelledby="sercem-kroki">
+        <div class="pmu-landing-section-heading">
+          <p class="pmu-landing-kicker">Jak to wygląda</p>
+          <h2 id="sercem-kroki">Najpierw rozmowa. Potem decyzja.</h2>
+          <p>Nie musisz wiedzieć, jaki zabieg będzie właściwy. Zaczynamy od poznania Twojej sytuacji i oceny bezpieczeństwa.</p>
         </div>
+        <ol class="pmu-landing-steps pmu-heart-steps">
+          <li><span aria-hidden="true">01</span><h3>Rozmowa</h3><p>Opowiadasz swoją historię i mówisz, co jest dla Ciebie ważne.</p></li>
+          <li><span aria-hidden="true">02</span><h3>Kwalifikacja</h3><p>Oceniamy stan skóry, przeciwwskazania i możliwości pigmentacji.</p></li>
+          <li><span aria-hidden="true">03</span><h3>Projekt</h3><p>Jeśli zabieg jest możliwy, wspólnie omawiamy kształt, kolor i zakres pracy.</p></li>
+          <li><span aria-hidden="true">04</span><h3>Decyzja i pigmentacja</h3><p>Dopiero po kwalifikacji i akceptacji projektu ustalamy dalsze kroki.</p></li>
+        </ol>
       </section>
 
-      <section class="heart-final-section" id="kontakt">
-        <div class="container heart-final-card">
-          <span class="heart-final-symbol" aria-hidden="true">♥</span>
-          <p class="heart-chip">#SercemMalowane</p>
-          <h2>Jeśli czujesz, że to może być Twoja historia — napisz.</h2>
-          <p>
-            Nie musisz wiedzieć, jaki zabieg będzie właściwy. Wystarczy opisać sytuację.
-            Resztę ustalimy po rozmowie i kwalifikacji.
-          </p>
-
-          <div class="heart-actions heart-final-actions">
-            <a
-              class="heart-button heart-button-primary"
-              href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu"
-            >
-              Formularz PMU <span>→</span>
-            </a>
-
-            <a
-              class="heart-button heart-button-secondary"
-              href="tel:+48730900125"
-            >
-              Zadzwoń
-            </a>
-
-            <a
-              class="heart-button heart-button-booksy"
-              href={booksyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Booksy <span>→</span>
-            </a>
-          </div>
+      <section class="pmu-landing-booking" id="kontakt" aria-labelledby="sercem-kontakt">
+        <div>
+          <p class="pmu-landing-kicker">Zacznijmy od rozmowy</p>
+          <h2 id="sercem-kontakt">Chcesz opowiedzieć nam swoją historię?</h2>
+          <p>Każdą sytuację oceniamy indywidualnie. Pierwszym krokiem jest spokojna rozmowa i kwalifikacja.</p>
+        </div>
+        <div class="pmu-landing-booking-actions">
+          <a class="pmu-landing-primary" href="/kontakt/">Skontaktuj się z gabinetem <span aria-hidden="true">→</span></a>
+          <a class="pmu-landing-secondary" href="tel:+48730900125">Zadzwoń: 730 900 125</a>
         </div>
       </section>
-    </main>
-
-    <Footer />
-  </div>
+    </div>
+  </main>
+  <Footer />
 </Layout>
 
 <style>
-  .heart-page {
-    min-height: 100vh;
-    overflow-x: hidden;
-    background:
-      radial-gradient(circle at 82% 9%, rgba(181, 34, 54, 0.10), transparent 27rem),
-      radial-gradient(circle at 11% 36%, rgba(201, 127, 143, 0.10), transparent 25rem),
-      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
+  .pmu-heart .pmu-heart-mark { margin-right:6px; color:#a34e62; }
+  .pmu-heart .pmu-heart-portrait { width:min(100%,360px); justify-self:center; }
+  .pmu-heart .pmu-heart-portrait img { width:100%; height:auto; border:1px solid var(--landing-line); border-radius:28px; }
+  .pmu-heart .pmu-heart-portrait figcaption { display:grid; gap:3px; margin-top:12px; color:var(--landing-muted); font-size:.78rem; line-height:1.5; text-align:center; }
+  .pmu-heart .pmu-heart-portrait strong { color:var(--landing-teal); font-size:.86rem; }
+  .pmu-heart .pmu-heart-story { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); align-items:start; gap:var(--pmu-wide-gap,36px); padding-top:36px; border-top:1px solid var(--landing-line); }
+  .pmu-heart-story > div > p + p { margin-top:16px; }
+  .pmu-heart .pmu-heart-signature { margin-top:18px; color:var(--landing-teal); font-size:.83rem; font-weight:700; }
+  .pmu-heart .pmu-heart-steps { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  @media(max-width:900px) {
+    .pmu-heart .pmu-heart-portrait { width:min(100%,280px); }
+    .pmu-heart .pmu-heart-story { grid-template-columns:minmax(0,1fr); gap:24px; }
+    .pmu-heart .pmu-heart-steps { grid-template-columns:repeat(2,minmax(0,1fr)); }
   }
-
-  .heart-page * {
-    box-sizing: border-box;
-  }
-
-  .heart-hero {
-    padding: 150px 0 70px;
-  }
-
-  .heart-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
-    gap: 22px;
-    align-items: stretch;
-  }
-
-  .heart-hero-copy,
-  .heart-portrait-card,
-  .heart-quote-card,
-  .heart-story-card,
-  .heart-process-card,
-  .heart-final-card {
-    border: 1px solid rgba(183, 101, 118, 0.15);
-    box-shadow: 0 20px 58px rgba(89, 53, 67, 0.07);
-  }
-
-  .heart-hero-copy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: clamp(36px, 5vw, 68px);
-    border-radius: 40px;
-    background:
-      radial-gradient(circle at 92% 12%, rgba(56, 187, 181, 0.08), transparent 14rem),
-      rgba(255, 255, 255, 0.82);
-  }
-
-  .heart-chip {
-    display: inline-flex;
-    width: fit-content;
-    max-width: 100%;
-    min-height: 32px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 18px;
-    padding: 0 13px;
-    border: 1px solid rgba(56, 187, 181, 0.16);
-    border-radius: 999px;
-    background: rgba(219, 246, 243, 0.72);
-    color: var(--color-turquoise-dark, #0f7773);
-    font-size: 0.7rem;
-    font-weight: 850;
-    line-height: 1;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .heart-hero-copy h1 {
-    max-width: 950px;
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(3rem, 5.5vw, 6.2rem);
-    font-weight: 760;
-    line-height: 0.98;
-    letter-spacing: -0.078em;
-  }
-
-  .heart-lead {
-    max-width: 760px;
-    margin: 26px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 1.08rem;
-    line-height: 1.68;
-  }
-
-  .heart-core {
-    max-width: 760px;
-    margin: 18px 0 0;
-    padding-left: 18px;
-    border-left: 3px solid rgba(181, 34, 54, 0.58);
-    color: var(--color-text, #17151d);
-    font-size: 1rem;
-    line-height: 1.62;
-  }
-
-  .heart-core strong {
-    font-weight: 820;
-  }
-
-  .heart-actions {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-    width: min(100%, 820px);
-    margin-top: 28px;
-  }
-
-  .heart-button {
-    display: inline-flex;
-    min-height: 54px;
-    align-items: center;
-    justify-content: center;
-    padding: 0 18px;
-    border-radius: 999px;
-    font-size: 0.92rem;
-    font-weight: 820;
-    line-height: 1;
-    text-align: center;
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .heart-button-primary {
-    color: #ffffff;
-    background: linear-gradient(135deg, #c8667a 0%, #b52236 58%, #8f1628 100%);
-    box-shadow: 0 14px 34px rgba(181, 34, 54, 0.20);
-  }
-
-  .heart-button-secondary {
-    border: 1px solid rgba(183, 101, 118, 0.18);
-    color: var(--color-text, #17151d);
-    background: rgba(255, 255, 255, 0.78);
-  }
-
-  .heart-button-booksy {
-    color: #ffffff;
-    background: linear-gradient(135deg, #18a889 0%, #0f8f78 55%, #0b7868 100%);
-    box-shadow: 0 14px 34px rgba(15, 143, 120, 0.20);
-  }
-
-  .heart-action-note {
-    max-width: 760px;
-    margin: 14px 0 0;
-    color: rgba(110, 102, 112, 0.88);
-    font-size: 0.76rem;
-    line-height: 1.5;
-  }
-
-  .heart-portrait-card {
-    position: relative;
-    min-height: 610px;
-    margin: 0;
-    overflow: hidden;
-    border-radius: 40px;
-    background: #f6e7ea;
-  }
-
-  .heart-portrait-card img {
-    width: 100%;
-    height: 100%;
-    min-height: 610px;
-    display: block;
-    object-fit: cover;
-    object-position: center 24%;
-  }
-
-  .heart-portrait-card::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0;
-    height: 44%;
-    background: linear-gradient(180deg, transparent, rgba(52, 16, 23, 0.72));
-    pointer-events: none;
-  }
-
-  .heart-portrait-card figcaption {
-    position: absolute;
-    left: 24px;
-    right: 24px;
-    bottom: 24px;
-    z-index: 2;
-    color: #ffffff;
-  }
-
-  .heart-portrait-card figcaption span {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 0.68rem;
-    font-weight: 850;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .heart-portrait-card figcaption strong {
-    display: block;
-    max-width: 330px;
-    font-size: 1.25rem;
-    line-height: 1.12;
-  }
-
-  .heart-quote-section,
-  .heart-stories-section,
-  .heart-process-section,
-  .heart-final-section {
-    padding: 54px 0;
-  }
-
-  .heart-quote-card {
-    position: relative;
-    overflow: hidden;
-    padding: clamp(30px, 5vw, 56px);
-    border-radius: 34px;
-    background:
-      radial-gradient(circle at 90% 18%, rgba(255, 255, 255, 0.18), transparent 12rem),
-      linear-gradient(135deg, #8f1628, #b52236 48%, #d77587);
-  }
-
-  .heart-mark {
-    position: absolute;
-    right: clamp(20px, 4vw, 50px);
-    top: 50%;
-    color: rgba(255, 255, 255, 0.13);
-    font-size: clamp(6rem, 13vw, 12rem);
-    line-height: 1;
-    transform: translateY(-50%);
-  }
-
-  .heart-quote-card p {
-    position: relative;
-    z-index: 2;
-    max-width: 920px;
-    margin: 0;
-    color: #ffffff;
-    font-size: clamp(1.65rem, 3.1vw, 3rem);
-    font-weight: 720;
-    line-height: 1.12;
-    letter-spacing: -0.045em;
-  }
-
-  .heart-heading {
-    max-width: 900px;
-    margin-bottom: 28px;
-  }
-
-  .heart-heading h2,
-  .heart-process-copy h2,
-  .heart-final-card h2 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: clamp(2.4rem, 4.2vw, 4.3rem);
-    font-weight: 760;
-    line-height: 1.02;
-    letter-spacing: -0.07em;
-  }
-
-  .heart-heading > p:not(.heart-chip),
-  .heart-process-copy > p:not(.heart-chip),
-  .heart-final-card > p:not(.heart-chip) {
-    max-width: 790px;
-    margin: 17px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .heart-story-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  .heart-story-card {
-    overflow: hidden;
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.90);
-  }
-
-  .heart-story-card img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-  }
-
-  .heart-story-copy {
-    padding: 20px 22px 22px;
-  }
-
-  .heart-story-copy h3 {
-    margin: 0;
-    color: var(--color-text, #17151d);
-    font-size: 1.28rem;
-    font-weight: 780;
-    line-height: 1.05;
-    letter-spacing: -0.045em;
-  }
-
-  .heart-story-copy p {
-    margin: 10px 0 0;
-    color: var(--color-muted, #6e6670);
-    font-size: 0.88rem;
-    line-height: 1.55;
-  }
-
-  .heart-process-card {
-    display: grid;
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-    gap: clamp(26px, 4vw, 54px);
-    padding: clamp(30px, 5vw, 54px);
-    border-radius: 36px;
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 88% 16%, rgba(255, 255, 255, 0.22), transparent 12rem),
-      linear-gradient(135deg, #0f7773, #1aa5a0 58%, #74e0d7);
-  }
-
-  .heart-chip-light {
-    border-color: rgba(255, 255, 255, 0.24);
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-  }
-
-  .heart-process-copy h2,
-  .heart-process-copy > p:not(.heart-chip) {
-    color: #ffffff;
-  }
-
-  .heart-process-copy > p:not(.heart-chip) {
-    color: rgba(255, 255, 255, 0.88);
-  }
-
-  .heart-process-steps {
-    display: grid;
-    gap: 8px;
-  }
-
-  .heart-process-steps > div {
-    display: grid;
-    grid-template-columns: 40px minmax(0, 1fr);
-    gap: 3px 13px;
-    padding: 17px 18px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.11);
-  }
-
-  .heart-process-steps span {
-    grid-row: 1 / 3;
-    color: rgba(255, 255, 255, 0.64);
-    font-size: 0.74rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-  }
-
-  .heart-process-steps strong {
-    font-size: 1rem;
-    font-weight: 820;
-  }
-
-  .heart-process-steps p {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.84);
-    font-size: 0.84rem;
-    line-height: 1.45;
-  }
-
-  .heart-final-section {
-    padding-bottom: 86px;
-  }
-
-  .heart-final-card {
-    position: relative;
-    overflow: hidden;
-    padding: clamp(34px, 6vw, 66px);
-    border-radius: 40px;
-    text-align: center;
-    background:
-      radial-gradient(circle at 85% 12%, rgba(181, 34, 54, 0.10), transparent 16rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 242, 246, 0.90));
-  }
-
-  .heart-final-card .heart-chip {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .heart-final-card > p:not(.heart-chip) {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .heart-final-symbol {
-    position: absolute;
-    right: 4%;
-    top: 50%;
-    color: rgba(181, 34, 54, 0.055);
-    font-size: clamp(9rem, 20vw, 18rem);
-    line-height: 1;
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
-
-  .heart-final-actions {
-    position: relative;
-    z-index: 2;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media (max-width: 1080px) {
-    .heart-hero-grid,
-    .heart-process-card {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    .heart-portrait-card,
-    .heart-portrait-card img {
-      min-height: 520px;
-    }
-
-    .heart-actions {
-      grid-template-columns: 1fr;
-      max-width: 620px;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .heart-hero {
-      padding: 112px 0 38px;
-    }
-
-    .heart-hero-grid {
-      gap: 14px;
-    }
-
-    .heart-hero-copy,
-    .heart-portrait-card,
-    .heart-quote-card,
-    .heart-story-card,
-    .heart-process-card,
-    .heart-final-card {
-      border-radius: 28px;
-    }
-
-    .heart-hero-copy {
-      padding: 27px 22px;
-    }
-
-    .heart-chip {
-      min-height: 30px;
-      margin-bottom: 15px;
-      padding: 0 11px;
-      font-size: 0.63rem;
-      letter-spacing: 0.13em;
-    }
-
-    .heart-hero-copy h1 {
-      font-size: clamp(2.7rem, 12vw, 3.9rem);
-      line-height: 1;
-      letter-spacing: -0.072em;
-    }
-
-    .heart-lead {
-      margin-top: 20px;
-      font-size: 0.96rem;
-      line-height: 1.62;
-    }
-
-    .heart-core {
-      margin-top: 16px;
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
-    .heart-actions {
-      width: 100%;
-      margin-top: 22px;
-      gap: 8px;
-    }
-
-    .heart-button {
-      min-height: 50px;
-      font-size: 0.90rem;
-    }
-
-    .heart-action-note {
-      font-size: 0.71rem;
-    }
-
-    .heart-portrait-card,
-    .heart-portrait-card img {
-      min-height: 430px;
-    }
-
-    .heart-portrait-card figcaption {
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-    }
-
-    .heart-quote-section,
-    .heart-stories-section,
-    .heart-process-section,
-    .heart-final-section {
-      padding: 36px 0;
-    }
-
-    .heart-quote-card {
-      padding: 28px 22px;
-    }
-
-    .heart-quote-card p {
-      font-size: clamp(1.45rem, 7vw, 2rem);
-      line-height: 1.14;
-    }
-
-    .heart-heading {
-      margin-bottom: 20px;
-    }
-
-    .heart-heading h2,
-    .heart-process-copy h2,
-    .heart-final-card h2 {
-      font-size: clamp(2rem, 9.2vw, 2.95rem);
-      line-height: 1.03;
-      letter-spacing: -0.064em;
-    }
-
-    .heart-heading > p:not(.heart-chip),
-    .heart-process-copy > p:not(.heart-chip),
-    .heart-final-card > p:not(.heart-chip) {
-      font-size: 0.93rem;
-      line-height: 1.6;
-    }
-
-    .heart-story-grid {
-      grid-template-columns: none;
-      grid-auto-flow: column;
-      grid-auto-columns: 82%;
-      gap: 10px;
-      margin: 0 -16px;
-      padding: 0 16px 8px;
-      overflow-x: auto;
-      overscroll-behavior-inline: contain;
-      scroll-snap-type: x proximity;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .heart-story-grid::-webkit-scrollbar {
-      display: none;
-    }
-
-    .heart-story-card {
-      scroll-snap-align: start;
-    }
-
-    .heart-story-copy {
-      padding: 17px 18px 19px;
-    }
-
-    .heart-story-copy h3 {
-      font-size: 1.16rem;
-    }
-
-    .heart-story-copy p {
-      font-size: 0.82rem;
-    }
-
-    .heart-process-card {
-      gap: 24px;
-      padding: 28px 22px;
-    }
-
-    .heart-process-steps > div {
-      grid-template-columns: 32px minmax(0, 1fr);
-      padding: 15px 14px;
-      border-radius: 17px;
-    }
-
-    .heart-final-section {
-      padding-bottom: 58px;
-    }
-
-    .heart-final-card {
-      padding: 30px 20px;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .heart-hero-copy {
-      padding: 24px 18px;
-    }
-
-    .heart-portrait-card,
-    .heart-portrait-card img {
-      min-height: 390px;
-    }
-
-    .heart-story-grid {
-      grid-auto-columns: 88%;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .heart-story-grid {
-      scroll-behavior: auto;
-    }
+  @media(max-width:640px) {
+    .pmu-heart .pmu-heart-portrait { width:min(100%,240px); }
+    .pmu-heart .pmu-heart-portrait img { border-radius:22px; }
+    .pmu-heart .pmu-heart-story { padding-top:28px; }
+    .pmu-heart .pmu-heart-steps { grid-template-columns:minmax(0,1fr); }
   }
 </style>
