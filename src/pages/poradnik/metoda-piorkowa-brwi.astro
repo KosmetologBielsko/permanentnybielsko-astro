@@ -1,6 +1,8 @@
 ---
 import { getImage } from "astro:assets";
 import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import { guidePhotoUpdates } from "../../data/guide-photo-updates";
+import "../../styles/guide-photo-updates.css";
 import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
 import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
 import GuideAssistant from "../../components/GuideAssistant.astro";
@@ -157,7 +159,7 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
   <div class="expert-article-page">
     <Header compact />
 
-    <main class="pmu-guide-v3 pmu-guide-v4">
+    <main data-guide-photos="19" class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
         <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
@@ -198,8 +200,8 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
           </nav></details>
         </div>
       </section>
-<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
-  <GuideArticleMedia photos={[media.cover]} cover />
+<div class:list={["guide-series-cover", { "portrait-cover": guidePhotoUpdates["metoda-piorkowa-brwi"].cover.src.height > guidePhotoUpdates["metoda-piorkowa-brwi"].cover.src.width }]}>
+  <GuideArticleMedia photos={[guidePhotoUpdates["metoda-piorkowa-brwi"].cover]} cover />
 </div>
 
 
@@ -282,7 +284,7 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
           </div>
         </div>
       </section>
-<GuideArticleMedia photos={media.photos} label={media.label} />
+<GuideArticleMedia photos={guidePhotoUpdates["metoda-piorkowa-brwi"].photos} label={guidePhotoUpdates["metoda-piorkowa-brwi"].label} />
 
 
       <section class="expert-article-section expert-article-soft" id="silky">

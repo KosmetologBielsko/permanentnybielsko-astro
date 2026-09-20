@@ -1,0 +1,55 @@
+/* PMU 19: wspólne szerokości dużych ekranów. Mobile i tablet bez zmian. */
+@media (min-width: 1440px) {
+  :root {
+    --pmu-section-width: 1200px;
+    --pmu-visual-width: 1280px;
+    --pmu-wide-gap: 48px;
+    --pmu-hero-photo-width: 520px;
+  }
+  body main:is(.pmu-home,.pmu-landing,.pmu-price,.pmu-contact,.pmu-hub)
+  :is(.pmu-home-shell,.pmu-landing-shell,.pmu-price-shell,.pmu-contact-shell,.hub-shell) {
+    width: min(var(--pmu-section-width), calc(100% - 80px));
+  }
+  body main.pmu-gallery .pmu-gallery-shell {
+    width: min(var(--pmu-visual-width), calc(100% - 80px));
+  }
+  body header.bph-header .bph-header-shell {
+    width: min(max(1320px, var(--pmu-section-width)), 100%);
+  }
+  body footer.bph-footer .bph-footer-shell {
+    width: min(var(--pmu-section-width), calc(100% - 80px));
+  }
+  body footer.bph-footer .bph-footer-grid { column-gap: var(--pmu-wide-gap); }
+  body main:is(.pmu-home,.pmu-landing,.pmu-price,.pmu-contact,.pmu-gallery,.pmu-hub)
+  :is(.pmu-home-hero,.pmu-home-expert,.pmu-home-booking,.pmu-landing-intro,
+      .pmu-landing-expert,.pmu-landing-qualification,.pmu-price-intro,
+      .pmu-contact-intro,.pmu-contact-location,.pmu-gallery-intro,.hub-intro-grid) {
+    column-gap: var(--pmu-wide-gap);
+  }
+  body main.pmu-home .pmu-home-hero-photo,
+  body main.pmu-landing .pmu-brows-hero-photo,
+  body main.pmu-landing.pmu-service17 .pmu-brows-hero-photo {
+    max-width: var(--pmu-hero-photo-width);
+  }
+  /* Szersze sekcje wizualne; akapity pozostają wygodne do czytania. */
+  body main:is(.pmu-home,.pmu-landing,.pmu-price,.pmu-contact,.pmu-gallery,.pmu-hub) p {
+    max-width: 70ch;
+  }
+  body main.pmu-guide-v3 > :is(.expert-article-hero,.price-hero,.hero,.eye-guide-hero,
+      .expert-article-nav-section,.price-nav-section,.guide-navigation) > .container {
+    width: min(var(--pmu-section-width), calc(100% - 80px));
+  }
+  body main.pmu-guide-v3 .guide-media-block {
+    width: min(1200px, calc(100% - 80px));
+  }
+  body main.pmu-guide-v3 :is(p,li) { max-width: 75ch; }
+}
+@media (min-width: 1600px) {
+  :root { --pmu-section-width:1360px; --pmu-visual-width:1440px; --pmu-wide-gap:56px; --pmu-hero-photo-width:560px; --container:1360px; }
+}
+@media (min-width: 1920px) {
+  :root { --pmu-section-width:1560px; --pmu-visual-width:1680px; --pmu-wide-gap:64px; --pmu-hero-photo-width:600px; --container:1560px; }
+}
+@media (min-width: 2200px) {
+  :root { --pmu-section-width:1760px; --pmu-visual-width:1920px; --pmu-wide-gap:80px; --pmu-hero-photo-width:640px; --container:1760px; }
+}

@@ -1,6 +1,8 @@
 ---
 import { getImage } from "astro:assets";
 import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import { guidePhotoUpdates } from "../../data/guide-photo-updates";
+import "../../styles/guide-photo-updates.css";
 import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
 import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
 import GuideAssistant from "../../components/GuideAssistant.astro";
@@ -121,7 +123,7 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
   inlineGuideAssistant>
   <div class="expert-article-page">
     <Header compact />
-    <main class="pmu-guide-v3 pmu-guide-v4">
+    <main data-guide-photos="19" class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="expert-article-glow expert-article-glow-one" aria-hidden="true"></div>
         <div class="expert-article-glow expert-article-glow-two" aria-hidden="true"></div>
@@ -149,8 +151,8 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
             <a href="#zrodla">Źródła</a>
             <a href="#faq">FAQ</a>
       </nav></details></div></section>
-<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
-  <GuideArticleMedia photos={[media.cover]} cover />
+<div class:list={["guide-series-cover", { "portrait-cover": guidePhotoUpdates["czy-kazda-skora-nadaje-sie-do-metody-wloskowej"].cover.src.height > guidePhotoUpdates["czy-kazda-skora-nadaje-sie-do-metody-wloskowej"].cover.src.width }]}>
+  <GuideArticleMedia photos={[guidePhotoUpdates["czy-kazda-skora-nadaje-sie-do-metody-wloskowej"].cover]} cover />
 </div>
 
 
@@ -216,7 +218,7 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
             </a>
         </div>
       </div></section>
-<GuideArticleMedia photos={media.photos} label={media.label} />
+<GuideArticleMedia photos={guidePhotoUpdates["czy-kazda-skora-nadaje-sie-do-metody-wloskowej"].photos} label={guidePhotoUpdates["czy-kazda-skora-nadaje-sie-do-metody-wloskowej"].label} />
 
 
       <section class="expert-article-section expert-article-plan-section" id="plan"><div class="container expert-plan-panel">

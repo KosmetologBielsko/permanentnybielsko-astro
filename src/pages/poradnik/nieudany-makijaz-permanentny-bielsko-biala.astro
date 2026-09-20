@@ -1,6 +1,8 @@
 ---
 import { getImage } from "astro:assets";
 import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import { guidePhotoUpdates } from "../../data/guide-photo-updates";
+import "../../styles/guide-photo-updates.css";
 import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
 import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
 import GuideAssistant from "../../components/GuideAssistant.astro";
@@ -157,7 +159,7 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
   <div class="price-guide-page">
     <Header compact />
 
-    <main class="pmu-guide-v3 pmu-guide-v4">
+    <main data-guide-photos="19" class="pmu-guide-v3 pmu-guide-v4">
       <section class="price-hero">
         <div class="price-glow price-glow-one" aria-hidden="true"></div>
         <div class="price-glow price-glow-two" aria-hidden="true"></div>
@@ -203,8 +205,8 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
           </nav></details>
         </div>
       </section>
-<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
-  <GuideArticleMedia photos={[media.cover]} cover />
+<div class:list={["guide-series-cover", { "portrait-cover": guidePhotoUpdates["nieudany-makijaz-permanentny-bielsko-biala"].cover.src.height > guidePhotoUpdates["nieudany-makijaz-permanentny-bielsko-biala"].cover.src.width }]}>
+  <GuideArticleMedia photos={[guidePhotoUpdates["nieudany-makijaz-permanentny-bielsko-biala"].cover]} cover />
 </div>
 
 
@@ -295,7 +297,7 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
           </div>
         </div>
       </section>
-<GuideArticleMedia photos={media.photos} label={media.label} />
+<GuideArticleMedia photos={guidePhotoUpdates["nieudany-makijaz-permanentny-bielsko-biala"].photos} label={guidePhotoUpdates["nieudany-makijaz-permanentny-bielsko-biala"].label} />
 
 
       <section class="price-section price-soft" id="czego-nie-robic">

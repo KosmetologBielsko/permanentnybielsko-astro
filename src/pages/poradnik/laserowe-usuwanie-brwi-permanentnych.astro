@@ -1,6 +1,8 @@
 ---
 import { getImage } from "astro:assets";
 import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import { guidePhotoUpdates } from "../../data/guide-photo-updates";
+import "../../styles/guide-photo-updates.css";
 import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
 import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
 import GuideAssistant from "../../components/GuideAssistant.astro";
@@ -261,7 +263,7 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
   <div class="laser-guide-page">
     <Header compact />
 
-    <main class="pmu-guide-v3 pmu-guide-v4">
+    <main data-guide-photos="19" class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="expert-article-glow hero-glow-one" aria-hidden="true"></div>
         <div class="expert-article-glow hero-glow-two" aria-hidden="true"></div>
@@ -294,8 +296,8 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
         </div>
       </section>
 <section class="expert-article-nav-section"><div class="container"><details class="guide-toc" open><summary>Przejdź do wybranej odpowiedzi</summary><nav aria-label="Spis treści artykułu"><a href="#czy-warto">Kiedy warto?</a><a href="#jak-dziala">Jak działa?</a><a href="#kwalifikacja">Kwalifikacja</a><a href="#laser-czy-remover">Laser czy remover?</a><a href="#zmiana-koloru">Zmiana koloru</a><a href="#ile-zabiegow">Liczba zabiegów</a><a href="#proces">Przebieg</a><a href="#nowe-brwi">Nowa pigmentacja</a><a href="#praktyka">Praktyka</a><a href="#zrodla">Źródła</a><a href="#powiazane">Powiązane tematy</a><a href="#faq">Pytania i odpowiedzi</a></nav></details></div></section>
-<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
-  <GuideArticleMedia photos={[media.cover]} cover />
+<div class:list={["guide-series-cover", { "portrait-cover": guidePhotoUpdates["laserowe-usuwanie-brwi-permanentnych"].cover.src.height > guidePhotoUpdates["laserowe-usuwanie-brwi-permanentnych"].cover.src.width }]}>
+  <GuideArticleMedia photos={[guidePhotoUpdates["laserowe-usuwanie-brwi-permanentnych"].cover]} cover />
 </div>
 
 
@@ -413,7 +415,7 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
           </a>
         </div>
       </section>
-<GuideArticleMedia photos={media.photos} label={media.label} />
+<GuideArticleMedia photos={guidePhotoUpdates["laserowe-usuwanie-brwi-permanentnych"].photos} label={guidePhotoUpdates["laserowe-usuwanie-brwi-permanentnych"].label} />
 
 
       <section class="expert-article-section laser-soft" id="laser-czy-remover">

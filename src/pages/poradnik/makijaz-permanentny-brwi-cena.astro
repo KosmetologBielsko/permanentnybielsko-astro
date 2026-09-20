@@ -1,6 +1,8 @@
 ---
 import { getImage } from "astro:assets";
 import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import { guidePhotoUpdates } from "../../data/guide-photo-updates";
+import "../../styles/guide-photo-updates.css";
 import GuideArticleMedia from "../../components/GuideArticleMedia.astro";
 import GuideArticleSocial from "../../components/GuideArticleSocial.astro";
 import GuideAssistant from "../../components/GuideAssistant.astro";
@@ -159,7 +161,7 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
   <div class="brow-price-guide">
     <Header compact />
 
-    <main class="pmu-guide-v3 pmu-guide-v4">
+    <main data-guide-photos="19" class="pmu-guide-v3 pmu-guide-v4">
       <section class="expert-article-hero">
         <div class="expert-article-glow guide-glow-one" aria-hidden="true"></div>
         <div class="expert-article-glow guide-glow-two" aria-hidden="true"></div>
@@ -245,8 +247,8 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
           </nav></details>
         </div>
       </section>
-<div class:list={["guide-series-cover", { "portrait-cover": media.cover.src.height > media.cover.src.width }]}>
-  <GuideArticleMedia photos={[media.cover]} cover />
+<div class:list={["guide-series-cover", { "portrait-cover": guidePhotoUpdates["makijaz-permanentny-brwi-cena"].cover.src.height > guidePhotoUpdates["makijaz-permanentny-brwi-cena"].cover.src.width }]}>
+  <GuideArticleMedia photos={[guidePhotoUpdates["makijaz-permanentny-brwi-cena"].cover]} cover />
 </div>
 
 
@@ -449,7 +451,7 @@ const articleWithImages = structuredData.map(item => item["@type"] === "Article"
           </div>
         </div>
       </section>
-<GuideArticleMedia photos={media.photos} label={media.label} />
+<GuideArticleMedia photos={guidePhotoUpdates["makijaz-permanentny-brwi-cena"].photos} label={guidePhotoUpdates["makijaz-permanentny-brwi-cena"].label} />
 
 
       <section class="expert-article-section guide-section-soft" id="korekta-odswiezenie">

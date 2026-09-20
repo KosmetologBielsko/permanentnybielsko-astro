@@ -1,0 +1,9 @@
+/* Wyłącznie dopasowanie zdjęć w 17 wskazanych poradnikach.
+   Naturalne proporcje zamiast obcinania portretów do 3:2 lub 4:3.
+   Kontenery i układ artykułów pozostają bez zmian. */
+main.pmu-guide-v3[data-guide-photos="19"] .guide-media-block .guide-image img {
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+}
