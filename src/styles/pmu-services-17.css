@@ -1,0 +1,19 @@
+/* PMU 17: tylko usuwanie i szkolenia; istniejąca typografia, karty i CTA PMU. */
+.pmu-service17 .pmu-service17-hero-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-top:20px}
+.pmu-service17 .pmu-service17-hero-price strong{color:var(--landing-teal);font-size:1.1rem}.pmu-service17 .pmu-service17-hero-price span{font-size:.82rem}
+.pmu-service17 .pmu-service17-note{margin-top:16px;font-size:.86rem}
+.pmu-service17 .pmu-brows-method>a{margin-top:16px}
+.pmu-service17 .pmu-service17-split{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:center;gap:36px}
+.pmu-service17 .pmu-service17-split img{display:block;width:100%;height:auto;border-radius:22px}
+.pmu-service17.pmu-training .pmu-brows-hero-photo{max-width:440px}
+.pmu-service17.pmu-training .pmu-brows-hero-photo img{aspect-ratio:3 / 4;object-position:top}
+.pmu-service17 .pmu-service17-film{width:min(100%,900px);margin:24px auto 0}
+.pmu-service17 .pmu-service17-film video{display:block;width:100%;height:auto;aspect-ratio:16 / 9;object-fit:contain;border-radius:22px;background:#292323}
+.pmu-service17 .pmu-service17-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:28px}
+.pmu-service17 .pmu-service17-photos img{display:block;width:100%;height:auto;aspect-ratio:4 / 5;object-fit:cover;object-position:top;border-radius:22px}
+.pmu-service17 .pmu-service17-prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.pmu-service17 .pmu-service17-prices article{padding:24px;border:1px solid #d4e7e2;border-radius:22px;background:var(--landing-mint)}
+.pmu-service17 .pmu-service17-prices h3{font-size:1.15rem}.pmu-service17 .pmu-service17-prices p{font-size:.85rem}
+.pmu-service17 .pmu-service17-prices strong{display:block;margin:18px 0 4px;color:var(--landing-teal);font-size:1.3rem}
+@media(max-width:900px){.pmu-service17 :is(.pmu-service17-split,.pmu-service17-prices){grid-template-columns:minmax(0,1fr)}.pmu-service17.pmu-training .pmu-brows-hero-photo{max-width:340px}}
+@media(max-width:640px){.pmu-service17.pmu-training .pmu-brows-hero-photo{max-width:280px}.pmu-service17 .pmu-service17-photos{grid-template-columns:minmax(0,1fr);max-width:340px;margin-inline:auto}.pmu-service17 .pmu-service17-prices article{padding:22px 20px}}

@@ -6,6 +6,8 @@ export const pageModified: Readonly<Record<string, string>> = {
   "/makijaz-permanentny-brwi/": "2026-09-19",
   "/makijaz-permanentny-ust/": "2026-09-19",
   "/makijaz-permanentny-oczu/": "2026-09-20",
+  "/usuwanie-makijazu-permanentnego/": "2026-09-20",
+  "/szkolenie-makijaz-permanentny/": "2026-09-20",
   "/kontakt/": "2026-09-14",
   "/galeria/": "2026-09-13",
   "/cennik-makijaz-permanentny/": "2026-09-13",
