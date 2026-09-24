@@ -1,0 +1,19 @@
+<script>
+  import { initPermanentnyAnalytics } from "../lib/analytics/tracker";
+  import { readConsentSnapshot } from "../lib/analytics/consent";
+
+  declare global {
+    interface Window {
+      __permanentnyAnalytics?: ReturnType<typeof initPermanentnyAnalytics>;
+    }
+  }
+
+  const enabled = import.meta.env.PUBLIC_PA_ENABLED === "true";
+
+  if (enabled && !window.__permanentnyAnalytics) {
+    window.__permanentnyAnalytics = initPermanentnyAnalytics({
+      getConsent: () => readConsentSnapshot(window.localStorage),
+      endpoint: "/api/analytics/collect",
+    });
+  }
+</script>

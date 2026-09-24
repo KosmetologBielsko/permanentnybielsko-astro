@@ -1,26 +1,34 @@
-<!-- Domyślna zgoda i inicjalizacja Google Consent Mode v2 -->
+<!-- Google Consent Mode v2: granular consent from Permanentny/BPHM consent state -->
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
 
-  window.gtag = window.gtag || function () {
-    window.dataLayer.push(arguments);
-  };
-
-  var savedConsent = null;
-
-  try {
-    savedConsent = window.localStorage.getItem('pb_cookie_consent');
-  } catch (error) {
-    savedConsent = null;
+  function pbReadGoogleConsent() {
+    var analytics = false;
+    var marketing = false;
+    try {
+      var raw = window.localStorage.getItem('pb_consent_v2');
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        if (parsed && parsed.v === 2) {
+          analytics = parsed.analytics === true;
+          marketing = parsed.marketing === true;
+          return { analytics: analytics, marketing: marketing };
+        }
+      }
+      var legacy = window.localStorage.getItem('pb_cookie_consent');
+      if (legacy === 'accepted') return { analytics: true, marketing: true };
+    } catch (error) {}
+    return { analytics: false, marketing: false };
   }
 
-  var consentGranted = savedConsent === 'accepted';
+  var pbConsent = pbReadGoogleConsent();
 
   window.gtag('consent', 'default', {
-    ad_storage: consentGranted ? 'granted' : 'denied',
-    ad_user_data: consentGranted ? 'granted' : 'denied',
-    ad_personalization: consentGranted ? 'granted' : 'denied',
-    analytics_storage: consentGranted ? 'granted' : 'denied',
+    ad_storage: pbConsent.marketing ? 'granted' : 'denied',
+    ad_user_data: pbConsent.marketing ? 'granted' : 'denied',
+    ad_personalization: pbConsent.marketing ? 'granted' : 'denied',
+    analytics_storage: pbConsent.analytics ? 'granted' : 'denied',
     functionality_storage: 'granted',
     security_storage: 'granted',
     wait_for_update: 500
@@ -31,29 +39,31 @@
   window.gtag('config', 'AW-18200277713');
 </script>
 
-<!-- Główny tag Google Ads -->
-<script
-  is:inline
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=AW-18200277713"
-></script>
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-18200277713"></script>
 
-<!-- Globalne mierzenie wszystkich kliknięć prowadzących do Booksy -->
+<!-- Google Ads conversion is marketing measurement and fires only with marketing consent. -->
 <script is:inline>
   (function () {
     var conversionId = 'AW-18200277713/B-mQCMzbtL8cENHlyOZD';
 
+    function hasMarketingConsent() {
+      try {
+        var raw = window.localStorage.getItem('pb_consent_v2');
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          if (parsed && parsed.v === 2) return parsed.marketing === true;
+        }
+        return window.localStorage.getItem('pb_cookie_consent') === 'accepted';
+      } catch (error) {
+        return false;
+      }
+    }
+
     document.addEventListener('click', function (event) {
       var clickedElement = event.target;
-
       if (!(clickedElement instanceof Element)) return;
-
-      var booksyLink = clickedElement.closest(
-        'a[href*="booksy.com"], a[href*="booksy.pl"]'
-      );
-
-      if (!booksyLink) return;
-      if (typeof window.gtag !== 'function') return;
+      var booksyLink = clickedElement.closest('a[href*="booksy.com"], a[href*="booksy.pl"]');
+      if (!booksyLink || !hasMarketingConsent() || typeof window.gtag !== 'function') return;
 
       window.gtag('event', 'conversion', {
         send_to: conversionId,

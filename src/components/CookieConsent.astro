@@ -2,18 +2,49 @@
   <div class="cookie-consent__content">
     <p class="cookie-consent__title">Dbamy o Twoją prywatność</p>
     <p class="cookie-consent__text">
-      Używamy plików cookies i podobnych technologii, aby mierzyć działanie strony, analizować sposób korzystania z serwisu oraz skuteczność reklam Google.
-      Możesz zaakceptować pomiar analityczny i marketingowy albo pozostać przy ustawieniach niezbędnych.
+      Niezbędne mechanizmy działają zawsze. Za Twoją zgodą możemy dodatkowo mierzyć korzystanie ze strony
+      oraz skuteczność reklam i personalizacji. Ustawienia możesz wybrać osobno.
     </p>
+
+    <div class="cookie-consent__settings" data-cookie-settings hidden>
+      <label class="cookie-consent__option cookie-consent__option--fixed">
+        <span>
+          <strong>Niezbędne</strong>
+          <small>Podstawowe działanie strony i bezpieczeństwo.</small>
+        </span>
+        <input type="checkbox" checked disabled />
+      </label>
+
+      <label class="cookie-consent__option">
+        <span>
+          <strong>Analityka</strong>
+          <small>Permanentny Analytics i Microsoft Clarity — zachowanie i jakość strony.</small>
+        </span>
+        <input type="checkbox" data-consent-analytics />
+      </label>
+
+      <label class="cookie-consent__option">
+        <span>
+          <strong>Marketing / personalizacja</strong>
+          <small>Pomiar reklam Google oraz przyszłe funkcje personalizacji first-party.</small>
+        </span>
+        <input type="checkbox" data-consent-marketing />
+      </label>
+    </div>
   </div>
 
   <div class="cookie-consent__actions">
     <button type="button" class="cookie-consent__button cookie-consent__button--secondary" data-cookie-reject>
       Tylko niezbędne
     </button>
-
+    <button type="button" class="cookie-consent__button cookie-consent__button--secondary" data-cookie-customize>
+      Dostosuj
+    </button>
+    <button type="button" class="cookie-consent__button cookie-consent__button--secondary" data-cookie-save hidden>
+      Zapisz ustawienia
+    </button>
     <button type="button" class="cookie-consent__button cookie-consent__button--primary" data-cookie-accept>
-      Akceptuję
+      Akceptuję wszystkie
     </button>
   </div>
 </div>
@@ -24,172 +55,173 @@
     right: 20px;
     bottom: 20px;
     z-index: 9999;
-    width: min(440px, calc(100vw - 32px));
+    width: min(500px, calc(100vw - 32px));
     padding: 18px;
     border: 1px solid rgba(197, 154, 95, 0.35);
     border-radius: 24px;
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.97);
     box-shadow: 0 24px 80px rgba(39, 31, 24, 0.18);
     backdrop-filter: blur(18px);
     color: #2b211b;
   }
-
-  .cookie-consent__title {
-    margin: 0 0 6px;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+  .cookie-consent__title { margin: 0 0 6px; font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
+  .cookie-consent__text { margin: 0; font-size: 13px; line-height: 1.55; color: rgba(43, 33, 27, 0.78); }
+  .cookie-consent__settings { display: grid; gap: 8px; margin-top: 14px; }
+  .cookie-consent__option {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    padding: 10px 12px; border: 1px solid rgba(43, 33, 27, 0.10); border-radius: 14px;
+    font-size: 12px; line-height: 1.4;
   }
-
-  .cookie-consent__text {
-    margin: 0;
-    font-size: 13px;
-    line-height: 1.55;
-    color: rgba(43, 33, 27, 0.78);
-  }
-
-  .cookie-consent__actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 16px;
-  }
-
+  .cookie-consent__option span { display: grid; gap: 2px; }
+  .cookie-consent__option small { color: rgba(43, 33, 27, 0.68); }
+  .cookie-consent__option input { width: 19px; height: 19px; flex: 0 0 auto; accent-color: #2b211b; }
+  .cookie-consent__option--fixed { background: rgba(43, 33, 27, 0.035); }
+  .cookie-consent__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .cookie-consent__button {
-    border: 0;
-    border-radius: 999px;
-    padding: 11px 15px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
+    border: 0; border-radius: 999px; padding: 11px 14px; font-size: 13px; font-weight: 700;
+    cursor: pointer; -webkit-tap-highlight-color: transparent;
   }
-
-  .cookie-consent__button--primary {
-    background: #2b211b;
-    color: #fff;
-  }
-
-  .cookie-consent__button--secondary {
-    background: rgba(43, 33, 27, 0.08);
-    color: #2b211b;
-  }
-
+  .cookie-consent__button--primary { background: #2b211b; color: #fff; }
+  .cookie-consent__button--secondary { background: rgba(43, 33, 27, 0.08); color: #2b211b; }
   @media (max-width: 560px) {
-    .cookie-consent {
-      right: 12px;
-      bottom: 12px;
-      width: calc(100vw - 24px);
-      border-radius: 20px;
-    }
-
-    .cookie-consent__actions {
-      flex-direction: column-reverse;
-    }
-
-    .cookie-consent__button {
-      width: 100%;
-    }
+    .cookie-consent { right: 12px; bottom: 12px; width: calc(100vw - 24px); border-radius: 20px; max-height: calc(100vh - 24px); overflow: auto; }
+    .cookie-consent__actions { display: grid; grid-template-columns: 1fr; }
+    .cookie-consent__button { width: 100%; }
   }
 </style>
 
-<script is:inline>
-  (function () {
-    var banner = document.querySelector('[data-cookie-consent]');
-    var acceptButton = document.querySelector('[data-cookie-accept]');
-    var rejectButton = document.querySelector('[data-cookie-reject]');
+<script>
+  import {
+    CONSENT_CHANGED_EVENT,
+    hasStoredConsent,
+    readConsentSnapshot,
+    writeConsentSnapshot,
+    type ConsentSnapshot,
+  } from "../lib/analytics/consent";
 
-    if (!banner || !acceptButton || !rejectButton) return;
+  const banner = document.querySelector<HTMLElement>("[data-cookie-consent]");
+  const acceptButton = document.querySelector<HTMLButtonElement>("[data-cookie-accept]");
+  const rejectButton = document.querySelector<HTMLButtonElement>("[data-cookie-reject]");
+  const customizeButton = document.querySelector<HTMLButtonElement>("[data-cookie-customize]");
+  const saveButton = document.querySelector<HTMLButtonElement>("[data-cookie-save]");
+  const settings = document.querySelector<HTMLElement>("[data-cookie-settings]");
+  const analyticsInput = document.querySelector<HTMLInputElement>("[data-consent-analytics]");
+  const marketingInput = document.querySelector<HTMLInputElement>("[data-consent-marketing]");
+  const menuButton = document.querySelector<HTMLElement>("[data-menu-button]");
+  const clarityProjectId = "y4x08qso9k";
 
-    var storageKey = 'pb_cookie_consent';
-    var clarityProjectId = 'y4x08qso9k';
-    var currentChoice = null;
-    var clarityLoaded = false;
+  if (banner && acceptButton && rejectButton && customizeButton && saveButton && settings && analyticsInput && marketingInput) {
+    let hasChoice = hasStoredConsent(window.localStorage);
+    let clarityLoaded = Boolean((window as any).clarity);
 
-    try {
-      currentChoice = window.localStorage.getItem(storageKey);
-    } catch (error) {
-      currentChoice = null;
+    function current(): ConsentSnapshot {
+      return readConsentSnapshot(window.localStorage);
     }
-
-    if (currentChoice !== 'accepted' && currentChoice !== 'rejected') currentChoice = null;
-    var menuButton = document.querySelector('[data-menu-button]');
 
     function syncBannerVisibility() {
-      var menuOpen = menuButton && menuButton.getAttribute('aria-expanded') === 'true';
-      banner.hidden = Boolean(currentChoice || menuOpen);
+      const menuOpen = menuButton?.getAttribute("aria-expanded") === "true";
+      banner!.hidden = Boolean(hasChoice || menuOpen);
     }
 
-    if (menuButton) {
-      var menuObserver = new MutationObserver(syncBannerVisibility);
-      menuObserver.observe(menuButton, { attributes: true, attributeFilter: ['aria-expanded'] });
-    }
-
-    function updateGoogleConsent(status) {
-      if (typeof window.gtag !== 'function') return;
-
-      var granted = status === 'accepted';
-
-      window.gtag('consent', 'update', {
-        ad_storage: granted ? 'granted' : 'denied',
-        ad_user_data: granted ? 'granted' : 'denied',
-        ad_personalization: granted ? 'granted' : 'denied',
-        analytics_storage: granted ? 'granted' : 'denied'
+    function updateGoogle(consent: ConsentSnapshot) {
+      const gtag = (window as any).gtag;
+      if (typeof gtag !== "function") return;
+      gtag("consent", "update", {
+        analytics_storage: consent.analytics ? "granted" : "denied",
+        ad_storage: consent.marketing ? "granted" : "denied",
+        ad_user_data: consent.marketing ? "granted" : "denied",
+        ad_personalization: consent.marketing ? "granted" : "denied",
       });
     }
 
-    function loadClarity() {
-      if (clarityLoaded || window.clarity) return;
+    function claritySignal(consent: ConsentSnapshot) {
+      const clarity = (window as any).clarity;
+      if (typeof clarity !== "function") return;
+      clarity("consentv2", {
+        analytics_Storage: consent.analytics ? "granted" : "denied",
+        ad_Storage: consent.marketing ? "granted" : "denied",
+      });
+      if (!consent.analytics) clarity("consent", false);
+    }
 
-      clarityLoaded = true;
+    function loadClarity(consent: ConsentSnapshot) {
+      if (!consent.analytics) {
+        claritySignal(consent);
+        return;
+      }
 
-      window.clarity =
-        window.clarity ||
-        function () {
-          (window.clarity.q = window.clarity.q || []).push(arguments);
-        };
-
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.clarity.ms/tag/' + clarityProjectId;
-
-      var firstScript = document.getElementsByTagName('script')[0];
-
-      if (firstScript && firstScript.parentNode) {
-        firstScript.parentNode.insertBefore(script, firstScript);
-      } else {
+      if (!clarityLoaded && !(window as any).clarity) {
+        clarityLoaded = true;
+        (window as any).clarity =
+          (window as any).clarity ||
+          function (...args: unknown[]) {
+            ((window as any).clarity.q = (window as any).clarity.q || []).push(args);
+          };
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = `https://www.clarity.ms/tag/${clarityProjectId}`;
         document.head.appendChild(script);
       }
+      claritySignal(consent);
     }
 
-    function applyConsent(status) {
-      updateGoogleConsent(status);
-
-      if (status === 'accepted') {
-        loadClarity();
-      }
+    function apply(consent: ConsentSnapshot, persist = true) {
+      if (persist) writeConsentSnapshot(consent, window.localStorage);
+      updateGoogle(consent);
+      loadClarity(consent);
+      window.dispatchEvent(new CustomEvent(CONSENT_CHANGED_EVENT, { detail: consent }));
     }
 
-    if (currentChoice) applyConsent(currentChoice);
+    function choice(analytics: boolean, marketing: boolean): ConsentSnapshot {
+      return {
+        necessary: true,
+        analytics,
+        marketing,
+        personalization: marketing,
+        policyVersion: "2",
+      };
+    }
+
+    if (hasChoice) {
+      const existing = current();
+      analyticsInput.checked = existing.analytics;
+      marketingInput.checked = existing.marketing;
+      apply(existing, false);
+    }
     syncBannerVisibility();
 
-    acceptButton.addEventListener('click', function () {
-      try {
-        window.localStorage.setItem(storageKey, 'accepted');
-      } catch (error) {}
+    if (menuButton) {
+      new MutationObserver(syncBannerVisibility).observe(menuButton, {
+        attributes: true,
+        attributeFilter: ["aria-expanded"],
+      });
+    }
 
-      currentChoice = 'accepted';
-      applyConsent(currentChoice);
+    customizeButton.addEventListener("click", () => {
+      const existing = current();
+      analyticsInput.checked = existing.analytics;
+      marketingInput.checked = existing.marketing;
+      settings.hidden = false;
+      customizeButton.hidden = true;
+      saveButton.hidden = false;
+    });
+
+    acceptButton.addEventListener("click", () => {
+      hasChoice = true;
+      apply(choice(true, true));
       syncBannerVisibility();
     });
 
-    rejectButton.addEventListener('click', function () {
-      try {
-        window.localStorage.setItem(storageKey, 'rejected');
-      } catch (error) {}
-
-      currentChoice = 'rejected';
-      applyConsent(currentChoice);
+    rejectButton.addEventListener("click", () => {
+      hasChoice = true;
+      apply(choice(false, false));
       syncBannerVisibility();
     });
-  })();
+
+    saveButton.addEventListener("click", () => {
+      hasChoice = true;
+      apply(choice(analyticsInput.checked, marketingInput.checked));
+      syncBannerVisibility();
+    });
+  }
 </script>

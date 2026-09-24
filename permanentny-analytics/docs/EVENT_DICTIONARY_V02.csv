@@ -1,0 +1,33 @@
+﻿event_name,emitted_by,stage,conversion_class,definition
+session_start,client,core,none,Start consented pseudonymous session; carries sanitized entry attribution.
+attribution_touch,client,core,none,New external/campaign touch without forcing a new session.
+page_view,client,core,none,One logical document display.
+scroll_25,client,core,none,Viewport bottom reached >=25% document.
+scroll_50,client,core,none,Viewport bottom reached >=50% document.
+scroll_75,client,core,none,Viewport bottom reached >=75% document.
+scroll_90,client,core,none,Viewport bottom reached >=90% document.
+scroll_100,client,core,none,Viewport reached document end.
+cta_click,client,core,none,Explicit generic CTA only when no specialized event exists.
+booksy_click,client,core,primary,Outbound intent to Booksy; not a confirmed booking.
+phone_click,client,core,primary,tel: activation.
+form_start,client,core,none,First interaction with configured form; values never captured.
+form_submit,client,core,primary,Confirmed successful form submission.
+instagram_click,client,core,micro,Outbound Instagram click.
+facebook_click,client,core,micro,Outbound Facebook click.
+gallery_open,client,core,micro,Gallery dialog successfully opened.
+gallery_image_view,client,core,none,Gallery asset actually rendered/selected.
+price_view,client,core,micro,Configured price section >=50% visible for >=1000 ms.
+outbound_click,client,core,none,Other external link.
+menu_click,client,core,none,Internal navigation click in header/nav.
+js_error,client,core,none,Uncaught JS error with redacted/hashed message.
+resource_error,client,core,none,Failed browser resource with sanitized path.
+web_vital,client,core,none,"LCP, INP, CLS or TTFB."
+guide_view,derived,derived,none,Derived from page_view where page_type=guide.
+service_view,derived,derived,none,Derived from page_view where page_type=service.
+guide_to_service,derived,derived,micro,Derived transition from guide to service.
+service_to_gallery,derived,derived,micro,Derived transition from service to gallery.
+service_to_price,derived,derived,micro,Derived service to pricing/price_view.
+quick_exit,derived,derived,none,Versioned short-session heuristic.
+rage_click,derived,replay_1b,none,Stage 1B heuristic.
+dead_click,derived,replay_1b,none,Stage 1B heuristic.
+quick_back,derived,replay_1b,none,Stage 1B navigation heuristic.

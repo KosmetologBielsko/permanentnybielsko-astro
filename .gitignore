@@ -23,3 +23,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .vercel
+
+# Local backups and transfer archives
+_backup-*/
+*.backup-*
+*.zip.zip
