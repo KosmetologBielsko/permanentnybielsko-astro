@@ -18,62 +18,62 @@ const phoneUrl = "tel:+48730900125";
 
 const getPriceItemDetails = (groupLabel: string, itemName: string) => {
   if (groupLabel === "Konsultacja") return {
-    description: "Podczas konsultacji oceniamy obszar zabiegowy lub wczeĹ›niejszy makijaĹĽ permanentny, omawiamy oczekiwany efekt i ustalamy wĹ‚aĹ›ciwy kierunek: nowa pigmentacja, korekta, odĹ›wieĹĽenie albo rozjaĹ›nienie starego PMU.",
-    primaryLabel: "UmĂłw konsultacjÄ™", primaryHref: booksyUrl, primaryExternal: true,
+    description: "Podczas konsultacji oceniamy obszar zabiegowy lub wcześniejszy makijaż permanentny, omawiamy oczekiwany efekt i ustalamy właściwy kierunek: nowa pigmentacja, korekta, odświeżenie albo rozjaśnienie starego PMU.",
+    primaryLabel: "Umów konsultację", primaryHref: booksyUrl, primaryExternal: true,
     secondaryLabel: "Formularz PMU", secondaryHref: pmuFormUrl
   };
 
   if (groupLabel === "Brwi") return {
-    description: "DobĂłr techniki zaleĹĽy od skĂłry, naturalnego owĹ‚osienia, wczeĹ›niejszej pigmentacji i efektu, ktĂłry chcesz uzyskaÄ‡. Przy pierwszej wizycie nie musisz samodzielnie wybieraÄ‡ metody.",
+    description: "Dobór techniki zależy od skóry, naturalnego owłosienia, wcześniejszej pigmentacji i efektu, który chcesz uzyskać. Przy pierwszej wizycie nie musisz samodzielnie wybierać metody.",
     primaryLabel: "Zobacz brwi permanentne", primaryHref: "/makijaz-permanentny-brwi/",
-    secondaryLabel: "UmĂłw przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
+    secondaryLabel: "Umów przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
   };
 
   if (groupLabel === "Oczy") return {
-    description: "KreskÄ™ dobieramy do budowy oka, powieki i linii rzÄ™s. JeĹ›li nie wiesz, czy lepsze bÄ™dzie subtelne zagÄ™szczenie czy mocniejsza kreska, decyzjÄ™ moĹĽna podjÄ…Ä‡ po konsultacji przed zabiegiem.",
+    description: "Kreskę dobieramy do budowy oka, powieki i linii rzęs. Jeśli nie wiesz, czy lepsze będzie subtelne zagęszczenie czy mocniejsza kreska, decyzję można podjąć po konsultacji przed zabiegiem.",
     primaryLabel: "Zobacz kreski permanentne", primaryHref: "/makijaz-permanentny-oczu/",
-    secondaryLabel: "UmĂłw przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
+    secondaryLabel: "Umów przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
   };
 
   if (groupLabel === "Usta") return {
     description: itemName === "LIP LIGHT"
-      ? "LIP LIGHT jest usĹ‚ugÄ… dodatkowÄ…. JeĹ›li nie wiesz, czy ten zabieg jest odpowiedni dla Ciebie, najlepiej sprawdziÄ‡ szczegĂłĹ‚y oferty ust lub skontaktowaÄ‡ siÄ™ z gabinetem."
-      : "PigmentacjÄ™ ust dobieramy do naturalnej czerwieni wargowej, typu urody i oczekiwanego efektu. Zabieg ma odĹ›wieĹĽyÄ‡ kolor i kontur, a nie powiÄ™kszaÄ‡ usta.",
-    primaryLabel: "Zobacz makijaĹĽ permanentny ust", primaryHref: "/makijaz-permanentny-ust/",
-    secondaryLabel: "UmĂłw przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
+      ? "LIP LIGHT jest usługą dodatkową. Jeśli nie wiesz, czy ten zabieg jest odpowiedni dla Ciebie, najlepiej sprawdzić szczegóły oferty ust lub skontaktować się z gabinetem."
+      : "Pigmentację ust dobieramy do naturalnej czerwieni wargowej, typu urody i oczekiwanego efektu. Zabieg ma odświeżyć kolor i kontur, a nie powiększać usta.",
+    primaryLabel: "Zobacz makijaż permanentny ust", primaryHref: "/makijaz-permanentny-ust/",
+    secondaryLabel: "Umów przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
   };
 
-  if (groupLabel === "OdĹ›wieĹĽenie") return {
-    description: "OdĹ›wieĹĽenie ma sens wtedy, gdy wczeĹ›niejszy makijaĹĽ jest nadal dobrym punktem wyjĹ›cia. JeĹ›li pigment mocno zmieniĹ‚ kolor, ksztaĹ‚t lub nasycenie, przed kolejnÄ… pigmentacjÄ… moĹĽe byÄ‡ potrzebna korekta albo rozjaĹ›nienie.",
-    primaryLabel: "SprawdĹş zasady odĹ›wieĹĽenia", primaryHref: "/poradnik/odswiezenie-makijazu-permanentnego-cena/",
-    secondaryLabel: "UmĂłw przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
+  if (groupLabel === "Odświeżenie") return {
+    description: "Odświeżenie ma sens wtedy, gdy wcześniejszy makijaż jest nadal dobrym punktem wyjścia. Jeśli pigment mocno zmienił kolor, kształt lub nasycenie, przed kolejną pigmentacją może być potrzebna korekta albo rozjaśnienie.",
+    primaryLabel: "Sprawdź zasady odświeżenia", primaryHref: "/poradnik/odswiezenie-makijazu-permanentnego-cena/",
+    secondaryLabel: "Umów przez Booksy", secondaryHref: booksyUrl, secondaryExternal: true
   };
 
   if (groupLabel === "Usuwanie" && itemName.startsWith("Naprawa")) return {
-    description: "Przy makijaĹĽu wykonanym w innym gabinecie najpierw trzeba oceniÄ‡ kolor, ksztaĹ‚t, nasycenie pigmentu i kondycjÄ™ skĂłry. Nie kaĹĽdÄ… pracÄ™ moĹĽna bezpiecznie przykryÄ‡ nowÄ… pigmentacjÄ….",
+    description: "Przy makijażu wykonanym w innym gabinecie najpierw trzeba ocenić kolor, kształt, nasycenie pigmentu i kondycję skóry. Nie każdą pracę można bezpiecznie przykryć nową pigmentacją.",
     primaryLabel: "Formularz PMU", primaryHref: pmuFormUrl,
-    secondaryLabel: "Zobacz korektÄ™ i usuwanie", secondaryHref: "/usuwanie-makijazu-permanentnego/"
+    secondaryLabel: "Zobacz korektę i usuwanie", secondaryHref: "/usuwanie-makijazu-permanentnego/"
   };
 
   if (groupLabel === "Usuwanie") return {
-    description: "Liczba sesji i metoda usuwania zaleĹĽÄ… od pigmentu, jego koloru, gĹ‚Ä™bokoĹ›ci oraz reakcji skĂłry. Przed rozpoczÄ™ciem najlepiej ustaliÄ‡ realny plan pracy.",
+    description: "Liczba sesji i metoda usuwania zależą od pigmentu, jego koloru, głębokości oraz reakcji skóry. Przed rozpoczęciem najlepiej ustalić realny plan pracy.",
     primaryLabel: "Zobacz usuwanie PMU", primaryHref: "/usuwanie-makijazu-permanentnego/",
     secondaryLabel: "Formularz PMU", secondaryHref: pmuFormUrl
   };
 
   if (itemName === "Sercem malowane") return {
-    description: "To spoĹ‚eczna czÄ™Ĺ›Ä‡ dziaĹ‚alnoĹ›ci gabinetu. Wybrane zabiegi wykonywane sÄ… bezpĹ‚atnie dla osĂłb po chorobie lub w szczegĂłlnie trudnej sytuacji ĹĽyciowej â€” po wczeĹ›niejszej kwalifikacji.",
+    description: "To społeczna część działalności gabinetu. Wybrane zabiegi wykonywane są bezpłatnie dla osób po chorobie lub w szczególnie trudnej sytuacji życiowej — po wcześniejszej kwalifikacji.",
     primaryLabel: "Poznaj #SercemMalowane", primaryHref: "/sercemmalowane/"
   };
 
-  if (itemName.startsWith("UsĹ‚uga VIP")) return {
-    description: "UsĹ‚uga VIP zaleĹĽy od bieĹĽÄ…cej dostÄ™pnoĹ›ci gabinetu i nie zastÄ™puje standardowej rezerwacji. Przed przyjazdem warto skontaktowaÄ‡ siÄ™ telefonicznie.",
-    primaryLabel: "ZadzwoĹ„ i zapytaj", primaryHref: phoneUrl,
-    secondaryLabel: "SprawdĹş Booksy", secondaryHref: booksyUrl, secondaryExternal: true
+  if (itemName.startsWith("Usługa VIP")) return {
+    description: "Usługa VIP zależy od bieżącej dostępności gabinetu i nie zastępuje standardowej rezerwacji. Przed przyjazdem warto skontaktować się telefonicznie.",
+    primaryLabel: "Zadzwoń i zapytaj", primaryHref: phoneUrl,
+    secondaryLabel: "Sprawdź Booksy", secondaryHref: booksyUrl, secondaryExternal: true
   };
 
   return {
-    description: "JeĹ›li nie wiesz, czy ta usĹ‚uga jest odpowiednia dla Ciebie, moĹĽesz najpierw opisaÄ‡ swojÄ… sytuacjÄ™ w formularzu PMU.",
+    description: "Jeśli nie wiesz, czy ta usługa jest odpowiednia dla Ciebie, możesz najpierw opisać swoją sytuację w formularzu PMU.",
     primaryLabel: "Formularz PMU", primaryHref: pmuFormUrl
   };
 };
@@ -82,118 +82,118 @@ const priceGroups = [
   {
     label: "Konsultacja",
     title: "Konsultacja",
-    note: "Pierwszy krok przed decyzjÄ… o zabiegu, korekcie albo usuwaniu PMU.",
+    note: "Pierwszy krok przed decyzją o zabiegu, korekcie albo usuwaniu PMU.",
     items: [
       {
-        name: "Konsultacja makijaĹĽu permanentnego",
+        name: "Konsultacja makijażu permanentnego",
         time: "30 min",
-        price: "50 zĹ‚",
+        price: "50 zł",
         highlight: false
       }
     ]
   },
   {
     label: "Brwi",
-    title: "MakijaĹĽ permanentny brwi",
-    note: "Cena zawiera zabieg gĹ‚Ăłwny wraz z korektÄ… do 2 miesiÄ™cy od zabiegu gĹ‚Ăłwnego.",
+    title: "Makijaż permanentny brwi",
+    note: "Cena zawiera zabieg główny wraz z korektą do 2 miesięcy od zabiegu głównego.",
     items: [
       {
-        name: "MakijaĹĽ permanentny brwi â€” cieniowanie*",
+        name: "Makijaż permanentny brwi — cieniowanie*",
         time: "120 min",
-        price: "1200 zĹ‚",
+        price: "1200 zł",
         highlight: false
       },
       {
-        name: "MakijaĹĽ permanentny brwi â€” metoda wĹ‚oskowa*",
+        name: "Makijaż permanentny brwi — metoda włoskowa*",
         time: "130 min",
-        price: "1400 zĹ‚",
+        price: "1400 zł",
         highlight: true
       },
       {
-        name: "MakijaĹĽ permanentny brwi â€” wĹ‚oski + cieĹ„*",
+        name: "Makijaż permanentny brwi — włoski + cień*",
         time: "130 min",
-        price: "1400 zĹ‚",
+        price: "1400 zł",
         highlight: true
       }
     ]
   },
   {
     label: "Oczy",
-    title: "MakijaĹĽ permanentny oczu",
-    note: "Kreska dobierana jest do budowy oka, powieki, linii rzÄ™s i oczekiwanego efektu.",
+    title: "Makijaż permanentny oczu",
+    note: "Kreska dobierana jest do budowy oka, powieki, linii rzęs i oczekiwanego efektu.",
     items: [
       {
-        name: "Kreska zagÄ™szczajÄ…ca*",
+        name: "Kreska zagęszczająca*",
         time: "120 min",
-        price: "800 zĹ‚",
+        price: "800 zł",
         highlight: false
       },
       {
-        name: "Kreska dekoracyjna â€” eyeliner lub cieniowana*",
+        name: "Kreska dekoracyjna — eyeliner lub cieniowana*",
         time: "120 min",
-        price: "1100 zĹ‚",
+        price: "1100 zł",
         highlight: true
       },
       {
         name: "Kreska dolna*",
         time: "90 min",
-        price: "500 zĹ‚",
+        price: "500 zł",
         highlight: false
       },
       {
-        name: "Kreska dolna + gĂłrna zagÄ™szczajÄ…ca*",
+        name: "Kreska dolna + górna zagęszczająca*",
         time: "120 min",
-        price: "1100 zĹ‚",
+        price: "1100 zł",
         highlight: false
       },
       {
         name: "Kreska dolna + kreska dekoracyjna*",
         time: "120 min",
-        price: "1400 zĹ‚",
+        price: "1400 zł",
         highlight: true
       }
     ]
   },
   {
     label: "Usta",
-    title: "MakijaĹĽ permanentny ust",
-    note: "Pigmentacja ust odĹ›wieĹĽa kolor i kontur. Nie jest zabiegiem powiÄ™kszania ust.",
+    title: "Makijaż permanentny ust",
+    note: "Pigmentacja ust odświeża kolor i kontur. Nie jest zabiegiem powiększania ust.",
     items: [
       {
-        name: "MakijaĹĽ permanentny ust*",
+        name: "Makijaż permanentny ust*",
         time: "120 min",
-        price: "1400 zĹ‚",
+        price: "1400 zł",
         highlight: true
       },
       {
         name: "LIP LIGHT",
         time: "20 min",
-        price: "150 zĹ‚",
+        price: "150 zł",
         highlight: false
       }
     ]
   },
   {
-    label: "OdĹ›wieĹĽenie",
-    title: "OdĹ›wieĹĽenie makijaĹĽu permanentnego",
-    note: "Cena dotyczy odĹ›wieĹĽenia makijaĹĽu wykonanego w naszym gabinecie do 2 lat.",
+    label: "Odświeżenie",
+    title: "Odświeżenie makijażu permanentnego",
+    note: "Cena dotyczy odświeżenia makijażu wykonanego w naszym gabinecie do 2 lat.",
     items: [
       {
-        name: "OdĹ›wieĹĽenie makijaĹĽu permanentnego brwi**",
+        name: "Odświeżenie makijażu permanentnego brwi**",
         time: "60 min",
-        price: "500â€“700 zĹ‚",
+        price: "500–700 zł",
         highlight: false
       },
       {
-        name: "OdĹ›wieĹĽenie makijaĹĽu permanentnego oczu**",
+        name: "Odświeżenie makijażu permanentnego oczu**",
         time: "60 min",
-        price: "350â€“600 zĹ‚",
+        price: "350–600 zł",
         highlight: false
       },
       {
-        name: "OdĹ›wieĹĽenie makijaĹĽu permanentnego ust**",
+        name: "Odświeżenie makijażu permanentnego ust**",
         time: "60 min",
-        price: "700 zĹ‚",
+        price: "700 zł",
         highlight: false
       }
     ]
@@ -201,22 +201,22 @@ const priceGroups = [
   {
     label: "Usuwanie",
     title: "Usuwanie i naprawa PMU",
-    note: "Przy starych pigmentacjach najwaĹĽniejsza jest kwalifikacja i realny plan pracy.",
+    note: "Przy starych pigmentacjach najważniejsza jest kwalifikacja i realny plan pracy.",
     items: [
       {
-        name: "Laserowe usuwanie makijaĹĽu permanentnego",
+        name: "Laserowe usuwanie makijażu permanentnego",
         time: "40 min",
-        price: "200â€“400 zĹ‚",
+        price: "200–400 zł",
         highlight: false
       },
       {
-        name: "Bye-Bye pigment remover â€” usuwanie makijaĹĽu",
+        name: "Bye-Bye pigment remover — usuwanie makijażu",
         time: "60 min",
-        price: "200â€“400 zĹ‚",
+        price: "200–400 zł",
         highlight: false
       },
       {
-        name: "Naprawa makijaĹĽu po innym gabinecie",
+        name: "Naprawa makijażu po innym gabinecie",
         time: "wycena po konsultacji",
         price: "indywidualna wycena",
         highlight: true
@@ -225,18 +225,18 @@ const priceGroups = [
   },
   {
     label: "Specjalne",
-    title: "UsĹ‚ugi specjalne",
-    note: "Pozycje dodatkowe, wymagajÄ…ce indywidualnej kwalifikacji lub dostÄ™pnoĹ›ci terminu.",
+    title: "Usługi specjalne",
+    note: "Pozycje dodatkowe, wymagające indywidualnej kwalifikacji lub dostępności terminu.",
     items: [
       {
         name: "Sercem malowane",
         time: "misja gabinetu",
-        price: "0 zĹ‚",
+        price: "0 zł",
         highlight: true
       },
       {
-        name: "UsĹ‚uga VIP* â€” przyjÄ™cie bez wczeĹ›niejszej rezerwacji",
-        time: "wedĹ‚ug dostÄ™pnoĹ›ci",
+        name: "Usługa VIP* — przyjęcie bez wcześniejszej rezerwacji",
+        time: "według dostępności",
         price: "150% ceny podstawowej",
         highlight: false
       }
@@ -245,35 +245,35 @@ const priceGroups = [
 ];
 
 const pageUrl = "https://www.permanentnybielsko.com/cennik-makijaz-permanentny/";
-const pageTitle = "Cennik makijaĹĽu permanentnego Bielsko-BiaĹ‚a | Brwi od 1200 zĹ‚, usta 1400 zĹ‚";
+const pageTitle = "Cennik makijażu permanentnego Bielsko-Biała | Brwi od 1200 zł, usta 1400 zł";
 const pageDescription =
-  "MakijaĹĽ permanentny Bielsko-BiaĹ‚a â€” cennik: brwi od 1200 zĹ‚, usta 1400 zĹ‚, kreski od 500 zĹ‚, konsultacja 50 zĹ‚, usuwanie PMU 200â€“400 zĹ‚. SprawdĹş peĹ‚ne ceny zabiegĂłw.";
+  "Makijaż permanentny Bielsko-Biała — cennik: brwi od 1200 zł, usta 1400 zł, kreski od 500 zł, konsultacja 50 zł, usuwanie PMU 200–400 zł. Sprawdź pełne ceny zabiegów.";
 
 const faqItems = [
   {
-    question: "Ile kosztujÄ… brwi permanentne w Bielsku-BiaĹ‚ej?",
+    question: "Ile kosztują brwi permanentne w Bielsku-Białej?",
     answer:
-      "MakijaĹĽ permanentny brwi kosztuje od 1200 zĹ‚ za cieniowanie do 1400 zĹ‚ za metodÄ™ wĹ‚oskowÄ… lub wĹ‚oski z cieniem. Ceny oznaczone gwiazdkÄ… obejmujÄ… zabieg gĹ‚Ăłwny wraz z korektÄ… do 2 miesiÄ™cy od zabiegu gĹ‚Ăłwnego."
+      "Makijaż permanentny brwi kosztuje od 1200 zł za cieniowanie do 1400 zł za metodę włoskową lub włoski z cieniem. Ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą do 2 miesięcy od zabiegu głównego."
   },
   {
-    question: "Ile kosztuje makijaĹĽ permanentny ust w Bielsku-BiaĹ‚ej?",
+    question: "Ile kosztuje makijaż permanentny ust w Bielsku-Białej?",
     answer:
-      "MakijaĹĽ permanentny ust kosztuje 1400 zĹ‚. Cena obejmuje zabieg gĹ‚Ăłwny wraz z korektÄ… do 2 miesiÄ™cy od zabiegu gĹ‚Ăłwnego. Pigmentacja ma odĹ›wieĹĽyÄ‡ kolor i kontur ust, a nie je powiÄ™kszaÄ‡."
+      "Makijaż permanentny ust kosztuje 1400 zł. Cena obejmuje zabieg główny wraz z korektą do 2 miesięcy od zabiegu głównego. Pigmentacja ma odświeżyć kolor i kontur ust, a nie je powiększać."
   },
   {
-    question: "Ile kosztujÄ… kreski permanentne?",
+    question: "Ile kosztują kreski permanentne?",
     answer:
-      "Cena kresek permanentnych zaczyna siÄ™ od 500 zĹ‚ za kreskÄ™ dolnÄ…. Kreska zagÄ™szczajÄ…ca kosztuje 800 zĹ‚, a eyeliner lub kreska cieniowana 1100 zĹ‚. Zakres dobierany jest do budowy oka i oczekiwanego efektu."
+      "Cena kresek permanentnych zaczyna się od 500 zł za kreskę dolną. Kreska zagęszczająca kosztuje 800 zł, a eyeliner lub kreska cieniowana 1100 zł. Zakres dobierany jest do budowy oka i oczekiwanego efektu."
   },
   {
-    question: "Czy cena makijaĹĽu permanentnego obejmuje korektÄ™?",
+    question: "Czy cena makijażu permanentnego obejmuje korektę?",
     answer:
-      "Tak. Ceny oznaczone gwiazdkÄ… obejmujÄ… zabieg gĹ‚Ăłwny wraz z korektÄ… do 2 miesiÄ™cy od zabiegu gĹ‚Ăłwnego. Korekta pozwala dopracowaÄ‡ kolor, nasycenie i rĂłwnowagÄ™ efektu po wygojeniu skĂłry."
+      "Tak. Ceny oznaczone gwiazdką obejmują zabieg główny wraz z korektą do 2 miesięcy od zabiegu głównego. Korekta pozwala dopracować kolor, nasycenie i równowagę efektu po wygojeniu skóry."
   },
   {
-    question: "Czy moĹĽna poprawiÄ‡ makijaĹĽ permanentny wykonany w innym gabinecie?",
+    question: "Czy można poprawić makijaż permanentny wykonany w innym gabinecie?",
     answer:
-      "TakÄ… pigmentacjÄ™ trzeba najpierw oceniÄ‡ indywidualnie. Znaczenie majÄ… kolor, nasycenie, ksztaĹ‚t, gĹ‚Ä™bokoĹ›Ä‡ pracy i kondycja skĂłry. Czasem przed nowym zabiegiem potrzebne jest rozjaĹ›nienie lub usuwanie."
+      "Taką pigmentację trzeba najpierw ocenić indywidualnie. Znaczenie mają kolor, nasycenie, kształt, głębokość pracy i kondycja skóry. Czasem przed nowym zabiegiem potrzebne jest rozjaśnienie lub usuwanie."
   }
 ];
 
@@ -336,13 +336,13 @@ const structuredData = [
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "Strona gĹ‚Ăłwna",
+        "name": "Strona główna",
         "item": "https://www.permanentnybielsko.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Cennik makijaĹĽu permanentnego",
+        "name": "Cennik makijażu permanentnego",
         "item": pageUrl
       }
     ]
@@ -351,7 +351,7 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
     "@id": `${pageUrl}#offer-catalog`,
-    "name": "Cennik makijaĹĽu permanentnego Bielsko-BiaĹ‚a",
+    "name": "Cennik makijażu permanentnego Bielsko-Biała",
     "url": pageUrl,
     "itemListElement": priceGroups.map((group) => ({
       "@type": "OfferCatalog",
@@ -371,7 +371,7 @@ const structuredData = [
           },
           "areaServed": {
             "@type": "City",
-            "name": "Bielsko-BiaĹ‚a"
+            "name": "Bielsko-Biała"
           }
         }
       }))
@@ -393,71 +393,71 @@ const structuredData = [
 ];
 
 
-// Keep the existing anchors: other pages link to price-group-0 â€¦ price-group-6.
+// Keep the existing anchors: other pages link to price-group-0 … price-group-6.
 const groupOrder = [1, 3, 2, 0, 4, 5, 6];
 const groupPhotos = { 1: browsPhoto, 3: lipsPhoto, 2: eyesPhoto };
-const navLabels = ["Konsultacja", "Brwi", "Kreski", "Usta", "OdĹ›wieĹĽenie", "Usuwanie", "PozostaĹ‚e"];
+const navLabels = ["Konsultacja", "Brwi", "Kreski", "Usta", "Odświeżenie", "Usuwanie", "Pozostałe"];
 const groupHelp = {
-  0: { label: "Jak wyglÄ…da konsultacja?", href: "/makijaz-permanentny-bielsko/#kwalifikacja-pmu" },
-  1: { label: "PorĂłwnaj metody brwi", href: "/poradnik/metody-brwi-permanentnych-ombre-pudrowe-wloskowe/" },
-  2: { label: "PorĂłwnaj rodzaje kresek", href: "/poradnik/kreska-permanentna-jak-wybrac-rodzaj/" },
-  3: { label: "Jak wybraÄ‡ kolor ust?", href: "/poradnik/makijaz-permanentny-ust-jak-wybrac-kolor/" },
-  4: { label: "Kiedy odĹ›wieĹĽyÄ‡ makijaĹĽ?", href: "/poradnik/odswiezenie-makijazu-permanentnego-cena/" },
+  0: { label: "Jak wygląda konsultacja?", href: "/makijaz-permanentny-bielsko/#kwalifikacja-pmu" },
+  1: { label: "Porównaj metody brwi", href: "/poradnik/metody-brwi-permanentnych-ombre-pudrowe-wloskowe/" },
+  2: { label: "Porównaj rodzaje kresek", href: "/poradnik/kreska-permanentna-jak-wybrac-rodzaj/" },
+  3: { label: "Jak wybrać kolor ust?", href: "/poradnik/makijaz-permanentny-ust-jak-wybrac-kolor/" },
+  4: { label: "Kiedy odświeżyć makijaż?", href: "/poradnik/odswiezenie-makijazu-permanentnego-cena/" },
   5: { label: "Korekta czy usuwanie?", href: "/poradnik/kiedy-usuwac-stary-makijaz-permanentny/" },
   6: { label: "Poznaj #SercemMalowane", href: "/sercemmalowane/" }
 };
 const displayName = (name: string) => {
-  const short = name.replace("MakijaĹĽ permanentny brwi â€” ", "");
+  const short = name.replace("Makijaż permanentny brwi — ", "");
   return short.charAt(0).toUpperCase() + short.slice(1);
 };
 const summaryPrices = [
-  { label: "Brwi", price: `od ${priceGroups[1].items[0].price}`, detail: "Cieniowanie, wĹ‚oski, wĹ‚oski + cieĹ„", index: 1 },
+  { label: "Brwi", price: `od ${priceGroups[1].items[0].price}`, detail: "Cieniowanie, włoski, włoski + cień", index: 1 },
   { label: "Usta", price: priceGroups[3].items[0].price, detail: "Pigmentacja koloru i konturu", index: 3 },
-  { label: "Kreski", price: `od ${priceGroups[2].items[2].price}`, detail: "Dolna, zagÄ™szczajÄ…ca, dekoracyjna", index: 2 }
+  { label: "Kreski", price: `od ${priceGroups[2].items[2].price}`, detail: "Dolna, zagęszczająca, dekoracyjna", index: 2 }
 ];
 ---
 
 <Layout title={pageTitle} description={pageDescription}
   canonicalPath="/cennik-makijaz-permanentny/" structuredData={structuredData} inlineGuideAssistant>
   <Header compact />
-  <a class="pmu-price-skip" href="#cennik-pmu">PrzejdĹş do peĹ‚nego cennika</a>
+  <a class="pmu-price-skip" href="#cennik-pmu">Przejdź do pełnego cennika</a>
   <main class="pmu-price">
     <div class="pmu-price-shell">
       <nav class="pmu-price-breadcrumbs" aria-label="Okruszki nawigacyjne">
-        <a href="/">Strona gĹ‚Ăłwna</a><span aria-hidden="true">/</span><span aria-current="page">Cennik PMU</span>
+        <a href="/">Strona główna</a><span aria-hidden="true">/</span><span aria-current="page">Cennik PMU</span>
       </nav>
       <section class="pmu-price-intro" aria-labelledby="cennik-tytul">
         <div>
-          <p class="pmu-price-kicker">Ceny zabiegĂłw Â· Bielsko-BiaĹ‚a</p>
-          <h1 id="cennik-tytul">Cennik makijaĹĽu permanentnego <span class="bph-title-accent">w Bielsku-BiaĹ‚ej.</span></h1>
-          <p class="pmu-price-lead">Wybierz brwi, usta lub kreski. PorĂłwnaj ceny, sprawdĹş zakres zabiegu i zobacz, kiedy korekta jest wliczona.</p>
+          <p class="pmu-price-kicker">Ceny zabiegów · Bielsko-Biała</p>
+          <h1 id="cennik-tytul">Cennik makijażu permanentnego <span class="bph-title-accent">w Bielsku-Białej.</span></h1>
+          <p class="pmu-price-lead">Wybierz brwi, usta lub kreski. Porównaj ceny, sprawdź zakres zabiegu i zobacz, kiedy korekta jest wliczona.</p>
           <a class="pmu-price-author" href="/makijaz-permanentny-bielsko/#boguslawa-herda">
             <Image src={guideAuthorPortrait} alt="" width={92} height={92} fit="cover" position="top" format="webp" quality={82} loading="lazy" decoding="async" />
-            <span><strong>BogusĹ‚awa Herda</strong><span>Gabinet makijaĹĽu permanentnego</span></span>
+            <span><strong>Bogusława Herda</strong><span>Gabinet makijażu permanentnego</span></span>
           </a>
         </div>
         <aside class="pmu-price-overview" aria-labelledby="cennik-skrot">
-          <p class="pmu-price-kicker" id="cennik-skrot">Ceny w skrĂłcie</p>
+          <p class="pmu-price-kicker" id="cennik-skrot">Ceny w skrócie</p>
           <ul>
             {summaryPrices.map((item) => (
               <li><a href={`#price-group-${item.index}`}>
                 <span><strong>{item.label}</strong><small>{item.detail}</small></span>
-                <span class="pmu-price-overview-amount">{item.price}<span aria-hidden="true"> â†“</span></span>
+                <span class="pmu-price-overview-amount">{item.price}<span aria-hidden="true"> ↓</span></span>
               </a></li>
             ))}
           </ul>
-          <p class="pmu-price-overview-note">Ceny z <strong>*</strong> obejmujÄ… zabieg gĹ‚Ăłwny i korektÄ™ po wygojeniu, <strong>do 2 miesiÄ™cy od zabiegu gĹ‚Ăłwnego.</strong></p>
-          <a class="pmu-price-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">SprawdĹş terminy w Booksy <span aria-hidden="true">â†—</span></a>
+          <p class="pmu-price-overview-note">Ceny z <strong>*</strong> obejmują zabieg główny i korektę po wygojeniu, <strong>do 2 miesięcy od zabiegu głównego.</strong></p>
+          <a class="pmu-price-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a>
         </aside>
       </section>
 
       <section class="pmu-price-catalog" aria-labelledby="cennik-pmu">
-        <p class="pmu-price-kicker">PeĹ‚ny cennik PMU</p>
-        <h2 id="cennik-pmu" tabindex="-1">Ile kosztuje makijaĹĽ permanentny w Bielsku-BiaĹ‚ej?</h2>
-        <nav class="pmu-price-nav" aria-label="Wybierz kategoriÄ™ cennika">
-          {groupOrder.map((index) => <a href={`#price-group-${index}`}>{navLabels[index]} <span aria-hidden="true">â†“</span></a>)}
+        <p class="pmu-price-kicker">Pełny cennik PMU</p>
+        <h2 id="cennik-pmu" tabindex="-1">Ile kosztuje makijaż permanentny w Bielsku-Białej?</h2>
+        <nav class="pmu-price-nav" aria-label="Wybierz kategorię cennika">
+          {groupOrder.map((index) => <a href={`#price-group-${index}`}>{navLabels[index]} <span aria-hidden="true">↓</span></a>)}
         </nav>
-        <p class="pmu-price-catalog-note">Ceny i czas wizyty znajdziesz przy kaĹĽdej usĹ‚udze. <a href="#zasady-cennika">SprawdĹş zasady korekty i odĹ›wieĹĽenia â†“</a></p>
+        <p class="pmu-price-catalog-note">Ceny i czas wizyty znajdziesz przy każdej usłudze. <a href="#zasady-cennika">Sprawdź zasady korekty i odświeżenia ↓</a></p>
 
         {groupOrder.map((index) => {
           const group = priceGroups[index];
@@ -479,16 +479,16 @@ const summaryPrices = [
                   ))}
                 </dl>
                 <details class="pmu-price-details">
-                  <summary>Co warto wiedzieÄ‡ przed rezerwacjÄ…?<span aria-hidden="true">+</span></summary>
+                  <summary>Co warto wiedzieć przed rezerwacją?<span aria-hidden="true">+</span></summary>
                   <div class="pmu-price-details-copy">
                     {Array.from(new Set(group.items.map((item) => getPriceItemDetails(group.label, item.name).description))).map((description) => <p>{description}</p>)}
                   </div>
                 </details>
                 <div class="pmu-price-group-links">
-                  <a href={help.href}>{help.label} <span aria-hidden="true">â†’</span></a>
-                  {index === 5 ? <a href={pmuFormUrl}>Opisz stare PMU <span aria-hidden="true">â†’</span></a>
-                    : index === 6 ? <a href={phoneUrl}>Zapytaj o dostÄ™pnoĹ›Ä‡ <span aria-hidden="true">â†’</span></a>
-                    : <a href={booksyUrl} target="_blank" rel="noopener noreferrer">{index === 0 ? "UmĂłw konsultacjÄ™" : "SprawdĹş terminy"} <span aria-hidden="true">â†—</span></a>}
+                  <a href={help.href}>{help.label} <span aria-hidden="true">→</span></a>
+                  {index === 5 ? <a href={pmuFormUrl}>Opisz stare PMU <span aria-hidden="true">→</span></a>
+                    : index === 6 ? <a href={phoneUrl}>Zapytaj o dostępność <span aria-hidden="true">→</span></a>
+                    : <a href={booksyUrl} target="_blank" rel="noopener noreferrer">{index === 0 ? "Umów konsultację" : "Sprawdź terminy"} <span aria-hidden="true">↗</span></a>}
                 </div>
               </div>
             </section>
@@ -500,31 +500,31 @@ const summaryPrices = [
         <p class="pmu-price-kicker">Zakres i zasady</p>
         <h2 id="zasady-cennika">Co obejmuje cena zabiegu?</h2>
         <div class="pmu-price-rule-grid">
-          <article><span class="pmu-price-rule-mark" aria-hidden="true">01</span><h3>* Zabieg gĹ‚Ăłwny + korekta</h3><p>Cena oznaczona gwiazdkÄ… obejmuje zabieg gĹ‚Ăłwny i korektÄ™ po wygojeniu, <strong>do 2 miesiÄ™cy od zabiegu gĹ‚Ăłwnego</strong>. Korekta pozwala dopracowaÄ‡ kolor, nasycenie i rĂłwnowagÄ™ efektu.</p></article>
-          <article><span class="pmu-price-rule-mark" aria-hidden="true">02</span><h3>** OdĹ›wieĹĽenie do 2 lat</h3><p>Cena odĹ›wieĹĽenia dotyczy makijaĹĽu wykonanego <strong>w naszym gabinecie, do 2 lat</strong>. WczeĹ›niejszÄ… pigmentacjÄ™ oceniamy przed wyborem dalszego postÄ™powania.</p></article>
-          <article><span class="pmu-price-rule-mark" aria-hidden="true">03</span><h3>PMU po innym gabinecie</h3><p>Naprawa wymaga <strong>indywidualnej wyceny po konsultacji</strong>. Znaczenie majÄ… kolor, ksztaĹ‚t i nasycenie pigmentu. Czasem przed nowym zabiegiem potrzebne jest rozjaĹ›nienie.</p></article>
+          <article><span class="pmu-price-rule-mark" aria-hidden="true">01</span><h3>* Zabieg główny + korekta</h3><p>Cena oznaczona gwiazdką obejmuje zabieg główny i korektę po wygojeniu, <strong>do 2 miesięcy od zabiegu głównego</strong>. Korekta pozwala dopracować kolor, nasycenie i równowagę efektu.</p></article>
+          <article><span class="pmu-price-rule-mark" aria-hidden="true">02</span><h3>** Odświeżenie do 2 lat</h3><p>Cena odświeżenia dotyczy makijażu wykonanego <strong>w naszym gabinecie, do 2 lat</strong>. Wcześniejszą pigmentację oceniamy przed wyborem dalszego postępowania.</p></article>
+          <article><span class="pmu-price-rule-mark" aria-hidden="true">03</span><h3>PMU po innym gabinecie</h3><p>Naprawa wymaga <strong>indywidualnej wyceny po konsultacji</strong>. Znaczenie mają kolor, kształt i nasycenie pigmentu. Czasem przed nowym zabiegiem potrzebne jest rozjaśnienie.</p></article>
         </div>
         <div class="pmu-price-formal">
-          <p>Przed rezerwacjÄ… sprawdĹş zasady zapisĂłw, odwoĹ‚ywania terminĂłw i kwalifikacji: <a href="/regulamin-salonu/">regulamin salonu â†’</a></p>
-          <p>Przedstawiona oferta ma charakter informacyjny i nie stanowi oferty handlowej w rozumieniu art. 66 Â§ 1 KC.</p>
+          <p>Przed rezerwacją sprawdź zasady zapisów, odwoływania terminów i kwalifikacji: <a href="/regulamin-salonu/">regulamin salonu →</a></p>
+          <p>Przedstawiona oferta ma charakter informacyjny i nie stanowi oferty handlowej w rozumieniu art. 66 § 1 KC.</p>
         </div>
       </section>
 
       <section class="pmu-price-booking" aria-labelledby="cennik-rezerwacja">
-        <div><p class="pmu-price-kicker">TwĂłj nastÄ™pny krok</p><h2 id="cennik-rezerwacja">Znasz ceny. Wybierz termin lub zacznij od rozmowy.</h2><p>Przy nowym zabiegu sprawdĹş dostÄ™pne terminy. JeĹ›li masz starÄ… pigmentacjÄ™ lub nie wiesz, jakÄ… metodÄ™ wybraÄ‡, zacznij od konsultacji: <strong>{priceGroups[0].items[0].price} Â· {priceGroups[0].items[0].time}</strong>.</p></div>
+        <div><p class="pmu-price-kicker">Twój następny krok</p><h2 id="cennik-rezerwacja">Znasz ceny. Wybierz termin lub zacznij od rozmowy.</h2><p>Przy nowym zabiegu sprawdź dostępne terminy. Jeśli masz starą pigmentację lub nie wiesz, jaką metodę wybrać, zacznij od konsultacji: <strong>{priceGroups[0].items[0].price} · {priceGroups[0].items[0].time}</strong>.</p></div>
         <div class="pmu-price-booking-actions">
-          <a class="pmu-price-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">SprawdĹş terminy w Booksy <span aria-hidden="true">â†—</span></a>
-          <a class="pmu-price-secondary" href={phoneUrl}>ZadzwoĹ„: 730 900 125</a>
-          <a class="pmu-price-text-link" href={pmuFormUrl}>Opisz swojÄ… sytuacjÄ™ w formularzu <span aria-hidden="true">â†’</span></a>
+          <a class="pmu-price-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a>
+          <a class="pmu-price-secondary" href={phoneUrl}>Zadzwoń: 730 900 125</a>
+          <a class="pmu-price-text-link" href={pmuFormUrl}>Opisz swoją sytuację w formularzu <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
       <section class="pmu-price-faq" aria-labelledby="cennik-pytania">
-        <p class="pmu-price-kicker">Pytania przed rezerwacjÄ…</p>
-        <h2 id="cennik-pytania">Co warto wiedzieÄ‡ o cenach makijaĹĽu permanentnego?</h2>
+        <p class="pmu-price-kicker">Pytania przed rezerwacją</p>
+        <h2 id="cennik-pytania">Co warto wiedzieć o cenach makijażu permanentnego?</h2>
         {faqItems.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}
       </section>
-      <div class="pmu-price-guide-link"><p>Chcesz najpierw poznaÄ‡ zabieg?</p><a href="/poradnik/">PrzejdĹş do poradnika PMU <span aria-hidden="true">â†’</span></a></div>
+      <div class="pmu-price-guide-link"><p>Chcesz najpierw poznać zabieg?</p><a href="/poradnik/">Przejdź do poradnika PMU <span aria-hidden="true">→</span></a></div>
       <GuideAssistant />
     </div>
   </main>
