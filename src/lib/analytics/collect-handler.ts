@@ -28,14 +28,18 @@ function requestOriginAllowed(request: Request, allowedHosts: string[]): boolean
 
   if (origin) {
     try {
-      return allowedHosts.includes(new URL(origin).hostname.toLowerCase());
+      const originHost = new URL(origin).hostname.toLowerCase();
+      const requestHost = new URL(request.url).hostname.toLowerCase();
+
+      // Allow exact same-origin requests, including ephemeral Vercel Preview hosts.
+      // Production remains protected because foreign origins still do not match.
+      return originHost === requestHost || allowedHosts.includes(originHost);
     } catch {
       return false;
     }
   }
 
-  // Browser same-origin requests may omit Origin in some navigation/user-agent cases.
-  // A request with neither Origin nor Fetch-Metadata is not accepted by the public collector.
+  // Browser same-origin requests may omit Origin in some cases.
   return fetchSite === 'same-origin' || fetchSite === 'same-site';
 }
 
