@@ -116,13 +116,28 @@ export async function handleCollectRequest(request: Request, deps: CollectHandle
           } catch {}
         }
       }
-    } catch {
+    } catch (error) {
+      const dbError = error as Error & {
+        code?: string;
+        position?: string;
+        routine?: string;
+      };
+
+      console.error('[Permanentny Analytics] storage insert failed', {
+        name: dbError?.name ?? 'Error',
+        message: dbError?.message ?? 'unknown',
+        code: dbError?.code ?? null,
+        position: dbError?.position ?? null,
+        routine: dbError?.routine ?? null,
+      });
+
       try {
         await deps.storage.recordDataQuality({
           occurredAt: new Date().toISOString(),
           code: 'collector_storage_error',
         });
       } catch {}
+
       return json({ accepted, duplicates, rejected, error: 'storage_unavailable' }, 503);
     }
   }
