@@ -11,6 +11,7 @@ import ankaraImage from "../assets/home-13/ankara.webp";
 import teamImage from "../assets/home-13/long-time-liner-zespol.webp";
 import missionPortrait from "../assets/home-13/sercem-malowane.webp";
 import authorPortrait from "../assets/poradnik/seria-01/boguslawa-herda-portret.webp";
+import cosmeticPortrait from "../assets/poradnik/seria-04/gabinet04.webp";
 import media from "../data/pmu-media-library.json";
 import { siteConfig } from "../config/site";
 import "../styles/pmu-home.css";
@@ -198,6 +199,20 @@ const destinations = [
     Przeczytaj opinie ↗
   </span>
 </a></blockquote><div class="pmu-home-links"><a href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj moje doświadczenie →</a></div></div></section>
+      <section class="pmu-home-section pmu-home-cosmetology" id="kosmetologia" aria-labelledby="home-kosmetologia">
+        <figure class="pmu-home-cosmetology-photo">
+          <Image src={cosmeticPortrait} alt="Bogusława Herda w gabinecie" width={320} widths={[88,160,176,240,320]} sizes="(max-width:640px) 88px, 160px" format="webp" quality={82} loading="lazy" decoding="async" />
+        </figure>
+        <div class="pmu-home-cosmetology-heading">
+          <p class="pmu-home-kicker">Bogusława Herda · Kosmetologia</p>
+          <h2 id="home-kosmetologia">Naturalne piękno zaczyna się także od skóry.</h2>
+        </div>
+        <p class="pmu-home-cosmetology-copy">W naszym gabinecie zadbasz również o skórę twarzy i ciało. Zabiegi kosmetologiczne, ich zastosowanie i ceny poznasz na naszej osobnej stronie.</p>
+        <div class="pmu-home-cosmetology-actions">
+          <a class="pmu-home-secondary" href="https://kosmetologiabielsko.com/">Poznaj zabiegi kosmetologiczne <span aria-hidden="true">↗</span></a>
+          <span class="pmu-home-cosmetology-domain">kosmetologiabielsko.com</span>
+        </div>
+      </section>
       <section class="pmu-home-section pmu-home-world" id="o-mnie" aria-labelledby="home-swiat"><div class="pmu-home-section-heading"><p class="pmu-home-kicker">04 / Doświadczenie międzynarodowe</p><h2 id="home-swiat">Z Bielska-Białej<br />na międzynarodową scenę PMU.</h2><p>Pokazy, warsztaty, mistrzostwa i praca w jury to ważna część mojej drogi. Do gabinetu wracam z nowymi perspektywami i doświadczeniem w pracy z różnymi technikami oraz oczekiwaniami klientek.</p></div><div class="pmu-home-world-grid"><figure class="pmu-home-world-image"><Image src={ankaraImage} alt="Ankara, Turcja — prelegentka Long-Time-Liner" width={720} widths={[360,540,720,960]} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) 480px, 400px" format="webp" quality={83} loading="lazy" decoding="async" /><figcaption>Ankara · Long-Time-Liner®</figcaption></figure><dl class="pmu-home-destinations">{destinations.map(item => <div><dt>{item.city}<span>{item.country}</span></dt><dd>{item.role}{item.upcoming && <span class="pmu-home-upcoming">Przed nami · 2026</span>}</dd></div>)}</dl></div></section>
       <section class="pmu-home-section pmu-home-education" id="szkolenia-pmu" aria-labelledby="szkolenia"><div><p class="pmu-home-kicker">05 / Dla linergistek</p><h2 id="szkolenia">Precyzja, którą przekazuję dalej.</h2><p>Szkolenia makijażu permanentnego: Step by Step, Masterclass, Silky Hairstroke Brows i Bye-Bye Pigment Remover. Poznaj program i wybierz ścieżkę dopasowaną do swojego doświadczenia.</p><a class="pmu-home-secondary" href="/szkolenie-makijaz-permanentny/">Zobacz szkolenia PMU →</a><details class="pmu-home-more"><summary>Long-Time-Liner® i moja droga zawodowa <span aria-hidden="true">+</span></summary><p>Edukacja, precyzja i szacunek do naturalnej urody to ważna część mojego podejścia. Magda Bogulak — Long-Time-Liner Polska i Sharley Medical Clinic &amp; Day SPA — jest mentorką i jedną z najważniejszych osób w mojej zawodowej historii.</p></details></div><figure><Image src={teamImage} alt="Bogusława Herda z zespołem Long-Time-Liner podczas wydarzenia PMU" width={800} widths={[360,540,800,1080]} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) calc(100vw - 56px), 500px" format="webp" quality={82} loading="lazy" decoding="async" /><figcaption>Long-Time-Liner® · edukacja i wspólna praca</figcaption></figure></section>
       <section class="pmu-home-section pmu-home-mission" id="sercem-malowane" aria-labelledby="home-serce"><figure><Image src={missionPortrait} alt="Bogusława Herda z wyróżnieniem Ambasador Serca Long-Time-Liner w projekcie SercemMalowane" width={480} widths={[180,280,480]} sizes="(max-width:640px) 180px, 240px" format="webp" quality={82} loading="lazy" decoding="async" /></figure><div><p class="pmu-home-kicker">#SercemMalowane · Ambasador Serca</p><h2 id="home-serce">Czasem chodzi o coś więcej niż makijaż.</h2><p>Utrata brwi, zmiany po leczeniu czy rozszczep wargi mogą wpływać na to, jak czujemy się ze swoją twarzą. W projekcie #SercemMalowane łączę doświadczenie z uważnością na historię drugiej osoby.</p><p>„Nie każda pigmentacja zaczyna się od potrzeby makijażu. Czasem zaczyna się od potrzeby, żeby znowu poczuć się dobrze ze swoją twarzą.”</p><a href="/sercemmalowane/">Poznaj projekt #SercemMalowane →</a></div></section>

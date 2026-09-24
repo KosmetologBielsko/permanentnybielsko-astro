@@ -587,3 +587,30 @@ main.pmu-home h1 { max-width:none; margin:0 0 20px; font-size:clamp(2.2rem,4.4vw
 }
 
 /* PMU BOOKSY IN STANCE END */
+
+/* PMU 21: jedna karta kierująca do kosmetologii, tylko na homepage. */
+.pmu-home .pmu-home-cosmetology {
+  display:grid; grid-template-columns:160px minmax(0,1fr);
+  grid-template-areas:"photo heading" "photo copy" "photo actions";
+  gap:14px 32px; align-items:start; padding:28px 32px;
+  border:1px solid var(--home-line); border-radius:26px; background:var(--home-rose);
+}
+.pmu-home .pmu-home-cosmetology-photo { grid-area:photo; width:160px; margin:0; align-self:center; }
+.pmu-home .pmu-home-cosmetology-photo img { display:block; width:100%; height:auto; border-radius:18px; }
+.pmu-home .pmu-home-cosmetology-heading { grid-area:heading; }
+.pmu-home .pmu-home-cosmetology-heading .pmu-home-kicker { margin-bottom:8px; }
+.pmu-home .pmu-home-cosmetology h2 { max-width:34ch; margin:0; font-size:clamp(1.35rem,2vw,1.75rem); line-height:1.25; }
+.pmu-home .pmu-home-cosmetology-copy { grid-area:copy; max-width:66ch; font-size:.95rem; }
+.pmu-home .pmu-home-cosmetology-actions { grid-area:actions; display:flex; flex-wrap:wrap; align-items:center; gap:8px 18px; }
+.pmu-home .pmu-home-cosmetology-domain { color:var(--home-muted); font-size:.77rem; overflow-wrap:anywhere; }
+@media(max-width:640px) {
+  .pmu-home .pmu-home-cosmetology { grid-template-columns:88px minmax(0,1fr); grid-template-areas:"photo heading" "copy copy" "actions actions"; gap:18px 16px; padding:22px 20px; border-radius:22px; }
+  .pmu-home .pmu-home-cosmetology-photo { width:88px; }
+  .pmu-home .pmu-home-cosmetology-photo img { border-radius:14px; }
+  .pmu-home .pmu-home-cosmetology-heading { align-self:center; }
+  .pmu-home .pmu-home-cosmetology-heading .pmu-home-kicker { font-size:.62rem; letter-spacing:.07em; }
+  .pmu-home .pmu-home-cosmetology h2 { font-size:1.3rem; }
+  .pmu-home .pmu-home-cosmetology-actions { display:grid; gap:8px; }
+  .pmu-home .pmu-home-cosmetology-actions .pmu-home-secondary { width:100%; font-size:.88rem; padding-inline:12px; }
+  .pmu-home .pmu-home-cosmetology-domain { text-align:center; }
+}
