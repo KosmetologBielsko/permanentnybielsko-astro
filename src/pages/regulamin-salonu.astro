@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import "../styles/pmu-landing.css";
+import "../styles/pmu-legal.css";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
@@ -212,40 +214,40 @@ const highlights = [
   title="Regulamin salonu i zasady wizyt PMU | Bogusława Herda Bielsko-Biała"
   description="Regulamin salonu i zasady wizyt w gabinecie Bogusława Herda Makijaż Permanentny w Bielsku-Białej: rezerwacje, zadatek, kwalifikacja, rysunek wstępny, zgody, zalecenia i reklamacje."
 >
-  <div class="rules-page">
-    <Header />
+  <Header />
+  <a class="pmu-landing-skip" href="#dokument">Przejdź do treści dokumentu</a>
+  <main class="pmu-landing pmu-legal" id="rules-main">
+      <section class="pmu-legal-hero">
+        <nav class="pmu-landing-shell pmu-landing-breadcrumbs" aria-label="Okruszki nawigacyjne">
+          <a href="/">Strona główna</a><span aria-hidden="true">/</span><span aria-current="page">Regulamin salonu</span>
+        </nav>
 
-    <main>
-      <section class="rules-hero">
-        <div class="rules-glow rules-glow-one"></div>
-        <div class="rules-glow rules-glow-two"></div>
+        <div class="pmu-landing-shell pmu-landing-intro">
+          <div class="pmu-legal-hero-copy">
+            <p class="pmu-landing-kicker">Regulamin salonu</p>
 
-        <div class="container rules-hero-grid">
-          <div class="rules-hero-copy">
-            <p class="section-kicker">Regulamin salonu</p>
+            <h1>Zasady wizyt i bezpieczeństwa <span>w gabinecie PMU.</span></h1>
 
-            <h1>Zasady wizyt i bezpieczeństwa w gabinecie PMU.</h1>
-
-            <p class="rules-hero-lead">
+            <p class="pmu-landing-lead">
               W gabinecie Bogusława Herda dbamy o spokojną atmosferę, indywidualne podejście,
               bezpieczeństwo zabiegów oraz jasne zasady współpracy. Poniższe informacje pomagają
               przygotować się do wizyty i wyjaśniają, jak wygląda rezerwacja, kwalifikacja,
               rysunek wstępny, odwołanie terminu oraz opieka po zabiegu.
             </p>
 
-            <div class="rules-hero-actions">
-              <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+            <div class="pmu-legal-actions">
+              <a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
                 Sprawdź terminy w Booksy
               </a>
 
-              <a class="button-secondary" href="/rodo-polityka-prywatnosci-regulamin/">
+              <a class="pmu-landing-secondary" href="/rodo-polityka-prywatnosci-regulamin/">
                 Polityka prywatności
               </a>
             </div>
           </div>
 
-          <aside class="rules-hero-card" aria-label="Zasady PMU">
-            <p class="rules-card-label">PMU</p>
+          <aside class="pmu-landing-overview" aria-label="Zasady PMU">
+            <p class="pmu-landing-kicker">PMU</p>
             <h2>Spokojnie. Świadomie. Bezpiecznie.</h2>
             <p>
               Makijaż permanentny wymaga rozmowy, kwalifikacji, rysunku wstępnego,
@@ -255,8 +257,8 @@ const highlights = [
         </div>
       </section>
 
-      <section class="rules-highlights-section">
-        <div class="container rules-highlights-grid">
+      <section class="pmu-legal-highlights-section">
+        <div class="pmu-landing-shell pmu-legal-highlights">
           {highlights.map((item) => (
             <article>
               <h2>{item.title}</h2>
@@ -266,10 +268,21 @@ const highlights = [
         </div>
       </section>
 
-      <section class="rules-list-section">
-        <div class="container">
-          <div class="rules-section-heading">
-            <p class="section-kicker">Zasady wizyt</p>
+      <nav class="pmu-landing-shell pmu-legal-toc" id="spis-tresci" aria-label="Spis treści regulaminu salonu">
+        <details>
+          <summary>Przejdź do wybranego punktu <span aria-hidden="true">+</span></summary>
+          <ol>
+            {rules.map((rule) => (
+              <li><a href={`#zasada-${rule.number}`}><span aria-hidden="true">{rule.number}</span>{rule.title}</a></li>
+            ))}
+          </ol>
+        </details>
+      </nav>
+
+      <section class="pmu-legal-content" id="dokument">
+        <div class="pmu-landing-shell">
+          <div class="pmu-legal-document-heading">
+            <p class="pmu-landing-kicker">Zasady wizyt</p>
             <h2>Najważniejsze informacje przed wizytą w gabinecie.</h2>
             <p>
               Regulamin ma pomóc w jasnej komunikacji, zachowaniu bezpieczeństwa i utrzymaniu
@@ -277,14 +290,11 @@ const highlights = [
             </p>
           </div>
 
-          <div class="rules-list">
+          <div class="pmu-legal-list">
             {rules.map((rule) => (
-              <article class:list={["rules-rule-card", { "rules-rule-card-featured": rule.featured }]}>
-                {rule.featured && (
-                  <span class="rules-big-mark" aria-hidden="true">PMU</span>
-                )}
+              <article id={`zasada-${rule.number}`} class:list={["pmu-legal-entry", { "pmu-legal-entry-featured": rule.featured }]}>
 
-                <span class="rules-number">{rule.number}</span>
+                <span class="pmu-legal-number">{rule.number}</span>
                 <h3>{rule.title}</h3>
 
                 {rule.paragraphs.map((paragraph) => (
@@ -296,10 +306,10 @@ const highlights = [
         </div>
       </section>
 
-      <section class="rules-contact-section">
-        <div class="container rules-contact-grid">
-          <div class="rules-contact-card">
-            <p class="section-kicker">Kontakt i rezerwacja</p>
+      <section class="pmu-legal-contact">
+        <div class="pmu-landing-shell pmu-landing-booking">
+          <div class="pmu-legal-contact-copy">
+            <p class="pmu-landing-kicker">Kontakt i rezerwacja</p>
             <h2>Masz pytanie przed wizytą?</h2>
             <p>
               Jeżeli nie wiesz, który zabieg wybrać, masz pytania o przeciwwskazania,
@@ -308,7 +318,7 @@ const highlights = [
             </p>
           </div>
 
-          <div class="rules-contact-details">
+          <div class="pmu-legal-contact-details">
             <a href="tel:+48730900125">+48 730 900 125</a>
             <a href="mailto:bogusia@permanentnybielsko.com">bogusia@permanentnybielsko.com</a>
             <a href={booksyUrl} target="_blank" rel="noopener noreferrer">Rezerwacja online przez Booksy</a>
@@ -316,9 +326,9 @@ const highlights = [
         </div>
       </section>
 
-      <section class="rules-final-cta">
-        <div class="container rules-final-card">
-          <p class="signature cta-signature">Powrót do natury</p>
+      <section class="pmu-legal-related">
+        <div class="pmu-landing-shell pmu-legal-related-inner">
+          <p class="pmu-landing-kicker">Powrót do natury</p>
           <h2>Rezerwacja wizyty</h2>
           <p>
             Sprawdź ceny, terminy i wybierz najlepszy moment dla siebie.
@@ -326,797 +336,11 @@ const highlights = [
             najlepszym początkiem jest spokojna konsultacja.
           </p>
 
-          <a class="button-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
+          <a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">
             Umów wizytę przez Booksy
           </a>
         </div>
       </section>
-    </main>
-
-    <Footer />
-  </div>
+  </main>
+  <Footer />
 </Layout>
-
-<style>
-  .rules-page {
-    min-height: 100vh;
-    overflow-x: hidden;
-    background:
-      radial-gradient(circle at 78% 12%, rgba(56, 187, 181, 0.12), transparent 28rem),
-      radial-gradient(circle at 14% 40%, rgba(201, 127, 143, 0.12), transparent 26rem),
-      linear-gradient(180deg, #fffdfd 0%, #fff8fa 52%, #ffffff 100%);
-  }
-
-  .rules-hero {
-    position: relative;
-    padding: 150px 0 88px;
-    overflow: hidden;
-  }
-
-  .rules-glow {
-    position: absolute;
-    pointer-events: none;
-    border-radius: 999px;
-  }
-
-  .rules-glow-one {
-    right: -12rem;
-    top: 4rem;
-    width: 42rem;
-    height: 42rem;
-    background: radial-gradient(circle, rgba(56, 187, 181, 0.2), transparent 68%);
-  }
-
-  .rules-glow-two {
-    left: -10rem;
-    bottom: -12rem;
-    width: 38rem;
-    height: 38rem;
-    background: radial-gradient(circle, rgba(201, 127, 143, 0.18), transparent 68%);
-  }
-
-  .rules-hero-grid {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
-    gap: 24px;
-    align-items: stretch;
-  }
-
-  .rules-hero-copy,
-  .rules-hero-card,
-  .rules-highlights-grid article,
-  .rules-rule-card,
-  .rules-contact-card,
-  .rules-contact-details,
-  .rules-final-card {
-    border: 1px solid rgba(183, 101, 118, 0.16);
-    box-shadow: 0 18px 54px rgba(89, 53, 67, 0.075);
-  }
-
-  .rules-hero-copy {
-    padding: clamp(38px, 5vw, 72px);
-    border-radius: 42px;
-    background: rgba(255, 255, 255, 0.76);
-  }
-
-  .rules-hero-copy h1 {
-    max-width: 1040px;
-    margin: 0;
-    font-size: clamp(3.05rem, 5.45vw, 6.35rem);
-    font-weight: 750;
-    line-height: 1.02;
-    letter-spacing: -0.078em;
-  }
-
-  .rules-hero-lead {
-    max-width: 780px;
-    margin: 28px 0 0;
-    color: var(--color-muted);
-    font-size: 1.12rem;
-  }
-
-  .rules-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 34px;
-  }
-
-  .rules-hero-card {
-    position: relative;
-    overflow: hidden;
-    min-height: 430px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: clamp(34px, 4vw, 56px);
-    border-radius: 42px;
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
-    background-size: 100% 100%, 100% 100%, 240% 240%;
-    animation: rules-turquoise-flow 13s ease-in-out infinite alternate;
-    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
-  }
-
-  .rules-hero-card::before,
-  .rules-rule-card-featured::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0.26) 47%, rgba(255, 255, 255, 0.06) 72%, transparent 100%);
-    transform: translateX(-72%);
-    animation: rules-panel-shine 8.5s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .rules-card-label {
-    position: relative;
-    z-index: 2;
-    margin: 0 0 auto;
-    color: rgba(255, 255, 255, 0.18);
-    font-size: clamp(4.5rem, 7vw, 7.8rem);
-    font-weight: 800;
-    line-height: 0.8;
-    letter-spacing: -0.09em;
-  }
-
-  .rules-hero-card h2,
-  .rules-hero-card p:not(.rules-card-label) {
-    position: relative;
-    z-index: 2;
-  }
-
-  .rules-hero-card h2 {
-    margin: 40px 0 0;
-    color: #ffffff;
-    font-size: clamp(2rem, 3vw, 3.2rem);
-    font-weight: 740;
-    line-height: 0.96;
-    letter-spacing: -0.075em;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.26);
-  }
-
-  .rules-hero-card p:not(.rules-card-label) {
-    margin: 18px 0 0;
-    color: rgba(255, 255, 255, 0.88);
-  }
-
-  .rules-highlights-section,
-  .rules-list-section,
-  .rules-contact-section,
-  .rules-final-cta {
-    padding: 88px 0;
-  }
-
-  .rules-highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-
-  .rules-highlights-grid article {
-    padding: 30px;
-    border-radius: 32px;
-    background:
-      radial-gradient(circle at 92% 10%, rgba(219, 246, 243, 0.72), transparent 7rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.86));
-  }
-
-  .rules-highlights-grid h2 {
-    margin: 0;
-    color: var(--color-text);
-    font-size: clamp(1.45rem, 1.9vw, 2.1rem);
-    font-weight: 740;
-    line-height: 1;
-    letter-spacing: -0.065em;
-  }
-
-  .rules-highlights-grid p {
-    color: var(--color-muted);
-  }
-
-  .rules-section-heading {
-    max-width: 940px;
-    margin-bottom: 38px;
-  }
-
-  .rules-section-heading .section-kicker {
-    color: var(--color-turquoise-dark);
-    font-size: 0.78rem;
-    font-weight: 820;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-  }
-
-  .rules-section-heading h2,
-  .rules-contact-card h2,
-  .rules-final-card h2 {
-    margin: 0;
-    color: var(--color-text);
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem);
-    font-weight: 760;
-    line-height: 1.02;
-    letter-spacing: -0.074em;
-  }
-
-  .rules-section-heading p {
-    max-width: 880px;
-    color: var(--color-muted);
-    font-size: 1.05rem;
-    line-height: 1.68;
-  }
-
-  .rules-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .rules-rule-card {
-    position: relative;
-    overflow: hidden;
-    padding: clamp(28px, 4vw, 42px);
-    border-radius: 34px;
-    background:
-      radial-gradient(circle at 94% 12%, rgba(56, 187, 181, 0.1), transparent 14rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 252, 0.88));
-  }
-
-  .rules-rule-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-top: 4px solid rgba(56, 187, 181, 0.34);
-    pointer-events: none;
-  }
-
-  .rules-rule-card-featured {
-    color: #ffffff;
-    background:
-      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34), transparent 11rem),
-      radial-gradient(circle at 82% 24%, rgba(221, 247, 244, 0.24), transparent 13rem),
-      linear-gradient(140deg, #0f7773 0%, #1aa5a0 22%, #74e0d7 40%, #138a86 56%, #33c1bb 74%, #bff6f1 88%, #0d6a67 100%);
-    background-size: 100% 100%, 100% 100%, 240% 240%;
-    animation: rules-turquoise-flow 13s ease-in-out infinite alternate;
-    box-shadow: 0 28px 76px rgba(35, 156, 150, 0.22);
-  }
-
-  .rules-rule-card-featured::before {
-    border-top-color: rgba(255, 255, 255, 0.28);
-  }
-
-  .rules-rule-card-featured::after {
-    z-index: 1;
-  }
-
-  .rules-big-mark {
-    position: absolute !important;
-    right: clamp(14px, 2.4vw, 32px) !important;
-    top: clamp(12px, 2vw, 26px) !important;
-    z-index: 1 !important;
-    color: rgba(255, 255, 255, 0.16) !important;
-    font-size: clamp(3.6rem, 7vw, 7.9rem) !important;
-    font-weight: 850 !important;
-    line-height: 0.78 !important;
-    letter-spacing: -0.12em !important;
-    pointer-events: none !important;
-    user-select: none !important;
-  }
-
-  .rules-rule-card > *:not(.rules-big-mark) {
-    position: relative;
-    z-index: 2;
-  }
-
-  .rules-number {
-    display: inline-flex;
-    margin-bottom: 28px;
-    color: var(--color-turquoise-dark);
-    font-size: 0.72rem;
-    font-weight: 760;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .rules-rule-card h3 {
-    margin: 0 0 18px;
-    color: var(--color-text);
-    font-size: clamp(1.75rem, 2.3vw, 2.55rem);
-    font-weight: 740;
-    line-height: 1;
-    letter-spacing: -0.065em;
-  }
-
-  .rules-rule-card p {
-    max-width: 1050px;
-    margin: 12px 0 0;
-    color: var(--color-muted);
-    font-size: 0.98rem;
-    line-height: 1.68;
-  }
-
-  .rules-rule-card-featured .rules-number,
-  .rules-rule-card-featured h3,
-  .rules-rule-card-featured p {
-    color: rgba(255, 255, 255, 0.92);
-  }
-
-  .rules-rule-card-featured h3 {
-    color: #ffffff;
-    text-shadow: 0 16px 42px rgba(55, 23, 35, 0.24);
-  }
-
-  .rules-contact-section {
-    background:
-      radial-gradient(circle at 12% 20%, rgba(56, 187, 181, 0.1), transparent 24rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 247, 250, 0.72));
-  }
-
-  .rules-contact-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: 54px;
-    align-items: start;
-  }
-
-  .rules-contact-card,
-  .rules-contact-details {
-    padding: 34px;
-    border-radius: 34px;
-    background: rgba(255, 255, 255, 0.78);
-  }
-
-  .rules-contact-card p {
-    color: var(--color-muted);
-  }
-
-  .rules-contact-details {
-    display: grid;
-    gap: 12px;
-  }
-
-  .rules-contact-details a {
-    display: block;
-    padding: 18px 20px;
-    border-radius: 20px;
-    color: var(--color-text);
-    font-weight: 760;
-    text-decoration: none;
-    background: rgba(219, 246, 243, 0.48);
-    border: 1px solid rgba(56, 187, 181, 0.16);
-  }
-
-  .rules-final-card {
-    padding: clamp(34px, 6vw, 70px);
-    border-radius: 42px;
-    text-align: center;
-    background:
-      linear-gradient(145deg, rgba(219, 246, 243, 0.7), rgba(255, 242, 246, 0.82)),
-      rgba(255, 255, 255, 0.7);
-  }
-
-  .rules-final-card p:not(.signature) {
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--color-muted);
-  }
-
-  .rules-final-card .button-primary {
-    margin-top: 18px;
-  }
-
-  @keyframes rules-panel-shine {
-    0% {
-      transform: translateX(-72%);
-      opacity: 0.28;
-    }
-
-    45% {
-      opacity: 0.88;
-    }
-
-    100% {
-      transform: translateX(88%);
-      opacity: 0.28;
-    }
-  }
-
-  @keyframes rules-turquoise-flow {
-    0% {
-      background-position: 0% 50%, 0% 50%, 0% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%, 0% 50%, 100% 50%;
-    }
-  }
-
-  @media (max-width: 1260px) {
-    .rules-highlights-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 1080px) {
-    .rules-hero-grid,
-    .rules-contact-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .rules-hero {
-      padding: 112px 0 58px;
-    }
-
-    .rules-hero-copy,
-    .rules-hero-card,
-    .rules-highlights-grid article,
-    .rules-rule-card,
-    .rules-contact-card,
-    .rules-contact-details,
-    .rules-final-card {
-      border-radius: 28px;
-    }
-
-    .rules-hero-copy h1 {
-      font-size: clamp(2.75rem, 12.2vw, 4rem);
-      line-height: 1.02;
-      letter-spacing: -0.074em;
-    }
-
-    .rules-highlights-section,
-    .rules-list-section,
-    .rules-contact-section,
-    .rules-final-cta {
-      padding: 58px 0;
-    }
-
-    .rules-section-heading h2,
-    .rules-contact-card h2,
-    .rules-final-card h2 {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem);
-      line-height: 1.04;
-      letter-spacing: -0.066em;
-    }
-
-    .rules-rule-card {
-      padding: 26px;
-    }
-
-    .rules-big-mark {
-      right: 16px !important;
-      top: 14px !important;
-      font-size: clamp(3rem, 15vw, 5rem) !important;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .rules-hero-card,
-    .rules-hero-card::before,
-    .rules-rule-card-featured,
-    .rules-rule-card-featured::after {
-      animation: none;
-    }
-  }
-
-  /* V2 — mobile fix: hero cards do not overflow on smartphones */
-  @media (max-width: 760px) {
-    .rules-hero-grid,
-    .rules-hero-copy,
-    .rules-hero-card {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0 !important;
-      box-sizing: border-box !important;
-    }
-
-    .rules-hero-copy,
-    .rules-hero-card {
-      padding: 24px !important;
-      overflow: hidden !important;
-    }
-
-    .rules-hero-copy h1 {
-      max-width: 100% !important;
-      font-size: clamp(2.25rem, 10.8vw, 3.2rem) !important;
-      line-height: 1.06 !important;
-      letter-spacing: -0.058em !important;
-      overflow-wrap: anywhere !important;
-      word-break: normal !important;
-    }
-
-    .rules-hero-lead {
-      max-width: 100% !important;
-      font-size: 0.98rem !important;
-      line-height: 1.64 !important;
-    }
-
-    .rules-hero-actions {
-      width: 100% !important;
-    }
-
-    .rules-hero-actions a {
-      max-width: 100% !important;
-      white-space: normal !important;
-      text-align: center !important;
-    }
-
-    .rules-hero-card {
-      min-height: auto !important;
-    }
-
-    .rules-card-label {
-      max-width: 100% !important;
-      margin-bottom: 64px !important;
-      font-size: clamp(3.1rem, 17vw, 4.8rem) !important;
-      line-height: 0.82 !important;
-      letter-spacing: -0.075em !important;
-    }
-
-    .rules-hero-card h2 {
-      max-width: 100% !important;
-      margin-top: 0 !important;
-      font-size: clamp(1.8rem, 8.8vw, 2.55rem) !important;
-      line-height: 1.05 !important;
-      letter-spacing: -0.058em !important;
-      overflow-wrap: anywhere !important;
-      word-break: normal !important;
-    }
-
-    .rules-hero-card p:not(.rules-card-label) {
-      max-width: 100% !important;
-      font-size: 0.96rem !important;
-      line-height: 1.58 !important;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .rules-hero-copy,
-    .rules-hero-card {
-      padding: 22px !important;
-      border-radius: 24px !important;
-    }
-
-    .rules-hero-copy h1 {
-      font-size: clamp(2.05rem, 10.6vw, 2.8rem) !important;
-      letter-spacing: -0.05em !important;
-    }
-
-    .rules-hero-card h2 {
-      font-size: clamp(1.65rem, 8.4vw, 2.18rem) !important;
-      letter-spacing: -0.05em !important;
-    }
-
-    .rules-card-label {
-      font-size: clamp(2.75rem, 15.5vw, 4.1rem) !important;
-    }
-  }
-
-
-  /* V3 — mobile visual balance: left and right hero cards have the same frame and rhythm */
-  @media (max-width: 760px) {
-    .rules-hero {
-      padding-top: 104px !important;
-    }
-
-    .rules-hero .container,
-    .rules-hero-grid {
-      width: 100% !important;
-      max-width: 100% !important;
-      padding-left: 14px !important;
-      padding-right: 14px !important;
-      box-sizing: border-box !important;
-    }
-
-    .rules-hero-grid {
-      display: grid !important;
-      grid-template-columns: 1fr !important;
-      gap: 18px !important;
-      margin: 0 auto !important;
-    }
-
-    .rules-hero-copy,
-    .rules-hero-card {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0 !important;
-      margin: 0 auto !important;
-      padding: 26px 22px !important;
-      border-radius: 30px !important;
-      box-sizing: border-box !important;
-    }
-
-    .rules-hero-copy {
-      background: rgba(255, 255, 255, 0.78) !important;
-    }
-
-    .rules-hero-copy .section-kicker {
-      margin-bottom: 20px !important;
-      font-size: 0.72rem !important;
-      line-height: 1.35 !important;
-      letter-spacing: 0.18em !important;
-    }
-
-    .rules-hero-copy h1 {
-      max-width: 100% !important;
-      font-size: clamp(2.05rem, 9.6vw, 2.85rem) !important;
-      line-height: 1.08 !important;
-      letter-spacing: -0.052em !important;
-      text-wrap: balance !important;
-      overflow-wrap: normal !important;
-      word-break: normal !important;
-    }
-
-    .rules-hero-lead {
-      max-width: 100% !important;
-      margin-top: 22px !important;
-      font-size: 0.98rem !important;
-      line-height: 1.66 !important;
-    }
-
-    .rules-hero-actions {
-      display: grid !important;
-      grid-template-columns: 1fr !important;
-      gap: 12px !important;
-      margin-top: 26px !important;
-    }
-
-    .rules-hero-actions a {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-height: 54px !important;
-      justify-content: center !important;
-      white-space: normal !important;
-      text-align: center !important;
-      box-sizing: border-box !important;
-    }
-
-    .rules-hero-card {
-      min-height: 360px !important;
-      justify-content: flex-end !important;
-    }
-
-    .rules-card-label {
-      margin-bottom: auto !important;
-      font-size: clamp(3rem, 15vw, 4.5rem) !important;
-      line-height: 0.82 !important;
-      letter-spacing: -0.075em !important;
-    }
-
-    .rules-hero-card h2 {
-      margin-top: 54px !important;
-      font-size: clamp(1.86rem, 8.1vw, 2.5rem) !important;
-      line-height: 1.06 !important;
-      letter-spacing: -0.052em !important;
-      text-wrap: balance !important;
-      overflow-wrap: normal !important;
-      word-break: normal !important;
-    }
-
-    .rules-hero-card p:not(.rules-card-label) {
-      font-size: 0.96rem !important;
-      line-height: 1.58 !important;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .rules-hero .container,
-    .rules-hero-grid {
-      padding-left: 12px !important;
-      padding-right: 12px !important;
-    }
-
-    .rules-hero-copy,
-    .rules-hero-card {
-      padding: 24px 20px !important;
-      border-radius: 26px !important;
-    }
-
-    .rules-hero-copy h1 {
-      font-size: clamp(1.9rem, 9.3vw, 2.45rem) !important;
-      line-height: 1.09 !important;
-      letter-spacing: -0.046em !important;
-    }
-
-    .rules-hero-card {
-      min-height: 330px !important;
-    }
-
-    .rules-card-label {
-      font-size: clamp(2.65rem, 14vw, 3.85rem) !important;
-    }
-
-    .rules-hero-card h2 {
-      font-size: clamp(1.58rem, 7.7vw, 2.08rem) !important;
-      line-height: 1.08 !important;
-      letter-spacing: -0.046em !important;
-    }
-  }
-
-
-  /* V4 — finalny standard małych turkusowych nagłówków */
-
-  :global(.rules-page .section-kicker) {
-    display: inline-flex !important;
-    width: fit-content !important;
-    max-width: 100% !important;
-    min-height: 32px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 0 18px !important;
-    padding: 0 13px !important;
-    border-radius: 999px !important;
-    color: var(--color-turquoise-dark, #0f7773) !important;
-    -webkit-text-fill-color: var(--color-turquoise-dark, #0f7773) !important;
-    background: rgba(219, 246, 243, 0.72) !important;
-    border: 1px solid rgba(56, 187, 181, 0.16) !important;
-    font-size: 0.7rem !important;
-    font-weight: 850 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.17em !important;
-    text-transform: uppercase !important;
-    text-shadow: none !important;
-  }
-
-  :global(.rules-page .rules-hero-copy h1),
-  :global(.rules-page .rules-section-heading h2),
-  :global(.rules-page .rules-contact-card h2),
-  :global(.rules-page .rules-final-card h2) {
-    color: var(--color-text, #17151d) !important;
-    font-family: inherit !important;
-    font-weight: 760 !important;
-    font-size: clamp(2.45rem, 4.2vw, 4.45rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.074em !important;
-  }
-
-  :global(.rules-page .rules-hero-copy h1) {
-    max-width: 1080px !important;
-    font-size: clamp(3.05rem, 5.45vw, 6.35rem) !important;
-  }
-
-  :global(.rules-page .rules-hero-lead),
-  :global(.rules-page .rules-section-heading p:not(.section-kicker)),
-  :global(.rules-page .rules-contact-card p:not(.section-kicker)),
-  :global(.rules-page .rules-final-card p:not(.section-kicker):not(.signature)) {
-    color: var(--color-muted, #6e6670) !important;
-    -webkit-text-fill-color: var(--color-muted, #6e6670) !important;
-    font-weight: 450 !important;
-    line-height: 1.65 !important;
-  }
-
-  @media (max-width: 760px) {
-    :global(.rules-page .section-kicker) {
-      min-height: 30px !important;
-      margin-bottom: 16px !important;
-      padding: 0 11px !important;
-      font-size: 0.64rem !important;
-      letter-spacing: 0.13em !important;
-      line-height: 1 !important;
-    }
-
-    :global(.rules-page .rules-hero-copy h1) {
-      font-size: clamp(2.55rem, 11.6vw, 3.85rem) !important;
-      line-height: 1.04 !important;
-      letter-spacing: -0.068em !important;
-    }
-
-    :global(.rules-page .rules-section-heading h2),
-    :global(.rules-page .rules-contact-card h2),
-    :global(.rules-page .rules-final-card h2) {
-      font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
-      line-height: 1.04 !important;
-      letter-spacing: -0.066em !important;
-    }
-  }
-
-</style>
