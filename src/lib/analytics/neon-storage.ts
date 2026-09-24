@@ -38,7 +38,7 @@ export function createNeonAnalyticsStorage(databaseUrl: string): AnalyticsStorag
           INSERT INTO pa_visitors (visitor_id,created_at,first_seen_at,last_seen_at,last_session_id)
           SELECT ${event.visitorId ?? null},${event.receivedAtServer},${event.receivedAtServer},${event.receivedAtServer},${event.sessionId ?? null}
           FROM ins
-          WHERE ${event.privacyScope} = 'pseudonymous' AND ${event.visitorId ?? null} IS NOT NULL
+          WHERE ${event.privacyScope}::text = 'pseudonymous' AND ${event.visitorId ?? null}::text IS NOT NULL
           ON CONFLICT (visitor_id) DO UPDATE SET
             last_seen_at = GREATEST(pa_visitors.last_seen_at, EXCLUDED.last_seen_at),
             last_session_id = COALESCE(EXCLUDED.last_session_id, pa_visitors.last_session_id)
@@ -48,9 +48,9 @@ export function createNeonAnalyticsStorage(databaseUrl: string): AnalyticsStorag
           INSERT INTO pa_sessions (session_id,visitor_id,started_at,last_activity_at,landing_path)
           SELECT ${event.sessionId ?? null},${event.visitorId ?? null},${event.receivedAtServer},${event.receivedAtServer},${event.pagePath}
           FROM ins
-          WHERE ${event.privacyScope} = 'pseudonymous'
-            AND ${event.sessionId ?? null} IS NOT NULL
-            AND ${event.visitorId ?? null} IS NOT NULL
+          WHERE ${event.privacyScope}::text = 'pseudonymous'
+            AND ${event.sessionId ?? null}::text IS NOT NULL
+            AND ${event.visitorId ?? null}::text IS NOT NULL
           ON CONFLICT (session_id) DO UPDATE SET
             last_activity_at = GREATEST(pa_sessions.last_activity_at, EXCLUDED.last_activity_at)
           RETURNING session_id
@@ -67,11 +67,11 @@ export function createNeonAnalyticsStorage(databaseUrl: string): AnalyticsStorag
             ${JSON.stringify(event.attributionContext?.campaignParams ?? {})}::jsonb,
             ${event.source ?? null},${event.medium ?? null},${event.channelGroup ?? null},${event.campaign ?? null},${event.sourceClassifierVersion ?? null}
           FROM ins
-          WHERE ${event.privacyScope} = 'pseudonymous'
+          WHERE ${event.privacyScope}::text = 'pseudonymous'
             AND ${event.eventName} IN ('session_start','attribution_touch')
-            AND ${event.visitorId ?? null} IS NOT NULL
-            AND ${event.sessionId ?? null} IS NOT NULL
-            AND ${event.source ?? null} IS NOT NULL
+            AND ${event.visitorId ?? null}::text IS NOT NULL
+            AND ${event.sessionId ?? null}::text IS NOT NULL
+            AND ${event.source ?? null}::text IS NOT NULL
           ON CONFLICT (source_event_id) DO NOTHING
           RETURNING touch_id
         ),
@@ -91,7 +91,7 @@ export function createNeonAnalyticsStorage(databaseUrl: string): AnalyticsStorag
           SET first_touch_id = COALESCE(first_touch_id, ${touchId}),
               last_touch_id = ${touchId},
               last_non_direct_touch_id = CASE
-                WHEN ${event.channelGroup ?? null} IS NOT NULL AND ${event.channelGroup ?? null} <> 'direct'
+                WHEN ${event.channelGroup ?? null}::text IS NOT NULL AND ${event.channelGroup ?? null}::text <> 'direct'
                 THEN ${touchId}
                 ELSE last_non_direct_touch_id
               END
