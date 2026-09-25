@@ -3,11 +3,13 @@ import { normalizeCollectedEvent } from './collect-core';
 import { semanticDedupeKey } from './dedupe';
 import { DEFAULT_PAGE_CATALOG, type PageCatalog } from './page-catalog';
 import type { AnalyticsStorage } from './storage';
+import { safeStorageError } from './storage-error';
 
 export interface CollectHandlerDeps {
   storage: AnalyticsStorage;
   pageCatalog?: PageCatalog;
   allowedHosts?: string[];
+  environment?: 'preview' | 'development' | 'production';
 }
 
 function json(body: unknown, status = 200, extra: HeadersInit = {}): Response {
@@ -28,19 +30,20 @@ function requestOriginAllowed(request: Request, allowedHosts: string[]): boolean
 
   if (origin) {
     try {
-      const originHost = new URL(origin).hostname.toLowerCase();
-      const requestHost = new URL(request.url).hostname.toLowerCase();
+      const originUrl = new URL(origin);
+      const requestUrl = new URL(request.url);
 
       // Allow exact same-origin requests, including ephemeral Vercel Preview hosts.
       // Production remains protected because foreign origins still do not match.
-      return originHost === requestHost || allowedHosts.includes(originHost);
+      return originUrl.origin === requestUrl.origin ||
+        (originUrl.protocol === 'https:' && !originUrl.port && allowedHosts.includes(originUrl.hostname.toLowerCase()));
     } catch {
       return false;
     }
   }
 
   // Browser same-origin requests may omit Origin in some cases.
-  return fetchSite === 'same-origin' || fetchSite === 'same-site';
+  return fetchSite === 'same-origin';
 }
 
 export async function handleCollectRequest(request: Request, deps: CollectHandlerDeps): Promise<Response> {
@@ -85,7 +88,9 @@ export async function handleCollectRequest(request: Request, deps: CollectHandle
   const catalog = deps.pageCatalog ?? DEFAULT_PAGE_CATALOG;
 
   for (const raw of events) {
-    const normalized = normalizeCollectedEvent(raw, catalog);
+    const input = deps.environment && raw && typeof raw === 'object'
+      ? { ...raw, environment: deps.environment } : raw;
+    const normalized = normalizeCollectedEvent(input, catalog);
     if (!normalized.ok) {
       rejected += 1;
       try {
@@ -117,24 +122,14 @@ export async function handleCollectRequest(request: Request, deps: CollectHandle
         }
       }
     } catch (error) {
-      const dbError = error as Error & {
-        code?: string;
-        position?: string;
-        routine?: string;
-      };
-
-      console.error('[Permanentny Analytics] storage insert failed', {
-        name: dbError?.name ?? 'Error',
-        message: dbError?.message ?? 'unknown',
-        code: dbError?.code ?? null,
-        position: dbError?.position ?? null,
-        routine: dbError?.routine ?? null,
-      });
+      const diagnostic = safeStorageError(error);
+      console.error('[Permanentny Analytics] storage insert failed', diagnostic);
 
       try {
         await deps.storage.recordDataQuality({
           occurredAt: new Date().toISOString(),
           code: 'collector_storage_error',
+          detail: diagnostic,
         });
       } catch {}
 

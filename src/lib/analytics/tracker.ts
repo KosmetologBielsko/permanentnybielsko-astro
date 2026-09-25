@@ -527,7 +527,7 @@ export function initPermanentnyAnalytics(options: PermanentnyAnalyticsInit) {
       }
 
       const siteRoot = ANALYTICS_CONFIG.siteHostname.replace(/^www\./, '');
-      const internal = !!info.host && (info.host === siteRoot || info.host.endsWith(`.${siteRoot}`));
+      const internal = !!info.host && (info.host === location.hostname || info.host === siteRoot || info.host.endsWith(`.${siteRoot}`));
       if (info.host && !internal) {
         track('outbound_click', {
           placement,
@@ -538,6 +538,7 @@ export function initPermanentnyAnalytics(options: PermanentnyAnalyticsInit) {
       }
 
       if (internal && (anchor.closest('header') || anchor.closest('nav') || anchor.matches('[data-analytics-menu]'))) {
+        if (info.path && resolvePage(catalog, info.path).privacyClass === 'sensitive') return;
         track('menu_click', {
           item_id: (anchor.dataset.analyticsMenu || anchor.textContent || 'menu-item').trim().slice(0, 120),
           target_path: info.path || undefined,

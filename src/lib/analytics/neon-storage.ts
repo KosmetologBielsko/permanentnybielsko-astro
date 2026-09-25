@@ -8,7 +8,7 @@ export function createNeonAnalyticsStorage(databaseUrl: string): AnalyticsStorag
   return {
     async insertRawEvent(event: NormalizedEvent, semanticKey: string | null): Promise<InsertResult> {
       const props = JSON.stringify(event.eventProperties ?? {});
-      const attribution = JSON.stringify(event.attributionContext ?? null);
+      const attribution = event.attributionContext ? JSON.stringify(event.attributionContext) : null;
       const consent = event.consent;
       const touchId = `t_${event.eventId}`;
 
@@ -32,28 +32,7 @@ export function createNeonAnalyticsStorage(databaseUrl: string): AnalyticsStorag
             TRUE,NULL,${semanticKey}
           )
           ON CONFLICT DO NOTHING
-          RETURNING event_id
-        ),
-        visitor_upsert AS (
-          INSERT INTO pa_visitors (visitor_id,created_at,first_seen_at,last_seen_at,last_session_id)
-          SELECT ${event.visitorId ?? null},${event.receivedAtServer},${event.receivedAtServer},${event.receivedAtServer},${event.sessionId ?? null}
-          FROM ins
-          WHERE ${event.privacyScope}::text = 'pseudonymous' AND ${event.visitorId ?? null}::text IS NOT NULL
-          ON CONFLICT (visitor_id) DO UPDATE SET
-            last_seen_at = GREATEST(pa_visitors.last_seen_at, EXCLUDED.last_seen_at),
-            last_session_id = COALESCE(EXCLUDED.last_session_id, pa_visitors.last_session_id)
-          RETURNING visitor_id
-        ),
-        session_upsert AS (
-          INSERT INTO pa_sessions (session_id,visitor_id,started_at,last_activity_at,landing_path)
-          SELECT ${event.sessionId ?? null},${event.visitorId ?? null},${event.receivedAtServer},${event.receivedAtServer},${event.pagePath}
-          FROM ins
-          WHERE ${event.privacyScope}::text = 'pseudonymous'
-            AND ${event.sessionId ?? null}::text IS NOT NULL
-            AND ${event.visitorId ?? null}::text IS NOT NULL
-          ON CONFLICT (session_id) DO UPDATE SET
-            last_activity_at = GREATEST(pa_sessions.last_activity_at, EXCLUDED.last_activity_at)
-          RETURNING session_id
+          RETURNING *
         ),
         touch_insert AS (
           INSERT INTO pa_attribution_touches (
@@ -62,42 +41,56 @@ export function createNeonAnalyticsStorage(databaseUrl: string): AnalyticsStorag
             classified_source,classified_medium,classified_channel,campaign,classifier_version
           )
           SELECT
-            ${touchId},${event.eventId},${event.visitorId ?? null},${event.sessionId ?? null},${event.receivedAtServer},${event.pagePath},
-            ${event.attributionContext?.referrerHost ?? null},${event.attributionContext?.referrerPath ?? null},
-            ${JSON.stringify(event.attributionContext?.campaignParams ?? {})}::jsonb,
-            ${event.source ?? null},${event.medium ?? null},${event.channelGroup ?? null},${event.campaign ?? null},${event.sourceClassifierVersion ?? null}
+            ${touchId},event_id,visitor_id,session_id,received_at_server,page_path,
+            attribution_context->>'referrerHost',attribution_context->>'referrerPath',
+            COALESCE(attribution_context->'campaignParams','{}'::jsonb),
+            source,medium,channel_group,campaign,source_classifier_version
           FROM ins
-          WHERE ${event.privacyScope}::text = 'pseudonymous'
-            AND ${event.eventName} IN ('session_start','attribution_touch')
-            AND ${event.visitorId ?? null}::text IS NOT NULL
-            AND ${event.sessionId ?? null}::text IS NOT NULL
-            AND ${event.source ?? null}::text IS NOT NULL
+          WHERE privacy_scope = 'pseudonymous'
+            AND event_name IN ('session_start','attribution_touch')
+            AND visitor_id IS NOT NULL AND session_id IS NOT NULL AND source IS NOT NULL
           ON CONFLICT (source_event_id) DO NOTHING
           RETURNING touch_id
         ),
-        session_entry AS (
-          UPDATE pa_sessions
-          SET entry_source=${event.source ?? null},
-              entry_medium=${event.medium ?? null},
-              entry_channel=${event.channelGroup ?? null},
-              entry_campaign=${event.campaign ?? null}
-          WHERE session_id=${event.sessionId ?? null}
-            AND ${event.eventName}='session_start'
-            AND EXISTS (SELECT 1 FROM ins)
-          RETURNING session_id
-        ),
-        visitor_touch AS (
-          UPDATE pa_visitors
-          SET first_touch_id = COALESCE(first_touch_id, ${touchId}),
-              last_touch_id = ${touchId},
-              last_non_direct_touch_id = CASE
-                WHEN ${event.channelGroup ?? null}::text IS NOT NULL AND ${event.channelGroup ?? null}::text <> 'direct'
-                THEN ${touchId}
-                ELSE last_non_direct_touch_id
-              END
-          WHERE visitor_id=${event.visitorId ?? null}
-            AND EXISTS (SELECT 1 FROM touch_insert)
+        visitor_upsert AS (
+          -- One write per visitor: sibling CTE updates cannot see a just-inserted row.
+          INSERT INTO pa_visitors (
+            visitor_id,created_at,first_seen_at,last_seen_at,last_session_id,
+            first_touch_id,last_touch_id,last_non_direct_touch_id
+          )
+          SELECT i.visitor_id,i.received_at_server,i.received_at_server,i.received_at_server,i.session_id,
+            t.touch_id,t.touch_id,CASE WHEN i.channel_group <> 'direct' THEN t.touch_id END
+          FROM ins i LEFT JOIN touch_insert t ON TRUE
+          WHERE i.privacy_scope = 'pseudonymous' AND i.visitor_id IS NOT NULL
+          ON CONFLICT (visitor_id) DO UPDATE SET
+            last_seen_at = GREATEST(pa_visitors.last_seen_at, EXCLUDED.last_seen_at),
+            last_session_id = COALESCE(EXCLUDED.last_session_id, pa_visitors.last_session_id),
+            first_touch_id = COALESCE(pa_visitors.first_touch_id, EXCLUDED.first_touch_id),
+            last_touch_id = COALESCE(EXCLUDED.last_touch_id, pa_visitors.last_touch_id),
+            last_non_direct_touch_id = COALESCE(EXCLUDED.last_non_direct_touch_id, pa_visitors.last_non_direct_touch_id)
           RETURNING visitor_id
+        ),
+        session_upsert AS (
+          INSERT INTO pa_sessions (
+            session_id,visitor_id,started_at,last_activity_at,landing_path,
+            entry_source,entry_medium,entry_channel,entry_campaign
+          )
+          SELECT session_id,visitor_id,received_at_server,received_at_server,page_path,
+            CASE WHEN event_name='session_start' THEN source END,
+            CASE WHEN event_name='session_start' THEN medium END,
+            CASE WHEN event_name='session_start' THEN channel_group END,
+            CASE WHEN event_name='session_start' THEN campaign END
+          FROM ins
+          WHERE privacy_scope = 'pseudonymous' AND session_id IS NOT NULL AND visitor_id IS NOT NULL
+          ON CONFLICT (session_id) DO UPDATE SET
+            last_activity_at = GREATEST(pa_sessions.last_activity_at, EXCLUDED.last_activity_at),
+            landing_path = CASE WHEN pa_sessions.entry_source IS NULL AND EXCLUDED.entry_source IS NOT NULL
+              THEN EXCLUDED.landing_path ELSE pa_sessions.landing_path END,
+            entry_source = COALESCE(pa_sessions.entry_source, EXCLUDED.entry_source),
+            entry_medium = COALESCE(pa_sessions.entry_medium, EXCLUDED.entry_medium),
+            entry_channel = COALESCE(pa_sessions.entry_channel, EXCLUDED.entry_channel),
+            entry_campaign = CASE WHEN pa_sessions.entry_source IS NULL THEN EXCLUDED.entry_campaign ELSE pa_sessions.entry_campaign END
+          RETURNING session_id
         )
         SELECT EXISTS(SELECT 1 FROM ins) AS inserted
       `;

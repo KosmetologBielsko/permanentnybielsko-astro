@@ -143,6 +143,8 @@ export function validateClientEvent(input: unknown, nowMs = Date.now()): Validat
     !event.consent ||
     event.consent.necessary !== true ||
     event.consent.analytics !== true ||
+    typeof event.consent.marketing !== 'boolean' ||
+    typeof event.consent.personalization !== 'boolean' ||
     event.consent.policyVersion !== ANALYTICS_CONFIG.consentPolicyVersion
   ) {
     errors.push('analytics_consent_missing_or_policy_mismatch');

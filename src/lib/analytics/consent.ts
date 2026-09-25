@@ -40,7 +40,9 @@ function parseV2(raw: string | null): ConsentSnapshot | null {
   }
 }
 
-export function readConsentSnapshot(storage: Pick<Storage, 'getItem' | 'setItem'> = localStorage): ConsentSnapshot {
+export function readConsentSnapshot(storage?: Pick<Storage, 'getItem' | 'setItem'>): ConsentSnapshot {
+  try {
+    storage ??= localStorage;
   const v2 = parseV2(storage.getItem(CONSENT_STORAGE_KEY));
   if (v2) return v2;
 
@@ -52,7 +54,7 @@ export function readConsentSnapshot(storage: Pick<Storage, 'getItem' | 'setItem'
       necessary: true as const,
       analytics: granted,
       marketing: granted,
-      personalization: granted,
+      personalization: false,
       policyVersion: ANALYTICS_CONFIG.consentPolicyVersion,
     };
     writeConsentSnapshot(migrated, storage);
@@ -60,18 +62,22 @@ export function readConsentSnapshot(storage: Pick<Storage, 'getItem' | 'setItem'
   }
 
   return defaultConsent();
+  } catch { return defaultConsent(); }
 }
 
-export function hasStoredConsent(storage: Pick<Storage, 'getItem'> = localStorage): boolean {
+export function hasStoredConsent(storage?: Pick<Storage, 'getItem'>): boolean {
+  try {
+    storage ??= localStorage;
   const raw = storage.getItem(CONSENT_STORAGE_KEY);
   if (parseV2(raw)) return true;
   const legacy = storage.getItem(LEGACY_CONSENT_STORAGE_KEY);
   return legacy === 'accepted' || legacy === 'rejected';
+  } catch { return false; }
 }
 
 export function writeConsentSnapshot(
   consent: ConsentSnapshot,
-  storage: Pick<Storage, 'setItem'> = localStorage,
+  storage?: Pick<Storage, 'setItem'>,
 ): void {
   const value: PersistedConsentV2 = {
     v: 2,
@@ -80,7 +86,7 @@ export function writeConsentSnapshot(
     personalization: consent.personalization === true,
     updatedAt: new Date().toISOString(),
   };
-  storage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(value));
+  try { (storage ?? localStorage).setItem(CONSENT_STORAGE_KEY, JSON.stringify(value)); } catch {}
 }
 
 export function canCollectClientAnalytics(consent: ConsentSnapshot): boolean {
@@ -94,3 +100,5 @@ export function canPersonalize(consent: ConsentSnapshot): boolean {
 export function canRecordReplay(consent: ConsentSnapshot): boolean {
   return consent.analytics === true;
 }
+
+export type { ConsentSnapshot } from './types';

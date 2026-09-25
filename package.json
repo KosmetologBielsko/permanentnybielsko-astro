@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test:analytics": "tsx --test permanentny-analytics/tests/analytics-core-v02.test.ts"
+    "test:analytics": "node --import tsx --test permanentny-analytics/tests/*.test.ts"
   },
   "dependencies": {
     "@astrojs/vercel": "11.0.11",
@@ -21,6 +21,7 @@
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
     "tsx": "^4.20.5"
   }
 }

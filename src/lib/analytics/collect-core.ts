@@ -3,6 +3,7 @@ import { DEFAULT_PAGE_CATALOG, resolvePage, type PageCatalog } from './page-cata
 import { acquisitionSource, classifyAttributionContext } from './source-context';
 import type { NormalizedEvent, RawClientEventInput } from './types';
 import { validateClientEvent } from './validation';
+import { isSameSiteHost } from './url-sanitize';
 
 export type NormalizeResult =
   | { ok: true; event: NormalizedEvent }
@@ -31,6 +32,14 @@ export function normalizeCollectedEvent(
   }
 
   const input = validation.sanitized;
+  if (input.attributionContext?.referrerHost && isSameSiteHost(input.attributionContext.referrerHost, ANALYTICS_CONFIG.siteHostname)) {
+    input.attributionContext.referrerHost = null;
+    input.attributionContext.referrerPath = null;
+  }
+  const targetPath = input.eventProperties?.target_path;
+  if (typeof targetPath === 'string' && resolvePage(catalog, targetPath).privacyClass === 'sensitive') {
+    input.eventProperties = {};
+  }
   const page = resolvePage(catalog, input.pagePath);
   const sensitive = page.privacyClass === 'sensitive';
 

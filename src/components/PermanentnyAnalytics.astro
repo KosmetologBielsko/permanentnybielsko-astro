@@ -8,11 +8,12 @@
     }
   }
 
-  const enabled = import.meta.env.PUBLIC_PA_ENABLED === "true";
+  const productionHosts = ["www.permanentnybielsko.com", "permanentnybielsko.com", "permanentnybielsko-astro.vercel.app"];
+  const enabled = import.meta.env.PUBLIC_PA_ENABLED === "true" && !productionHosts.includes(location.hostname);
 
   if (enabled && !window.__permanentnyAnalytics) {
     window.__permanentnyAnalytics = initPermanentnyAnalytics({
-      getConsent: () => readConsentSnapshot(window.localStorage),
+      getConsent: () => readConsentSnapshot(),
       endpoint: "/api/analytics/collect",
     });
   }

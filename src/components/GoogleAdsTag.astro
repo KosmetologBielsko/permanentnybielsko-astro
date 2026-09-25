@@ -6,6 +6,7 @@
   function pbReadGoogleConsent() {
     var analytics = false;
     var marketing = false;
+    var personalization = false;
     try {
       var raw = window.localStorage.getItem('pb_consent_v2');
       if (raw) {
@@ -13,13 +14,14 @@
         if (parsed && parsed.v === 2) {
           analytics = parsed.analytics === true;
           marketing = parsed.marketing === true;
-          return { analytics: analytics, marketing: marketing };
+          personalization = parsed.personalization === true;
+          return { analytics: analytics, marketing: marketing, personalization: personalization };
         }
       }
       var legacy = window.localStorage.getItem('pb_cookie_consent');
-      if (legacy === 'accepted') return { analytics: true, marketing: true };
+      if (legacy === 'accepted') return { analytics: true, marketing: true, personalization: false };
     } catch (error) {}
-    return { analytics: false, marketing: false };
+    return { analytics: false, marketing: false, personalization: false };
   }
 
   var pbConsent = pbReadGoogleConsent();
@@ -27,7 +29,7 @@
   window.gtag('consent', 'default', {
     ad_storage: pbConsent.marketing ? 'granted' : 'denied',
     ad_user_data: pbConsent.marketing ? 'granted' : 'denied',
-    ad_personalization: pbConsent.marketing ? 'granted' : 'denied',
+    ad_personalization: pbConsent.marketing && pbConsent.personalization ? 'granted' : 'denied',
     analytics_storage: pbConsent.analytics ? 'granted' : 'denied',
     functionality_storage: 'granted',
     security_storage: 'granted',

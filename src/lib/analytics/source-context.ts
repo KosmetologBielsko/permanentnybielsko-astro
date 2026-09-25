@@ -8,6 +8,12 @@ export function buildAttributionContext(
   reasonHint: AttributionContext['reasonHint'] = 'document_entry',
 ): AttributionContext {
   const ref = sanitizedReferrer(referrer);
+  let ownHost: string | null = null;
+  try { ownHost = new URL(landingUrl).hostname; } catch {}
+  if (ref.host && (ref.host === ownHost || isSameSiteHost(ref.host, ANALYTICS_CONFIG.siteHostname))) {
+    ref.host = null;
+    ref.path = null;
+  }
   return {
     referrerHost: ref.host,
     referrerPath: ref.path,
@@ -128,8 +134,9 @@ export function classifyAttributionContext(
       deepseek: 'DeepSeek',
       you: 'You.com',
     };
-    if (aiMap[us]) {
-      return { ...common, source: aiMap[us], medium, channelGroup: 'ai', reason: 'utm_ai' };
+    const aiSource = aiMap[us] || sourceForHost(us, AI_DOMAINS);
+    if (aiSource) {
+      return { ...common, source: aiSource, medium, channelGroup: 'ai', reason: 'utm_ai' };
     }
 
     if (us === 'instagram' || us === 'ig') {

@@ -25,10 +25,14 @@
 
       <label class="cookie-consent__option">
         <span>
-          <strong>Marketing / personalizacja</strong>
-          <small>Pomiar reklam Google oraz przyszłe funkcje personalizacji first-party.</small>
+          <strong>Marketing</strong>
+          <small>Pomiar skuteczności reklam Google.</small>
         </span>
         <input type="checkbox" data-consent-marketing />
+      </label>
+      <label class="cookie-consent__option">
+        <span><strong>Personalizacja</strong><small>Dopasowanie reklam i przyszłych funkcji do preferencji.</small></span>
+        <input type="checkbox" data-consent-personalization />
       </label>
     </div>
   </div>
@@ -49,7 +53,11 @@
   </div>
 </div>
 
+<button type="button" class="cookie-consent__reopen" data-cookie-reopen hidden>Ustawienia prywatności</button>
+
 <style>
+  .cookie-consent[hidden], .cookie-consent [hidden], .cookie-consent__reopen[hidden] { display: none !important; }
+  .cookie-consent__reopen { position: fixed; bottom: 10px; left: 10px; z-index: 100; padding: 8px 12px; min-height: 44px; border: 1px solid rgba(43,33,27,.12); border-radius: 14px; background: #fff; color: #2b211b; font: inherit; font-size: 12px; cursor: pointer; }
   .cookie-consent {
     position: fixed;
     right: 20px;
@@ -107,20 +115,23 @@
   const settings = document.querySelector<HTMLElement>("[data-cookie-settings]");
   const analyticsInput = document.querySelector<HTMLInputElement>("[data-consent-analytics]");
   const marketingInput = document.querySelector<HTMLInputElement>("[data-consent-marketing]");
+  const personalizationInput = document.querySelector<HTMLInputElement>("[data-consent-personalization]");
+  const reopenButton = document.querySelector<HTMLButtonElement>("[data-cookie-reopen]");
   const menuButton = document.querySelector<HTMLElement>("[data-menu-button]");
   const clarityProjectId = "y4x08qso9k";
 
-  if (banner && acceptButton && rejectButton && customizeButton && saveButton && settings && analyticsInput && marketingInput) {
-    let hasChoice = hasStoredConsent(window.localStorage);
+  if (banner && acceptButton && rejectButton && customizeButton && saveButton && settings && analyticsInput && marketingInput && personalizationInput && reopenButton) {
+    let hasChoice = hasStoredConsent();
     let clarityLoaded = Boolean((window as any).clarity);
 
     function current(): ConsentSnapshot {
-      return readConsentSnapshot(window.localStorage);
+      return readConsentSnapshot();
     }
 
     function syncBannerVisibility() {
       const menuOpen = menuButton?.getAttribute("aria-expanded") === "true";
       banner!.hidden = Boolean(hasChoice || menuOpen);
+      reopenButton!.hidden = !hasChoice || menuOpen;
     }
 
     function updateGoogle(consent: ConsentSnapshot) {
@@ -130,7 +141,7 @@
         analytics_storage: consent.analytics ? "granted" : "denied",
         ad_storage: consent.marketing ? "granted" : "denied",
         ad_user_data: consent.marketing ? "granted" : "denied",
-        ad_personalization: consent.marketing ? "granted" : "denied",
+        ad_personalization: consent.marketing && consent.personalization ? "granted" : "denied",
       });
     }
 
@@ -166,18 +177,18 @@
     }
 
     function apply(consent: ConsentSnapshot, persist = true) {
-      if (persist) writeConsentSnapshot(consent, window.localStorage);
+      if (persist) writeConsentSnapshot(consent);
       updateGoogle(consent);
       loadClarity(consent);
       window.dispatchEvent(new CustomEvent(CONSENT_CHANGED_EVENT, { detail: consent }));
     }
 
-    function choice(analytics: boolean, marketing: boolean): ConsentSnapshot {
+    function choice(analytics: boolean, marketing: boolean, personalization: boolean): ConsentSnapshot {
       return {
         necessary: true,
         analytics,
         marketing,
-        personalization: marketing,
+        personalization,
         policyVersion: "2",
       };
     }
@@ -186,6 +197,7 @@
       const existing = current();
       analyticsInput.checked = existing.analytics;
       marketingInput.checked = existing.marketing;
+      personalizationInput.checked = existing.personalization;
       apply(existing, false);
     }
     syncBannerVisibility();
@@ -197,30 +209,38 @@
       });
     }
 
-    customizeButton.addEventListener("click", () => {
+    function showSettings() {
       const existing = current();
       analyticsInput.checked = existing.analytics;
       marketingInput.checked = existing.marketing;
+      personalizationInput.checked = existing.personalization;
       settings.hidden = false;
       customizeButton.hidden = true;
       saveButton.hidden = false;
+    }
+    customizeButton.addEventListener("click", showSettings);
+    reopenButton.addEventListener("click", () => {
+      hasChoice = false;
+      showSettings();
+      syncBannerVisibility();
+      analyticsInput.focus();
     });
 
     acceptButton.addEventListener("click", () => {
       hasChoice = true;
-      apply(choice(true, true));
+      apply(choice(true, true, true));
       syncBannerVisibility();
     });
 
     rejectButton.addEventListener("click", () => {
       hasChoice = true;
-      apply(choice(false, false));
+      apply(choice(false, false, false));
       syncBannerVisibility();
     });
 
     saveButton.addEventListener("click", () => {
       hasChoice = true;
-      apply(choice(analyticsInput.checked, marketingInput.checked));
+      apply(choice(analyticsInput.checked, marketingInput.checked, personalizationInput.checked));
       syncBannerVisibility();
     });
   }
