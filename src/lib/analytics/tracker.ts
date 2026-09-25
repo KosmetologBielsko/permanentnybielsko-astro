@@ -66,14 +66,14 @@ function getOrCreateTabId(): string {
   }
 }
 
-function safeStorageGet(storage: Storage, key: string): string | null {
-  try { return storage.getItem(key); } catch { return null; }
+function safeStorageGet(storage: 'sessionStorage', key: string): string | null {
+  try { return window[storage].getItem(key); } catch { return null; }
 }
-function safeStorageSet(storage: Storage, key: string, value: string): void {
-  try { storage.setItem(key, value); } catch {}
+function safeStorageSet(storage: 'sessionStorage', key: string, value: string): void {
+  try { window[storage].setItem(key, value); } catch {}
 }
-function safeStorageRemove(storage: Storage, key: string): void {
-  try { storage.removeItem(key); } catch {}
+function safeStorageRemove(storage: 'sessionStorage', key: string): void {
+  try { window[storage].removeItem(key); } catch {}
 }
 
 function isHost(host: string | null, domain: string): boolean {
@@ -147,17 +147,17 @@ export function initPermanentnyAnalytics(options: PermanentnyAnalyticsInit) {
   function persistPending(): void {
     const consent = getConsent();
     if (!canCollectClientAnalytics(consent)) {
-      safeStorageRemove(sessionStorage, ANALYTICS_CONFIG.pendingQueueStorageKey);
+      safeStorageRemove('sessionStorage', ANALYTICS_CONFIG.pendingQueueStorageKey);
       return;
     }
     // Sensitive aggregate-only events are deliberately never persisted across documents.
     const persistable = queue.filter((event) => !!event.visitorId);
     if (!persistable.length) {
-      safeStorageRemove(sessionStorage, ANALYTICS_CONFIG.pendingQueueStorageKey);
+      safeStorageRemove('sessionStorage', ANALYTICS_CONFIG.pendingQueueStorageKey);
       return;
     }
     safeStorageSet(
-      sessionStorage,
+      'sessionStorage',
       ANALYTICS_CONFIG.pendingQueueStorageKey,
       JSON.stringify(persistable.slice(-ANALYTICS_CONFIG.maxQueueSize)),
     );
@@ -165,7 +165,7 @@ export function initPermanentnyAnalytics(options: PermanentnyAnalyticsInit) {
 
   function restorePending(): void {
     if (!canCollectClientAnalytics(getConsent())) return;
-    const raw = safeStorageGet(sessionStorage, ANALYTICS_CONFIG.pendingQueueStorageKey);
+    const raw = safeStorageGet('sessionStorage', ANALYTICS_CONFIG.pendingQueueStorageKey);
     if (!raw) return;
     try {
       const value = JSON.parse(raw);
@@ -181,7 +181,7 @@ export function initPermanentnyAnalytics(options: PermanentnyAnalyticsInit) {
         .slice(-ANALYTICS_CONFIG.maxQueueSize) as RawClientEventInput[];
       queue = restored;
     } catch {
-      safeStorageRemove(sessionStorage, ANALYTICS_CONFIG.pendingQueueStorageKey);
+      safeStorageRemove('sessionStorage', ANALYTICS_CONFIG.pendingQueueStorageKey);
     }
   }
 
@@ -192,8 +192,8 @@ export function initPermanentnyAnalytics(options: PermanentnyAnalyticsInit) {
   function clearIdentityAndQueue(): void {
     try { forgetVisitor(localStorage); } catch {}
     try { forgetSession(localStorage); } catch {}
-    safeStorageRemove(sessionStorage, TAB_STORAGE_KEY);
-    safeStorageRemove(sessionStorage, ANALYTICS_CONFIG.pendingQueueStorageKey);
+    safeStorageRemove('sessionStorage', TAB_STORAGE_KEY);
+    safeStorageRemove('sessionStorage', ANALYTICS_CONFIG.pendingQueueStorageKey);
     queue = [];
     runtime = null;
     clearPageBindings();
@@ -450,9 +450,18 @@ export function initPermanentnyAnalytics(options: PermanentnyAnalyticsInit) {
       pushEvent('page_view', { navigation_type: reason }, null, false);
     } else {
       const consent = getConsent();
-      const visitor = loadOrCreateVisitor(localStorage, consent, now);
-      if (!visitor) return;
-      const result = loadOrCreateSession(localStorage, visitor, location.pathname, now);
+      let visitor: VisitorState | null;
+      let result: ReturnType<typeof loadOrCreateSession>;
+      try {
+        visitor = loadOrCreateVisitor(localStorage, consent, now);
+        if (!visitor) return;
+        result = loadOrCreateSession(localStorage, visitor, location.pathname, now);
+      } catch {
+        // Browser storage can become unavailable even after consent was saved.
+        // Stop tracking and clear the in-memory queue without interrupting the page.
+        clearIdentityAndQueue();
+        return;
+      }
       runtime = {
         pagePath: sanitizePath(location.pathname),
         pageViewId,
