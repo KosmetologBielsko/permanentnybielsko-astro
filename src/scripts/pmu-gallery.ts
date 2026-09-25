@@ -21,6 +21,14 @@ function initGallery() {
   let start: { id: number; x: number; y: number } | null = null;
   const pointers = new Set<number>();
 
+  function analyticsGalleryId(section: HTMLElement) {
+    return (section.id || section.dataset.mediaLabel || "pmu-gallery")
+      .toLowerCase()
+      .replace(/[^a-z0-9_-]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 160) || "pmu-gallery";
+  }
+
   function clearMedia() {
     kind = "";
     picture.hidden = true;
@@ -40,6 +48,13 @@ function initGallery() {
     const item = items[index];
     const section = item.closest<HTMLElement>("[data-pmu-gallery-section]")!;
     kind = item.hasAttribute("data-pmu-video") ? "video" : "image";
+    window.dispatchEvent(new CustomEvent("pa:gallery-view", {
+      detail: {
+        galleryId: analyticsGalleryId(section),
+        assetUrl: item.href,
+        assetKind: kind
+      }
+    }));
     get("counter").textContent = `${section.dataset.mediaLabel} · ${index + 1} / ${items.length}`;
     get("caption").textContent = item.dataset.mediaCaption || "";
     original.href = item.href;
@@ -71,6 +86,9 @@ function initGallery() {
     // Only suppress the ordinary link once opening has succeeded.
     try { dialog.showModal(); } catch { return; }
     event.preventDefault();
+    window.dispatchEvent(new CustomEvent("pa:gallery-open", {
+      detail: { galleryId: analyticsGalleryId(section) }
+    }));
     opener = link;
     items = Array.from(section.querySelectorAll<HTMLAnchorElement>("a[data-pmu-photo], a[data-pmu-video]"));
     index = items.indexOf(link);

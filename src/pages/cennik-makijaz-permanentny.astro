@@ -456,6 +456,7 @@ const summaryPrices = [
         <h2 id="cennik-pmu" tabindex="-1">Ile kosztuje makijaż permanentny w Bielsku-Białej?</h2>
         <nav class="pmu-price-nav" aria-label="Wybierz kategorię cennika">
           {groupOrder.map((index) => <a href={`#price-group-${index}`}>{navLabels[index]} <span aria-hidden="true">↓</span></a>)}
+        </nav>
         <p class="pmu-price-catalog-note">Ceny i czas wizyty znajdziesz przy każdej usłudze. <a href="#zasady-cennika">Sprawdź zasady korekty i odświeżenia ↓</a></p>
 
         {groupOrder.map((index) => {
@@ -463,7 +464,7 @@ const summaryPrices = [
           const photo = groupPhotos[index as keyof typeof groupPhotos];
           const help = groupHelp[index as keyof typeof groupHelp];
           return (
-            <section class="pmu-price-group" id={`price-group-${index}`} aria-labelledby={`pmu-price-heading-${index}`}>
+            <section class="pmu-price-group" id={`price-group-${index}`} data-analytics-price={`price-group-${index}`} data-service-key={index === 1 ? "brows" : index === 2 ? "eyes" : index === 3 ? "lips" : index === 5 ? "removal" : "pmu"} aria-labelledby={`pmu-price-heading-${index}`}>
               <div class="pmu-price-group-intro">
                 {photo && <Image class="pmu-price-group-photo" src={photo} alt="" width={160} height={160} widths={[80,160,240]} sizes="(max-width: 640px) 64px, 96px" fit="cover" format="webp" quality={80} loading="lazy" decoding="async" />}
                 <div><h3 id={`pmu-price-heading-${index}`}>{group.title}</h3><p>{group.note}</p></div>

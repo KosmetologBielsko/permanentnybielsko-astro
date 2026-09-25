@@ -1,0 +1,20 @@
+<script>
+  import { initPermanentnyAnalytics } from "../lib/analytics/tracker";
+  import { readConsentSnapshot } from "../lib/analytics/consent";
+
+  declare global {
+    interface Window {
+      __permanentnyAnalytics?: ReturnType<typeof initPermanentnyAnalytics>;
+    }
+  }
+
+  const productionHosts = ["www.permanentnybielsko.com", "permanentnybielsko.com", "permanentnybielsko-astro.vercel.app"];
+  const enabled = import.meta.env.PUBLIC_PA_ENABLED === "true" && !productionHosts.includes(location.hostname);
+
+  if (enabled && !window.__permanentnyAnalytics) {
+    window.__permanentnyAnalytics = initPermanentnyAnalytics({
+      getConsent: () => readConsentSnapshot(),
+      endpoint: "/api/analytics/collect",
+    });
+  }
+</script>

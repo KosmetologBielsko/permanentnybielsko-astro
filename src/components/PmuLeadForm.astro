@@ -7,6 +7,7 @@ const { pageUrl } = Astro.props;
             action="https://formspree.io/f/mjgnwzvp"
             method="POST"
             data-pmu-lead-form
+            data-analytics-form="pmu_lead"
           >
             <div class="pmu-form-heading">
               <strong>Formularz PMU</strong>
@@ -235,9 +236,28 @@ const { pageUrl } = Astro.props;
 
         form.reset();
 
-        const gtag = window["gtag"];
+        window.dispatchEvent(
+          new CustomEvent("pa:form-submit", {
+            detail: { formId: "pmu_lead" }
+          })
+        );
 
-        if (typeof gtag === "function") {
+        const gtag = window["gtag"];
+        let marketingConsent = false;
+
+        try {
+          const rawConsent = window.localStorage.getItem("pb_consent_v2");
+          if (rawConsent) {
+            const parsedConsent = JSON.parse(rawConsent);
+            marketingConsent = parsedConsent?.v === 2 && parsedConsent?.marketing === true;
+          } else {
+            marketingConsent = window.localStorage.getItem("pb_cookie_consent") === "accepted";
+          }
+        } catch (error) {
+          marketingConsent = false;
+        }
+
+        if (marketingConsent && typeof gtag === "function") {
 
           gtag("event", "conversion", {
 
