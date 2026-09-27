@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { handleCollectRequest } from '../../../lib/analytics/collect-handler';
 import { createNeonAnalyticsStorage } from '../../../lib/analytics/neon-storage';
 
-import { collectorEnabled } from '../../../lib/analytics/rollout';
+import { analyticsEnvironment, collectorEnabled } from '../../../lib/analytics/rollout';
 import { safeStorageError } from '../../../lib/analytics/storage-error';
 
 export const prerender = false;
@@ -21,12 +21,13 @@ export const POST: APIRoute = async ({ request }) => {
   const deploymentEnv = process.env.VERCEL_ENV ?? import.meta.env.VERCEL_ENV;
   if (!collectorEnabled({
     PUBLIC_PA_ENABLED: process.env.PUBLIC_PA_ENABLED ?? import.meta.env.PUBLIC_PA_ENABLED,
+    PUBLIC_PA_PRODUCTION_ENABLED: process.env.PUBLIC_PA_PRODUCTION_ENABLED ?? import.meta.env.PUBLIC_PA_PRODUCTION_ENABLED,
     VERCEL_ENV: deploymentEnv,
   })) {
     return new Response(null, { status: 404, headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' } });
   }
   try {
-    return await handleCollectRequest(request, { storage: getStorage(), environment: deploymentEnv === 'preview' ? 'preview' : 'development' });
+    return await handleCollectRequest(request, { storage: getStorage(), environment: analyticsEnvironment(deploymentEnv) });
   } catch (error) {
     console.error('[Permanentny Analytics] collector bootstrap error', safeStorageError(error));
     return new Response(JSON.stringify({ error: 'collector_unavailable' }), {
