@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { collectorEnabled } from '../../src/lib/analytics/rollout';
+import { analyticsEnvironment, collectorEnabled } from '../../src/lib/analytics/rollout';
 import { readConsentSnapshot,hasStoredConsent,writeConsentSnapshot,defaultConsent } from '../../src/lib/analytics/consent';
 import { buildAttributionContext,classifyAttributionContext } from '../../src/lib/analytics/source-context';
 import { normalizeCollectedEvent } from '../../src/lib/analytics/collect-core';
@@ -9,11 +9,44 @@ import { handleCollectRequest } from '../../src/lib/analytics/collect-handler';
 import { MemoryAnalyticsStorage } from '../../src/lib/analytics/memory-storage';
 import { event,request } from './fixtures';
 
-test('Rollout is explicit in local/Preview and always off in Production', () => {
+test('Rollout is explicit in local/Preview and defaults off in Production', () => {
   assert.equal(collectorEnabled({}),false);
   assert.equal(collectorEnabled({PUBLIC_PA_ENABLED:'true',VERCEL_ENV:'preview'}),true);
   assert.equal(collectorEnabled({PUBLIC_PA_ENABLED:'true',VERCEL_ENV:'production'}),false);
   assert.equal(collectorEnabled({PUBLIC_PA_ENABLED:'true'}),true);
+});
+test('Production requires both flags and can be disabled with either flag', () => {
+  for (const enabled of [undefined, 'false', 'true', 'TRUE', '1']) {
+    for (const productionEnabled of [undefined, 'false', 'true', 'TRUE', '1']) {
+      assert.equal(collectorEnabled({PUBLIC_PA_ENABLED:enabled,PUBLIC_PA_PRODUCTION_ENABLED:productionEnabled,VERCEL_ENV:'production'}),
+        enabled === 'true' && productionEnabled === 'true');
+    }
+  }
+  assert.equal(collectorEnabled({PUBLIC_PA_ENABLED:'true',PUBLIC_PA_PRODUCTION_ENABLED:'true',VERCEL_ENV:'unknown'}),false);
+});
+test('Server deployment labels distinguish production, preview and development', () => {
+  assert.equal(analyticsEnvironment('production'),'production');
+  assert.equal(analyticsEnvironment('preview'),'preview');
+  assert.equal(analyticsEnvironment('development'),'development');
+  assert.equal(analyticsEnvironment(),'development');
+});
+test('Production collector overrides a forged browser environment and preserves sensitive privacy', async () => {
+  const storage=new MemoryAnalyticsStorage();
+  const normal=event({environment:'preview'});
+  const sensitive=event({environment:'development',pagePath:'/sercemmalowane/'});
+  for (const input of [normal,sensitive]) {
+    const req=new Request('https://www.permanentnybielsko.com/api/analytics/collect',{
+      method:'POST',headers:{origin:'https://www.permanentnybielsko.com','content-type':'application/json'},body:JSON.stringify(input),
+    });
+    assert.equal((await handleCollectRequest(req,{storage,environment:analyticsEnvironment('production')})).status,202);
+  }
+  assert.equal(storage.events[0].environment,'production');
+  const saved=storage.events[1];
+  assert.equal(saved.environment,'production');
+  assert.equal(saved.privacyScope,'aggregate_only');
+  assert.equal(saved.visitorId,null);
+  assert.equal(saved.sessionId,null);
+  assert.equal(saved.attributionContext,null);
 });
 test('Blocked storage fails closed without throwing', () => {
   const storage={getItem(){throw new Error('blocked');},setItem(){throw new Error('blocked');}};

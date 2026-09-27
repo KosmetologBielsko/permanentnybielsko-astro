@@ -1,3 +1,17 @@
+---
+import { analyticsEnvironment, collectorEnabled } from '../lib/analytics/rollout';
+
+const deploymentEnv = process.env.VERCEL_ENV ?? import.meta.env.VERCEL_ENV;
+const rollout = {
+  enabled: collectorEnabled({
+    PUBLIC_PA_ENABLED: import.meta.env.PUBLIC_PA_ENABLED,
+    PUBLIC_PA_PRODUCTION_ENABLED: import.meta.env.PUBLIC_PA_PRODUCTION_ENABLED,
+    VERCEL_ENV: deploymentEnv,
+  }),
+  environment: analyticsEnvironment(deploymentEnv),
+};
+---
+<script id="pa-rollout-config" type="application/json" is:inline set:html={JSON.stringify(rollout)}></script>
 <script>
   import { initPermanentnyAnalytics } from "../lib/analytics/tracker";
   import { readConsentSnapshot } from "../lib/analytics/consent";
@@ -8,13 +22,15 @@
     }
   }
 
-  const productionHosts = ["www.permanentnybielsko.com", "permanentnybielsko.com", "permanentnybielsko-astro.vercel.app"];
-  const enabled = import.meta.env.PUBLIC_PA_ENABLED === "true" && !productionHosts.includes(location.hostname);
+  // Only public switches and the deployment label are serialized by the server.
+  const rollout = JSON.parse(document.getElementById("pa-rollout-config")?.textContent ?? '{}');
+  const enabled = rollout.enabled === true;
 
   if (enabled && !window.__permanentnyAnalytics) {
     window.__permanentnyAnalytics = initPermanentnyAnalytics({
       getConsent: () => readConsentSnapshot(),
       endpoint: "/api/analytics/collect",
+      environment: rollout.environment,
     });
   }
 </script>
