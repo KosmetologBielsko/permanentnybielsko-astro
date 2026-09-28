@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { Image, getImage } from "astro:assets";
+import poster from "../../assets/wydarzenia/pmu-indonesia-2026-boguslawa-herda-jurorka.jpg";
+import "../../styles/events.css";
+const site = "https://www.permanentnybielsko.com";
+const posterAlt = "Plakat PMU Indonesia Festival: Bogusława Herda jako jurorka, Jakarta, 21–23 października 2026";
+const socialImage = await getImage({src:poster,width:1200,format:"webp",quality:90});
+const imageUrl = new URL(socialImage.src,site).href;
+const title = "Wydarzenia PMU i działalność międzynarodowa | Bogusława Herda";
+const description = "Wydarzenia zawodowe Bogusławy Herda: jury, spotkania branży PMU i działalność międzynarodowa. Poznaj zapowiedź PMU Indonesia Festival 2026 w Dżakarcie.";
+const structuredData = [{"@context":"https://schema.org","@type":"CollectionPage","@id":`${site}/wydarzenia/#webpage`,url:`${site}/wydarzenia/`,name:title,description,inLanguage:"pl-PL",about:{"@id":`${site}/#person`},isPartOf:{"@id":`${site}/#website`},primaryImageOfPage:{"@type":"ImageObject",url:imageUrl}}];
+---
+<Layout title={title} description={description} canonicalPath="/wydarzenia/" ogImage={socialImage.src} ogImageAlt={posterAlt} structuredData={structuredData} showGuideSocial={false}>
+<Header compact />
+<main class="events-page"><div class="events-wrap">
+<nav class="events-breadcrumb" aria-label="Okruszki"><a href="/">Strona główna</a><span aria-hidden="true">/</span><span aria-current="page">Wydarzenia</span></nav>
+<p class="events-kicker">Bogusława Herda · w świecie PMU</p>
+<h1>Doświadczenie, którym się dzielę.</h1>
+<p class="events-lead">Jury, spotkania branżowe i działalność międzynarodowa. Tutaj znajdziesz zapowiedzi i relacje z ważnych wydarzeń w mojej pracy z makijażem permanentnym.</p>
+<article class="events-card">
+<a href="/wydarzenia/boguslawa-herda-pmu-indonesia-jakarta-2026/" aria-label="Poznaj udział Bogusławy Herda w PMU Indonesia Festival 2026"><Image src={poster} alt={posterAlt} width={720} widths={[360,540,720,1080]} sizes="(max-width:700px) calc(100vw - 72px), 500px" format="webp" quality={90} loading="eager" fetchpriority="high" /></a>
+<div><span class="events-tag">Zapowiedź · jury</span><p class="events-kicker">21–23 października 2026 · Jakarta</p><h2><a href="/wydarzenia/boguslawa-herda-pmu-indonesia-jakarta-2026/">Bogusława Herda jurorką PMU Indonesia Festival 2026</a></h2><p>W październiku dołączę do grona jurorów festiwalu PMU w Dżakarcie. Podczas wyjazdu planujemy relacje na profilach społecznościowych, a po powrocie — pełne podsumowanie tutaj.</p><a class="events-button" href="/wydarzenia/boguslawa-herda-pmu-indonesia-jakarta-2026/">Zobacz zapowiedź →</a></div>
+</article>
+<section class="events-archive" aria-labelledby="archiwum"><p class="events-kicker">Z archiwum · 2019</p><h2 id="archiwum">Elitarne Mistrzostwa Long-Time-Liner</h2><p>Materiał przedstawiający Bogusławę Herdę jako zwyciężczynię Elitarnych Mistrzostw w Makijażu Permanentnym Long-Time-Liner 2019.</p><a class="events-link" href="https://www.youtube.com/watch?v=JU6Og-o2mPM" target="_blank" rel="noopener noreferrer">Obejrzyj materiał na YouTube ↗</a></section>
+</div></main><Footer />
+</Layout>

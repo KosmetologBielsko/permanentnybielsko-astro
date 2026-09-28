@@ -1,6 +1,8 @@
 // Rzeczywiste daty zmian w treści. Zaktualizuj także metadata artykułu.
 // Nieznana data: pomijamy lastmod. Data builda nie jest datą aktualizacji.
 export const pageModified: Readonly<Record<string, string>> = {
+  "/wydarzenia/": "2026-09-28",
+  "/wydarzenia/boguslawa-herda-pmu-indonesia-jakarta-2026/": "2026-09-28",
   "/": "2026-09-14",
   "/makijaz-permanentny-bielsko/": "2026-09-14",
   "/makijaz-permanentny-brwi/": "2026-09-19",
