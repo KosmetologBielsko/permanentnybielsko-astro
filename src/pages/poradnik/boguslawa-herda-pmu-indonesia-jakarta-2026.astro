@@ -1,0 +1,63 @@
+---
+import { Image, getImage } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import { jakartaEvent, jakartaMedia } from "../../data/guide-events";
+import teamPhoto from "../../assets/home-13/long-time-liner-zespol.webp";
+import "../../styles/guide-article.css";
+import "../../styles/guide-events.css";
+const site = "https://www.permanentnybielsko.com";
+const pageUrl = site + jakartaEvent.href;
+const socialImage = await getImage({ src: jakartaMedia.cover.src, width: 1200, format: "webp", quality: 90 });
+const imageUrl = new URL(socialImage.src, site).href;
+const sources = [
+  { title: "Bogusława Herda — oficjalna zapowiedź jurorki", detail: "Plakat, termin i rola PMU Judge", href: "https://www.instagram.com/p/DP20aRbEkjJ/" },
+  { title: "PMU Indonesia Festival na Facebooku", detail: "Zapowiedzi, materiały i archiwum organizatora", href: "https://www.facebook.com/pmuindonesiafestival/" },
+  { title: "Zapowiedź festiwalu — materiał wideo", detail: "Film udostępniony na Facebooku", href: "https://www.facebook.com/share/v/1BV4uRu98c/" },
+  { title: "Informacje organizacyjne PMU Indonesia", detail: "Miejsce i daty festiwalu", href: "https://www.instagram.com/p/Ddlpq4vyjfT/" },
+];
+const structuredData = [
+  { "@context": "https://schema.org", "@type": "Article", "@id": pageUrl + "#article", url: pageUrl,
+    headline: jakartaEvent.title, description: jakartaEvent.description, image: [imageUrl],
+    datePublished: "2026-09-29", dateModified: "2026-09-29", inLanguage: "pl-PL", articleSection: "Wydarzenia",
+    author: { "@type": "Person", "@id": site + "/#person", name: "Bogusława Herda", url: site + "/makijaz-permanentny-bielsko/#boguslawa-herda" },
+    publisher: { "@id": site + "/#localbusiness" }, mainEntityOfPage: { "@id": pageUrl + "#webpage" },
+    citation: sources.filter(source => !source.href.includes("/share/")).map(source => source.href) },
+  { "@context": "https://schema.org", "@type": "WebPage", "@id": pageUrl + "#webpage", url: pageUrl,
+    name: jakartaEvent.title, primaryImageOfPage: { "@type": "ImageObject", url: imageUrl }, isPartOf: { "@id": site + "/poradnik/wydarzenia/#collection" } },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement:
+    [["Strona główna", "/"], ["Poradnik", "/poradnik/"], ["Wydarzenia", "/poradnik/wydarzenia/"], ["Dżakarta 2026", jakartaEvent.href]].map(([name, path], i) => ({ "@type": "ListItem", position: i + 1, name, item: site + path })) },
+];
+---
+<Layout title={`${jakartaEvent.title} | Poradnik PMU`} description={jakartaEvent.description} canonicalPath={jakartaEvent.href} ogType="article" ogImage={socialImage.src} ogImageAlt={jakartaMedia.cover.alt} structuredData={structuredData} showGuideSocial={false}>
+<a class="event-skip" href="#o-festiwalu">Przejdź do artykułu</a><Header compact />
+<main class="pmu-guide-v3 pmu-event-article">
+  <header class="expert-article-hero"><div class="container">
+    <nav class="event-breadcrumbs" aria-label="Ścieżka strony"><a href="/">Strona główna</a><span aria-hidden="true">/</span><a href="/poradnik/">Poradnik</a><span aria-hidden="true">/</span><a href="/poradnik/wydarzenia/">Wydarzenia</a><span aria-hidden="true">/</span><span aria-current="page">Dżakarta 2026</span></nav>
+    <div class="expert-article-hero-grid event-hero-grid"><div>
+      <p class="section-kicker">Wydarzenia · zapowiedź</p><div class="expert-article-meta"><span>21–23 października 2026</span><span>Jakarta, Indonezja</span></div>
+      <h1>Bogusława Herda w jury <span class="bph-title-accent">PMU Indonesia Festival 2026</span></h1>
+      <p class="expert-article-lead">Z Bielska-Białej do Dżakarty. W październiku dołączę do międzynarodowego grona jurorów PMU Indonesia Festival. Zapraszam do śledzenia przygotowań i relacji z tego spotkania świata makijażu permanentnego.</p>
+      <GuideSeriesByline date="2026-09-29" dateLabel="29 września 2026" role="Autorka · jurorka PMU" />
+      <div class="event-actions"><a class="button-primary" href="#relacje">Gdzie śledzić relacje? ↓</a><a class="event-text-link" href="#program">Poznaj wydarzenie ↓</a></div>
+    </div><figure class="event-poster"><a href={jakartaMedia.cover.src.src} target="_blank" rel="noopener noreferrer" aria-label="Otwórz pełny plakat PMU Indonesia Festival 2026"><Image src={jakartaMedia.cover.src} alt={jakartaMedia.cover.alt} width={720} widths={[360,540,720,1080,1440]} sizes="(max-width:640px) calc(100vw - 36px), (max-width:999px) 560px, 460px" format="webp" quality={90} loading="eager" fetchpriority="high" /></a><figcaption>Oficjalny plakat organizatora · Bogusława Herda, PMU Judge. Dotknij, aby powiększyć.</figcaption></figure></div>
+    <dl class="event-facts"><div><dt>Termin festiwalu</dt><dd>21–23.10.2026</dd></div><div><dt>Miejsce</dt><dd>Jakarta · Indonezja</dd></div><div><dt>Moja rola</dt><dd>Jurorka PMU</dd></div></dl>
+  </div></header>
+  <section class="expert-article-nav-section"><div class="container"><details class="guide-toc" open><summary>W tym artykule</summary><nav aria-label="Spis treści artykułu"><a href="#o-festiwalu">O festiwalu</a><a href="#program">Daty i program</a><a href="#relacje">Relacje i różnica czasu</a><a href="#po-powrocie">Po powrocie</a><a href="#doswiadczenie">Doświadczenie</a><a href="#materialy">Zdjęcia, filmy i źródła</a></nav></details></div></section>
+  <section class="expert-article-section" id="o-festiwalu"><div class="container event-reading"><p class="section-kicker">Międzynarodowa scena PMU</p><h2>Spotkanie ludzi, których łączy makijaż permanentny.</h2>
+    <p>PMU Indonesia Festival to wydarzenie branżowe w Dżakarcie, łączące część konkursową z prezentacjami i spotkaniami specjalistów. Organizator przedstawia jurorów, prelegentów oraz ambasadorów z różnych krajów. To okazja do zobaczenia różnych podejść do pigmentacji i wymiany doświadczeń między środowiskami PMU.</p>
+    <p>W zapowiedziach organizatora pojawiają się m.in. prelegentka Sonja Werthschulte z Niemiec oraz jurorka Hayley Chen. Marka Ali Tattoo Sulam jest obecna na oficjalnych materiałach festiwalu, także na plakacie zapowiadającym mój udział.</p>
+    <p><strong>W Dżakarcie będę uczestniczyć w festiwalu jako jurorka PMU.</strong> Na tej stronie zbieramy najważniejsze informacje przed wyjazdem, a później opublikujemy relację z wydarzenia — z własnymi zdjęciami, filmami i wnioskami.</p>
+  </div></section>
+  <section class="expert-article-section" id="program"><div class="container"><p class="section-kicker">Zaplanuj z nami październik</p><h2>Kiedy i gdzie odbędzie się festiwal?</h2><div class="event-program">
+    <article><span class="event-date">20 października 2026</span><h3>Powitanie i rejestracja</h3><p>Welcome Party &amp; Registration — spotkanie powitalne i rejestracja w Aloha Beach, według zapowiedzi organizatora.</p></article>
+    <article><span class="event-date">21–23 października 2026</span><h3>PMU Indonesia Festival</h3><p>Główne dni wydarzenia w Noya x 80PROOF w Dżakarcie. Termin 21–23 października widnieje także na plakacie mojego udziału w jury.</p></article>
+  </div><p class="event-note">Informacje według materiałów organizatora. Szczegółowe godziny i aktualizacje programu publikuje <a href="https://www.instagram.com/pmuindonesia/" target="_blank" rel="noopener noreferrer">PMU Indonesia na Instagramie ↗</a>.</p></div></section>
+  <section class="expert-article-section" id="relacje"><div class="container"><div class="guide-social event-follow"><div><p class="section-kicker">Bądź ze mną w Dżakarcie</p><h2>Obserwuj profil. Będą relacje z wydarzenia.</h2><p>Podczas wyjazdu planujemy publikować zdjęcia i krótkie filmy: atmosferę festiwalu, spotkania z branżą oraz wybrane momenty pobytu. Obserwuj Instagram i Facebook Bogusławy Herda, żeby zobaczyć kolejne materiały.</p><div class="guide-social-actions"><a href="https://www.instagram.com/permanentnybielsko/" target="_blank" rel="noopener noreferrer">Obserwuj Instagram ↗</a><a href="https://www.facebook.com/PermanentnyBielsko/" target="_blank" rel="noopener noreferrer">Śledź Facebook ↗</a></div></div>
+  <div class="event-time"><h3>Dżakarta jest 5 godzin przed Polską</h3><p>Taką różnicę czasu mamy w dniach festiwalu, 21–23 października.</p><div class="event-clocks"><div><span>Polska</span><strong>09:00</strong></div><span aria-hidden="true">→</span><div><span>Dżakarta</span><strong>14:00</strong></div></div><p class="event-note">Relacje mogą pojawiać się o innych porach niż zwykle. Będziemy publikować w miarę możliwości. Od 25 października, po zmianie czasu w Polsce, różnica wyniesie 6 godzin.</p></div></div></div></section>
+  <section class="expert-article-section" id="po-powrocie"><div class="container event-reading"><p class="section-kicker">Zapisz tę stronę</p><h2>Po powrocie — pełna historia w jednym miejscu.</h2><p>Krótkie relacje pozwolą być blisko wydarzeń podczas wyjazdu. Po powrocie uzupełnimy ten sam artykuł o obszerne podsumowanie festiwalu: galerię własnych zdjęć, filmy, doświadczenia z pracy w jury, spotkania branżowe oraz najważniejsze wnioski.</p><p>To będzie materiał, do którego można spokojnie wrócić — także po zakończeniu relacji w mediach społecznościowych. Zapowiedź i późniejsza relacja pozostaną pod tym samym adresem.</p></div></section>
+  <section class="expert-article-section" id="doswiadczenie"><div class="container event-history"><figure><Image src={teamPhoto} alt="Bogusława Herda z zespołem Long-Time-Liner podczas wcześniejszego spotkania branżowego" width={800} widths={[360,540,800,1200]} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) 600px, 520px" format="webp" quality={85} loading="lazy" decoding="async" /><figcaption>Z archiwum gabinetu · Bogusława Herda i zespół Long-Time-Liner®.</figcaption></figure><div><p class="section-kicker">Od praktyki do międzynarodowych spotkań</p><h2>Doświadczenie, którym się dzielę.</h2><p>Moja codzienność to praca z klientkami w Bielsku-Białej oraz szkolenia linergistek. Wyjazdy branżowe są kolejną przestrzenią do rozmowy o technikach, estetyce i jakości pracy.</p><p>Historię mojej drogi przypomina także <a href="https://www.youtube.com/watch?v=JU6Og-o2mPM" target="_blank" rel="noopener noreferrer">materiał Long-Time-Liner z 2019 roku ↗</a>. Dziś zapraszam do śledzenia kolejnego rozdziału — tym razem w roli jurorki w Indonezji.</p><div class="event-actions"><a class="event-text-link" href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj moje doświadczenie →</a><a class="event-text-link" href="/szkolenie-makijaz-permanentny/">Szkolenia PMU →</a></div></div></div></section>
+  <section class="expert-article-section" id="materialy"><div class="container"><p class="section-kicker">Zobacz więcej</p><h2>Materiały i aktualności organizatora.</h2><p>Na profilach PMU Indonesia znajdziesz zapowiedzi kolejnych osób, materiały promocyjne oraz archiwum wcześniejszych wydarzeń. Poniżej zebraliśmy miejsca, od których warto zacząć.</p><div class="event-source-grid">{sources.map(source => <a href={source.href} target="_blank" rel="noopener noreferrer"><strong>{source.title}<span aria-hidden="true"> ↗</span></strong><span>{source.detail}</span></a>)}</div><div class="event-actions"><a class="button-secondary" href="/poradnik/wydarzenia/">← Wszystkie wydarzenia</a><a class="event-text-link" href="/poradnik/">Wróć do poradnika PMU →</a></div></div></section>
+</main><Footer /></Layout>

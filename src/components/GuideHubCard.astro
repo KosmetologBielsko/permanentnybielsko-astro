@@ -6,15 +6,16 @@ interface Props {
   media: GuideMedia;
 }
 const { article, media } = Astro.props;
+const isEvent = article.groups.includes("wydarzenia");
 ---
 <article class="hub-entry" data-hub-entry={article.slug}
   data-title={article.title} data-groups={article.groups.join(" ")}
   data-search={`${article.cardTitle} ${article.title} ${article.description} ${article.category}`}>
   <a class="hub-entry-link" href={article.href} aria-label={article.title}>
-    <div class="hub-entry-photo">
+    <div class:list={["hub-entry-photo", { "hub-event-poster": isEvent }]}>
       <Image src={media.cover.src} alt={media.cover.alt} width={288} height={288}
         widths={[96, 192, 288]} sizes="(max-width: 640px) 88px, 112px"
-        fit="cover" format="webp" quality={76} loading="lazy" decoding="async" />
+        fit={isEvent ? "contain" : "cover"} format="webp" quality={76} loading="lazy" decoding="async" />
     </div>
     <div class="hub-entry-copy">
       <span class="hub-entry-category">{article.category}</span>

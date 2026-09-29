@@ -1,0 +1,31 @@
+---
+import { Image, getImage } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import GuideSeriesByline from "../../components/GuideSeriesByline.astro";
+import { jakartaEvent, jakartaMedia } from "../../data/guide-events";
+import teamPhoto from "../../assets/home-13/long-time-liner-zespol.webp";
+import "../../styles/guide-hub.css";
+import "../../styles/guide-events.css";
+const site = "https://www.permanentnybielsko.com";
+const path = "/poradnik/wydarzenia/";
+const title = "Wydarzenia PMU | Bogusława Herda — jury, spotkania i relacje";
+const description = "Wydarzenia w poradniku Bogusławy Herda: międzynarodowe jury PMU, spotkania branżowe i relacje. Przed nami PMU Indonesia Festival 2026 w Dżakarcie.";
+const socialImage = await getImage({ src: jakartaMedia.cover.src, width: 1200, format: "webp", quality: 90 });
+const structuredData = [
+  { "@context": "https://schema.org", "@type": "CollectionPage", "@id": site + path + "#collection", url: site + path, name: title, description, inLanguage: "pl-PL", dateModified: "2026-09-29", isPartOf: { "@id": site + "/poradnik/#collection" } },
+  { "@context": "https://schema.org", "@type": "ItemList", numberOfItems: 1, itemListElement: [{ "@type": "ListItem", position: 1, name: jakartaEvent.title, url: site + jakartaEvent.href }] },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [["Strona główna", "/"], ["Poradnik", "/poradnik/"], ["Wydarzenia", path]].map(([name, url], i) => ({ "@type": "ListItem", position: i + 1, name, item: site + url })) },
+];
+---
+<Layout title={title} description={description} canonicalPath={path} ogImage={socialImage.src} ogImageAlt={jakartaMedia.cover.alt} structuredData={structuredData} showGuideSocial={false}>
+<a class="hub-skip" href="#najnowsze">Przejdź do wydarzeń</a><Header compact />
+<main class="pmu-hub pmu-events-hub"><div class="hub-shell"><header class="hub-intro">
+<nav class="hub-breadcrumbs" aria-label="Ścieżka strony"><a href="/">Strona główna</a><span aria-hidden="true">/</span><a href="/poradnik/">Poradnik</a><span aria-hidden="true">/</span><span aria-current="page">Wydarzenia</span></nav>
+<p class="hub-kicker">Poradnik · z życia branży PMU</p><h1>Wydarzenia.<br /><span class="bph-title-accent">Doświadczenie poza gabinetem.</span></h1><p class="hub-lead event-hub-lead">Międzynarodowe jury, spotkania i ludzie, z którymi łączy mnie makijaż permanentny. Tutaj znajdziesz zapowiedzi, materiały z wyjazdów i relacje, do których warto wracać.</p>
+<GuideSeriesByline date="2026-09-29" dateLabel="29 września 2026" /><nav class="guide-section-nav" aria-label="Działy poradnika"><a href="/poradnik/">Poradniki PMU</a><a href="/poradnik/wydarzenia/" aria-current="page">Wydarzenia</a></nav></header>
+<section class="event-feature" id="najnowsze" aria-labelledby="event-jakarta-title"><a class="event-feature-image" href={jakartaEvent.href} aria-label="Poznaj PMU Indonesia Festival 2026"><Image src={jakartaMedia.cover.src} alt={jakartaMedia.cover.alt} width={720} widths={[360,540,720,1080]} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) 500px, 440px" format="webp" quality={88} loading="eager" fetchpriority="high" /></a><div class="event-feature-copy"><p class="hub-kicker">Przed nami · 21–23 października 2026</p><h2 id="event-jakarta-title">Dżakarta 2026.<br />Bogusława Herda w międzynarodowym jury PMU.</h2><p>PMU Indonesia Festival — trzy dni spotkań branży makijażu permanentnego w Indonezji. Poznaj wydarzenie i śledź relacje z wyjazdu.</p><p>Na Instagramie i Facebooku pojawią się zdjęcia i krótkie filmy. Po powrocie uzupełnimy artykuł o pełne podsumowanie i galerię.</p><div class="event-actions"><a class="hub-primary" href={jakartaEvent.href}>Czytaj zapowiedź →</a><a class="hub-inline-link" href={`${jakartaEvent.href}#relacje`}>Gdzie śledzić relacje? ↓</a></div></div></section>
+<section class="event-archive" aria-labelledby="event-archive-title"><figure><Image src={teamPhoto} alt="Bogusława Herda z zespołem Long-Time-Liner — zdjęcie z archiwum gabinetu" width={800} widths={[360,540,800,1200]} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) 600px, 520px" format="webp" quality={85} loading="lazy" decoding="async" /><figcaption>Z archiwum gabinetu · Long-Time-Liner®</figcaption></figure><div><p class="hub-kicker">Z archiwum</p><h2 id="event-archive-title">Droga, która trwa.</h2><p>Konkursy, edukacja i spotkania ze specjalistami są częścią mojej zawodowej historii. Zajrzyj do materiału Long-Time-Liner z 2019 roku i poznaj wcześniejszy etap tej drogi.</p><a class="hub-secondary" href="https://www.youtube.com/watch?v=JU6Og-o2mPM" target="_blank" rel="noopener noreferrer">Obejrzyj film z 2019 roku ↗</a><a class="hub-inline-link" href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj doświadczenie Bogusławy Herda →</a></div></section>
+<div class="event-hub-bottom"><a class="hub-inline-link" href="/poradnik/">← Wróć do wszystkich wpisów w poradniku</a><a class="hub-inline-link" href="/szkolenie-makijaz-permanentny/">Zobacz szkolenia PMU →</a></div>
+</div></main><Footer /></Layout>

@@ -3,6 +3,8 @@ import { pageModified } from "../data/page-modified";
 import { siteConfig } from "../config/site";
 
 const pages = [
+  { path: "/poradnik/wydarzenia/", priority: "0.7", changefreq: "monthly" },
+  { path: "/poradnik/boguslawa-herda-pmu-indonesia-jakarta-2026/", priority: "0.7", changefreq: "monthly" },
   {
     path: "/",
     priority: "1.0",

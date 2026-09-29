@@ -1,7 +1,9 @@
 // Rzeczywiste daty zmian w treści. Zaktualizuj także metadata artykułu.
 // Nieznana data: pomijamy lastmod. Data builda nie jest datą aktualizacji.
 export const pageModified: Readonly<Record<string, string>> = {
-  "/": "2026-09-14",
+  "/poradnik/wydarzenia/": "2026-09-29",
+  "/poradnik/boguslawa-herda-pmu-indonesia-jakarta-2026/": "2026-09-29",
+  "/": "2026-09-29",
   "/makijaz-permanentny-bielsko/": "2026-09-14",
   "/makijaz-permanentny-brwi/": "2026-09-19",
   "/makijaz-permanentny-ust/": "2026-09-19",
@@ -11,7 +13,7 @@ export const pageModified: Readonly<Record<string, string>> = {
   "/kontakt/": "2026-09-14",
   "/galeria/": "2026-09-13",
   "/cennik-makijaz-permanentny/": "2026-09-13",
-  "/poradnik/": "2026-09-13",
+  "/poradnik/": "2026-09-29",
   "/poradnik/botoks-a-makijaz-permanentny-brwi/": "2026-09-09",
   "/poradnik/brwi-permanentne-dzien-po-dniu/": "2026-09-09",
   "/poradnik/brwi-permanentne-po-latach/": "2026-09-09",

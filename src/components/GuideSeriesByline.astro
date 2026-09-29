@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { guideAuthorPortrait } from "../data/guide-series-01";
+interface Props { date?: string; dateLabel?: string; role?: string; }
+const { date = "2026-09-09", dateLabel = "9 września 2026", role = "Autorka poradnika" } = Astro.props;
 ---
 
 <!-- PMU GLOBAL BYLINE 06.2B: shared author component for the PMU hub and guide series. -->
@@ -23,9 +25,9 @@ import { guideAuthorPortrait } from "../data/guide-series-01";
       Bogusława Herda
     </a>
     <span class="guide-byline-meta">
-      <span>Autorka poradnika</span>
+      <span>{role}</span>
       <span class="guide-byline-separator" aria-hidden="true">·</span>
-      <span>aktualizacja <time datetime="2026-09-09">9 września 2026</time></span>
+      <span>aktualizacja <time datetime={date}>{dateLabel}</time></span>
     </span>
   </div>
 </div>

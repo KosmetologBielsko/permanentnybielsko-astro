@@ -15,12 +15,14 @@ import browsPhoto from "../assets/poradnik/seria-01/brwi-wlos-detal.webp";
 import lipsPhoto from "../assets/poradnik/seria-01/usta-roz-detal.webp";
 import eyePhoto from "../assets/poradnik/seria-01/kreska-subtelna.webp";
 import "../styles/guide-hub.css";
+import "../styles/guide-events.css";
+import { jakartaEvent, jakartaMedia } from "../data/guide-events";
 
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 const pageUrl = "https://www.permanentnybielsko.com/poradnik/";
 const pageTitle = "Poradnik makijażu permanentnego | Brwi, usta, kreski Bielsko-Biała";
 const pageDescription = "Ekspercki poradnik PMU Bogusławy Herda: brwi, usta, kreski, gojenie, pielęgnacja, skóra, bezpieczeństwo, ceny, korekty i usuwanie makijażu permanentnego.";
-const media: Record<string, GuideMedia> = { ...media01, ...media04, ...media05,
+const media: Record<string, GuideMedia> = { [jakartaEvent.slug]: jakartaMedia, ...media01, ...media04, ...media05,
   "kreska-permanentna-cena": { cover: { src: pilotCover, alt: "Ilustracja delikatnego podkreślenia górnej linii rzęs", caption: "Ilustracja poradnika", kind: "illustration" }, photos: [], label: "Kreski permanentne" }
 };
 for (const article of articleCards) {
@@ -38,6 +40,7 @@ const filterDefinitions = [
   { id: "kreski", label: "Kreski" },
   { id: "gojenie", label: "Gojenie" },
   { id: "ceny", label: "Ceny" },
+  { id: "wydarzenia", label: "Wydarzenia" },
   { id: "przed", label: "Przed zabiegiem" },
   { id: "korekta", label: "Korekta i usuwanie" },
   { id: "bezpieczenstwo", label: "Skóra i bezpieczeństwo" },
@@ -80,7 +83,7 @@ const faqItems = [
   },
   {
     "question": "Czy poradnik obejmuje tylko brwi permanentne?",
-    "answer": `Nie. Biblioteka obejmuje ${articleCards.length} poradników o brwiach, ustach, kreskach, przygotowaniu, bólu i komforcie, gojeniu, pielęgnacji, skórze, bezpieczeństwie, zabiegach łączonych, korektach, usuwaniu, cenach, Bielsku-Białej i szkoleniach PMU.`
+    "answer": `Nie. Biblioteka obejmuje ${articleCards.length} wpisów o brwiach, ustach, kreskach, przygotowaniu, bólu i komforcie, gojeniu, pielęgnacji, skórze, bezpieczeństwie, zabiegach łączonych, korektach, usuwaniu, cenach, Bielsku-Białej i szkoleniach PMU oraz wydarzeniach branżowych.`
   },
   {
     "question": "Od czego zacząć przed pierwszym makijażem permanentnym?",
@@ -105,7 +108,7 @@ const structuredData = [
     name: pageTitle,
     description: pageDescription,
     inLanguage: "pl-PL",
-    dateModified: "2026-09-13",
+    dateModified: "2026-09-29",
     isPartOf: { "@id": "https://www.permanentnybielsko.com/#website" },
     about: { "@id": "https://www.permanentnybielsko.com/#localbusiness" },
   },
@@ -172,7 +175,11 @@ const structuredData = [
             <p class="hub-kicker">Wiedza i praktyka · Bielsko-Biała</p>
             <h1>Poradnik <span class="bph-title-accent">makijażu permanentnego.</span></h1>
             <p class="hub-lead">Brwi, usta, kreski — wybór efektu, gojenie, ceny i stare PMU. Znajdź odpowiedź dla siebie.</p>
-            <GuideSeriesByline />
+            <GuideSeriesByline date="2026-09-29" dateLabel="29 września 2026" />
+            <nav class="guide-section-nav" aria-label="Działy poradnika">
+              <a href="/poradnik/" aria-current="page">Poradniki PMU</a>
+              <a href="/poradnik/wydarzenia/">Wydarzenia <span aria-hidden="true">↗</span></a>
+            </nav>
           </div>
           <section class="hub-finder" aria-labelledby="hub-finder-title">
             <p class="hub-kicker">Twoje pytanie</p>
@@ -186,7 +193,7 @@ const structuredData = [
                 <button type="button" class="hub-clear" aria-label="Wyczyść wyszukiwanie" data-hub-clear hidden>×</button>
               </div>
               <button disabled class="hub-primary hub-submit" type="submit">Znajdź poradnik <span aria-hidden="true">↓</span></button>
-              <p class="hub-search-help" id="hub-search-help">Przeszukaj {articleCards.length} poradników o PMU.</p>
+              <p class="hub-search-help" id="hub-search-help">Przeszukaj {articleCards.length} wpisów o PMU i wydarzeniach.</p>
             </form>
             <noscript><style>.pmu-hub [data-hub-controls] { display:none !important; }</style><p>Wszystkie poradniki znajdziesz poniżej.</p><a class="hub-primary" href="#biblioteka-pmu">Zobacz poradniki ↓</a></noscript>
             <div class="hub-presets" aria-label="Przykładowe wyszukiwania" data-hub-controls>
@@ -224,7 +231,7 @@ const structuredData = [
         </div>
         <div class="hub-filter-area" data-hub-controls>
           <div class="hub-filters" role="group" aria-label="Tematy poradników">
-            {filters.slice(0, 6).map(filter => (
+            {filters.slice(0, 7).map(filter => (
               <button disabled type="button" data-hub-filter={filter.id} data-label={filter.label}
                 aria-controls="hub-entries" aria-pressed={filter.id === "all" ? "true" : "false"}>
                 {filter.label}<span>{filter.count}</span>
@@ -234,7 +241,7 @@ const structuredData = [
           <details class="hub-more-topics">
             <summary>Więcej tematów <span aria-hidden="true">+</span></summary>
             <div class="hub-filters" role="group" aria-label="Dodatkowe tematy">
-              {filters.slice(6).map(filter => (
+              {filters.slice(7).map(filter => (
                 <button disabled type="button" data-hub-filter={filter.id} data-label={filter.label}
                   aria-controls="hub-entries" aria-pressed="false">{filter.label}<span>{filter.count}</span></button>
               ))}

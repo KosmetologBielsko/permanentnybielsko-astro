@@ -1,5 +1,7 @@
+import { jakartaEvent } from "./guide-events";
 /** Katalog strony /poradnik/. Tytuły artykułów i adresy pozostają oryginalne. */
 export const articleCards = [
+  jakartaEvent,
   {
     "slug": "brwi-permanentne-po-latach",
     "title": "Brwi permanentne po latach — jak wyglądają i kiedy odświeżać, a kiedy usuwać?",

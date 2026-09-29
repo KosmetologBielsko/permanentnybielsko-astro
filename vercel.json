@@ -2,6 +2,26 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/wydarzenia",
+      "destination": "/poradnik/wydarzenia/",
+      "permanent": true
+    },
+    {
+      "source": "/wydarzenia/",
+      "destination": "/poradnik/wydarzenia/",
+      "permanent": true
+    },
+    {
+      "source": "/wydarzenia/boguslawa-herda-pmu-indonesia-jakarta-2026",
+      "destination": "/poradnik/boguslawa-herda-pmu-indonesia-jakarta-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/wydarzenia/boguslawa-herda-pmu-indonesia-jakarta-2026/",
+      "destination": "/poradnik/boguslawa-herda-pmu-indonesia-jakarta-2026/",
+      "permanent": true
+    },
+    {
       "source": "/blog/makijaz-permanentny-brwi-cena",
       "destination": "https://www.permanentnybielsko.com/poradnik/makijaz-permanentny-brwi-cena/",
       "permanent": true
