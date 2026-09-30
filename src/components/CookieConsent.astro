@@ -53,11 +53,11 @@
   </div>
 </div>
 
-<button type="button" class="cookie-consent__reopen" data-cookie-reopen hidden>Ustawienia prywatności</button>
+
 
 <style>
-  .cookie-consent[hidden], .cookie-consent [hidden], .cookie-consent__reopen[hidden] { display: none !important; }
-  .cookie-consent__reopen { position: fixed; bottom: 10px; left: 10px; z-index: 100; padding: 8px 12px; min-height: 44px; border: 1px solid rgba(43,33,27,.12); border-radius: 14px; background: #fff; color: #2b211b; font: inherit; font-size: 12px; cursor: pointer; }
+  .cookie-consent[hidden], .cookie-consent [hidden] { display: none !important; }
+
   .cookie-consent {
     position: fixed;
     right: 20px;
@@ -120,7 +120,7 @@
   const menuButton = document.querySelector<HTMLElement>("[data-menu-button]");
   const clarityProjectId = "y4x08qso9k";
 
-  if (banner && acceptButton && rejectButton && customizeButton && saveButton && settings && analyticsInput && marketingInput && personalizationInput && reopenButton) {
+  if (banner && acceptButton && rejectButton && customizeButton && saveButton && settings && analyticsInput && marketingInput && personalizationInput) {
     let hasChoice = hasStoredConsent();
     let clarityLoaded = Boolean((window as any).clarity);
 
@@ -131,7 +131,7 @@
     function syncBannerVisibility() {
       const menuOpen = menuButton?.getAttribute("aria-expanded") === "true";
       banner!.hidden = Boolean(hasChoice || menuOpen);
-      reopenButton!.hidden = !hasChoice || menuOpen;
+
     }
 
     function updateGoogle(consent: ConsentSnapshot) {
@@ -219,7 +219,7 @@
       saveButton.hidden = false;
     }
     customizeButton.addEventListener("click", showSettings);
-    reopenButton.addEventListener("click", () => {
+    reopenButton?.addEventListener("click", () => {
       hasChoice = false;
       showSettings();
       syncBannerVisibility();
