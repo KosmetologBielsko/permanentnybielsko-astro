@@ -7,6 +7,7 @@ export const serviceLinks = [
   { label: 'Usuwanie PMU', href: '/usuwanie-makijazu-permanentnego/' },
 ];
 export const exploreLinks = [
+  { label: 'O mnie', href: '/o-mnie/' },
   { label: 'Szkolenia', href: '/szkolenie-makijaz-permanentny/' },
   { label: 'Poradnik', href: '/poradnik/' },
   { label: 'Galeria', href: '/galeria/' },
