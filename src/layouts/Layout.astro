@@ -42,7 +42,8 @@ const isPoradnikArticle = pagePath.startsWith("/poradnik/");
 const showSilkyPopup = pagePath === "/makijaz-permanentny-brwi" && !inlineGuideAssistant;
 const ogImageUrl = getOgImageUrl(ogImage);
 
-const robotsContent =
+const previewEnvironment = import.meta.env.VERCEL_ENV === "preview";
+const robotsContent = previewEnvironment ? "noindex, nofollow, noarchive" :
   robots ??
   (siteConfig.indexingEnabled
     ? "index, follow, max-image-preview:large"
@@ -100,7 +101,7 @@ const defaultStructuredData: JsonLd[] = [
     "@type": "Person",
     "@id": `${siteConfig.siteUrl}/#person`,
     "name": "Bogusława Herda",
-    "url": siteConfig.siteUrl,
+    "url": `${siteConfig.siteUrl}/o-mnie/`,
     "jobTitle": "Linergistka, trenerka Long-Time-Liner® i ekspertka makijażu permanentnego",
     "worksFor": {
       "@id": `${siteConfig.siteUrl}/#localbusiness`
@@ -126,6 +127,7 @@ const structuredDataJson = JSON.stringify(allStructuredData).replace(/</g, "\\u0
     <meta name="googlebot" content={robotsContent} />
     <meta name="generator" content={Astro.generator} />
 
+    <link rel="preload" href="/fonts/inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

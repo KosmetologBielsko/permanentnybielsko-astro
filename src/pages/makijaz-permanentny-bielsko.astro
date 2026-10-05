@@ -51,7 +51,7 @@ const faqItems = [
   {
     question: "Kiedy wykonuje się korektę lub dopigmentowanie?",
     answer:
-      "Korektę wykonuje się po wygojeniu skóry, gdy można realnie ocenić kolor, nasycenie i równomierność efektu. Ceny oznaczone w cenniku gwiazdką obejmują zabieg główny wraz z korektą do 2 miesięcy od zabiegu głównego."
+      "Korektę wykonuje się po wygojeniu skóry, gdy można realnie ocenić kolor, nasycenie i równomierność efektu. Ceny oznaczone w cenniku gwiazdką obejmują zabieg główny wraz z korektą do 3 miesięcy od zabiegu głównego."
   },
   {
     question: "Gdzie wykonywany jest makijaż permanentny?",
@@ -68,7 +68,7 @@ const structuredData = [
     name: pageTitle,
     description: pageDescription,
     inLanguage: "pl-PL",
-    dateModified: "2026-09-14",
+    dateModified: "2026-10-05",
     isPartOf: {
       "@id": "https://www.permanentnybielsko.com/#website"
     },
@@ -189,7 +189,7 @@ const steps = [
   { number: "01", title: "Rozmowa i kwalifikacja", text: "Oczekiwania, skóra, wcześniejsze pigmentacje i przeciwwskazania. Ustalamy, czy i jaki zabieg będzie właściwy." },
   { number: "02", title: "Rysunek wstępny", text: "Planujemy kształt, proporcje, kolor i intensywność. Pigmentację poprzedza akceptacja kierunku pracy." },
   { number: "03", title: "Pigmentacja i pielęgnacja", text: "Pracujemy zgodnie z ustalonym planem. Po zabiegu otrzymujesz zalecenia dotyczące pielęgnacji i gojenia." },
-  { number: "04", title: "Ocena po wygojeniu", text: "Oceniamy kolor i równomierność efektu. Korekta zabiegu głównego objętego gwiazdką w cenniku odbywa się do 2 miesięcy." },
+  { number: "04", title: "Ocena po wygojeniu", text: "Oceniamy kolor i równomierność efektu. Korekta zabiegu głównego objętego gwiazdką w cenniku odbywa się do 3 miesięcy." },
 ];
 ---
 <Layout title={pageTitle} description={pageDescription} canonicalPath="/makijaz-permanentny-bielsko/" structuredData={structuredData} inlineGuideAssistant>
@@ -216,7 +216,7 @@ const steps = [
             <img src={item.photo.srcset.split(",")[0].trim().split(" ")[0]} width="56" height="56" alt="" loading="eager" decoding="async" />
             <span><strong>{item.label}</strong><small>{item.note}</small></span><span class="pmu-landing-overview-amount">{item.price}</span>
           </a></li>)}</ul>
-          <p class="pmu-landing-overview-note">Ceny głównych zabiegów oznaczonych gwiazdką obejmują korektę po wygojeniu, <strong>do 2 miesięcy</strong>.</p>
+          <p class="pmu-landing-overview-note">Ceny głównych zabiegów oznaczonych gwiazdką obejmują korektę po wygojeniu, <strong>do 3 miesięcy</strong>.</p>
           <a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a>
         </aside>
       </section>

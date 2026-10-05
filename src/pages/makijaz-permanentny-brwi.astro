@@ -1,4 +1,5 @@
 ---
+import VisitLink from "../components/VisitLink.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -30,13 +31,13 @@ const steps = [
   { title: "Rozmowa i kwalifikacja", text: "Omawiamy efekt, oceniamy skórę, naturalne brwi i wcześniejszy pigment. Dobieramy metodę, która ma sens w Twoim przypadku." },
   { title: "Rysunek wstępny", text: "Ustalamy kształt, proporcje i kolor. W Silky planujemy także kierunek i rytm włosków. Akceptujesz projekt przed pigmentacją." },
   { title: "Pigmentacja", text: "Realizujemy uzgodniony projekt. Po zabiegu otrzymujesz indywidualne zalecenia dotyczące pielęgnacji i gojenia." },
-  { title: "Wygojenie i korekta", text: "Oceniamy wygojony efekt i dopracowujemy go podczas korekty. Przy zabiegu głównym objętym gwiazdką w cenniku odbywa się ona do 2 miesięcy." },
+  { title: "Wygojenie i korekta", text: "Oceniamy wygojony efekt i dopracowujemy go podczas korekty. Przy zabiegu głównym objętym gwiazdką w cenniku odbywa się ona do 3 miesięcy." },
 ];
 const faqItems = [
   { question: "Ile trwa zabieg brwi permanentnych?", answer: "Zarezerwuj około 2 godzin. Cennik przewiduje 120 minut na cieniowanie i 130 minut na metodę włoskową. Czas obejmuje także konsultację i przygotowanie projektu.", href: "/poradnik/ile-trwa-zabieg-makijazu-permanentnego/", label: "Jak zaplanować czas na wizytę" },
   { question: "Czy makijaż permanentny brwi boli?", answer: "Odczucia są indywidualne i zależą między innymi od wrażliwości oraz stanu skóry. Przed pigmentacją omawiamy przebieg zabiegu i Twój komfort.", href: "/poradnik/czy-makijaz-permanentny-boli/", label: "Odczucia podczas zabiegu" },
   { question: "Jak długo utrzymują się brwi permanentne?", answer: "Pigment z czasem zmienia intensywność. Trwałość zależy od skóry, techniki, pielęgnacji i ekspozycji na słońce, dlatego terminu odświeżenia nie ustalamy automatycznie dla każdej osoby.", href: "/poradnik/brwi-permanentne-po-latach/", label: "Jak brwi zmieniają się po latach" },
-  { question: "Czy cena obejmuje korektę? Czym jest dopigmentowanie?", answer: "Zabiegi główne oznaczone w cenniku gwiazdką obejmują korektę po wygojeniu, do 2 miesięcy od zabiegu głównego. Późniejsze odświeżenie lub praca na pigmentacji z innego gabinetu wymaga osobnej oceny i wyceny.", href: "/poradnik/dopigmentowanie-brwi-permanentnych/", label: "Korekta a późniejsze dopigmentowanie" },
+  { question: "Czy cena obejmuje korektę? Czym jest dopigmentowanie?", answer: "Zabiegi główne oznaczone w cenniku gwiazdką obejmują korektę po wygojeniu, do 3 miesięcy od zabiegu głównego. Późniejsze odświeżenie lub praca na pigmentacji z innego gabinetu wymaga osobnej oceny i wyceny.", href: "/poradnik/dopigmentowanie-brwi-permanentnych/", label: "Korekta a późniejsze dopigmentowanie" },
   { question: "Jak goją się brwi i kiedy ocenić efekt?", answer: "Świeża pigmentacja może wyglądać intensywniej niż wygojona. Kieruj się zaleceniami gabinetu; efekt oceniamy po wygojeniu, a nie na podstawie wyglądu brwi w pierwszych dniach.", href: "/poradnik/jak-goja-sie-brwi-permanentne/", label: "Gojenie i pielęgnacja brwi" },
   { question: "Jak przygotować się do makijażu permanentnego brwi?", answer: "Przed wizytą przekaż informacje o wcześniejszej pigmentacji, stanie skóry, chorobach i przyjmowanych lekach. Indywidualne zalecenia ustalamy podczas kwalifikacji.", href: "/poradnik/jak-przygotowac-sie-do-makijazu-permanentnego-brwi/", label: "Przygotowanie do wizyty" },
   { question: "Kiedy zabieg trzeba odłożyć lub z niego zrezygnować?", answer: "Kwalifikacja uwzględnia stan skóry, zdrowia i aktualne leczenie. Jeśli masz wątpliwości, skontaktuj się z gabinetem przed rezerwacją; w niektórych sytuacjach potrzebna jest również konsultacja lekarska.", href: "/poradnik/przeciwwskazania-do-makijazu-permanentnego/", label: "Przeciwwskazania do pigmentacji" },
@@ -55,7 +56,7 @@ const structuredData = [
     name: pageTitle,
     description: pageDescription,
     inLanguage: "pl-PL",
-    dateModified: "2026-09-19",
+    dateModified: "2026-10-05",
     isPartOf: {
       "@id": "https://www.permanentnybielsko.com/#website"
     },
@@ -187,7 +188,7 @@ const structuredData = [
           <h1 id="brwi-tytul"><span>Naturalne brwi permanentne</span>, które porządkują twarz bez efektu maski.</h1>
           <p class="pmu-landing-lead">Lekka struktura włosków czy miękki cień? Dobieramy efekt do Twojej skóry, naturalnych brwi i urody. Zaczynamy od rozmowy i rysunku wstępnego.</p>
           <a class="pmu-landing-author" href="#doswiadczenie-brwi"><Image src={authorPortrait} alt="" width={92} height={92} fit="cover" position="top" format="webp" quality={82} loading="eager" decoding="async" /><span><strong>Bogusława Herda</strong><span>Autorka Silky Hairstroke Brows · trenerka PMU</span></span></a>
-          <p class="pmu-brows-hero-price"><strong>Brwi od 1200 zł</strong><span>z korektą po wygojeniu, do 2 miesięcy</span></p>
+          <p class="pmu-brows-hero-price"><strong>Brwi od 1200 zł</strong><span>z korektą po wygojeniu, do 3 miesięcy</span></p>
           <div class="pmu-brows-hero-actions"><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a><a class="pmu-landing-text-link" href="tel:+48730900125">Zadzwoń: 730 900 125</a></div>
         </div>
         <figure class="pmu-brows-hero-photo"><img src={heroPhoto.thumb} srcset={heroPhoto.srcset} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) 520px, (max-width:1156px) calc((100vw - 104px) / 2.15), 490px" width={heroPhoto.width} height={heroPhoto.height} alt="Silky Hairstroke Brows — brwi wykonane metodą włosa maszynowego w gabinecie Bogusława Herda" loading="eager" fetchpriority="high" decoding="async" /><figcaption>Silky Hairstroke Brows <span>· włos maszynowy · praca gabinetu</span></figcaption></figure>
@@ -216,7 +217,7 @@ const structuredData = [
 
       <section class="pmu-landing-section pmu-brows-price" id="cena-brwi" data-analytics-price="brows" data-service-key="brows" aria-labelledby="cena-tytul">
         <div><p class="pmu-landing-kicker">03 / Cena i korekta</p><h2 id="cena-tytul">Brwi permanentne<br />od 1200 zł.</h2><p>Dobieramy metodę podczas kwalifikacji. Pełny zakres usług, odświeżeń i ich cen znajdziesz w Cenniku.</p><div class="pmu-landing-links"><a href="/cennik-makijaz-permanentny/#price-group-1">Pełny cennik brwi permanentnych →</a></div></div>
-        <div><dl class="pmu-brows-price-list"><div><dt>Metoda cienia*</dt><dd>1200 zł</dd></div><div><dt>Silky / włos maszynowy*</dt><dd>1400 zł</dd></div><div><dt>Włos z cieniem*</dt><dd>1400 zł</dd></div></dl><p class="pmu-brows-price-note">* Zabieg główny z korektą po wygojeniu, <strong>do 2 miesięcy od zabiegu głównego</strong>. Stare PMU i praca po innym gabinecie wymagają indywidualnej oceny.</p><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a></div>
+        <div><dl class="pmu-brows-price-list"><div><dt>Metoda cienia*</dt><dd>1200 zł</dd></div><div><dt>Silky / włos maszynowy*</dt><dd>1400 zł</dd></div><div><dt>Włos z cieniem*</dt><dd>1400 zł</dd></div></dl><p class="pmu-brows-price-note">* Zabieg główny z korektą po wygojeniu, <strong>do 3 miesięcy od zabiegu głównego</strong>. Stare PMU i praca po innym gabinecie wymagają indywidualnej oceny.</p><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a></div>
       </section>
 
       <section class="pmu-landing-section" id="proces-brwi" aria-labelledby="proces-tytul"><div class="pmu-landing-section-heading"><p class="pmu-landing-kicker">04 / Spokojnie, krok po kroku</p><h2 id="proces-tytul">Wiesz, co będzie dalej.</h2></div><ol class="pmu-landing-steps">{steps.map((step,index) => <li><span aria-hidden="true">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol></section>
@@ -229,6 +230,7 @@ const structuredData = [
 
       <section class="pmu-landing-section" aria-labelledby="poradniki-tytul"><div class="pmu-landing-section-heading"><p class="pmu-landing-kicker">Gdy chcesz wiedzieć więcej</p><h2 id="poradniki-tytul">Przejdź do właściwej odpowiedzi.</h2></div><div class="pmu-brows-guides">{guides.map(item => <a href={item.href}><h3>{item.title}</h3><p>{item.text}</p><span>Czytaj poradnik →</span></a>)}</div></section>
 
+      <VisitLink treatment="na pigmentację brwi" />
       <section class="pmu-landing-booking" id="kontakt" aria-labelledby="rezerwacja-tytul"><div><p class="pmu-landing-kicker">Twój następny krok</p><h2 id="rezerwacja-tytul">Porozmawiajmy o Twoich brwiach.</h2><p>Wybierz termin w gabinecie Bogusława Herda.<br />Bielsko-Biała, ul. Barlickiego 5/23.</p></div><div class="pmu-landing-booking-actions"><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a><a class="pmu-landing-secondary" href="tel:+48730900125">Zadzwoń: 730 900 125</a><a class="pmu-landing-text-link" href="/kontakt/">Sprawdź dojazd i kontakt →</a></div></section>
       <GuideAssistant />
     </div>

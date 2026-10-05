@@ -1,4 +1,5 @@
 ---
+import VisitLink from "../components/VisitLink.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -34,14 +35,14 @@ const steps = [
   { title: "Rozmowa i ocena oka", text: "Omawiamy oczekiwany efekt, stan skóry, wrażliwość oczu oraz wcześniejszą pigmentację. Oglądamy powiekę i naturalną linię rzęs." },
   { title: "Rysunek wstępny", text: "Dobieramy przebieg, grubość i zakończenie kreski. Zanim zaczniemy pigmentację, akceptujesz projekt dopasowany do Twoich oczu." },
   { title: "Pigmentacja i zalecenia", text: "Pracujemy według ustalonego projektu. Po zabiegu otrzymujesz indywidualne zalecenia dotyczące pielęgnacji i gojenia." },
-  { title: "Wygojenie i korekta", text: "Oceniamy wygojony efekt i dopracowujemy linię. Korekta zabiegu głównego oznaczonego gwiazdką w Cenniku odbywa się do 2 miesięcy." },
+  { title: "Wygojenie i korekta", text: "Oceniamy wygojony efekt i dopracowujemy linię. Korekta zabiegu głównego oznaczonego gwiazdką w Cenniku odbywa się do 3 miesięcy." },
 ];
 const faqItems = [
   { question: "Ile trwa zabieg kreski permanentnej?", answer: "W Cenniku przewidziano 120 minut na kreskę zagęszczającą, dekoracyjną i warianty łączone oraz 90 minut na kreskę dolną. Czas obejmuje także rozmowę i przygotowanie projektu.", href: "/poradnik/ile-trwa-zabieg-makijazu-permanentnego/", label: "Jak zaplanować czas wizyty" },
   { question: "Czy makijaż permanentny oczu boli?", answer: "Odczucia są indywidualne, a okolica oka jest wrażliwa. Przed zabiegiem omawiamy przebieg pracy, stan skóry i Twój komfort.", href: "/poradnik/czy-makijaz-permanentny-boli/", label: "Odczucia podczas pigmentacji" },
   { question: "Czy przy opadającej powiece można zrobić eyeliner?", answer: "Nie zawsze. Decyzja zależy od budowy powieki i zachowania skóry przy otwartym oku. Czasem lepszym kierunkiem jest subtelne podkreślenie linii rzęs; najpierw potrzebna jest kwalifikacja.", href: "/poradnik/kreska-permanentna-przy-opadajacej-powiece/", label: "Kreska przy opadającej powiece" },
   { question: "Jak goi się kreska i kiedy ocenić efekt?", answer: "Bezpośrednio po zabiegu kreska może wyglądać intensywniej. Efekt oceniamy po wygojeniu i stabilizacji pigmentu. W tym czasie stosuj indywidualne zalecenia gabinetu.", href: "/poradnik/kreska-permanentna-gojenie/", label: "Gojenie i pielęgnacja kreski" },
-  { question: "Czy cena obejmuje korektę?", answer: "Tak. Zabiegi główne oznaczone w Cenniku gwiazdką obejmują korektę po wygojeniu, do 2 miesięcy od zabiegu głównego. Późniejsze odświeżenie lub poprawa pracy z innego gabinetu wymagają osobnej oceny i wyceny.", href: "/cennik-makijaz-permanentny/#price-group-2", label: "Zakres i aktualne ceny kresek" },
+  { question: "Czy cena obejmuje korektę?", answer: "Tak. Zabiegi główne oznaczone w Cenniku gwiazdką obejmują korektę po wygojeniu, do 3 miesięcy od zabiegu głównego. Późniejsze odświeżenie lub poprawa pracy z innego gabinetu wymagają osobnej oceny i wyceny.", href: "/cennik-makijaz-permanentny/#price-group-2", label: "Zakres i aktualne ceny kresek" },
   { question: "Czym różni się eyeliner od kreski cieniowanej?", answer: "Eyeliner ma wyraźniej zaznaczoną linię, a cieniowanie daje bardziej miękkie przejście koloru. Oba kierunki należą w naszym Cenniku do kreski dekoracyjnej; efekt dobieramy do konkretnej powieki.", href: "/poradnik/kreski-permanentne-cieniowane/", label: "Więcej o kresce cieniowanej" },
   { question: "Czy kreska dolna jest dla każdego?", answer: "Nie wybieramy jej automatycznie. Ocenie podlegają budowa oka, dolna powieka oraz to, jak linia współgra z górną kreską i całą oprawą oka.", href: "/poradnik/kreska-permanentna-jak-wybrac-rodzaj/", label: "Jak wybrać rodzaj kreski" },
   { question: "Co zgłosić przed pigmentacją oczu?", answer: "Poinformuj gabinet o chorobach oczu, wrażliwości, przyjmowanych lekach, soczewkach kontaktowych i wcześniejszych zabiegach. Przygotowanie oraz możliwość pigmentacji ustalamy podczas kwalifikacji; w razie potrzeby również po konsultacji lekarskiej.", href: "/poradnik/przeciwwskazania-do-makijazu-permanentnego/", label: "Przeciwwskazania i kwalifikacja" },
@@ -60,7 +61,7 @@ const structuredData = [
     name: pageTitle,
     description: pageDescription,
     inLanguage: "pl-PL",
-    dateModified: "2026-09-20",
+    dateModified: "2026-10-05",
     isPartOf: {
       "@id": "https://www.permanentnybielsko.com/#website",
     },
@@ -151,7 +152,7 @@ const structuredData = [
           <h1 id="kreski-tytul"><span>Kreski permanentne</span>, które podkreślają spojrzenie bez ciężkiego efektu.</h1>
           <p class="pmu-landing-lead">Subtelna linia przy rzęsach czy bardziej wyrazisty eyeliner? Dobieramy kreskę do powieki, kształtu oka i Twojego codziennego stylu. Zaczynamy od rozmowy i rysunku.</p>
           <a class="pmu-landing-author" href="#doswiadczenie-kreski"><Image src={authorPortrait} alt="" width={92} height={92} fit="cover" position="top" format="webp" quality={82} loading="eager" decoding="async" /><span><strong>Bogusława Herda</strong><span>Wicemistrzyni świata · trenerka PMU</span></span></a>
-          <p class="pmu-eyes-hero-price"><strong>Górna kreska od 800 zł</strong><span>z korektą po wygojeniu, do 2 miesięcy</span></p>
+          <p class="pmu-eyes-hero-price"><strong>Górna kreska od 800 zł</strong><span>z korektą po wygojeniu, do 3 miesięcy</span></p>
           <div class="pmu-brows-hero-actions"><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a><a class="pmu-landing-text-link" href="tel:+48730900125">Zadzwoń: 730 900 125</a></div>
         </div>
         <figure class="pmu-brows-hero-photo"><img src={heroPhoto.thumb} srcset={heroPhoto.srcset} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) 520px, (max-width:1156px) calc((100vw - 92px) / 2.15), 495px" width={heroPhoto.width} height={heroPhoto.height} alt="Górna kreska permanentna — podkreślenie niebieskiego oka, praca gabinetu Bogusława Herda" loading="eager" fetchpriority="high" decoding="async" /><figcaption>Linia dopasowana do oka. <span>Praca gabinetu Bogusława Herda.</span></figcaption></figure>
@@ -176,7 +177,7 @@ const structuredData = [
 
       <section class="pmu-landing-section pmu-brows-price" id="cena-kresek" data-analytics-price="eyes" data-service-key="eyes" aria-labelledby="cena-tytul">
         <div><p class="pmu-landing-kicker">03 / Cena i zakres</p><h2 id="cena-tytul">Wybierz zakres pigmentacji.</h2><dl class="pmu-brows-price-list"><div><dt>Kreska dolna*</dt><dd>500 zł</dd></div><div><dt>Zagęszczenie górnej linii rzęs*</dt><dd>800 zł</dd></div><div><dt>Kreska dekoracyjna*</dt><dd>1100 zł</dd></div></dl><p class="pmu-brows-price-note">Warianty łączone: dolna + górna zagęszczająca* — 1100 zł; dolna + dekoracyjna* — 1400 zł.</p><div class="pmu-landing-links"><a href="/cennik-makijaz-permanentny/#price-group-2">Pełny cennik makijażu permanentnego oczu →</a></div></div>
-        <div><h3>Korekta jest w cenie.</h3><p>* Zabieg główny oznaczony gwiazdką obejmuje korektę po wygojeniu, <strong>do 2 miesięcy od zabiegu głównego</strong>.</p><p class="pmu-brows-price-note">Późniejsze odświeżenie oraz poprawa pracy z innego gabinetu wymagają indywidualnej oceny i wyceny.</p><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a></div>
+        <div><h3>Korekta jest w cenie.</h3><p>* Zabieg główny oznaczony gwiazdką obejmuje korektę po wygojeniu, <strong>do 3 miesięcy od zabiegu głównego</strong>.</p><p class="pmu-brows-price-note">Późniejsze odświeżenie oraz poprawa pracy z innego gabinetu wymagają indywidualnej oceny i wyceny.</p><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a></div>
       </section>
 
       <section class="pmu-landing-section" id="proces-kreski" aria-labelledby="proces-tytul"><div class="pmu-landing-section-heading"><p class="pmu-landing-kicker">04 / Od projektu do wygojenia</p><h2 id="proces-tytul">Najpierw rysunek. Potem pigmentacja.</h2></div><ol class="pmu-landing-steps">{steps.map((step,index) => <li><span aria-hidden="true">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol><div class="pmu-landing-links"><a href="/poradnik/kreska-permanentna-gojenie/">Jak goi się kreska permanentna? →</a></div></section>
@@ -189,6 +190,7 @@ const structuredData = [
 
       <section class="pmu-landing-section" aria-labelledby="poradniki-tytul"><div class="pmu-landing-section-heading"><p class="pmu-landing-kicker">Więcej odpowiedzi w Poradniku</p><h2 id="poradniki-tytul">Wybierz temat, który Cię interesuje.</h2></div><div class="pmu-brows-guides">{guides.map(item => <a href={item.href}><h3>{item.title}</h3><p>{item.text}</p><span>Czytaj poradnik →</span></a>)}</div></section>
 
+      <VisitLink treatment="na pigmentację kresek" />
       <section class="pmu-landing-booking" id="kontakt" aria-labelledby="rezerwacja-tytul"><div><p class="pmu-landing-kicker">Twój następny krok</p><h2 id="rezerwacja-tytul">Dobierzmy kreskę do Twojego spojrzenia.</h2><p>Sprawdź terminy w gabinecie Bogusława Herda.<br />Bielsko-Biała, ul. Barlickiego 5/23.</p></div><div class="pmu-landing-booking-actions"><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a><a class="pmu-landing-secondary" href="tel:+48730900125">Zadzwoń: 730 900 125</a><a class="pmu-landing-text-link" href="/kontakt/">Sprawdź dojazd i kontakt →</a></div></section>
       <GuideAssistant />
     </div>

@@ -15,7 +15,7 @@ const article = {
   description: "Kreska permanentna cena 2026. Sprawdź, ile kosztuje kreska zagęszczająca, dekoracyjna, dolna i cieniowana, co obejmuje cena oraz od czego zależy dobór kreski PMU.",
   canonicalPath: "/poradnik/kreska-permanentna-cena/",
   datePublished: "2026-06-21",
-  dateModified: "2026-09-07",
+  dateModified: "2026-10-05",
 };
 const pageUrl = `https://www.permanentnybielsko.com${article.canonicalPath}`;
 const coverAlt = "Ilustracja kreski na górnej powiece — delikatne podkreślenie linii rzęs";
@@ -33,13 +33,13 @@ const included = [
   { title: "Rozmowa i kwalifikacja", text: "Ocena budowy oka i powieki, wcześniejszej pigmentacji oraz oczekiwań. Omawiamy też przeciwwskazania i przygotowanie." },
   { title: "Dobór rodzaju kreski", text: "Ustalamy zakres podkreślenia. Subtelne zagęszczenie rzęs i dekoracyjny eyeliner dają inny efekt — wybór powinien pasować do Twojego oka." },
   { title: "Zabieg i zalecenia", text: "Pigmentacja wybranego zakresu oraz indywidualne zalecenia dotyczące pielęgnacji okolicy oka po zabiegu." },
-  { title: "Korekta do 2 miesięcy", text: "Przy zabiegu głównym oznaczonym gwiazdką korekta jest w cenie. Wykonujemy ją po wygojeniu, do 2 miesięcy od zabiegu głównego." },
+  { title: "Korekta do 3 miesięcy", text: "Przy zabiegu głównym oznaczonym gwiazdką korekta jest w cenie. Wykonujemy ją po wygojeniu, do 3 miesięcy od zabiegu głównego." },
 ];
 const faqItems = [
   { question: "Ile kosztuje kreska permanentna?", answer: "W gabinecie Bogusława Herda w Bielsku-Białej ceny wynoszą od 500 zł za kreskę dolną do 1400 zł za połączenie kreski dolnej i dekoracyjnej. Kreska zagęszczająca kosztuje 800 zł, dekoracyjna 1100 zł, a dolna z górną zagęszczającą 1100 zł." },
-  { question: "Ile kosztuje kreska zagęszczająca?", answer: "Kreska zagęszczająca kosztuje 800 zł. To subtelna pigmentacja przy górnej linii rzęs. W cenie zabiegu głównego jest korekta po wygojeniu, do 2 miesięcy od pierwszej pigmentacji." },
+  { question: "Ile kosztuje kreska zagęszczająca?", answer: "Kreska zagęszczająca kosztuje 800 zł. To subtelna pigmentacja przy górnej linii rzęs. W cenie zabiegu głównego jest korekta po wygojeniu, do 3 miesięcy od pierwszej pigmentacji." },
   { question: "Ile kosztuje kreska dekoracyjna permanentna?", answer: "Kreska dekoracyjna — eyeliner lub kreska cieniowana — kosztuje 1100 zł. Ostateczny wybór efektu zależy od budowy oka, powieki i kwalifikacji zabiegowej." },
-  { question: "Czy cena kreski permanentnej obejmuje korektę?", answer: "Tak. Ceny zabiegów głównych oznaczonych w cenniku gwiazdką obejmują korektę po wygojeniu, do 2 miesięcy od zabiegu głównego. W tym terminie korekta nie wymaga dodatkowej opłaty." },
+  { question: "Czy cena kreski permanentnej obejmuje korektę?", answer: "Tak. Ceny zabiegów głównych oznaczonych w cenniku gwiazdką obejmują korektę po wygojeniu, do 3 miesięcy od zabiegu głównego. W tym terminie korekta nie wymaga dodatkowej opłaty." },
   { question: "Czy kreska dolna jest dla każdego?", answer: "Nie zawsze. Kreska dolna wymaga indywidualnej kwalifikacji, ponieważ może optycznie zmienić kształt oka. Decyzję podejmujemy po rozmowie i ocenie budowy oka." },
   { question: "Czy poprawienie starej kreski kosztuje tyle samo?", answer: "Wcześniejsza pigmentacja wymaga osobnej oceny. Znaczenie mają jej kolor, kształt, nasycenie i stan skóry. Nie każdą starą kreskę można od razu przykryć nową; zakres postępowania i wycenę ustalamy po kwalifikacji." },
 ];
@@ -80,7 +80,7 @@ const structuredData = [
         <nav class="guide-breadcrumbs" aria-label="Ścieżka strony">
           <a href="/">Strona główna</a><span aria-hidden="true">/</span><a href="/poradnik/">Poradnik PMU</a><span aria-hidden="true">/</span><span>Ceny kresek</span>
         </nav>
-        <div class="guide-meta"><span>Ceny PMU · Bielsko-Biała</span><span>Aktualizacja: <time datetime={article.dateModified}>7.09.2026</time></span></div>
+        <div class="guide-meta"><span>Ceny PMU · Bielsko-Biała</span><span>Aktualizacja: <time datetime={article.dateModified}>5.10.2026</time></span></div>
         <div class="guide-hero-grid">
           <div>
             <h1>{article.title}</h1>
@@ -91,7 +91,7 @@ const structuredData = [
             <p class="guide-kicker">Odpowiedź w 20 sekund</p>
             <strong class="guide-price-range">500–1400 <span>zł</span></strong>
             <p>W gabinecie Bogusława Herda: dolna <b>500 zł</b>, zagęszczająca <b>800 zł</b>, dekoracyjna <b>1100 zł</b>.</p>
-            <p class="guide-answer-note">Korekta zabiegu głównego w cenie — po wygojeniu, <b>do 2 miesięcy</b>.</p>
+            <p class="guide-answer-note">Korekta zabiegu głównego w cenie — po wygojeniu, <b>do 3 miesięcy</b>.</p>
             <a class="guide-button" href="#ceny-kreski">Porównaj wszystkie warianty <span aria-hidden="true">↓</span></a>
           </aside>
         </div>
@@ -119,7 +119,7 @@ const structuredData = [
               <tr><th scope="row"><a href={item.href}>{item.name}</a><span>{item.detail}</span></th><td>{item.price}</td></tr>
             ))}</tbody>
           </table>
-          <p class="guide-price-note">* Zabieg główny wraz z korektą po wygojeniu, do 2 miesięcy od zabiegu głównego. Stare PMU lub praca wykonana w innym gabinecie wymaga indywidualnej kwalifikacji.</p>
+          <p class="guide-price-note">* Zabieg główny wraz z korektą po wygojeniu, do 3 miesięcy od zabiegu głównego. Stare PMU lub praca wykonana w innym gabinecie wymaga indywidualnej kwalifikacji.</p>
         </div>
         <a class="guide-text-link" href="/cennik-makijaz-permanentny/#price-group-2" data-guide-action="price_list">Pełny cennik makijażu permanentnego oczu <span aria-hidden="true">→</span></a>
       </section>
@@ -159,7 +159,7 @@ const structuredData = [
       <section class="guide-section" id="co-obejmuje-cena">
         <p class="guide-kicker">03 / Zabieg i korekta</p>
         <h2>Co obejmuje cena makijażu permanentnego oczu?</h2>
-        <p class="guide-measure">Na cenę składa się cały proces: rozmowa, kwalifikacja, dobór kreski, pigmentacja, zalecenia pozabiegowe i korekta. W usługach głównych oznaczonych gwiazdką korekta po wygojeniu jest wliczona w cenę i odbywa się do 2 miesięcy od zabiegu głównego.</p>
+        <p class="guide-measure">Na cenę składa się cały proces: rozmowa, kwalifikacja, dobór kreski, pigmentacja, zalecenia pozabiegowe i korekta. W usługach głównych oznaczonych gwiazdką korekta po wygojeniu jest wliczona w cenę i odbywa się do 3 miesięcy od zabiegu głównego.</p>
         <ol class="guide-process">{included.map((item, index) => (
           <li><span class="guide-step" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><div><h3>{item.title}</h3><p>{item.text}</p></div></li>
         ))}</ol>
@@ -334,7 +334,7 @@ const structuredData = [
     .guide-shell { width: calc(100% - 36px); }
     .guide-breadcrumbs { font-size: .76rem; margin-bottom: 20px; }
     .guide-meta { font-size: .73rem; gap: 5px 14px; margin-bottom: 14px; }
-    .pmu-guide h1 { font-size: clamp(1.95rem, 8.5vw, 2.55rem); letter-spacing: -.036em; margin-bottom: 16px; }
+    .pmu-guide h1 { font-size: clamp(1.85rem, 7.8vw, 2.2rem); line-height: 1.15; letter-spacing: -.032em; margin-bottom: 16px; }
     .pmu-guide h2 { font-size: clamp(1.65rem,7.1vw,2rem); margin-bottom: 18px; }
     .guide-lead { font-size: 1rem; }
     .guide-author-link { font-size: .81rem; margin-bottom: 0; }

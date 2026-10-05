@@ -1,4 +1,5 @@
 ---
+import RegionalVisit from "../components/RegionalVisit.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -65,7 +66,7 @@ const structuredData = [
     "name": pageTitle,
     "description": pageDescription,
     "inLanguage": "pl-PL",
-    "dateModified": "2026-09-14",
+    "dateModified": "2026-10-05",
     "isPartOf": {
       "@id": "https://www.permanentnybielsko.com/#website"
     },
@@ -159,7 +160,7 @@ const destinations = [
   href={booksyUrl}
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="Opinie klientek Bogusława Herda w Booksy"
+  aria-label="5.0 Booksy — 1200+ opinii klientek Bogusława Herda (otwiera się w nowej karcie)"
 >
   <span class="pmu-home-review-star" aria-hidden="true">★</span>
   <strong>5.0 Booksy</strong>
@@ -171,7 +172,7 @@ const destinations = [
       <nav class="pmu-home-nav" aria-label="Przejdź do wybranej części strony"><a href="#makijaz-permanentny">Zabiegi i zdjęcia ↓</a><a href="#powrot-do-natury">Zobacz film ↓</a><a href="#autorytet">Doświadczenie ↓</a><a href="#o-mnie">Międzynarodowe PMU ↓</a><a href="#kontakt">Kontakt ↓</a></nav>
       <section class="pmu-home-section" id="makijaz-permanentny" aria-labelledby="home-zabiegi"><div class="pmu-home-section-heading"><p class="pmu-home-kicker">01 / Twój kierunek</p><h2 id="home-zabiegi">Co chcesz podkreślić?</h2><p>Naturalne brwi, odświeżenie koloru ust czy delikatna oprawa oka? Wybierz obszar i poznaj możliwości. Ostateczny projekt dobieramy po ocenie skóry i Twoich oczekiwań.</p></div>
         <div class="pmu-home-treatments">{treatments.map(item => <article class="pmu-home-treatment" id={item.id}><a class="pmu-home-treatment-photo" href={item.href} aria-label={item.cta}><img src={item.photo.thumb} srcset={item.photo.srcset} sizes="(max-width:360px) calc(100vw - 36px), (max-width:640px) calc((100vw - 50px) / 2), (max-width:900px) calc((100vw - 72px) / 2), 260px" width={item.photo.width} height={item.photo.height} alt={item.alt} loading="lazy" decoding="async" /></a><div class="pmu-home-treatment-copy"><p class="pmu-home-kicker">{item.kicker}</p><h3>{item.title}</h3><p>{item.text}</p><strong class="pmu-home-treatment-price">{item.price}</strong><a href={item.href}>{item.cta} →</a></div></article>)}</div>
-        <p class="pmu-home-price-note">Ceny głównych zabiegów oznaczonych gwiazdką w cenniku obejmują korektę po wygojeniu, <strong>do 2 miesięcy</strong>.</p>
+        <p class="pmu-home-price-note">Ceny głównych zabiegów oznaczonych gwiazdką w cenniku obejmują korektę po wygojeniu, <strong>do 3 miesięcy</strong>.</p>
         <div class="pmu-home-links"><a href="/makijaz-permanentny-bielsko/">Poznaj całą ofertę PMU →</a><a href="/cennik-makijaz-permanentny/">Cennik, korekty i odświeżenia →</a></div>
         <aside class="pmu-home-old-pmu"><div><h3>Masz już makijaż permanentny?</h3><p>Najpierw oceńmy jego kolor, nasycenie i kształt. Czasem nową pigmentację poprzedza rozjaśnienie lub usuwanie starego PMU.</p></div><a href="/usuwanie-makijazu-permanentnego/">Stare PMU — co dalej? →</a></aside>
       </section>
@@ -199,6 +200,7 @@ const destinations = [
     Przeczytaj opinie ↗
   </span>
 </a></blockquote><div class="pmu-home-links"><a href="/o-mnie/">Poznaj moje doświadczenie →</a><a href="/poradnik/wydarzenia/">Wydarzenia i międzynarodowe jury PMU →</a></div></div></section>
+      <RegionalVisit />
       <section class="pmu-home-section pmu-home-cosmetology" id="kosmetologia" aria-labelledby="home-kosmetologia">
         <figure class="pmu-home-cosmetology-photo">
           <Image src={cosmeticPortrait} alt="Bogusława Herda w gabinecie" width={320} widths={[88,160,176,240,320]} sizes="(max-width:640px) 88px, 160px" format="webp" quality={82} loading="lazy" decoding="async" />

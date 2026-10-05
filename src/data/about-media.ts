@@ -1,3 +1,4 @@
+import type { ImageMetadata } from "astro";
 import hero from "../assets/o-mnie/boguslawa-herda-portret-czarno-bialy.webp";
 import world from "../assets/o-mnie/boguslawa-herda-world-pmu-industry-wicemistrzostwo-2023.webp";
 import poland from "../assets/o-mnie/boguslawa-herda-mistrzostwo-polski-2019-puchar.webp";
@@ -27,4 +28,4 @@ export const aboutMedia = {
   munich: { src: munich, alt: "Program Masterclass Long-Time-Liner Monachium 2024 z techniką Silky" },
   lyon: { src: lyon, alt: "Plakat New Generation Lyon 2026 — Bogusława Herda, jurorka Hairstroke" },
   dusseldorf: { src: dusseldorf, alt: "Oryginalny materiał warsztatów Silky w Düsseldorfie w czerwcu 2022" },
-} as const;
+} as const satisfies Record<string, { src: ImageMetadata; alt: string }>;

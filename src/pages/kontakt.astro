@@ -1,4 +1,5 @@
 ---
+import VisitPlanning from "../components/VisitPlanning.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -47,7 +48,7 @@ const structuredData = [
   {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    dateModified: "2026-09-14",
+    dateModified: "2026-10-05",
     "@id": `${pageUrl}#webpage`,
     url: pageUrl,
     name: pageTitle,
@@ -111,7 +112,7 @@ const structuredData = [
           <p class="pmu-contact-kicker">Kontakt · Bielsko-Biała</p>
           <h1 id="kontakt-tytul">Umów wizytę.<br /><span>Zacznij od rozmowy.</span></h1>
           <p class="pmu-contact-lead">Masz pomysł na brwi, usta lub kreski? Sprawdź terminy. Jeśli dopiero szukasz swojego kierunku albo masz stare PMU, pomożemy ustalić pierwszy krok.</p>
-          <a class="pmu-contact-author" href="/makijaz-permanentny-bielsko/#boguslawa-herda">
+          <a class="pmu-contact-author" href="/o-mnie/">
             <Image src={authorPortrait} alt="" width={92} height={92} fit="cover" position="top" format="webp" quality={82} loading="eager" decoding="async" />
             <span><strong>Bogusława Herda</strong><span>Linergistka · trenerka PMU</span></span>
           </a>
@@ -131,6 +132,7 @@ const structuredData = [
         <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><p><strong>{address.streetAddress}</strong><span>{address.addressLocality} · centrum miasta</span></p></div>
         <a class="pmu-contact-text-link" href="#kontakt-dojazd">Adres i dojazd <span aria-hidden="true">↓</span></a>
       </div>
+      <VisitPlanning />
       <section class="pmu-contact-location" id="kontakt-dojazd" aria-labelledby="kontakt-lokalizacja">
         <div>
           <p class="pmu-contact-kicker">Spotkajmy się w gabinecie</p>

@@ -1,0 +1,37 @@
+---
+import { siteConfig } from "../config/site";
+const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
+---
+<section class="visit-planning" id="przyjazd" aria-labelledby="visit-planning-title">
+  <div class="visit-planning__intro">
+    <p class="pmu-contact-kicker">Spokojnie zaplanuj wizytę</p>
+    <h2 id="visit-planning-title">Przyjeżdżasz<br />z innego miasta?</h2>
+    <p>Ze Śląska, innego regionu Polski lub z zagranicy — przed podróżą warto ustalić plan. Napisz lub zadzwoń, zwłaszcza jeśli masz już makijaż permanentny i rozważasz jego zmianę.</p>
+    <a class="pmu-contact-primary" href={phoneHref}>Porozmawiajmy o wizycie <span aria-hidden="true">↗</span></a>
+    <a class="visit-planning__form" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Napisz przed rezerwacją <span aria-hidden="true">→</span></a>
+  </div>
+  <ol class="visit-planning__steps">
+    <li><span aria-hidden="true">01</span><div><h3>Najpierw ustalmy plan</h3><p>Opowiedz, jaki efekt chcesz uzyskać i czy masz wcześniejszą pigmentację. Ostateczny dobór metody poprzedza kwalifikacja i ocena skóry w gabinecie.</p></div></li>
+    <li><span aria-hidden="true">02</span><div><h3>Zarezerwuj czas na wizytę</h3><p>Potwierdź termin i zakres zabiegu. Gabinet znajduje się przy ul. Barlickiego 5/23 w Bielsku-Białej. <a href="#kontakt-dojazd">Sprawdź adres i mapę dojazdu →</a></p></div></li>
+    <li><span aria-hidden="true">03</span><div><h3>Uwzględnij korektę po wygojeniu</h3><p>Zabiegi główne oznaczone gwiazdką w cenniku obejmują korektę <strong>do 3 miesięcy od zabiegu głównego</strong>. Zaplanuj możliwość kolejnego przyjazdu; dokładny termin ustalamy indywidualnie.</p></div></li>
+  </ol>
+</section>
+<style>
+  .visit-planning { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(32px,6vw,80px); padding:40px; margin:36px 0; border:1px solid #e7dce0; border-radius:28px; background:#fff8fa; scroll-margin-top:110px; }
+  .visit-planning__intro { min-width:0; }
+  .visit-planning .pmu-contact-kicker { margin:0 0 12px; color:#126b65; font-size:.73rem; line-height:1.45; letter-spacing:.105em; font-weight:800; text-transform:uppercase; }
+  .visit-planning h2 { margin:0 0 18px; font-size:clamp(1.7rem,3.2vw,2.6rem); line-height:1.18; letter-spacing:-.035em; font-weight:720; }
+  .visit-planning p { font-size:1rem; line-height:1.7; color:#625958; }
+  .visit-planning__intro > p:not(.pmu-contact-kicker) { margin:0 0 24px; }
+  .visit-planning__form { display:flex; width:fit-content; align-items:center; gap:8px; min-height:48px; margin-top:6px; font-size:.9rem; font-weight:650; }
+  .visit-planning__steps { list-style:none; padding:0; margin:0; }
+  .visit-planning__steps li { display:grid; grid-template-columns:30px minmax(0,1fr); gap:18px; padding:24px 0; border-top:1px solid #e1d5d9; }
+  .visit-planning__steps li:first-child { padding-top:0; border-top:0; }
+  .visit-planning__steps li:last-child { padding-bottom:0; }
+  .visit-planning__steps li > span { padding-top:3px; color:#a25a6a; font-size:.8rem; font-weight:700; }
+  .visit-planning__steps h3 { margin:0 0 8px; font-size:1.12rem; line-height:1.4; letter-spacing:-.02em; }
+  .visit-planning__steps p { margin:0; font-size:.94rem; }
+  .visit-planning__steps a { display:inline-block; padding-top:7px; text-underline-offset:4px; }
+  @media(max-width:800px) { .visit-planning { grid-template-columns:minmax(0,1fr); gap:30px; padding:28px; } }
+  @media(max-width:640px) { .visit-planning { padding:24px 18px; border-radius:24px; margin:26px 0; } .visit-planning h2 { font-size:1.85rem; } .visit-planning__intro > a { width:100%; justify-content:center; text-align:center; } .visit-planning__steps li { gap:12px; grid-template-columns:24px minmax(0,1fr); } }
+</style>

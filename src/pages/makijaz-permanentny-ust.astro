@@ -1,4 +1,5 @@
 ---
+import VisitLink from "../components/VisitLink.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -29,14 +30,14 @@ const steps = [
   { title: "Rozmowa i ocena ust", text: "Omawiamy naturalny kolor, oczekiwania, wcześniejsze pigmentacje i zabiegi. Pytamy także o stan zdrowia oraz skłonność do opryszczki." },
   { title: "Rysunek i dobór koloru", text: "Ustalamy granicę pigmentacji, kształt i intensywność. Zanim zaczniemy, akceptujesz projekt oraz kierunek kolorystyczny." },
   { title: "Pigmentacja i zalecenia", text: "Pracujemy zgodnie z ustalonym planem. Po zabiegu otrzymujesz indywidualne zalecenia dotyczące pielęgnacji i gojenia ust." },
-  { title: "Wygojenie i korekta", text: "Oceniamy wygojony kolor i równomierność pigmentacji. Korekta zabiegu głównego jest w cenie i odbywa się do 2 miesięcy od zabiegu." },
+  { title: "Wygojenie i korekta", text: "Oceniamy wygojony kolor i równomierność pigmentacji. Korekta zabiegu głównego jest w cenie i odbywa się do 3 miesięcy od zabiegu." },
 ];
 const faqItems = [
   { question: "Ile trwa makijaż permanentny ust?", answer: "W cenniku na zabieg przewidziano 120 minut. Zarezerwuj około 2 godzin na rozmowę, projekt, dobór koloru i pigmentację.", href: "/poradnik/ile-trwa-zabieg-makijazu-permanentnego/", label: "Jak zaplanować czas wizyty" },
   { question: "Czy makijaż permanentny ust boli?", answer: "Odczucia są indywidualne i zależą między innymi od wrażliwości oraz stanu ust. Przed zabiegiem omawiamy jego przebieg i Twój komfort.", href: "/poradnik/czy-makijaz-permanentny-boli/", label: "Odczucia podczas pigmentacji" },
   { question: "Jak goją się usta po makijażu permanentnym?", answer: "Świeży kolor może być mocniejszy, a w trakcie gojenia zmieniać intensywność. Stosuj indywidualne zalecenia gabinetu; szczegółowy przebieg i pielęgnację opisujemy w poradniku.", href: "/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/", label: "Gojenie ust dzień po dniu" },
   { question: "Kiedy ocenić kolor i trwałość efektu?", answer: "Kolor oceniamy po wygojeniu i stabilizacji, nie bezpośrednio po zabiegu. Z czasem pigment może się rozjaśniać; potrzeba odświeżenia zależy od skóry, pigmentacji i pielęgnacji.", href: "/poradnik/usta-permanentne-po-wygojeniu/", label: "Usta permanentne po wygojeniu" },
-  { question: "Czy cena 1400 zł obejmuje korektę?", answer: "Tak. Zabieg główny oznaczony gwiazdką w Cenniku obejmuje korektę po wygojeniu, do 2 miesięcy od zabiegu głównego. Późniejsze odświeżenie oraz poprawa pigmentacji z innego gabinetu wymagają osobnej oceny i wyceny.", href: "/cennik-makijaz-permanentny/#price-group-3", label: "Zakres i aktualne ceny" },
+  { question: "Czy cena 1400 zł obejmuje korektę?", answer: "Tak. Zabieg główny oznaczony gwiazdką w Cenniku obejmuje korektę po wygojeniu, do 3 miesięcy od zabiegu głównego. Późniejsze odświeżenie oraz poprawa pigmentacji z innego gabinetu wymagają osobnej oceny i wyceny.", href: "/cennik-makijaz-permanentny/#price-group-3", label: "Zakres i aktualne ceny" },
   { question: "Mam skłonność do opryszczki — co ustalić przed wizytą?", answer: "Poinformuj o tym gabinet przed zabiegiem. Przygotowanie i ewentualną potrzebę konsultacji lekarskiej ustalamy indywidualnie; nie dobieraj samodzielnie leków na podstawie porad z internetu.", href: "/poradnik/opryszczka-a-makijaz-permanentny-ust/", label: "Opryszczka a pigmentacja ust" },
   { question: "Czy można wykonać PMU po powiększaniu ust?", answer: "Wymaga to indywidualnej oceny. Ważne są czas od zabiegu, stan tkanek i stabilny kształt ust. Poinformuj gabinet o wykonanych oraz planowanych zabiegach przed ustaleniem terminu.", href: "/poradnik/kwas-hialuronowy-w-ustach-a-makijaz-permanentny/", label: "Łączenie wypełniacza i PMU" },
   { question: "Jak przygotować się do wizyty i zgłosić przeciwwskazania?", answer: "Przekaż informacje o stanie ust, chorobach, przyjmowanych lekach i wcześniejszych zabiegach. Indywidualne przygotowanie oraz możliwość wykonania pigmentacji ustalamy podczas kwalifikacji.", href: "/poradnik/przeciwwskazania-do-makijazu-permanentnego/", label: "Przeciwwskazania i kwalifikacja" },
@@ -55,7 +56,7 @@ const structuredData = [
     name: pageTitle,
     description: pageDescription,
     inLanguage: "pl-PL",
-    dateModified: "2026-09-19",
+    dateModified: "2026-10-05",
     isPartOf: {
       "@id": "https://www.permanentnybielsko.com/#website",
     },
@@ -185,7 +186,7 @@ const structuredData = [
           <h1 id="usta-tytul"><span>Makijaż permanentny ust</span>, który odświeża kolor bez efektu przerysowania.</h1>
           <p class="pmu-landing-lead">Od delikatnego różu po wyraźniejsze podkreślenie. Dobieramy kolor do Twojej urody, a kontur do naturalnej linii ust. Zaczynamy od rozmowy i rysunku wstępnego.</p>
           <a class="pmu-landing-author" href="#doswiadczenie-ust"><Image src={authorPortrait} alt="" width={92} height={92} fit="cover" position="top" format="webp" quality={82} loading="eager" decoding="async" /><span><strong>Bogusława Herda</strong><span>Wicemistrzyni świata · trenerka PMU</span></span></a>
-          <p class="pmu-lips-hero-price"><strong>1400 zł</strong><span>z korektą po wygojeniu, do 2 miesięcy</span></p>
+          <p class="pmu-lips-hero-price"><strong>1400 zł</strong><span>z korektą po wygojeniu, do 3 miesięcy</span></p>
           <div class="pmu-brows-hero-actions"><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a><a class="pmu-landing-text-link" href="tel:+48730900125">Zadzwoń: 730 900 125</a></div>
         </div>
         <figure class="pmu-brows-hero-photo"><img src={heroPhoto.thumb} srcset={heroPhoto.srcset} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) 520px, (max-width:1156px) calc((100vw - 92px) / 2.15), 495px" width={heroPhoto.width} height={heroPhoto.height} alt="Makijaż permanentny ust — różowy kolor i miękki kontur, praca gabinetu Bogusława Herda" loading="eager" fetchpriority="high" decoding="async" /><figcaption>Kolor dopasowany do ust. <span>Praca gabinetu Bogusława Herda.</span></figcaption></figure>
@@ -210,7 +211,7 @@ const structuredData = [
 
       <section class="pmu-landing-section pmu-brows-price" id="cena-ust" data-analytics-price="lips" data-service-key="lips" aria-labelledby="cena-tytul">
         <div><p class="pmu-landing-kicker">03 / Cena i zakres</p><h2 id="cena-tytul">Makijaż permanentny ust<br /><span class="pmu-lips-amount">1400 zł</span></h2><p>Zabieg główny poprzedzony konsultacją, rysunkiem i doborem koloru. W Cenniku sprawdzisz także odświeżenia i pozostałe usługi.</p><div class="pmu-landing-links"><a href="/cennik-makijaz-permanentny/#price-group-3">Pełny cennik makijażu permanentnego ust →</a></div></div>
-        <div><h3>Korekta jest w cenie.</h3><p>Zabieg główny oznaczony gwiazdką obejmuje korektę po wygojeniu, <strong>do 2 miesięcy od zabiegu głównego</strong>.</p><p class="pmu-brows-price-note">Późniejsze odświeżenie i poprawa pracy z innego gabinetu wymagają indywidualnej oceny oraz wyceny.</p><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a></div>
+        <div><h3>Korekta jest w cenie.</h3><p>Zabieg główny oznaczony gwiazdką obejmuje korektę po wygojeniu, <strong>do 3 miesięcy od zabiegu głównego</strong>.</p><p class="pmu-brows-price-note">Późniejsze odświeżenie i poprawa pracy z innego gabinetu wymagają indywidualnej oceny oraz wyceny.</p><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a></div>
       </section>
 
       <section class="pmu-landing-section" id="proces-ust" aria-labelledby="proces-tytul"><div class="pmu-landing-section-heading"><p class="pmu-landing-kicker">04 / Od projektu do wygojenia</p><h2 id="proces-tytul">Najpierw plan. Potem pigmentacja.</h2></div><ol class="pmu-landing-steps">{steps.map((step,index) => <li><span aria-hidden="true">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol><div class="pmu-landing-links"><a href="/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/">Jak goją się usta po zabiegu? →</a></div></section>
@@ -223,6 +224,7 @@ const structuredData = [
 
       <section class="pmu-landing-section" aria-labelledby="poradniki-tytul"><div class="pmu-landing-section-heading"><p class="pmu-landing-kicker">Więcej odpowiedzi w Poradniku</p><h2 id="poradniki-tytul">Wybierz temat, który Cię interesuje.</h2></div><div class="pmu-brows-guides">{guides.map(item => <a href={item.href}><h3>{item.title}</h3><p>{item.text}</p><span>Czytaj poradnik →</span></a>)}</div></section>
 
+      <VisitLink treatment="na pigmentację ust" />
       <section class="pmu-landing-booking" id="kontakt" aria-labelledby="rezerwacja-tytul"><div><p class="pmu-landing-kicker">Twój następny krok</p><h2 id="rezerwacja-tytul">Dobierzmy kolor do Ciebie.</h2><p>Sprawdź terminy w gabinecie Bogusława Herda.<br />Bielsko-Biała, ul. Barlickiego 5/23.</p></div><div class="pmu-landing-booking-actions"><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a><a class="pmu-landing-secondary" href="tel:+48730900125">Zadzwoń: 730 900 125</a><a class="pmu-landing-text-link" href="/kontakt/">Sprawdź dojazd i kontakt →</a></div></section>
       <GuideAssistant />
     </div>

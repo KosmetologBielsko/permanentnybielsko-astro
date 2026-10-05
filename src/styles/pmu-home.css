@@ -614,3 +614,6 @@ main.pmu-home h1 { max-width:none; margin:0 0 20px; font-size:clamp(2.2rem,4.4vw
   .pmu-home .pmu-home-cosmetology-actions .pmu-home-secondary { width:100%; font-size:.88rem; padding-inline:12px; }
   .pmu-home .pmu-home-cosmetology-domain { text-align:center; }
 }
+
+/* Accessible touch target without enlarging the visual review text. */
+.pmu-home .pmu-home-review-badge { min-height:44px; padding-block:8px; max-width:calc(100% - 57px); }

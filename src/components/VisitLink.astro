@@ -1,0 +1,14 @@
+---
+interface Props { treatment: string; }
+const { treatment } = Astro.props;
+---
+<aside class="visit-link" aria-label="Planowanie przyjazdu">
+  <p>Planujesz przyjazd {treatment} z innego miasta?</p>
+  <a href="/kontakt/#przyjazd">Zaplanuj wizytę i korektę <span aria-hidden="true">→</span></a>
+</aside>
+<style>
+  .visit-link { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:4px 24px; padding:20px 24px; margin:26px 0; border-top:1px solid #e7dce0; border-bottom:1px solid #e7dce0; }
+  .visit-link p { margin:0; color:#625958; font-size:.95rem; line-height:1.6; }
+  .visit-link a { display:inline-flex; gap:10px; align-items:center; min-height:44px; color:#126b65; font-size:.9rem; font-weight:700; text-underline-offset:4px; }
+  @media(max-width:640px) { .visit-link { padding:18px 0; } }
+</style>
