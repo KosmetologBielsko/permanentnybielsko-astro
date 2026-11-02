@@ -1,16 +1,16 @@
 <figure class="indonesia-video">
   <div class="indonesia-video-frame">
-    <video controls playsinline preload="none" poster="/images/pmu-indonesia-2026/portret-przypinki-640.webp" width="720" height="1280" aria-label="Film z PMU Indonesia Festival 2026, bez dźwięku">
-      <source src="/video/pmu-indonesia-2026-32s.mp4" type="video/mp4" />
-      <a href="/video/pmu-indonesia-2026-32s.mp4">Pobierz film z festiwalu</a>
+    <video controls playsinline preload="none" poster="/images/pmu-indonesia-2026/boguslawa-herda-prezentacja-jury.jpg" width="720" height="1280" aria-label="Bogusława Herda podczas PMU Indonesia Festival 2026 — film z dźwiękiem">
+      <source src="/video/pmu-indonesia-2026-jury-29s.mp4" type="video/mp4" />
+      <a href="/video/pmu-indonesia-2026-jury-29s.mp4">Pobierz film z festiwalu</a>
     </video>
-    <button class="indonesia-video-cover" type="button" hidden aria-label="Odtwórz film z PMU Indonesia Festival, 32 sekundy, bez dźwięku">
-      <img src="/images/pmu-indonesia-2026/portret-przypinki-640.webp" width="1152" height="1536" alt="" loading="lazy" decoding="async" />
-      <span class="indonesia-video-label"><span class="indonesia-play-icon" aria-hidden="true">▶</span><span>Zobacz film<small>32 sekundy · bez dźwięku</small></span></span>
+    <button class="indonesia-video-cover" type="button" hidden aria-label="Odtwórz film z PMU Indonesia Festival, 29 sekund, z dźwiękiem">
+      <img src="/images/pmu-indonesia-2026/boguslawa-herda-prezentacja-jury.jpg" width="864" height="1536" alt="" loading="lazy" decoding="async" />
+      <span class="indonesia-video-label"><span class="indonesia-play-icon" aria-hidden="true">▶</span><span>Zobacz film<small>29 sekund · z dźwiękiem</small></span></span>
     </button>
   </div>
   <figcaption>Wspomnienia z PMU Indonesia 2026</figcaption>
-  <p class="indonesia-video-error" role="status" hidden>Nie udało się odtworzyć filmu. <a href="/video/pmu-indonesia-2026-32s.mp4">Otwórz nagranie bezpośrednio →</a></p>
+  <p class="indonesia-video-error" role="status" hidden>Nie udało się odtworzyć filmu. <a href="/video/pmu-indonesia-2026-jury-29s.mp4">Otwórz nagranie bezpośrednio →</a></p>
 </figure>
 <script>
   document.querySelectorAll<HTMLElement>('.indonesia-video-frame').forEach(frame => {
@@ -40,11 +40,11 @@
 </script>
 <style>
   .indonesia-video{margin:0;width:100%;min-width:0}
-  .indonesia-video-frame{position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:#151a1a;isolation:isolate}
+  .indonesia-video-frame{position:relative;aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:#151a1a;isolation:isolate}
   .indonesia-video-frame video{display:block;width:100%;height:100%;object-fit:contain}
   .has-cover video{visibility:hidden}
   .indonesia-video-cover{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;border-radius:inherit;background:#151a1a;color:#fff;text-align:left;font:inherit;cursor:pointer}
-  .indonesia-video-frame .indonesia-video-cover img{display:block;width:100%;height:100%;object-fit:cover;border-radius:0}
+  .indonesia-video-frame .indonesia-video-cover img{display:block;width:100%;height:100%;object-fit:contain;border-radius:0}
   .indonesia-video-cover::after{content:'';position:absolute;inset:55% 0 0;background:linear-gradient(transparent,#000b);pointer-events:none}
   .indonesia-video-label{position:absolute;z-index:1;inset:auto 20px 22px;display:flex;align-items:center;gap:12px;font-size:17px;line-height:1.35;font-weight:700}
   .indonesia-play-icon{display:grid;place-items:center;flex:0 0 46px;height:46px;border:1px solid #fff9;border-radius:50%;background:#fff;color:#126b65;font-size:16px;padding-left:2px}

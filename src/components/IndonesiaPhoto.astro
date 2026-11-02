@@ -7,7 +7,7 @@ const { photo, eager = false } = Astro.props;
 ---
 <figure class="indonesia-photo">
   <a href={photo.src} target="_blank" rel="noopener" data-indonesia-photo aria-label={`Powiększ zdjęcie: ${photo.alt}`}>
-    <img src={photo.thumb} srcset={`${photo.thumb} 640w, ${photo.src} 1280w`} sizes="(max-width:640px) 90vw, 540px" width={photo.width} height={photo.height} alt={photo.alt} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async" />
+    <img src={photo.thumb} srcset={photo.thumb === photo.src ? undefined : `${photo.thumb} 640w, ${photo.src} 1280w`} sizes="(max-width:640px) 90vw, 540px" width={photo.width} height={photo.height} alt={photo.alt} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async" />
   </a>
   <figcaption>{photo.caption}</figcaption>
 </figure>
