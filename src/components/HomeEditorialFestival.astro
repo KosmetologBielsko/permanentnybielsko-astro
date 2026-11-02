@@ -1,0 +1,54 @@
+---
+const article = '/poradnik/boguslawa-herda-pmu-indonesia-jakarta-2026/';
+const poster = '/images/pmu-indonesia-2026/boguslawa-herda-prezentacja-jury.jpg';
+---
+<div class="pmu-mobile-only pmu-editorial-festival">
+  <div class="pmu-editorial-panel pmu-editorial-stage">
+    <img class="pmu-editorial-image" src={poster} width="864" height="1536" alt="Bogusława Herda przy prezentacji międzynarodowego jury PMU Indonesia Festival" loading="lazy" decoding="async" />
+    <div class="pmu-editorial-heading">
+      <p class="pmu-home-kicker">Dżakarta · PMU Indonesia 2026</p>
+      <h2>Z Bielska-Białej<br />na światową<br />scenę PMU.</h2>
+    </div>
+    <div class="pmu-editorial-content">
+      <p class="pmu-editorial-description">W międzynarodowym jury.<br />Wśród ludzi, których łączy ta sama pasja.</p>
+      <a class="pmu-editorial-film" href={`${article}#film`} data-home-festival-open><span class="pmu-editorial-play" aria-hidden="true">▶</span><span>Zobacz film <small>29 sekund · z dźwiękiem</small></span></a>
+      <a class="pmu-home-primary pmu-editorial-action" href={article}>Przeżyj ze mną ten moment <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <div class="pmu-editorial-followup"><span>Spotkania. Inspiracje. Wspólna pasja.</span><a href={`${article}#galeria`}>Zdjęcia z festiwalu <span aria-hidden="true">→</span></a></div>
+  <dialog class="pmu-festival-dialog" aria-labelledby="pmu-festival-dialog-title" data-home-festival-dialog>
+    <div class="pmu-festival-dialog-header"><h2 id="pmu-festival-dialog-title">PMU Indonesia 2026</h2><button type="button" data-home-festival-close aria-label="Zamknij film" autofocus>×</button></div>
+    <video controls playsinline preload="none" poster={poster} width="720" height="1280" aria-label="Bogusława Herda podczas PMU Indonesia Festival — film z oryginalnym dźwiękiem">
+      <source src="/video/pmu-indonesia-2026-jury-29s.mp4" type="video/mp4" />
+      <a href="/video/pmu-indonesia-2026-jury-29s.mp4">Otwórz film</a>
+    </video>
+    <p class="pmu-festival-video-status" role="status" hidden>Użyj przycisku odtwarzania. <a href="/video/pmu-indonesia-2026-jury-29s.mp4">Możesz też otworzyć nagranie bezpośrednio →</a></p>
+  </dialog>
+</div>
+<script>
+  const trigger = document.querySelector<HTMLAnchorElement>('[data-home-festival-open]');
+  const dialog = document.querySelector<HTMLDialogElement>('[data-home-festival-dialog]');
+  const video = dialog?.querySelector('video');
+  const status = dialog?.querySelector<HTMLElement>('[role="status"]');
+  if (trigger && dialog && video && status && typeof dialog.showModal === 'function') {
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      status.hidden = true;
+      dialog.showModal();
+      video.play().catch(() => { status.hidden = false; });
+    });
+    const close = () => { video.pause(); dialog.close(); };
+    dialog.querySelector('[data-home-festival-close]')?.addEventListener('click', close);
+    dialog.addEventListener('cancel', () => { video.pause(); });
+    dialog.addEventListener('close', () => { video.pause(); });
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const bounds = dialog.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) close();
+    });
+    video.addEventListener('error', () => { status.hidden = false; });
+    const mobile = window.matchMedia('(max-width: 640px), (max-width: 1024px) and (orientation: portrait)');
+    mobile.addEventListener('change', () => { if (!mobile.matches && dialog.open) close(); });
+  }
+</script>

@@ -1,0 +1,130 @@
+/* Editorial accents for phones and portrait tablets. Desktop styles stay in pmu-home.css. */
+.pmu-home .pmu-mobile-only { display:none; }
+.pmu-home h1 > .pmu-hero-desktop-title { color:var(--home-ink); }
+.pmu-home .pmu-hero-desktop-title > span { color:var(--home-teal); }
+
+@media (max-width:640px), (max-width:1024px) and (orientation:portrait) {
+  main.pmu-home { --home-gutter:24px; padding-top:0; background:#fff; }
+  .pmu-home .pmu-home-shell { width:calc(100% - 2 * var(--home-gutter)); }
+  .pmu-home .pmu-mobile-only { display:block; }
+  .pmu-home .pmu-desktop-only { display:none; }
+  .pmu-home .pmu-home-hero,
+  .pmu-home .pmu-editorial-expert,
+  .pmu-home .pmu-editorial-festival {
+    width:calc(100% + 2 * var(--home-gutter)); margin-inline:calc(-1 * var(--home-gutter));
+  }
+
+  /* A single photograph, headline and actions, with space reserved above the text for the face. */
+  .pmu-home .pmu-home-hero {
+    position:relative; isolation:isolate; display:flex; flex-direction:column; justify-content:flex-end;
+    min-height:780px; min-height:max(780px,100svh); gap:21px; padding:430px var(--home-gutter) 30px;
+    background:#29251f; color:#fff;
+  }
+  .pmu-home .pmu-home-hero::after {
+    content:""; position:absolute; z-index:-1; inset:0; pointer-events:none;
+    background:linear-gradient(180deg,#221b140c 25%,#221b1400 40%,#15201d94 65%,#101c19f2 100%);
+  }
+  .pmu-home .pmu-home-hero-photo { position:absolute; z-index:-2; inset:0; width:100%; height:100%; max-width:none; }
+  .pmu-home .pmu-home-hero-photo img { width:100%; height:100%; aspect-ratio:auto; object-fit:cover; object-position:53% 26%; border-radius:0; }
+  .pmu-home .pmu-home-hero-photo figcaption,
+  .pmu-home .pmu-home-hero .pmu-home-author,
+  .pmu-home .pmu-home-hero .pmu-home-review-badge,
+  .pmu-home .pmu-home-hero-links,
+  .pmu-home .pmu-home-hero-actions > .pmu-home-secondary { display:none; }
+  .pmu-home .pmu-home-hero-copy { align-self:stretch; width:100%; max-width:620px; }
+  .pmu-home .pmu-home-hero .pmu-home-kicker { color:#f5e9d8; font-size:.67rem; letter-spacing:.13em; margin-bottom:14px; }
+  main.pmu-home .pmu-home-hero h1 { margin:0 0 15px; color:#fff; font-size:clamp(2.05rem,8.4vw,3.6rem); line-height:1.08; letter-spacing:-.045em; text-wrap:initial; }
+  .pmu-home .pmu-home-hero h1 > .pmu-mobile-only { color:#fff; }
+  .pmu-home .pmu-home-hero h1 em { color:#e8e0cf; font-weight:inherit; font-style:normal; }
+  .pmu-home .pmu-home-hero .pmu-home-lead { color:#f9f7f2; max-width:33ch; margin:0; font-size:1rem; line-height:1.55; }
+  .pmu-home .pmu-home-hero-actions { display:grid; grid-template-columns:1fr 1fr; align-self:start; width:100%; max-width:470px; gap:10px; }
+  .pmu-home .pmu-home-hero-actions .pmu-home-primary,
+  .pmu-home .pmu-home-hero-actions .pmu-home-mobile-effects { min-height:52px; padding:13px 10px; font-size:.86rem; border-radius:10px; }
+  .pmu-home .pmu-home-mobile-effects { display:flex; justify-content:center; align-items:center; border:1px solid #fffa; color:#fff; background:#10231e30; font-weight:700; text-decoration:none; }
+  .pmu-home .pmu-home-mobile-effects:hover { background:#ffffff20; }
+  .pmu-home .pmu-home-mobile-trust { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0 16px; padding:14px 0; border-bottom:1px solid var(--home-line); }
+  .pmu-home .pmu-home-mobile-trust a { display:flex; align-items:center; gap:8px; min-height:44px; font-size:.8rem; font-weight:700; }
+  .pmu-home .pmu-home-mobile-trust span { color:var(--home-muted); font-size:.76rem; font-weight:400; }
+  .pmu-home .pmu-home-nav { margin-top:0; padding:16px 0; border-top:0; gap:6px; }
+  .pmu-home .pmu-home-nav a { font-size:.75rem; padding:8px 11px; }
+  .pmu-home .pmu-home-section { margin-top:48px; }
+  .pmu-home .pmu-home-section-heading { margin-bottom:24px; }
+  .pmu-home .pmu-home-treatments { grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px 14px; }
+  .pmu-home .pmu-home-treatment { border:0; border-radius:0; }
+  .pmu-home .pmu-home-treatment-photo { border-radius:12px; }
+  .pmu-home .pmu-home-treatment-copy { padding:15px 0 0; }
+  .pmu-home .pmu-home-treatment-copy > p { display:none; }
+  .pmu-home .pmu-home-treatment h3 { font-size:1.13rem; }
+  .pmu-home .pmu-home-treatment-price { font-size:1rem; }
+  .pmu-home .pmu-home-treatment-copy > a { font-size:.79rem; }
+
+  .pmu-home .pmu-home-expert { display:block; padding:0; border:0; }
+  .pmu-home .pmu-home-expert > :not(.pmu-editorial-expert) { display:none; }
+  .pmu-home .regional-visit,
+  .pmu-home .pmu-home-cosmetology { display:none; }
+  .pmu-home .pmu-editorial-panel { position:relative; isolation:isolate; display:flex; flex-direction:column; justify-content:flex-end; min-height:660px; padding:320px var(--home-gutter) 32px; background:#14201e; color:#fff; }
+  .pmu-home .pmu-editorial-image { position:absolute; z-index:-2; inset:0; display:block; width:100%; height:100%; object-fit:cover; }
+  .pmu-home .pmu-editorial-panel::before { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(180deg,transparent 38%,#10252430 48%,#0b1c1bf5 100%); pointer-events:none; }
+  .pmu-home .pmu-editorial-portrait { min-height:720px; padding-top:380px; }
+  .pmu-home .pmu-editorial-portrait .pmu-editorial-image { object-position:50% 25%; }
+  .pmu-home .pmu-editorial-content { max-width:580px; }
+  .pmu-home .pmu-editorial-panel .pmu-home-kicker { color:#d7eee5; font-size:.67rem; letter-spacing:.13em; margin-bottom:14px; }
+  .pmu-home .pmu-editorial-panel h2 { margin:0 0 18px; color:#fff; font-size:clamp(2.1rem,8.6vw,3.5rem); line-height:1.08; letter-spacing:-.045em; text-wrap:initial; }
+  .pmu-home .pmu-editorial-panel .pmu-editorial-description { margin:0 0 24px; color:#f1f5f3; font-size:.96rem; line-height:1.6; }
+  .pmu-home .pmu-editorial-action { width:100%; max-width:470px; justify-content:space-between; min-height:52px; padding:14px 18px; border-radius:10px; font-size:.9rem; }
+  .pmu-home .pmu-editorial-facts { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:30px var(--home-gutter); background:#fbf7f6; }
+  .pmu-home .pmu-editorial-facts dt { color:var(--home-teal); font-size:2rem; font-weight:700; letter-spacing:-.04em; line-height:1.2; }
+  .pmu-home .pmu-editorial-facts dd { margin-top:7px; color:var(--home-muted); font-size:.8rem; }
+
+  .pmu-home .pmu-home-world { padding-top:0; border:0; margin-top:0; }
+  .pmu-home .pmu-home-world > .indonesia-history { display:none; }
+  .pmu-home .pmu-editorial-stage { min-height:740px; justify-content:space-between; padding-top:32px; gap:280px; }
+  .pmu-home .pmu-editorial-stage .pmu-editorial-image { object-position:center; }
+  .pmu-home .pmu-editorial-stage::before { background:linear-gradient(180deg,#14110ce6 0%,#14110c44 30%,transparent 43%,transparent 64%,#171510f5 100%); }
+  .pmu-home .pmu-editorial-stage .pmu-home-kicker { color:#f2dbb9; }
+  .pmu-home .pmu-editorial-stage h2 { font-size:clamp(2rem,8.3vw,3.4rem); }
+  .pmu-home .pmu-editorial-stage .pmu-editorial-description { margin-bottom:10px; }
+  .pmu-home .pmu-editorial-film { display:flex; align-items:center; gap:12px; width:fit-content; min-height:54px; padding-block:7px; margin-bottom:18px; color:#fff; font-weight:700; font-size:.9rem; }
+  .pmu-home .pmu-editorial-film small { display:block; margin-top:2px; color:#f1ede8; font-size:.73rem; font-weight:400; }
+  .pmu-home .pmu-editorial-play { display:grid; place-items:center; flex:0 0 40px; width:40px; height:40px; padding-left:2px; border:1px solid #fffa; border-radius:50%; font-size:13px; }
+  .pmu-home .pmu-editorial-followup { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:0 16px; padding:24px var(--home-gutter) 28px; background:#fff; font-size:.8rem; }
+  .pmu-home .pmu-editorial-followup > span { color:var(--home-muted); }
+  .pmu-home .pmu-editorial-followup a { display:inline-flex; align-items:center; gap:12px; min-height:44px; color:var(--home-teal); font-weight:700; }
+  .pmu-home .pmu-home-education { margin-top:0; padding-top:32px; }
+  .pmu-home .pmu-home-mobile-cosmetology { padding-top:18px; margin-top:20px; border-top:1px solid var(--home-line); }
+  .pmu-home .pmu-home-mobile-cosmetology a { display:inline-flex; align-items:center; gap:10px; min-height:44px; font-size:.85rem; }
+  .pmu-home .pmu-editorial-panel :is(a,button):focus-visible,
+  .pmu-home .pmu-home-hero :is(a,button):focus-visible { outline:3px solid #fff; outline-offset:4px; }
+}
+
+@media (min-width:641px) and (max-width:1024px) and (orientation:portrait) {
+  main.pmu-home { --home-gutter:40px; }
+  .pmu-home .pmu-home-hero { min-height:1050px; padding-top:610px; padding-bottom:44px; }
+  .pmu-home .pmu-home-hero-photo img { object-position:center 35%; }
+  .pmu-home .pmu-editorial-portrait { min-height:1000px; }
+  .pmu-home .pmu-editorial-portrait .pmu-editorial-image { object-position:center 32%; }
+  .pmu-home .pmu-editorial-stage { min-height:1100px; padding-top:44px; padding-bottom:44px; }
+  .pmu-home .pmu-home-mobile-trust a { font-size:.95rem; }
+  .pmu-home .pmu-home-hero .pmu-home-lead { font-size:1.15rem; }
+}
+
+@media (max-width:360px) {
+  main.pmu-home { --home-gutter:20px; }
+  .pmu-home .pmu-home-hero { padding-top:390px; min-height:750px; }
+  .pmu-home .pmu-home-hero-actions { gap:8px; }
+  .pmu-home .pmu-home-hero-actions .pmu-home-primary,
+  .pmu-home .pmu-home-hero-actions .pmu-home-mobile-effects { font-size:.8rem; }
+  .pmu-home .pmu-home-treatment h3 { font-size:1.05rem; }
+}
+
+/* Native dialog keeps playback and focus deliberate, and works with the existing MP4. */
+.pmu-home .pmu-festival-dialog { width:min(440px,calc(100% - 24px)); max-width:none; max-height:calc(100dvh - 24px); margin:auto; padding:0; border:1px solid #ffffff30; border-radius:16px; background:#101515; color:#fff; overflow:auto; }
+.pmu-home .pmu-festival-dialog::backdrop { background:#000d; }
+.pmu-home .pmu-festival-dialog-header { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px 14px 10px 18px; }
+.pmu-home .pmu-festival-dialog h2 { margin:0; color:#fff; font-size:1rem; line-height:1.4; }
+.pmu-home .pmu-festival-dialog button { width:44px; height:44px; flex:0 0 44px; padding:0; border:1px solid #ffffff50; border-radius:50%; background:#ffffff0c; color:#fff; font:400 30px/1 system-ui; cursor:pointer; }
+.pmu-home .pmu-festival-dialog video { display:block; width:100%; max-height:calc(100dvh - 100px); height:auto; aspect-ratio:9/16; object-fit:contain; background:#000; }
+.pmu-home .pmu-festival-dialog .pmu-festival-video-status { margin:0; padding:16px; color:#fff; font-size:.9rem; }
+.pmu-home .pmu-festival-dialog a { color:#bce9d8; }
+.pmu-home .pmu-festival-dialog [hidden] { display:none; }
+html:has(.pmu-festival-dialog[open]) { overflow:hidden; }

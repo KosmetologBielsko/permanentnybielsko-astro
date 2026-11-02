@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/o-mnie/boguslawa-herda-portret-czarno-bialy.webp';
+---
+<div class="pmu-mobile-only pmu-editorial-expert">
+  <div class="pmu-editorial-panel pmu-editorial-portrait">
+    <Image class="pmu-editorial-image" src={portrait} alt="Czarno-biały portret Bogusława Herda" width={800} widths={[360,540,800]} sizes="(max-width:1024px) 100vw, 1px" format="webp" quality={85} loading="lazy" decoding="async" />
+    <div class="pmu-editorial-content">
+      <p class="pmu-home-kicker">Bogusława Herda · Poznaj mnie</p>
+      <h2>Doświadczenie.<br />I uważność<br />na Ciebie.</h2>
+      <p class="pmu-editorial-description">Wicemistrzyni świata PMU.<br />Ponad 10 lat pracy z naturalnym pięknem.</p>
+      <a class="pmu-home-primary pmu-editorial-action" href="/o-mnie/">Poznaj moją historię <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <dl class="pmu-editorial-facts">
+    <div><dt>8×</dt><dd>Mistrzyni PMU</dd></div>
+    <div><dt>10+ lat</dt><dd>Praktyki gabinetowej</dd></div>
+  </dl>
+</div>
