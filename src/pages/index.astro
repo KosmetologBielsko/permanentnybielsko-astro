@@ -1,4 +1,5 @@
 ---
+import IndonesiaFeature from "../components/IndonesiaFeature.astro";
 import RegionalVisit from "../components/RegionalVisit.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
@@ -66,7 +67,7 @@ const structuredData = [
     "name": pageTitle,
     "description": pageDescription,
     "inLanguage": "pl-PL",
-    "dateModified": "2026-10-05",
+    "dateModified": "2026-11-02",
     "isPartOf": {
       "@id": "https://www.permanentnybielsko.com/#website"
     },
@@ -144,7 +145,7 @@ const destinations = [
   { city: "Lyon", country: "Francja", role: "Jurorka Mistrzostw Francji PMU" },
   { city: "Monachium", country: "Niemcy", role: "Wicemistrzostwo świata PMU" },
   { city: "Düsseldorf", country: "Niemcy", role: "Warsztaty, prelekcje i Silky" },
-  { city: "Dżakarta", country: "Indonezja", role: "Jurorka i prelegentka PMU Indonesia", upcoming: true },
+  { city: "Dżakarta", country: "Indonezja", role: "Jurorka PMU Indonesia Festival · 2026" },
 ];
 ---
 <Layout title={pageTitle} description={pageDescription} canonicalPath="/" structuredData={structuredData} inlineGuideAssistant>
@@ -215,7 +216,10 @@ const destinations = [
           <span class="pmu-home-cosmetology-domain">kosmetologiabielsko.com</span>
         </div>
       </section>
-      <section class="pmu-home-section pmu-home-world" id="o-mnie" aria-labelledby="home-swiat"><div class="pmu-home-section-heading"><p class="pmu-home-kicker">04 / Doświadczenie międzynarodowe</p><h2 id="home-swiat">Z Bielska-Białej<br />na międzynarodową scenę PMU.</h2><p>Pokazy, warsztaty, mistrzostwa i praca w jury to ważna część mojej drogi. Do gabinetu wracam z nowymi perspektywami i doświadczeniem w pracy z różnymi technikami oraz oczekiwaniami klientek.</p></div><div class="pmu-home-world-grid"><figure class="pmu-home-world-image"><Image src={ankaraImage} alt="Ankara, Turcja — prelegentka Long-Time-Liner" width={720} widths={[360,540,720,960]} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) 480px, 400px" format="webp" quality={83} loading="lazy" decoding="async" /><figcaption>Ankara · Long-Time-Liner®</figcaption></figure><dl class="pmu-home-destinations">{destinations.map(item => <div><dt>{item.city}<span>{item.country}</span></dt><dd>{item.role}{item.upcoming && <span class="pmu-home-upcoming">Przed nami · 2026</span>}</dd></div>)}</dl></div></section>
+      <section class="pmu-home-section pmu-home-world" id="o-mnie" aria-labelledby="home-swiat">
+        <IndonesiaFeature />
+        <details class="pmu-home-more indonesia-history"><summary>Moja międzynarodowa droga PMU <span aria-hidden="true">+</span></summary><div class="pmu-home-world-grid"><figure class="pmu-home-world-image"><Image src={ankaraImage} alt="Ankara, Turcja — prelegentka Long-Time-Liner" width={720} widths={[360,540,720,960]} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) 480px, 400px" format="webp" quality={83} loading="lazy" decoding="async" /><figcaption>Ankara · Long-Time-Liner®</figcaption></figure><dl class="pmu-home-destinations">{destinations.map(item => <div><dt>{item.city}<span>{item.country}</span></dt><dd>{item.role}</dd></div>)}</dl></div></details>
+      </section>
       <section class="pmu-home-section pmu-home-education" id="szkolenia-pmu" aria-labelledby="szkolenia"><div><p class="pmu-home-kicker">05 / Dla linergistek</p><h2 id="szkolenia">Precyzja, którą przekazuję dalej.</h2><p>Szkolenia makijażu permanentnego: Step by Step, Masterclass, Silky Hairstroke Brows i Bye-Bye Pigment Remover. Poznaj program i wybierz ścieżkę dopasowaną do swojego doświadczenia.</p><a class="pmu-home-secondary" href="/szkolenie-makijaz-permanentny/">Zobacz szkolenia PMU →</a><details class="pmu-home-more"><summary>Long-Time-Liner® i moja droga zawodowa <span aria-hidden="true">+</span></summary><p>Edukacja, precyzja i szacunek do naturalnej urody to ważna część mojego podejścia. Magda Bogulak — Long-Time-Liner Polska i Sharley Medical Clinic &amp; Day SPA — jest mentorką i jedną z najważniejszych osób w mojej zawodowej historii.</p></details></div><figure><Image src={teamImage} alt="Bogusława Herda z zespołem Long-Time-Liner podczas wydarzenia PMU" width={800} widths={[360,540,800,1080]} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) calc(100vw - 56px), 500px" format="webp" quality={82} loading="lazy" decoding="async" /><figcaption>Long-Time-Liner® · edukacja i wspólna praca</figcaption></figure></section>
       <section class="pmu-home-section pmu-home-mission" id="sercem-malowane" aria-labelledby="home-serce"><figure><Image src={missionPortrait} alt="Bogusława Herda z wyróżnieniem Ambasador Serca Long-Time-Liner w projekcie SercemMalowane" width={480} widths={[180,280,480]} sizes="(max-width:640px) 180px, 240px" format="webp" quality={82} loading="lazy" decoding="async" /></figure><div><p class="pmu-home-kicker">#SercemMalowane · Ambasador Serca</p><h2 id="home-serce">Czasem chodzi o coś więcej niż makijaż.</h2><p>Utrata brwi, zmiany po leczeniu czy rozszczep wargi mogą wpływać na to, jak czujemy się ze swoją twarzą. W projekcie #SercemMalowane łączę doświadczenie z uważnością na historię drugiej osoby.</p><p>„Nie każda pigmentacja zaczyna się od potrzeby makijażu. Czasem zaczyna się od potrzeby, żeby znowu poczuć się dobrze ze swoją twarzą.”</p><a href="/sercemmalowane/">Poznaj projekt #SercemMalowane →</a></div></section>
       <section class="pmu-home-section pmu-home-explore" id="efekty" aria-labelledby="home-zobacz"><div class="pmu-home-section-heading"><p class="pmu-home-kicker">Zanim podejmiesz decyzję</p><h2 id="home-zobacz">Zobacz prace.<br />Znajdź odpowiedzi.</h2></div><div class="pmu-home-explore-grid"><article><p class="pmu-home-kicker">Zdjęcia z galerii</p><h3>Jaki efekt jest Ci najbliższy?</h3><p>Brwi metodą cienia, Silky, usta i kreski. Obejrzyj szczegóły w powiększeniu i poznaj różnice.</p><a class="pmu-home-secondary" href="/galeria/">Przejdź do galerii →</a><details class="pmu-home-more pmu-home-metamorphoses"><summary>Zobacz krótki film z metamorfozami <span aria-hidden="true">+</span></summary><video controls playsinline preload="none" poster="/video/metamorfozy-pmu-boguslawa-herda-poster.webp" width="540" height="960" aria-label="Metamorfozy PMU — film Bogusława Herda"><source src="/video/metamorfozy-pmu-boguslawa-herda.mp4" type="video/mp4" />Twoja przeglądarka nie obsługuje filmu.</video></details></article><article><p class="pmu-home-kicker">Poradnik PMU</p><h3>Przygotowanie, gojenie i wybór metody.</h3><p>Konkretne odpowiedzi na pytania, które pojawiają się przed zabiegiem i po pigmentacji.</p><ul><li><a href="/poradnik/jak-goja-sie-brwi-permanentne/">Jak goją się brwi permanentne? →</a></li><li><a href="/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/">Jak wygląda gojenie ust? →</a></li><li><a href="/poradnik/kreska-permanentna-cena/">Ile kosztuje kreska permanentna? →</a></li></ul><a class="pmu-home-text-link" href="/poradnik/">Wszystkie poradniki →</a></article></div></section>

@@ -1,0 +1,40 @@
+---
+import IndonesiaVideo from './IndonesiaVideo.astro';
+import IndonesiaPhoto from './IndonesiaPhoto.astro';
+import photos from '../data/indonesia-photos.json';
+const article = '/poradnik/boguslawa-herda-pmu-indonesia-jakarta-2026/';
+---
+<div class="indonesia-intro">
+  <div>
+    <p class="pmu-home-kicker">04 / Doświadczenie międzynarodowe</p>
+    <h2 id="home-swiat">Z Bielska-Białej<br />na międzynarodową scenę PMU.</h2>
+    <span class="indonesia-badge">Indonezja · relacja z wydarzenia</span>
+    <h3>Bogusława Herda w jury<br />PMU Indonesia Festival 2026.</h3>
+    <p>W październiku uczestniczyłam w festiwalu jako jurorka. Praca przy ocenie realizacji, spotkania ze specjalistami z różnych krajów i rozmowy o pięknie — to doświadczenia, które zostają ze mną po powrocie.</p>
+    <p>Szczególnie zapamiętałam prace wykonane metodą włoskową. Ich poziom naprawdę mnie zachwycił.</p>
+    <div class="indonesia-actions"><a class="pmu-home-primary" href={article}>Zobacz relację z Indonezji →</a><a class="pmu-home-secondary" href="/poradnik/wydarzenia/">Wszystkie wydarzenia →</a></div>
+  </div>
+  <IndonesiaVideo />
+</div>
+<div class="indonesia-qvision">
+  <IndonesiaPhoto photo={photos[1]} />
+  <div>
+    <p class="pmu-home-kicker">Ludzie, wiedza i wspólna pasja</p>
+    <h3>Spotkanie z właścicielami<br />QVISION Academy.</h3>
+    <p>Jedno z ważnych wspomnień z Indonezji. Takie spotkania pozwalają poznać różne szkoły pracy i ludzi, którzy rozwijają makijaż permanentny w innych częściach świata.</p>
+    <blockquote>„Nigdy wcześniej nie widziałam tak wielu pięknych prac naraz.”</blockquote>
+    <p class="indonesia-attribution">Bogusława Herda · o pracach włoskowych oglądanych podczas festiwalu</p>
+    <a class="pmu-home-text-link indonesia-more" href={article}>Zdjęcia, film i moje wspomnienia →</a>
+  </div>
+</div>
+<style>
+  .indonesia-intro{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:64px;align-items:center}
+  .indonesia-intro p+p{margin-top:16px}.indonesia-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .indonesia-badge{display:inline-block;background:var(--home-mint);border:1px solid #d4e7e2;border-radius:8px;padding:5px 10px;color:var(--home-teal);font-size:12px;font-weight:700;margin-bottom:18px}
+  .indonesia-qvision{border-top:1px solid var(--home-line);margin-top:40px;padding-top:32px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:48px;align-items:center}
+  .indonesia-qvision h3{font-size:clamp(1.5rem,2.7vw,2rem)}
+  .indonesia-qvision blockquote{border-left:2px solid #bfd6d0;padding-left:22px;font-size:1.14rem;line-height:1.65;margin:24px 0 16px;color:var(--home-ink)}
+  .indonesia-attribution{font-size:.8rem}.indonesia-more{justify-content:start!important;text-align:left!important;margin-top:12px}
+  :global(.pmu-home .indonesia-history){margin-top:30px;padding-top:24px;border-top:1px solid var(--home-line)}
+  @media(max-width:760px){.indonesia-intro{grid-template-columns:1fr;gap:24px}.indonesia-intro :global(.indonesia-video){max-width:300px;justify-self:center}.indonesia-actions a{width:100%}.indonesia-qvision{grid-template-columns:1fr;gap:24px;margin-top:28px}.indonesia-qvision :global(figure){max-width:360px;margin:auto}.indonesia-qvision blockquote{font-size:1rem}}
+</style>

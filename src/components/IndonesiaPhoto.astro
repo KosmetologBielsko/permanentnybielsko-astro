@@ -1,0 +1,45 @@
+---
+interface Props {
+  photo: { src: string; thumb: string; alt: string; caption: string; width: number; height: number };
+  eager?: boolean;
+}
+const { photo, eager = false } = Astro.props;
+---
+<figure class="indonesia-photo">
+  <a href={photo.src} target="_blank" rel="noopener" data-indonesia-photo aria-label={`Powiększ zdjęcie: ${photo.alt}`}>
+    <img src={photo.thumb} srcset={`${photo.thumb} 640w, ${photo.src} 1280w`} sizes="(max-width:640px) 90vw, 540px" width={photo.width} height={photo.height} alt={photo.alt} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async" />
+  </a>
+  <figcaption>{photo.caption}</figcaption>
+</figure>
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-indonesia-photo]');
+  if (links.length) {
+    const dialog = document.createElement('dialog');
+    dialog.className = 'indonesia-lightbox';
+    dialog.setAttribute('aria-label', 'Zdjęcie z PMU Indonesia Festival');
+    const close = document.createElement('button');
+    close.type = 'button'; close.textContent = 'Zamknij ×';
+    const image = document.createElement('img');
+    dialog.append(close, image); document.body.append(dialog);
+    close.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    let opener: HTMLAnchorElement | null = null;
+    dialog.addEventListener('close', () => { opener?.focus(); });
+    links.forEach(link => link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault(); opener = link;
+      image.src = link.href; image.alt = link.querySelector('img')?.alt || '';
+      dialog.showModal();
+    }));
+  }
+</script>
+<style>
+  .indonesia-photo{margin:0;min-width:0}.indonesia-photo a{display:block;cursor:zoom-in;border-radius:22px}
+  .indonesia-photo img{display:block;width:100%;height:auto;border-radius:22px}
+  .indonesia-photo figcaption{margin-top:12px;font-size:.78rem;line-height:1.6;color:#625958}
+  a:focus-visible{outline:3px solid #126b65;outline-offset:4px}
+  :global(.indonesia-lightbox){border:0;padding:16px;border-radius:20px;max-width:95vw;max-height:95dvh;background:#fff;color:#292323}
+  :global(.indonesia-lightbox::backdrop){background:#000b}
+  :global(.indonesia-lightbox img){max-width:85vw;max-height:78dvh;object-fit:contain;display:block;margin:auto}
+  :global(.indonesia-lightbox button){display:block;margin:0 0 12px auto;min-height:44px;padding:8px 16px;border:1px solid #bfd6d0;border-radius:12px;color:#126b65;background:#fff;font:inherit;cursor:pointer}
+</style>
