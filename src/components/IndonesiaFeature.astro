@@ -1,40 +1,70 @@
 ---
 import IndonesiaVideo from './IndonesiaVideo.astro';
 import IndonesiaPhoto from './IndonesiaPhoto.astro';
+import IndonesiaMemories from './IndonesiaMemories.astro';
 import photos from '../data/indonesia-photos.json';
 const article = '/poradnik/boguslawa-herda-pmu-indonesia-jakarta-2026/';
 ---
 <div class="indonesia-intro">
-  <div>
+  <div class="indonesia-heading">
     <p class="pmu-home-kicker">04 / Doświadczenie międzynarodowe</p>
     <h2 id="home-swiat">Z Bielska-Białej<br />na międzynarodową scenę PMU.</h2>
     <span class="indonesia-badge">Indonezja · relacja z wydarzenia</span>
-    <h3>Bogusława Herda w jury<br />PMU Indonesia Festival 2026.</h3>
-    <p>W październiku uczestniczyłam w festiwalu jako jurorka. Praca przy ocenie realizacji, spotkania ze specjalistami z różnych krajów i rozmowy o pięknie — to doświadczenia, które zostają ze mną po powrocie.</p>
-    <p>Szczególnie zapamiętałam prace wykonane metodą włoskową. Ich poziom naprawdę mnie zachwycił.</p>
-    <div class="indonesia-actions"><a class="pmu-home-primary" href={article}>Zobacz relację z Indonezji →</a><a class="pmu-home-secondary" href="/poradnik/wydarzenia/">Wszystkie wydarzenia →</a></div>
   </div>
-  <IndonesiaVideo />
+  <div class="indonesia-copy">
+    <h3>Bogusława Herda w jury PMU Indonesia Festival 2026.</h3>
+    <p>Praca w jury, zachwycające realizacje włoskowe i spotkania z ludźmi z różnych stron świata. Z Indonezji przywożę inspiracje, nowe znajomości i wspomnienia, którymi chcę się z Tobą podzielić.</p>
+  </div>
+  <div class="indonesia-media"><IndonesiaVideo /></div>
+  <div class="indonesia-actions"><a class="pmu-home-primary" href={article}>Zobacz relację z Indonezji →</a><a class="indonesia-all-events" href="/poradnik/wydarzenia/">Wszystkie wydarzenia →</a></div>
 </div>
 <div class="indonesia-qvision">
   <IndonesiaPhoto photo={photos[1]} />
   <div>
     <p class="pmu-home-kicker">Ludzie, wiedza i wspólna pasja</p>
-    <h3>Spotkanie z właścicielami<br />QVISION Academy.</h3>
+    <h3>Spotkanie z właścicielami QVISION Academy.</h3>
     <p>Jedno z ważnych wspomnień z Indonezji. Takie spotkania pozwalają poznać różne szkoły pracy i ludzi, którzy rozwijają makijaż permanentny w innych częściach świata.</p>
     <blockquote>„Nigdy wcześniej nie widziałam tak wielu pięknych prac naraz.”</blockquote>
     <p class="indonesia-attribution">Bogusława Herda · o pracach włoskowych oglądanych podczas festiwalu</p>
     <a class="pmu-home-text-link indonesia-more" href={article}>Zdjęcia, film i moje wspomnienia →</a>
   </div>
 </div>
+<div class="indonesia-moments">
+  <div class="indonesia-moments-heading"><div><p class="pmu-home-kicker">Chwile, które zostają</p><h3>Poza sceną. Blisko ludzi.</h3></div><a class="indonesia-all-events" href={`${article}#galeria`}>Cała galeria →</a></div>
+  <p class="indonesia-swipe-hint">Przesuń zdjęcia, aby zobaczyć kolejne →</p>
+  <IndonesiaMemories compact />
+</div>
 <style>
-  .indonesia-intro{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:64px;align-items:center}
-  .indonesia-intro p+p{margin-top:16px}.indonesia-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-  .indonesia-badge{display:inline-block;background:var(--home-mint);border:1px solid #d4e7e2;border-radius:8px;padding:5px 10px;color:var(--home-teal);font-size:12px;font-weight:700;margin-bottom:18px}
-  .indonesia-qvision{border-top:1px solid var(--home-line);margin-top:40px;padding-top:32px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:48px;align-items:center}
-  .indonesia-qvision h3{font-size:clamp(1.5rem,2.7vw,2rem)}
+  .indonesia-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);grid-template-areas:'heading media' 'copy media' 'actions media';gap:20px 64px;align-items:start}
+  .indonesia-heading{grid-area:heading}.indonesia-copy{grid-area:copy}.indonesia-media{grid-area:media;align-self:center;width:100%}
+  .indonesia-actions{grid-area:actions;display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px}
+  .indonesia-all-events{display:inline-flex;align-items:center;min-height:44px;padding:8px 0;color:#126b65;font-size:.9rem;font-weight:650;text-decoration:none}
+  .indonesia-all-events:hover{text-decoration:underline}.indonesia-all-events:focus-visible{outline:2px solid #126b65;outline-offset:4px}
+  .indonesia-badge{display:inline-block;background:var(--home-mint);border:1px solid #d4e7e2;border-radius:8px;padding:5px 10px;color:var(--home-teal);font-size:12px;font-weight:700}
+  .indonesia-qvision{border-top:1px solid var(--home-line);margin-top:40px;padding-top:32px;display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:48px;align-items:center}
+  .indonesia-qvision h3{font-size:clamp(1.4rem,2.7vw,2rem)}
   .indonesia-qvision blockquote{border-left:2px solid #bfd6d0;padding-left:22px;font-size:1.14rem;line-height:1.65;margin:24px 0 16px;color:var(--home-ink)}
   .indonesia-attribution{font-size:.8rem}.indonesia-more{justify-content:start!important;text-align:left!important;margin-top:12px}
+  .indonesia-moments{margin-top:36px;padding-top:28px;border-top:1px solid var(--home-line)}
+  .indonesia-moments-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+  .indonesia-swipe-hint{display:none}
   :global(.pmu-home .indonesia-history){margin-top:30px;padding-top:24px;border-top:1px solid var(--home-line)}
-  @media(max-width:760px){.indonesia-intro{grid-template-columns:1fr;gap:24px}.indonesia-intro :global(.indonesia-video){max-width:300px;justify-self:center}.indonesia-actions a{width:100%}.indonesia-qvision{grid-template-columns:1fr;gap:24px;margin-top:28px}.indonesia-qvision :global(figure){max-width:360px;margin:auto}.indonesia-qvision blockquote{font-size:1rem}}
+  @media(min-width:641px) and (max-width:1099px) and (orientation:portrait){
+    .indonesia-intro{grid-template-areas:'heading heading' 'copy media' 'actions media';grid-template-columns:minmax(0,1fr) minmax(230px,.8fr);gap:24px 32px}
+    .indonesia-heading{max-width:650px}.indonesia-media{align-self:start}
+    .indonesia-qvision{grid-template-columns:minmax(220px,.85fr) 1fr;gap:28px}
+  }
+  @media(min-width:641px) and (max-width:1099px) and (orientation:landscape){
+    .indonesia-intro{grid-template-columns:1fr minmax(240px,.65fr);column-gap:32px}
+  }
+  @media(max-width:640px){
+    .indonesia-intro{grid-template-columns:1fr;grid-template-areas:'heading' 'copy' 'media' 'actions';gap:22px}
+    .indonesia-media{max-width:360px;justify-self:center}
+    .indonesia-actions{flex-direction:column;align-items:stretch;gap:2px}.indonesia-actions a{justify-content:center}
+    .indonesia-qvision{grid-template-columns:1fr;gap:22px;margin-top:30px;padding-top:28px}
+    .indonesia-qvision>div{grid-row:1}.indonesia-qvision :global(figure){width:100%;max-width:360px;justify-self:center}
+    .indonesia-qvision blockquote{font-size:1rem;margin:18px 0 12px}
+    .indonesia-moments-heading{display:block;margin-bottom:8px}.indonesia-moments-heading a{padding-top:0}
+    .indonesia-swipe-hint{display:block;font-size:.78rem;color:#625958;margin-bottom:14px!important}
+  }
 </style>

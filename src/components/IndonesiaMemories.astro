@@ -1,0 +1,31 @@
+---
+import IndonesiaPhoto from './IndonesiaPhoto.astro';
+import memories from '../data/indonesia-memories.json';
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+const selected = compact ? [memories[0], memories[4], memories[3]] : memories;
+---
+<div class:list={['indonesia-memories', { 'is-compact': compact }]}>
+  {selected.map(photo => <IndonesiaPhoto photo={photo} />)}
+</div>
+<style>
+  .indonesia-memories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px;align-items:start}
+  .indonesia-memories :global(.indonesia-photo){margin:0!important}
+  .indonesia-memories :global(.indonesia-photo img){aspect-ratio:3/4;object-fit:contain}
+  @media(min-width:1100px){
+    .indonesia-memories:not(.is-compact){grid-template-columns:repeat(6,minmax(0,1fr));align-items:center}
+    .indonesia-memories:not(.is-compact) :global(.indonesia-photo:nth-child(1)){grid-column:1/3;grid-row:1/3}
+    .indonesia-memories:not(.is-compact) :global(.indonesia-photo:nth-child(6)){grid-column:5/7;grid-row:1/3}
+  }
+  @media(min-width:641px) and (max-width:1099px){
+    .indonesia-memories:not(.is-compact){grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+    .is-compact{grid-template-columns:1.2fr .8fr 1.2fr;gap:18px;align-items:center}
+  }
+  @media(max-width:640px){
+    .indonesia-memories{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}
+    .indonesia-memories:not(.is-compact) :global(.indonesia-photo:nth-child(1)),.indonesia-memories:not(.is-compact) :global(.indonesia-photo:nth-child(6)){grid-column:1/-1}
+    .is-compact{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 12px;scrollbar-width:thin;scrollbar-color:#b7cfca #f2f6f4}
+    .is-compact :global(.indonesia-photo){flex:0 0 76%;scroll-snap-align:start}
+    .indonesia-memories :global(.indonesia-photo img){border-radius:16px}
+  }
+</style>

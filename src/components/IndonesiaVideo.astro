@@ -1,31 +1,56 @@
 <figure class="indonesia-video">
   <div class="indonesia-video-frame">
-    <video controls playsinline preload="none" poster="/images/pmu-indonesia-2026/film-poster.webp" width="720" height="1280" aria-label="Film z PMU Indonesia Festival 2026, bez dźwięku">
+    <video controls playsinline preload="none" poster="/images/pmu-indonesia-2026/portret-przypinki-640.webp" width="720" height="1280" aria-label="Film z PMU Indonesia Festival 2026, bez dźwięku">
       <source src="/video/pmu-indonesia-2026-32s.mp4" type="video/mp4" />
       <a href="/video/pmu-indonesia-2026-32s.mp4">Pobierz film z festiwalu</a>
     </video>
-    <button type="button" hidden aria-label="Odtwórz film z Indonezji">▶ &nbsp; Zobacz film</button>
+    <button class="indonesia-video-cover" type="button" hidden aria-label="Odtwórz film z PMU Indonesia Festival, 32 sekundy, bez dźwięku">
+      <img src="/images/pmu-indonesia-2026/portret-przypinki-640.webp" width="1152" height="1536" alt="" loading="lazy" decoding="async" />
+      <span class="indonesia-video-label"><span class="indonesia-play-icon" aria-hidden="true">▶</span><span>Zobacz film<small>32 sekundy · bez dźwięku</small></span></span>
+    </button>
   </div>
-  <figcaption>PMU Indonesia 2026 · 32 sekundy · bez dźwięku</figcaption>
+  <figcaption>Wspomnienia z PMU Indonesia 2026</figcaption>
+  <p class="indonesia-video-error" role="status" hidden>Nie udało się odtworzyć filmu. <a href="/video/pmu-indonesia-2026-32s.mp4">Otwórz nagranie bezpośrednio →</a></p>
 </figure>
 <script>
   document.querySelectorAll<HTMLElement>('.indonesia-video-frame').forEach(frame => {
     const video = frame.querySelector('video')!;
-    const button = frame.querySelector('button')!;
+    const button = frame.querySelector<HTMLButtonElement>('.indonesia-video-cover')!;
+    const error = frame.parentElement!.querySelector<HTMLElement>('.indonesia-video-error')!;
+    // Keep native controls without JS; show only the opaque cover before playback.
+    video.controls = false;
+    video.tabIndex = -1;
+    frame.classList.add('has-cover');
     button.hidden = false;
-    button.addEventListener('click', () => {
+    const reveal = () => {
+      frame.classList.remove('has-cover');
       button.hidden = true;
-      video.play().catch(() => { button.hidden = false; });
+      video.controls = true;
+      video.tabIndex = 0;
+    };
+    button.addEventListener('click', () => {
+      error.hidden = true;
+      reveal();
+      video.focus({ preventScroll: true });
+      video.play().catch(() => { error.hidden = false; });
     });
-    video.addEventListener('play', () => { button.hidden = true; });
-    video.addEventListener('ended', () => { button.hidden = false; });
+    video.addEventListener('play', reveal);
+    video.addEventListener('error', () => { error.hidden = false; });
   });
 </script>
 <style>
   .indonesia-video{margin:0;width:100%;min-width:0}
-  .indonesia-video-frame{position:relative;aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:#151a1a}
-  video{display:block;width:100%;height:100%;object-fit:contain}
-  button{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid #ffffffa0;background:#ffffffed;color:#126b65;border-radius:100px;min-height:56px;padding:14px 22px;font:inherit;font-weight:750;white-space:nowrap;cursor:pointer;box-shadow:0 6px 24px #0003}
-  button[hidden]{display:none}button:focus-visible{outline:3px solid #126b65;outline-offset:4px}
+  .indonesia-video-frame{position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:#151a1a;isolation:isolate}
+  .indonesia-video-frame video{display:block;width:100%;height:100%;object-fit:contain}
+  .has-cover video{visibility:hidden}
+  .indonesia-video-cover{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;border-radius:inherit;background:#151a1a;color:#fff;text-align:left;font:inherit;cursor:pointer}
+  .indonesia-video-frame .indonesia-video-cover img{display:block;width:100%;height:100%;object-fit:cover;border-radius:0}
+  .indonesia-video-cover::after{content:'';position:absolute;inset:55% 0 0;background:linear-gradient(transparent,#000b);pointer-events:none}
+  .indonesia-video-label{position:absolute;z-index:1;inset:auto 20px 22px;display:flex;align-items:center;gap:12px;font-size:17px;line-height:1.35;font-weight:700}
+  .indonesia-play-icon{display:grid;place-items:center;flex:0 0 46px;height:46px;border:1px solid #fff9;border-radius:50%;background:#fff;color:#126b65;font-size:16px;padding-left:2px}
+  .indonesia-video-label small{display:block;margin-top:3px;font-size:12px;font-weight:400;color:#ffffffe6}
+  .indonesia-video-cover[hidden],.indonesia-video-error[hidden]{display:none}
+  .indonesia-video-cover:focus-visible{outline:3px solid white;outline-offset:-6px}
   figcaption{font-size:12px;margin-top:10px;text-align:center;color:#625958;line-height:1.6}
+  .indonesia-video-error{font-size:14px;line-height:1.5;margin-top:12px}
 </style>
