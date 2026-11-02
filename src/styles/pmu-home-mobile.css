@@ -72,9 +72,14 @@
   .pmu-home .pmu-editorial-panel h2 { margin:0 0 18px; color:#fff; font-size:clamp(2.1rem,8.6vw,3.5rem); line-height:1.08; letter-spacing:-.045em; text-wrap:initial; }
   .pmu-home .pmu-editorial-panel .pmu-editorial-description { margin:0 0 24px; color:#f1f5f3; font-size:.96rem; line-height:1.6; }
   .pmu-home .pmu-editorial-action { width:100%; max-width:470px; justify-content:space-between; min-height:52px; padding:14px 18px; border-radius:10px; font-size:.9rem; }
-  .pmu-home .pmu-editorial-facts { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:30px var(--home-gutter); background:#fbf7f6; }
-  .pmu-home .pmu-editorial-facts dt { color:var(--home-teal); font-size:2rem; font-weight:700; letter-spacing:-.04em; line-height:1.2; }
-  .pmu-home .pmu-editorial-facts dd { margin-top:7px; color:var(--home-muted); font-size:.8rem; }
+  .pmu-home .pmu-editorial-pause { padding:64px var(--home-gutter) 60px; background:#fff; color:var(--home-ink); }
+  .pmu-home .pmu-editorial-pause-copy { max-width:38ch; }
+  .pmu-home .pmu-editorial-pause .pmu-home-kicker { margin-bottom:18px; font-size:.67rem; letter-spacing:.13em; }
+  .pmu-home .pmu-editorial-pause h3 { margin:0 0 22px; font-size:clamp(1.9rem,6.4vw,2.4rem); line-height:1.15; letter-spacing:-.035em; }
+  .pmu-home .pmu-editorial-pause-text { color:var(--home-muted); font-size:1rem; line-height:1.75; }
+  .pmu-home .pmu-editorial-facts { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:36px; padding-top:28px; border-top:1px solid var(--home-line); }
+  .pmu-home .pmu-editorial-facts dt { color:var(--home-teal); font-size:1.65rem; font-weight:700; letter-spacing:-.04em; line-height:1.2; }
+  .pmu-home .pmu-editorial-facts dd { margin-top:7px; color:var(--home-muted); font-size:.8rem; line-height:1.5; }
 
   .pmu-home .pmu-home-world { padding-top:0; border:0; margin-top:0; }
   .pmu-home .pmu-home-world > .indonesia-history { display:none; }
@@ -103,6 +108,9 @@
   .pmu-home .pmu-home-hero-photo img { object-position:center 35%; }
   .pmu-home .pmu-editorial-portrait { min-height:1000px; }
   .pmu-home .pmu-editorial-portrait .pmu-editorial-image { object-position:center 32%; }
+  .pmu-home .pmu-editorial-pause { padding-top:80px; padding-bottom:76px; }
+  .pmu-home .pmu-editorial-pause-copy { max-width:44ch; }
+  .pmu-home .pmu-editorial-pause-text { font-size:1.1rem; }
   .pmu-home .pmu-editorial-stage { min-height:1100px; padding-top:44px; padding-bottom:44px; }
   .pmu-home .pmu-home-mobile-trust a { font-size:.95rem; }
   .pmu-home .pmu-home-hero .pmu-home-lead { font-size:1.15rem; }
