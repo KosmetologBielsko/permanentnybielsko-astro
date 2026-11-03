@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets';
+import teamImage from '../assets/home-13/long-time-liner-zespol.webp';
+import HomeTrainingFilm from './HomeTrainingFilm.astro';
+---
+<div class="pmu-mobile-only pmu-editorial-education">
+  <Image class="pmu-education-cover" src={teamImage} alt="Bogusława Herda z zespołem Long-Time-Liner podczas wydarzenia PMU" width={1080} widths={[360,540,800,1080]} sizes="(max-width:1024px) 100vw, 1px" format="webp" quality={85} loading="lazy" decoding="async" />
+  <div class="pmu-education-cover-copy">
+    <p class="pmu-home-kicker">Szkolenia PMU · Long-Time-Liner®</p>
+    <h2>Ucz się PMU.<br />Rozwijaj swój styl.</h2>
+    <p>Od pierwszych kroków po Masterclass i Silky Hairstroke Brows. Poznaj mój sposób pracy i wybierz szkolenie dla siebie.</p>
+    <HomeTrainingFilm />
+    <a class="pmu-home-primary pmu-editorial-action" href="/szkolenie-makijaz-permanentny/">Poznaj szkolenia PMU <span aria-hidden="true">→</span></a>
+  </div>
+</div>

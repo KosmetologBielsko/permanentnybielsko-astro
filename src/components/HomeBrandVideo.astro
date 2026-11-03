@@ -1,15 +1,19 @@
+---
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
 <figure class="home-brand-video" data-home-brand-video>
   <video controls playsinline preload="none" poster="/video/powrot-do-natury-okladka-kwiaty.webp" width="1280" height="720" aria-label="Powrót do natury w praktyce — film Bogusława Herda">
     <source src="/video/boguslawa-herda-pmu-home-video-light.mp4" media="(max-width: 640px)" type="video/mp4" />
     <source src="/video/boguslawa-herda-pmu-home-video.mp4" type="video/mp4" />
     Twoja przeglądarka nie obsługuje filmu. <a href="/video/boguslawa-herda-pmu-home-video.mp4">Otwórz film</a>.
   </video>
-  <figcaption><span>Bogusława Herda · Powrót do natury · 22 sekundy</span><button type="button" data-home-video-fullscreen hidden>Pełny ekran <span aria-hidden="true">↗</span></button></figcaption>
+  <figcaption><span>{compact ? "Powrót do natury · film" : "Bogusława Herda · Powrót do natury · 22 sekundy"}</span><button type="button" data-home-video-fullscreen hidden>Pełny ekran <span aria-hidden="true">↗</span></button></figcaption>
   <p class="home-video-status" role="status" aria-live="polite" hidden></p>
 </figure>
 
 <script>
-  const wrapper = document.querySelector<HTMLElement>('[data-home-brand-video]');
+  document.querySelectorAll<HTMLElement>('[data-home-brand-video]').forEach(wrapper => {
   const video = wrapper?.querySelector('video') as (HTMLVideoElement & { webkitEnterFullscreen?: () => void }) | null;
   const button = wrapper?.querySelector<HTMLButtonElement>('[data-home-video-fullscreen]');
   const status = wrapper?.querySelector<HTMLElement>('[role="status"]');
@@ -25,6 +29,7 @@
       }
     });
   }
+  });
 </script>
 
 <style>

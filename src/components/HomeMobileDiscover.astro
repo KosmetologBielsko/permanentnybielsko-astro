@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import media from '../data/pmu-media-library.json';
+import missionPortrait from '../assets/home-13/sercem-malowane.webp';
+const photos = [
+  { image:media.usta[8], label:'Usta permanentne', detail:'Kolor i kontur', href:'/galeria/#galeria-usta' },
+  { image:media.silky[5], label:'Silky Hairstroke Brows', detail:'Włos maszynowy', href:'/galeria/#galeria-silky' },
+  { image:media.cien[0], label:'Brwi metodą cienia', detail:'Miękkie wypełnienie', href:'/galeria/#galeria-brwi' },
+  { image:media.oczy[3], label:'Kreski permanentne', detail:'Podkreślenie spojrzenia', href:'/galeria/#galeria-kreski' },
+];
+---
+<div class="pmu-mobile-only pmu-mobile-discover">
+  <section class="pmu-mobile-guide" aria-labelledby="home-mobile-guide-title">
+    <p class="pmu-home-kicker">Poradnik PMU</p>
+    <h2 id="home-mobile-guide-title">Dobre pytania.<br />Konkretne odpowiedzi.</h2>
+    <p>Przygotowanie, gojenie i wybór zabiegu. Poznaj szczegóły przed wizytą.</p>
+    <div class="pmu-mobile-guide-links">
+      <a href="/poradnik/jak-goja-sie-brwi-permanentne/"><span><small>Brwi</small><strong>Jak wygląda gojenie?</strong></span><span aria-hidden="true">↗</span></a>
+      <a href="/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/"><span><small>Usta</small><strong>Gojenie dzień po dniu</strong></span><span aria-hidden="true">↗</span></a>
+      <a href="/poradnik/kreska-permanentna-cena/"><span><small>Oczy</small><strong>Ile kosztuje kreska permanentna?</strong></span><span aria-hidden="true">↗</span></a>
+    </div>
+    <a class="pmu-mobile-text-action" href="/poradnik/">Przejdź do poradnika <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="pmu-mobile-gallery" id="galeria-home" aria-labelledby="home-mobile-gallery-title" data-home-gallery>
+    <div class="pmu-mobile-gallery-heading"><p class="pmu-home-kicker">Galeria moich prac</p><h2 id="home-mobile-gallery-title">Zobacz detal.<br />Znajdź swój efekt.</h2><p>Przesuń zdjęcia i wybierz swój kierunek.</p></div>
+    <div class="pmu-mobile-gallery-track" tabindex="0" role="region" aria-label="Zdjęcia prac — przewijaj w poziomie" data-home-gallery-track>
+      {photos.map(photo => <figure><a href={photo.href} aria-label={`Zobacz więcej: ${photo.label}`}><img src={photo.image.thumb} srcset={photo.image.srcset} sizes="(max-width:640px) 82vw, 460px" width={photo.image.width} height={photo.image.height} alt={`${photo.label} — ${photo.detail}`} loading="lazy" decoding="async" /><div class="pmu-mobile-gallery-caption"><span>{photo.detail}</span><strong>{photo.label}</strong><span class="pmu-gallery-photo-link">Więcej zdjęć <span aria-hidden="true">↗</span></span></div></a></figure>)}
+    </div>
+    <div class="pmu-mobile-gallery-footer"><a class="pmu-mobile-text-action" href="/galeria/">Cała galeria <span aria-hidden="true">→</span></a><div class="pmu-gallery-controls" hidden data-home-gallery-controls><button type="button" data-gallery-prev aria-label="Poprzednie zdjęcie">←</button><span data-gallery-position aria-live="polite">1 / 4</span><button type="button" data-gallery-next aria-label="Następne zdjęcie">→</button></div></div>
+  </section>
+
+  <section class="pmu-mobile-mission" aria-labelledby="home-mobile-mission-title">
+    <Image src={missionPortrait} alt="Bogusława Herda z wyróżnieniem Ambasador Serca w projekcie SercemMalowane" width={900} widths={[360,540,900]} sizes="(max-width:1024px) 100vw, 1px" format="webp" quality={85} loading="lazy" decoding="async" />
+    <div class="pmu-mobile-mission-copy"><p class="pmu-home-kicker">#SercemMalowane · Ambasador Serca</p><h2 id="home-mobile-mission-title">Czasem chodzi<br />o coś więcej<br />niż makijaż.</h2><p>Utrata brwi, zmiany po leczeniu czy rozszczep wargi mogą wpływać na to, jak czujemy się ze swoją twarzą. W projekcie #SercemMalowane łączę doświadczenie z historią drugiej osoby.</p><a class="pmu-home-primary pmu-editorial-action" href="/sercemmalowane/">Poznaj Sercem Malowane <span aria-hidden="true">→</span></a></div>
+  </section>
+</div>
+<script>
+  const gallery = document.querySelector('[data-home-gallery]');
+  const track = gallery?.querySelector<HTMLElement>('[data-home-gallery-track]');
+  const controls = gallery?.querySelector<HTMLElement>('[data-home-gallery-controls]');
+  const prev = gallery?.querySelector<HTMLButtonElement>('[data-gallery-prev]');
+  const next = gallery?.querySelector<HTMLButtonElement>('[data-gallery-next]');
+  const position = gallery?.querySelector<HTMLElement>('[data-gallery-position]');
+  if (track && controls && prev && next && position) {
+    const slides = [...track.querySelectorAll('figure')];
+    const stops = () => {
+      const max = Math.max(0, track.scrollWidth - track.clientWidth);
+      return [...new Set(slides.map(slide => Math.min(max, slide.offsetLeft - slides[0].offsetLeft)))];
+    };
+    const current = (points: number[]) => points.reduce((best, left, i) => Math.abs(left - track.scrollLeft) < Math.abs(points[best] - track.scrollLeft) ? i : best, 0);
+    const update = () => { const points = stops(); const i = current(points); prev.disabled = i === 0; next.disabled = i === points.length - 1; position.textContent = `${next.disabled ? slides.length : i + 1} / ${slides.length}`; };
+    const move = (delta: number) => {
+      const points = stops();
+      const i = Math.max(0, Math.min(points.length - 1, current(points) + delta));
+      track.scrollTo({ left: points[i], behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    };
+    controls.hidden = false;
+    prev.addEventListener('click', () => move(-1)); next.addEventListener('click', () => move(1));
+    track.addEventListener('scroll', update, { passive:true });
+    new ResizeObserver(update).observe(track);
+    update();
+  }
+</script>

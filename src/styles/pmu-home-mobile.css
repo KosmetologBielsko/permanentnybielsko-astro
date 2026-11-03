@@ -10,14 +10,15 @@
   .pmu-home .pmu-desktop-only { display:none; }
   .pmu-home .pmu-home-hero,
   .pmu-home .pmu-editorial-expert,
-  .pmu-home .pmu-editorial-festival {
+  .pmu-home .pmu-editorial-festival,
+  .pmu-home .pmu-editorial-education {
     width:calc(100% + 2 * var(--home-gutter)); margin-inline:calc(-1 * var(--home-gutter));
   }
 
   /* A single photograph, headline and actions, with space reserved above the text for the face. */
   .pmu-home .pmu-home-hero {
     position:relative; isolation:isolate; display:flex; flex-direction:column; justify-content:flex-end;
-    min-height:780px; min-height:max(780px,100svh); gap:21px; padding:430px var(--home-gutter) 30px;
+    min-height:0; min-height:100svh; gap:16px; padding:110px var(--home-gutter) max(24px,env(safe-area-inset-bottom));
     background:#29251f; color:#fff;
   }
   .pmu-home .pmu-home-hero::after {
@@ -95,7 +96,9 @@
   .pmu-home .pmu-editorial-followup { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:0 16px; padding:24px var(--home-gutter) 28px; background:#fff; font-size:.8rem; }
   .pmu-home .pmu-editorial-followup > span { color:var(--home-muted); }
   .pmu-home .pmu-editorial-followup a { display:inline-flex; align-items:center; gap:12px; min-height:44px; color:var(--home-teal); font-weight:700; }
-  .pmu-home .pmu-home-education { margin-top:0; padding-top:32px; }
+  .pmu-home .pmu-home-education { display:block; margin-top:0; padding-top:0; border:0; }
+  .pmu-home .pmu-home-education > :not(.pmu-editorial-education) { display:none; }
+  .pmu-home .pmu-editorial-education { background:#fff; }
   .pmu-home .pmu-home-mobile-cosmetology { padding-top:18px; margin-top:20px; border-top:1px solid var(--home-line); }
   .pmu-home .pmu-home-mobile-cosmetology a { display:inline-flex; align-items:center; gap:10px; min-height:44px; font-size:.85rem; }
   .pmu-home .pmu-editorial-panel :is(a,button):focus-visible,
@@ -104,7 +107,7 @@
 
 @media (min-width:641px) and (max-width:1024px) and (orientation:portrait) {
   main.pmu-home { --home-gutter:40px; }
-  .pmu-home .pmu-home-hero { min-height:1050px; padding-top:610px; padding-bottom:44px; }
+  .pmu-home .pmu-home-hero { padding-top:130px; padding-bottom:max(32px,env(safe-area-inset-bottom)); }
   .pmu-home .pmu-home-hero-photo img { object-position:center 35%; }
   .pmu-home .pmu-editorial-portrait { min-height:1000px; }
   .pmu-home .pmu-editorial-portrait .pmu-editorial-image { object-position:center 32%; }
@@ -118,7 +121,7 @@
 
 @media (max-width:360px) {
   main.pmu-home { --home-gutter:20px; }
-  .pmu-home .pmu-home-hero { padding-top:390px; min-height:750px; }
+  .pmu-home .pmu-home-hero { padding-top:96px; }
   .pmu-home .pmu-home-hero-actions { gap:8px; }
   .pmu-home .pmu-home-hero-actions .pmu-home-primary,
   .pmu-home .pmu-home-hero-actions .pmu-home-mobile-effects { font-size:.8rem; }

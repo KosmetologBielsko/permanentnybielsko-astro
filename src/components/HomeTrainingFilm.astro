@@ -1,0 +1,35 @@
+---
+const src = '/video/szkolenia-pmu-boguslawa-herda-trener-long-time-liner.mp4';
+const poster = '/video/szkolenia-pmu-boguslawa-herda-trener-long-time-liner-poster.webp';
+---
+<div data-home-training-film>
+  <a class="pmu-editorial-film" href="/szkolenie-makijaz-permanentny/#praktyka-szkolenia" data-training-open><span class="pmu-editorial-play" aria-hidden="true">▶</span><span>Zobacz, jak uczę <small>Film o szkoleniach · 1 min 23 s</small></span></a>
+  <dialog class="pmu-festival-dialog pmu-training-dialog" aria-labelledby="home-training-film-title">
+    <div class="pmu-festival-dialog-header"><h2 id="home-training-film-title">Szkolenia PMU · Bogusława Herda</h2><button type="button" aria-label="Zamknij film o szkoleniach" data-training-close autofocus>×</button></div>
+    <video controls playsinline preload="none" poster={poster} width="960" height="540" aria-label="Film o szkoleniach PMU Bogusława Herda"><source src={src} type="video/mp4" /><a href={src}>Otwórz film</a></video>
+    <p class="pmu-festival-video-status" role="status" hidden>Użyj przycisku odtwarzania lub <a href={src}>otwórz film bezpośrednio →</a></p>
+  </dialog>
+</div>
+<script>
+  const wrapper = document.querySelector('[data-home-training-film]');
+  const trigger = wrapper?.querySelector<HTMLAnchorElement>('[data-training-open]');
+  const dialog = wrapper?.querySelector('dialog');
+  const video = dialog?.querySelector('video');
+  const status = dialog?.querySelector<HTMLElement>('[role="status"]');
+  if (trigger && dialog && video && status && typeof dialog.showModal === 'function') {
+    const close = () => { video.pause(); dialog.close(); };
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    trigger.addEventListener('click', event => { event.preventDefault(); status.hidden = true; dialog.showModal(); video.play().catch(() => { status.hidden = false; }); });
+    dialog.querySelector('[data-training-close]')?.addEventListener('click', close);
+    dialog.addEventListener('cancel', () => video.pause());
+    dialog.addEventListener('close', () => video.pause());
+    dialog.addEventListener('click', event => {
+      if (event.target !== dialog) return;
+      const b = dialog.getBoundingClientRect();
+      if (event.clientX < b.left || event.clientX > b.right || event.clientY < b.top || event.clientY > b.bottom) close();
+    });
+    video.addEventListener('error', () => { status.hidden = false; });
+    const mobile = window.matchMedia('(max-width:640px), (max-width:1024px) and (orientation:portrait)');
+    mobile.addEventListener('change', () => { if (!mobile.matches && dialog.open) close(); });
+  }
+</script>

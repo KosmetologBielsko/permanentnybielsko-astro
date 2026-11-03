@@ -1,26 +1,31 @@
 ---
 import { Image } from 'astro:assets';
 import portrait from '../assets/o-mnie/boguslawa-herda-portret-czarno-bialy.webp';
+import { siteConfig } from '../config/site';
 ---
 <div class="pmu-mobile-only pmu-editorial-expert">
   <div class="pmu-editorial-panel pmu-editorial-portrait">
     <Image class="pmu-editorial-image" src={portrait} alt="Czarno-biały portret Bogusława Herda" width={800} widths={[360,540,800]} sizes="(max-width:1024px) 100vw, 1px" format="webp" quality={85} loading="lazy" decoding="async" />
     <div class="pmu-editorial-content">
       <p class="pmu-home-kicker">Bogusława Herda · Poznaj mnie</p>
-      <h2>Doświadczenie.<br />I uważność<br />na Ciebie.</h2>
+      <h2>Doświadczenie.<br />Mistrzowska<br />precyzja.</h2>
       <p class="pmu-editorial-description">Wicemistrzyni świata PMU.<br />Ponad 10 lat pracy z naturalnym pięknem.</p>
       <a class="pmu-home-primary pmu-editorial-action" href="/o-mnie/">Poznaj moją historię <span aria-hidden="true">→</span></a>
     </div>
   </div>
   <div class="pmu-editorial-pause">
-    <div class="pmu-editorial-pause-copy">
-      <p class="pmu-home-kicker">W gabinecie</p>
-      <h3>Najpierw Ty.<br />Potem makijaż.</h3>
-      <p class="pmu-editorial-pause-text">Zanim wybierzemy technikę i kolor, rozmawiamy o tym, jaki efekt chcesz uzyskać. Projekt dopasowuję do rysów twarzy, skóry i Twoich oczekiwań.</p>
-    </div>
-    <dl class="pmu-editorial-facts">
+    <p class="pmu-home-kicker">Bogusława Herda · kwalifikacje</p>
+    <h3>Wiedza. Praktyka.<br />Potwierdzone osiągnięcia.</h3>
+    <dl class="pmu-expert-numbers">
       <div><dt>8×</dt><dd>Mistrzyni PMU</dd></div>
-      <div><dt>10+ lat</dt><dd>Praktyki gabinetowej</dd></div>
+      <div><dt>10+ lat</dt><dd>Praktyki</dd></div>
+      <div><dt>5.0</dt><dd>Ocena Booksy</dd></div>
     </dl>
+    <div class="pmu-expert-credentials">
+      <a href="/o-mnie/#wyksztalcenie"><span>Wykształcenie</span><h4>Kosmetologia i trener linergista</h4><p>Studia podyplomowe, w tym kosmetologia zaawansowana i przygotowanie do prowadzenia szkoleń.</p><span class="pmu-credential-link">Poznaj wykształcenie →</span></a>
+      <a href="/o-mnie/#droga"><span>Long-Time-Liner®</span><h4>Europejski trener marki</h4><p>Moja droga zawodowa to współpraca z zespołem Long-Time-Liner® i nauka pod okiem mentorki — Magdy Bogulak.</p><span class="pmu-credential-link">Poznaj moją drogę →</span></a>
+      <a href="/o-mnie/#mistrzostwa"><span>Monachium · 2023</span><h4>Wicemistrzyni świata PMU</h4><p>Drugie miejsce World PMU Industry Convention.</p><span class="pmu-credential-link">Zobacz osiągnięcia →</span></a>
+    </div>
+    <a class="pmu-expert-reviews" href={siteConfig.booksyUrl} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">★★★★★</span><strong>Prawie 1300 opinii na Booksy</strong><span>Przeczytaj, co mówią klientki ↗</span></a>
   </div>
 </div>

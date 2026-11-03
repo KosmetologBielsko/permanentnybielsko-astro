@@ -1,4 +1,5 @@
 ---
+import HomeEditorialEvents from './HomeEditorialEvents.astro';
 const article = '/poradnik/boguslawa-herda-pmu-indonesia-jakarta-2026/';
 const poster = '/images/pmu-indonesia-2026/boguslawa-herda-prezentacja-jury.jpg';
 ---
@@ -16,6 +17,7 @@ const poster = '/images/pmu-indonesia-2026/boguslawa-herda-prezentacja-jury.jpg'
     </div>
   </div>
   <div class="pmu-editorial-followup"><span>Spotkania. Inspiracje. Wspólna pasja.</span><a href={`${article}#galeria`}>Zdjęcia z festiwalu <span aria-hidden="true">→</span></a></div>
+  <HomeEditorialEvents />
   <dialog class="pmu-festival-dialog" aria-labelledby="pmu-festival-dialog-title" data-home-festival-dialog>
     <div class="pmu-festival-dialog-header"><h2 id="pmu-festival-dialog-title">PMU Indonesia 2026</h2><button type="button" data-home-festival-close aria-label="Zamknij film" autofocus>×</button></div>
     <video controls playsinline preload="none" poster={poster} width="720" height="1280" aria-label="Bogusława Herda podczas PMU Indonesia Festival — film z oryginalnym dźwiękiem">

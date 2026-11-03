@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import { aboutMedia } from '../data/about-media';
+import budapest from '../../public/images/doswiadczenie-budapeszt.webp';
+const events = [
+  { city:'Ankara', role:'Pokaz Silky · 2025', text:'Prezentacja techniki Silky podczas warsztatów Long-Time-Liner® dla linergistek z Turcji.', image:aboutMedia.ankara },
+  { city:'Lyon', role:'Międzynarodowe jury · 2026', text:'Jurorka kategorii Hairstroke podczas New Generation Congress & Competition we Francji.', image:aboutMedia.lyon },
+  { city:'Monachium', role:'Wicemistrzostwo świata · Masterclass', text:'Wicemistrzostwo świata PMU w 2023 roku, a w 2024 — prezentacja Silky podczas międzynarodowego Masterclass Long-Time-Liner®.', image:aboutMedia.world },
+  { city:'Düsseldorf', role:'Warsztaty i prelekcje · 2022', text:'Pokazy Nude Lips i Silky Hairstroke Brows podczas warsztatów M. Bellmann Academy.', image:aboutMedia.dusseldorf },
+  { city:'Budapeszt', role:'Warsztaty i prelekcje PMU', text:'Spotkania z branżą PMU, warsztaty i dzielenie się doświadczeniem na Węgrzech.', image:{src:budapest,alt:'Bogusława Herda — wydarzenie PMU w Budapeszcie'} },
+];
+---
+<section class="pmu-mobile-events" aria-labelledby="home-events-title">
+  <p class="pmu-home-kicker">Jury · pokazy · warsztaty</p>
+  <h3 id="home-events-title">Moja międzynarodowa<br />droga PMU.</h3>
+  <p class="pmu-events-intro">Rozwiń miasto i zobacz kolejne osiągnięcia.</p>
+  <div class="pmu-events-list">{events.map(event => <details name="home-events"><summary><span><strong>{event.city}</strong><small>{event.role}</small></span><span class="pmu-event-toggle" aria-hidden="true">+</span></summary><div class="pmu-event-body"><p>{event.text}</p><Image src={event.image.src} alt={event.image.alt} width={700} widths={[360,540,700]} sizes="(max-width:640px) calc(100vw - 48px), 650px" format="webp" quality={82} loading="lazy" decoding="async" /></div></details>)}</div>
+  <a class="pmu-mobile-text-action" href="/o-mnie/#droga">Poznaj całą moją historię <span aria-hidden="true">→</span></a>
+</section>
