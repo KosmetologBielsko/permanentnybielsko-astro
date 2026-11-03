@@ -97,7 +97,10 @@
   .pmu-home .pmu-mobile-mission-copy h2 { font-size:clamp(2rem,8vw,3.3rem); line-height:1.12; text-wrap:initial; }
   .pmu-home .pmu-mobile-mission-copy > p:not(.pmu-home-kicker) { max-width:46ch; margin-bottom:26px; font-size:.96rem; }
 
-  .pmu-home .pmu-home-booking { display:block; margin-top:0; padding:64px 0 44px; border:0; border-radius:0; background:#fff; }
+  .pmu-home .pmu-home-booking { display:block; margin-top:0; padding:0 0 44px; border:0; border-radius:0; background:#fff; }
+  .pmu-home .pmu-booking-portrait { position:relative; width:calc(100% + 2 * var(--home-gutter)); margin:0 calc(-1 * var(--home-gutter)) 30px; }
+  .pmu-home .pmu-booking-portrait img { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:center; }
+  .pmu-home .pmu-booking-portrait::after { content:""; position:absolute; inset:72% 0 0; background:linear-gradient(180deg,#fff0,#fff); pointer-events:none; }
   .pmu-home .pmu-home-booking h2 { margin:0 0 24px; font-size:clamp(2.6rem,10.5vw,4.8rem); line-height:1.06; letter-spacing:-.05em; text-wrap:initial; }
   .pmu-home .pmu-home-booking h2 em { color:var(--home-teal); font-style:normal; }
   .pmu-home .pmu-home-booking .pmu-home-kicker { margin-bottom:22px; font-size:.67rem; letter-spacing:.12em; }
@@ -124,7 +127,9 @@
   .pmu-home .pmu-education-cover-copy { margin-top:-80px; padding-top:112px; padding-bottom:48px; background:linear-gradient(180deg,transparent,#142724 80px); }
   .pmu-home .pmu-mobile-guide { padding-block:80px; }
   .pmu-home .pmu-mobile-mission-copy { padding-top:52px; padding-bottom:60px; }
-  .pmu-home .pmu-home-booking { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:36px; align-items:start; padding-top:80px; padding-bottom:56px; }
+  .pmu-home .pmu-home-booking { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:36px; align-items:start; padding-top:0; padding-bottom:56px; }
+  .pmu-home .pmu-booking-portrait { grid-column:1/-1; margin-bottom:0; }
+  .pmu-home .pmu-booking-portrait img { aspect-ratio:6/5; max-height:720px; object-position:center 25%; }
   .pmu-home .pmu-home-booking h2 { font-size:clamp(2.6rem,5.6vw,3.7rem); }
   .pmu-home .pmu-home-booking-actions { margin-top:0; }
   .pmu-home .pmu-booking-phone strong { font-size:clamp(1.7rem,3.7vw,2.4rem); }
