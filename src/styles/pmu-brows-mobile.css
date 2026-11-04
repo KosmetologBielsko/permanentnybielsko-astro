@@ -97,3 +97,43 @@ main.pmu-landing.pmu-brows h1 > .brows-desktop { color:inherit; }
  main.pmu-landing.pmu-brows .pmu-brows-hero h1 { font-size:32px; }
  main.pmu-landing.pmu-brows .pmu-brows-hero-price, main.pmu-landing.pmu-brows .pmu-brows-hero-actions .pmu-landing-text-link { display:none; }
 }
+/* Photo stories replace the long mobile information sequence. */
+@media (max-width:640px), (max-width:1024px) and (orientation:portrait) {
+ main.pmu-landing.pmu-brows :is(.brows-intro-note,.pmu-brows-choice,#metody-brwi > .pmu-landing-section-heading,#metody-brwi > .pmu-landing-more,#efekty-brwi,#cena-brwi,#proces-brwi,#doswiadczenie-brwi) { display:none; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-photo { height:100%; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-photo .brows-long-portrait { object-position:50% 18%; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero::after { background:linear-gradient(180deg,transparent 28%,rgb(20 44 37 / 38%) 43%,rgb(20 44 37 / 86%) 69%,#142c25 100%); }
+ main.pmu-landing.pmu-brows #metody-brwi { padding:0; }
+ main.pmu-landing.pmu-brows .brows-methods-intro { padding:38px var(--brow-space); }
+ main.pmu-landing.pmu-brows .brows-methods-intro h2 { margin-bottom:12px; }
+ main.pmu-landing.pmu-brows .pmu-brows-method { padding:0; }
+ main.pmu-landing.pmu-brows .brows-story-cover { position:relative; isolation:isolate; height:clamp(490px,105vw,760px); background:#20382d; }
+ main.pmu-landing.pmu-brows .brows-story-cover > img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 35%; }
+ main.pmu-landing.pmu-brows .brows-story-cover::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 43%,rgb(14 31 23 / 20%) 58%,rgb(14 31 23 / 90%) 100%); }
+ main.pmu-landing.pmu-brows .brows-story-overlay { position:absolute; z-index:1; bottom:28px; left:var(--brow-space); right:var(--brow-space); max-width:640px; }
+ main.pmu-landing.pmu-brows .brows-story-overlay > p { color:#f2eadb; font-size:12px; margin:0 0 10px; }
+ main.pmu-landing.pmu-brows .brows-story-overlay h3 { color:#fff; font-size:clamp(34px,7vw,56px); letter-spacing:-.04em; line-height:1.05; margin:0 0 20px; }
+ main.pmu-landing.pmu-brows .brows-story-overlay a { color:#fff; justify-content:space-between; margin:0; }
+ main.pmu-landing.pmu-brows .brows-story-description { padding:26px var(--brow-space) 20px; }
+ main.pmu-landing.pmu-brows .brows-story-description > p { max-width:640px; margin:0; }
+ main.pmu-landing.pmu-brows .brows-story-description > a { display:flex; align-items:center; gap:18px; min-height:48px; font-size:24px; font-weight:700; margin-top:12px; }
+ main.pmu-landing.pmu-brows .brows-story-description > a span { font-size:12px; font-weight:500; }
+ main.pmu-landing.pmu-brows .brows-carousel { padding:16px 0 40px; }
+ main.pmu-landing.pmu-brows .brows-carousel-top { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:0 var(--brow-space) 18px; }
+ main.pmu-landing.pmu-brows .brows-carousel-top .pmu-landing-kicker { font-size:9px; margin-bottom:7px; }
+ main.pmu-landing.pmu-brows .brows-carousel-top h4 { font-size:21px; line-height:1.2; letter-spacing:-.025em; margin:0; }
+ main.pmu-landing.pmu-brows .brows-carousel-controls { display:flex; gap:6px; flex-shrink:0; }
+ main.pmu-landing.pmu-brows .brows-carousel-controls button { width:44px; height:44px; background:white; border:1px solid #cedbd4; border-radius:50%; color:#126b65; font-size:22px; cursor:pointer; }
+ main.pmu-landing.pmu-brows .brows-carousel-controls button:disabled { opacity:.35; cursor:default; }
+ main.pmu-landing.pmu-brows .brows-carousel-rail { display:flex; gap:14px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-inline:var(--brow-space); padding:0 var(--brow-space) 12px; scrollbar-width:thin; scrollbar-color:#126b65 #edf1ee; }
+ main.pmu-landing.pmu-brows .brows-carousel-rail > a { display:block; position:relative; flex:0 0 min(78vw,380px); scroll-snap-align:start; }
+ main.pmu-landing.pmu-brows .brows-carousel-rail img { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:contain; }
+ main.pmu-landing.pmu-brows .brows-carousel-rail a > span { position:absolute; bottom:12px; right:12px; background:#fff; color:#173a2f; padding:7px 10px; font-size:11px; }
+ main.pmu-landing.pmu-brows .brows-carousel-hint { margin:12px var(--brow-space) 0; font-size:11px; color:#686b67; }
+ main.pmu-landing.pmu-brows .brows-methods-footnote { padding:0 var(--brow-space) 32px; font-size:12px; line-height:1.8; }
+ main.pmu-landing.pmu-brows .pmu-landing-callout { padding-block:30px; }
+ main.pmu-landing.pmu-brows .pmu-landing-callout h2 { font-size:30px; }
+ main.pmu-landing.pmu-brows .pmu-landing-callout p { font-size:14px; }
+ main.pmu-landing.pmu-brows .pmu-landing-faq { padding-block:34px; }
+ main.pmu-landing.pmu-brows .pmu-landing-faq h2 { font-size:30px; }
+}

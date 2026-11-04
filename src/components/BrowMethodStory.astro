@@ -1,0 +1,33 @@
+---
+import media from '../data/pmu-media-library.json';
+const { kind, booksyUrl } = Astro.props;
+const silky = kind === 'silky';
+const cover = silky ? media.silky[3] : media.cien[5];
+const photos = silky ? [media.silky[4],media.silky[6],media.silky[1]] : [media.cien[2],media.cien[4],media.cien[5]];
+const label = silky ? 'Silky · włos maszynowy' : 'Brwi metodą cienia';
+const galleryId = silky ? 'brows-silky-rail' : 'brows-shade-rail';
+---
+<div class="brows-mobile brows-story" data-brows-story>
+  <div class="brows-story-cover">
+    <img src={cover.thumb} srcset={cover.srcset} sizes="(max-width:1024px) 100vw, 1px" width={cover.width} height={cover.height} alt={silky ? 'Brwi Silky wykonane metodą włosa maszynowego' : 'Brwi pudrowe wykonane metodą cienia'} loading="lazy" decoding="async" />
+    <div class="brows-story-overlay"><p>{silky ? 'Silky Hairstroke Brows' : 'Metoda cienia'}</p><h3>{silky ? 'Delikatne włoski.' : 'Miękki, pudrowy efekt.'}</h3><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">{silky ? 'Umów brwi Silky' : 'Umów brwi pudrowe'} <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <div class="brows-story-description"><p>{silky ? 'Pigmentowane linie przypominają pojedyncze włoski. Uzupełniają brwi i nadają im lekką strukturę.' : 'Delikatny cień wypełnia brwi kolorem. Podkreśla kształt i daje efekt miękkiego makijażu.'}</p><a href="/cennik-makijaz-permanentny/#price-group-1">{silky ? '1400 zł' : '1200 zł'} <span>Cena i szczegóły ↗</span></a></div>
+  <section class="brows-carousel" data-pmu-gallery-section data-media-label={label} data-service-href={silky ? '/galeria/#galeria-silky' : '/galeria/#galeria-brwi'} data-service-label="Zobacz wszystkie prace" aria-label={`Realizacje: ${label}`}>
+    <div class="brows-carousel-top"><div><p class="pmu-landing-kicker">Prace gabinetu</p><h4>{silky ? 'Zobacz włoski z bliska.' : 'Odkryj różne odcienie.'}</h4></div><div class="brows-carousel-controls"><button type="button" data-brows-prev aria-controls={galleryId} aria-label={`Poprzednie zdjęcie — ${label}`}>←</button><button type="button" data-brows-next aria-controls={galleryId} aria-label={`Następne zdjęcie — ${label}`}>→</button></div></div>
+    <div class="brows-carousel-rail" id={galleryId} tabindex="0" role="region" aria-label={`Przesuwana galeria — ${label}`}>
+      {photos.map((photo,index)=><a href={photo.src} target="_blank" rel="noopener" data-pmu-photo data-media-alt={`${label} — realizacja ${index+1}`} data-media-caption={label} aria-label={`Powiększ: ${label}, zdjęcie ${index+1}`}><img src={photo.thumb} srcset={photo.srcset} sizes="(max-width:640px) 78vw, 380px" width={photo.width} height={photo.height} alt={`${label} — realizacja ${index+1}`} loading="lazy" decoding="async" /><span aria-hidden="true">{String(index+1).padStart(2,'0')} / 03 ↗</span></a>)}
+    </div>
+    <p class="brows-carousel-hint">Przesuń zdjęcia · dotknij, aby powiększyć</p>
+  </section>
+</div>
+<script>
+ document.querySelectorAll<HTMLElement>('[data-brows-story]').forEach(story=>{
+  const rail=story.querySelector<HTMLElement>('.brows-carousel-rail');
+  if(!rail)return;
+  const buttons=[story.querySelector<HTMLButtonElement>('[data-brows-prev]'),story.querySelector<HTMLButtonElement>('[data-brows-next]')];
+  const update=()=>{if(buttons[0])buttons[0].disabled=rail.scrollLeft<4;if(buttons[1])buttons[1].disabled=rail.scrollLeft+rail.clientWidth>=rail.scrollWidth-4;};
+  buttons.forEach((button,i)=>button?.addEventListener('click',()=>{const slide=rail.querySelector('a');rail.scrollBy({left:(i?1:-1)*((slide?.getBoundingClientRect().width||rail.clientWidth)+14),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}));
+  rail.addEventListener('scroll',update,{passive:true});new ResizeObserver(update).observe(rail);update();
+ });
+</script>
