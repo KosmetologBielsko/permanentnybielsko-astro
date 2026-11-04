@@ -815,6 +815,12 @@ const starters = [
       z-index: 10000 !important;
     }
   }
+  /* Mobile pages use explicit in-content assistant links instead of a floating button. */
+  @media (max-width: 640px), (max-width: 1024px) and (orientation: portrait) {
+    .pmu-assistant:not(.is-open) {
+      display: none;
+    }
+  }
 </style>
 
 <script is:inline>

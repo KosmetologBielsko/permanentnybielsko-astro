@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import { aboutMedia as photo } from "../data/about-media";
+const credentials = [
+  { title: "Trener linergista", label: "Studia podyplomowe · PMU", text: "Ukończyłam studia podyplomowe Trener linergista. Łączą wiedzę o pigmentacji z przygotowaniem do prowadzenia szkoleń — od rysunku i analizy koloru po fizjologię skóry i warsztat trenerski.", image: photo.trainerDegree },
+  { title: "Kosmetologia", label: "Studia podyplomowe", text: "Wiedza o skórze jest podstawą mojej pracy. Pomaga mi dobierać zabiegi i rozmawiać z klientką o jej potrzebach oraz pielęgnacji.", image: photo.degree },
+  { title: "Kosmetologia zaawansowana", label: "Dalsze kształcenie", text: "Kolejny etap edukacji poszerzył moje spojrzenie na pracę ze skórą. W jednej z prac dyplomowych zajęłam się pigmentacją medyczną u osób z rozszczepem wargi i podniebienia.", image: photo.advanced },
+];
+---
+<div class="bphm-mobile-only bphm-credentials">
+  {credentials.map(item => <details class="bphm-credential">
+    <summary><span><span class="bphm-credential-label">{item.label}</span><span class="bphm-credential-title">{item.title}</span></span><span class="bphm-toggle" aria-hidden="true">+</span></summary>
+    <div class="bphm-credential-body"><p>{item.text}</p><figure><Image src={item.image.src} alt={item.image.alt} width={800} widths={[400,800]} sizes="(max-width: 640px) calc(100vw - 48px), calc(100vw - 80px)" format="webp" quality={83} loading="lazy" decoding="async"/></figure></div>
+  </details>)}
+</div>
