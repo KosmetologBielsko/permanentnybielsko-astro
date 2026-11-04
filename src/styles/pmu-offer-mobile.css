@@ -42,9 +42,9 @@ main.pmu-landing.pmu-offer-editorial .pmu-offer-original-title > span { color: v
   main.pmu-landing.pmu-offer-editorial .pmu-offer-category-heading > span { color: var(--landing-teal); font-size: 13px; font-weight: 700; }
   main.pmu-landing.pmu-offer-editorial .pmu-offer-category-heading h3 { margin: 0; font-size: clamp(40px,11vw,72px); line-height: 1.05; letter-spacing: -.045em; }
   main.pmu-landing.pmu-offer-editorial .pmu-offer-category-heading h3 small { display: block; margin-top: 12px; color: var(--landing-muted); font-size: 15px; line-height: 1.5; letter-spacing: -.01em; font-weight: 400; }
-  main.pmu-landing.pmu-offer-editorial .pmu-landing-treatment-photo { border-radius: 0; }
+  main.pmu-landing.pmu-offer-editorial .pmu-landing-treatment-photo { width: calc(100% - 2 * var(--offer-gutter)); max-width: 640px; margin-inline: auto; border-radius: 0; }
   main.pmu-landing.pmu-offer-editorial .pmu-landing-treatment-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: center; }
-  main.pmu-landing.pmu-offer-editorial #usta-pmu .pmu-landing-treatment-photo img { aspect-ratio: 4/3; object-position: center 35%; }
+  main.pmu-landing.pmu-offer-editorial #usta-pmu .pmu-landing-treatment-photo img { aspect-ratio: 4/3; object-position: center 20%; }
   main.pmu-landing.pmu-offer-editorial #kreski-pmu .pmu-landing-treatment-photo img { aspect-ratio: 4/3; object-position: center 48%; }
   main.pmu-landing.pmu-offer-editorial .pmu-offer-category-copy { padding: 28px var(--offer-gutter) 36px; }
   main.pmu-landing.pmu-offer-editorial .pmu-offer-category-copy > p { margin-bottom: 24px; }
@@ -72,7 +72,7 @@ main.pmu-landing.pmu-offer-editorial .pmu-offer-original-title > span { color: v
   main.pmu-landing.pmu-offer-editorial .pmu-offer-reviews > a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; font-size: 13px; font-weight: 650; }
 
   main.pmu-landing.pmu-offer-editorial .pmu-landing-expert { display: block; margin: 0; padding: 56px 0 0; border: 0; background: #fff; }
-  main.pmu-landing.pmu-offer-editorial .pmu-offer-expert-cover { width: 100%; }
+  main.pmu-landing.pmu-offer-editorial .pmu-offer-expert-cover { width: calc(100% - 2 * var(--offer-gutter)); max-width: 640px; margin-inline: auto; }
   main.pmu-landing.pmu-offer-editorial .pmu-offer-expert-cover img { display: block; width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; object-position: center; }
   main.pmu-landing.pmu-offer-editorial .pmu-landing-expert > div { padding: 32px var(--offer-gutter) 40px; }
   main.pmu-landing.pmu-offer-editorial .pmu-landing-expert-photo,
@@ -120,9 +120,8 @@ main.pmu-landing.pmu-offer-editorial .pmu-offer-original-title > span { color: v
   main.pmu-landing.pmu-offer-editorial .pmu-offer-hero-lead { font-size: 20px; }
   main.pmu-landing.pmu-offer-editorial .pmu-offer-hero-byline { font-size: 14px; }
   main.pmu-landing.pmu-offer-editorial .pmu-landing-intro .pmu-landing-kicker { font-size: 12px; }
-  main.pmu-landing.pmu-offer-editorial .pmu-landing-treatment-photo img { max-height: 740px; }
   main.pmu-landing.pmu-offer-editorial .pmu-offer-category-copy > p { font-size: 18px; }
-  main.pmu-landing.pmu-offer-editorial .pmu-offer-expert-cover img { aspect-ratio: 1; max-height: 840px; }
+  main.pmu-landing.pmu-offer-editorial .pmu-offer-expert-cover img { aspect-ratio: 1; }
 }
 @media (max-width: 360px) {
   main.pmu-landing.pmu-offer-editorial { --offer-gutter: 20px; }
