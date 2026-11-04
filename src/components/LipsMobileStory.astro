@@ -1,0 +1,30 @@
+---
+import media from '../data/pmu-media-library.json';
+const { booksyUrl } = Astro.props;
+const cover = media.usta[6];
+const photos = [media.usta[25], media.usta[5], media.usta[10]];
+---
+<div class="lips-mobile lips-story">
+  <div class="lips-story-cover">
+    <img src={cover.thumb} srcset={cover.srcset} sizes="(max-width:640px) 100vw, 560px" width={cover.width} height={cover.height} alt="Zgaszony róż — pełny kontur ust, praca gabinetu" loading="lazy" decoding="async" />
+    <div class="lips-story-overlay"><p>Makijaż permanentny ust</p><h3>Kolor, który<br />podkreśla Ciebie.</h3><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów pigmentację ust <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <div class="lips-story-description"><p>Od delikatnego odświeżenia po mocniejsze nasycenie. Odcień i intensywność wybieramy razem, zachowując naturalną linię ust.</p><p class="lips-small-note">Pigmentacja podkreśla kolor i kontur — nie powiększa ust.</p></div>
+  <section class="lips-carousel" id="realizacje-ust" data-lips-carousel data-pmu-gallery-section data-media-label="Makijaż permanentny ust" data-service-href="/galeria/#galeria-usta" data-service-label="Zobacz wszystkie realizacje ust" aria-labelledby="lips-gallery-title">
+    <div class="lips-carousel-top"><div><p class="pmu-landing-kicker">Prace gabinetu</p><h3 id="lips-gallery-title">Zobacz różne odcienie.</h3></div><div class="lips-carousel-controls"><button type="button" data-lips-prev aria-controls="lips-photo-rail" aria-label="Poprzednie zdjęcie ust">←</button><button type="button" data-lips-next aria-controls="lips-photo-rail" aria-label="Następne zdjęcie ust">→</button></div></div>
+    <div class="lips-carousel-rail" id="lips-photo-rail" tabindex="0" role="region" aria-label="Przesuwana galeria ust">
+      {photos.map((photo,index)=><a href={photo.src} target="_blank" rel="noopener" data-pmu-photo data-media-alt={photo.alt} data-media-caption={photo.caption} aria-label={`Powiększ realizację ust ${index+1}`}><img src={photo.thumb} srcset={photo.srcset} sizes="(max-width:640px) 72vw, 340px" width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async" /><span aria-hidden="true">{String(index+1).padStart(2,'0')} / 03 ↗</span></a>)}
+    </div>
+    <div class="lips-carousel-footer"><p>Przesuń · dotknij, aby powiększyć</p><p>Świeży kolor może być mocniejszy. Efekt oceniamy po wygojeniu.</p><a href="/galeria/#galeria-usta">Więcej realizacji ust →</a></div>
+  </section>
+</div>
+<script>
+ document.querySelectorAll<HTMLElement>('[data-lips-carousel]').forEach(gallery=>{
+  const rail=gallery.querySelector<HTMLElement>('.lips-carousel-rail');
+  if(!rail)return;
+  const buttons=[gallery.querySelector<HTMLButtonElement>('[data-lips-prev]'),gallery.querySelector<HTMLButtonElement>('[data-lips-next]')];
+  const update=()=>{if(buttons[0])buttons[0].disabled=rail.scrollLeft<4;if(buttons[1])buttons[1].disabled=rail.scrollLeft+rail.clientWidth>=rail.scrollWidth-4;};
+  buttons.forEach((button,i)=>button?.addEventListener('click',()=>{const slide=rail.querySelector('a');rail.scrollBy({left:(i?1:-1)*((slide?.getBoundingClientRect().width||rail.clientWidth)+14),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}));
+  rail.addEventListener('scroll',update,{passive:true});new ResizeObserver(update).observe(rail);update();
+ });
+</script>

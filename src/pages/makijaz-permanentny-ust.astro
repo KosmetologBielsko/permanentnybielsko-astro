@@ -1,4 +1,5 @@
 ---
+import LipsMobileStory from "../components/LipsMobileStory.astro";
 import VisitLink from "../components/VisitLink.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
@@ -13,12 +14,14 @@ import "../styles/pmu-gallery.css";
 import "../styles/pmu-landing.css";
 import "../styles/pmu-brows.css";
 import "../styles/pmu-lips.css";
+import "../styles/pmu-lips-mobile.css";
 
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
 const pageUrl = "https://www.permanentnybielsko.com/makijaz-permanentny-ust/";
 const pageTitle = "Makijaż permanentny ust Bielsko-Biała | Usta permanentne 1400 zł";
 const pageDescription = "Makijaż permanentny ust Bielsko-Biała u Bogusławy Herda. Naturalne usta permanentne, dobór koloru, miękki kontur, efekty, gojenie i cena 1400 zł.";
 const heroPhoto = media.usta[10];
+const mobileHeroPhoto = media.usta[0];
 // Oryginalne prace z kategorii Usta. Nie przypisujemy niepotwierdzonego etapu wygojenia.
 const lipsPhotos = [
   { ...media.usta[6], alt: "Makijaż permanentny ust — zgaszony róż i kształt ust w zbliżeniu", caption: "Zgaszony róż — kształt i kolor." },
@@ -56,7 +59,7 @@ const structuredData = [
     name: pageTitle,
     description: pageDescription,
     inLanguage: "pl-PL",
-    dateModified: "2026-10-05",
+    dateModified: "2026-11-04",
     isPartOf: {
       "@id": "https://www.permanentnybielsko.com/#website",
     },
@@ -183,18 +186,19 @@ const structuredData = [
       <section class="pmu-landing-intro pmu-brows-hero" aria-labelledby="usta-tytul">
         <div>
           <p class="pmu-landing-kicker">Makijaż permanentny ust · Bielsko-Biała</p>
-          <h1 id="usta-tytul"><span>Makijaż permanentny ust</span>, który odświeża kolor bez efektu przerysowania.</h1>
+          <h1 id="usta-tytul"><span class="lips-desktop"><span>Makijaż permanentny ust</span>, który odświeża kolor bez efektu przerysowania.</span><span class="lips-mobile">Twoje usta.<br /><em>Twój kolor.</em></span></h1><p class="lips-mobile lips-hero-lead">Miękki kontur. Kolor dobrany do Ciebie.</p>
           <p class="pmu-landing-lead">Od delikatnego różu po wyraźniejsze podkreślenie. Dobieramy kolor do Twojej urody, a kontur do naturalnej linii ust. Zaczynamy od rozmowy i rysunku wstępnego.</p>
           <a class="pmu-landing-author" href="#doswiadczenie-ust"><Image src={authorPortrait} alt="" width={92} height={92} fit="cover" position="top" format="webp" quality={82} loading="eager" decoding="async" /><span><strong>Bogusława Herda</strong><span>Wicemistrzyni świata · trenerka PMU</span></span></a>
           <p class="pmu-lips-hero-price"><strong>1400 zł</strong><span>z korektą po wygojeniu, do 3 miesięcy</span></p>
-          <div class="pmu-brows-hero-actions"><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a><a class="pmu-landing-text-link" href="tel:+48730900125">Zadzwoń: 730 900 125</a></div>
+          <div class="pmu-brows-hero-actions"><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer"><span class="lips-desktop">Sprawdź terminy w Booksy</span><span class="lips-mobile">Umów pigmentację ust</span> <span aria-hidden="true">↗</span></a><a class="pmu-landing-text-link" href="tel:+48730900125">Zadzwoń: 730 900 125</a></div><a class="lips-mobile lips-scroll" href="#zakres-ust"><span aria-hidden="true">↓</span> Zobacz kolory i realizacje</a>
         </div>
-        <figure class="pmu-brows-hero-photo"><img src={heroPhoto.thumb} srcset={heroPhoto.srcset} sizes="(max-width:640px) calc(100vw - 36px), (max-width:900px) 520px, (max-width:1156px) calc((100vw - 92px) / 2.15), 495px" width={heroPhoto.width} height={heroPhoto.height} alt="Makijaż permanentny ust — różowy kolor i miękki kontur, praca gabinetu Bogusława Herda" loading="eager" fetchpriority="high" decoding="async" /><figcaption>Kolor dopasowany do ust. <span>Praca gabinetu Bogusława Herda.</span></figcaption></figure>
+        <figure class="pmu-brows-hero-photo"><picture><source media="(max-width:640px), (max-width:1024px) and (orientation:portrait)" srcset={mobileHeroPhoto.srcset} sizes="100vw" /><img src={heroPhoto.thumb} srcset={heroPhoto.srcset} sizes="(max-width:1024px) 100vw, (max-width:1156px) calc((100vw - 92px) / 2.15), 495px" width={heroPhoto.width} height={heroPhoto.height} alt="Makijaż permanentny ust — kolor i miękki kontur, praca gabinetu Bogusława Herda" loading="eager" fetchpriority="high" decoding="async" /></picture><figcaption>Kolor dopasowany do ust. <span>Praca gabinetu Bogusława Herda.</span></figcaption></figure>
       </section>
       <nav class="pmu-landing-nav" aria-label="Przejdź do wybranej części strony"><a href="#zakres-ust">Dobór efektu ↓</a><a href="#efekty-ust">Zdjęcia i film ↓</a><a href="#cena-ust">Cena i korekta ↓</a><a href="#doswiadczenie-ust">Doświadczenie ↓</a><a href="#pytania-ust">Pytania ↓</a></nav>
 
       <section class="pmu-landing-section" id="zakres-ust" aria-labelledby="zakres-tytul">
-        <div class="pmu-landing-section-heading"><p class="pmu-landing-kicker">01 / Twój kolor, Twoja intensywność</p><h2 id="zakres-tytul">Subtelne odświeżenie czy więcej koloru?</h2><p>Nie musisz znać nazwy techniki. Powiedz, jaki efekt lubisz na co dzień — lekki akcent czy wyraźniejsze podkreślenie ust.</p></div>
+        <div class="pmu-landing-section-heading"><p class="pmu-landing-kicker">Kolor · kontur · intensywność</p><h2 id="zakres-tytul"><span class="lips-desktop">Subtelne odświeżenie czy więcej koloru?</span><span class="lips-mobile">Subtelny róż<br />czy więcej koloru?</span></h2><p>Nie musisz znać nazwy techniki. Powiedz, jaki efekt lubisz na co dzień — lekki akcent czy wyraźniejsze podkreślenie ust.</p></div>
+        <LipsMobileStory booksyUrl={booksyUrl} />
         <div class="pmu-brows-methods">
           <article class="pmu-brows-method"><p class="pmu-landing-kicker">Natural Lips</p><h3>Delikatne odświeżenie</h3><p>Miękkie podkreślenie czerwieni wargowej i wyrównanie wrażenia koloru. Kierunek dla osoby, która chce zachować lekki, codzienny wygląd ust.</p><dl><div><dt>Co ustalamy?</dt><dd>Odcień wynikający z naturalnego koloru ust oraz delikatną intensywność po wygojeniu.</dd></div></dl><a href="#efekty-ust">Zobacz prace gabinetu <span aria-hidden="true">↓</span></a></article>
           <article class="pmu-brows-method pmu-brows-method-shade"><p class="pmu-landing-kicker">Pełniejsze nasycenie</p><h3>Wyraźniejsze podkreślenie</h3><p>Więcej koloru dla osoby, która lubi efekt zadbanej pomadki. Nasycenie dobieramy do urody i ust; kontur nadal powinien pozostać miękki.</p><dl><div><dt>Co ustalamy?</dt><dd>Zakres koloru i jego intensywność, uwzględniając wyjściową czerwień wargową oraz wcześniejszy pigment.</dd></div></dl><a href="/poradnik/makijaz-permanentny-ust-jak-wybrac-kolor/">Jak dobieramy kolor ust <span aria-hidden="true">→</span></a></article>
@@ -210,13 +214,14 @@ const structuredData = [
       </section>
 
       <section class="pmu-landing-section pmu-brows-price" id="cena-ust" data-analytics-price="lips" data-service-key="lips" aria-labelledby="cena-tytul">
+        <div class="lips-mobile lips-price-brief"><p class="pmu-landing-kicker">Cena zabiegu</p><h2>Usta permanentne.<br /><em>1400 zł.</em></h2><p>Konsultacja, projekt i pigmentacja. Korekta po wygojeniu w cenie — do 3 miesięcy od zabiegu.</p><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy ↗</a><a class="pmu-landing-text-link" href="/cennik-makijaz-permanentny/#price-group-3">Cennik i zasady korekt →</a></div>
         <div><p class="pmu-landing-kicker">03 / Cena i zakres</p><h2 id="cena-tytul">Makijaż permanentny ust<br /><span class="pmu-lips-amount">1400 zł</span></h2><p>Zabieg główny poprzedzony konsultacją, rysunkiem i doborem koloru. W Cenniku sprawdzisz także odświeżenia i pozostałe usługi.</p><div class="pmu-landing-links"><a href="/cennik-makijaz-permanentny/#price-group-3">Pełny cennik makijażu permanentnego ust →</a></div></div>
         <div><h3>Korekta jest w cenie.</h3><p>Zabieg główny oznaczony gwiazdką obejmuje korektę po wygojeniu, <strong>do 3 miesięcy od zabiegu głównego</strong>.</p><p class="pmu-brows-price-note">Późniejsze odświeżenie i poprawa pracy z innego gabinetu wymagają indywidualnej oceny oraz wyceny.</p><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a></div>
       </section>
 
       <section class="pmu-landing-section" id="proces-ust" aria-labelledby="proces-tytul"><div class="pmu-landing-section-heading"><p class="pmu-landing-kicker">04 / Od projektu do wygojenia</p><h2 id="proces-tytul">Najpierw plan. Potem pigmentacja.</h2></div><ol class="pmu-landing-steps">{steps.map((step,index) => <li><span aria-hidden="true">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol><div class="pmu-landing-links"><a href="/poradnik/makijaz-permanentny-ust-gojenie-dzien-po-dniu/">Jak goją się usta po zabiegu? →</a></div></section>
 
-      <section class="pmu-landing-callout" id="kwalifikacja-ust" aria-labelledby="kwalifikacja-tytul"><p class="pmu-landing-kicker">Przed wyborem terminu</p><h2 id="kwalifikacja-tytul">Masz stare PMU lub wątpliwości?</h2><p>Wcześniejszy pigment, zmieniony kontur czy niedawne powiększanie ust wymagają oceny przed rezerwacją. Zgłoś także skłonność do opryszczki. Najpierw ustalamy, czy możliwa jest nowa pigmentacja, korekta koloru, czy potrzebny będzie inny plan.</p><div class="pmu-landing-links"><a class="pmu-landing-secondary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Opisz swoją sytuację — formularz kwalifikacji →</a><a href="/usuwanie-makijazu-permanentnego/">Kiedy rozważyć usuwanie PMU →</a></div></section>
+      <section class="pmu-landing-callout" id="kwalifikacja-ust" aria-labelledby="kwalifikacja-tytul"><p class="pmu-landing-kicker">Przed wyborem terminu</p><h2 id="kwalifikacja-tytul"><span class="lips-desktop">Masz stare PMU lub wątpliwości?</span><span class="lips-mobile">Masz już pigmentację ust?</span></h2><p class="lips-mobile">Zacznij od krótkiej rozmowy. Ocenimy wcześniejszy kolor i ustalimy dalszy krok.</p><p class="lips-desktop">Wcześniejszy pigment, zmieniony kontur czy niedawne powiększanie ust wymagają oceny przed rezerwacją. Zgłoś także skłonność do opryszczki. Najpierw ustalamy, czy możliwa jest nowa pigmentacja, korekta koloru, czy potrzebny będzie inny plan.</p><div class="pmu-landing-links"><a class="pmu-landing-secondary" href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Opisz swoją sytuację →</a><a href="/usuwanie-makijazu-permanentnego/">Kiedy rozważyć usuwanie PMU →</a></div></section>
 
       <section class="pmu-landing-section pmu-landing-expert" id="doswiadczenie-ust" aria-labelledby="doswiadczenie-tytul"><figure class="pmu-landing-expert-photo"><Image src={expertPortrait} alt="Bogusława Herda — linergistka i trenerka makijażu permanentnego" width={720} widths={[240,360,540,720]} sizes="(max-width:640px) 200px, (max-width:900px) 280px, 340px" format="webp" quality={82} loading="lazy" decoding="async" /></figure><div><p class="pmu-landing-kicker">05 / Doświadczenie i uważny projekt</p><h2 id="doswiadczenie-tytul">Bogusława Herda</h2><p>Wicemistrzyni świata w makijażu permanentnym, europejski trener Long-Time-Liner® i kosmetolog z ponad 10-letnią praktyką gabinetową.</p><p class="pmu-brows-expert-note">W pigmentacji ust liczą się odcień wyjściowy, granica czerwieni wargowej oraz wygląd całej twarzy. Projekt ustalamy wspólnie, z myślą o efekcie po wygojeniu.</p><div class="pmu-landing-links"><a href="/makijaz-permanentny-bielsko/#boguslawa-herda">Poznaj doświadczenie i sposób pracy →</a></div></div></section>
 
