@@ -1,0 +1,99 @@
+/* Scoped above shared landing styles, including production chunk ordering. */
+main.pmu-landing.pmu-brows .brows-mobile { display:none; }
+@media (max-width:640px), (max-width:1024px) and (orientation:portrait) {
+ main.pmu-landing.pmu-brows { --brow-space:24px; padding:0; background:#fff; }
+ main.pmu-landing.pmu-brows .pmu-landing-shell { width:100%; }
+ main.pmu-landing.pmu-brows .brows-mobile { display:block; }
+ main.pmu-landing.pmu-brows :is(.brows-desktop,.pmu-landing-breadcrumbs,.pmu-landing-nav,.pmu-landing-author,.pmu-landing-lead,.guide-assistant,.visit-link) { display:none; }
+ main.pmu-landing.pmu-brows [id] { scroll-margin-top:100px; }
+ main.pmu-landing.pmu-brows p { font-size:16px; line-height:1.65; }
+ main.pmu-landing.pmu-brows h2 { font-size:clamp(32px,7.5vw,52px); line-height:1.12; letter-spacing:-.04em; margin-bottom:20px; }
+ main.pmu-landing.pmu-brows .pmu-landing-kicker { font-size:10px; line-height:1.6; letter-spacing:.1em; margin-bottom:14px; }
+ main.pmu-landing.pmu-brows :is(.pmu-landing-primary,.pmu-landing-secondary) { display:flex; justify-content:center; align-items:center; min-height:54px; padding:15px 18px; border-radius:10px; font-size:14px; line-height:1.4; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero { position:relative; isolation:isolate; display:flex; align-items:flex-end; min-height:100svh; padding:320px var(--brow-space) 28px; background:#142c25; gap:0; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero > div { width:100%; z-index:2; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-photo { position:absolute; inset:0 0 auto; width:100%; max-width:none; height:74%; margin:0; z-index:-2; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-photo img { width:100%; height:100%; aspect-ratio:auto; object-fit:cover; object-position:center 40%; border-radius:0; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-photo figcaption { display:none; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,transparent 25%,rgb(20 44 37 / 15%) 38%,#142c25 72%); }
+ main.pmu-landing.pmu-brows .pmu-brows-hero h1 { font-size:clamp(40px,10vw,70px); line-height:1.03; letter-spacing:-.045em; color:#fff; margin:0 0 16px; text-wrap:initial; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero h1 span { color:inherit; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero em { color:#eee4cd; font-style:normal; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero .pmu-landing-kicker { color:#ede9dd; }
+ main.pmu-landing.pmu-brows .brows-hero-lead { color:#f4f3ee; font-size:15px; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-price { margin-top:18px; color:#fff; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-price strong { color:#fff; font-size:17px; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-price span { display:none; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-actions { display:grid; grid-template-columns:1fr; gap:8px; margin-top:20px; max-width:640px; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-actions .pmu-landing-text-link { color:#fff; font-size:13px; min-height:36px; text-align:center; }
+ main.pmu-landing.pmu-brows .brows-scroll { display:flex; align-items:center; gap:10px; width:fit-content; min-height:44px; color:#e9e7db; font-size:12px; margin-top:6px; }
+ main.pmu-landing.pmu-brows .brows-scroll span { font-size:24px; }
+ main.pmu-landing.pmu-brows :is(.pmu-landing-section,.brows-intro-note) { padding:48px var(--brow-space); margin:0; }
+ main.pmu-landing.pmu-brows .brows-intro-note { border-bottom:1px solid #e4e9e6; }
+ main.pmu-landing.pmu-brows #metody-brwi { padding-top:44px; }
+ main.pmu-landing.pmu-brows .pmu-landing-section-heading { margin-bottom:30px; max-width:640px; }
+ main.pmu-landing.pmu-brows .pmu-brows-methods { display:block; }
+ main.pmu-landing.pmu-brows .pmu-brows-method { display:block; padding:24px 0 42px; border:0; border-radius:0; background:#fff; }
+ main.pmu-landing.pmu-brows .pmu-brows-method > :not(.brows-mobile) { display:none; }
+ main.pmu-landing.pmu-brows .brows-method-editorial h3 { font-size:clamp(36px,9vw,62px); line-height:1.08; letter-spacing:-.04em; margin-bottom:24px; }
+ main.pmu-landing.pmu-brows .brows-method-editorial figure { max-width:640px; margin:0 auto 26px; }
+ main.pmu-landing.pmu-brows .brows-method-editorial img { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:contain; }
+ main.pmu-landing.pmu-brows .brows-method-editorial figcaption { font-size:11px; margin-top:10px; color:#6c6b67; }
+ main.pmu-landing.pmu-brows .brows-method-editorial > p:not(.pmu-landing-kicker) { max-width:640px; }
+ main.pmu-landing.pmu-brows .brows-method-price { display:flex; align-items:center; justify-content:space-between; border-top:1px solid #e1e5e2; padding:20px 0; margin-top:24px; font-size:13px; }
+ main.pmu-landing.pmu-brows .brows-method-price strong { color:#126b65; font-size:26px; }
+ main.pmu-landing.pmu-brows .brows-method-editorial > a { margin-top:0; color:#fff; }
+ main.pmu-landing.pmu-brows .pmu-brows-choice { padding:28px 0; border:0; border-top:1px solid #e4e9e6; background:none; }
+ main.pmu-landing.pmu-brows .pmu-brows-choice > :not(.brows-mobile) { display:none; }
+ main.pmu-landing.pmu-brows .pmu-brows-choice h3 { font-size:30px; line-height:1.15; margin-bottom:16px; }
+ main.pmu-landing.pmu-brows .pmu-brows-choice a { display:inline-flex; align-items:center; min-height:48px; font-size:14px; margin-top:12px; font-weight:700; }
+ main.pmu-landing.pmu-brows #efekty-brwi { padding-top:0; padding-bottom:32px; }
+ main.pmu-landing.pmu-brows #efekty-brwi > .pmu-landing-section-heading, main.pmu-landing.pmu-brows .pmu-brows-gallery-groups { display:none; }
+ main.pmu-landing.pmu-brows .pmu-landing-more { border-radius:0; border:0; border-block:1px solid #e4e9e6; background:#fff; }
+ main.pmu-landing.pmu-brows .pmu-landing-more summary { font-size:15px; padding:20px 0; }
+ main.pmu-landing.pmu-brows .pmu-landing-more p { font-size:14px; }
+ main.pmu-landing.pmu-brows .pmu-brows-price { display:block; border:0; border-block:1px solid #e4e9e6; border-radius:0; background:#fff; }
+ main.pmu-landing.pmu-brows .pmu-brows-price-list { margin-top:26px; }
+ main.pmu-landing.pmu-brows .pmu-brows-price-note { font-size:12px; line-height:1.6; }
+ main.pmu-landing.pmu-brows .pmu-landing-steps { display:block; padding:0; }
+ main.pmu-landing.pmu-brows .pmu-landing-steps li { display:grid; grid-template-columns:24px 1fr; gap:8px 14px; padding:22px 0; border:0; border-bottom:1px solid #e4e9e6; border-radius:0; background:#fff; }
+ main.pmu-landing.pmu-brows .pmu-landing-steps h3 { font-size:20px; }
+ main.pmu-landing.pmu-brows .pmu-landing-steps p { grid-column:2; font-size:14px; }
+ main.pmu-landing.pmu-brows .pmu-landing-callout { display:block; padding:40px var(--brow-space); margin:0; border:0; border-block:1px solid #e4e9e6; border-radius:0; background:#fff; }
+ main.pmu-landing.pmu-brows .pmu-landing-callout .pmu-landing-links { display:grid; gap:12px; }
+ main.pmu-landing.pmu-brows .pmu-landing-expert { display:block; border:0; background:#fff; }
+ main.pmu-landing.pmu-brows .pmu-landing-expert-photo, main.pmu-landing.pmu-brows .pmu-landing-expert > div > p:not(.brows-mobile):not(.pmu-landing-kicker) { display:none; }
+ main.pmu-landing.pmu-brows .brows-credentials { list-style:none; padding:0; margin:24px 0; }
+ main.pmu-landing.pmu-brows .brows-credentials li { padding:18px 0; border-bottom:1px solid #e4e9e6; }
+ main.pmu-landing.pmu-brows .brows-credentials strong { display:block; font-size:23px; color:#126b65; }
+ main.pmu-landing.pmu-brows .brows-credentials span { display:block; margin-top:5px; font-size:13px; }
+ main.pmu-landing.pmu-brows .pmu-landing-faq { margin:0; padding:36px var(--brow-space); }
+ main.pmu-landing.pmu-brows .pmu-landing-faq summary { font-size:16px; padding:20px 0; }
+ main.pmu-landing.pmu-brows .pmu-landing-faq p { font-size:14px; }
+ main.pmu-landing.pmu-brows .pmu-brows-guides { display:block; }
+ main.pmu-landing.pmu-brows .pmu-brows-guides a { display:block; padding:22px 0; border:0; border-bottom:1px solid #e4e9e6; border-radius:0; background:#fff; }
+ main.pmu-landing.pmu-brows .pmu-brows-guides a p { display:none; }
+ main.pmu-landing.pmu-brows .pmu-brows-guides h3 { font-size:22px; }
+ main.pmu-landing.pmu-brows .pmu-landing-booking { display:block; padding:48px var(--brow-space); margin:0; border:0; border-radius:0; background:#142c25; }
+ main.pmu-landing.pmu-brows .pmu-landing-booking h2 { color:#fff; }
+ main.pmu-landing.pmu-brows .pmu-landing-booking p { color:#e7e8df; }
+ main.pmu-landing.pmu-brows .pmu-landing-booking-actions { margin-top:28px; }
+ main.pmu-landing.pmu-brows .pmu-landing-booking .pmu-landing-text-link { color:#fff; }
+}
+@media (min-width:641px) and (max-width:1024px) and (orientation:portrait) {
+ main.pmu-landing.pmu-brows { --brow-space:40px; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero { padding-top:420px; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero > div { max-width:740px; }
+ main.pmu-landing.pmu-brows .brows-method-editorial figure { max-width:560px; }
+}
+@media (max-height:720px) and (max-width:640px) {
+ main.pmu-landing.pmu-brows .pmu-brows-hero { padding-top:240px; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero h1 { font-size:36px; }
+}
+
+main.pmu-landing.pmu-brows h1 > .brows-desktop { color:inherit; }
+@media (max-height:720px) and (max-width:640px) {
+ main.pmu-landing.pmu-brows .pmu-brows-hero { padding-top:160px; padding-bottom:20px; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero h1 { font-size:32px; }
+ main.pmu-landing.pmu-brows .pmu-brows-hero-price, main.pmu-landing.pmu-brows .pmu-brows-hero-actions .pmu-landing-text-link { display:none; }
+}
