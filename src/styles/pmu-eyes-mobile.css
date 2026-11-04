@@ -1,0 +1,104 @@
+/* Mobile and portrait tablet only. Specificity protects the editorial layout
+   against shared landing styles extracted later in the production build. */
+main.pmu-landing.pmu-eyes .eyes-mobile { display:none; }
+main.pmu-landing.pmu-eyes h1 > .eyes-desktop { color:inherit; }
+@media (max-width:640px), (max-width:1024px) and (orientation:portrait) {
+ main.pmu-landing.pmu-eyes { --eye-space:24px; padding:0; background:white; }
+ main.pmu-landing.pmu-eyes .pmu-landing-shell { width:100%; }
+ main.pmu-landing.pmu-eyes .eyes-mobile { display:block; }
+ main.pmu-landing.pmu-eyes :is(.eyes-desktop,.pmu-landing-breadcrumbs,.pmu-landing-nav,.pmu-landing-author,.pmu-landing-lead,.guide-assistant,.visit-link,#proces-kreski,#doswiadczenie-kreski,[aria-labelledby="poradniki-tytul"],#zakres-kresek > .pmu-brows-methods,#naturalny-efekt-kreski) { display:none; }
+ main.pmu-landing.pmu-eyes [id] { scroll-margin-top:105px; }
+ main.pmu-landing.pmu-eyes p { font-size:16px; line-height:1.65; }
+ main.pmu-landing.pmu-eyes h2 { font-size:clamp(32px,7.5vw,52px); line-height:1.1; letter-spacing:-.04em; margin:0 0 18px; }
+ main.pmu-landing.pmu-eyes .pmu-landing-kicker { font-size:10px; letter-spacing:.1em; line-height:1.6; margin-bottom:14px; }
+ main.pmu-landing.pmu-eyes :is(.pmu-landing-primary,.pmu-landing-secondary) { display:flex; justify-content:center; align-items:center; min-height:54px; padding:15px 18px; border-radius:10px; font-size:14px; line-height:1.4; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero { position:relative; isolation:isolate; display:flex; align-items:flex-end; min-height:100svh; padding:340px var(--eye-space) 24px; background:#142c25; gap:0; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero > div { width:100%; z-index:2; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero-photo { position:absolute; inset:0 0 auto; height:66%; width:100%; max-width:none; margin:0; z-index:-2; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero-photo img { width:100%; height:100%; aspect-ratio:auto; object-fit:cover; object-position:0% 40%; border-radius:0; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero-photo figcaption { display:none; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,transparent 25%,rgb(20 44 37 / 10%) 34%,rgb(20 44 37 / 86%) 53%,#142c25 65%); }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero h1 { color:#fff; font-size:clamp(40px,10vw,66px); line-height:1.03; letter-spacing:-.045em; margin:0 0 14px; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero h1 span { color:inherit; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero em { color:#eee4cd; font-style:normal; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero .pmu-landing-kicker { color:#eee9dd; font-size:9px; }
+ main.pmu-landing.pmu-eyes .eyes-hero-lead { color:#f4f3ee; font-size:15px; }
+ main.pmu-landing.pmu-eyes .pmu-eyes-hero-price { margin-top:14px; color:#fff; }
+ main.pmu-landing.pmu-eyes .pmu-eyes-hero-price strong { color:#fff; font-size:18px; }
+ main.pmu-landing.pmu-eyes .pmu-eyes-hero-price span { color:#eceee8; font-size:11px; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero-actions { display:grid; grid-template-columns:1fr; gap:6px; margin-top:18px; max-width:640px; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero-actions .pmu-landing-text-link { color:#fff; font-size:13px; text-align:center; min-height:36px; }
+ main.pmu-landing.pmu-eyes .eyes-scroll { display:flex; align-items:center; gap:12px; min-height:44px; width:fit-content; color:#eee8d8; font-size:12px; margin-top:4px; }
+ main.pmu-landing.pmu-eyes .eyes-scroll span { font-size:24px; }
+ main.pmu-landing.pmu-eyes .pmu-landing-section { padding:38px var(--eye-space); margin:0; }
+ main.pmu-landing.pmu-eyes #zakres-kresek { padding:0; }
+ main.pmu-landing.pmu-eyes #zakres-kresek > .pmu-landing-section-heading { padding:38px var(--eye-space); margin:0; max-width:720px; }
+ main.pmu-landing.pmu-eyes .eyes-story-cover { position:relative; background:#fff; padding-bottom:0; }
+ main.pmu-landing.pmu-eyes .eyes-story-cover > img { display:block; width:100%; height:auto; max-height:620px; object-fit:contain; }
+
+ main.pmu-landing.pmu-eyes .eyes-story-overlay { position:relative; padding:26px var(--eye-space) 0; max-width:720px; }
+ main.pmu-landing.pmu-eyes .eyes-story-overlay p { color:#126b65; font-size:11px; margin:0 0 8px; }
+ main.pmu-landing.pmu-eyes .eyes-story-overlay h3 { color:#242321; font-size:clamp(34px,7vw,52px); line-height:1.06; letter-spacing:-.04em; margin:0 0 20px; }
+ main.pmu-landing.pmu-eyes .eyes-story-overlay a { justify-content:space-between; color:white; }
+ main.pmu-landing.pmu-eyes .eyes-story-description { padding:28px var(--eye-space) 20px; max-width:720px; }
+ main.pmu-landing.pmu-eyes .eyes-story-description .eyes-small-note { font-size:13px; color:#666b65; margin-top:14px; }
+ main.pmu-landing.pmu-eyes .eyes-carousel { padding:12px 0 32px; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-top { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:0 var(--eye-space) 20px; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-top h3 { font-size:22px; line-height:1.2; letter-spacing:-.025em; margin:0; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-top .pmu-landing-kicker { margin-bottom:6px; font-size:9px; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-controls { display:flex; gap:6px; flex-shrink:0; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-controls button { width:44px; height:44px; border:1px solid #cedbd4; border-radius:50%; background:white; color:#126b65; font-size:22px; cursor:pointer; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-controls button:disabled { opacity:.35; cursor:default; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-rail { display:flex; gap:14px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-inline:var(--eye-space); padding:0 var(--eye-space) 12px; scrollbar-width:thin; scrollbar-color:#126b65 #edf1ee; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-rail > a { display:block; position:relative; flex:0 0 min(72vw,340px); scroll-snap-align:start; background:#faf8f6; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-rail img { display:block; width:100%; height:auto; max-height:none; aspect-ratio:4/5; object-fit:contain; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-rail a > span { position:absolute; bottom:12px; right:12px; background:#fff; color:#173a2f; padding:7px 10px; font-size:11px; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-footer { padding:14px var(--eye-space) 0; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-footer p { font-size:11px; color:#666b65; margin:0 0 6px; }
+ main.pmu-landing.pmu-eyes .eyes-carousel-footer a { display:inline-flex; align-items:center; min-height:44px; font-size:14px; font-weight:700; }
+ main.pmu-landing.pmu-eyes #efekty-kresek { padding-top:0; padding-bottom:24px; }
+ main.pmu-landing.pmu-eyes #efekty-kresek > :not(details) { display:none; }
+ main.pmu-landing.pmu-eyes .pmu-landing-more { border:0; border-block:1px solid #e4e9e6; border-radius:0; background:white; }
+ main.pmu-landing.pmu-eyes .pmu-landing-more summary { font-size:15px; padding:20px 0; }
+ main.pmu-landing.pmu-eyes .pmu-landing-callout { display:block; padding:34px var(--eye-space); margin:0; border:0; border-bottom:1px solid #e4e9e6; border-radius:0; background:#fff; }
+ main.pmu-landing.pmu-eyes .pmu-landing-callout h2 { font-size:30px; }
+ main.pmu-landing.pmu-eyes .pmu-landing-callout p { font-size:14px; }
+ main.pmu-landing.pmu-eyes .pmu-landing-callout .pmu-landing-links { display:grid; gap:14px; }
+ main.pmu-landing.pmu-eyes .pmu-landing-callout .pmu-landing-links > a:not(.pmu-landing-secondary) { font-size:13px; }
+ main.pmu-landing.pmu-eyes .pmu-landing-faq { padding:34px var(--eye-space); margin:0; }
+ main.pmu-landing.pmu-eyes .pmu-landing-faq h2 { font-size:30px; }
+ main.pmu-landing.pmu-eyes .pmu-landing-faq summary { font-size:15px; padding:20px 0; }
+ main.pmu-landing.pmu-eyes .pmu-landing-faq p { font-size:14px; }
+ main.pmu-landing.pmu-eyes .pmu-landing-booking { display:block; padding:44px var(--eye-space); margin:0; background:#142c25; border:0; border-radius:0; }
+ main.pmu-landing.pmu-eyes .pmu-landing-booking h2 { color:#fff; }
+ main.pmu-landing.pmu-eyes .pmu-landing-booking p { color:#e7e8df; }
+ main.pmu-landing.pmu-eyes .pmu-landing-booking-actions { margin-top:26px; }
+ main.pmu-landing.pmu-eyes .pmu-landing-booking .pmu-landing-text-link { color:white; }
+}
+@media (min-width:641px) and (max-width:1024px) and (orientation:portrait) {
+ main.pmu-landing.pmu-eyes { --eye-space:40px; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero { padding-top:440px; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero-photo img { object-position:0% 40%; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero-photo img { display:block; max-width:600px; margin:0 auto; object-position:50% 45%; mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+}
+@media (max-height:720px) and (max-width:640px) {
+ main.pmu-landing.pmu-eyes .pmu-brows-hero { padding-top:190px; padding-bottom:18px; }
+ main.pmu-landing.pmu-eyes .pmu-brows-hero h1 { font-size:36px; }
+ main.pmu-landing.pmu-eyes .pmu-eyes-hero-price span, main.pmu-landing.pmu-eyes .pmu-brows-hero-actions .pmu-landing-text-link { display:none; }
+}
+
+
+@media (max-width:640px), (max-width:1024px) and (orientation:portrait) {
+ main.pmu-landing.pmu-eyes #cena-kresek { display:none; }
+ main.pmu-landing.pmu-eyes .eyes-options { padding:0 var(--eye-space) 20px; }
+ main.pmu-landing.pmu-eyes .eyes-option { padding:26px 0; border-bottom:1px solid #e4e9e6; }
+ main.pmu-landing.pmu-eyes .eyes-option h3 { font-size:25px; line-height:1.2; letter-spacing:-.025em; margin:0 0 12px; }
+ main.pmu-landing.pmu-eyes .eyes-option p { font-size:15px; margin:0; max-width:640px; }
+ main.pmu-landing.pmu-eyes .eyes-option > a { display:flex; align-items:center; gap:18px; min-height:48px; margin-top:8px; color:#126b65; font-weight:700; font-size:23px; }
+ main.pmu-landing.pmu-eyes .eyes-option > a span { font-size:12px; font-weight:500; }
+ main.pmu-landing.pmu-eyes .eyes-options-note { padding:20px 0; }
+ main.pmu-landing.pmu-eyes .eyes-options-note p { font-size:12px; margin-bottom:10px; }
+ main.pmu-landing.pmu-eyes .eyes-options-note a { font-size:14px; font-weight:700; display:inline-flex; align-items:center; min-height:44px; }
+ main.pmu-landing.pmu-eyes #kwalifikacja-kreski .pmu-landing-links a:last-child { display:none; }
+ main.pmu-landing.pmu-eyes .pmu-eyes-hero-price strong { font-size:16px; }
+}

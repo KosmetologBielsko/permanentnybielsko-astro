@@ -1,0 +1,35 @@
+---
+import media from '../data/pmu-media-library.json';
+const { booksyUrl } = Astro.props;
+const cover = media.oczy[12];
+const photos = [media.oczy[1], media.oczy[10], media.oczy[11]];
+---
+<div class="eyes-mobile eyes-story">
+  <div class="eyes-story-cover">
+    <img src={cover.thumb} srcset={cover.srcset} sizes="(max-width:640px) 100vw, 560px" width={cover.width} height={cover.height} alt="Kreska dekoracyjna — miękkie cieniowanie i zakończenie na górnej powiece" loading="lazy" decoding="async" />
+    <div class="eyes-story-overlay"><p>Kreska dekoracyjna · praca gabinetu</p><h3>Linia dopasowana<br />do Twojego oka.</h3><a class="pmu-landing-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów kreskę permanentną <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <div class="eyes-story-description"><p>Najpierw zobaczysz rysunek wstępny. Kształt i intensywność ustalamy wspólnie, zanim zaczniemy pigmentację.</p></div>
+  <div class="eyes-options">
+    <div class="eyes-option"><h3>Zagęszczenie linii rzęs.</h3><p>Pigment przy nasadzie górnych rzęs delikatnie podkreśla oko. Dla osób, które lubią dyskretny efekt.</p><a href={booksyUrl} target="_blank" rel="noopener noreferrer">800 zł <span>Umów linię rzęs ↗</span></a></div>
+    <div class="eyes-option"><h3>Eyeliner lub miękki cień.</h3><p>Wyraźniejsza linia albo łagodne rozproszenie koloru. Grubość i zakończenie dobieramy do Twojej powieki.</p><a href={booksyUrl} target="_blank" rel="noopener noreferrer">1100 zł <span>Umów kreskę dekoracyjną ↗</span></a></div>
+    <div class="eyes-options-note"><p>Kreska dolna: 500 zł. Zakres dobieramy po ocenie oka. Korekta zabiegu głównego po wygojeniu w cenie — do 3 miesięcy.</p><a href="/cennik-makijaz-permanentny/#price-group-2">Cennik i warianty łączone →</a></div>
+  </div>
+  <section class="eyes-carousel" id="realizacje-kresek" data-eyes-carousel data-pmu-gallery-section data-media-label="Kreski permanentne" data-service-href="/galeria/#galeria-kreski" data-service-label="Zobacz wszystkie realizacje kresek" aria-labelledby="eyes-gallery-title">
+    <div class="eyes-carousel-top"><div><p class="pmu-landing-kicker">Prace gabinetu</p><h3 id="eyes-gallery-title">Zobacz kreski z bliska.</h3></div><div class="eyes-carousel-controls"><button type="button" data-eyes-prev aria-controls="eyes-photo-rail" aria-label="Poprzednie zdjęcie kreski">←</button><button type="button" data-eyes-next aria-controls="eyes-photo-rail" aria-label="Następne zdjęcie kreski">→</button></div></div>
+    <div class="eyes-carousel-rail" id="eyes-photo-rail" tabindex="0" role="region" aria-label="Przesuwana galeria kresek">
+      {photos.map((photo,index)=><a href={photo.src} target="_blank" rel="noopener" data-pmu-photo data-media-alt={photo.alt} data-media-caption={photo.caption} aria-label={`Powiększ realizację kreski ${index+1}`}><img src={photo.thumb} srcset={photo.srcset} sizes="(max-width:640px) 72vw, 340px" width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async" /><span aria-hidden="true">{String(index+1).padStart(2,'0')} / 03 ↗</span></a>)}
+    </div>
+    <div class="eyes-carousel-footer"><p>Przesuń · dotknij, aby powiększyć</p><p>Świeża kreska może być intensywniejsza. Efekt oceniamy po wygojeniu.</p><a href="/galeria/#galeria-kreski">Więcej realizacji kresek →</a></div>
+  </section>
+</div>
+<script>
+ document.querySelectorAll<HTMLElement>('[data-eyes-carousel]').forEach(gallery=>{
+  const rail=gallery.querySelector<HTMLElement>('.eyes-carousel-rail');
+  if(!rail)return;
+  const buttons=[gallery.querySelector<HTMLButtonElement>('[data-eyes-prev]'),gallery.querySelector<HTMLButtonElement>('[data-eyes-next]')];
+  const update=()=>{if(buttons[0])buttons[0].disabled=rail.scrollLeft<4;if(buttons[1])buttons[1].disabled=rail.scrollLeft+rail.clientWidth>=rail.scrollWidth-4;};
+  buttons.forEach((button,i)=>button?.addEventListener('click',()=>{const slide=rail.querySelector('a');rail.scrollBy({left:(i?1:-1)*((slide?.getBoundingClientRect().width||rail.clientWidth)+14),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}));
+  rail.addEventListener('scroll',update,{passive:true});new ResizeObserver(update).observe(rail);update();
+ });
+</script>
