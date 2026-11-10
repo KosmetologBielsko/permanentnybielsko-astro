@@ -1,0 +1,90 @@
+/* Phone-only presentation. Shared desktop and tablet layouts stay intact. */
+main.pmu-landing.pmu-removal .removal-mobile { display:none; }
+main.pmu-landing.pmu-removal h1 > .removal-desktop { color:inherit; }
+main.pmu-landing.pmu-removal h1 .bph-title-accent { color:var(--landing-teal); }
+
+@media (max-width:640px) {
+  main.pmu-landing.pmu-removal { --removal-gutter:24px; padding:0; background:#fff; }
+  main.pmu-landing.pmu-removal .pmu-landing-shell { width:100%; }
+  main.pmu-landing.pmu-removal .removal-mobile { display:block; }
+  main.pmu-landing.pmu-removal :is(.removal-desktop,.pmu-landing-breadcrumbs,.pmu-landing-nav,.pmu-landing-author,.pmu-landing-lead,#proces-usuwania,#kiedy-usuwac,#co-po-usuwaniu,#poradniki-usuwanie,.guide-assistant) { display:none; }
+  main.pmu-landing.pmu-removal [id] { scroll-margin-top:92px; }
+  main.pmu-landing.pmu-removal p { font-size:16px; line-height:1.65; }
+  main.pmu-landing.pmu-removal h2 { margin:0 0 20px; font-size:clamp(32px,8.6vw,48px); line-height:1.1; letter-spacing:-.045em; }
+  main.pmu-landing.pmu-removal .pmu-landing-kicker { font-size:10px; line-height:1.6; letter-spacing:.1em; margin:0 0 14px; }
+  main.pmu-landing.pmu-removal :is(.pmu-landing-primary,.pmu-landing-secondary) { display:flex; align-items:center; justify-content:center; min-height:54px; padding:15px 18px; border-radius:10px; font-size:14px; line-height:1.4; }
+
+  /* Keep the photo above the copy and let short screens grow naturally. */
+  main.pmu-landing.pmu-removal .pmu-brows-hero { position:relative; isolation:isolate; display:flex; align-items:flex-end; gap:0; min-height:100svh; margin:0; padding:330px var(--removal-gutter) max(24px,env(safe-area-inset-bottom)); background:#142c25; }
+  main.pmu-landing.pmu-removal .pmu-brows-hero > div { position:relative; z-index:2; width:100%; }
+  main.pmu-landing.pmu-removal .pmu-brows-hero-photo { position:absolute; inset:0 0 auto; z-index:-2; width:100%; max-width:none; height:80%; margin:0; }
+  main.pmu-landing.pmu-removal .pmu-brows-hero-photo img { display:block; width:100%; height:100%; max-height:none; aspect-ratio:auto; border-radius:0; object-fit:cover; object-position:50% 24%; }
+  main.pmu-landing.pmu-removal .pmu-brows-hero-photo figcaption { display:none; }
+  main.pmu-landing.pmu-removal .pmu-brows-hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,transparent 20%,rgb(20 44 37 / 12%) 33%,rgb(20 44 37 / 90%) 53%,#142c25 77%); }
+  main.pmu-landing.pmu-removal .pmu-brows-hero h1 { margin:0 0 16px; color:#fff; font-size:clamp(38px,10.8vw,64px); line-height:1.04; letter-spacing:-.05em; }
+  main.pmu-landing.pmu-removal .pmu-brows-hero h1 span { color:inherit; }
+  main.pmu-landing.pmu-removal .pmu-brows-hero em { color:#eee4cd; font-style:normal; }
+  main.pmu-landing.pmu-removal .pmu-brows-hero .pmu-landing-kicker { color:#e6eae1; font-size:9px; }
+  main.pmu-landing.pmu-removal .removal-hero-lead { color:#f1f3ed; font-size:15px; }
+  main.pmu-landing.pmu-removal .pmu-service17-hero-price { margin:18px 0 0; gap:4px 10px; }
+  main.pmu-landing.pmu-removal .pmu-service17-hero-price strong { color:#fff; font-size:20px; }
+  main.pmu-landing.pmu-removal .pmu-service17-hero-price span { color:#e3e8df; font-size:12px; }
+  main.pmu-landing.pmu-removal .pmu-brows-hero-actions { display:grid; gap:8px; margin-top:20px; }
+  main.pmu-landing.pmu-removal .removal-scroll { display:flex; align-items:center; justify-content:space-between; min-height:44px; color:#e7eadf; font-size:12px; }
+  main.pmu-landing.pmu-removal .removal-scroll span { font-size:24px; }
+
+  main.pmu-landing.pmu-removal .pmu-landing-section { margin:0; padding:48px var(--removal-gutter); border-radius:0; }
+  main.pmu-landing.pmu-removal #laser-remover { padding:0; }
+  main.pmu-landing.pmu-removal #laser-remover > .pmu-landing-section-heading { margin:0; padding:48px var(--removal-gutter) 32px; }
+  main.pmu-landing.pmu-removal .pmu-brows-methods { display:block; }
+  main.pmu-landing.pmu-removal .pmu-brows-method { display:block; padding:0 var(--removal-gutter) 40px; border:0; border-radius:0; background:#fff; }
+  main.pmu-landing.pmu-removal .removal-method-photo { width:calc(100% + 2 * var(--removal-gutter)); margin:0 calc(-1 * var(--removal-gutter)) 28px; }
+  main.pmu-landing.pmu-removal .removal-method-photo img { display:block; width:100%; height:auto; border-radius:0; }
+  main.pmu-landing.pmu-removal .pmu-brows-method h3 { font-size:clamp(32px,8vw,46px); line-height:1.1; letter-spacing:-.04em; margin-bottom:18px; }
+  main.pmu-landing.pmu-removal .pmu-brows-method .removal-method-intro { font-size:17px; color:#292323; }
+  main.pmu-landing.pmu-removal .removal-differences { display:grid; gap:18px; margin:24px 0; padding:22px 0; border-block:1px solid #e4e9e6; }
+  main.pmu-landing.pmu-removal .removal-differences dt { font-size:14px; }
+  main.pmu-landing.pmu-removal .removal-differences dd { font-size:14px; line-height:1.65; }
+  main.pmu-landing.pmu-removal .pmu-brows-method > a { display:flex; align-items:center; justify-content:space-between; min-height:54px; margin:0; padding:14px 18px; border:1px solid #bfd6d0; border-radius:10px; font-size:14px; }
+  main.pmu-landing.pmu-removal #remover { padding-top:16px; background:#f8faf8; }
+  main.pmu-landing.pmu-removal #remover .removal-method-photo { background:#fff; }
+
+  main.pmu-landing.pmu-removal #cena-usuwania { background:#fbf8f6; border-block:1px solid #e8dfe2; }
+  main.pmu-landing.pmu-removal #cena-usuwania .pmu-landing-section-heading { margin-bottom:20px; }
+  main.pmu-landing.pmu-removal .pmu-brows-price { display:flex; flex-direction:column; gap:20px; padding:0; border:0; border-radius:0; background:transparent; }
+  main.pmu-landing.pmu-removal .pmu-brows-price > div:first-child { order:1; }
+  main.pmu-landing.pmu-removal .pmu-brows-price-list > div { grid-template-columns:1fr auto; padding:18px 0; gap:12px; }
+  main.pmu-landing.pmu-removal .pmu-brows-price-list dt { font-size:14px; }
+  main.pmu-landing.pmu-removal .pmu-brows-price-list dd { font-size:22px; }
+  main.pmu-landing.pmu-removal .removal-price-note { font-size:13px; }
+  main.pmu-landing.pmu-removal #cena-usuwania .pmu-landing-links { margin-top:24px; }
+  main.pmu-landing.pmu-removal #cena-usuwania .pmu-landing-links a { display:flex; align-items:center; justify-content:center; width:100%; min-height:54px; padding:14px 16px; background:#126b65; color:#fff; border-radius:10px; font-size:14px; text-align:center; }
+  main.pmu-landing.pmu-removal #kwalifikacja { border:0; background:#fff; }
+  main.pmu-landing.pmu-removal #kwalifikacja .pmu-landing-links { display:grid; gap:10px; margin-top:24px; }
+  main.pmu-landing.pmu-removal #kwalifikacja .pmu-landing-links a { display:flex; align-items:center; min-height:48px; font-size:14px; }
+  main.pmu-landing.pmu-removal #kwalifikacja .pmu-landing-links a:first-child { justify-content:center; padding:14px 16px; border:1px solid #bfd6d0; border-radius:10px; }
+
+  main.pmu-landing.pmu-removal #ekspert-usuwanie-pmu { display:block; padding:0; border:0; background:#f6f3ed; }
+  main.pmu-landing.pmu-removal .pmu-landing-expert-photo { width:100%; max-width:none; margin:0; }
+  main.pmu-landing.pmu-removal .pmu-landing-expert-photo img { display:block; width:100%; height:auto; max-height:none; aspect-ratio:2 / 3; object-fit:contain; border-radius:0; }
+  main.pmu-landing.pmu-removal #ekspert-usuwanie-pmu > div { padding:32px var(--removal-gutter) 44px; }
+  main.pmu-landing.pmu-removal #ekspert-usuwanie-pmu h2 { font-size:clamp(40px,11.5vw,66px); }
+  main.pmu-landing.pmu-removal #ekspert-usuwanie-pmu .pmu-landing-links { display:block; margin-top:24px; }
+  main.pmu-landing.pmu-removal #ekspert-usuwanie-pmu .pmu-landing-primary { color:white; }
+  main.pmu-landing.pmu-removal #ekspert-usuwanie-pmu .removal-desktop { display:none; }
+
+  main.pmu-landing.pmu-removal .pmu-landing-faq { margin:0; padding:48px var(--removal-gutter); border:0; }
+  main.pmu-landing.pmu-removal .pmu-landing-faq summary { padding:20px 0; font-size:15px; }
+  main.pmu-landing.pmu-removal .pmu-landing-faq details p { font-size:14px; }
+  main.pmu-landing.pmu-removal .pmu-landing-booking { display:block; margin:0; padding:44px var(--removal-gutter); border:0; border-radius:0; background:#142c25; }
+  main.pmu-landing.pmu-removal .pmu-landing-booking h2 { color:#fff; font-size:36px; }
+  main.pmu-landing.pmu-removal .pmu-landing-booking p { color:#e7e8df; }
+  main.pmu-landing.pmu-removal .pmu-landing-booking .pmu-landing-kicker { color:#d6e5dd; }
+  main.pmu-landing.pmu-removal .pmu-landing-booking-actions { margin-top:24px; }
+  main.pmu-landing.pmu-removal .pmu-landing-booking .pmu-landing-text-link { color:white; }
+}
+@media (max-width:360px) {
+  main.pmu-landing.pmu-removal { --removal-gutter:20px; }
+  main.pmu-landing.pmu-removal .pmu-brows-hero { padding-top:290px; }
+  main.pmu-landing.pmu-removal .pmu-brows-price-list > div { grid-template-columns:1fr; gap:4px; }
+}
