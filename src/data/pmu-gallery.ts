@@ -133,7 +133,7 @@ export const structuredData = [
     name: pageTitle,
     description: pageDescription,
     inLanguage: "pl-PL",
-    dateModified: "2026-09-13",
+    dateModified: "2026-11-11",
     isPartOf: {
       "@id": "https://www.permanentnybielsko.com/#website",
     },

@@ -4,8 +4,9 @@ interface Props {
   image: { src: string; alt: string; badge?: string; wide?: boolean; caption?: string };
   priority?: boolean;
   contain?: boolean;
+  sizes?: string;
 }
-const { image, priority = false, contain = false } = Astro.props;
+const { image, priority = false, contain = false, sizes = "(max-width: 340px) calc(100vw - 36px), (max-width: 640px) calc((100vw - 48px) / 2), (max-width: 900px) calc((100vw - 74px) / 2), (max-width: 1156px) calc((100vw - 96px) / 3), 353px" } = Astro.props;
 const media = thumbnails[image.src as keyof typeof thumbnails];
 const caption = image.caption || image.alt.split(" — ").slice(1).join(" — ") || image.alt;
 ---
@@ -14,7 +15,7 @@ const caption = image.caption || image.alt.split(" — ").slice(1).join(" — ")
     data-media-alt={image.alt} data-media-caption={caption}
     aria-label={`Powiększ zdjęcie: ${image.alt}`}>
     <img src={media.thumb} srcset={media.srcset}
-      sizes="(max-width: 340px) calc(100vw - 36px), (max-width: 640px) calc((100vw - 48px) / 2), (max-width: 900px) calc((100vw - 74px) / 2), (max-width: 1156px) calc((100vw - 96px) / 3), 353px"
+      sizes={sizes}
       width={media.width} height={media.height} alt={image.alt}
       class:list={{ "pmu-gallery-contain": contain || image.wide }}
       loading={priority ? "eager" : "lazy"} fetchpriority={priority ? "high" : undefined} decoding="async" />

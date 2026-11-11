@@ -9,7 +9,17 @@ import { guideAuthorPortrait } from "../data/guide-series-01";
 import { booksyUrl, pageTitle, pageDescription, sections, galleryAreas, videoGalleryItems, faqItems, structuredData } from "../data/pmu-gallery";
 import thumbnails from "../data/pmu-gallery-thumbnails.json";
 import "../styles/pmu-gallery.css";
+import "../styles/pmu-gallery-mobile.css";
 const previewCount = 6;
+const heroPhoto = thumbnails["/images/galeria-10/silky/silky-12.webp"];
+const mobileCategories: Record<string, { label: string; title: string; text: string; price?: string }> = {
+  "galeria-silky": { label: "Silky", title: "Brwi rysowane włosem.", text: "Autorska technika Bogusławy Herda. Zobacz kierunek pigmentowanych włosków i efekt w szerszym kadrze.", price: "price-group-1" },
+  "galeria-brwi": { label: "Cień", title: "Miękki kolor. Wyraźny kształt.", text: "Brwi metodą cienia — od delikatnego podkreślenia po mocniejsze nasycenie. Naturalne włoski pozostają częścią brwi.", price: "price-group-1" },
+  "galeria-kreski": { label: "Kreski", title: "Spojrzenie z charakterem.", text: "Subtelna linia rzęs, wyraźniejszy kontur i miękkie wykończenie. Przyjrzyj się detalom.", price: "price-group-2" },
+  "galeria-usta": { label: "Usta", title: "Kolor, który podkreśla.", text: "Odcienie, kontur i proporcje. Zobacz zbliżenia oraz kompozycje pokazujące usta w kontekście twarzy.", price: "price-group-3" },
+  "galeria-szkolenia": { label: "Szkolenia", title: "Wiedza. Praktyka. Detal.", text: "Zajrzyj za kulisy pracy Bogusławy Herda — szkolenia, certyfikacja i rozwój warsztatu." },
+};
+const photoSizes = (large: boolean) => `(max-width: 640px) ${large ? "calc(100vw - 48px)" : "calc((100vw - 60px) / 2)"}, (max-width: 900px) calc((100vw - 74px) / 2), (max-width: 1156px) calc((100vw - 96px) / 3), 353px`;
 ---
 <Layout title={pageTitle} description={pageDescription} canonicalPath="/galeria/" structuredData={structuredData} inlineGuideAssistant>
   <Header compact />
@@ -20,10 +30,15 @@ const previewCount = 6;
         <a href="/">Strona główna</a><span aria-hidden="true">/</span><span aria-current="page">Galeria PMU</span>
       </nav>
       <section class="pmu-gallery-intro" aria-labelledby="galeria-tytul">
+        <picture class="gallery-mobile gallery-hero-photo">
+          <source media="(max-width: 640px)" srcset={heroPhoto.srcset} sizes="100vw" />
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" width={heroPhoto.width} height={heroPhoto.height} alt="Brwi Silky — detal w kontekście twarzy" loading="eager" fetchpriority="high" decoding="async" />
+        </picture>
         <div class="pmu-gallery-intro-copy">
           <p class="pmu-gallery-kicker">Galeria PMU · Bielsko-Biała</p>
-          <h1 id="galeria-tytul">Galeria <span class="bph-title-accent">makijażu permanentnego.</span></h1>
+          <h1 id="galeria-tytul"><span class="gallery-desktop">Galeria <span class="bph-title-accent">makijażu permanentnego.</span></span><span class="gallery-mobile">Piękno<br /><em>w detalu.</em></span></h1>
           <p class="pmu-gallery-lead">Zobacz detal. Znajdź swój kierunek. Porównaj brwi Silky z metodą cienia, obejrzyj kreski i wybierz inspirację dla ust.</p>
+          <div class="gallery-mobile gallery-hero-copy"><p>Brwi, usta, kreski. Przyjrzyj się z bliska i znajdź swoją inspirację.</p><a class="pmu-gallery-primary" href="#galeria-silky">Przeglądaj galerię <span aria-hidden="true">↓</span></a><span class="gallery-hero-signature">Bogusława Herda · Powrót do natury</span></div>
           <a class="pmu-gallery-author" href="/makijaz-permanentny-bielsko/#boguslawa-herda">
             <Image src={guideAuthorPortrait} alt="" width={92} height={92} fit="cover" position="top" format="webp" quality={82} loading="lazy" decoding="async" />
             <span><strong>Bogusława Herda</strong><span>Makijaż permanentny · Powrót do natury</span></span>
@@ -40,26 +55,28 @@ const previewCount = 6;
         </nav>
       </section>
       <nav class="pmu-gallery-nav" aria-label="Kategorie galerii">
-        {sections.map((section) => <a href={`#${section.id}`}>{section.label}<span>{section.items.length}</span></a>)}
-        <a href="#galeria-wideo">Wideo<span>{videoGalleryItems.length}</span></a>
+        {sections.map((section) => <a href={`#${section.id}`} aria-controls={section.id}><span class="gallery-desktop gallery-category-label">{section.label}</span><span class="gallery-mobile gallery-category-label">{mobileCategories[section.id].label}</span><span class="gallery-category-count">{section.items.length}</span></a>)}
+        <a href="#galeria-wideo" aria-controls="galeria-wideo"><span class="gallery-desktop gallery-category-label">Wideo</span><span class="gallery-mobile gallery-category-label">Filmy</span><span class="gallery-category-count">{videoGalleryItems.length}</span></a>
       </nav>
 
       {sections.map((section, sectionIndex) => (
         <section class="pmu-gallery-section" id={section.id} data-pmu-gallery-section data-media-label={section.label}
           data-service-href={section.serviceHref} data-service-label={section.serviceLabel} aria-labelledby={`${section.id}-tytul`}>
           <div class="pmu-gallery-section-heading">
-            <div><p class="pmu-gallery-kicker">{section.label}</p><h2 id={`${section.id}-tytul`}>{section.title}</h2><p>{section.text}</p></div>
+            <div><p class="pmu-gallery-kicker">{section.label}</p><h2 id={`${section.id}-tytul`}><span class="gallery-desktop">{section.title}</span><span class="gallery-mobile">{mobileCategories[section.id].title}</span></h2><p class="gallery-desktop">{section.text}</p><p class="gallery-mobile">{mobileCategories[section.id].text}</p></div>
             <a href={section.serviceHref}>{section.serviceLabel} <span aria-hidden="true">→</span></a>
           </div>
+          <p class="gallery-mobile gallery-view-hint">Dotknij zdjęcia, aby zobaczyć pełny kadr <span aria-hidden="true">↗</span></p>
           <div class="pmu-gallery-grid">
-            {section.items.slice(0, previewCount).map((image, index) => <GalleryPhoto image={image} priority={false} contain={section.id === "galeria-szkolenia"} />)}
+            {section.items.slice(0, previewCount).map((image, index) => <GalleryPhoto image={image} contain={section.id === "galeria-szkolenia"} sizes={photoSizes(index === 0 || index === previewCount - 1)} />)}
           </div>
           {section.items.length > previewCount && (
             <details class="pmu-gallery-more">
               <summary><span class="pmu-gallery-closed-label">Pokaż pozostałe zdjęcia: {section.items.length - previewCount}</span><span class="pmu-gallery-open-label">Zwiń dodatkowe zdjęcia</span><span class="pmu-gallery-plus" aria-hidden="true">+</span></summary>
-              <div class="pmu-gallery-grid">{section.items.slice(previewCount).map((image) => <GalleryPhoto image={image} contain={section.id === "galeria-szkolenia"} />)}</div>
+              <div class="pmu-gallery-grid">{section.items.slice(previewCount).map((image, index, images) => <GalleryPhoto image={image} contain={section.id === "galeria-szkolenia"} sizes={photoSizes(images.length % 2 === 1 && index === images.length - 1)} />)}</div>
             </details>
           )}
+          <div class="gallery-mobile gallery-category-actions"><a class="pmu-gallery-primary" href={section.serviceHref}>{section.serviceLabel} <span aria-hidden="true">→</span></a>{mobileCategories[section.id].price && <a class="gallery-category-price" href={`/cennik-makijaz-permanentny/#${mobileCategories[section.id].price}`}>Zobacz ceny <span aria-hidden="true">→</span></a>}<a class="gallery-next-category" href={`#${sections[sectionIndex + 1]?.id || "galeria-wideo"}`}>Kolejna kategoria <span aria-hidden="true">→</span></a></div>
         </section>
       ))}
 
@@ -104,5 +121,5 @@ const previewCount = 6;
     </dialog>
   </main>
   <Footer />
-  <script>import "../scripts/pmu-gallery";</script>
+  <script>import "../scripts/pmu-gallery"; import "../scripts/pmu-gallery-mobile";</script>
 </Layout>
