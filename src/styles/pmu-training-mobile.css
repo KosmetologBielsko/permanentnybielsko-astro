@@ -1,0 +1,98 @@
+/* Phone-only editorial layout, matching the homepage and service pages. */
+main.pmu-landing.pmu-training .training-mobile { display:none; }
+main.pmu-landing.pmu-training h1 > .training-desktop { color:inherit; }
+main.pmu-landing.pmu-training h1 .bph-title-accent { color:var(--landing-teal); }
+
+@media (max-width:640px) {
+  main.pmu-landing.pmu-training { --training-gutter:24px; padding:0; background:#fff; }
+  main.pmu-landing.pmu-training .pmu-landing-shell { width:100%; }
+  main.pmu-landing.pmu-training .training-mobile { display:block; }
+  main.pmu-landing.pmu-training :is(.training-desktop,.pmu-landing-breadcrumbs,.pmu-landing-nav,.pmu-landing-author,.pmu-landing-lead,.pmu-service17-hero-price,.pmu-brows-hero-actions,.guide-assistant) { display:none; }
+  main.pmu-landing.pmu-training :is([id],details) { scroll-margin-top:92px; }
+  main.pmu-landing.pmu-training p { font-size:16px; line-height:1.65; }
+  main.pmu-landing.pmu-training h2 { font-size:clamp(34px,9vw,50px); line-height:1.08; letter-spacing:-.045em; }
+  main.pmu-landing.pmu-training .pmu-landing-kicker { margin:0 0 14px; font-size:10px; line-height:1.6; letter-spacing:.1em; }
+  main.pmu-landing.pmu-training :is(.pmu-landing-primary,.pmu-landing-secondary) { display:flex; align-items:center; justify-content:center; width:100%; min-height:54px; padding:15px 18px; border-radius:10px; font-size:14px; line-height:1.4; }
+
+  main.pmu-landing.pmu-training .pmu-brows-hero { position:relative; isolation:isolate; display:flex; align-items:flex-end; gap:0; min-height:100svh; padding:430px var(--training-gutter) max(24px,env(safe-area-inset-bottom)); background:#142c25; }
+  main.pmu-landing.pmu-training .pmu-brows-hero > div { position:relative; z-index:2; width:100%; }
+  main.pmu-landing.pmu-training .pmu-brows-hero-photo { position:absolute; z-index:-2; inset:0 0 auto; width:100%; max-width:none; height:80%; margin:0; background:#f3f3f3; }
+  main.pmu-landing.pmu-training .pmu-brows-hero-photo img { display:block; width:100%; height:100%; padding-top:65px; max-height:none; aspect-ratio:auto; border-radius:0; object-fit:cover; object-position:62% 12%; }
+  main.pmu-landing.pmu-training .pmu-brows-hero-photo figcaption { display:none; }
+  main.pmu-landing.pmu-training .pmu-brows-hero::after { content:""; position:absolute; z-index:-1; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 34%,rgb(20 44 37 / 10%) 43%,rgb(20 44 37 / 93%) 62%,#142c25 80%); }
+  main.pmu-landing.pmu-training .pmu-brows-hero h1 { margin:0 0 18px; color:#fff; font-size:clamp(44px,12vw,68px); line-height:1.03; letter-spacing:-.05em; text-wrap:initial; }
+  main.pmu-landing.pmu-training .pmu-brows-hero h1 > span { color:inherit; }
+  main.pmu-landing.pmu-training .pmu-brows-hero h1 em { color:#eee4cd; font-style:normal; }
+  main.pmu-landing.pmu-training .pmu-brows-hero .pmu-landing-kicker { color:#e6eae1; font-size:9px; }
+  main.pmu-landing.pmu-training .training-hero-lead { max-width:34ch; color:#f1f3ed; font-size:15px; }
+  main.pmu-landing.pmu-training .training-hero-actions { display:grid; gap:8px; margin-top:24px; }
+  main.pmu-landing.pmu-training .training-hero-actions .pmu-landing-primary { justify-content:space-between; }
+  main.pmu-landing.pmu-training .training-hero-contact { display:flex; align-items:center; justify-content:space-between; min-height:44px; color:#e7eadf; font-size:12px; }
+  main.pmu-landing.pmu-training .training-intro-note { padding:20px var(--training-gutter) 12px; }
+  main.pmu-landing.pmu-training .training-intro-note p { font-size:11px; letter-spacing:.01em; }
+  main.pmu-landing.pmu-training .training-intro-note a { display:flex; align-items:center; justify-content:space-between; min-height:44px; font-size:13px; font-weight:650; }
+  main.pmu-landing.pmu-training .training-quick-nav { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; padding:0 var(--training-gutter) 24px; border-bottom:1px solid #e2e8e3; }
+  main.pmu-landing.pmu-training .training-quick-nav a { display:flex; align-items:center; justify-content:center; min-height:44px; padding:10px 5px; border:1px solid #d4e1dc; border-radius:8px; font-size:12px; font-weight:650; }
+
+  main.pmu-landing.pmu-training .pmu-landing-section { margin:0; padding:48px var(--training-gutter); border-radius:0; }
+  main.pmu-landing.pmu-training .pmu-landing-section-heading { margin-bottom:28px; }
+  main.pmu-landing.pmu-training .training-section-lead { font-size:15px; }
+  main.pmu-landing.pmu-training #szkolenia { padding-bottom:0; }
+  main.pmu-landing.pmu-training .pmu-brows-methods { display:block; counter-reset:none; }
+  main.pmu-landing.pmu-training .pmu-brows-method { position:relative; display:block; padding:30px 0 34px; border:0; border-top:1px solid #dce5e0; border-radius:0; background:transparent; }
+  main.pmu-landing.pmu-training .training-course-number { margin:0 0 22px; color:#8ca69c; font-size:36px; line-height:1; letter-spacing:-.05em; font-weight:500; }
+  main.pmu-landing.pmu-training .pmu-brows-method h3 { max-width:15ch; margin:0 0 18px; font-size:clamp(32px,8.5vw,46px); line-height:1.08; letter-spacing:-.04em; }
+  main.pmu-landing.pmu-training .pmu-brows-method p:not(.pmu-landing-kicker) { font-size:15px; line-height:1.7; }
+  main.pmu-landing.pmu-training .pmu-brows-method > a:not(.training-desktop) { display:flex; align-items:center; justify-content:space-between; min-height:50px; margin-top:18px; padding:12px 0; font-size:14px; }
+  main.pmu-landing.pmu-training .pmu-brows-method:nth-child(3) { width:calc(100% + 2 * var(--training-gutter)); margin-inline:calc(-1 * var(--training-gutter)); padding:36px var(--training-gutter); background:#eef5f1; border-top:0; }
+  main.pmu-landing.pmu-training .pmu-brows-method:last-child { border-top:0; }
+
+  main.pmu-landing.pmu-training #praktyka-szkolenia { padding-top:44px; background:#f8f6f3; }
+  main.pmu-landing.pmu-training #praktyka-szkolenia > p { font-size:15px; }
+  main.pmu-landing.pmu-training .pmu-service17-film { width:calc(100% + 2 * var(--training-gutter)); max-width:none; margin:28px calc(-1 * var(--training-gutter)) 0; }
+  main.pmu-landing.pmu-training .pmu-service17-film video { border-radius:0; }
+  main.pmu-landing.pmu-training .pmu-service17-film figcaption { margin:0; padding:12px var(--training-gutter); font-size:11px; }
+  main.pmu-landing.pmu-training .pmu-service17-photos { display:grid; gap:28px; width:calc(100% + 2 * var(--training-gutter)); max-width:none; margin:24px calc(-1 * var(--training-gutter)) 0; }
+  main.pmu-landing.pmu-training .pmu-service17-photos figure { margin:0; }
+  main.pmu-landing.pmu-training .pmu-service17-photos img { display:block; width:100%; height:auto; aspect-ratio:auto; object-fit:contain; border-radius:0; }
+  main.pmu-landing.pmu-training .pmu-service17-photos figcaption { margin:0; padding:14px var(--training-gutter); font-size:12px; }
+  main.pmu-landing.pmu-training .training-gallery-link { display:flex; align-items:center; justify-content:space-between; min-height:50px; margin-top:20px; font-size:14px; font-weight:650; }
+
+  main.pmu-landing.pmu-training .pmu-service17-prices { display:block; }
+  main.pmu-landing.pmu-training .pmu-service17-prices article { padding:24px 0; border:0; border-top:1px solid #dce5e0; border-radius:0; background:transparent; }
+  main.pmu-landing.pmu-training .pmu-service17-prices h3 { margin-bottom:8px; font-size:22px; line-height:1.2; }
+  main.pmu-landing.pmu-training .pmu-service17-prices p { font-size:13px; }
+  main.pmu-landing.pmu-training .pmu-service17-prices strong { margin:18px 0 4px; font-size:clamp(28px,8.3vw,42px); line-height:1.1; letter-spacing:-.04em; }
+  main.pmu-landing.pmu-training .training-silky-price { margin-top:8px; padding:24px; border-radius:10px; background:#eef5f1; }
+  main.pmu-landing.pmu-training .training-silky-price h3 { font-size:22px; line-height:1.2; }
+  main.pmu-landing.pmu-training .training-silky-price p { font-size:14px; }
+  main.pmu-landing.pmu-training .training-silky-price a { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; margin-top:14px; font-size:13px; font-weight:650; }
+  main.pmu-landing.pmu-training .pmu-service17-note { font-size:12px; line-height:1.7; }
+  main.pmu-landing.pmu-training #ceny-szkolen .pmu-landing-links a { display:flex; align-items:center; justify-content:center; width:100%; min-height:54px; padding:14px 16px; background:#126b65; color:#fff; border-radius:10px; font-size:14px; text-align:center; }
+
+  main.pmu-landing.pmu-training #doswiadczenie-szkolenia { display:block; padding:0; border:0; background:#f6f3ed; }
+  main.pmu-landing.pmu-training .pmu-landing-expert-photo { width:100%; max-width:none; margin:0; }
+  main.pmu-landing.pmu-training .pmu-landing-expert-photo img { display:block; width:100%; height:auto; max-height:none; border-radius:0; }
+  main.pmu-landing.pmu-training #doswiadczenie-szkolenia > div { padding:32px var(--training-gutter) 44px; }
+  main.pmu-landing.pmu-training #doswiadczenie-szkolenia h2 { font-size:clamp(44px,12vw,68px); line-height:1.03; }
+  main.pmu-landing.pmu-training #doswiadczenie-szkolenia p:not(.pmu-landing-kicker) { font-size:15px; }
+  main.pmu-landing.pmu-training #doswiadczenie-szkolenia .pmu-landing-links { display:block; margin-top:24px; }
+  main.pmu-landing.pmu-training #doswiadczenie-szkolenia .pmu-landing-primary { justify-content:space-between; color:#fff; }
+
+  main.pmu-landing.pmu-training .pmu-landing-faq { margin:0; padding:48px var(--training-gutter); border:0; }
+  main.pmu-landing.pmu-training .pmu-landing-faq > details > summary { padding:20px 0; font-size:15px; }
+  main.pmu-landing.pmu-training .pmu-landing-faq > details > p { font-size:14px; }
+  main.pmu-landing.pmu-training .pmu-landing-callout { border:0; border-top:1px solid #e2e8e3; background:#fff; padding-top:36px; }
+  main.pmu-landing.pmu-training .pmu-landing-callout h2 { font-size:32px; }
+  main.pmu-landing.pmu-training .pmu-landing-callout p { font-size:14px; }
+  main.pmu-landing.pmu-training .pmu-landing-callout .pmu-landing-links { display:grid; gap:8px; }
+  main.pmu-landing.pmu-training .pmu-landing-callout .pmu-landing-links a { min-height:48px; padding:14px 0; border-bottom:1px solid #e2e8e3; font-size:13px; }
+  main.pmu-landing.pmu-training .pmu-landing-booking { display:block; margin:0; padding:48px var(--training-gutter); border:0; border-radius:0; background:#142c25; }
+  main.pmu-landing.pmu-training .pmu-landing-booking h2 { color:#fff; font-size:clamp(34px,9vw,50px); line-height:1.08; }
+  main.pmu-landing.pmu-training .pmu-landing-booking p { color:#e7e8df; font-size:15px; }
+  main.pmu-landing.pmu-training .pmu-landing-booking .pmu-landing-kicker { color:#d6e5dd; font-size:10px; }
+  main.pmu-landing.pmu-training .pmu-landing-booking .pmu-service17-note { font-size:12px; }
+  main.pmu-landing.pmu-training .pmu-landing-booking-actions { margin-top:26px; }
+  main.pmu-landing.pmu-training .pmu-landing-booking .pmu-landing-secondary { background:transparent; border-color:#71897d; color:#fff; }
+  main.pmu-landing.pmu-training .pmu-landing-booking .pmu-landing-text-link { color:#e7e8df; font-size:13px; }
+}
