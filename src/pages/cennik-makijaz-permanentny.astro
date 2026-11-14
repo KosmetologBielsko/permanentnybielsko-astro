@@ -3,12 +3,15 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import GuideAssistant from "../components/GuideAssistant.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { guideAuthorPortrait } from "../data/guide-series-01";
 import browsPhoto from "../assets/poradnik/seria-01/brwi-wlos-detal.webp";
 import lipsPhoto from "../assets/poradnik/seria-01/usta-roz-detal.webp";
 import eyesPhoto from "../assets/poradnik/seria-01/kreska-subtelna.webp";
+import priceHero from "../../public/images/wizerunek-boguslawa-herda-biala-koszula.webp";
+import media from "../data/pmu-media-library.json";
 import "../styles/pmu-price.css";
+import "../styles/pmu-price-mobile.css";
 
 const booksyUrl =
   "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
@@ -320,7 +323,7 @@ const structuredData = [
     "name": pageTitle,
     "description": pageDescription,
     "inLanguage": "pl-PL",
-    "dateModified": "2026-10-05",
+    "dateModified": "2026-11-14",
     "isPartOf": {
       "@id": "https://www.permanentnybielsko.com/#website"
     },
@@ -396,6 +399,11 @@ const structuredData = [
 // Keep the existing anchors: other pages link to price-group-0 … price-group-6.
 const groupOrder = [1, 3, 2, 0, 4, 5, 6];
 const groupPhotos = { 1: browsPhoto, 3: lipsPhoto, 2: eyesPhoto };
+const mobileGroupPhotos = { 1: media.silky[5], 3: media.usta[10], 2: media.oczy[0] };
+const mobileGroupTitles = { 1: "Brwi.", 3: "Usta.", 2: "Kreski." };
+const heroImages = await Promise.all([480, 800].map((width) => getImage({ src: priceHero, width, format: "webp", quality: 82 })));
+// Mobile sources avoid downloading the added photographs on desktop.
+const transparentPixel = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 const navLabels = ["Konsultacja", "Brwi", "Kreski", "Usta", "Odświeżenie", "Usuwanie", "Pozostałe"];
 const groupHelp = {
   0: { label: "Jak wygląda konsultacja?", href: "/makijaz-permanentny-bielsko/#kwalifikacja-pmu" },
@@ -427,17 +435,26 @@ const summaryPrices = [
         <a href="/">Strona główna</a><span aria-hidden="true">/</span><span aria-current="page">Cennik PMU</span>
       </nav>
       <section class="pmu-price-intro" aria-labelledby="cennik-tytul">
-        <div>
+        <div class="price-hero">
+          <picture class="price-mobile price-hero-photo">
+            <source media="(max-width: 640px)" srcset={heroImages.map((image, index) => `${image.src} ${[480, 800][index]}w`).join(", ")} sizes="100vw" />
+            <img src={transparentPixel} alt="Bogusława Herda — gabinet makijażu permanentnego w Bielsku-Białej" width={priceHero.width} height={priceHero.height} fetchpriority="high" decoding="async" />
+          </picture>
           <p class="pmu-price-kicker">Ceny zabiegów · Bielsko-Biała</p>
           <h1 id="cennik-tytul">Cennik makijażu permanentnego <span class="bph-title-accent">w Bielsku-Białej.</span></h1>
           <p class="pmu-price-lead">Wybierz brwi, usta lub kreski. Porównaj ceny, sprawdź zakres zabiegu i zobacz, kiedy korekta jest wliczona.</p>
+          <div class="price-mobile price-hero-actions">
+            <a class="pmu-price-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów wizytę w Booksy <span aria-hidden="true">↗</span></a>
+            <a class="price-hero-scroll" href="#cennik-skrot">Zobacz ceny <span aria-hidden="true">↓</span></a>
+          </div>
           <a class="pmu-price-author" href="/makijaz-permanentny-bielsko/#boguslawa-herda">
             <Image src={guideAuthorPortrait} alt="" width={92} height={92} fit="cover" position="top" format="webp" quality={82} loading="lazy" decoding="async" />
             <span><strong>Bogusława Herda</strong><span>Gabinet makijażu permanentnego</span></span>
           </a>
         </div>
         <aside class="pmu-price-overview" aria-labelledby="cennik-skrot">
-          <p class="pmu-price-kicker" id="cennik-skrot">Ceny w skrócie</p>
+          <p class="price-mobile price-overview-eyebrow">Wybierz swój zabieg</p>
+          <h2 class="pmu-price-kicker" id="cennik-skrot">Ceny w skrócie</h2>
           <ul>
             {summaryPrices.map((item) => (
               <li><a href={`#price-group-${item.index}`}>
@@ -453,7 +470,7 @@ const summaryPrices = [
 
       <section class="pmu-price-catalog" aria-labelledby="cennik-pmu">
         <p class="pmu-price-kicker">Pełny cennik PMU</p>
-        <h2 id="cennik-pmu" tabindex="-1">Ile kosztuje makijaż permanentny w Bielsku-Białej?</h2>
+        <h2 id="cennik-pmu" tabindex="-1"><span class="price-desktop">Ile kosztuje makijaż permanentny w Bielsku-Białej?</span><span class="price-mobile">Każda usługa.<br />Jasna cena.</span></h2>
         <nav class="pmu-price-nav" aria-label="Wybierz kategorię cennika">
           {groupOrder.map((index) => <a href={`#price-group-${index}`}>{navLabels[index]} <span aria-hidden="true">↓</span></a>)}
         </nav>
@@ -462,12 +479,23 @@ const summaryPrices = [
         {groupOrder.map((index) => {
           const group = priceGroups[index];
           const photo = groupPhotos[index as keyof typeof groupPhotos];
+          const mobilePhoto = mobileGroupPhotos[index as keyof typeof mobileGroupPhotos];
+          const mobileTitle = mobileGroupTitles[index as keyof typeof mobileGroupTitles];
           const help = groupHelp[index as keyof typeof groupHelp];
           return (
+            <>
+            {mobilePhoto && <picture class="price-mobile price-category-photo">
+              <source media="(max-width: 640px)" srcset={mobilePhoto.srcset} sizes="100vw" />
+              <img src={transparentPixel} alt={mobilePhoto.alt} width={mobilePhoto.width} height={mobilePhoto.height} loading="lazy" decoding="async" />
+            </picture>}
             <section class="pmu-price-group" id={`price-group-${index}`} data-analytics-price={`price-group-${index}`} data-service-key={index === 1 ? "brows" : index === 2 ? "eyes" : index === 3 ? "lips" : index === 5 ? "removal" : "pmu"} aria-labelledby={`pmu-price-heading-${index}`}>
               <div class="pmu-price-group-intro">
                 {photo && <Image class="pmu-price-group-photo" src={photo} alt="" width={160} height={160} widths={[80,160,240]} sizes="(max-width: 640px) 64px, 96px" fit="cover" format="webp" quality={80} loading="lazy" decoding="async" />}
-                <div><h3 id={`pmu-price-heading-${index}`}>{group.title}</h3><p>{group.note}</p></div>
+                <div>
+                  {mobileTitle && <p class="price-mobile pmu-price-kicker">Makijaż permanentny</p>}
+                  <h3 id={`pmu-price-heading-${index}`}>{mobileTitle ? <><span class="price-desktop">{group.title}</span><span class="price-mobile">{mobileTitle}</span></> : group.title}</h3>
+                  <p>{group.note}</p>
+                </div>
               </div>
               <div class="pmu-price-group-content">
                 <dl class="pmu-price-list">
@@ -478,6 +506,7 @@ const summaryPrices = [
                     </div>
                   ))}
                 </dl>
+                {mobileTitle && index !== 1 && <p class="price-mobile price-correction-note">* Zabieg główny i korekta do 3 miesięcy od zabiegu głównego w cenie.</p>}
                 <details class="pmu-price-details">
                   <summary>Co warto wiedzieć przed rezerwacją?<span aria-hidden="true">+</span></summary>
                   <div class="pmu-price-details-copy">
@@ -492,6 +521,7 @@ const summaryPrices = [
                 </div>
               </div>
             </section>
+            </>
           );
         })}
       </section>
@@ -521,7 +551,7 @@ const summaryPrices = [
 
       <section class="pmu-price-faq" aria-labelledby="cennik-pytania">
         <p class="pmu-price-kicker">Pytania przed rezerwacją</p>
-        <h2 id="cennik-pytania">Co warto wiedzieć o cenach makijażu permanentnego?</h2>
+        <h2 id="cennik-pytania"><span class="price-desktop">Co warto wiedzieć o cenach makijażu permanentnego?</span><span class="price-mobile">O cenach.<br />Bez niedomówień.</span></h2>
         {faqItems.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}
       </section>
       <div class="pmu-price-guide-link"><p>Chcesz najpierw poznać zabieg?</p><a href="/poradnik/">Przejdź do poradnika PMU <span aria-hidden="true">→</span></a></div>
