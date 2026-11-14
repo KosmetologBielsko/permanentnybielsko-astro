@@ -16,13 +16,13 @@ main.pmu-price .price-mobile { display:none; }
   main.pmu-price .price-hero-photo { position:absolute; z-index:-2; inset:0 0 auto; height:clamp(530px,145vw,800px); padding-top:62px; overflow:hidden; background:#f6f4ef; }
   main.pmu-price .price-hero-photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:60% 25%; }
   main.pmu-price .price-hero::after { content:""; position:absolute; z-index:-1; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 25%,rgb(20 44 37 / 15%) 35%,rgb(20 44 37 / 94%) 53%,#142c25 69%); }
-  main.pmu-price .price-hero > .pmu-price-kicker { color:#e3e8dd; font-size:9px; }
+  main.pmu-price .price-hero > .pmu-price-kicker { color:#e3e8dd; font-size:.67rem; line-height:1.45; letter-spacing:.13em; }
   main.pmu-price .price-hero h1 { margin:0 0 18px; color:#fff; font-size:clamp(32px,8.6vw,52px); line-height:1.06; letter-spacing:-.045em; text-wrap:initial; }
   main.pmu-price .price-hero h1 .bph-title-accent { color:#eee4cd; }
-  main.pmu-price .price-hero .pmu-price-lead { max-width:39ch; margin:0; color:#f0f1eb; font-size:15px; line-height:1.65; }
+  main.pmu-price .price-hero .pmu-price-lead { max-width:33ch; margin:0; color:#f9f7f2; font-size:1rem; line-height:1.55; }
   main.pmu-price .price-hero-actions { display:grid; gap:8px; margin-top:24px; }
-  main.pmu-price .price-hero-actions .pmu-price-primary { justify-content:space-between; }
-  main.pmu-price .price-hero-scroll { display:flex; align-items:center; justify-content:space-between; min-height:44px; color:#e7eadf; font-size:13px; }
+  main.pmu-price .price-hero-actions .pmu-price-primary { justify-content:space-between; font-size:.86rem; }
+  main.pmu-price .price-hero-scroll { display:flex; align-items:center; justify-content:space-between; min-height:44px; color:#e7eadf; font-size:12px; }
 
   main.pmu-price .pmu-price-overview { padding:48px var(--price-gutter) 38px; border:0; border-radius:0; background:#fff; }
   main.pmu-price .price-overview-eyebrow { margin:0 0 14px; color:var(--price-teal); font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
@@ -36,12 +36,10 @@ main.pmu-price .price-mobile { display:none; }
   main.pmu-price .pmu-price-overview-note { margin:22px 0 0; font-size:12px; line-height:1.65; }
   main.pmu-price .pmu-price-overview > .pmu-price-primary { display:none; }
 
-  main.pmu-price .pmu-price-catalog { margin:0; padding:38px var(--price-gutter) 0; border-color:#dce5e0; }
-  main.pmu-price .pmu-price-catalog > h2 { margin-bottom:24px; }
-  main.pmu-price .pmu-price-nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px; margin:0 0 20px; }
-  main.pmu-price .pmu-price-nav a { justify-content:space-between; min-height:48px; padding:12px 0; border:0; border-bottom:1px solid #dce5e0; border-radius:0; background:transparent; font-size:14px; }
-  main.pmu-price .pmu-price-nav a:last-child { grid-column:1 / -1; }
-  main.pmu-price .pmu-price-catalog-note { margin:0 0 32px; font-size:12px; line-height:1.7; }
+  main.pmu-price .pmu-price-catalog { position:relative; margin:0; padding:0 var(--price-gutter); border:0; }
+  main.pmu-price .pmu-price-catalog > :is(.pmu-price-kicker,.pmu-price-nav,.pmu-price-catalog-note) { display:none; }
+  /* Keep the section name and existing skip-link target available to assistive technology. */
+  main.pmu-price .pmu-price-catalog > h2 { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
   main.pmu-price .price-category-photo { width:calc(100% + 2 * var(--price-gutter)); max-width:none; margin:0 calc(-1 * var(--price-gutter)); }
   main.pmu-price .price-category-photo img { display:block; width:100%; height:auto; border-radius:0; }
   main.pmu-price .pmu-price-group { display:block; padding:38px 0 44px; border:0; border-bottom:1px solid #dce5e0; }
@@ -49,7 +47,7 @@ main.pmu-price .price-mobile { display:none; }
   main.pmu-price .pmu-price-group-intro { display:block; margin-bottom:24px; }
   main.pmu-price .pmu-price-group-intro h3 { margin:0 0 16px; font-size:clamp(34px,9vw,50px); line-height:1.08; letter-spacing:-.045em; text-wrap:balance; }
   main.pmu-price .price-category-photo + .pmu-price-group h3 { font-size:clamp(48px,13vw,72px); }
-  main.pmu-price .pmu-price-group-intro p { font-size:15px; line-height:1.65; }
+  main.pmu-price .pmu-price-group-intro p { font-size:16px; line-height:1.65; }
   main.pmu-price .pmu-price-group-intro .pmu-price-kicker { font-size:10px; }
   main.pmu-price .pmu-price-list { padding:0; border:0; border-top:1px solid #dce5e0; border-radius:0; background:transparent; }
   main.pmu-price .pmu-price-row { grid-template-columns:minmax(0,1fr) auto; gap:10px 16px; padding:22px 0; border-color:#dce5e0; }
@@ -77,7 +75,7 @@ main.pmu-price .price-mobile { display:none; }
   main.pmu-price .pmu-price-formal p { font-size:11px; }
   main.pmu-price .pmu-price-booking { display:block; margin:0; padding:44px var(--price-gutter); border:0; border-radius:0; background:#142c25; }
   main.pmu-price .pmu-price-booking h2 { color:#fff; font-size:clamp(34px,9vw,50px); }
-  main.pmu-price .pmu-price-booking p { color:#e7e8df; font-size:15px; }
+  main.pmu-price .pmu-price-booking p { color:#e7e8df; font-size:16px; }
   main.pmu-price .pmu-price-booking .pmu-price-kicker { color:#d6e5dd; font-size:10px; }
   main.pmu-price .pmu-price-booking-actions { margin-top:26px; }
   main.pmu-price .pmu-price-booking .pmu-price-secondary { background:transparent; border-color:#71897d; color:#fff; }
