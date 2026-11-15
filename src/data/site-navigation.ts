@@ -1,3 +1,5 @@
+import { googleMapsUrl } from '../config/maps';
+
 export const booksyUrl = 'https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala';
 export const serviceLinks = [
   { label: 'Makijaż permanentny', href: '/makijaz-permanentny-bielsko/' },
@@ -17,7 +19,7 @@ export const exploreLinks = [
 export const socialLinks = [
   { label: 'Instagram', href: 'https://www.instagram.com/permanentnybielsko' },
   { label: 'Facebook', href: 'https://www.facebook.com/PermanentnyBielsko' },
-  { label: 'Google · mapa i opinie', href: 'https://share.google/r1H8ZLwSZMdRIflO9' },
+  { label: 'Google · mapa i opinie', href: googleMapsUrl },
 ];
 export const formalLinks = [
   { label: 'Regulamin salonu', href: '/regulamin-salonu/' },

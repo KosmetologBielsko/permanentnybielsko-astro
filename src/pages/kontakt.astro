@@ -8,12 +8,12 @@ import { Image, getImage } from "astro:assets";
 import authorPortrait from "../assets/poradnik/seria-01/boguslawa-herda-portret.webp";
 import contactPortrait from "../../public/images/ekspert-boguslawa-herda-portret-pmu.webp";
 import { siteConfig } from "../config/site";
+import { googleMapsUrl, googleDirectionsUrl } from "../config/maps";
 import "../styles/pmu-contact.css";
 import "../styles/pmu-contact-mobile.css";
 const { booksyUrl, phone, email, address } = siteConfig;
 const phoneHref = `tel:${phone.replace(/\s/g, "")}`;
 const emailHref = `mailto:${email}`;
-const mapUrl = "https://share.google/r1H8ZLwSZMdRIflO9";
 const formUrl = "/makijaz-permanentny-bielsko/#kwalifikacja-pmu";
 const pageUrl = "https://www.permanentnybielsko.com/kontakt/";
 const pageTitle = "Kontakt | Bogusława Herda Makijaż Permanentny Bielsko-Biała";
@@ -152,7 +152,8 @@ const structuredData = [
           <p class="pmu-contact-kicker">Spotkajmy się w gabinecie</p>
           <h2 id="kontakt-lokalizacja"><span class="contact-desktop">W centrum Bielska-Białej.</span><span class="contact-mobile">{address.streetAddress.replace("ul. ", "")}</span></h2>
           <address class="pmu-contact-address"><strong>Bogusława Herda</strong><span>Makijaż Permanentny &amp; Kosmetologia Estetyczna</span><p><span class="contact-desktop">{address.streetAddress}<br /></span>{address.postalCode} {address.addressLocality}</p></address>
-          <a class="pmu-contact-secondary" href={mapUrl} target="_blank" rel="noopener noreferrer">Otwórz mapę i wyznacz trasę <span aria-hidden="true">↗</span></a>
+          <a class="pmu-contact-secondary" href={googleMapsUrl} target="_blank" rel="noopener noreferrer">Otwórz w Google Maps <span aria-hidden="true">↗</span></a>
+          <a class="contact-mobile contact-directions" href={googleDirectionsUrl} target="_blank" rel="noopener noreferrer">Wyznacz trasę do gabinetu <span aria-hidden="true">→</span></a>
           <p class="pmu-contact-note"><span class="contact-desktop">Przed przyjazdem sprawdź datę i godzinę swojej rezerwacji. Jeśli potrzebujesz wskazówek dotyczących dotarcia do gabinetu, <a href={phoneHref}>zadzwoń do nas</a>.</span><span class="contact-mobile">Gabinet w centrum Bielska-Białej. Potrzebujesz wskazówek? <a href={phoneHref}>Zadzwoń</a>.</span></p>
         </div>
         <aside class="pmu-contact-hours" aria-labelledby="kontakt-godziny">

@@ -7,9 +7,9 @@ main.pmu-contact .contact-mobile { display:none; }
   main.pmu-contact .contact-mobile { display:block; }
   main.pmu-contact :is(.contact-desktop,.pmu-contact-breadcrumbs,.pmu-contact-author,.pmu-contact-lead,.pmu-contact-overview,.pmu-contact-address-strip,.guide-assistant) { display:none; }
   main.pmu-contact :is([id],details) { scroll-margin-top:94px; }
-  main.pmu-contact p { font-size:16px; line-height:1.65; }
+  main.pmu-contact p { font-size:16px; line-height:1.55; font-weight:400; }
   main.pmu-contact h2 { font-size:clamp(34px,9vw,50px); line-height:1.08; letter-spacing:-.045em; }
-  main.pmu-contact .pmu-contact-kicker { margin:0 0 14px; font-size:10px; line-height:1.6; letter-spacing:.1em; }
+  main.pmu-contact .pmu-contact-kicker { margin:0 0 14px; font-size:.67rem; line-height:1.45; letter-spacing:.13em; }
   main.pmu-contact :is(.pmu-contact-primary,.pmu-contact-secondary) { display:flex; justify-content:space-between; width:100%; min-height:54px; padding:15px 18px; border-radius:10px; font-size:.86rem; line-height:1.45; }
 
   main.pmu-contact .pmu-contact-intro { display:block; }
@@ -32,13 +32,14 @@ main.pmu-contact .contact-mobile { display:none; }
   main.pmu-contact .pmu-contact-address > strong { margin:0 0 4px; font-size:16px; font-weight:650; }
   main.pmu-contact .pmu-contact-address > span { font-size:13px; }
   main.pmu-contact .pmu-contact-location > div > .pmu-contact-secondary { margin-top:24px; background:var(--contact-teal); border-color:var(--contact-teal); color:#fff; }
-  main.pmu-contact .pmu-contact-note { margin-top:18px; font-size:13px; }
+  main.pmu-contact .contact-directions { display:flex; align-items:center; justify-content:space-between; min-height:48px; margin-top:6px; font-size:.86rem; font-weight:730; line-height:1.45; }
+  main.pmu-contact .pmu-contact-note { margin-top:18px; font-size:16px; }
   main.pmu-contact .pmu-contact-hours { margin-top:36px; padding:28px 0 0; border:0; border-top:1px solid #dce5e0; border-radius:0; background:transparent; }
   main.pmu-contact .pmu-contact-hours > .pmu-contact-kicker { display:none; }
   main.pmu-contact .pmu-contact-hours h3 { margin-bottom:14px; font-size:26px; line-height:1.15; letter-spacing:-.035em; }
   main.pmu-contact .pmu-contact-hours dl > div { align-items:baseline; gap:12px; padding:17px 0; border-color:#dce5e0; font-size:14px; line-height:1.5; }
   main.pmu-contact .pmu-contact-hours dd { font-size:20px; font-weight:700; letter-spacing:-.035em; }
-  main.pmu-contact .pmu-contact-hours > p:not(.pmu-contact-kicker) { margin-top:18px; font-size:13px; }
+  main.pmu-contact .pmu-contact-hours > p:not(.pmu-contact-kicker) { margin-top:18px; font-size:16px; }
   main.pmu-contact .pmu-contact-hours > a { justify-content:space-between; width:100%; font-size:13px; }
 
   main.pmu-contact .pmu-contact-message { order:2; display:block; margin:0; padding:40px var(--contact-gutter); border:0; border-radius:0; background:#f7f6f2; }
@@ -55,12 +56,12 @@ main.pmu-contact .contact-mobile { display:none; }
   main.pmu-contact .visit-planning :is(.visit-planning__intro,.visit-planning__steps) { display:none; }
   main.pmu-contact .contact-visit-brief { margin:0; padding:0; border:0; border-radius:0; background:transparent; }
   main.pmu-contact .contact-visit-brief summary { display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:64px; padding:14px 0; font-size:15px; line-height:1.5; font-weight:650; }
-  main.pmu-contact .contact-visit-brief p { padding:0 0 12px; font-size:14px; }
+  main.pmu-contact .contact-visit-brief p { padding:0 0 12px; font-size:16px; }
   main.pmu-contact .contact-visit-brief a { display:flex; align-items:center; justify-content:space-between; min-height:44px; margin-bottom:12px; font-size:13px; font-weight:650; }
 
   main.pmu-contact .pmu-contact-faq { order:4; margin:0; padding:40px var(--contact-gutter) 24px; border:0; }
   main.pmu-contact .pmu-contact-faq > details > summary { min-height:64px; padding:18px 0; font-size:15px; }
-  main.pmu-contact .pmu-contact-faq > details > p { font-size:14px; }
+  main.pmu-contact .pmu-contact-faq > details > p { font-size:16px; }
   main.pmu-contact .pmu-contact-explore { order:5; margin:0; padding:24px var(--contact-gutter); }
   main.pmu-contact .pmu-contact-explore > .pmu-contact-kicker { display:none; }
   main.pmu-contact .pmu-contact-explore h2 { font-size:28px; }
