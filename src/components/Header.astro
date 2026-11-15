@@ -17,16 +17,24 @@ const isActive = (href: string) => (href.replace(/\/+$/, '') || '/') === current
       </details>
       {exploreLinks.map(link => <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>)}
     </nav>
-    <a class="bph-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer" aria-label="Umów wizytę w Booksy — otwiera nową kartę">Umów wizytę <span aria-hidden="true">↗</span></a>
-    <button class="bph-menu-toggle" type="button" data-menu-button aria-expanded="false" aria-controls="bph-mobile-menu" aria-label="Otwórz menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg></button>
+    <a class="bph-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer" aria-label="Umów wizytę w Booksy — otwiera nową kartę"><span class="bph-header-desktop">Umów wizytę</span><span class="bph-header-mobile">Rezerwuj</span><span class="bph-header-arrow" aria-hidden="true">↗</span></a>
+    <button class="bph-menu-toggle" type="button" data-menu-button aria-expanded="false" aria-controls="bph-mobile-menu" aria-label="Otwórz menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path class="bph-header-desktop" d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" /><path class="bph-header-mobile" d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg></button>
   </div>
   <dialog class="bph-menu" id="bph-mobile-menu" data-header-dialog aria-labelledby="bph-menu-title">
-    <div class="bph-menu-head"><div><p>Bogusława Herda</p><h2 id="bph-menu-title">W czym możemy pomóc?</h2></div><button type="button" data-menu-close autofocus aria-label="Zamknij menu">×</button></div>
+    <div class="bph-menu-head"><div><p>Bogusława Herda</p><h2 id="bph-menu-title"><span class="bph-header-desktop">W czym możemy pomóc?</span><span class="bph-header-mobile">Menu.</span></h2></div><button type="button" data-menu-close autofocus aria-label="Zamknij menu">×</button></div>
     <div class="bph-menu-scroll">
+      <div class="bph-header-mobile bph-menu-quick">
+        <a class="bph-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer" aria-label="Umów wizytę w Booksy — otwiera nową kartę">Rezerwuj <span aria-hidden="true">↗</span></a>
+        <a class="bph-menu-call" href="tel:+48730900125">Zadzwoń <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="bph-header-mobile bph-menu-label">Zabiegi</p>
       <nav class="bph-mobile-services" aria-label="Zabiegi">{serviceLinks.map(link => <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}<span aria-hidden="true">→</span></a>)}</nav>
       <nav class="bph-mobile-explore" aria-label="Poznaj gabinet">{exploreLinks.map(link => <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>)}</nav>
-      <div class="bph-menu-contact"><a class="bph-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy ↗</a><a class="bph-menu-phone" href="tel:+48730900125">Zadzwoń: 730 900 125</a><p>Barlickiego 5/23 · Bielsko-Biała</p></div>
-      <div class="bph-menu-social">{socialLinks.map(link => <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div>
+      <div class="bph-menu-contact"><a class="bph-booksy" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy ↗</a><a class="bph-menu-phone" href="tel:+48730900125">Zadzwoń: 730 900 125</a><p class="bph-header-desktop">Barlickiego 5/23 · Bielsko-Biała</p><a class="bph-header-mobile bph-menu-address" href={socialLinks[2].href} target="_blank" rel="noopener noreferrer"><span>Barlickiego 5/23<br />Bielsko-Biała · otwórz mapę</span><span aria-hidden="true">↗</span></a></div>
+      <div class="bph-menu-social">{socialLinks.map((link, index) => <a class:list={{ 'bph-menu-google': index === 2 }} href={link.href} target="_blank" rel="noopener noreferrer">
+        {index < 2 && <span class="bph-menu-social-icon" aria-hidden="true">{index === 0 ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> : <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 21v-8h3l.5-4H14V7c0-1.1.4-2 2-2h2V1.4A24 24 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v8z"/></svg>}</span>}
+        <span>{link.label} <span class="bph-header-desktop" aria-hidden="true">↗</span></span>
+      </a>)}</div>
     </div>
   </dialog>
   <noscript><nav class="bph-fallback" aria-label="Wszystkie strony">{[...serviceLinks,...exploreLinks].map(link => <a href={link.href}>{link.label}</a>)}</nav><style>.bph-menu-toggle{display:none!important}</style></noscript>
@@ -65,6 +73,51 @@ const isActive = (href: string) => (href.replace(/\/+$/, '') || '/') === current
   .bph-menu-contact p{margin:0;text-align:center;font-size:.8rem;line-height:1.5;color:#625958}
   .bph-menu-social{display:flex;flex-wrap:wrap;gap:0 18px;margin-top:18px}.bph-menu-social a{display:flex;align-items:center;min-height:44px;font-size:.78rem}
   .bph-fallback{display:flex;flex-wrap:wrap;gap:6px 16px;max-height:180px;overflow:auto;background:#fff;pointer-events:auto;padding:12px}.bph-fallback a{min-height:44px;display:flex;align-items:center}
+  .bph-header-mobile,.bph-menu-social-icon{display:none}
   @media(max-width:1179px){.bph-header-shell{grid-template-columns:minmax(0,1fr) auto auto;gap:12px}.bph-desktop{display:none}.bph-menu-toggle{display:inline-flex}}
-  @media(max-width:640px){.bph-header{top:8px;padding:0 10px}.bph-header-shell{min-height:60px;gap:8px;padding:7px 8px 7px 12px;border-radius:18px}.bph-logo{max-width:190px}.bph-header-shell .bph-booksy{min-height:44px;padding:10px;font-size:.72rem}.bph-header-shell .bph-booksy span{display:none}.bph-menu-head{padding:14px 16px}.bph-menu-scroll{padding-inline:16px;padding-top:18px}}
+  @media(max-width:640px){
+    .bph-header{top:0;padding:0;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;letter-spacing:-.015em}
+    .bph-header .bph-header-mobile{display:block}
+    .bph-header .bph-header-desktop,.bph-header-shell .bph-header-arrow{display:none}
+    .bph-header-shell{width:100%;min-height:68px;gap:10px;padding:calc(12px + env(safe-area-inset-top)) 20px 12px;border:0;border-bottom:1px solid #dce2db;border-radius:0;background:rgba(255,255,255,.98);box-shadow:0 3px 18px #142c2505}
+    .bph-logo{max-width:210px}
+    .bph-logo img{max-height:44px}
+    .bph-header-shell .bph-booksy{min-height:44px;padding:10px 12px;border-radius:10px;font-size:.75rem;line-height:1.45;font-weight:730}
+    .bph-menu-toggle{border:0;border-radius:10px;background:transparent}
+    .bph-menu-toggle:hover{background:#f1f4f1}
+    .bph-menu{inset:0;width:100%;height:100vh;height:100dvh;max-height:none;border:0;border-radius:0;background:#fff}
+    .bph-menu::backdrop{background:#142c2580}
+    .bph-menu-head{padding:calc(22px + env(safe-area-inset-top)) 24px 18px;border-bottom:1px solid #dce2db;background:#fff}
+    .bph-menu-head p{margin-bottom:9px;font-size:.67rem;line-height:1.45;letter-spacing:.13em;text-transform:uppercase;font-weight:800}
+    .bph-menu-head h2{font-size:32px;line-height:1.08;letter-spacing:-.045em;font-weight:720}
+    .bph-menu-head button{border:0;border-radius:10px;background:#f7f6f2;font-size:32px}
+    .bph-menu-scroll{padding:22px 24px max(28px,env(safe-area-inset-bottom));scrollbar-gutter:stable}
+    .bph-header .bph-menu-quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
+    .bph-menu-quick .bph-booksy,.bph-menu-call{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:52px;padding:13px 14px;border-radius:10px;font-size:.86rem;line-height:1.45;font-weight:730;white-space:normal}
+    .bph-menu-call{border:1px solid #bdcdc3;color:#126b65;background:#fff}
+    .bph-header .bph-menu-label{margin:0 0 10px;font-size:.67rem;line-height:1.45;font-weight:800;letter-spacing:.13em;color:#126b65;text-transform:uppercase}
+    .bph-mobile-services{gap:0}
+    .bph-mobile-services a{min-height:58px;padding:14px 0;border:0;border-bottom:1px solid #e2e7e1;border-radius:0;color:#292323;font-size:clamp(20px,5.5vw,25px);line-height:1.25;letter-spacing:-.035em;font-weight:600}
+    .bph-mobile-services a>span{flex:0 0 20px;color:#126b65;font-size:20px;font-weight:400;text-align:right}
+    .bph-menu [aria-current=page]{background:transparent;color:#126b65;font-weight:750;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+    .bph-mobile-explore{gap:0 24px;margin-top:24px;padding:0;border:0}
+    .bph-mobile-explore a{min-height:48px;padding:12px 0;border:0;border-radius:0;color:#292323;font-size:1rem;line-height:1.5;font-weight:500}
+    .bph-menu-contact{gap:0;margin-top:26px;padding-top:22px;border-top:1px solid #dce2db}
+    .bph-menu-contact>.bph-booksy{display:none}
+    .bph-menu-phone{justify-content:flex-start;font-size:1rem;font-weight:650;line-height:1.5}
+    .bph-header .bph-menu-address{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:10px 0;color:#625958;font-size:.875rem;line-height:1.55}
+    .bph-menu-address>span:last-child{color:#126b65}
+    .bph-menu-social{gap:12px 24px;margin-top:18px}
+    .bph-menu-social a{gap:9px;min-height:44px;font-size:.8125rem}
+    .bph-menu-social-icon{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border:1px solid #bdcdc3;border-radius:50%}
+    .bph-menu-social-icon svg{display:block}
+    .bph-menu-social .bph-menu-google{display:none}
+  }
+  @media(max-width:360px){
+    .bph-header-shell{gap:8px;padding-inline:16px}
+    .bph-menu-head{padding-inline:20px}
+    .bph-menu-scroll{padding-inline:20px}
+    .bph-menu-quick .bph-booksy,.bph-menu-call{padding-inline:12px;font-size:.8125rem}
+    .bph-mobile-services a{font-size:20px}
+  }
 </style>
