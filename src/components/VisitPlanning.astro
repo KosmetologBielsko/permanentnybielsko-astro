@@ -3,6 +3,11 @@ import { siteConfig } from "../config/site";
 const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
 ---
 <section class="visit-planning" id="przyjazd" aria-labelledby="visit-planning-title">
+  <details class="contact-mobile contact-visit-brief">
+    <summary>Przyjeżdżasz z innego miasta?<span aria-hidden="true">+</span></summary>
+    <p>Przed podróżą potwierdź termin i zakres zabiegu. Jeśli masz stare PMU, zacznij od formularza kwalifikacji. Przy zabiegu obejmującym korektę zaplanuj też drugi przyjazd.</p>
+    <a href="/makijaz-permanentny-bielsko/#kwalifikacja-pmu">Napisz przed przyjazdem <span aria-hidden="true">→</span></a>
+  </details>
   <div class="visit-planning__intro">
     <p class="pmu-contact-kicker">Spokojnie zaplanuj wizytę</p>
     <h2 id="visit-planning-title">Przyjeżdżasz<br />z innego miasta?</h2>
@@ -17,6 +22,7 @@ const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
   </ol>
 </section>
 <style>
+  .contact-visit-brief { display:none; }
   .visit-planning { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(32px,6vw,80px); padding:40px; margin:36px 0; border:1px solid #e7dce0; border-radius:28px; background:#fff8fa; scroll-margin-top:110px; }
   .visit-planning__intro { min-width:0; }
   .visit-planning .pmu-contact-kicker { margin:0 0 12px; color:#126b65; font-size:.73rem; line-height:1.45; letter-spacing:.105em; font-weight:800; text-transform:uppercase; }

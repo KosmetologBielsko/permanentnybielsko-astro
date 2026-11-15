@@ -1,0 +1,83 @@
+/* Contact essentials and photographic hero for phones only. */
+main.pmu-contact .contact-mobile { display:none; }
+
+@media (max-width:640px) {
+  main.pmu-contact { --contact-gutter:24px; padding:0 0 36px; background:#fff; }
+  main.pmu-contact .pmu-contact-shell { display:flex; flex-direction:column; width:100%; }
+  main.pmu-contact .contact-mobile { display:block; }
+  main.pmu-contact :is(.contact-desktop,.pmu-contact-breadcrumbs,.pmu-contact-author,.pmu-contact-lead,.pmu-contact-overview,.pmu-contact-address-strip,.guide-assistant) { display:none; }
+  main.pmu-contact :is([id],details) { scroll-margin-top:94px; }
+  main.pmu-contact p { font-size:16px; line-height:1.65; }
+  main.pmu-contact h2 { font-size:clamp(34px,9vw,50px); line-height:1.08; letter-spacing:-.045em; }
+  main.pmu-contact .pmu-contact-kicker { margin:0 0 14px; font-size:10px; line-height:1.6; letter-spacing:.1em; }
+  main.pmu-contact :is(.pmu-contact-primary,.pmu-contact-secondary) { display:flex; justify-content:space-between; width:100%; min-height:54px; padding:15px 18px; border-radius:10px; font-size:.86rem; line-height:1.45; }
+
+  main.pmu-contact .pmu-contact-intro { display:block; }
+  main.pmu-contact .pmu-contact-copy { position:relative; isolation:isolate; display:flex; flex-direction:column; justify-content:flex-end; min-height:100svh; padding:340px var(--contact-gutter) max(24px,env(safe-area-inset-bottom)); background:#142c25; }
+  main.pmu-contact .contact-hero-photo { position:absolute; z-index:-2; inset:0 0 auto; height:clamp(540px,145vw,800px); padding-top:65px; background:#f5f3ef; overflow:hidden; }
+  main.pmu-contact .contact-hero-photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:55% 12%; }
+  main.pmu-contact .pmu-contact-copy::after { content:""; position:absolute; z-index:-1; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 25%,rgb(20 44 37 / 10%) 35%,rgb(20 44 37 / 92%) 53%,#142c25 69%); }
+  main.pmu-contact .pmu-contact-copy > .pmu-contact-kicker { color:#ede9dd; font-size:.67rem; line-height:1.45; letter-spacing:.13em; }
+  main.pmu-contact .pmu-contact-copy h1 { margin:0 0 18px; color:#fff; font-size:clamp(38px,10vw,58px); line-height:1.06; letter-spacing:-.045em; text-wrap:initial; }
+  main.pmu-contact .pmu-contact-copy h1 > span { color:#eee4cd; }
+  main.pmu-contact .contact-hero-lead { max-width:33ch; color:#f9f7f2; font-size:1rem; line-height:1.55; }
+  main.pmu-contact .contact-hero-actions { display:grid; gap:10px; margin-top:24px; }
+  main.pmu-contact .contact-hero-actions .pmu-contact-secondary { border-color:#c2cec3; background:transparent; color:#fff; }
+  main.pmu-contact .contact-hero-address { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; color:#e7eadf; font-size:12px; }
+
+  main.pmu-contact .pmu-contact-location { order:1; display:block; padding:44px var(--contact-gutter) 36px; }
+  main.pmu-contact #kontakt-lokalizacja { max-width:12ch; margin-bottom:20px; font-size:clamp(44px,12vw,62px); }
+  main.pmu-contact .pmu-contact-address { display:flex; flex-direction:column; font-size:15px; }
+  main.pmu-contact .pmu-contact-address > p { order:-1; margin:0 0 14px; font-size:18px; line-height:1.5; }
+  main.pmu-contact .pmu-contact-address > strong { margin:0 0 4px; font-size:16px; font-weight:650; }
+  main.pmu-contact .pmu-contact-address > span { font-size:13px; }
+  main.pmu-contact .pmu-contact-location > div > .pmu-contact-secondary { margin-top:24px; background:var(--contact-teal); border-color:var(--contact-teal); color:#fff; }
+  main.pmu-contact .pmu-contact-note { margin-top:18px; font-size:13px; }
+  main.pmu-contact .pmu-contact-hours { margin-top:36px; padding:28px 0 0; border:0; border-top:1px solid #dce5e0; border-radius:0; background:transparent; }
+  main.pmu-contact .pmu-contact-hours > .pmu-contact-kicker { display:none; }
+  main.pmu-contact .pmu-contact-hours h3 { margin-bottom:14px; font-size:26px; line-height:1.15; letter-spacing:-.035em; }
+  main.pmu-contact .pmu-contact-hours dl > div { align-items:baseline; gap:12px; padding:17px 0; border-color:#dce5e0; font-size:14px; line-height:1.5; }
+  main.pmu-contact .pmu-contact-hours dd { font-size:20px; font-weight:700; letter-spacing:-.035em; }
+  main.pmu-contact .pmu-contact-hours > p:not(.pmu-contact-kicker) { margin-top:18px; font-size:13px; }
+  main.pmu-contact .pmu-contact-hours > a { justify-content:space-between; width:100%; font-size:13px; }
+
+  main.pmu-contact .pmu-contact-message { order:2; display:block; margin:0; padding:40px var(--contact-gutter); border:0; border-radius:0; background:#f7f6f2; }
+  main.pmu-contact .pmu-contact-message h2 { font-size:clamp(34px,9vw,50px); }
+  main.pmu-contact .pmu-contact-message p:not(.pmu-contact-kicker) { font-size:16px; }
+  main.pmu-contact .pmu-contact-message-actions { display:flex; flex-direction:column; gap:22px; margin-top:24px; }
+  main.pmu-contact .pmu-contact-email { order:-1; gap:8px; min-height:0; padding:20px 0; border-block:1px solid #dce2db; }
+  main.pmu-contact .pmu-contact-email small { font-size:12px; }
+  main.pmu-contact .pmu-contact-email strong { font-size:clamp(14px,3.7vw,20px); font-weight:650; letter-spacing:-.025em; }
+  main.pmu-contact .pmu-contact-email > span { margin-top:4px; font-size:13px; }
+  main.pmu-contact .pmu-contact-message-actions > .pmu-contact-secondary { border-color:#bdcdc3; background:transparent; }
+
+  main.pmu-contact .visit-planning { order:3; display:block; margin:0; padding:12px var(--contact-gutter); border:0; border-bottom:1px solid #dce5e0; border-radius:0; background:#fff; }
+  main.pmu-contact .visit-planning :is(.visit-planning__intro,.visit-planning__steps) { display:none; }
+  main.pmu-contact .contact-visit-brief { margin:0; padding:0; border:0; border-radius:0; background:transparent; }
+  main.pmu-contact .contact-visit-brief summary { display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:64px; padding:14px 0; font-size:15px; line-height:1.5; font-weight:650; }
+  main.pmu-contact .contact-visit-brief p { padding:0 0 12px; font-size:14px; }
+  main.pmu-contact .contact-visit-brief a { display:flex; align-items:center; justify-content:space-between; min-height:44px; margin-bottom:12px; font-size:13px; font-weight:650; }
+
+  main.pmu-contact .pmu-contact-faq { order:4; margin:0; padding:40px var(--contact-gutter) 24px; border:0; }
+  main.pmu-contact .pmu-contact-faq > details > summary { min-height:64px; padding:18px 0; font-size:15px; }
+  main.pmu-contact .pmu-contact-faq > details > p { font-size:14px; }
+  main.pmu-contact .pmu-contact-explore { order:5; margin:0; padding:24px var(--contact-gutter); }
+  main.pmu-contact .pmu-contact-explore > .pmu-contact-kicker { display:none; }
+  main.pmu-contact .pmu-contact-explore h2 { font-size:28px; }
+  main.pmu-contact .pmu-contact-explore-links { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 24px; }
+  main.pmu-contact .pmu-contact-explore-links > a { min-height:76px; padding:16px 0; border-color:#dce5e0; }
+  main.pmu-contact .pmu-contact-explore-links strong { font-size:15px; }
+  main.pmu-contact .pmu-contact-explore-links > a > span { font-size:12px; }
+}
+
+@media (max-width:360px) {
+  main.pmu-contact { --contact-gutter:20px; }
+  main.pmu-contact .pmu-contact-copy { padding-top:300px; }
+  main.pmu-contact .pmu-contact-hours dl > div { font-size:13px; }
+  main.pmu-contact .pmu-contact-hours dd { font-size:18px; }
+}
+
+@media (max-width:640px) and (max-height:720px) {
+  main.pmu-contact .pmu-contact-copy { padding-top:280px; }
+  main.pmu-contact .pmu-contact-copy h1 { font-size:36px; }
+}

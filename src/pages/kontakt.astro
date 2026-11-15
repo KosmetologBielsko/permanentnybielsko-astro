@@ -4,10 +4,12 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import GuideAssistant from "../components/GuideAssistant.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import authorPortrait from "../assets/poradnik/seria-01/boguslawa-herda-portret.webp";
+import contactPortrait from "../../public/images/ekspert-boguslawa-herda-portret-pmu.webp";
 import { siteConfig } from "../config/site";
 import "../styles/pmu-contact.css";
+import "../styles/pmu-contact-mobile.css";
 const { booksyUrl, phone, email, address } = siteConfig;
 const phoneHref = `tel:${phone.replace(/\s/g, "")}`;
 const emailHref = `mailto:${email}`;
@@ -16,6 +18,8 @@ const formUrl = "/makijaz-permanentny-bielsko/#kwalifikacja-pmu";
 const pageUrl = "https://www.permanentnybielsko.com/kontakt/";
 const pageTitle = "Kontakt | Bogusława Herda Makijaż Permanentny Bielsko-Biała";
 const pageDescription = "Kontakt do gabinetu Bogusława Herda w Bielsku-Białej: tel. 730 900 125, Booksy, formularz PMU, e-mail i dojazd na ul. Barlickiego 5/23.";
+const heroImages = await Promise.all([480, 800].map(width => getImage({ src: contactPortrait, width, format: "webp", quality: 85 })));
+const transparentPixel = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 const days: Record<string, string> = { Monday: "Poniedziałek", Tuesday: "Wtorek", Wednesday: "Środa", Thursday: "Czwartek", Friday: "Piątek", Saturday: "Sobota", Sunday: "Niedziela" };
 const hours = siteConfig.openingHoursSpecification.map(item => ({
   label: Array.isArray(item.dayOfWeek) ? `${days[item.dayOfWeek[0]]} – ${days[item.dayOfWeek[item.dayOfWeek.length - 1]]}` : days[item.dayOfWeek as string],
@@ -48,7 +52,7 @@ const structuredData = [
   {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    dateModified: "2026-10-05",
+    dateModified: "2026-11-15",
     "@id": `${pageUrl}#webpage`,
     url: pageUrl,
     name: pageTitle,
@@ -107,17 +111,27 @@ const structuredData = [
   <main class="pmu-contact" id="kontakt">
     <div class="pmu-contact-shell">
       <nav class="pmu-contact-breadcrumbs" aria-label="Okruszki nawigacyjne"><a href="/">Strona główna</a><span aria-hidden="true">/</span><span aria-current="page">Kontakt</span></nav>
-      <section class="pmu-contact-intro" aria-labelledby="kontakt-tytul">
+      <section class="pmu-contact-intro" id="kontakt-rezerwacja" tabindex="-1" aria-labelledby="kontakt-tytul">
         <div class="pmu-contact-copy">
+          <picture class="contact-mobile contact-hero-photo">
+            <source media="(max-width: 640px)" srcset={heroImages.map((image, index) => `${image.src} ${[480, 800][index]}w`).join(", ")} sizes="100vw" />
+            <img src={transparentPixel} alt="Bogusława Herda przy stoliku — zapraszam do rozmowy o makijażu permanentnym" width={contactPortrait.width} height={contactPortrait.height} fetchpriority="high" decoding="async" />
+          </picture>
           <p class="pmu-contact-kicker">Kontakt · Bielsko-Biała</p>
           <h1 id="kontakt-tytul">Umów wizytę.<br /><span>Zacznij od rozmowy.</span></h1>
           <p class="pmu-contact-lead">Masz pomysł na brwi, usta lub kreski? Sprawdź terminy. Jeśli dopiero szukasz swojego kierunku albo masz stare PMU, pomożemy ustalić pierwszy krok.</p>
+          <p class="contact-mobile contact-hero-lead">Wybierz termin w Booksy lub zadzwoń. Pomogę Ci wybrać pierwszy krok.</p>
+          <div class="contact-mobile contact-hero-actions">
+            <a class="pmu-contact-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów wizytę w Booksy <span aria-hidden="true">↗</span></a>
+            <a class="pmu-contact-secondary" href={phoneHref}>Zadzwoń: 730 900 125 <span aria-hidden="true">↗</span></a>
+            <a class="contact-hero-address" href="#kontakt-dojazd">{address.streetAddress} · dojazd <span aria-hidden="true">↓</span></a>
+          </div>
           <a class="pmu-contact-author" href="/o-mnie/">
             <Image src={authorPortrait} alt="" width={92} height={92} fit="cover" position="top" format="webp" quality={82} loading="eager" decoding="async" />
             <span><strong>Bogusława Herda</strong><span>Linergistka · trenerka PMU</span></span>
           </a>
         </div>
-        <aside class="pmu-contact-overview" id="kontakt-rezerwacja" aria-labelledby="kontakt-wybor">
+        <aside class="pmu-contact-overview" aria-labelledby="kontakt-wybor">
           <p class="pmu-contact-kicker" id="kontakt-wybor">Twój pierwszy krok</p>
           <a class="pmu-contact-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Sprawdź terminy w Booksy <span aria-hidden="true">↗</span></a>
           <p class="pmu-contact-booksy-note">Wybierz usługę i zarezerwuj wizytę online.</p>
@@ -136,10 +150,10 @@ const structuredData = [
       <section class="pmu-contact-location" id="kontakt-dojazd" aria-labelledby="kontakt-lokalizacja">
         <div>
           <p class="pmu-contact-kicker">Spotkajmy się w gabinecie</p>
-          <h2 id="kontakt-lokalizacja">W centrum Bielska-Białej.</h2>
-          <address class="pmu-contact-address"><strong>Bogusława Herda</strong><span>Makijaż Permanentny &amp; Kosmetologia Estetyczna</span><p>{address.streetAddress}<br />{address.postalCode} {address.addressLocality}</p></address>
+          <h2 id="kontakt-lokalizacja"><span class="contact-desktop">W centrum Bielska-Białej.</span><span class="contact-mobile">{address.streetAddress.replace("ul. ", "")}</span></h2>
+          <address class="pmu-contact-address"><strong>Bogusława Herda</strong><span>Makijaż Permanentny &amp; Kosmetologia Estetyczna</span><p><span class="contact-desktop">{address.streetAddress}<br /></span>{address.postalCode} {address.addressLocality}</p></address>
           <a class="pmu-contact-secondary" href={mapUrl} target="_blank" rel="noopener noreferrer">Otwórz mapę i wyznacz trasę <span aria-hidden="true">↗</span></a>
-          <p class="pmu-contact-note">Przed przyjazdem sprawdź datę i godzinę swojej rezerwacji. Jeśli potrzebujesz wskazówek dotyczących dotarcia do gabinetu, <a href={phoneHref}>zadzwoń do nas</a>.</p>
+          <p class="pmu-contact-note"><span class="contact-desktop">Przed przyjazdem sprawdź datę i godzinę swojej rezerwacji. Jeśli potrzebujesz wskazówek dotyczących dotarcia do gabinetu, <a href={phoneHref}>zadzwoń do nas</a>.</span><span class="contact-mobile">Gabinet w centrum Bielska-Białej. Potrzebujesz wskazówek? <a href={phoneHref}>Zadzwoń</a>.</span></p>
         </div>
         <aside class="pmu-contact-hours" aria-labelledby="kontakt-godziny">
           <p class="pmu-contact-kicker">Zaplanuj wizytę</p><h3 id="kontakt-godziny">Godziny przyjęć</h3>
@@ -149,18 +163,18 @@ const structuredData = [
         </aside>
       </section>
       <section class="pmu-contact-message" aria-labelledby="kontakt-wiadomosc">
-        <div><p class="pmu-contact-kicker">Wolisz napisać?</p><h2 id="kontakt-wiadomosc">Zacznijmy od Twojego pytania.</h2><p>Przy wcześniejszej pigmentacji napisz, jaki obszar dotyczy zabiegu, kiedy był wykonany i co chcesz zmienić. To ułatwi rozmowę o dalszym postępowaniu.</p></div>
+        <div><p class="pmu-contact-kicker">Wolisz napisać?</p><h2 id="kontakt-wiadomosc"><span class="contact-desktop">Zacznijmy od Twojego pytania.</span><span class="contact-mobile">Masz pytanie?</span></h2><p><span class="contact-desktop">Przy wcześniejszej pigmentacji napisz, jaki obszar dotyczy zabiegu, kiedy był wykonany i co chcesz zmienić. To ułatwi rozmowę o dalszym postępowaniu.</span><span class="contact-mobile">Nie wiesz, jaki zabieg wybrać lub masz stare PMU? Napisz przed rezerwacją.</span></p></div>
         <div class="pmu-contact-message-actions">
           <a class="pmu-contact-secondary" href={formUrl}>Przejdź do formularza PMU <span aria-hidden="true">→</span></a>
           <a class="pmu-contact-email" href={emailHref}><small>Kontakt e-mail</small><strong>{email}</strong><span>Napisz wiadomość <span aria-hidden="true">↗</span></span></a>
         </div>
       </section>
       <section class="pmu-contact-faq" aria-labelledby="kontakt-pytania">
-        <p class="pmu-contact-kicker">Przed pierwszą wizytą</p><h2 id="kontakt-pytania">Kilka odpowiedzi na początek.</h2>
+        <p class="pmu-contact-kicker">Przed pierwszą wizytą</p><h2 id="kontakt-pytania"><span class="contact-desktop">Kilka odpowiedzi na początek.</span><span class="contact-mobile">Warto wiedzieć.</span></h2>
         {faqItems.map(item => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}
       </section>
       <section class="pmu-contact-explore" aria-labelledby="kontakt-online">
-        <p class="pmu-contact-kicker">Poznaj nas bliżej</p><h2 id="kontakt-online">Prace, ceny i codzienność gabinetu.</h2>
+        <p class="pmu-contact-kicker">Poznaj nas bliżej</p><h2 id="kontakt-online"><span class="contact-desktop">Prace, ceny i codzienność gabinetu.</span><span class="contact-mobile">Zobacz też.</span></h2>
         <div class="pmu-contact-explore-links">
           <a href="/galeria/"><strong>Galeria PMU</strong><span>Brwi, usta i kreski <span aria-hidden="true">→</span></span></a>
           <a href="/cennik-makijaz-permanentny/"><strong>Cennik zabiegów</strong><span>Sprawdź zakres i ceny <span aria-hidden="true">→</span></span></a>
