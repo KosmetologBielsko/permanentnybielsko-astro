@@ -1,0 +1,97 @@
+/* Phone presentation for the guide index; article and desktop layouts keep their existing styles. */
+.pmu-hub[data-guide-hub] .hub-mobile { display:none; }
+main.pmu-hub[data-guide-hub] h1 > .hub-desktop > .bph-title-accent { color:#126b65; }
+
+@media (max-width:640px) {
+  main.pmu-hub[data-guide-hub] {
+    --hub-gutter:24px; --hub-line:#dce2db; --hub-rose:#f7f6f2;
+    padding:0 0 36px; background:#fff; font-size:16px; line-height:1.55; letter-spacing:-.015em;
+  }
+  .pmu-hub[data-guide-hub] .hub-shell { width:100%; }
+  .pmu-hub[data-guide-hub] .hub-mobile { display:block; }
+  .pmu-hub[data-guide-hub] :is(.hub-desktop,.hub-breadcrumbs,.hub-intro-copy .guide-byline,.guide-section-nav,.hub-topics-section) { display:none; }
+  .pmu-hub[data-guide-hub] :is([id],details) { scroll-margin-top:88px; }
+  .pmu-hub[data-guide-hub] p { font-size:16px; line-height:1.55; font-weight:400; }
+  .pmu-hub[data-guide-hub] h2 { font-size:clamp(32px,8.5vw,46px); line-height:1.08; letter-spacing:-.045em; }
+  .pmu-hub[data-guide-hub] .hub-kicker { margin:0 0 14px; font-size:.67rem; line-height:1.45; letter-spacing:.13em; font-weight:800; }
+  .pmu-hub[data-guide-hub] :is(.hub-primary,.hub-secondary) { display:flex; justify-content:space-between; width:100%; min-height:54px; padding:15px 18px; border-radius:10px; font-size:.86rem; line-height:1.45; font-weight:730; }
+
+  .pmu-hub[data-guide-hub] .hub-intro-grid { display:block; }
+  .pmu-hub[data-guide-hub] .hub-intro-copy { position:relative; isolation:isolate; display:flex; flex-direction:column; justify-content:flex-end; min-height:100svh; padding:340px var(--hub-gutter) max(24px,env(safe-area-inset-bottom)); background:#142c25; }
+  .pmu-hub[data-guide-hub] .hub-hero-photo { position:absolute; z-index:-2; inset:0; width:100%; height:100%; padding-top:65px; overflow:hidden; }
+  .pmu-hub[data-guide-hub] .hub-hero-photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:50% 24%; }
+  .pmu-hub[data-guide-hub] .hub-intro-copy::after { content:""; position:absolute; z-index:-1; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 24%,rgb(20 44 37 / 8%) 36%,rgb(20 44 37 / 82%) 56%,#142c25 84%); }
+  .pmu-hub[data-guide-hub] .hub-intro-copy > .hub-kicker { color:#ede9dd; }
+  main.pmu-hub[data-guide-hub] .hub-intro-copy h1 { margin:0 0 18px; color:#fff; font-size:clamp(36px,9.5vw,54px); line-height:1.08; letter-spacing:-.045em; text-wrap:initial; }
+  .pmu-hub[data-guide-hub] .hub-intro-copy h1 em { color:#eee4cd; font-style:normal; font-weight:inherit; }
+  .pmu-hub[data-guide-hub] .hub-lead { max-width:33ch; margin:0; color:#f9f7f2; font-size:16px; line-height:1.55; }
+  .pmu-hub[data-guide-hub] .hub-hero-actions { display:grid; gap:8px; margin-top:24px; }
+  .pmu-hub[data-guide-hub] .hub-hero-browse { display:flex; align-items:center; justify-content:space-between; min-height:44px; color:#f9f7f2; font-size:.86rem; line-height:1.45; font-weight:650; }
+  .pmu-hub[data-guide-hub] .hub-intro-copy a:focus-visible { outline-color:#fff; }
+
+  .pmu-hub[data-guide-hub] .hub-finder { padding:30px var(--hub-gutter) 0; border:0; border-radius:0; background:#fff; }
+  .pmu-hub[data-guide-hub] .hub-finder > :is(.hub-kicker,h2,.hub-presets) { display:none; }
+  .pmu-hub[data-guide-hub] .hub-search { display:grid; grid-template-columns:minmax(0,1fr) 52px; gap:8px; }
+  .pmu-hub[data-guide-hub] .hub-search label { grid-column:1/-1; margin:0; font-size:14px; font-weight:600; }
+  .pmu-hub[data-guide-hub] .hub-search-field { border-color:#bdcdc3; border-radius:10px; }
+  .pmu-hub[data-guide-hub] .hub-search-field input { min-height:52px; border-radius:10px; font-size:16px; }
+  .pmu-hub[data-guide-hub] .hub-submit { justify-content:center; align-self:start; width:52px; min-height:52px; height:52px; margin:0; padding:0; font-size:0; gap:0; }
+  .pmu-hub[data-guide-hub] .hub-submit::after { content:"→"; font-size:24px; line-height:1; }
+  .pmu-hub[data-guide-hub] .hub-search-help { grid-column:1/-1; margin:0; font-size:12px; line-height:1.5; }
+
+  .pmu-hub[data-guide-hub] .hub-library { margin:0; padding:34px var(--hub-gutter) 0; border:0; }
+  .pmu-hub[data-guide-hub] .hub-section-heading { display:block; margin-bottom:24px; }
+  .pmu-hub[data-guide-hub] .hub-back-search { display:none; }
+  .pmu-hub[data-guide-hub] .hub-filter-area { display:block; margin-bottom:8px; }
+  .pmu-hub[data-guide-hub] .hub-filters { gap:4px 16px; }
+  .pmu-hub[data-guide-hub] .hub-filters button { justify-content:space-between; gap:8px; min-height:44px; padding:10px 0; border:0; border-bottom:1px solid #dce2db; border-radius:0; background:transparent; font-size:14px; line-height:1.4; }
+  .pmu-hub[data-guide-hub] .hub-filters button span { color:#625958; font-size:11px; font-weight:400; }
+  .pmu-hub[data-guide-hub] .hub-filters button[aria-pressed="true"] { border-bottom:2px solid #126b65; color:#126b65; font-weight:750; }
+  .pmu-hub[data-guide-hub] .hub-filters button[aria-pressed="true"] span { color:#126b65; }
+  .pmu-hub[data-guide-hub] .hub-more-topics { margin-top:6px; }
+  .pmu-hub[data-guide-hub] .hub-more-topics summary { padding-inline:0; font-size:14px; }
+  .pmu-hub[data-guide-hub] .hub-more-topics .hub-filters { padding-bottom:12px; }
+  .pmu-hub[data-guide-hub] .hub-results-line { min-height:44px; margin:0 0 8px; }
+  .pmu-hub[data-guide-hub] .hub-results-line p { font-size:12px; line-height:1.5; }
+  .pmu-hub[data-guide-hub] .hub-text-button { font-size:13px; }
+  .pmu-hub[data-guide-hub] .hub-entries { display:block; }
+  .pmu-hub[data-guide-hub] .hub-entry-link { grid-template-columns:100px minmax(0,1fr); gap:18px; padding:24px 0; }
+  .pmu-hub[data-guide-hub] .hub-entry-photo { width:100px; height:132px; border-radius:8px; background:#f7f6f2; }
+  .pmu-hub[data-guide-hub] .hub-entry-category { margin-bottom:8px; font-size:11px; line-height:1.45; font-weight:650; }
+  .pmu-hub[data-guide-hub] .hub-entry h3 { margin-bottom:10px; font-size:clamp(20px,5.5vw,26px); line-height:1.18; letter-spacing:-.035em; font-weight:700; }
+  .pmu-hub[data-guide-hub] .hub-entry p { margin-bottom:14px; font-size:16px; line-height:1.55; }
+  .pmu-hub[data-guide-hub] .hub-entry-meta { font-size:12px; line-height:1.5; }
+  .pmu-hub[data-guide-hub] .hub-pagination { padding-top:24px; gap:8px; }
+  .pmu-hub[data-guide-hub] .hub-empty { padding:24px 0; border:0; border-block:1px solid #dce2db; border-radius:0; background:transparent; }
+  .pmu-hub[data-guide-hub] .hub-empty h3 { font-size:26px; line-height:1.18; }
+  .pmu-hub[data-guide-hub] .hub-empty a { min-height:44px; align-items:center; }
+
+  .pmu-hub[data-guide-hub] .hub-expert { display:block; margin:44px 0 0; padding:40px var(--hub-gutter); border:0; border-radius:0; background:#f7f6f2; }
+  .pmu-hub[data-guide-hub] .hub-expert h2 { font-size:clamp(32px,8.5vw,46px); }
+  .pmu-hub[data-guide-hub] .hub-expert-note { margin-top:28px; padding-top:28px; border-color:#dce2db; }
+  .pmu-hub[data-guide-hub] .hub-expert-note h3 { font-size:26px; line-height:1.18; letter-spacing:-.035em; }
+  .pmu-hub[data-guide-hub] .hub-inline-link { font-size:.86rem; line-height:1.45; }
+  .pmu-hub[data-guide-hub] .hub-services { margin:0; padding:40px var(--hub-gutter); }
+  .pmu-hub[data-guide-hub] .hub-service-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px; }
+  .pmu-hub[data-guide-hub] .hub-service-grid > a { padding:22px 0; border:0; border-bottom:1px solid #dce2db; border-radius:0; background:transparent; }
+  .pmu-hub[data-guide-hub] .hub-service-grid h3 { font-size:22px; line-height:1.2; }
+  .pmu-hub[data-guide-hub] .hub-service-grid p { font-size:16px; line-height:1.55; }
+  .pmu-hub[data-guide-hub] .hub-faq { margin:0; padding:8px var(--hub-gutter) 24px; border:0; }
+  .pmu-hub[data-guide-hub] .hub-faq > details > summary { font-size:15px; font-weight:650; }
+  .pmu-hub[data-guide-hub] .hub-faq > details > p { font-size:16px; line-height:1.55; }
+  .pmu-hub[data-guide-hub] .guide-assistant { display:none; }
+}
+
+@media (max-width:360px) {
+  main.pmu-hub[data-guide-hub] { --hub-gutter:20px; }
+  .pmu-hub[data-guide-hub] .hub-intro-copy { padding-top:300px; }
+  .pmu-hub[data-guide-hub] .hub-entry-link { grid-template-columns:84px minmax(0,1fr); gap:14px; }
+  .pmu-hub[data-guide-hub] .hub-entry-photo { width:84px; height:112px; }
+  .pmu-hub[data-guide-hub] .hub-filters { column-gap:14px; }
+  .pmu-hub[data-guide-hub] .hub-service-grid { grid-template-columns:minmax(0,1fr); }
+}
+
+@media (max-width:640px) and (max-height:720px) {
+  .pmu-hub[data-guide-hub] .hub-intro-copy { padding-top:270px; }
+  main.pmu-hub[data-guide-hub] .hub-intro-copy h1 { font-size:36px; }
+}

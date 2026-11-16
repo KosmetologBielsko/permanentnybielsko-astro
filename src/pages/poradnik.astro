@@ -1,5 +1,6 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
+import guidePortrait from "../../public/images/wizerunek-boguslawa-herda-biala-koszula.webp";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -16,9 +17,13 @@ import lipsPhoto from "../assets/poradnik/seria-01/usta-roz-detal.webp";
 import eyePhoto from "../assets/poradnik/seria-01/kreska-subtelna.webp";
 import "../styles/guide-hub.css";
 import "../styles/guide-events.css";
+import "../styles/pmu-guide-mobile.css";
 import { jakartaEvent, jakartaMedia } from "../data/guide-events";
 
 const booksyUrl = "https://booksy.com/pl-pl/104871_boguslawa-herda-permanentny-make-up_salon-kosmetyczny_12680_bielsko-biala";
+const heroWidths = [480, 800];
+const heroImages = await Promise.all(heroWidths.map(width => getImage({ src: guidePortrait, width, format: "webp", quality: 85 })));
+const transparentPixel = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 const pageUrl = "https://www.permanentnybielsko.com/poradnik/";
 const pageTitle = "Poradnik makijażu permanentnego | Brwi, usta, kreski Bielsko-Biała";
 const pageDescription = "Ekspercki poradnik PMU Bogusławy Herda: brwi, usta, kreski, gojenie, pielęgnacja, skóra, bezpieczeństwo, ceny, korekty i usuwanie makijażu permanentnego.";
@@ -108,7 +113,7 @@ const structuredData = [
     name: pageTitle,
     description: pageDescription,
     inLanguage: "pl-PL",
-    dateModified: "2026-09-29",
+    dateModified: "2026-11-16",
     isPartOf: { "@id": "https://www.permanentnybielsko.com/#website" },
     about: { "@id": "https://www.permanentnybielsko.com/#localbusiness" },
   },
@@ -172,9 +177,17 @@ const structuredData = [
         </nav>
         <div class="hub-intro-grid">
           <div class="hub-intro-copy">
-            <p class="hub-kicker">Wiedza i praktyka · Bielsko-Biała</p>
-            <h1>Poradnik <span class="bph-title-accent">makijażu permanentnego.</span></h1>
-            <p class="hub-lead">Brwi, usta, kreski — wybór efektu, gojenie, ceny i stare PMU. Znajdź odpowiedź dla siebie.</p>
+            <picture class="hub-mobile hub-hero-photo">
+              <source media="(max-width:640px)" srcset={heroImages.map((image, index) => `${image.src} ${heroWidths[index]}w`).join(", ")} sizes="100vw" />
+              <img src={transparentPixel} alt="Bogusława Herda w białej koszuli — autorka poradnika makijażu permanentnego" width={guidePortrait.width} height={guidePortrait.height} loading="eager" fetchpriority="high" decoding="async" />
+            </picture>
+            <p class="hub-kicker"><span class="hub-desktop">Wiedza i praktyka · Bielsko-Biała</span><span class="hub-mobile">Bogusława Herda · Poradnik PMU</span></p>
+            <h1><span class="hub-desktop">Poradnik <span class="bph-title-accent">makijażu permanentnego.</span></span><span class="hub-mobile">Poradnik PMU.<br /><em>Zacznij od wiedzy.</em></span></h1>
+            <p class="hub-lead"><span class="hub-desktop">Brwi, usta, kreski — wybór efektu, gojenie, ceny i stare PMU. Znajdź odpowiedź dla siebie.</span><span class="hub-mobile">Brwi, usta, kreski. Poznaj metody, przygotowanie i pielęgnację po zabiegu — w swoim tempie.</span></p>
+            <div class="hub-mobile hub-hero-actions">
+              <a class="hub-primary" href={booksyUrl} target="_blank" rel="noopener noreferrer">Umów wizytę w Booksy <span aria-hidden="true">↗</span></a>
+              <a class="hub-hero-browse" href="#biblioteka-pmu">Przejdź do poradników <span aria-hidden="true">↓</span></a>
+            </div>
             <GuideSeriesByline date="2026-09-29" dateLabel="29 września 2026" />
             <nav class="guide-section-nav" aria-label="Działy poradnika">
               <a href="/poradnik/" aria-current="page">Poradniki PMU</a>
@@ -192,7 +205,7 @@ const structuredData = [
                   aria-controls="hub-entries" aria-describedby="hub-search-help" />
                 <button type="button" class="hub-clear" aria-label="Wyczyść wyszukiwanie" data-hub-clear hidden>×</button>
               </div>
-              <button disabled class="hub-primary hub-submit" type="submit">Znajdź poradnik <span aria-hidden="true">↓</span></button>
+              <button disabled class="hub-primary hub-submit" type="submit" aria-label="Szukaj poradników">Znajdź poradnik <span aria-hidden="true">↓</span></button>
               <p class="hub-search-help" id="hub-search-help">Przeszukaj {articleCards.length} wpisów o PMU i wydarzeniach.</p>
             </form>
             <noscript><style>.pmu-hub [data-hub-controls] { display:none !important; }</style><p>Wszystkie poradniki znajdziesz poniżej.</p><a class="hub-primary" href="#biblioteka-pmu">Zobacz poradniki ↓</a></noscript>
